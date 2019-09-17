@@ -74,7 +74,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.css",
-              "src/assets/scss/oa-dashboard.scss"
+              "src/assets/scss/cb-dashboard.scss"
             ],
             "scripts": [],
             "assets": [

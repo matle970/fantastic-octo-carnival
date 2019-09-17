@@ -5,10 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { UserComponent } from './components/user/user.component';
 import { TabsComponent } from './components/tabs/tabs.component';
@@ -19,7 +19,6 @@ import { SearchIdComponent } from './components/search-id/search-id.component';
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    HeaderComponent,
     LogoComponent,
     UserComponent,
     TabsComponent,
@@ -31,6 +30,7 @@ import { SearchIdComponent } from './components/search-id/search-id.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    ComponentsModule,
     AppRoutingModule,
     RouterModule,
   ],
