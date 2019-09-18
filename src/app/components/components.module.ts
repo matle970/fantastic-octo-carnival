@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { LogoIconComponent } from './logo-icon/logo.component';
+import { TreeLogoComponent } from './tree-logo/tree-logo.component';
 
 @NgModule({
   imports: [
@@ -12,11 +15,17 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   declarations: [
     HeaderComponent,
-    NavbarComponent
+    LogoIconComponent,
+    TreeLogoComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   exports: [
     HeaderComponent,
-    NavbarComponent
+    LogoIconComponent,
+    TreeLogoComponent,
+    NavbarComponent,
+    SidebarComponent
   ]
 })
 export class ComponentsModule { }
