@@ -9,8 +9,18 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 const routes: Routes = [
   {
     path: '',
+    redirectTo:'dashboard',
+    pathMatch:'full',
+    // component: MainLayoutComponent
+  },
+  {
+    path: 'dashboard',
     component: MainLayoutComponent
   },
+  {
+    path:'customer',
+    component:MainLayoutComponent
+  }
   // { path: 'path2', component: Name2Component },
   // { path: 'path3', component: Name3Component },
   // { path: 'path4', component: Name4Component },

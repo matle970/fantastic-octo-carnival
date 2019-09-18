@@ -9,13 +9,13 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: '首頁總覽',  icon: 'home', class: '' },
-    { path: '/user-profile', title: '客戶視圖',  icon:'location_city', class: '' },
+    { path: '/customer', title: '客戶視圖',  icon:'location_city', class: '' },
     // { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     // { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
+    { path: '/upgrade', title: 'arrow',  icon:'unarchive', class: 'active-pro' },
 ];
 
 @Component({

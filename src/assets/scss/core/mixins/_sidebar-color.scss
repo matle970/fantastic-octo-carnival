@@ -49,10 +49,35 @@
     }
 }
 
+// 原本設定按鈕的背景
 @mixin set-background-color-button($color){
 
     li.active > a{
         background-color: $color;
         @include shadow-big-color($color);
     }
+}
+
+@mixin set-sidebar-button-bg($active-sidebar-button-bg,$text-color){
+  li.active > a{
+    background-color: $active-sidebar-button-bg;
+    color: $text-color !important;
+    border-left: 3px solid $dark-cathy-green;
+    position: relative;
+    i{
+      color: $text-color !important;
+    }
+    &::after{
+      content:'';
+      width:20px;
+      height:20px;
+      border-style: solid;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #ffffff transparent transparent;
+      display:inline-block;
+      position: absolute;
+      top: 30%;
+      right:0px;
+    }
+  }
 }

@@ -1,9 +1,10 @@
-$sidebarWith: 180px;
+$sidebarWith: 160px;
 
 .wrapper{
     position: relative;
     top: 0;
     height: 100vh;
+    background:$white-color;
 }
 
 .sidebar {
@@ -13,7 +14,7 @@ $sidebarWith: 180px;
     left: 0;
     z-index: 2;
     width: $sidebarWith;
-    background: $white-color;
+    background: $light-grey-color;
     border-right: 1px solid $border-color;
     // @include shadow-big();
 
@@ -50,7 +51,7 @@ $sidebarWith: 180px;
         position: relative;
         height: calc(100vh - 75px);
         overflow: auto;
-        width: 260px;
+        width: $sidebarWith;
         z-index: 4;
 
         padding-bottom: 30px;
@@ -144,7 +145,8 @@ $sidebarWith: 180px;
             }
 
             &:first-child > a{
-                margin: 0 15px;
+                // margin: 0 15px;
+                margin: 0;
             }
 
             &:hover > a,
@@ -208,11 +210,13 @@ $sidebarWith: 180px;
 
     .nav li a,
     .nav li .dropdown-menu a{
-          margin: 10px 15px 0;
-          border-radius: $border-radius-base;
+          // margin: 10px 15px 0;
+          margin: 0;
+          // border-radius: $border-radius-base;
           color: $black-color;
           padding-left: 10px;
           padding-right: 10px;
+          padding: 20px;
           text-transform: capitalize;
           font-size: $font-paragraph - 1;
           padding: 10px 15px;
@@ -243,7 +247,7 @@ $sidebarWith: 180px;
     }
 
     .logo{
-        padding: 0;
+        padding: 8px 0 5px 0;
         margin: 0;
         display: block;
         position: relative;
@@ -307,29 +311,31 @@ $sidebarWith: 180px;
         }
     }
 
-    &[data-color="purple"]{
-        @include set-background-color-button($brand-primary);
-    }
-    &[data-color="azure"]{
-        @include set-background-color-button($brand-info);
-    }
-    &[data-color="green"]{
-        @include set-background-color-button($brand-success);
-    }
-    &[data-color="orange"]{
-        @include set-background-color-button($brand-warning);
-    }
-    &[data-color="danger"]{
-        @include set-background-color-button($brand-danger);
-    }
-    &[data-color="rose"]{
-        @include set-background-color-button($brand-rose);
-    }
+    @include set-sidebar-button-bg(transparent,#000);
 
-    &[data-color="white"]{
-        @include set-background-color-button($white-color);
-        @include sidebar-active-color($black-color);
-    }
+    // &[data-color="purple"]{
+    //     @include set-background-color-button($brand-primary);
+    // }
+    // &[data-color="azure"]{
+    //     @include set-background-color-button($brand-info);
+    // }
+    // &[data-color="green"]{
+    //     @include set-background-color-button($brand-success);
+    // }
+    // &[data-color="orange"]{
+    //     @include set-background-color-button($brand-warning);
+    // }
+    // &[data-color="danger"]{
+    //     @include set-background-color-button($brand-danger);
+    // }
+    // &[data-color="rose"]{
+    //     @include set-background-color-button($brand-rose);
+    // }
+
+    // &[data-color="white"]{
+    //     @include set-background-color-button($white-color);
+    //     @include sidebar-active-color($black-color);
+    // }
 
     &[data-background-color="red"]{
         @include sidebar-background-color($brand-danger, $white-color);
@@ -472,7 +478,7 @@ $sidebarWith: 180px;
         }
 
         .sidebar:hover{
-            width: 260px;
+            width: $sidebarWith;
 
             .logo{
                 a.logo-normal{
@@ -482,7 +488,7 @@ $sidebarWith: 180px;
             }
 
             .sidebar-wrapper{
-                width: 260px;
+                width: $sidebarWith;
 
                 > .nav li > a p,
                 > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
