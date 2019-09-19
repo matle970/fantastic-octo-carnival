@@ -5,7 +5,7 @@
 <!-- [ngClass]="{'narrow-width': !sideWide}" -->
 
 <div class="sidebar"  data-color="danger"
-[ngClass]="{'narrow-width': !sideWide}"
+[@onSideNavChange]="sideNavState ? 'open' : 'close'"
  data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
   <div class="logo">
       <a href="#" class="simple-text">

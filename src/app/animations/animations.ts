@@ -4,6 +4,7 @@ import { trigger, state, style, transition, animate, animateChild, query } from 
 export const onSideNavChange = trigger('onSideNavChange', [
   state('close',
     style({
+      'width': '60px',
       'min-width': '60px'
     })
   ),
