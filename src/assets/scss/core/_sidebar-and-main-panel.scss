@@ -1,7 +1,7 @@
 $sidebarWith: 160px;
 $sidebarMinwidth: 60px;
 
-$iconGreyColor: #a9afbb;
+$iconGreyColor: $grey-500;
 
 // sidebar nav active bg
 $activeNavbg : #FFF;
@@ -15,7 +15,7 @@ $navMinibg: #999;
     position: relative;
     top: 0;
     height: 100vh;
-    background:$white-color;
+    background:$grey-50;
 }
 
 .sidebar {
@@ -205,7 +205,7 @@ $navMinibg: #999;
 
             &.active > a,
             &.active > a i{
-                color: $white-color;
+                color: $grey-50;
             }
 
             &.separator{
@@ -243,7 +243,7 @@ $navMinibg: #999;
             line-height: 30px;
             width: 30px;
             text-align: center;
-            color: $iconGreyColor;
+            color: $grey-500;
         }
     }
 
@@ -252,7 +252,7 @@ $navMinibg: #999;
           // margin: 10px 15px 0;
           margin: 0;
           // border-radius: $border-radius-base;
-          color: $iconGreyColor;
+          color: $grey-400;
           padding-left: 10px;
           padding-right: 10px;
           padding: 20px;
@@ -350,7 +350,7 @@ $navMinibg: #999;
         }
     }
 
-    @include set-sidebar-button-bg($activeNavbg,$activeNavColor);
+    @include set-sidebar-button-bg($grey-50,$activeNavColor);
 
     // &[data-color="purple"]{
     //     @include set-background-color-button($brand-primary);
@@ -543,7 +543,7 @@ $navMinibg: #999;
     .sidebar {
       .nav li a,
       .nav li .dropdown-menu a{
-        color: $black-color;
+        color: $grey-500;
       }
       .nav .nav-item {
         &.active-pro {
