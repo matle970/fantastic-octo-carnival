@@ -22,6 +22,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/styles.css",
               "src/assets/scss/cb-dashboard.scss"
             ],
@@ -29,6 +30,7 @@
               "node_modules/jquery/dist/jquery.js",
               "node_modules/popper.js/dist/umd/popper.js",
               "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
+              "node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
               "src/assets/js/chart/apexcharts.js"
             ]
           },
@@ -136,4 +138,3 @@
     }
   }
 }
- 
