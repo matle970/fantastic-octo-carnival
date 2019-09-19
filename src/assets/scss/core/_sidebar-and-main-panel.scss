@@ -1,5 +1,9 @@
 $sidebarWith: 160px;
 
+// sidebar nav active bg
+$activeNavbg : #FFF;
+$activeNavColor: #000;
+
 .wrapper{
     position: relative;
     top: 0;
@@ -15,7 +19,7 @@ $sidebarWith: 160px;
     z-index: 2;
     width: $sidebarWith;
     background: $light-grey-color;
-    border-right: 1px solid $border-color;
+    // border-right: 1px solid $border-color;
     // @include shadow-big();
 
     .caret{
@@ -51,7 +55,7 @@ $sidebarWith: 160px;
         position: relative;
         height: calc(100vh - 75px);
         overflow: auto;
-        width: $sidebarWith;
+        width: 101%;
         z-index: 4;
 
         padding-bottom: 30px;
@@ -128,6 +132,30 @@ $sidebarWith: 160px;
     .nav{
         margin-top: 20px;
         display: block;
+        .nav-item{
+          &.sidebar-toggle {
+            position: absolute;
+            width: 100%;
+            bottom: 13px;
+            text-align: center;
+            &:hover {
+
+              i {
+                color: #FFF;
+              }
+
+            }
+            .nav-link {
+              display:inline-block;
+              cursor: pointer;
+              i {
+                float: none;
+                margin: 0;
+              }
+
+            }
+          }
+        }
 
         .caret{
             margin-top: 13px;
@@ -311,7 +339,7 @@ $sidebarWith: 160px;
         }
     }
 
-    @include set-sidebar-button-bg(transparent,#000);
+    @include set-sidebar-button-bg($activeNavbg,$activeNavColor);
 
     // &[data-color="purple"]{
     //     @include set-background-color-button($brand-primary);
@@ -478,7 +506,7 @@ $sidebarWith: 160px;
         }
 
         .sidebar:hover{
-            width: $sidebarWith;
+            width: 100%;
 
             .logo{
                 a.logo-normal{
@@ -488,7 +516,7 @@ $sidebarWith: 160px;
             }
 
             .sidebar-wrapper{
-                width: $sidebarWith;
+                width: 100%;
 
                 > .nav li > a p,
                 > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
@@ -507,6 +535,14 @@ $sidebarWith: 160px;
           position: absolute;
           width: 100%;
           bottom: 13px;
+        }
+        &.sidebar-toggle {
+          &:hover {
+            i {
+              color: #000;
+            }
+          }
+
         }
       }
     }
