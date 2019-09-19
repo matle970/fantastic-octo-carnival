@@ -19,79 +19,12 @@ import { SearchIdComponent } from './components/search-id/search-id.component';
 
 import {CdkTableModule} from '@angular/cdk/table';
 
-// material
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatSortModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatStepperModule,
-} from '@angular/material';
+import { SharedMaterialModule } from './shared-material/shared-material.module';
+
+// services
+import { SidebarService } from './services/sidebar.service';
 
 
-@NgModule({
-  exports: [
-    CdkTableModule,
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-  ]
-})
-export class AllMaterialModule {}
 
 
 @NgModule({
@@ -105,7 +38,9 @@ export class AllMaterialModule {}
     SearchIdComponent
   ],
   imports: [
-    AllMaterialModule,
+    SharedMaterialModule,
+    CdkTableModule,
+
     // tslint:disable-next-line: deprecation
     HttpModule,
     BrowserModule,
@@ -116,7 +51,9 @@ export class AllMaterialModule {}
     AppRoutingModule,
     RouterModule,
   ],
-  providers: [],
+  providers: [
+    SidebarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

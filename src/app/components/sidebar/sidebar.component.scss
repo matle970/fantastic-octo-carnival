@@ -1,0 +1,9 @@
+.sidebar{
+  // overflow-x: hidden;
+  .sidebar-wrapper{
+    overflow-x: hidden;
+  }
+  &.narrow-width {
+    width: 60px !important;
+  }
+}
