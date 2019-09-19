@@ -16,9 +16,9 @@
           <!-- sidebar: 側邊選單 -->
           <app-sidebar></app-sidebar>
       </mat-sidenav>
-      <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
+      <mat-sidenav-content opened [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
         <div class="main_content">
-          <div style="padding: 20px">
+          <div>
               <app-navbar></app-navbar>
               <router-outlet></router-outlet>
           </div>

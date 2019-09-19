@@ -2,9 +2,10 @@
 
 
 
+<!-- [ngClass]="{'narrow-width': !sideWide}" -->
 
-
-<div class="sidebar" [ngClass]="{'narrow-width': !sideWide}" data-color="danger"
+<div class="sidebar"  data-color="danger"
+[ngClass]="{'narrow-width': !sideWide}"
  data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
   <div class="logo">
       <a href="#" class="simple-text">
@@ -13,8 +14,8 @@
           </div>
       </a>
   </div>
-  <div class="sidebar-wrapper" >
-    <div *ngIf="isMobileMenu()">
+  <div class="sidebar-wrapper">
+    <div *ngIf="false && isMobileMenu()" >
       <form class="navbar-form" *ngIf="false">
         <span class="bmd-form-group">
           <div class="input-group no-border">
@@ -61,21 +62,21 @@
           </li>
       </ul>
     </div>
-      <ul class="nav">
-          <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-              <a class="nav-link" [routerLink]="[menuItem.path]">
-                  <i class="material-icons">{{menuItem.icon}}</i>
-                  <p>{{menuItem.title}}</p>
-              </a>
-          </li>
-          <li class="nav-item sidebar-toggle" (click)="toggleSideWith()">
-            <a class="nav-link">
-              <i class="material-icons">
-                swap_horiz
-              </i>
-          </a>
-          </li>
-      </ul>
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <li class="nav-item sidebar-toggle" (click)="onSidebarToggle()">
+          <a class="nav-link">
+            <i class="material-icons">
+              swap_horiz
+            </i>
+        </a>
+        </li>
+    </ul>
   </div>
 
   <!-- bg img -->

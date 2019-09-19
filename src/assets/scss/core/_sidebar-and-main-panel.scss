@@ -1,8 +1,15 @@
 $sidebarWith: 160px;
+$sidebarMinwidth: 60px;
+
+$iconGreyColor: #a9afbb;
 
 // sidebar nav active bg
 $activeNavbg : #FFF;
 $activeNavColor: #000;
+
+//mini sidebar
+$navMiniColor: #EEE;
+$navMinibg: #999;
 
 .wrapper{
     position: relative;
@@ -12,15 +19,18 @@ $activeNavColor: #000;
 }
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 2;
     width: $sidebarWith;
+    // min-width: $sidebarMinwidth;
     background: $light-grey-color;
     // border-right: 1px solid $border-color;
     // @include shadow-big();
+    overflow: hidden;
+    height: 100vh;
 
     .caret{
       display: inline-block;
@@ -54,7 +64,7 @@ $activeNavColor: #000;
     .sidebar-wrapper{
         position: relative;
         height: calc(100vh - 75px);
-        overflow: auto;
+        overflow: hidden;
         width: 101%;
         z-index: 4;
 
@@ -188,7 +198,7 @@ $activeNavColor: #000;
 
             &.active > [data-toggle="collapse"]{
                 i{
-                    color: #a9afbb;
+                    color: $iconGreyColor;
                 }
             }
 
@@ -232,7 +242,7 @@ $activeNavColor: #000;
             line-height: 30px;
             width: 30px;
             text-align: center;
-            color: #a9afbb;
+            color: $iconGreyColor;
         }
     }
 
@@ -241,7 +251,7 @@ $activeNavColor: #000;
           // margin: 10px 15px 0;
           margin: 0;
           // border-radius: $border-radius-base;
-          color: $black-color;
+          color: $iconGreyColor;
           padding-left: 10px;
           padding-right: 10px;
           padding: 20px;
@@ -530,6 +540,10 @@ $activeNavColor: #000;
     }
 
     .sidebar {
+      .nav li a,
+      .nav li .dropdown-menu a{
+        color: $black-color;
+      }
       .nav .nav-item {
         &.active-pro {
           position: absolute;

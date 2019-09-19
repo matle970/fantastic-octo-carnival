@@ -30,7 +30,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
 
-  public sideNavState: boolean = false;
+  public sideNavState: boolean = true;
 
   menuItems: any[];
   sideWide: boolean = true;
@@ -45,6 +45,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onSidebarToggle() {
+    this.sideWide = !this.sideWide;
     this.sideNavState = !this.sideNavState;
     this._sidebarService.sideNavState$.next(this.sideNavState);
 
