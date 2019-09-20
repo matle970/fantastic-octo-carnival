@@ -155,7 +155,7 @@
     &.navbar-transparent{
         background-color: transparent !important;
         box-shadow: none;
-        padding-top: 25px;
+        padding-top: 5px;
 
     }
 
@@ -184,14 +184,14 @@
   }
 
   &.navbar-transparent{
-    padding-top: 10px;
+    padding-top: 5px;
   }
 
   .collapse{
     .navbar-nav{
       .nav-item .nav-link{
         position: relative;
-        padding: 10px 15px;
+        padding: 5px 15px;
         font-weight: $font-weight-default;
         font-size: $mdb-btn-font-size-base;
         text-transform: uppercase;
