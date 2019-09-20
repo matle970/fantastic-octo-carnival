@@ -51,6 +51,8 @@ export class NavbarComponent implements OnInit {
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
     };
+
+    // 小版的功能，先不會用到
     sidebarToggle() {
         // const toggleButton = this.toggleButton;
         // const body = document.getElementsByTagName('body')[0];

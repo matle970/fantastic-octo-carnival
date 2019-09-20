@@ -2,9 +2,18 @@
   width:300px;
   .icon {
     display: inline-block;
-    margin: auto auto auto 0;
+    vertical-align: middle;
+    &::before {
+      content:'';
+      width:0px;
+      height: 100%;
+      vertical-align: middle;
+    }
     i.material-icons {
       font-size: 2rem;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 145%;
     }
   }
   .word {

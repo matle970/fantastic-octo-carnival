@@ -23,8 +23,6 @@ import { SearchIdComponent } from 'src/app/components/search-id/search-id.compon
     SharedMaterialModule
   ],
   declarations: [
-    DashboardComponent,
-    CustomerComponent,
     LogoComponent,
     UserComponent,
     FilterComponent,

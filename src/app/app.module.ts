@@ -10,7 +10,6 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { UserComponent } from './components/user/user.component';
 import { TabsComponent } from './components/tabs/tabs.component';
@@ -23,6 +22,8 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
 
 // services
 import { SidebarService } from './services/sidebar.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 
@@ -30,12 +31,13 @@ import { SidebarService } from './services/sidebar.service';
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent,
     LogoComponent,
     UserComponent,
     TabsComponent,
     FilterComponent,
-    SearchIdComponent
+    SearchIdComponent,
+    DashboardComponent,
+    CustomerComponent
   ],
   imports: [
     SharedMaterialModule,
@@ -50,6 +52,8 @@ import { SidebarService } from './services/sidebar.service';
     ComponentsModule,
     AppRoutingModule,
     RouterModule,
+
+
   ],
   providers: [
     SidebarService
