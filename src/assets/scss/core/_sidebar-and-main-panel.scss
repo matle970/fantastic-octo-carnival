@@ -1,5 +1,6 @@
 $sidebarWith: 160px;
 $sidebarMinwidth: 60px;
+$sidebarBgColor: #fafafa;
 
 $iconGreyColor: $grey-500;
 
@@ -27,7 +28,8 @@ $navMinibg: #999;
     // width: $sidebarWith;
     width: auto;
     min-width: $sidebarWith;
-    background: $light-grey-color;
+    // background: $light-grey-color;
+    background:$sidebarBgColor;
     // border-right: 1px solid $border-color;
     // @include shadow-big();
     overflow: hidden;
@@ -350,7 +352,7 @@ $navMinibg: #999;
         }
     }
 
-    @include set-sidebar-button-bg($grey-50,$activeNavColor);
+    @include set-sidebar-button-bg($activeNavbg,$activeNavColor);
 
     // &[data-color="purple"]{
     //     @include set-background-color-button($brand-primary);
