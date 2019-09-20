@@ -475,90 +475,92 @@ $navMinibg: #999;
     display: none !important;
 }
 
-@media (min-width: 991px) {
-    .sidebar-mini{
-        .visible-on-sidebar-regular{
-            display: none !important;
-        }
-        .visible-on-sidebar-mini{
-            display: inline-block !important;
-        }
+// 小版
 
-        .sidebar,
-        .sidebar .sidebar-wrapper{
-            width: 80px;
-        }
+// @media (min-width: 991px) {
+//     .sidebar-mini{
+//         .visible-on-sidebar-regular{
+//             display: none !important;
+//         }
+//         .visible-on-sidebar-mini{
+//             display: inline-block !important;
+//         }
 
-        .main-panel{
-            width: $sidebar-mini-width;
-        }
+//         .sidebar,
+//         .sidebar .sidebar-wrapper{
+//             width: 80px;
+//         }
 
-        .sidebar{
-            display: block;
-            font-weight: 200;
-            z-index: 9999;
+//         .main-panel{
+//             width: $sidebar-mini-width;
+//         }
 
-            .logo{
-                a.logo-normal{
-                    opacity: 0;
-                    @include transform-translate-x(-25px);
-                }
-            }
+//         .sidebar{
+//             display: block;
+//             font-weight: 200;
+//             z-index: 9999;
 
-            .sidebar-wrapper{
-                > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
-                .user .user-info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
-                .user .user-info > a > span,
-                > .nav li > a p{
-                    @include transform-translate-x(-25px);
-                    opacity: 0;
-                }
-            }
-        }
+//             .logo{
+//                 a.logo-normal{
+//                     opacity: 0;
+//                     @include transform-translate-x(-25px);
+//                 }
+//             }
 
-        .sidebar:hover{
-            width: 100%;
+//             .sidebar-wrapper{
+//                 > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+//                 .user .user-info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+//                 .user .user-info > a > span,
+//                 > .nav li > a p{
+//                     @include transform-translate-x(-25px);
+//                     opacity: 0;
+//                 }
+//             }
+//         }
 
-            .logo{
-                a.logo-normal{
-                    opacity: 1;
-                    @include transform-translate-x(0px);
-                }
-            }
+//         .sidebar:hover{
+//             width: 100%;
 
-            .sidebar-wrapper{
-                width: 100%;
+//             .logo{
+//                 a.logo-normal{
+//                     opacity: 1;
+//                     @include transform-translate-x(0px);
+//                 }
+//             }
 
-                > .nav li > a p,
-                > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
-                .user .user-info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
-                .user .user-info > a > span{
-                    @include transform-translate-x(0px);
-                    opacity: 1;
-                }
-            }
-        }
-    }
+//             .sidebar-wrapper{
+//                 width: 100%;
 
-    .sidebar {
-      .nav li a,
-      .nav li .dropdown-menu a{
-        color: $grey-500;
-      }
-      .nav .nav-item {
-        &.active-pro {
-          position: absolute;
-          width: 100%;
-          bottom: 13px;
-        }
-        &.sidebar-toggle {
-          &:hover {
-            i {
-              color: #000;
-            }
-          }
+//                 > .nav li > a p,
+//                 > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+//                 .user .user-info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+//                 .user .user-info > a > span{
+//                     @include transform-translate-x(0px);
+//                     opacity: 1;
+//                 }
+//             }
+//         }
+//     }
 
-        }
-      }
-    }
-}
+//     .sidebar {
+//       .nav li a,
+//       .nav li .dropdown-menu a{
+//         color: $grey-500;
+//       }
+//       .nav .nav-item {
+//         &.active-pro {
+//           position: absolute;
+//           width: 100%;
+//           bottom: 13px;
+//         }
+//         &.sidebar-toggle {
+//           &:hover {
+//             i {
+//               color: #000;
+//             }
+//           }
+
+//         }
+//       }
+//     }
+// }

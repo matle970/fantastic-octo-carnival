@@ -10,6 +10,7 @@ export const onSideNavChange = trigger('onSideNavChange', [
   ),
   state('open',
     style({
+      'width': '160px',
       'min-width': '160px'
     })
   ),
