@@ -1,0 +1,12 @@
+.account-info{
+  width:auto;
+  min-width: 160px;
+  max-width: 200px;
+  .icon {
+    display: inline-block;
+    margin: auto auto auto 0;
+  }
+  .word {
+    font-size: 0.8rem;
+  }
+}

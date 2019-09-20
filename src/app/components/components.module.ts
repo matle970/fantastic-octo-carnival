@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LogoIconComponent } from './logo-icon/logo.component';
 import { TreeLogoComponent } from './tree-logo/tree-logo.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -18,14 +19,16 @@ import { TreeLogoComponent } from './tree-logo/tree-logo.component';
     LogoIconComponent,
     TreeLogoComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    AccountComponent
   ],
   exports: [
     HeaderComponent,
     LogoIconComponent,
     TreeLogoComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    AccountComponent
   ]
 })
 export class ComponentsModule { }

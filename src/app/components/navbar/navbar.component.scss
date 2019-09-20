@@ -1,6 +1,17 @@
 .navbar{
-  .navbar-nav{
-    li.nav-item{
+  .navbar-nav {
+    .nav-item {
+      display: inline-block;
+      .nav-link{
+        display: inline-block;
+        margin: auto auto auto 0;
+        i {
+          display:inline-block;
+          font-size: 1.2 rem;
+        }
+
+      }
+
 
     }
   }
