@@ -1,4 +1,10 @@
 .navbar{
+  .container-fluid {
+    display:inline-block;
+    overflow: hidden;
+    min-width: 650px;
+
+  }
   .navbar-nav {
     .nav-item {
       display: inline-block;
