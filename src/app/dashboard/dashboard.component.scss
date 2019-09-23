@@ -5,18 +5,38 @@
 
 .data-card{
   .card-body{
+    table {
+      th {
+        cursor: pointer;
+      }
+    }
     .data-info{
       h3.title {
         position: relative;
         border-width: 3px;
         .notifications {
-          position: relative;
-          right: 5px;
-          top:10%;
+          right: 10px;
+          position: absolute;
           background: transparent;
+          cursor: pointer;
+
+          i.material-icons {
+            font-size: 2rem;
+          }
           .notice {
-            top:1px;
-            right:5px;
+            position: absolute;
+            margin-top: -2px;
+            box-shadow: 0px 2px 1px #FFF;
+            right: -6px;
+            border-radius: 50%;
+            color: #FFF;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0;
+            font-size: 0.8rem;
           }
 
         }
@@ -24,3 +44,4 @@
     }
   }
 }
+

@@ -21,134 +21,224 @@
                               </span>
                             </span>
                           </h3>
-                          <span class="d-block">
+                          <span class="d-block text-right">
                               資料日：2019/08/06 ∣單位： 新臺幣仟元 ∣貢獻度資料期間： 2018/12 2019/07 ∣單位 ：新臺幣仟元
                           </span>
                       </div>
 
                   </div>
-                  <div class="table-responsive">
+                  <div class="table-responsive data-table">
                       <table class="table">
-                          <thead class=" text-primary">
+                          <thead *ngIf="false" class=" text-primary">
+                              <th>
+                                  集團名稱
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+                              </th>
+                              <th>
+                                  客戶
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
                               <th>
                                   ID
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
                               </th>
                               <th>
-                                  Name
+                                  客戶名稱
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
                               </th>
                               <th>
-                                  Country
+                                  MSR
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
                               </th>
                               <th>
-                                  City
+                                  RORWA
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
                               </th>
                               <th>
-                                  Salary
+                                  RAROC
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
                               </th>
+                              <th>
+                                  去年度累計貢獻度
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
+
+                              <th>
+                                  今年度累計貢獻度
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
+                              <th>
+                                  存款餘額
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
+                              <th>
+                                  放款餘額
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
+                              <th>
+                                  貿融餘額
+                                  <span class="order" (click)="orderByThis()">
+                                      <i class="material-icons  not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+
+                              </th>
+
+
+                          </thead>
+                          <thead class="text-primary">
+                            <th *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+                              {{thHead.name}}
+                              <span class="order" (click)="orderByThis(thHead.id)" *ngIf="thHead.id == nowOrder.id; else noOrder">
+                                  <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                      arrow_drop_up
+                                  </i>
+                                  <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                      arrow_drop_down
+                                  </i>
+                              </span>
+                              <ng-template #noOrder>
+                                  <span class="order" (click)="orderByThis(thHead.id)">
+                                      <i class="material-icons not-active">
+                                          arrow_drop_up
+                                      </i>
+                                      <i class="material-icons not-active">
+                                          arrow_drop_down
+                                      </i>
+                                  </span>
+                              </ng-template>
+                            </th>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>
-                                      1
-                                  </td>
-                                  <td>
-                                      Dakota Rice
-                                  </td>
-                                  <td>
-                                      Niger
-                                  </td>
-                                  <td>
-                                      Oud-Turnhout
-                                  </td>
-                                  <td class="text-primary">
-                                      $36,738
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      2
-                                  </td>
-                                  <td>
-                                      Minerva Hooper
-                                  </td>
-                                  <td>
-                                      Curaçao
-                                  </td>
-                                  <td>
-                                      Sinaai-Waas
-                                  </td>
-                                  <td class="text-primary">
-                                      $23,789
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      3
-                                  </td>
-                                  <td>
-                                      Sage Rodriguez
-                                  </td>
-                                  <td>
-                                      Netherlands
-                                  </td>
-                                  <td>
-                                      Baileux
-                                  </td>
-                                  <td class="text-primary">
-                                      $56,142
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      4
-                                  </td>
-                                  <td>
-                                      Philip Chaney
-                                  </td>
-                                  <td>
-                                      Korea, South
-                                  </td>
-                                  <td>
-                                      Overland Park
-                                  </td>
-                                  <td class="text-primary">
-                                      $38,735
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      5
-                                  </td>
-                                  <td>
-                                      Doris Greene
-                                  </td>
-                                  <td>
-                                      Malawi
-                                  </td>
-                                  <td>
-                                      Feldkirchen in Kärnten
-                                  </td>
-                                  <td class="text-primary">
-                                      $63,542
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      6
-                                  </td>
-                                  <td>
-                                      Mason Porter
-                                  </td>
-                                  <td>
-                                      Chile
-                                  </td>
-                                  <td>
-                                      Gloucester
-                                  </td>
-                                  <td class="text-primary">
-                                      $78,615
-                                  </td>
-                              </tr>
+                            <tr *ngFor="let item of tableDetailList">
+                              <td>
+                                {{item.group_name}}
+                              </td>
+                              <td>
+                                {{item.cus_id}}
+                              </td>
+                              <td>
+                                {{item.cus_name}}
+                              </td>
+                              <td>
+                                {{item.msr}}
+                              </td>
+                              <td>
+                                {{item.rorwa}}
+                              </td>
+                              <td>
+                                {{item.raroc}}
+                              </td>
+                              <td>
+                                {{item.last_year_contribution}}
+                              </td>
+                              <td>
+                                  {{item.this_year_contribution}}
+                              </td>
+                              <td>
+                                  {{item.deposit}}
+                              </td>
+                              <td>
+                                  {{item.load_balance}}
+                              </td>
+                              <td>
+                                  {{item.trade_balance}}
+                              </td>
+
+
+
+                            </tr>
                           </tbody>
                       </table>
                   </div>

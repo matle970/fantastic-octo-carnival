@@ -5,6 +5,30 @@
        font-weight: $font-weight-light;
    }
 
+   // dashboard order fn
+   .order{
+    vertical-align: middle;
+    display: inline-block;
+    height: 12px;
+    width: 22px;
+    cursor: pointer;
+    margin: auto 0 auto auto;
+
+    i {
+      display: block;
+      vertical-align: middle;
+      width:12px;
+      height: 6px;
+      line-height: 6px;
+      margin: 0;
+      padding: 0;
+      &.not-active {
+        color:#CCC;
+      }
+    }
+
+  }
+
    .form-check{
        margin-top: 0;
 
