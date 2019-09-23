@@ -1,5 +1,12 @@
 # Aoview
 
+## Demo A
+
+風格: 綠版
+
+風格特色：
+- 左側 Sidebar : 
+
 ## here are ao project UI/UX View
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.

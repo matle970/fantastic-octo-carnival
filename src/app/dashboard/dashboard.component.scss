@@ -1,0 +1,26 @@
+.filter-search{
+  width: auto;
+  min-width: 620px;
+}
+
+.data-card{
+  .card-body{
+    .data-info{
+      h3.title {
+        position: relative;
+        border-width: 3px;
+        .notifications {
+          position: relative;
+          right: 5px;
+          top:10%;
+          background: transparent;
+          .notice {
+            top:1px;
+            right:5px;
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { UserComponent } from './components/user/user.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { FilterComponent } from './components/filter/filter.component';
 import { SearchIdComponent } from './components/search-id/search-id.component';
 
 import {CdkTableModule} from '@angular/cdk/table';
@@ -34,7 +33,6 @@ import { CustomerComponent } from './customer/customer.component';
     LogoComponent,
     UserComponent,
     TabsComponent,
-    FilterComponent,
     SearchIdComponent,
     DashboardComponent,
     CustomerComponent
