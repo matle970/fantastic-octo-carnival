@@ -9,7 +9,11 @@ $tag-red: #c00000;
   width: auto;
   min-width: 620px;
 }
-
+.date-block{
+  text-align: right;
+  font-size: 0.8rem;
+  color:#CCC;
+}
 .data-card{
   .card-body{
     table {
