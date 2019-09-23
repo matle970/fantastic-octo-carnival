@@ -65,14 +65,12 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of tableDetailList">
-                              <td>
-                                {{item.group_name}}
-                              </td>
+                              <td>{{item.group_name}} </td>
                               <td>
                                 {{item.cus_id}}
                               </td>
                               <td>
-                                {{item.cus_name}}
+                                  <a href="#" class="pretty-text-underline"> {{item.cus_name}}</a>
                                 <div class="d-inline-block">
                                   <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授
@@ -92,28 +90,28 @@
 
                                 </div>
                               </td>
-                              <td>
+                              <td class="text-center">
                                 {{item.msr}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                 {{item.rorwa}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                 {{item.raroc}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                 {{item.last_year_contribution}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{item.this_year_contribution}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{item.deposit}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{item.load_balance}}
                               </td>
-                              <td>
+                              <td class="text-center">
                                   {{item.trade_balance}}
                               </td>
 
@@ -121,6 +119,19 @@
 
                             </tr>
                           </tbody>
+                          <tfoot class="text-info font-weight-bolder bg-light">
+                            <th>Total <small class="text-info">(60筆)</small></th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>XXXX</th>
+                            <th>XXXX</th>
+                            <th>XXXX</th>
+                            <th>XXXX</th>
+                          </tfoot>
                       </table>
                   </div>
               </div>
