@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content mt-3">
   <div class="container-fluid">
 
       <div class="row">
@@ -29,158 +29,10 @@
                   </div>
                   <div class="table-responsive data-table">
                       <table class="table">
-                          <thead *ngIf="false" class=" text-primary">
-                              <th>
-                                  集團名稱
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-                              </th>
-                              <th>
-                                  客戶
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  ID
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  客戶名稱
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  MSR
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  RORWA
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  RAROC
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  去年度累計貢獻度
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-
-                              <th>
-                                  今年度累計貢獻度
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  存款餘額
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  放款餘額
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-                              <th>
-                                  貿融餘額
-                                  <span class="order" (click)="orderByThis()">
-                                      <i class="material-icons  not-active">
-                                          arrow_drop_up
-                                      </i>
-                                      <i class="material-icons not-active">
-                                          arrow_drop_down
-                                      </i>
-                                  </span>
-
-                              </th>
-
-
-                          </thead>
                           <thead class="text-primary">
                             <th *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
                               {{thHead.name}}
-                              <span class="order" (click)="orderByThis(thHead.id)" *ngIf="thHead.id == nowOrder.id; else noOrder">
+                              <span class="order" *ngIf="thHead.id == nowOrder.id; else noOrder">
                                   <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
                                       arrow_drop_up
                                   </i>
@@ -189,7 +41,7 @@
                                   </i>
                               </span>
                               <ng-template #noOrder>
-                                  <span class="order" (click)="orderByThis(thHead.id)">
+                                  <span class="order" >
                                       <i class="material-icons not-active">
                                           arrow_drop_up
                                       </i>
@@ -210,6 +62,24 @@
                               </td>
                               <td>
                                 {{item.cus_name}}
+                                <div class="d-inline-block">
+                                  <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
+                                    授
+                                  </span>
+                                  <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above" *ngIf="item.tag.includes(2)">
+                                    網
+                                  </span>
+                                  <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above" *ngIf="item.tag.includes(3)">
+                                    薪
+                                  </span>
+                                  <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" *ngIf="item.tag.includes(4)">
+                                    核
+                                  </span>
+                                  <span class="tag tag-red" matTooltip="黑名單" matTooltipPosition="above" *ngIf="item.tag.includes(5)">
+                                    黑
+                                  </span>
+
+                                </div>
                               </td>
                               <td>
                                 {{item.msr}}
