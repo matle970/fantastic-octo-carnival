@@ -8,6 +8,9 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
+// 客戶視圖裏的 component
+import { CompanyModule } from './company/company.module';
+
 import { AppComponent } from './app.component';
 
 import { LogoComponent } from './components/logo/logo.component';
@@ -23,6 +26,7 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
 import { SidebarService } from './services/sidebar.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
+
 
 
 
@@ -48,6 +52,7 @@ import { CustomerComponent } from './customer/customer.component';
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
+    CompanyModule,
     AppRoutingModule,
     RouterModule,
 
