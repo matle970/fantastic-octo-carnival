@@ -8,3 +8,20 @@
     }
   }
 }
+
+
+//放在 nav
+.navbar-wrapper{
+  .filter-block{
+    z-index: 9999;
+    text-align: right;
+    margin: 0 auto;
+    width: 400px;
+    .input-group {
+      input {
+        color: white;
+      }
+    }
+  }
+
+}

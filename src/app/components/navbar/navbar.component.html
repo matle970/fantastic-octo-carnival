@@ -6,6 +6,7 @@
             {{getTitle()}}
           </a>
         </div>
+
         <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()" *ngIf="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -15,8 +16,9 @@
         <!-- collapse  add: collapse , 小版會hide -->
         <div class="navbar-collapse justify-content-end float-right" id="navigation">
           <!-- search bar : hide -->
-          <form class="navbar-form" *ngIf="false">
-                <div class="input-group no-border">
+          <form class="navbar-form">
+              <app-filter [datalist]="[]"></app-filter>
+                <div class="input-group no-border" *ngIf="false">
                     <input type="text" value="" class="form-control" placeholder="Search...">
                     <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
                         <i class="material-icons">search</i>
