@@ -34,6 +34,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
+  MatFormFieldModule,
+  MatOptionModule
 } from '@angular/material';
 
 
@@ -75,6 +77,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatOptionModule
   ]
 })
 export class SharedMaterialModule { }
