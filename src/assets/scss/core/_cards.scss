@@ -1,11 +1,18 @@
 //https://www.google.com/design/spec/components/cards.html#cards-content-blocks
 // Card resting elevation: 2dp
+
+//original
+// $card-text-color: $gray-dark;
+
+//new
+$card-text-color: $gray-darker;
+
 .card {
   border: 0;
   margin-bottom: 30px;
   margin-top: 10px;
   border-radius: $border-radius-large;
-  color: $gray-dark;
+  color: $card-text-color;
   background: $white-color;
   width: 100%;
 
