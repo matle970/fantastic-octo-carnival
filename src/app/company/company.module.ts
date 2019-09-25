@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { BaseInfoComponent } from './base-info/base-info.component';
 import { CompChartsComponent } from './comp-charts/comp-charts.component';
 import { NewsComponent } from './news/news.component';
 import { CompHistoryComponent } from './comp-history/comp-history.component';
 
+import { SharedMaterialModule } from './../shared-material/shared-material.module';
+
+
+
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedMaterialModule,
+    NgApexchartsModule
   ],
   declarations: [
     BaseInfoComponent,

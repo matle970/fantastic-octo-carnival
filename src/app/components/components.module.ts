@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { SharedMaterialModule } from './../shared-material/shared-material.module';
+
+
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -15,6 +18,7 @@ import { PaginationComponent } from './pagination/pagination.component';
   imports: [
     CommonModule,
     RouterModule,
+    SharedMaterialModule
   ],
   declarations: [
     HeaderComponent,

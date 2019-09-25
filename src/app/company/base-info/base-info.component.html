@@ -23,10 +23,9 @@
                   企企部股份有限公司
               </span>
               <span class="d-inline-block ml-3">
-                <small>
                   統編 : 12345678
-                </small>
               </span>
+              <span class="d-inline-block ml-3 badge badge-info">電子業</span>
           </div>
           <div class="col-md-5 text-right">
               <div class="d-inline-block">
@@ -58,7 +57,7 @@
                   <a href="#" class="underline">公司資訊</a>
             </div>
 
-            <div class="number-list shadow-sm py-2s px-3">
+            <div class="number-list shadow-sm py-2 px-3">
                 <ol>
                     <li>
                       <p>
@@ -135,7 +134,16 @@
                   </div>
               </div>
               <div>
-                charts
+                  <apx-chart #chart
+                  [chart]="chartData.chart"
+                  [plotOptions]="chartData.plotOptions"
+                  [dataLabels]="chartData.dataLabels"
+                  [stroke]="chartData.stroke"
+                  [series]="chartData.series"
+                  [xaxis]="chartData.xaxis"
+                  [colors]="chartData.colors"
+                  [legend]="chartData.legend">
+                  </apx-chart>
               </div>
           </div>
 
