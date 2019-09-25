@@ -358,9 +358,9 @@ $card-text-color: $gray-darker;
   .card-body{
     padding: $padding-card-body-y 20px;
     position: relative;
-    .title {
-      border-left: 3px solid $light-cathy-green;
-      border-width: 3px !important;
+    .card-title {
+      border-left: 3px solid $brand-primary;
+      padding-left: 0.325rem;
     }
 
   }
