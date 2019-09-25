@@ -1,0 +1,40 @@
+
+.company-title {
+  font-size: 1.4rem;
+}
+.number-list {
+  width: 100%;
+  ol {
+    font-size:0.8rem;
+    font-style:normal;
+    padding:0;
+    padding-left: 0px;
+    list-style: none;
+    li {
+      .badge{
+        margin-bottom: 5px;
+        width: 120px;
+      }
+      p {
+
+        font-style: normal;
+        font-size: 1.2rem;
+        word-spacing: 2px;
+        padding-bottom: 0rem !important;
+        margin-bottom: 0.8rem;
+        em {
+          display:block;
+          font-style: normal;
+          color:#999;
+          font-size:1rem;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+}
+
+.tag {
+  margin-right: 5px;
+}
