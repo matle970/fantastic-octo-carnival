@@ -15,6 +15,11 @@ $card-text-color: $gray-darker;
   color: $card-text-color;
   background: $white-color;
   width: 100%;
+  small{
+    font-size: 0.8rem;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+  }
 
     .card-category:not([class*="text-"]) {
         color: $gray-color;
@@ -361,6 +366,10 @@ $card-text-color: $gray-darker;
     .card-title {
       border-left: 3px solid $brand-primary;
       padding-left: 0.325rem;
+    }
+    .card-subtitle {
+      color: $black-color;
+      font-weight: 700;
     }
 
   }

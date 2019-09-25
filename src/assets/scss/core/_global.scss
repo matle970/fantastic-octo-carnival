@@ -1,31 +1,23 @@
 
-
 //underline
 
 $pretty-text-width: 1px;
 $pretty-text-hover: #f49005;
+$pretty-text-selection: #fae8afd8;
+$underline-color: #fafaf6;
 
-.pretty-text-underline {
-  display: inline;
-  text-shadow: $pretty-text-width $pretty-text-width #f5f6f9, -$pretty-text-width $pretty-text-width #f5f6f9, -$pretty-text-width -$pretty-text-width #f5f6f9, $pretty-text-width -$pretty-text-width #f5f6f9;
-  background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 100% $pretty-text-width;
-  &:hover {
-    color: $pretty-text-hover;
-    text-shadow: $pretty-text-width $pretty-text-width $pretty-text-hover, -$pretty-text-width $pretty-text-width #f5f6f9, -$pretty-text-width -$pretty-text-width #f5f6f9, $pretty-text-width -$pretty-text-width #f5f6f9;
 
-  }
+a.underline {
+  color: $brand-success;
+  @include pretty-text-underline-selection($pretty-text-selection);
+  @include pretty-text-underline($pretty-text-width,$underline-color,$pretty-text-hover)
 }
-.pretty-text-underline::-moz-selection {
-  background-color: rgba(0, 150, 255, 0.3);
-  text-shadow: none;
+
+.card {
+  @include pretty-text-underline-selection($pretty-text-selection);
 }
-.pretty-text-underline::selection {
-  background-color: rgba(0, 150, 255, 0.3);
-  text-shadow: none;
-}
+
+
 
 
 //date info
@@ -34,4 +26,38 @@ $pretty-text-hover: #f49005;
   text-align: right;
   font-size: 0.8rem;
   color:#CCC;
+}
+
+// notifications
+
+.has-notification-icon {
+  position: relative;
+  .notifications {
+    right: 10px;
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+
+    i.material-icons {
+      font-size: 1.8rem;
+      position: relative;
+    }
+    .notice {
+      position: absolute;
+      margin-top: -2px;
+      margin-left: -15px;
+      box-shadow: 0px 2px 1px #FFF;
+      border-radius: 50%;
+      color: #FFF;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      text-align: center;
+      vertical-align: middle;
+      padding: 0;
+      font-size: 0.8rem;
+    }
+
+  }
+
 }

@@ -19,7 +19,7 @@
               <div class="card-body">
                   <div class="row data-info">
                       <div class="col-12">
-                          <h3 class="card-title d-block w-100 mr-2 text-info pl-2">
+                          <h3 class="card-title has-notification-icon d-block w-100 mr-2 text-info pl-2">
                             經管名單列表
                             <span class="notifications">
                               <i class="material-icons">
@@ -70,7 +70,7 @@
                                 {{item.cus_id}}
                               </td>
                               <td>
-                                  <a href="#" class="pretty-text-underline"> {{item.cus_name}}</a>
+                                  <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
                                 <div class="d-inline-block">
                                   <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授

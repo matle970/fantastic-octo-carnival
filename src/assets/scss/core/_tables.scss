@@ -179,9 +179,9 @@
   thead th {
     font-size: $bmd-table-header-font-size;
     font-weight: 500;
-
     border-top-width: 0;
     border-bottom-width: $table-border-width;
+    user-select: none;
   }
 }
 
