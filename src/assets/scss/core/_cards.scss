@@ -358,6 +358,10 @@ $card-text-color: $gray-darker;
   .card-body{
     padding: $padding-card-body-y 20px;
     position: relative;
+    .title {
+      border-left: 3px solid $light-cathy-green;
+      border-width: 3px !important;
+    }
 
   }
 
