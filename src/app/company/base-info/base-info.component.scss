@@ -38,3 +38,24 @@
 .tag {
   margin-right: 5px;
 }
+
+.ao-charts{
+  .charts-note{
+    box-sizing: border-box;
+    margin:3px auto;
+    .note {
+      color:#FFF;
+      box-sizing: border-box;
+      margin:3px;
+      width:180px;
+    }
+    .last-year {
+      background: #81c784;
+    }
+    .this-year {
+      background: #388e3c;
+
+    }
+  }
+
+}

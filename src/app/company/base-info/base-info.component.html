@@ -111,12 +111,16 @@
                               </p>
                           </li>
                           <li>
-                              <p><em class="d-inline-block">集團總額度</em>
-                                8000</p>
+                              <p>
+                                <em class="d-inline-block">集團總額度</em>
+                                {{ 8000 | currency:'':'symbol':'1.0-0'}}
+                              </p>
                           </li>
                           <li>
-                              <p><em class="d-inline-block">集團總餘額</em>
-                                4000</p>
+                              <p>
+                                <em class="d-inline-block">集團總餘額</em>
+                                {{ 4000 | currency:'':'symbol':'1.0-0'}}
+                              </p>
                           </li>
 
                         </ol>
@@ -133,7 +137,9 @@
                       資料期間：2018/12-2019/07 (單位：新臺幣仟元)
                   </div>
               </div>
-              <div>
+
+              <!-- 圖表 -->
+              <div class="ao-charts">
                   <apx-chart #chart
                   [chart]="chartData.chart"
                   [plotOptions]="chartData.plotOptions"
@@ -144,6 +150,24 @@
                   [colors]="chartData.colors"
                   [legend]="chartData.legend">
                   </apx-chart>
+                  <div class="charts-note text-center d-flex justify-content-center">
+                    <div class="note last-year">
+                       <div class="w-100 font-weight-bolder">
+                          去年度累計貢獻度
+                       </div>
+                       <div class="w-100">
+                         {{ 3170 | currency:'':'symbol':'1.0-0'}}
+                       </div>
+                    </div>
+                    <div class="note this-year">
+                        <div class="w-100 font-weight-bolder">
+                            今年度累計貢獻度
+                         </div>
+                         <div class="w-100">
+                          {{ 3230 | currency:'':'symbol':'1.0-0'}}
+                         </div>
+                    </div>
+                  </div>
               </div>
           </div>
 

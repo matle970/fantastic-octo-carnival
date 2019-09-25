@@ -12,7 +12,7 @@ export class BaseInfoComponent implements OnInit {
 
   chartData = {
     chart: {
-      height: 350,
+      height: 320,
       type: 'bar',
     },
     colors: ['#81c784','#388e3c'],
