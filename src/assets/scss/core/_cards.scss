@@ -1,13 +1,25 @@
 //https://www.google.com/design/spec/components/cards.html#cards-content-blocks
 // Card resting elevation: 2dp
+
+//original
+// $card-text-color: $gray-dark;
+
+//new
+$card-text-color: $gray-darker;
+
 .card {
   border: 0;
   margin-bottom: 30px;
   margin-top: 10px;
   border-radius: $border-radius-large;
-  color: $gray-dark;
+  color: $card-text-color;
   background: $white-color;
   width: 100%;
+  small{
+    font-size: 0.8rem;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+  }
 
     .card-category:not([class*="text-"]) {
         color: $gray-color;
@@ -351,7 +363,19 @@
   .card-body{
     padding: $padding-card-body-y 20px;
     position: relative;
+    .card-title {
+      border-left: 3px solid $brand-primary;
+      padding-left: 0.325rem;
+    }
+    .card-subtitle {
+      color: $black-color;
+      font-weight: 700;
+    }
 
+  }
+  .subtitle {
+    font-size: 1rem;
+    font-weight: 500;
   }
 
   .card-header {

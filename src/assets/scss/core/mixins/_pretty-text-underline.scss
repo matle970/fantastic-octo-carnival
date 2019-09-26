@@ -1,0 +1,30 @@
+
+@mixin pretty-text-underline ($pretty-text-width,$underline-color, $pretty-text-hover) {
+    display: inline;
+    text-shadow: $pretty-text-width $pretty-text-width $underline-color, -$pretty-text-width $pretty-text-width $underline-color, -$pretty-text-width -$pretty-text-width $underline-color, $pretty-text-width -$pretty-text-width $underline-color;
+    background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100% $pretty-text-width;
+    &:hover {
+      color: $pretty-text-hover;
+      text-shadow: $pretty-text-width $pretty-text-width $pretty-text-hover, -$pretty-text-width $pretty-text-width $underline-color, -$pretty-text-width -$pretty-text-width $underline-color, $pretty-text-width -$pretty-text-width $underline-color;
+      background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
+    }
+
+
+}
+
+
+@mixin pretty-text-underline-selection ($pretty-text-selection) {
+
+  &::-moz-selection {
+    background-color:$pretty-text-selection;
+    text-shadow: none;
+  }
+  &::selection {
+    background-color: $pretty-text-selection;
+    text-shadow: none;
+  }
+
+}

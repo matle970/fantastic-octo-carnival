@@ -32,14 +32,14 @@ $bmd-btn-icon-font-size-sm: (.75 * $bmd-btn-fab-font-size) !default;
 $input-btn-padding-x:                  1rem !default; // 1rem
 $input-btn-padding-y:                  .46875rem !default; // .5rem achieve a 36dp height
 //$input-btn-line-height:                1 !default; //1.25
-$btn-font-weight:                400 !default; // normal
+$btn-font-weight:                500 !default; // normal
 $btn-box-shadow:                 none !default;
 $btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.125)
 
 //
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border-color:             $btn-primary-bg !default;
+$btn-primary-border-color:       $btn-primary-bg !default;
 //
 $btn-secondary-color:            $gray-dark !default;
 $btn-secondary-bg:               $body-bg !default; // #fff
@@ -47,7 +47,7 @@ $btn-secondary-border-color:           #ccc !default;
 //
 $btn-info-color:                 #fff !default;
 $btn-info-bg:                    $brand-info !default;
-$btn-info-border-color:                $btn-info-bg !default;
+$btn-info-border-color:          $btn-info-bg !default;
 //
 $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-success !default;
