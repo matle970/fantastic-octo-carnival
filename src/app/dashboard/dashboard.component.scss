@@ -18,37 +18,9 @@ $tag-red: #c00000;
     table {
       th {
         cursor: pointer;
-      }
-      .tag {
-        background: #EEE;
-        border-radius: 50%;
-        text-align: center;
-        height: 24px;
-        width:24px;
-        display: inline-block;
-        line-height:24px;
-        font-size: 0.9rem;
-        color:#FFF;
-        font-weight: bold;
-        margin-right:2px;
-        cursor: default;
-        text-shadow: 1px 1px 3px #000;
-
-        &.tag-green{
-          background-color: $tag-green;
-        }
-        &.tag-gold {
-          background-color: $tag-gold;
-        }
-        &.tag-blue{
-          background-color: $tag-blue;
-        }
-        &.tag-orange{
-          background-color: $tag-orange;
-        }
-        &.tag-red{
-          background-color: $tag-red;
-        }
+        width:auto;
+        min-width: 120px;
+        text-align: right;
       }
     }
   }

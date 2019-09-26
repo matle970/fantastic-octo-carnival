@@ -20,16 +20,18 @@ export class DashboardComponent implements OnInit {
       id:'group_name',
       name: '集團名稱',
     },
-    {
-      id:'cus_id',
-      name: '客戶ID',
 
-    },
     {
       id:'cus_name',
       name: '客戶名稱',
 
     },
+    {
+      id:'cus_id',
+      name: '客戶ID',
+
+    },
+
     {
       id:'msr',
       name: 'MSR',

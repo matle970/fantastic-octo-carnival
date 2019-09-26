@@ -5,6 +5,16 @@
           <span class=" mr-3">
               資料日：2019/08/06
           </span>
+          <span class="mx-1">
+            ∣
+          </span>
+          <span class=" mr-3">
+              貢獻度資料期間： 2018/12 ~ 2019/07
+          </span>
+          <span class="mx-1">
+              ∣
+          </span>
+
           <span class="">
               單位 ：新臺幣仟元
           </span>
@@ -12,7 +22,7 @@
 
     <div>
 
-          <div class="card data-card">
+          <div class="card data-card shadow-none">
               <!-- <div class="card-header card-header-primary filter-search">
                   <app-filter [datalist]="tableDetailList"></app-filter>
               </div> -->
@@ -30,19 +40,25 @@
                               </span>
                             </span>
                           </h3>
-                          <span class="d-block text-right text-right date-block clearfix">
+                          <!-- <span class="d-block text-right text-right date-block clearfix">
                              <span class=" mr-3">
                                 貢獻度資料期間： 2018/12 ~ 2019/07
                              </span>
-                          </span>
+                          </span> -->
                       </div>
 
                   </div>
                   <div class="table-responsive data-table">
                       <table class="table">
                           <thead class="text-primary">
-                            <th class="text-nowrap" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
-                              {{thHead.name}}
+                            <th class="text-nowrap" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+
+                              <span class="d-inline-block">
+                                  {{thHead.name}}
+                              </span>
+                              <span ng-bind-html="thHead.name">
+
+                              </span>
                               <span class="order" *ngIf="thHead.id == nowOrder.id; else noOrder">
                                   <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
                                       arrow_drop_up
@@ -65,11 +81,11 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of tableDetailList">
-                              <td>{{item.group_name}} </td>
-                              <td>
-                                {{item.cus_id}}
+                              <td class="text-left">
+                                {{item.group_name}}
                               </td>
-                              <td>
+
+                              <td class="text-left">
                                   <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
                                 <div class="d-inline-block">
                                   <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
@@ -90,28 +106,36 @@
 
                                 </div>
                               </td>
-                              <td class="text-center">
+
+                              <td  class="text-right">
+                                  {{item.cus_id}}
+                              </td>
+
+
+
+                              <td class="text-right">
                                 {{item.msr}}
                               </td>
-                              <td class="text-center">
+
+                              <td class="text-right">
                                 {{item.rorwa}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                 {{item.raroc}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                 {{item.last_year_contribution}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                   {{item.this_year_contribution}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                   {{item.deposit}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                   {{item.load_balance}}
                               </td>
-                              <td class="text-center">
+                              <td class="text-right">
                                   {{item.trade_balance}}
                               </td>
 
