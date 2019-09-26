@@ -2,11 +2,6 @@
   text-align: right;
   margin: 0 auto;
   width: 600px;
-  .input-group {
-    input {
-      color: white;
-    }
-  }
 }
 
 
@@ -17,6 +12,12 @@
     text-align: right;
     margin: 0 auto;
     width: 400px;
+  }
+}
+
+
+.card{
+  .filter-block {
     .input-group {
       input {
         color: white;
@@ -24,4 +25,14 @@
     }
   }
 
+}
+
+.navbar {
+  .filter-block {
+    .input-group {
+      input {
+        color: black;
+      }
+    }
+  }
 }
