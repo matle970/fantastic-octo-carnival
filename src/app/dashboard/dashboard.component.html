@@ -48,10 +48,10 @@
                       </div>
 
                   </div>
-                  <div class="table-responsive data-table">
+                  <div class="table-responsive data-table mt-3">
                       <table class="table">
                           <thead class="text-primary">
-                            <th class="text-nowrap" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+                            <th class="text-nowrap py-3 px-1" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
                               <span class="d-inline-block">
                                   {{thHead.name}}
@@ -124,19 +124,19 @@
                                 {{item.raroc}}
                               </td>
                               <td class="text-right">
-                                {{item.last_year_contribution}}
+                                {{item.last_year_contribution | currency:'':'symbol':'1.0-0' }}
                               </td>
                               <td class="text-right">
-                                  {{item.this_year_contribution}}
+                                  {{item.this_year_contribution | currency:'':'symbol':'1.0-0'}}
                               </td>
                               <td class="text-right">
-                                  {{item.deposit}}
+                                  {{item.deposit | currency:'':'symbol':'1.0-0'}}
                               </td>
                               <td class="text-right">
-                                  {{item.load_balance}}
+                                  {{item.load_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
                               <td class="text-right">
-                                  {{item.trade_balance}}
+                                  {{item.trade_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
 
 
