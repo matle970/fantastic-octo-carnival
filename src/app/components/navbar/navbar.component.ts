@@ -122,9 +122,9 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '/'){
           titlee = titlee.slice( 1 );
       }
-      console.log(titlee);
+      // console.log(titlee);
       for(var item = 0; item < this.listTitles.length; item++){
-        console.log(this.listTitles[item].path);
+        // console.log(this.listTitles[item].path);
         // tslint:disable-next-line: prefer-const
 
         var thisPath = this.listTitles[item].path;
@@ -133,16 +133,16 @@ export class NavbarComponent implements OnInit {
         if(thisPath.charAt(0) === './'){
           thisPath = thisPath.slice( 1 );
         }
-        console.log(thisPath,'thispath')
-        console.log(titlee,'titlee')
+        // console.log(thisPath,'thispath')
+        // console.log(titlee,'titlee')
 
-        console.log('是否有',titlee.includes(thisPath));
+        // console.log('是否有',titlee.includes(thisPath));
           // if(thisPath === titlee){
           //     return this.listTitles[item].title;
           // }
 
           if(titlee.includes(thisPath)) {
-            console.log('if match',thisPath)
+            // console.log('if match',thisPath)
             return this.listTitles[item].title;
           }
       }
