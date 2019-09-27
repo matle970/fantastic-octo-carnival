@@ -57,6 +57,18 @@ export class CompChartsComponent implements OnInit {
         'Aug,19',
         '6 Aug,19'
       ]
+    },
+    yaxis: {
+      labels:{
+        style: {
+          fontSize: '14px',
+        }
+      }
+    },
+    legend: {
+      position: 'top',
+      offsetY: -25,
+      offsetX: -10
     }
   };
 
@@ -85,12 +97,12 @@ export class CompChartsComponent implements OnInit {
     },
     series: [
       {
-        name: 'High - 2013',
-        data: [28, 29, 33, 36, 32, 32, 33]
+        name: '放款',
+        data: [1000, 800, 1200, 1600, 1500, 1300, 1200,800,700,1100,1300,1123,1400]
       },
       {
-        name: 'Low - 2013',
-        data: [12, 11, 14, 18, 17, 13, 13]
+        name: '貿融',
+        data: [500, 700, 500, 600, 400, 300, 200,100,200,300,300,423,600]
       }
     ],
     title: {
@@ -108,22 +120,36 @@ export class CompChartsComponent implements OnInit {
       size: 6
     },
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-      title: {
-        text: 'Month'
+      categories: [
+        'Aug,18',
+        'Sep,18',
+        'Oct,18',
+        'Dec,18',
+        'Jan,19',
+        'Feb,19',
+        'Mar,19',
+        'Apr,19',
+        'May,19',
+        'Jun,19',
+        'Jul,19',
+        'Aug,19',
+        '6 Aug,19'
+      ],
+      labels:{
+        style: {
+          fontSize: '16px',
+        }
       }
     },
     yaxis: {
-      title: {
-        text: 'Temperature'
-      },
-      min: 5,
-      max: 40
+      labels:{
+        style: {
+          fontSize: '14px',
+        }
+      }
     },
     legend: {
       position: 'top',
-      horizontalAlign: 'right',
-      floating: true,
       offsetY: -25,
       offsetX: -5
     }
