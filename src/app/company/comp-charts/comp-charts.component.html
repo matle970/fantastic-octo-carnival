@@ -6,7 +6,8 @@
   <div class="card-body">
       <h4 class="card-title text-primary clearfix">
         營運量
-        <div class="d-inline-block date-block text-right float-right"> 資料期間：2018/12-2019/07 (單位：新臺幣仟元) </div>
+        <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06 (單位：新臺幣仟元)
+        </div>
       </h4>
       <div class="all-charts-blcok row">
 
@@ -27,7 +28,16 @@
 
           <div class="col-md-6">
               放款餘額/貿融餘額
-            <!-- <apx-chart #chartLoad></apx-chart> -->
+            <apx-chart #chartLoad
+            [chart]="LoanData.chart"
+            [plotOptions]="LoanData.plotOptions"
+            [dataLabels]="LoanData.dataLabels"
+            [stroke]="LoanData.stroke"
+            [series]="LoanData.series"
+            [xaxis]="LoanData.xaxis"
+            [colors]="LoanData.colors"
+            [legend]="LoanData.legend"
+            ></apx-chart>
 
           </div>
 
