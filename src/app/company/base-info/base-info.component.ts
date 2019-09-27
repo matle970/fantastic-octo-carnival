@@ -95,8 +95,13 @@ export class BaseInfoComponent implements OnInit {
             fontSize: '16px',
           }
         }
-
-
+    },
+    yaxis: {
+      labels:{
+        style: {
+          fontSize: '14px',
+        }
+      }
     },
     legend: {
       position: 'top',
