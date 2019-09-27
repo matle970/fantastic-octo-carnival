@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit} from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
 
 @Component({
   selector: 'app-comp-charts',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompChartsComponent implements OnInit {
 
+  @ViewChild('chartDeposit') chartDeposit: ChartComponent;
+  @ViewChild('chartLoad') chartLoad: ChartComponent;
+
+  
   constructor() { }
 
   ngOnInit() {

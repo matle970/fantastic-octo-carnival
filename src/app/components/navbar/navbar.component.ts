@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
+    navTitle = 'Dashboard';
+
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
@@ -23,6 +25,7 @@ export class NavbarComponent implements OnInit {
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
+      this.navTitle = this.getTitle();
 
       // 移除mobile版本
 
@@ -122,9 +125,9 @@ export class NavbarComponent implements OnInit {
       if(titlee.charAt(0) === '/'){
           titlee = titlee.slice( 1 );
       }
-      console.log(titlee);
+      // console.log(titlee);
       for(var item = 0; item < this.listTitles.length; item++){
-        console.log(this.listTitles[item].path);
+        // console.log(this.listTitles[item].path);
         // tslint:disable-next-line: prefer-const
 
         var thisPath = this.listTitles[item].path;
@@ -133,17 +136,17 @@ export class NavbarComponent implements OnInit {
         if(thisPath.charAt(0) === './'){
           thisPath = thisPath.slice( 1 );
         }
-        console.log(thisPath,'thispath')
-        console.log(titlee,'titlee')
+        // console.log(thisPath,'thispath')
+        // console.log(titlee,'titlee')
 
-        console.log('是否有',titlee.includes(thisPath));
+        // console.log('是否有',titlee.includes(thisPath));
           // if(thisPath === titlee){
           //     return this.listTitles[item].title;
           // }
 
           if(titlee.includes(thisPath)) {
-            console.log('if match',thisPath)
-            return this.listTitles[item].title;
+            // console.log('if match',thisPath)
+            return  this.listTitles[item].title;
           }
       }
       return 'Dashboard';
