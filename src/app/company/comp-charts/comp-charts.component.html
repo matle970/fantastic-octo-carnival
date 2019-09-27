@@ -45,13 +45,32 @@
 
           <div class="col-md-6">
               進口實績/出口實績
-              <!-- <apx-chart #chartLoad></apx-chart> -->
-
+              <apx-chart #chartTrade
+            [chart]="TradeData.chart"
+            [plotOptions]="TradeData.plotOptions"
+            [dataLabels]="TradeData.dataLabels"
+            [stroke]="TradeData.stroke"
+            [series]="TradeData.series"
+            [xaxis]="TradeData.xaxis"
+            [yaxis]="TradeData.yaxis"
+            [colors]="TradeData.colors"
+            [legend]="TradeData.legend"
+              ></apx-chart>
           </div>
 
           <div class="col-md-6">
               TMU使用率/MTM
-
+              <apx-chart #chartTmu
+            [chart]="TmuData.chart"
+            [plotOptions]="TmuData.plotOptions"
+            [dataLabels]="TmuData.dataLabels"
+            [stroke]="TmuData.stroke"
+            [series]="TmuData.series"
+            [xaxis]="TmuData.xaxis"
+            [yaxis]="TmuData.yaxis"
+            [colors]="TmuData.colors"
+            [legend]="TmuData.legend"
+              ></apx-chart>
           </div>
 
       </div>
