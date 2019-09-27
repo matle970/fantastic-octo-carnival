@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
+    navTitle = 'Dashboard';
+
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
@@ -23,6 +25,7 @@ export class NavbarComponent implements OnInit {
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
+      this.navTitle = this.getTitle();
 
       // 移除mobile版本
 

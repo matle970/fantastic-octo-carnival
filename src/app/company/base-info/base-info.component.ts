@@ -6,7 +6,18 @@ import {
   ApexDataLabels,
   ApexAxisChartSeries,
   ApexNonAxisChartSeries,
-  ApexStroke, ApexLegend, ApexFill, ApexPlotOptions, ApexTooltip, ApexResponsive, ApexXAxis, ApexYAxis, ApexGrid, ApexStates, ApexTitleSubtitle, ApexTheme
+  ApexStroke,
+  ApexLegend,
+  ApexFill,
+  ApexPlotOptions,
+  ApexTooltip,
+  ApexResponsive,
+  ApexXAxis,
+  ApexYAxis,
+  ApexGrid,
+  ApexStates,
+  ApexTitleSubtitle,
+  ApexTheme
 } from 'ng-apexcharts';
 
 @Component({
