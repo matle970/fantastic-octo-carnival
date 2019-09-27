@@ -4,28 +4,32 @@
 }
 .number-list {
   width: 100%;
+  padding:0;
+  margin:0;
+
   ol {
     font-size:0.8rem;
     font-style:normal;
     padding:0;
+    margin: 0;
     padding-left: 0px;
     list-style: none;
     li {
       .badge{
-        margin-bottom: 5px;
-        width: 120px;
+        margin-bottom: 3px;
+        width: 100px;
+        font-size: 0.7rem;
       }
       p {
-
         font-style: normal;
         font-size: 1.2rem;
         word-spacing: 2px;
         padding-bottom: 0rem !important;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.5rem;
         em {
           display:block;
           font-style: normal;
-          color:#999;
+          color:#666;
           font-size:1rem;
           letter-spacing: 1px;
         }
