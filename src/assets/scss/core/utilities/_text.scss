@@ -72,3 +72,9 @@ $font-weight-bolder: 700;
 
 .text-reset { color: inherit !important; }
 
+// ellipsis
+.text-ellipsis {
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
