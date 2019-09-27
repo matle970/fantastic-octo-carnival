@@ -1,5 +1,24 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { ChartComponent } from 'ng-apexcharts';
+import { Component, ViewChild, OnInit, Input} from '@angular/core';
+import {
+  ChartComponent,
+  ApexChart,
+  ApexAnnotations,
+  ApexDataLabels,
+  ApexAxisChartSeries,
+  ApexNonAxisChartSeries,
+  ApexStroke,
+  ApexLegend,
+  ApexFill,
+  ApexPlotOptions,
+  ApexTooltip,
+  ApexResponsive,
+  ApexXAxis,
+  ApexYAxis,
+  ApexGrid,
+  ApexStates,
+  ApexTitleSubtitle,
+  ApexTheme
+} from 'ng-apexcharts';
 
 @Component({
   selector: 'app-base-info',
@@ -8,7 +27,29 @@ import { ChartComponent } from 'ng-apexcharts';
 })
 export class BaseInfoComponent implements OnInit {
 
-  @ViewChild('chart') chart: ChartComponent;
+  @ViewChild('chartObj') chartObj: ChartComponent;
+
+  // @Input() chart: ApexChart;
+  // @Input() annotations: ApexAnnotations;
+  // @Input() colors: string[];
+  // @Input() dataLabels: ApexDataLabels;
+  // @Input() series: ApexAxisChartSeries | ApexNonAxisChartSeries;
+  // @Input() stroke: ApexStroke;
+  // @Input() labels: string[];
+  // @Input() legend: ApexLegend;
+  // @Input() fill: ApexFill;
+  // @Input() tooltip: ApexTooltip;
+  // @Input() plotOptions: ApexPlotOptions;
+  // @Input() responsive: ApexResponsive[];
+  // @Input() xaxis: ApexXAxis;
+  // @Input() yaxis: ApexYAxis | ApexYAxis[];
+  // @Input() grid: ApexGrid;
+  // @Input() states: ApexStates;
+  // @Input() title: ApexTitleSubtitle;
+  // @Input() subtitle: ApexTitleSubtitle;
+  // @Input() theme: ApexTheme;
+
+
 
   chartData = {
     chart: {
@@ -65,6 +106,7 @@ export class BaseInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const myChart = this.chartObj;
   }
 
 }
