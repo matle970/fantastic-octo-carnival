@@ -26,6 +26,7 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
 import { SidebarService } from './services/sidebar.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 
@@ -39,7 +40,8 @@ import { CustomerComponent } from './customer/customer.component';
     TabsComponent,
     SearchIdComponent,
     DashboardComponent,
-    CustomerComponent
+    CustomerComponent,
+    DialogComponent
   ],
   imports: [
     SharedMaterialModule,
@@ -55,12 +57,11 @@ import { CustomerComponent } from './customer/customer.component';
     CompanyModule,
     AppRoutingModule,
     RouterModule,
-
-
   ],
   providers: [
     SidebarService
   ],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
