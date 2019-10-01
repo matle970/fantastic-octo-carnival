@@ -26,10 +26,10 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
 import { SidebarService } from './services/sidebar.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
+
+// Dialog
 import { DialogComponent } from './dialog/dialog.component';
-
-
-
+import { DialogContentModule } from './dialog-content/dialog-content.module';
 
 
 @NgModule({
@@ -55,6 +55,7 @@ import { DialogComponent } from './dialog/dialog.component';
     ReactiveFormsModule,
     ComponentsModule,
     CompanyModule,
+    DialogContentModule,
     AppRoutingModule,
     RouterModule,
   ],

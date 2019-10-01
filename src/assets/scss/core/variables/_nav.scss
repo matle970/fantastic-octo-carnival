@@ -1,3 +1,17 @@
+
+
+// Navs
+$border-width:                1px !default;
+$bmd-nav-link-padding-y:                .5rem !default;
+$bmd-nav-link-padding-x:                1rem !default;
+$bmd-nav-link-disabled-color:           $gray-light  !default;
+$bmd-nav-tabs-border-width:             $border-width !default;
+$bmd-nav-tabs-border-color:             $gray-light  !default;
+
+$bmd-nav-tabs-border-radius: .25rem !default;
+$bmd-nav-pills-border-radius: .25rem !default;
+
+$bmd-nav-tabs-link-hover-border-color: $gray-lighter $gray-lighter $gray-light !default;
 // Navs https://www.google.com/design/spec/components/tabs.html#tabs-specs
 
 $nav-disabled-link-color: $gray-light !default;
@@ -16,7 +30,7 @@ $bmd-nav-tabs-pills-link-padding: 1.4286em .8575em !default; // spec // was .5em
 $bmd-nav-tabs-border-size: .214rem !default; // 3px
 
 $bmd-nav-tabs-color: $gray !default;
-$bmd-nav-tabs-active-color: $gray-dark !default;
+$bmd-nav-tabs-active-color: $brand-primary !default;
 $bmd-nav-tabs-active-border-color: $brand-primary !default;
 $bmd-nav-tabs-disabled-link-color: $nav-disabled-link-color !default;
 $bmd-nav-tabs-disabled-link-color-hover: $nav-disabled-link-hover-color !default;
@@ -52,6 +66,7 @@ $nav-tabs-active-link-hover-bg: transparent !default; // $body-bg
 //$nav-tabs-justified-link-border-color:            #ddd !default;
 //$nav-tabs-justified-active-link-border-color:     $body-bg !default;
 //
-//$nav-pills-border-radius:                   $border-radius !default;
-//$nav-pills-active-link-hover-bg:            $component-active-bg !default;
-//$nav-pills-active-link-hover-color:         $component-active-color !default;
+$nav-pills-border-radius:                   $bmd-nav-pills-border-radius !default;
+$nav-pills-active-link-color:               $black !default;
+$nav-pills-active-link-hover-bg:            $brand-primary !default;
+$nav-pills-active-link-hover-color:         white !default;
