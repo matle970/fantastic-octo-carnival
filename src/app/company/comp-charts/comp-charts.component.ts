@@ -152,8 +152,7 @@ export class CompChartsComponent implements OnInit {
     },
     legend: {
       position: 'top',
-      offsetY: -25,
-      offsetX: -5
+      horizontalAlign: 'center',
     }
   };
 
@@ -183,12 +182,12 @@ export class CompChartsComponent implements OnInit {
     },
     series: [
       {
-        name: '進口',
-        data: [1000, 800, 1200, 1600, 1500, 1300, 1200,800,700,1100,1300,1123,1400]
+        name: 'TMU',
+        data: [0.1, 0.5, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 0.4, 0.3, 0.2, 0.5,0.1]
       },
       {
-        name: '出口',
-        data: [500, 700, 500, 600, 400, 300, 200,100,200,300,300,423,600]
+        name: 'MTM',
+        data: [0.2, 0.3, 0.5, 0.4, 0.5, 0.6, 0.7,0.3,0.5,0.3,0.2,0.6,0.7]
       }
     ],
     title: {
@@ -223,7 +222,7 @@ export class CompChartsComponent implements OnInit {
       ],
       labels:{
         style: {
-          fontSize: '16px',
+          fontSize: '14px',
         }
       }
     },
@@ -236,8 +235,7 @@ export class CompChartsComponent implements OnInit {
     },
     legend: {
       position: 'top',
-      offsetY: -25,
-      offsetX: -5
+      horizontalAlign: 'center',
     }
   };
 
@@ -260,7 +258,11 @@ export class CompChartsComponent implements OnInit {
     },
     colors: ['#f34235', '#fdca30'],
     dataLabels: {
-      enabled: true
+      enabled: true,
+      formatter: function(val) {
+        return val ? val.toFixed(1) + '%' : ''
+      }
+
     },
     stroke: {
       curve: 'smooth'
@@ -320,8 +322,7 @@ export class CompChartsComponent implements OnInit {
     },
     legend: {
       position: 'top',
-      offsetY: -25,
-      offsetX: -5
+      horizontalAlign: 'center',
     }
   };
 
