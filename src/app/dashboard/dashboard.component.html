@@ -83,7 +83,7 @@
                               <td class="text-left">
                                   <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
                                 <div class="d-inline-block">
-                                  <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
+                                  <!-- <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授
                                   </span>
                                   <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above" *ngIf="item.tag.includes(2)">
@@ -92,12 +92,22 @@
                                   <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above" *ngIf="item.tag.includes(3)">
                                     薪
                                   </span>
+
+
                                   <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" *ngIf="item.tag.includes(4)">
                                     核
                                   </span>
                                   <span class="tag tag-red" matTooltip="黑名單" matTooltipPosition="above" *ngIf="item.tag.includes(5)">
                                     黑
-                                  </span>
+                                  </span> -->
+
+                                  <app-icon-credit matTooltip="授信戶" matTooltipPosition="above" class="tag tag-green" *ngIf="item.tag.includes(1)" ></app-icon-credit>
+                                  <app-icon-netbank matTooltip="企網銀" matTooltipPosition="above" class="tag tag-blue" *ngIf="item.tag.includes(2)" ></app-icon-netbank>
+
+                                  <app-icon-transfer matTooltip="薪轉戶" matTooltipPosition="above" class="tag tag-gold" *ngIf="item.tag.includes(3)" ></app-icon-transfer>
+                                  <app-icon-groupcenter matTooltip="集團核心" matTooltipPosition="above" class="tag tag-orange" *ngIf="item.tag.includes(4)" ></app-icon-groupcenter>
+                                  <app-icon-blacklist matTooltip="黑名單" matTooltipPosition="above" class="tag tag-red" *ngIf="item.tag.includes(5)" ></app-icon-blacklist>
+
 
                                 </div>
                               </td>

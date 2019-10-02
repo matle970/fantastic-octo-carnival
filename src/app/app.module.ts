@@ -30,6 +30,7 @@ import { CustomerComponent } from './customer/customer.component';
 // Dialog
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogContentModule } from './dialog-content/dialog-content.module';
+import { IconSvgModule } from './icon-svg/icon-svg.module';
 
 
 @NgModule({
@@ -46,7 +47,6 @@ import { DialogContentModule } from './dialog-content/dialog-content.module';
   imports: [
     SharedMaterialModule,
     CdkTableModule,
-
     // tslint:disable-next-line: deprecation
     HttpModule,
     BrowserModule,
@@ -55,6 +55,7 @@ import { DialogContentModule } from './dialog-content/dialog-content.module';
     ReactiveFormsModule,
     ComponentsModule,
     CompanyModule,
+    IconSvgModule,
     DialogContentModule,
     AppRoutingModule,
     RouterModule,

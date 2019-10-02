@@ -29,15 +29,19 @@ $tag-red: #c00000;
   background: #EEE;
   border-radius: 50%;
   text-align: center;
-  height: 24px;
-  width:24px;
+  height: 36px;
+  width:36px;
   display: inline-block;
-  line-height:24px;
+  line-height:36px;
   font-size: 0.9rem;
   color:#FFF;
   font-weight: bold;
   margin-right:2px;
   cursor: default;
+  svg {
+    max-height: 28px;
+    color:white;
+  }
 
   &.tag-green{
     background-color: $tag-green;
