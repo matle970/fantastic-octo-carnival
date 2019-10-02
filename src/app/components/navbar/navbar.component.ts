@@ -25,7 +25,11 @@ export class NavbarComponent implements OnInit {
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
-      this.navTitle = this.getTitle();
+
+      setTimeout(() => {
+        this.getTitle();
+      }, 400);
+      // this.navTitle = this.getTitle();
 
       // 移除mobile版本
 
@@ -119,35 +123,38 @@ export class NavbarComponent implements OnInit {
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
+      console.log('first titlee',titlee);
       var titleeArray = titlee.split('/');
       titlee = titleeArray[titleeArray.length - 1 ];
 
       if(titlee.charAt(0) === '/'){
           titlee = titlee.slice( 1 );
       }
-      // console.log(titlee);
+      console.log(titlee);
       for(var item = 0; item < this.listTitles.length; item++){
-        // console.log(this.listTitles[item].path);
+        console.log(this.listTitles[item].path);
         // tslint:disable-next-line: prefer-const
 
         var thisPath = this.listTitles[item].path;
-        thisPath= thisPath.split('./')[1];
+        thisPath= thisPath.split('/')[1];
 
-        if(thisPath.charAt(0) === './'){
+        if(thisPath.charAt(0) === '/'){
           thisPath = thisPath.slice( 1 );
         }
-        // console.log(thisPath,'thispath')
-        // console.log(titlee,'titlee')
+        console.log(thisPath,'thispath')
+        console.log(titlee,'titlee')
 
-        // console.log('是否有',titlee.includes(thisPath));
-          // if(thisPath === titlee){
-          //     return this.listTitles[item].title;
-          // }
-
-          if(titlee.includes(thisPath)) {
-            // console.log('if match',thisPath)
-            return  this.listTitles[item].title;
+        console.log('是否等於',thisPath === titlee);
+          if(thisPath === titlee){
+              // return this.listTitles[item].title;
+              this.navTitle = this.listTitles[item].title;
+              return ;
           }
+
+          // if(titlee.includes(thisPath)) {
+          //   // console.log('if match',thisPath)
+          //   return  this.listTitles[item].title;
+          // }
       }
       return 'Dashboard';
     }
