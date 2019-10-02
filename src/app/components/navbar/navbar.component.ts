@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 import { ROUTES } from './../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
-    location: Location;
+      location: Location;
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
@@ -19,16 +19,22 @@ export class NavbarComponent implements OnInit {
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
-          this.sidebarVisible = false;
+      this.sidebarVisible = false;
+      router.events.subscribe((val) => {
+        // see also
+        // console.log(val);
+        this.getTitle();
+      });
+
     }
 
     ngOnInit(){
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
 
-      setTimeout(() => {
-        this.getTitle();
-      }, 400);
+      // setTimeout(() => {
+      //   this.getTitle();
+      // }, 400);
       // this.navTitle = this.getTitle();
 
       // 移除mobile版本
@@ -44,6 +50,8 @@ export class NavbarComponent implements OnInit {
     //  });
     }
 
+
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
@@ -54,13 +62,13 @@ export class NavbarComponent implements OnInit {
         body.classList.add('nav-open');
 
         this.sidebarVisible = true;
-    };
+    }
     sidebarClose() {
         const body = document.getElementsByTagName('body')[0];
         this.toggleButton.classList.remove('toggled');
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
-    };
+    }
 
     // 小版的功能，先不會用到
     sidebarToggle() {
@@ -119,20 +127,20 @@ export class NavbarComponent implements OnInit {
             this.mobile_menu_visible = 1;
 
         }
-    };
+    }
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
-      console.log('first titlee',titlee);
+      // console.log('first titlee',titlee);
       var titleeArray = titlee.split('/');
       titlee = titleeArray[titleeArray.length - 1 ];
 
       if(titlee.charAt(0) === '/'){
           titlee = titlee.slice( 1 );
       }
-      console.log(titlee);
+      // console.log(titlee);
       for(var item = 0; item < this.listTitles.length; item++){
-        console.log(this.listTitles[item].path);
+        // console.log(this.listTitles[item].path);
         // tslint:disable-next-line: prefer-const
 
         var thisPath = this.listTitles[item].path;
@@ -141,14 +149,13 @@ export class NavbarComponent implements OnInit {
         if(thisPath.charAt(0) === '/'){
           thisPath = thisPath.slice( 1 );
         }
-        console.log(thisPath,'thispath')
-        console.log(titlee,'titlee')
+        // console.log(thisPath,'thispath')
+        // console.log(titlee,'titlee')
 
-        console.log('是否等於',thisPath === titlee);
+        // console.log('是否等於',thisPath === titlee);
           if(thisPath === titlee){
               // return this.listTitles[item].title;
               this.navTitle = this.listTitles[item].title;
-              return ;
           }
 
           // if(titlee.includes(thisPath)) {
