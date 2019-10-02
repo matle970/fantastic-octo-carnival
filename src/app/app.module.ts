@@ -47,7 +47,6 @@ import { IconSvgModule } from './icon-svg/icon-svg.module';
   imports: [
     SharedMaterialModule,
     CdkTableModule,
-
     // tslint:disable-next-line: deprecation
     HttpModule,
     BrowserModule,
