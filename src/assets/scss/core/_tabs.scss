@@ -1,22 +1,29 @@
+$nav-bg: #EEE;
+$active-bg: #FFF;
+$border-color: #dbdbdb;
+$border-radius: 3px;
 
 .nav-tabs {
     border: 0;
-    border-radius: $border-radius-base;
+    border-radius: $border-radius $border-radius 0 0 ;
     padding: 0 15px;
+    background: $nav-bg;
+    border-bottom:2px solid $brand-primary;
 
     .nav-item {
+      cursor: pointer;
         .nav-link {
             color: $brand-primary;
             border: 0;
             margin: 0;
-            border-radius: $border-radius-base;
+            // border-radius: $border-radius;
             line-height: $mdb-btn-font-size-base * 2;
             text-transform: uppercase;
             font-size: $mdb-btn-font-size-base;
             padding: 10px 15px;
-            background-color: transparent;
+            background-color: $nav-bg;
             transition: 0.3s background-color 0s;
-
+            cursor: pointer;
             &:hover {
                 border: 0;
             }
@@ -24,8 +31,7 @@
         .nav-link,
         .nav-link:hover,
         .nav-link:focus {
-            border: 0 ;
-            color: $brand-warning;
+            color: $gray;
             font-weight: $font-weight-bold;
         }
         &.disabled .nav-link,
@@ -38,8 +44,15 @@
         }
 
         .nav-link.active{
-            background-color: rgba(255,255,255, .2);
+            // background-color: rgba(255,255,255, .2);
             transition: 0.3s background-color 0.2s;
+            background:$active-bg;
+            border:1px solid $brand-primary;
+            border-top: 3px solid $brand-primary;
+            border-bottom: 3px solid #FFF;
+            position: relative;
+            top:2px;
+
         }
     }
 }

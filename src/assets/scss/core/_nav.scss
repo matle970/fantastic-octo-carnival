@@ -3,15 +3,15 @@
 
 $nav-link-padding-y:                .5rem !default;
 $nav-link-padding-x:                1rem !default;
-$nav-link-disabled-color:           $gray-600 !default;
+$nav-link-disabled-color:           #CCC !default;
 
-$nav-tabs-border-color:             $gray-300 !default;
-$nav-tabs-border-width:             $border-width !default;
-$nav-tabs-border-radius:            $border-radius !default;
+$nav-tabs-border-color:             #EEE !default;
+$nav-tabs-border-width:             1px !default;
+$nav-tabs-border-radius:            0px !default;
 $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
-$nav-tabs-link-active-color:        $gray-700 !default;
-$nav-tabs-link-active-bg:           $body-bg !default;
-$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+$nav-tabs-link-active-color:        $dark-cathy-green !default;
+$nav-tabs-link-active-bg:           #FFF !default;
+$nav-tabs-link-active-border-color: $dark-cathy-green   #EEE  #EEE  #EEE  !default;
 
 $nav-pills-border-radius:           $border-radius !default;
 $nav-pills-link-active-color:       $component-active-color !default;
@@ -50,7 +50,8 @@ $nav-divider-margin-y:              $spacer / 2 !default;
 
 .nav-link {
   display: block;
-  padding: $nav-link-padding-y $nav-link-padding-x;
+  cursor: pointer;
+  // padding: $nav-link-padding-y $nav-link-padding-x;
 
   @include hover-focus {
     text-decoration: none;
@@ -69,14 +70,31 @@ $nav-divider-margin-y:              $spacer / 2 !default;
 //
 
 .nav-tabs {
-  border: $nav-tabs-border-width solid $nav-tabs-border-color;
+  // border: $nav-tabs-border-width solid $nav-tabs-border-color;
 
   .nav-item {
+    border: $nav-tabs-border-width solid $nav-tabs-border-color;
     margin-bottom: -$nav-tabs-border-width;
+    padding:0;
+    margin:0;
+    height: 46px;
+    line-height: 46px;
+    font-size: 1rem;
+    &:not(:last-child) {
+      border-right: none !important;
+    }
   }
 
+
   .nav-link {
-    border: $nav-tabs-border-width solid $nav-tabs-border-color;
+    padding:0;
+    margin:0;
+    padding:0;
+    margin:0;
+    height: 46px;
+    line-height: 46px;
+    font-size: 1rem !important;
+    // border: $nav-tabs-border-width solid $nav-tabs-border-color;
     @include border-top-radius($nav-tabs-border-radius);
 
     @include hover-focus {
@@ -93,8 +111,9 @@ $nav-divider-margin-y:              $spacer / 2 !default;
   .nav-link.active,
   .nav-item.show .nav-link {
     color: $nav-tabs-link-active-color;
-    background-color: $nav-tabs-link-active-bg;
+    background-color: white;
     border-color: $nav-tabs-link-active-border-color;
+    border-top:3px solid $brand-primary;
   }
 
   .dropdown-menu {
