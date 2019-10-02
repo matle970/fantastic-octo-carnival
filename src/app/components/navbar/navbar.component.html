@@ -6,6 +6,7 @@
             {{navTitle}}
           </a>
         </div>
+
         <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()" *ngIf="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -14,12 +15,15 @@
         </button>
         <!-- collapse  add: collapse , 小版會hide -->
         <div class="navbar-collapse justify-content-end float-right" id="navigation">
+          <!-- search bar : hide -->
 
-
+          <form class="navbar-form"  *ngIf="navTitle == '首頁總覽'">
+              <app-filter [datalist]="[]"></app-filter>
+          </form>
 
 
           <!-- search customer id  -->
-          <form class="navbar-form" *ngIf="getTitle() == '客戶視圖'">
+          <form class="navbar-form" *ngIf="navTitle == '客戶視圖'">
                 <div class="input-group no-border">
                     <input type="text" value="" class="form-control" placeholder="客戶 ID">
                     <button mat-raised-button type="submit" class="btn btn-sm btn-primay btn-round btn-just-icon">
