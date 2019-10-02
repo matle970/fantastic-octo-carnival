@@ -1,11 +1,11 @@
 $nav-bg: #EEE;
 $active-bg: #FFF;
 $border-color: #dbdbdb;
-$border-radius: 0;
+$border-radius: 3px;
 
 .nav-tabs {
     border: 0;
-    border-radius: $border-radius;
+    border-radius: $border-radius $border-radius 0 0 ;
     padding: 0 15px;
     background: $nav-bg;
     border-bottom:2px solid $brand-primary;
@@ -16,7 +16,7 @@ $border-radius: 0;
             color: $brand-primary;
             border: 0;
             margin: 0;
-            border-radius: $border-radius;
+            // border-radius: $border-radius;
             line-height: $mdb-btn-font-size-base * 2;
             text-transform: uppercase;
             font-size: $mdb-btn-font-size-base;
@@ -50,6 +50,8 @@ $border-radius: 0;
             border:1px solid $brand-primary;
             border-top: 3px solid $brand-primary;
             border-bottom: 3px solid #FFF;
+            position: relative;
+            top:2px;
 
         }
     }
