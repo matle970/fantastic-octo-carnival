@@ -1,15 +1,11 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
+<div class="m-0 p-0 clearfix dialog-title" mat-dialog-title>
+  <span class="d-inline-block date-block">
+      資料日: 2019/08/06
+  </span>
+  <button class="d-inline-block close-icon btn btn-round btn-white btn-just-icon shadow-none" mat-dialog-close>
+      <i class="material-icons">close</i>
+  </button>
+</div>
 <div mat-dialog-content>
-  My favorite animal is:
-  <ul>
-    <li>
-      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-    </li>
-  </ul>
+  <app-index-notice></app-index-notice>
 </div>

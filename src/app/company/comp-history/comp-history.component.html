@@ -17,7 +17,7 @@
         <h4 class="card-title text-primary">客戶歷程</h4>
         <div class="customer-history">
             <ul class="nav nav-tabs type-list">
-                <li class="nav-item m-1" *ngFor="let item of tablist"
+                <li class="nav-item" *ngFor="let item of tablist"
                 (click)="selectTab(item.id)">
                   <a class="nav-link active"
                   [ngClass]="{'active': item.id == activeTab}">
