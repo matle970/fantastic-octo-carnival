@@ -11,7 +11,7 @@
       </h4>
       <div class="all-charts-blcok row">
 
-          <div class="col-md-6">
+          <div class="col-md-3">
             存款餘額
             <apx-chart #chartDeposit
             [chart]="DepositData.chart"
@@ -27,7 +27,7 @@
             ></apx-chart>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-3">
               放款餘額/貿融餘額
             <apx-chart #chartLoad
             [chart]="LoanData.chart"
@@ -43,7 +43,7 @@
 
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-3">
               進口實績/出口實績
               <apx-chart #chartTrade
             [chart]="TradeData.chart"
@@ -58,7 +58,7 @@
               ></apx-chart>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-3">
               TMU使用率/MTM
               <apx-chart #chartTmu
             [chart]="TmuData.chart"
