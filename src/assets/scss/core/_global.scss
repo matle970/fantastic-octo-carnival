@@ -15,7 +15,7 @@ a.underline {
 }
 
 .card {
-  @include pretty-text-underline-selection($pretty-text-selection);
+  // @include pretty-text-underline-selection($pretty-text-selection);
 }
 
 
