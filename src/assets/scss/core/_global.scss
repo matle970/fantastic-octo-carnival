@@ -9,13 +9,14 @@ $underline-color: #fafaf6;
 
 a.underline {
   color: $brand-success;
+  cursor: pointer;
   font-size: 1.2rem;
   @include pretty-text-underline-selection($pretty-text-selection);
   @include pretty-text-underline($pretty-text-width,$underline-color,$pretty-text-hover)
 }
 
-.card {
-  // @include pretty-text-underline-selection($pretty-text-selection);
+.card, .table {
+  @include pretty-text-underline-selection($pretty-text-selection);
 }
 
 

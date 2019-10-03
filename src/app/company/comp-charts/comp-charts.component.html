@@ -12,7 +12,16 @@
       <div class="all-charts-blcok row">
 
           <div class="col-md-3">
-            存款餘額
+            <div class="chart-title">
+               <div class="btn shadow-none text-white bg-deposit">
+                 <span class="title">
+                   存款餘額
+                 </span>
+               </div>
+               <div class="total d-inline-block font-weight-bold ml-2">
+                  {{11893 | currency:'':'symbol':'1.0-0'}}
+               </div>
+            </div>
             <apx-chart #chartDeposit
             [chart]="DepositData.chart"
             [plotOptions]="DepositData.plotOptions"
@@ -28,7 +37,32 @@
           </div>
 
           <div class="col-md-3">
-              放款餘額/貿融餘額
+
+
+
+              <div class="block clearfix">
+                  <div class="chart-title float-left">
+                      <div class="btn shadow-none text-white bg-load">
+                        <span class="title">
+                          放款餘額
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                      </div>
+                  </div>
+                  <div class="chart-title float-right">
+                      <div class="btn shadow-none text-white bg-trade">
+                        <span class="title">
+                            貿融餘額
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                      </div>
+                  </div>
+              </div>
+
             <apx-chart #chartLoad
             [chart]="LoanData.chart"
             [plotOptions]="LoanData.plotOptions"
@@ -44,7 +78,31 @@
           </div>
 
           <div class="col-md-3">
-              進口實績/出口實績
+
+              <div class="block clearfix">
+                  <div class="chart-title float-left">
+                      <div class="btn shadow-none text-white bg-in">
+                        <span class="title">
+                            進口實績
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                      </div>
+                  </div>
+                  <div class="chart-title float-right">
+                      <div class="btn shadow-none text-white bg-out">
+                        <span class="title">
+                            出口實績
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                      </div>
+                  </div>
+              </div>
+
+
               <apx-chart #chartTrade
             [chart]="TradeData.chart"
             [plotOptions]="TradeData.plotOptions"
@@ -59,7 +117,29 @@
           </div>
 
           <div class="col-md-3">
-              TMU使用率/MTM
+              <div class="block clearfix">
+                  <div class="chart-title float-left">
+                      <div class="btn shadow-none text-white bg-tmu">
+                        <span class="title">
+                            TMU使用率
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                         60%
+                      </div>
+                  </div>
+                  <div class="chart-title float-right">
+                      <div class="btn shadow-none text-white bg-mtm">
+                        <span class="title">
+                            MTM
+                        </span>
+                      </div>
+                      <div class="total d-inline-block font-weight-bold ml-2">
+                        102%
+                      </div>
+                  </div>
+
+
               <apx-chart #chartTmu
             [chart]="TmuData.chart"
             [plotOptions]="TmuData.plotOptions"

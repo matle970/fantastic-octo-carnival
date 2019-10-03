@@ -14,7 +14,11 @@ export class CompChartsComponent implements OnInit {
 
   DepositData = {
     chart: {
-      height: 350,
+      fontFamily: '微軟正黑體',
+      toolbar: {
+        show: false
+      },
+      height: 300,
       type: 'line',
       zoom: {
         enabled: false
@@ -40,24 +44,24 @@ export class CompChartsComponent implements OnInit {
     grid: {
       row: {
         colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-        opacity: 0.5
+        opacity: 1
       }
     },
     xaxis: {
       categories: [
-        'Aug,18',
-        'Sep,18',
-        'Oct,18',
-        'Dec,18',
-        'Jan,19',
-        'Feb,19',
-        'Mar,19',
-        'Apr,19',
-        'May,19',
-        'Jun,19',
-        'Jul,19',
-        'Aug,19',
-        '6 Aug,19'
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '8',
+        'today'
       ]
     },
     yaxis: {
@@ -76,7 +80,8 @@ export class CompChartsComponent implements OnInit {
 
   LoanData = {
     chart: {
-      height: 350,
+      fontFamily: '微軟正黑體',
+      height: 300,
       type: 'line',
       shadow: {
         enabled: true,
@@ -123,31 +128,27 @@ export class CompChartsComponent implements OnInit {
     },
     xaxis: {
       categories: [
-        'Aug,18',
-        'Sep,18',
-        'Oct,18',
-        'Dec,18',
-        'Jan,19',
-        'Feb,19',
-        'Mar,19',
-        'Apr,19',
-        'May,19',
-        'Jun,19',
-        'Jul,19',
-        'Aug,19',
-        '6 Aug,19'
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '8',
+        'today'
       ],
       labels:{
-        style: {
-          fontSize: '16px',
-        }
+
       }
     },
     yaxis: {
       labels:{
-        style: {
-          fontSize: '14px',
-        }
+
       }
     },
     legend: {
@@ -159,7 +160,8 @@ export class CompChartsComponent implements OnInit {
 
   TradeData = {
     chart: {
-      height: 350,
+      fontFamily: '微軟正黑體',
+      height: 300,
       type: 'line',
       shadow: {
         enabled: true,
@@ -206,31 +208,27 @@ export class CompChartsComponent implements OnInit {
     },
     xaxis: {
       categories: [
-        'Aug,18',
-        'Sep,18',
-        'Oct,18',
-        'Dec,18',
-        'Jan,19',
-        'Feb,19',
-        'Mar,19',
-        'Apr,19',
-        'May,19',
-        'Jun,19',
-        'Jul,19',
-        'Aug,19',
-        '6 Aug,19'
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '8',
+        'today'
       ],
       labels:{
-        style: {
-          fontSize: '14px',
-        }
+
       }
     },
     yaxis: {
       labels:{
-        style: {
-          fontSize: '14px',
-        }
+
       }
     },
     legend: {
@@ -242,7 +240,8 @@ export class CompChartsComponent implements OnInit {
 
   TmuData = {
     chart: {
-      height: 350,
+      fontFamily: '微軟正黑體',
+      height: 300,
       type: 'line',
       shadow: {
         enabled: true,
@@ -293,31 +292,27 @@ export class CompChartsComponent implements OnInit {
     },
     xaxis: {
       categories: [
-        'Aug,18',
-        'Sep,18',
-        'Oct,18',
-        'Dec,18',
-        'Jan,19',
-        'Feb,19',
-        'Mar,19',
-        'Apr,19',
-        'May,19',
-        'Jun,19',
-        'Jul,19',
-        'Aug,19',
-        '6 Aug,19'
+        '8',
+        '9',
+        '10',
+        '11',
+        '12',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '8',
+        'today'
       ],
       labels:{
-        style: {
-          fontSize: '16px',
-        }
+
       }
     },
     yaxis: {
       labels:{
-        style: {
-          fontSize: '14px',
-        }
+
       }
     },
     legend: {
