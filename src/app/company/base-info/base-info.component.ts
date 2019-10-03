@@ -53,7 +53,7 @@ export class BaseInfoComponent implements OnInit {
 
   chartData = {
     chart: {
-      height: 280,
+      height: 250,
       type: 'bar',
     },
     colors: ['#81c784','#388e3c'],

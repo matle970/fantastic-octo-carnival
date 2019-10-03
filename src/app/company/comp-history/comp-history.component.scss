@@ -26,14 +26,23 @@
 //   }
 // }
 
+.customer-history {
+  .nav-tabs {
+    margin:0;
+    padding:0;
+  }
+
+}
+
 .content-list {
-  margin: 15px auto;
-  padding: 2px 7px;
+  margin: 15px 0;
+  padding: 0px;
   list-style: none;
-  height: 660px;
+  min-height: 336px;
+  max-height: 336px;
   overflow: auto;
   li {
-    padding:3px;
+    padding:3px 0;
     .list {
       display: block;
       padding: 8px 2px 8px 2px;
@@ -45,20 +54,24 @@
       }
       .type {
         font-weight: 700;
-        background: #EEE;
+        background: #fff;
         color: #000;
-        width:80px;
+        width: auto;
         text-align: center;
+        border-radius: 5px;
+        min-width: 60px;
+        border: 1px solid #ddd;
       }
       .date {
-        width: 90px;
-        font-size: 0.8rem;
+        width: auto;
+        max-width: 120px;
+        font-size: 1rem;
       }
       .unit {
         width: 80px;
       }
       .content {
-        width: 160px;
+        width: 320px;
       }
     }
   }

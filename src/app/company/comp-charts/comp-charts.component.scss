@@ -19,4 +19,63 @@ $mtm-color: #fdca30;
 
 .all-charts-blcok {
 
+  .bg-deposit {
+    color: white;
+    font-weight: bold;
+    background: $deposit-chart-color;
+  }
+
+  .bg-load {
+    color: white;
+    font-weight: bold;
+    background: $load-chart-color;
+  }
+  .bg-trade {
+    color: white;
+    font-weight: bold;
+    background: $trade-chart-color;
+  }
+  .bg-in {
+    color: white;
+    font-weight: bold;
+    background: $in-chart-color;
+  }
+  .bg-out {
+    color: black;
+    font-weight: bold;
+    background: $out-chart-color;
+  }
+  .bg-tmu {
+    color: white;
+    font-weight: bold;
+    background: $tmu-color;
+  }
+  .bg-mtm {
+    color: black;
+    font-weight: bold;
+    background: $mtm-color;
+  }
+
+
+
+  .chart-title{
+    vertical-align: middle;
+    .btn {
+      padding: 4px 8px;
+      vertical-align: middle;
+      color:inherit;
+    }
+    .title {
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+  }
+
 }
