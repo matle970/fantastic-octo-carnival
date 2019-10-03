@@ -6,16 +6,27 @@
   <div>
       <ul  class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link active" href="#!">全部 <span class="badge badge-primary">5</span> </a>
+            <a class="nav-link" [ngClass]="{'active': tabIndex == 1}" (click)="changeTab(1)">
+              <span>全部</span>
+              <span class="badge badge-primary ml-1">5</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#!">警示通知 <span class="badge badge-secondary">2</span> </a>
+            <a class="nav-link"  [ngClass]="{'active': tabIndex == 2}" (click)="changeTab(2)">
+              <span>警示通知</span>
+              <span class="badge badge-secondary ml-1">2</span> </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#!">交易提醒 <span class="badge badge-secondary">2</span> </a>
+            <a class="nav-link" [ngClass]="{'active': tabIndex == 3}" (click)="changeTab(3)">
+              <span>交易提醒</span>
+              <span class="badge badge-secondary ml-1">2</span>
+            </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#!">交易提醒 <span class="badge badge-secondary">2</span> </a>
+              <a class="nav-link" [ngClass]="{'active': tabIndex == 4 }" (click)="changeTab(4)">
+                <span>企業訊息與公告</span>
+                <span class="badge badge-secondary ml-1">2</span>
+              </a>
           </li>
 
       </ul>

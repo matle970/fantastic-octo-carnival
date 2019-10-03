@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-notice.component.scss']
 })
 export class IndexNoticeComponent implements OnInit {
-  
+
+  tabIndex: number = 1;
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeTab (tabId: number){
+    this.tabIndex = tabId;
   }
 
 }
