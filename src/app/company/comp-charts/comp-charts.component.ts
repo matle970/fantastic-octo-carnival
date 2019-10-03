@@ -73,8 +73,10 @@ export class CompChartsComponent implements OnInit {
     },
     legend: {
       position: 'top',
-      offsetY: -25,
-      offsetX: -10
+      horizontalAlign: 'center',
+      labels: {
+        colors: '#000000',
+      },
     }
   };
 
@@ -154,6 +156,9 @@ export class CompChartsComponent implements OnInit {
     legend: {
       position: 'top',
       horizontalAlign: 'center',
+      labels: {
+        colors: '#000000',
+      },
     }
   };
 
@@ -234,7 +239,11 @@ export class CompChartsComponent implements OnInit {
     legend: {
       position: 'top',
       horizontalAlign: 'center',
+      labels: {
+        colors: '#000000',
+      },
     }
+
   };
 
 
@@ -318,6 +327,9 @@ export class CompChartsComponent implements OnInit {
     legend: {
       position: 'top',
       horizontalAlign: 'center',
+      labels: {
+        colors: '#000000',
+      },
     }
   };
 

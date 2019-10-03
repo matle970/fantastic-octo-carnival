@@ -53,6 +53,11 @@ export class BaseInfoComponent implements OnInit {
 
   chartData = {
     chart: {
+      fontFamily: '微軟正黑體',
+      foreColor: '#000000',
+      toolbar: {
+        show: false
+      },
       height: 250,
       type: 'bar',
     },
@@ -70,7 +75,7 @@ export class BaseInfoComponent implements OnInit {
         offsetX: -6,
         style: {
             fontSize: '12px',
-            colors: ['#fff']
+            colors: ['#000']
         }
     },
     stroke: {
@@ -80,31 +85,34 @@ export class BaseInfoComponent implements OnInit {
     },
     series: [
         {
-          name: '2017/12-2018/05',
-          data: [100, 120, 150, 60, 30, 20]
+          name: '2017/12-2018/07',
+          data: [1000, 1200, 1500, 600, 300, 200]
         },
         {
-          name: '2018/12-2019/05',
-          data: [90, 100, 110, 70, 32, 35]
+          name: '2018/12-2019/07',
+          data: [900, 1000, 1100, 700, 320, 350]
         }
       ],
     xaxis: {
         categories: ['現管', '放款', '貿融', '資顧', 'TMU', '其他'],
         labels:{
           style: {
-            fontSize: '16px',
+            fontSize: '14px',
           }
         }
     },
     yaxis: {
       labels:{
         style: {
-          fontSize: '14px',
+          fontSize: '16px',
         }
       }
     },
     legend: {
       position: 'top',
+      labels: {
+        colors: '#000000',
+      },
     }
   };
 
