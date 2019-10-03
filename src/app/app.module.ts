@@ -27,8 +27,9 @@ import { SidebarService } from './services/sidebar.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 
-
-
+// Dialog
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogContentModule } from './dialog-content/dialog-content.module';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CustomerComponent } from './customer/customer.component';
     TabsComponent,
     SearchIdComponent,
     DashboardComponent,
-    CustomerComponent
+    CustomerComponent,
+    DialogComponent
   ],
   imports: [
     SharedMaterialModule,
@@ -53,14 +55,14 @@ import { CustomerComponent } from './customer/customer.component';
     ReactiveFormsModule,
     ComponentsModule,
     CompanyModule,
+    DialogContentModule,
     AppRoutingModule,
     RouterModule,
-
-
   ],
   providers: [
     SidebarService
   ],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

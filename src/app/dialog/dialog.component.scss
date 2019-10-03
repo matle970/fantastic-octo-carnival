@@ -1,0 +1,16 @@
+.dialog-title {
+  position: relative;
+  .close-icon {
+    position: absolute;
+    right: -20px;
+    top:-25px;
+    font-size: 1rem;
+    color:#999  !important;
+    cursor: pointer;
+    transition: all ease 0.2s;
+    &:hover {
+      color: #000;
+    }
+  }
+
+}

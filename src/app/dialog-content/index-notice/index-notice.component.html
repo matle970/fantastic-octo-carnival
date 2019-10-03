@@ -1,0 +1,173 @@
+
+<div>
+
+
+  <!-- tabs -->
+  <div>
+      <ul  class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': tabIndex == 1}" (click)="changeTab(1)">
+              <span>全部</span>
+              <span class="badge badge-primary ml-1">5</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  [ngClass]="{'active': tabIndex == 2}" (click)="changeTab(2)">
+              <span>警示通知</span>
+              <span class="badge badge-secondary ml-1">2</span> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': tabIndex == 3}" (click)="changeTab(3)">
+              <span>交易提醒</span>
+              <span class="badge badge-secondary ml-1">2</span>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': tabIndex == 4 }" (click)="changeTab(4)">
+                <span>企業訊息與公告</span>
+                <span class="badge badge-secondary ml-1">2</span>
+              </a>
+          </li>
+
+      </ul>
+      <div *ngIf="false" class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+              <span class="nav-tabs-title">Tasks:</span>
+              <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                      <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                          <i class="material-icons">bug_report</i> Bugs
+                          <div class="ripple-container"></div>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                          <i class="material-icons">code</i> Website
+                          <div class="ripple-container"></div>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                          <i class="material-icons">cloud</i> Server
+                          <div class="ripple-container"></div>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <ul *ngIf="false" class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+  </div>
+
+  <!-- content   -->
+
+  <div>
+      <ul class="list-group">
+          <li class="list-group-item">
+              <div class="row no-gutters">
+                  <div class="col">
+                    警示通知
+                  </div>
+                  <div class="col">
+                    2019/06/18
+                  </div>
+                  <div class="col-8">
+                      <div>
+                          廣宇科技股份有限公司
+                      </div>
+                      <div>
+                          <a href="#" class="underline">
+                            2019/06/18 企企股份有限公司自花旗銀行匯入美金 $80,569
+                          </a>
+                      </div>
+
+                  </div>
+
+              </div>
+          </li>
+          <li class="list-group-item">
+              <div class="row no-gutters">
+                  <div class="col">
+                    到期提醒
+                  </div>
+                  <div class="col">
+                    2019/04/18
+                  </div>
+                  <div class="col-8">
+                      <div>
+                          群創光電股份有限公司
+                      </div>
+                      <div>
+                          <a href="#" class="underline">
+                              2019/05/18 Call Loan 新臺幣 $1,000,000 到期
+                          </a>
+                      </div>
+
+                  </div>
+
+              </div>
+          </li>
+          <li class="list-group-item">
+              <div class="row no-gutters">
+                  <div class="col">
+                      到期提醒
+                  </div>
+                  <div class="col">
+                      2019/03/18
+                  </div>
+                  <div class="col-8">
+                      <div>
+                          宏瀚投資股份有限公司
+                      </div>
+                      <div>
+                          <a href="#" class="underline">
+                              2019/04/18
+                              定存美金 $30,000,000 到期
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </li>
+          <li class="list-group-item">
+              <div class="row no-gutters">
+                  <div class="col">
+                      企業訊息與公告
+                  </div>
+                  <div class="col">
+                      2019/02/15
+                  </div>
+                  <div class="col-8">
+                      <div>
+                          聯巨投資股份有限公司
+                      </div>
+                      <div>
+                          <a href="#" class="underline">
+                              2019/07/29 舉辦法說會
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </li>
+
+
+      </ul>
+      <table class="table table-striped">
+
+      </table>
+
+  </div>
+
+
+</div>

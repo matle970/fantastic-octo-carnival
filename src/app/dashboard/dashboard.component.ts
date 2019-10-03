@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+
+export class DashboardComponent {
 
   orderType =  'group_name';
   orderASC = true;
@@ -227,9 +230,28 @@ export class DashboardComponent implements OnInit {
 
   ];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit() {
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    // console.log(dialogConfig);
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '90%';
+    dialogConfig.data = {
+      id: 1,
+      title: 'news',
+      data: {}
+  };
+
+
+
+    this.dialog.open(DialogComponent, dialogConfig);
+
+    // this.dialog.open(DialogComponent, {
+    //   data: {
+    //     animal: 'panda'
+    //   }
+    // });
   }
 
   orderByThis(typeId) {
