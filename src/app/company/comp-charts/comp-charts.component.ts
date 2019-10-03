@@ -18,7 +18,7 @@ export class CompChartsComponent implements OnInit {
       toolbar: {
         show: false
       },
-      height: 300,
+      height: 200,
       type: 'line',
       zoom: {
         enabled: false
@@ -81,7 +81,7 @@ export class CompChartsComponent implements OnInit {
   LoanData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 300,
+      height: 200,
       type: 'line',
       shadow: {
         enabled: true,
@@ -161,7 +161,7 @@ export class CompChartsComponent implements OnInit {
   TradeData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 300,
+      height: 200,
       type: 'line',
       shadow: {
         enabled: true,
@@ -241,7 +241,7 @@ export class CompChartsComponent implements OnInit {
   TmuData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 300,
+      height: 200,
       type: 'line',
       shadow: {
         enabled: true,
