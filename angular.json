@@ -23,12 +23,7 @@
             ],
             "styles": [
               // "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-<<<<<<< HEAD
-              "src/assets/css/animate.3.7.2.css",
-              "src/styles.css",
-=======
               "src/assets/css/animate.3.7.2.all.css",
->>>>>>> color_style
               "src/assets/scss/cb-dashboard.scss"
             ],
             "scripts": [
