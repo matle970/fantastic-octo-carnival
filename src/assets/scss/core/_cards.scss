@@ -16,6 +16,7 @@ $card-text-color: black;
   background: $white-color;
   width: 100%;
   position: relative;
+  overflow: hidden;
   &::before {
     content: 'NT81752';
     font-style: 5rem;
@@ -23,8 +24,8 @@ $card-text-color: black;
     display: inline-block;
     position: absolute;
     top: 40%;
-    left: 20%;
-    font-size: 6rem;
+    left: 10%;
+    font-size: 5rem;
     transform: rotate(-20deg);
   }
   small{
