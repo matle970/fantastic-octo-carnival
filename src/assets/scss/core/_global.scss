@@ -72,13 +72,12 @@ $tag-red: #c00000;
 .has-notification-icon {
   position: relative;
   .notifications {
-    right: 10px;
-    position: absolute;
+    top: 5px;
+    position: relative;
     background: transparent;
     cursor: pointer;
-
     i.material-icons {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       position: relative;
     }
     .notice {
