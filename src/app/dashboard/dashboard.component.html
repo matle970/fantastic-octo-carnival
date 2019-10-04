@@ -46,9 +46,11 @@
                   <div class="table-responsive data-table mt-3">
                       <table class="table">
                           <thead class="text-primary">
-                            <th class="text-nowrap py-3 px-1" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+                            <th class=" py-3 px-1" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
-                              <span class="d-inline-block">
+                              <span class="d-inline-block" [ngClass]="{
+                                'th-width-min': (thHead.name == '去年度累計貢獻度' || thHead.name == '今年度累計貢獻度')
+                              }">
                                   {{thHead.name}}
                               </span>
                               <span ng-bind-html="thHead.name">
@@ -117,35 +119,35 @@
                                 </div>
                               </td>
 
-                              <td  class="text-right">
+                              <td  class="text-right pr-4">
                                   {{item.cus_id}}
                               </td>
 
 
 
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                 {{item.msr}}
                               </td>
 
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                 {{item.rorwa}}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                 {{item.raroc}}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                 {{item.last_year_contribution | currency:'':'symbol':'1.0-0' }}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                   {{item.this_year_contribution | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                   {{item.deposit | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                   {{item.load_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right">
+                              <td class="text-right pr-4">
                                   {{item.trade_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
 
