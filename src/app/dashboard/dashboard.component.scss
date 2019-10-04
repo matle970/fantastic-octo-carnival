@@ -28,3 +28,12 @@ $tag-red: #c00000;
   }
 }
 
+.has-notification-icon {
+  position: relative;
+  .notifications {
+    position: absolute;
+    top: -3px;
+    left: 170px;
+  }
+}
+
