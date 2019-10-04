@@ -19,8 +19,15 @@
             <ul class="nav nav-tabs type-list">
                 <li class="nav-item" *ngFor="let item of tablist"
                 (click)="selectTab(item.id)">
-                  <a class="nav-link active"
-                  [ngClass]="{'active': item.id == activeTab}">
+                  <a class="nav-link all-type active"
+                  [ngClass]="{
+                  'active': item.id == activeTab,
+                  'all-type': (item.id == 'all'),
+                  'type-deposit': (item.id == 't02'),
+                  'type-load': (item.id == 't03'),
+                  'type-tmu': (item.id == 't04'),
+                  'type-man': (item.id == 't05')
+                   }">
                     {{item.name}}
                   </a>
 
@@ -30,7 +37,13 @@
               <ng-container *ngFor="let history of contentList; let ri = index">
                   <li *ngIf="(activeTab =='all') || (activeTab == history.type)" >
                       <div class="list">
-                        <span class="type text-primary">
+                        <span class="type"
+                        [ngClass]="{
+                          'type-02': history.type=='t02',
+                          'type-03': history.type=='t03',
+                          'type-04': history.type=='t04',
+                          'type-05': history.type=='t05'
+                        }">
                           {{history.type_name}}
                         </span>
                         <span class="date">

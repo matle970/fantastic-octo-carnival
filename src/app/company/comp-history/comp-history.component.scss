@@ -1,35 +1,73 @@
 
-// .type-list{
-//   padding: 0;
-//   margin: 0;
-//   li {
-//     font-size: 1rem;
-//     margin-right:3px;
-//     cursor: pointer;
-//     .nav-link {
-//       font-size:  1rem;
-//       background: #EEE;
-//       width: 90px;
-//       text-align: center;
-//       border: 1px solid #dbdbdb;
-//       color: #999;
-//       padding: 5px;
-//       &:hover {
-//         background: #70ad47;
-//         color: #FFF;
-//       }
-//       &.active {
-//         background: #169549;
-//         color: #FFF;
-//       }
-//     }
-//   }
-// }
+
+$all-A-color: #76Bc21;
+$all-b-color: #CDDE00;
+
+$deposit-A-color: #CC3B0A;
+$deposit-b-color: #d3794a;
+$load-A-color: #0077c8;
+$load-b-color: #48a9c5;
+$tmu-A-color: #FFA51F;
+$tmu-b-color: #FFE180;
+
+$man-A-color: #806F46;
+$man-b-color: #CCB270;
 
 .customer-history {
   .nav-tabs {
     margin:0;
     padding:0;
+    border-bottom: 3px solid #dbdbdb;
+    .nav-link {
+      border:1px solid #EEE;
+      color: #ffffff8a;
+      opacity: 0.4;
+      &:hover {
+        opacity: 1 !important;
+        color: #FFF;
+        text-shadow: 0 0px 3px #DDD;
+      }
+
+      &.active {
+        border-width:1px 1px 0 1px;
+        border-color: #777 #777 #FFF #777;
+        opacity: 1 !important;
+        color: #FFF!important;
+        text-shadow: 0 0px 3px #DDD important;
+      }
+      &.all-type {
+        background: linear-gradient(0deg, $all-b-color, $all-A-color);
+        &.active {
+          border-color: $all-A-color $all-A-color #FFF $all-A-color;
+        }
+      }
+      &.type-deposit {
+        background: linear-gradient(0deg, $deposit-b-color, $deposit-A-color);
+        &.active {
+          border-color: $deposit-A-color $deposit-A-color #FFF $deposit-A-color;
+        }
+
+      }
+      &.type-load {
+        background: linear-gradient(0deg, $load-b-color, $load-A-color);
+        &.active {
+          border-color: $load-A-color $load-A-color #FFF $load-A-color;
+        }
+
+      }
+      &.type-tmu {
+        background: linear-gradient(0deg, $tmu-b-color, $tmu-A-color);
+        &.active {
+          border-color: $tmu-A-color $tmu-A-color #FFF $tmu-A-color;
+        }
+      }
+      &.type-man {
+        background: linear-gradient(0deg, $man-b-color, $man-A-color);
+        &.active {
+          border-color: $man-A-color $man-A-color #FFF $man-A-color;
+        }
+      }
+    }
   }
 
 }
@@ -61,6 +99,19 @@
         border-radius: 5px;
         min-width: 60px;
         border: 1px solid #ddd;
+        &.type-02 {
+          color: $deposit-A-color;
+        }
+        &.type-03 {
+          color: $load-A-color;
+        }
+        &.type-04 {
+          color: $tmu-A-color;
+        }
+        &.type-05 {
+          color: $man-A-color;
+        }
+
       }
       .date {
         width: auto;

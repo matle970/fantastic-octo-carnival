@@ -24,7 +24,7 @@ export class CompChartsComponent implements OnInit {
         enabled: false
       }
     },
-    colors: ['#f47721'],
+    colors: ['#CC3B0A'],
     series: [
       {
         name: '存款',
