@@ -71,7 +71,7 @@ export class BaseInfoComponent implements OnInit {
         }
     },
     dataLabels: {
-        enabled: true,
+        enabled: false,
         offsetX: -6,
         style: {
             fontSize: '12px',

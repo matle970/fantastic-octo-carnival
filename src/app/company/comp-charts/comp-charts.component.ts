@@ -32,7 +32,7 @@ export class CompChartsComponent implements OnInit {
       }
     ],
     dataLabels: {
-      enabled: true
+      enabled: false
     },
     stroke: {
       curve: 'straight'
@@ -99,7 +99,7 @@ export class CompChartsComponent implements OnInit {
     },
     colors: ['#0077c8', '#48a9c5'],
     dataLabels: {
-      enabled: true
+      enabled: false
     },
     stroke: {
       curve: 'smooth'
@@ -163,7 +163,7 @@ export class CompChartsComponent implements OnInit {
   };
 
 
-  TradeData = {
+  TmuData = {
     chart: {
       fontFamily: '微軟正黑體',
       height: 200,
@@ -180,9 +180,10 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#b06010', '#7b868a'],
+    colors: ['#FFA51F', '#FFE180'],
+
     dataLabels: {
-      enabled: true
+      enabled: false
     },
     stroke: {
       curve: 'smooth'
@@ -246,8 +247,7 @@ export class CompChartsComponent implements OnInit {
 
   };
 
-
-  TmuData = {
+  TradeData = {
     chart: {
       fontFamily: '微軟正黑體',
       height: 200,
@@ -264,9 +264,9 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#f34235', '#fdca30'],
+    colors: ['#996D31', '#CCAB7E'],
     dataLabels: {
-      enabled: true,
+      enabled: false,
       formatter: function(val) {
         return val ? val.toFixed(1) + '%' : ''
       }

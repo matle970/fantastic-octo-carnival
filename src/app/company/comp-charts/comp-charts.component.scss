@@ -10,12 +10,12 @@ $trade-chart-color: #48a9c5;
 
 // 進口,出口
 
-$in-chart-color: #b06010;
-$out-chart-color: #7b868a;
+$in-chart-color: #996D31;
+$out-chart-color: #CCAB7E;
 
 //TMU
-$tmu-color: #f34235;
-$mtm-color: #fdca30;
+$tmu-color: #FFA51F;
+$mtm-color: #FFE180;
 
 .all-charts-blcok {
 
@@ -46,7 +46,7 @@ $mtm-color: #fdca30;
     background: $out-chart-color;
   }
   .bg-tmu {
-    color: white;
+    color: black;
     font-weight: bold;
     background: $tmu-color;
   }
