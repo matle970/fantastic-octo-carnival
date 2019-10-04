@@ -15,6 +15,18 @@ $card-text-color: black;
   color: $card-text-color;
   background: $white-color;
   width: 100%;
+  position: relative;
+  &::before {
+    content: 'NT81752';
+    font-style: 6rem;
+    color: #d2d2d242;
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    font-size: 6rem;
+    transform: rotate(-20deg);
+  }
   small{
     font-size: 0.8rem;
     word-spacing: 2px;
