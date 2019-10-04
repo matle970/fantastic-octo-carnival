@@ -1,4 +1,14 @@
 
+.has-notification-icon{
+  position: relative;
+  .notifications {
+    position: absolute;
+    top: -10px;
+    left: 80px;
+  }
+
+}
+
 .company-title {
   font-size: 1.4rem;
 }
@@ -17,7 +27,7 @@
     li {
       .badge{
         margin-bottom: 3px;
-        width: 100px;
+        width: 95%;
         font-size: 0.7rem;
         background: #fafafa;
         color: #000;
@@ -26,6 +36,7 @@
         padding: 8px 3px;
         .num {
           font-size: 1rem;
+          font-weight: 700;
           text-align: right;
           display: inline-block;
         }

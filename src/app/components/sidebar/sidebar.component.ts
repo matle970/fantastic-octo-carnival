@@ -30,10 +30,13 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
 
-  public sideNavState: boolean = true;
+  // 預設為窄版的
+  public sideNavState: boolean = false;
 
   menuItems: any[];
-  sideWide: boolean = true;
+
+  // 預設為窄版的
+  sideWide: boolean = false;
 
   constructor(private _sidebarService: SidebarService) { }
 
