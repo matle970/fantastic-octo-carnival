@@ -5,7 +5,48 @@
   min-height: 470px;
   .table {
     th {
-      color:#000;
+      font-style: normal;
+      color:#335238;
+      font-size:0.8rem;
+      letter-spacing: 1px;
     }
+  }
+}
+
+.list-table {
+  display: table;
+  margin: 5px;
+  ul {
+    display: table-row;
+    > li {
+      display:table-cell;
+      padding:5px;
+    }
+  }
+  .news-content {
+    max-width: 250px;
+  }
+  ul.title {
+    li {
+      font-size: 1rem;
+      color:#999;
+      &.th-width {
+        width:90px;
+      }
+    }
+  }
+  ul.content {
+    box-shadow: inset 0px 1px 1px #dddddd70;
+    padding: 10px;
+    margin: 5px;
+  }
+}
+
+
+.table-scroll {
+	height: 200px;
+  overflow-y: scroll;
+  .th-width {
+      width:80px;
   }
 }
