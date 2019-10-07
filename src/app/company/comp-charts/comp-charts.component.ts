@@ -336,5 +336,26 @@ export class CompChartsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this);
+    this.allChartEnd();
+
+    const nthis = this;
+    setTimeout(function(){
+      nthis.reRenderCharts();
+    });
+  }
+
+  allChartEnd() {
+    this.chartDeposit.destroy();
+    this.chartLoad.destroy();
+    this.chartTrade.destroy();
+    this.chartTmu.destroy();
+  };
+  reRenderCharts() {
+    this.chartDeposit.render();
+    this.chartLoad.render();
+    this.chartTrade.render();
+    this.chartTmu.render();
+  }
 }
