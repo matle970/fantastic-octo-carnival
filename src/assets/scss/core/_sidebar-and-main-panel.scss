@@ -1,11 +1,13 @@
 $sidebarWith: 160px;
 $sidebarMinwidth: 60px;
-$sidebarBgColor: #fafafa;
+$sidebarBgColor: #f9f9f2;
 
 $iconGreyColor: $grey-500;
 
 // sidebar nav active bg
-$activeNavbg : #FFF;
+// 測邊欄的active bg 可與 dashboard bg 相同
+$activeNavbg : #EEE;
+
 $activeNavColor: #000;
 
 //mini sidebar
@@ -156,7 +158,7 @@ $navMinibg: #999;
             &:hover {
 
               i {
-                color: #FFF;
+                color: #000;
               }
 
             }
