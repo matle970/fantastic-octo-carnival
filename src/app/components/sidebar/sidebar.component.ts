@@ -42,6 +42,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this._sidebarService.sideNavState$.next(false);
   }
   toggleSideWith() {
     this.sideWide = !this.sideWide;
