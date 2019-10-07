@@ -13,6 +13,7 @@ import { TreeLogoComponent } from './tree-logo/tree-logo.component';
 import { AccountComponent } from './account/account.component';
 import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { LogoWhiteComponent } from './logo-white/logo-white.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     SidebarComponent,
     AccountComponent,
     FilterComponent,
-    PaginationComponent
+    PaginationComponent,
+    LogoWhiteComponent
   ],
   exports: [
     HeaderComponent,
@@ -38,7 +40,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     SidebarComponent,
     AccountComponent,
     FilterComponent,
-    PaginationComponent
+    PaginationComponent,
+    LogoWhiteComponent
   ]
 })
 export class ComponentsModule { }
