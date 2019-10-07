@@ -1,23 +1,32 @@
 <div class="main-content mt-3">
   <div class="container-fluid">
-    <div class="text-right date-block clearfix mt-2">
+    <div class="d-block clearfix">
 
-          <span class=" mr-3">
-              資料日：2019/08/06
-          </span>
-          <span class="mx-1">
-            ∣
-          </span>
-          <span class=" mr-3">
-              貢獻度資料期間： 2018/12 ~ 2019/07
-          </span>
-          <span class="mx-1">
-              ∣
-          </span>
+      <div class="float-right ml-5 dashboard-top">
+          <div class="date-block">
 
-          <span class="">
-              單位 ：新臺幣仟元
-          </span>
+              <span class=" mr-3">
+                  資料日：2019/08/06
+              </span>
+              <span class="mx-1">
+                ∣
+              </span>
+              <span class=" mr-3">
+                  貢獻度資料期間： 2018/12 ~ 2019/07
+              </span>
+              <span class="mx-1">
+                  ∣
+              </span>
+
+              <span class="">
+                  單位 ：新臺幣仟元
+              </span>
+        </div>
+      </div>
+      <div class="float-right">
+          <app-filter [datalist]="[]"></app-filter>
+      </div>
+
     </div>
 
     <div>
