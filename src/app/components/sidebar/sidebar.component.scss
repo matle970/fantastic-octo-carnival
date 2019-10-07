@@ -1,8 +1,41 @@
-$sidebarBg: #e8eadd61 ;
-
+$sidebarBg: #fafafa ;
+$link-color: #FFF;
+$icon-color: #ffffff8a;
 .sidebar{
   // overflow-x: hidden;
-  background: $sidebarBg;
+  // background: $sidebarBg;
+  background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
+  li {
+    &.active {
+      > a {
+        color: $link-color;
+
+      }
+    }
+  }
+  .nav {
+    .nav-item {
+      &.active {
+        .nav-link {
+          background: #ffffff85;
+          &::after {
+            border-color: transparent #fcfbfb transparent transparent;
+          }
+        }
+      }
+      .nav-link {
+        i.material-icons {
+          color: $icon-color;
+        }
+        &.active {
+          border-left:3px solid #5ac20a9e;
+          background: #FFF;
+        }
+      }
+
+    }
+
+  }
   .sidebar-wrapper{
     overflow-x: hidden;
   }
