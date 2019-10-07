@@ -1,6 +1,8 @@
+$sidebarBg: #fafafa;
+
 .sidebar{
   // overflow-x: hidden;
-  background: #fafafa;
+  background: $sidebarBg;
   .sidebar-wrapper{
     overflow-x: hidden;
   }

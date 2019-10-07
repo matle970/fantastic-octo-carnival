@@ -1,9 +1,12 @@
+$navBg : #fafafa;
+
+
 .navbar{
   .container-fluid {
     display:inline-block;
     overflow: hidden;
     min-width: 650px;
-    background-color: #fafafa;
+    background-color: $navBg;
 
   }
   .navbar-nav {
