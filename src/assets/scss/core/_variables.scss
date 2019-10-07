@@ -28,6 +28,25 @@ $enable-flex: true; // fully adopt flexbox layouts
 $enable-shadows: true; // enable shadows, set to false to turn off shadows
 
 
+// RWD
+$grid-breakpoints: (
+  xs: 0,
+  sm: 400px, //380
+  md: 760px, //750
+  lg: 1400px,
+  xl: 1800px
+) ;
+
+
+$container-max-widths: (
+  sm: 380px,
+  md: 750px,
+  lg: 100%,
+  xl: 100%
+) ;
+
+
+
 @import "variables/layout";
 @import "variables/menu";
 @import "variables/drawer";
