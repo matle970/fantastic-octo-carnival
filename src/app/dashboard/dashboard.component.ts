@@ -238,7 +238,7 @@ export class DashboardComponent {
     const dialogConfig = new MatDialogConfig();
     // console.log(dialogConfig);
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '90%';
+    // dialogConfig.width = '90%';
     dialogConfig.data = {
       id: 1,
       title: 'news',
