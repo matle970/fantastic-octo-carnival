@@ -17,11 +17,13 @@ $man-b-color: #CCB270;
   .nav-tabs {
     margin:0;
     padding:0;
-    border-bottom: 3px solid #dbdbdb;
+    border: none !important;
+    // border-bottom: 3px solid #dbdbdb;
     .nav-link {
       border:1px solid #EEE;
       color: #ffffff8a;
       opacity: 0.4;
+      border-radius: 3px !important;
       &:hover {
         opacity: 1 !important;
         color: #FFF;
@@ -30,7 +32,7 @@ $man-b-color: #CCB270;
 
       &.active {
         border-width:1px 1px 0 1px;
-        border-color: #777 #777 #FFF #777;
+        border-color: #777;
         opacity: 1 !important;
         color: #FFF!important;
         text-shadow: 0 0px 3px #DDD important;
@@ -38,33 +40,33 @@ $man-b-color: #CCB270;
       &.all-type {
         background: linear-gradient(0deg, $all-b-color, $all-A-color);
         &.active {
-          border-color: $all-A-color $all-A-color #FFF $all-A-color;
+          border-color: $all-A-color;
         }
       }
       &.type-deposit {
         background: linear-gradient(0deg, $deposit-b-color, $deposit-A-color);
         &.active {
-          border-color: $deposit-A-color $deposit-A-color #FFF $deposit-A-color;
+          border-color: $deposit-A-color;
         }
 
       }
       &.type-load {
         background: linear-gradient(0deg, $load-b-color, $load-A-color);
         &.active {
-          border-color: $load-A-color $load-A-color #FFF $load-A-color;
+          border-color: $load-A-color;
         }
 
       }
       &.type-tmu {
         background: linear-gradient(0deg, $tmu-b-color, $tmu-A-color);
         &.active {
-          border-color: $tmu-A-color $tmu-A-color #FFF $tmu-A-color;
+          border-color: $tmu-A-color;
         }
       }
       &.type-man {
         background: linear-gradient(0deg, $man-b-color, $man-A-color);
         &.active {
-          border-color: $man-A-color $man-A-color #FFF $man-A-color;
+          border-color: $man-A-color;
         }
       }
     }
