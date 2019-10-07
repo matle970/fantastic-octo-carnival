@@ -24,6 +24,8 @@ $man-b-color: #CCB270;
       color: #ffffff8a;
       opacity: 0.4;
       border-radius: 3px !important;
+      position: relative;
+      top: 0px;
       &:hover {
         opacity: 1 !important;
         color: #FFF;
@@ -31,11 +33,13 @@ $man-b-color: #CCB270;
       }
 
       &.active {
-        border-width:1px 1px 0 1px;
+        border-width:1px;
         border-color: #777;
         opacity: 1 !important;
         color: #FFF!important;
         text-shadow: 0 0px 3px #DDD important;
+        position: relative;
+        top: 0px;
       }
       &.all-type {
         background: linear-gradient(0deg, $all-b-color, $all-A-color);
