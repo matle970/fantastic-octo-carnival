@@ -1,5 +1,6 @@
 $sidebarBg: #fafafa ;
-$link-color: #FFF;
+$link-color: #ffffff78;
+$link-hover: #FFF;
 $icon-color: #ffffff8a;
 .sidebar{
   // overflow-x: hidden;
@@ -32,6 +33,9 @@ $icon-color: #ffffff8a;
         &.active {
           border-left:3px solid #5ac20a9e;
           background: #FFF;
+        }
+        &:hover {
+          color: $link-hover;
         }
       }
 
