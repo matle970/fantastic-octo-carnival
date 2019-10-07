@@ -12,6 +12,14 @@ $tag-red: #c00000;
   width: auto;
   min-width: 620px;
 }
+.dashboard-top {
+  .date-block {
+    height: 40px;
+    line-height: 40px;
+  }
+
+}
+
 
 .data-card{
   overflow: visible  !important;

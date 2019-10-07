@@ -1,7 +1,11 @@
 .filter-block{
   text-align: right;
   margin: 0 auto;
-  width: 600px;
+  width: 460px;
+  .btn {
+    padding:8px 10px;
+    font-size: 1rem;
+  }
 }
 
 
