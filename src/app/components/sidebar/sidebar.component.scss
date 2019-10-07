@@ -18,12 +18,14 @@ $icon-color: #ffffff8a;
       &.active {
         .nav-link {
           background: #ffffff85;
+          color:$link-color;
           &::after {
             border-color: transparent #fcfbfb transparent transparent;
           }
         }
       }
       .nav-link {
+        color:$link-color;
         i.material-icons {
           color: $icon-color;
         }
