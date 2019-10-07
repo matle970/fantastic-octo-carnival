@@ -337,13 +337,13 @@ export class CompChartsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this);
-    this.allChartEnd();
+    // console.log(this);
+    // this.allChartEnd();
 
-    const nthis = this;
-    setTimeout(function(){
-      nthis.reRenderCharts();
-    });
+    // const nthis = this;
+    // setTimeout(function(){
+    //   nthis.reRenderCharts();
+    // });
   }
 
   allChartEnd() {
