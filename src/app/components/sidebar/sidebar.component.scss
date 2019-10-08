@@ -5,7 +5,8 @@ $icon-color: #ffffff8a;
 .sidebar{
   // overflow-x: hidden;
   // background: $sidebarBg;
-  background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
+  background: #009F41;
+  // background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
   li {
     &.active {
       > a {
