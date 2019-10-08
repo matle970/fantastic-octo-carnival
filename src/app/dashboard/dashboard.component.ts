@@ -18,7 +18,10 @@ export class DashboardComponent {
   };
 
   tableThList = [
-
+    {
+      id:'ao',
+      name: '經管 AO',
+    },
     {
       id:'group_name',
       name: '集團名稱',
@@ -80,6 +83,7 @@ export class DashboardComponent {
   tableDetailList =[
     {
       id: 'c001',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '03546618',
       cus_name: '廣宇科技股份有限公司',
@@ -95,6 +99,7 @@ export class DashboardComponent {
     },
     {
       id: 'c002',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '12800225',
       cus_name: '群創光電股份有限公司',
@@ -110,6 +115,7 @@ export class DashboardComponent {
     },
     {
       id: 'c003',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '80731387',
       cus_name: '宏瀚投資股份有限公司',
@@ -125,6 +131,7 @@ export class DashboardComponent {
     },
     {
       id: 'c004',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '80732007',
       cus_name: '聯巨投資股份有限公司',
@@ -140,6 +147,7 @@ export class DashboardComponent {
     },
     {
       id: 'c005',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '84149499',
       cus_name: '天鈺科技股份有限公司',
@@ -155,6 +163,7 @@ export class DashboardComponent {
     },
     {
       id: 'c006',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '496390JA',
       cus_name: '捷達創新科技有限公司',
@@ -170,6 +179,7 @@ export class DashboardComponent {
     },
     {
       id: 'c007',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '27310561',
       cus_name: '啟耀光電股份有限公司',
@@ -186,6 +196,7 @@ export class DashboardComponent {
 
     {
       id: 'c008',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '28488592',
       cus_name: '瑞祺電通股份有限公司',
@@ -201,6 +212,7 @@ export class DashboardComponent {
     },
     {
       id: 'c009',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '70380046',
       cus_name: '樺漢科技股份有限公司',
@@ -216,6 +228,7 @@ export class DashboardComponent {
     },
     {
       id: 'c010',
+      ao: '企企2 葉又萱',
       group_name: '鴻海集團',
       cus_id: '24291669',
       cus_name: '康聯生醫科技股份有限公司',
@@ -256,14 +269,30 @@ export class DashboardComponent {
     // });
   }
 
-  orderByThis(typeId) {
+  orderByThis(typeId: string) {
     console.log(typeId);
     if(this.nowOrder.id == typeId){
-      this.nowOrder.ASC = !this.nowOrder.ASC
+      this.nowOrder.ASC = !this.nowOrder.ASC;
+      this.nowOrder.id = typeId;
+      this.sortBy(typeId);
     } else {
       this.nowOrder.ASC = true;
+      this.nowOrder.id = typeId;
+      this.sortBy(typeId);
     }
-    this.nowOrder.id = typeId;
+
+  }
+
+  sortBy (key: string) {
+    console.log('now Sort',key);
+    const asc = this.nowOrder.ASC;
+    return this.tableDetailList.sort(function(a, b) {
+      const ai = isNaN(a[key]) ? a[key].charCodeAt(0) : a[key];
+      const bi = isNaN(b[key]) ? b[key].charCodeAt(0) : b[key];
+      return asc ? ai - bi : bi - ai;
+    });
+
+
   }
 
 }
