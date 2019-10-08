@@ -6,6 +6,7 @@
 
 <div class="sidebar"  data-color="danger"
 [@onSideNavChange]="sideNavState ? 'open' : 'close'"
+
  data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
   <div class="logo">
       <a href="#" class="simple-text">
@@ -15,7 +16,9 @@
           </div>
       </a>
   </div>
-  <div class="sidebar-wrapper">
+  <div class="sidebar-wrapper"
+  (mouseover)="sideNavState = true"
+  (mouseout)="sideNavState = false">
     <div *ngIf="false && isMobileMenu()" >
       <form class="navbar-form" *ngIf="false">
         <span class="bmd-form-group">
@@ -70,13 +73,15 @@
                 <p>{{menuItem.title}}</p>
             </a>
         </li>
-        <li class="nav-item sidebar-toggle" (click)="onSidebarToggle()">
+
+        <!-- 改為 hover 開關，故 hide 開關的按鈕  -->
+        <!-- <li class="nav-item sidebar-toggle" (click)="onSidebarToggle()">
           <a class="nav-link">
             <i class="material-icons">
               swap_horiz
             </i>
-        </a>
-        </li>
+          </a>
+        </li> -->
     </ul>
   </div>
 
