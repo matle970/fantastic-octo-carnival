@@ -36,6 +36,7 @@
         padding: 8px 3px;
         .num {
           font-size: 1rem;
+          color:#069F41;
           font-weight: 700;
           text-align: right;
           display: inline-block;
@@ -48,10 +49,13 @@
         word-spacing: 2px;
         padding-bottom: 0rem !important;
         margin-bottom: 0.4rem;
+        color:#069F41;
+        font-weight: 700;
         em {
           display:block;
           font-style: normal;
-          color:#335238;
+          font-weight: 500;
+          color:#000;
           font-size:0.8rem;
           letter-spacing: 1px;
         }
