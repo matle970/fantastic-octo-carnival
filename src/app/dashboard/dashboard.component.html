@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="float-right">
-          <app-filter [datalist]="[]"></app-filter>
+          <app-filter [datalist]="[]" ></app-filter>
       </div>
 
     </div>
@@ -87,6 +87,10 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of tableDetailList">
+                              <td class="text-left">
+                                    {{item.ao}}
+                              </td>
+
                               <td class="text-left">
                                 {{item.group_name}}
                               </td>
