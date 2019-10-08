@@ -10,8 +10,6 @@ import { DialogComponent } from '../dialog/dialog.component';
 
 export class DashboardComponent {
 
-  orderType =  'group_name';
-  orderASC = true;
   nowOrder = {
     id:'group_name',
     ASC : true
@@ -81,6 +79,56 @@ export class DashboardComponent {
   ];
 
   tableDetailList =[
+    {
+      id: 'd001',
+      ao: '人類經理 具燦星',
+      group_name: '滿月集團',
+      cus_id: '03546618',
+      cus_name: '德魯納股份有限公司',
+      msr: '4',
+      rorwa: '0.36%',
+      raroc: '0.36%',
+      last_year_contribution: '10000',
+      this_year_contribution: '9000',
+      deposit: '1000000',
+      load_balance: '600000',
+      trade_balance: '3000',
+      tag: [1, 2, 3]
+    },
+    {
+      id: 'd002',
+      ao: '店長 鄭北東',
+      group_name: '滿月集團',
+      cus_id: '11223355',
+      cus_name: '千里馬超市',
+      msr: '4',
+      rorwa: '0.56%',
+      raroc: '0.36%',
+      last_year_contribution: '100',
+      this_year_contribution: '500',
+      deposit: '100000',
+      load_balance: '60000',
+      trade_balance: '3000',
+      tag: [ 2, 3]
+    },
+    {
+      id: 'd003',
+      ao: '酒保 金時翼',
+      group_name: '滿月集團',
+      cus_id: '11223355',
+      cus_name: '天空酒吧',
+      msr: '4',
+      rorwa: '0.56%',
+      raroc: '0.36%',
+      last_year_contribution: '50000',
+      this_year_contribution: '500',
+      deposit: '100',
+      load_balance: '60000',
+      trade_balance: '3000',
+      tag: [ 2, 3]
+    },
+
+
     {
       id: 'c001',
       ao: '企企2 葉又萱',
@@ -242,6 +290,16 @@ export class DashboardComponent {
       trade_balance: '',
       tag: []
     },
+
+
+
+
+
+
+
+
+
+
 
   ];
 
