@@ -1,5 +1,9 @@
 import { Component, ViewChild, OnInit, Input} from '@angular/core';
 
+import { ModalService } from 'src/app/services/modal.service';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { DialogComponent } from './../../dialog/dialog.component';
+
 import {
   ChartComponent,
   ApexChart,
@@ -20,6 +24,7 @@ import {
   ApexTitleSubtitle,
   ApexTheme
 } from 'ng-apexcharts';
+
 
 @Component({
   selector: 'app-base-info',
@@ -117,10 +122,112 @@ export class BaseInfoComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  // 公司資料的假資料
+  company_info = {
+    date:'2019/06/18',
+    company_name:'千里馬股份有限公司',
+    data_list:[
+      {
+        id:'c01',
+        name:'股票代號',
+        content:'0730',
+      },
+      {
+        id:'c02',
+        name:'資本總額',
+        content:'180000000',
+      },
+      {
+        id:'c03',
+        name:'實收資本額',
+        content:'138629906',
+      },
+      {
+        id:'c04',
+        name:'核准設立日期',
+        content:'1974/02/20',
+      },
+      {
+        id:'c05',
+        name:'代表人姓名',
+        content:'李宛靜',
+      },
+      {
+        id:'c06',
+        name:'註冊地址',
+        content:'新北市土城區中山路66號',
+      },
+      {
+        id:'c07',
+        name:'主要營業地址',
+        content:'新北市土城區中山路66號',
+      },
+      {
+        id:'c08',
+        name:'聯絡地址',
+        content:'新北市土城區中山路66號',
+      },
+
+      {
+        id:'c09',
+        name:'負責人',
+        content:'林金霖 ｜ 6 月壽星｜ AUM 9,612',
+      },
+      {
+        id:'c10',
+        name:'負責人配偶',
+        content:'王弈 ｜ 26 歲｜ 5 月壽星｜ AUM 1,485',
+      },
+      {
+        id:'c11',
+        name:'聯絡窗口 1',
+        content:'財務長 徐以威  02 8722 6666 #7169',
+      },
+      {
+        id:'c12',
+        name:'聯絡窗口 2',
+        content:'經辦小姐 尤昕寧  02 8722 6666 #7155',
+      },
+    ]
+  }
+
+  constructor(private modalService: ModalService, public dialog: MatDialog) { }
 
   ngOnInit() {
     const myChart = this.chartObj;
   }
+  /**
+   * 暫用此方法寫
+   * @param modalId 開啟modal的方式
+   */
+
+  openDialog(modalId: number) {
+    const openId = modalId ? modalId : 3;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '80%';
+    dialogConfig.data = {
+      id: openId,
+      title: '',
+      content_data: {}
+    };
+    if(openId === 3) {
+      dialogConfig.data.content_data = this.company_info;
+      dialogConfig.data.title ='公司資訊'
+    }
+
+    this.dialog.open(DialogComponent, dialogConfig);
+  }
+
+  /**
+   * 之後有時間再詳寫此功能
+   * @param mid
+   */
+  openModal (mid: string) {
+    this.modalService.openModal(mid);
+
+  }
+
+
 
 }

@@ -1,0 +1,34 @@
+<div class="company-info">
+  <div class="row">
+    <div class="col-6 col-md-6 col-sm-12">
+        <div class="table-responsive">
+          <table  class="table table-hover">
+            <tbody>
+              <tr *ngFor="let item of content.content_data.data_list">
+                  <th class="text-left mr-2">{{item.name}}</th>
+                  <td class="text-left mr-2">
+                    <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
+                        {{item.content}}
+                    </span>
+                    <span class="text-primary" *ngIf="(item.id =='c02') || (item.id == 'c03')">
+                        {{item.content | currency:'':'symbol':'1.0-0'}}
+                    </span>
+
+                  </td>
+              </tr>
+            </tbody>
+
+
+          </table>
+        </div>
+
+    </div>
+    <div class="col-6 col-md-6 col-sm-12">
+
+      放地圖
+
+    </div>
+  </div>
+
+
+</div>

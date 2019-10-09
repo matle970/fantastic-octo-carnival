@@ -11,16 +11,13 @@ export class IndexNoticeComponent implements OnInit {
 
   @Input() content: any;
 
-  mycontent: any = {};
+  // mycontent: any = {};
 
 
   constructor() { }
 
   ngOnInit() {
-    this.mycontent = this.content;
-
-
-    console.log('index', this.content)
+    // this.mycontent = this.content;
   }
 
   changeTab (tabId: string){
