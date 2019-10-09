@@ -1,4 +1,4 @@
-<span class="badge float-right notifications" matTooltip="關鍵提醒" matTooltipPosition="above">
+<span class="badge float-right notifications" matTooltip="關鍵提醒" matTooltipPosition="above" (click)="openDialog()">
     <i class="material-icons" [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
       notifications
     </i>
