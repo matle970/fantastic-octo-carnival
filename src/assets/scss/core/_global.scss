@@ -83,8 +83,8 @@ $tag-red: #c00000;
 .has-notification-icon {
   position: relative;
   .notifications {
-    top: 5px;
-    position: relative;
+    top: -5px;
+    position: absolute;
     background: transparent;
     cursor: pointer;
     i.material-icons {
