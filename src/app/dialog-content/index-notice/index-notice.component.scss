@@ -1,0 +1,14 @@
+
+.notice-tab {
+  width: auto;
+  min-width: 80%;
+}
+.notice-content {
+  height: auto;
+  min-height: 450px;
+  max-height: 500px;
+  overflow: auto;
+  li {
+    border-bottom: 1px solid #EEE;
+  }
+}

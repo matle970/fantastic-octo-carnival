@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-index-notice',
@@ -7,15 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexNoticeComponent implements OnInit {
 
-  tabIndex: number = 1;
+  tabIndex: string = 'all';
+
+  @Input() content: any;
+
+  mycontent: any = {};
 
 
   constructor() { }
 
   ngOnInit() {
+    this.mycontent = this.content;
+
+
+    console.log('index', this.content)
   }
 
-  changeTab (tabId: number){
+  changeTab (tabId: string){
     this.tabIndex = tabId;
   }
 

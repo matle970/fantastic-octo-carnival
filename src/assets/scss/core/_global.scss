@@ -97,10 +97,15 @@ $tag-red: #c00000;
     i.material-icons {
       font-size: 2.2rem;
       position: relative;
-      color: #ff5858 ;
-      background: -webkit-linear-gradient(-60deg, #ff5858  0%,  #f09819 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      &.has-msg {
+        color: #ff5858 ;
+        background: -webkit-linear-gradient(-60deg, #ff5858  0%,  #f09819 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &.no-msg {
+        color: #dbdbdb;
+      }
 
 
     }

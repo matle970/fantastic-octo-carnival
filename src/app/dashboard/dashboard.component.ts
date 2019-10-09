@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -303,29 +302,7 @@ export class DashboardComponent {
 
   ];
 
-  constructor(public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-    // console.log(dialogConfig);
-    dialogConfig.autoFocus = false;
-    // dialogConfig.width = '90%';
-    dialogConfig.data = {
-      id: 1,
-      title: 'news',
-      data: {}
-  };
-
-
-
-    this.dialog.open(DialogComponent, dialogConfig);
-
-    // this.dialog.open(DialogComponent, {
-    //   data: {
-    //     animal: 'panda'
-    //   }
-    // });
-  }
 
   orderByThis(typeId: string) {
     console.log(typeId);
