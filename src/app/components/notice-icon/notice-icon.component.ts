@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NoticeIconComponent implements OnInit {
 
 
-  @Input() msg: string;
+  @Input() notice: number;
 
   ngOnInit(): void {
   }

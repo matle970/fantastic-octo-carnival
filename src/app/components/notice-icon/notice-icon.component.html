@@ -1,8 +1,8 @@
 <span class="badge float-right notifications">
-    <i class="material-icons text-primary animated infinite swing">
+    <i class="material-icons" [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
       notifications
     </i>
-    <span class="notice bg-danger">
-      2
+    <span class="notice" [ngClass]="{'bg-danger': notice > 0,'bg-light text-gray': notice == 0}">
+      {{notice}}
     </span>
 </span>
