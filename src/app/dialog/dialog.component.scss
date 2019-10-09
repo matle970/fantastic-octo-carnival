@@ -1,8 +1,12 @@
+$cathyGreen: #069F41;
+
 .dialog-title {
   position: relative;
   font-family: '微軟正黑體';
-  .title {
-    
+  .title-name {
+    border-left: 3px solid $cathyGreen;
+    color:$cathyGreen;
+    font-weight: 700;
   }
   .close-icon {
     position: absolute;

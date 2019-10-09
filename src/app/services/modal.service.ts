@@ -11,7 +11,7 @@ import { DummyData } from './../dummy-data/dummy-data';
 export class ModalService implements OnInit {
   constructor(public dialog: MatDialog) {}
 
-  dummy = DummyData;
+  // dummy = DummyData;
 
   ngOnInit () {
     console.log(this)
@@ -29,8 +29,8 @@ export class ModalService implements OnInit {
 
     // 要開啟的 modal id
     const modal_id = id ? id : 1;
-    console.log(dummy)
-    console.log('modal id',id)
+    // console.log(dummy)
+    // console.log('modal id',id)
 
     this.dialog.open(DialogComponent, dialogConfig);
   }
