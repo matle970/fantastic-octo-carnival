@@ -14,6 +14,7 @@ import { AccountComponent } from './account/account.component';
 import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { LogoWhiteComponent } from './logo-white/logo-white.component';
+import { NoticeIconComponent } from './notice-icon/notice-icon.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { LogoWhiteComponent } from './logo-white/logo-white.component';
     AccountComponent,
     FilterComponent,
     PaginationComponent,
-    LogoWhiteComponent
+    LogoWhiteComponent,
+    NoticeIconComponent
   ],
   exports: [
     HeaderComponent,
@@ -41,7 +43,8 @@ import { LogoWhiteComponent } from './logo-white/logo-white.component';
     AccountComponent,
     FilterComponent,
     PaginationComponent,
-    LogoWhiteComponent
+    LogoWhiteComponent,
+    NoticeIconComponent
   ]
 })
 export class ComponentsModule { }

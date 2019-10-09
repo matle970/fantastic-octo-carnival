@@ -10,6 +10,10 @@ import { CompHistoryComponent } from './comp-history/comp-history.component';
 
 import { SharedMaterialModule } from './../shared-material/shared-material.module';
 
+// 共用的元件
+import { ComponentsModule } from '../components/components.module';
+
+
 
 
 @NgModule({
@@ -17,6 +21,7 @@ import { SharedMaterialModule } from './../shared-material/shared-material.modul
     CommonModule,
     RouterModule,
     SharedMaterialModule,
+    ComponentsModule,
     NgApexchartsModule
   ],
   declarations: [
