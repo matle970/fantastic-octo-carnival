@@ -92,7 +92,8 @@
         background-color: $brand-info;
     }
     &.badge-success{
-        background-color: $brand-success;
+        color:$brand-success;
+        background-color: lighten($brand-success, 60%);
     }
     &.badge-warning{
         background-color: $brand-warning;
