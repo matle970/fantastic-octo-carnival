@@ -9,6 +9,13 @@
                   <td class="text-left mr-2">
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
+                        <ng-container *ngIf="item.tags.length > 0">
+                          <span class="badge badge-pill badge-success mr-1" *ngFor="let tag of item.tags">
+                            {{tag}}
+                          </span>
+
+                        </ng-container>
+
                     </span>
                     <span class="text-primary" *ngIf="(item.id =='c02') || (item.id == 'c03')">
                         {{item.content | currency:'':'symbol':'1.0-0'}}
