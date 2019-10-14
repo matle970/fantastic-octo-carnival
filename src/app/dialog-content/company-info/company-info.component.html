@@ -9,12 +9,12 @@
                   <td class="text-left mr-2" >
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
-                        <ng-container *ngIf="item.infos.length > 0">
+                        <ng-container *ngIf="item.infos && item.infos.length > 0">
                           <span class="badge badge-pill badge-success mr-1" *ngFor="let info of item.infos">
                             {{info}}
                           </span>
                         </ng-container>
-                        <ng-container *ngIf="item.tags.length > 0">
+                        <ng-container *ngIf="item.tags && item.tags.length > 0">
                             <span class="badge mr-1"
                             [ngClass]="{'badge-black': tag =='黑名單','badge-vip':tag=='VIP','badge-primary':tag=='高爾夫'}"
                             *ngFor="let tag of item.tags">

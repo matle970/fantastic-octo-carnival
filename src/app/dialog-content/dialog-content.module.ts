@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IndexNoticeComponent } from './index-notice/index-notice.component';
 import { CompanyInfoComponent } from './company-info/company-info.component';
 import { SharedItemModule } from '../shared-item/shared-item.module';
+import { GroupInfoComponent } from './group-info/group-info.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,12 @@ import { SharedItemModule } from '../shared-item/shared-item.module';
   declarations: [
     IndexNoticeComponent,
     CompanyInfoComponent,
+    GroupInfoComponent,
   ],
   exports: [
     IndexNoticeComponent,
-    CompanyInfoComponent
+    CompanyInfoComponent,
+    GroupInfoComponent
   ],
 
 })
