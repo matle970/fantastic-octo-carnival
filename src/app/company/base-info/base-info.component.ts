@@ -131,36 +131,42 @@ export class BaseInfoComponent implements OnInit {
         id:'c01',
         name:'股票代號',
         content:'0730',
+        infos:[],
         tags:[]
       },
       {
         id:'c02',
         name:'資本總額',
         content:'180000000',
+        infos:[],
         tags:[]
       },
       {
         id:'c03',
         name:'實收資本額',
         content:'138629906',
+        infos:[],
         tags:[]
       },
       {
         id:'c04',
         name:'核准設立日期',
         content:'1974/02/20',
+        infos:[],
         tags:[]
       },
       {
         id:'c05',
         name:'代表人姓名',
         content:'李宛靜',
+        infos:[],
         tags:[]
       },
       {
         id:'c06',
         name:'註冊地址',
         content:'新北市土城區中山路66號',
+        infos:[],
         tags:[],
         activeMap:true
       },
@@ -168,6 +174,7 @@ export class BaseInfoComponent implements OnInit {
         id:'c07',
         name:'主要營業地址',
         content:'新北市土城區中山路66號',
+        infos:[],
         tags:[],
         activeMap:false
       },
@@ -175,6 +182,7 @@ export class BaseInfoComponent implements OnInit {
         id:'c08',
         name:'聯絡地址',
         content:'新北市土城區中山路66號',
+        infos:[],
         tags:[],
         activeMap:false
       },
@@ -183,25 +191,27 @@ export class BaseInfoComponent implements OnInit {
         id:'c09',
         name:'負責人',
         content:'林金霖',
-        tags:[ " 6 月壽星","AUM 9,612"]
+        infos:[ " 6 月壽星","AUM 9,612"],
+        tags:["VIP","高爾夫"]
       },
       {
         id:'c10',
         name:'負責人配偶',
         content:'王弈',
-        tags:[" 26 歲","5 月壽星","AUM 1,485"]
+        infos:[" 26 歲","5 月壽星","AUM 1,485"],
+        tags:["黑名單"]
       },
       {
         id:'c11',
         name:'聯絡窗口 1',
         content:'財務長 徐以威',
-        tags:["02 8722 6666 #7169"]
+        infos:["02 8722 6666 #7169"]
       },
       {
         id:'c12',
         name:'聯絡窗口 2',
         content:'經辦小姐 尤昕寧',
-        tags:["02 8722 6666 #7155"]
+        infos:["02 8722 6666 #7155"]
       },
     ]
   }
