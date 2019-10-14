@@ -1,6 +1,6 @@
 <div class="m-0 p-0 clearfix dialog-title pb-3" mat-dialog-title>
-  <span class="d-inline-block float-left title-name pl-3" *ngIf="contentData.id > 2">
-    {{contentData.title}}
+  <span class="d-inline-block float-left title-name pl-2" *ngIf="contentData.id > 2">
+    {{contentData.title}} : {{contentData.content_data.company_name}}
   </span>
   <span class="d-inline-block date-block float-right mr-5">
       資料日: {{contentData.content_data.date}}
@@ -15,4 +15,5 @@
 <div mat-dialog-content>
   <app-index-notice [content]="contentData" *ngIf="contentData.id < 3"></app-index-notice>
   <app-company-info [content]="contentData" *ngIf="contentData.id == 3"></app-company-info>
+  <app-group-info [content]="contentData" *ngIf="contentData.id == 4"></app-group-info>
 </div>

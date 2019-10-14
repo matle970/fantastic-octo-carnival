@@ -1,8 +1,18 @@
 
 $arrowColor: green;
-
+$blackListBg: #c00000;
 .company-info {
   .company-table {
+    .badge {
+      &.badge-vip {
+        background: orange;
+        color:#FFF;
+      }
+      &.badge-black {
+        background: $blackListBg;
+        color:#FFF;
+      }
+    }
     tr.active {
 
         &::after {
