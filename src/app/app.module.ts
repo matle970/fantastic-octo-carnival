@@ -24,6 +24,8 @@ import { SharedMaterialModule } from './shared-material/shared-material.module';
 
 // services
 import { SidebarService } from './services/sidebar.service';
+import { ModalService } from './services/modal.service';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 
@@ -31,6 +33,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogContentModule } from './dialog-content/dialog-content.module';
 import { IconSvgModule } from './icon-svg/icon-svg.module';
+
 
 
 @NgModule({
@@ -61,7 +64,8 @@ import { IconSvgModule } from './icon-svg/icon-svg.module';
     RouterModule,
   ],
   providers: [
-    SidebarService
+    SidebarService,
+    ModalService
   ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]

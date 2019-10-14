@@ -1,19 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from './../../dialog/dialog.component';
-@Component({
-  selector: 'app-notice-icon',
-  templateUrl: './notice-icon.component.html',
-  styleUrls: ['./notice-icon.component.scss']
-})
-export class NoticeIconComponent implements OnInit {
-
-
-  @Input() notice: number;
-  @Input() modalId: number;
-
+export class DummyData {
   // 假資料 首頁關鍵提醒
   notice_one = {
+    mid:1,
     date:'2019/06/18',
     type_list:[
       {
@@ -97,6 +85,7 @@ export class NoticeIconComponent implements OnInit {
 
   // 假資料 公司的關鍵提醒
   notice_two = {
+    mid:2,
     date:'2019/06/18',
     type_list:[
       {
@@ -178,33 +167,7 @@ export class NoticeIconComponent implements OnInit {
     ]
   }
 
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-  }
-  openDialog() {
-
-    const openId = this.modalId ? this.modalId : 1 ;
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
-    dialogConfig.data = {
-      id: openId,
-      title: '關鍵提醒',
-      content_data: {}
-    };
-
-    if ( openId === 1) {
-      dialogConfig.data.content_data = this.notice_one;
-    } else if ( openId === 2) {
-      dialogConfig.data.content_data = this.notice_two;
-    }
-
-    this.dialog.open(DialogComponent, dialogConfig);
-  }
 
 
+  
 }
-
-

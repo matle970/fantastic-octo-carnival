@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndexNoticeComponent } from './index-notice/index-notice.component';
-import { CompanyNoticeComponent } from './company-notice/company-notice.component';
+import { CompanyInfoComponent } from './company-info/company-info.component';
 
 @NgModule({
   imports: [
@@ -9,11 +9,11 @@ import { CompanyNoticeComponent } from './company-notice/company-notice.componen
   ],
   declarations: [
     IndexNoticeComponent,
-    CompanyNoticeComponent
+    CompanyInfoComponent,
   ],
   exports: [
     IndexNoticeComponent,
-    CompanyNoticeComponent
+    CompanyInfoComponent
   ],
 
 })
