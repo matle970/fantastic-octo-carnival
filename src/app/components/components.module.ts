@@ -16,6 +16,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { LogoWhiteComponent } from './logo-white/logo-white.component';
 import { NoticeIconComponent } from './notice-icon/notice-icon.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +33,7 @@ import { NoticeIconComponent } from './notice-icon/notice-icon.component';
     FilterComponent,
     PaginationComponent,
     LogoWhiteComponent,
-    NoticeIconComponent
+    NoticeIconComponent,
   ],
   exports: [
     HeaderComponent,
@@ -44,7 +45,7 @@ import { NoticeIconComponent } from './notice-icon/notice-icon.component';
     FilterComponent,
     PaginationComponent,
     LogoWhiteComponent,
-    NoticeIconComponent
+    NoticeIconComponent,
   ]
 })
 export class ComponentsModule { }
