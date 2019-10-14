@@ -216,6 +216,13 @@ export class BaseInfoComponent implements OnInit {
     ]
   }
 
+  //集團資訊的假資料
+  group_info = {
+    date:'2019/08/06',
+    company_name:'德魯納集團',
+    data_list:[]
+  }
+
   constructor(private modalService: ModalService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -239,6 +246,9 @@ export class BaseInfoComponent implements OnInit {
     if(openId === 3) {
       dialogConfig.data.content_data = this.company_info;
       dialogConfig.data.title ='公司資訊'
+    } else if (openId === 4) {
+      dialogConfig.data.content_data = this.group_info;
+      dialogConfig.data.title ='集團資訊'
     }
 
     this.dialog.open(DialogComponent, dialogConfig);
