@@ -161,19 +161,22 @@ export class BaseInfoComponent implements OnInit {
         id:'c06',
         name:'註冊地址',
         content:'新北市土城區中山路66號',
-        tags:[]
+        tags:[],
+        activeMap:true
       },
       {
         id:'c07',
         name:'主要營業地址',
         content:'新北市土城區中山路66號',
-        tags:[]
+        tags:[],
+        activeMap:false
       },
       {
         id:'c08',
         name:'聯絡地址',
         content:'新北市土城區中山路66號',
-        tags:[]
+        tags:[],
+        activeMap:false
       },
 
       {

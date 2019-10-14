@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-6 col-md-6 col-sm-12">
         <div class="table-responsive">
-          <table  class="table table-hover">
+          <table  class="table table-hover company-table">
             <tbody>
-              <tr *ngFor="let item of content.content_data.data_list">
+              <tr *ngFor="let item of content.content_data.data_list" [ngClass]="{'text-primary active right': item.activeMap}">
                   <th class="text-left mr-2">{{item.name}}</th>
-                  <td class="text-left mr-2">
+                  <td class="text-left mr-2" >
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
                         <ng-container *ngIf="item.tags.length > 0">
@@ -31,9 +31,7 @@
 
     </div>
     <div class="col-6 col-md-6 col-sm-12">
-
-      放地圖
-
+      <app-map></app-map>
     </div>
   </div>
 
