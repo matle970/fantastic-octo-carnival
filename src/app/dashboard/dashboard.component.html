@@ -49,7 +49,9 @@
                   <div class="table-responsive data-table mt-3">
                       <table class="table">
                           <thead class="text-primary">
-                            <th class=" py-3 px-1" [ngClass]="{'text-left':  (thHead.id=='group_name'|| thHead.id == 'cus_name')}" *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+                            <th class="py-3 px-1 text-right"
+                            [ngClass]="{'min-150': (thHead.id=='ao'|| thHead.id == 'group_name' || thHead.id == 'cus_name')}"
+                            *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
                               <span class="d-inline-block" [ngClass]="{
                                 'th-width-min': (thHead.name == '去年度累計貢獻度' || thHead.name == '今年度累計貢獻度')
@@ -85,41 +87,30 @@
                                     {{item.ao}}
                               </td>
 
-                              <td class="text-left">
+                              <td class="text-right  pr-4">
                                 {{item.group_name}}
                               </td>
 
-                              <td class="text-left">
+                              <td class="text-right  pr-4">
                                   <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
-                                <div class="d-inline-block">
-                                  <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
+                                <div class="d-block">
+                                  <span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授
                                   </span>
-                                  <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above" *ngIf="item.tag.includes(2)">
+                                  <span class="mt-1 tag tag-blue" matTooltip="企網銀" matTooltipPosition="above" *ngIf="item.tag.includes(2)">
                                     網
                                   </span>
-                                  <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above" *ngIf="item.tag.includes(3)">
+                                  <span class="mt-1 tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above" *ngIf="item.tag.includes(3)">
                                     薪
                                   </span>
 
 
-                                  <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" *ngIf="item.tag.includes(4)">
+                                  <span class="mt-1 tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" *ngIf="item.tag.includes(4)">
                                     核
                                   </span>
-                                  <span class="tag tag-red" matTooltip="黑名單" matTooltipPosition="above" *ngIf="item.tag.includes(5)">
+                                  <span class="mt-1 tag tag-red" matTooltip="黑名單" matTooltipPosition="above" *ngIf="item.tag.includes(5)">
                                     黑
                                   </span>
-
-                                  <!-- ICON 式 不用了 -->
-                                  <!-- <div class="m-0 p-0">
-                                      <app-icon-credit matTooltip="授信戶" matTooltipPosition="above" class="tag tag-green" *ngIf="item.tag.includes(1)" ></app-icon-credit>
-                                      <app-icon-netbank matTooltip="企網銀" matTooltipPosition="above" class="tag tag-blue" *ngIf="item.tag.includes(2)" ></app-icon-netbank>
-
-                                      <app-icon-transfer matTooltip="薪轉戶" matTooltipPosition="above" class="tag tag-gold" *ngIf="item.tag.includes(3)" ></app-icon-transfer>
-                                      <app-icon-groupcenter matTooltip="集團核心" matTooltipPosition="above" class="tag tag-orange" *ngIf="item.tag.includes(4)" ></app-icon-groupcenter>
-                                      <app-icon-blacklist matTooltip="黑名單" matTooltipPosition="above" class="tag tag-red" *ngIf="item.tag.includes(5)" ></app-icon-blacklist>
-
-                                  </div> -->
 
 
 
