@@ -2,10 +2,23 @@ $sidebarBg: #fafafa ;
 $link-color: #ffffff78;
 $link-hover: #FFF;
 $icon-color: #ffffff8a;
+
+
+$cathybg : #009F41;
+$cathlightGreen:#76BC21;
+
+  .bg-gradient-cathygreen {
+      background-color: $cathlightGreen;
+      background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,$cathlightGreen),to($cathybg));
+      background-image: linear-gradient(0deg,$cathlightGreen 10%, $cathybg 100%);
+      background-size: cover;
+  }
+
+
 .sidebar{
   // overflow-x: hidden;
   // background: $sidebarBg;
-  background: #009F41;
+  background-color:  #009F41;
   // background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
   li {
     &.active {
