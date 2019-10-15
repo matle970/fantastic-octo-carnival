@@ -46,16 +46,16 @@
                       </div>
 
                   </div>
-                  <div class="table-responsive data-table mt-3">
+                  <div class="data-table mt-3">
                       <table class="table">
                           <thead class="text-primary">
                             <th class="py-3 px-1 text-right"
-                            [ngClass]="{'min-150': (thHead.id=='ao'|| thHead.id == 'group_name' || thHead.id == 'cus_name')}"
+                            [ngClass]="{'min-130': (thHead.id=='ao' || thHead.id == 'cus_name'),
+                            'min-60':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
                             *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
                               <span class="d-inline-block" [ngClass]="{
-                                'th-width-min': (thHead.name == '去年度累計貢獻度' || thHead.name == '今年度累計貢獻度')
-                              }">
+                                'th-width-min': (thHead.name == '去年度累計貢獻度' || thHead.name == '今年度累計貢獻度')}">
                                   {{thHead.name}}
                               </span>
                               <span ng-bind-html="thHead.name">

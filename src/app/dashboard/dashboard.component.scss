@@ -26,21 +26,30 @@ $tag-red: #c00000;
   .card-body{
     table {
       th {
+        position: relative;
         cursor: pointer;
         width:auto;
-        min-width: 80px;
+        min-width: 70px;
         text-align: right;
-        padding: 0;
-        &.min-150 {
-          min-width: 150px;
+        padding-right: 24px !important;
+        .order {
+          position: absolute;
+          right:0;
+          top:50%;
+        }
+        &.min-130 {
+          min-width: 130px;
+        }
+        &.min-60 {
+          width: 60px;
         }
         .th-width-min {
-          width:80px;
+          max-width:80px;
           line-height: 1rem;
         }
       }
-      th:not(.min-150) {
-        width: 80px;
+      th:not(.min-140) {
+        width: 70px;
       }
 
 
