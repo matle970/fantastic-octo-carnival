@@ -11,13 +11,13 @@
               <!-- Position Column -->
               <ng-container matColumnDef="date">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 要點新聞</th>
-                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                <td class="text-left" mat-cell *matCellDef="let element"> {{element.date}} </td>
               </ng-container>
 
               <!-- Name Column -->
               <ng-container matColumnDef="title">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
-                <td mat-cell *matCellDef="let element">
+                <td class="text-left" mat-cell *matCellDef="let element">
 
                    <a href="#" class="underline"> {{element.title}}</a>
                 </td>
@@ -43,7 +43,7 @@
 
                 <ng-container matColumnDef="mount">
                     <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 額度變動</th>
-                    <td mat-cell *matCellDef="let element">
+                    <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.total == 0}">
                       {{element.mount}}
                     </td>
                 </ng-container>
@@ -51,7 +51,7 @@
 
                 <ng-container matColumnDef="total">
                     <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 餘額變動</th>
-                    <td mat-cell *matCellDef="let element">
+                    <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.total == 0}">
                       {{element.total}}
                     </td>
                 </ng-container>
