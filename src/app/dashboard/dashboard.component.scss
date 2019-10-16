@@ -6,7 +6,14 @@ $tag-orange: #ed7d31;
 $tag-red: #c00000;
 
 
+$thbgcolor: #dbdbdb;
+$layerOne: $thbgcolor;
+$layerTwo:  lighten($thbgcolor, 5%);
+$layerThree:  lighten($thbgcolor, 10%);
+$table-border-color: #FFF;
 
+
+$tablgTrHover : #f9fbe7;
 
 .filter-search{
   width: auto;
@@ -25,12 +32,24 @@ $tag-red: #c00000;
   overflow: visible  !important;
   .card-body{
     table {
+      border-color: $table-border-color;
+      tr{
+        &:hover {
+          transition: all 1s ease;
+          background-color: $tablgTrHover ;
+          td {
+            background-color: $tablgTrHover ;
+          }
+        }
+
+      }
       th {
         position: relative;
         cursor: pointer;
         width:auto;
         min-width: 70px;
         text-align: right;
+        line-height: 1rem;
         padding-right: 24px !important;
         .order {
           position: absolute;
@@ -50,6 +69,15 @@ $tag-red: #c00000;
       }
       th:not(.min-140) {
         width: 70px;
+      }
+      .bg-one {
+        background: $layerOne;
+      }
+      .bg-two {
+        background: $layerTwo;
+      }
+      .bg-three {
+        background: $layerThree;
       }
 
 
