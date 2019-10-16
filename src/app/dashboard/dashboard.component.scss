@@ -101,9 +101,9 @@ $tablgTrHover : #f9fbe7;
         width: auto;
         min-width: 120px;
       }
-      tfood {
-        th {
-          padding:5px;
+      tfoot {
+        th,td{
+          padding: 18px 10px;
         }
       }
     }

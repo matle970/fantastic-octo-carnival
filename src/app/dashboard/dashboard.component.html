@@ -144,19 +144,20 @@
                                 {{item.raroc}}
                               </td>
                               <td class="text-right pr-4 bg-two">
-                                {{item.last_year_contribution | currency:'':'symbol':'1.0-0' }}
+                                <!-- 如果要show $ 改為 currency:'':'symbol':'1.0-0' -->
+                                {{item.last_year_contribution | currency:'':'':'1.0-0' }}
                               </td>
                               <td class="text-right pr-4 bg-two">
-                                  {{item.this_year_contribution | currency:'':'symbol':'1.0-0'}}
+                                  {{item.this_year_contribution | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4 bg-one">
-                                  {{item.deposit | currency:'':'symbol':'1.0-0'}}
+                                  {{item.deposit | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4  bg-one">
-                                  {{item.load_balance | currency:'':'symbol':'1.0-0'}}
+                                  {{item.load_balance | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4  bg-one">
-                                  {{item.trade_balance | currency:'':'symbol':'1.0-0'}}
+                                  {{item.trade_balance | currency:'':'':'1.0-0'}}
                               </td>
 
 
