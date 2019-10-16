@@ -47,20 +47,25 @@
 
                   </div>
                   <div class="data-table mt-3">
-                      <table class="table">
-                          <thead class="text-primary">
-                            <th class="py-3 px-1 text-right"
-                            [ngClass]="{'min-130': (thHead.id=='ao' || thHead.id == 'cus_name'),
+                      <table class="table  table-striped">
+                          <thead class="text-primary text-right">
+                            <th class="py-3 px-1"
+                            [ngClass]="{
+                            'text-left pr-2': (thHead.id=='ao' || thHead.id == 'cus_name' || thHead.id == 'group_name'),
+                            'min-130': (thHead.id=='ao' || thHead.id == 'cus_name'),
                             'min-60':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
                             *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
-                              <span class="d-inline-block" [ngClass]="{
-                                'th-width-min': (thHead.name == '去年度累計貢獻度' || thHead.name == '今年度累計貢獻度')}">
+                              <span class="d-inline-block" *ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
                                   {{thHead.name}}
                               </span>
-                              <span ng-bind-html="thHead.name">
-
+                              <span *ngIf="thHead.name == '去年度累計貢獻度' ">
+                                  去年度<br>累計貢獻度
                               </span>
+                              <span *ngIf="thHead.name == '今年度累計貢獻度' ">
+                                  今年度<br>累計貢獻度
+                              </span>
+
                               <span class="order" *ngIf="thHead.id == nowOrder.id; else noOrder">
                                   <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
                                       arrow_drop_up
@@ -83,15 +88,15 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of tableDetailList">
-                              <td class="text-right  pr-4">
+                              <td class="text-left  pr-4">
                                     {{item.ao}}
                               </td>
 
-                              <td class="text-right  pr-4">
+                              <td class="text-left  pr-4">
                                 {{item.group_name}}
                               </td>
 
-                              <td class="text-right  pr-4">
+                              <td class="text-left  pr-4">
                                   <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
                                 <div class="d-block">
                                   <span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
@@ -123,29 +128,29 @@
 
 
 
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-three">
                                 {{item.msr}}
                               </td>
 
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-three">
                                 {{item.rorwa}}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-three">
                                 {{item.raroc}}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-two">
                                 {{item.last_year_contribution | currency:'':'symbol':'1.0-0' }}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-two">
                                   {{item.this_year_contribution | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4 bg-one">
                                   {{item.deposit | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4  bg-one">
                                   {{item.load_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
-                              <td class="text-right pr-4">
+                              <td class="text-right pr-4  bg-one">
                                   {{item.trade_balance | currency:'':'symbol':'1.0-0'}}
                               </td>
 
