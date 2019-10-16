@@ -9,6 +9,8 @@
   table {
     width: 100%;
     margin: 0 auto;
+    font-family: '微軟正黑體';
+    font-size: 1rem !important;
     tr {
       height: 24px;
       line-height: 24px;
@@ -21,6 +23,11 @@
     th {
       padding:5px 6px;
       margin:0;
+      font-style: normal;
+      color:#335238;
+      font-size:1rem;
+      letter-spacing: 1px;
+
     }
     th,td {
       text-align: center;
@@ -34,16 +41,18 @@
 .news-block{
   height: auto;
   min-height: 470px;
-  .table {
-    font-family: '微軟正黑體';
-    font-size: 1rem !important;
-    th {
-      font-style: normal;
-      color:#335238;
-      font-size:1rem;
-      letter-spacing: 1px;
+  .card-title {
+    a.title-arrow {
+      display:inline-block;
+      cursor: pointer;
+    }
+    i.material-icons{
+      vertical-align: middle;
+      font-size: 1.2rem;
+      cursor: pointer;
     }
   }
+
 }
 
 .list-table {

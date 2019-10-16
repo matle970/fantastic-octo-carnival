@@ -4,7 +4,13 @@
         <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
     </div> -->
     <div class="card-body">
-        <h4 class="card-title text-primary">消息集錦</h4>
+        <h4 class="card-title text-primary">
+          <a class="title-arrow">消息集錦
+              <i class="material-icons animated infinite fadeInLeft ml-2">
+                  double_arrow
+              </i>
+          </a>
+        </h4>
 
         <div class="news-container">
             <table class="table m-0 p-0 table-hover" mat-table [dataSource]="dataSource">
@@ -31,7 +37,14 @@
         </div>
 
 
-        <h4 class="card-title text-primary mt-2">銀行同業</h4>
+        <h4 class="card-title text-primary mt-2">
+          <a class="title-arrow">銀行同業
+              <i class="material-icons material-icons animated infinite fadeInLeft ml-2">
+                  double_arrow
+              </i>
+          </a>
+
+        </h4>
         <div class="news-container">
             <table class="table m-0 p-0 table-hover" mat-table [dataSource]="bankSource">
 
