@@ -28,60 +28,36 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-          </div>
-
-
-          <h4 class="card-title text-primary mt-2">銀行同業</h4>
-        <div class="table-responsive table-scroll mt-2">
-            <table class="table  m-0 p-0">
-                <thead class=" text-primary">
-                    <th>
-                        <a class="btn btn-sm btn-secondary has-arrow text-black">銀行同業</a>
-                    </th>
-                    <th class="text-right">
-                        額度變動
-                    </th>
-                    <th class="text-right">
-                        餘額變動
-                    </th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            國泰世華
-                        </td>
-                        <td>
-                           <span class="d-block text-black text-right"> +  100</span>
-                        </td>
-                        <td>
-                            <span class="d-block text-black text-right"> +  100</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            台北富邦
-                        </td>
-                        <td>
-                            <span class="d-block text-black text-right"> -  000</span>
-                        </td>
-                        <td>
-                            <span class="d-block text-black text-right"> -  100</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            花旗銀行
-                        </td>
-                        <td>
-                            <span class="d-block text-right text-gray"> 0</span>
-                        </td>
-                        <td>
-                            <span class="d-block text-right text-gray"> 0</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
+
+        <h4 class="card-title text-primary mt-2">銀行同業</h4>
+        <div class="news-container">
+            <table class="table m-0 p-0 table-hover" mat-table [dataSource]="bankSource">
+
+                <ng-container matColumnDef="bank">
+                  <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 銀行同業</th>
+                  <td mat-cell *matCellDef="let element"> {{element.bank}} </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="mount">
+                    <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 額度變動</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{element.mount}}
+                    </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="total">
+                    <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 餘額變動</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{element.total}}
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="bankColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: bankColumns;"></tr>
+              </table>
+        </div>
     </div>
 </div>
