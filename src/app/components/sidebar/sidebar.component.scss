@@ -1,12 +1,19 @@
-$sidebarBg: #fafafa ;
-$link-color: #ffffff78;
+$sidebarBg: #FFF ;
+$link-color: #fafafa;
 $link-hover: #FFF;
-$icon-color: #ffffff8a;
-$link-active: #FFF;
+$icon-color: #FFF;
+$link-active: #009f41;
+$icon-active-color: #009f41;
 
 
 $cathybg : #009F41;
 $cathlightGreen:#76BC21;
+
+$lightBgColor:#cdde00;
+
+// 尊榮綠 國泰
+$darkBgGreen: #124734;
+$lightbgActive:#FFF;
 
 .bg-gradient-cathygreen {
     background-color: $cathlightGreen;
@@ -19,7 +26,7 @@ $cathlightGreen:#76BC21;
 .sidebar{
   // overflow-x: hidden;
   // background: $sidebarBg;
-  background-color:  $cathlightGreen;
+  background-color:  $darkBgGreen;
   // background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
   li {
     &.active {
@@ -31,7 +38,7 @@ $cathlightGreen:#76BC21;
         .nav-link {
           color:$link-active;
           i.material-icons {
-            color: $link-active;
+            color: $icon-active-color;
           }
         }
       }
@@ -41,7 +48,7 @@ $cathlightGreen:#76BC21;
     .nav-item {
       &.active {
         .nav-link {
-          background: #ffffff85;
+          background: $lightbgActive;
           color:$link-active!important;
           i.material-icons {
             color: $link-active !important;

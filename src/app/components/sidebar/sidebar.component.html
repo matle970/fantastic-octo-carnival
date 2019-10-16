@@ -4,16 +4,16 @@
 
 <!-- [ngClass]="{'narrow-width': !sideWide}" -->
 
-<div class="sidebar bg-gradient-cathygreen"  data-color="danger"
+<div class="sidebar"  data-color="danger"
 [@onSideNavChange]="sideNavState ? 'open' : 'close'"
 
  data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
   <div class="logo">
       <a href="#" class="simple-text">
           <div class="logo-img">
-              <!-- <app-tree-logo></app-tree-logo> -->
+              <app-tree-logo></app-tree-logo>
               <!-- <app-logo-icon></app-logo-icon> -->
-              <app-logo-white></app-logo-white>
+              <!-- <app-logo-white></app-logo-white> -->
           </div>
       </a>
   </div>
