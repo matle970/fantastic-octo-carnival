@@ -56,13 +56,13 @@
                             'min-60':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
                             *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
-                              <span class="d-inline-block" *ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
+                              <span class="d-inline-block " *ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
                                   {{thHead.name}}
                               </span>
-                              <span *ngIf="thHead.name == '去年度累計貢獻度' ">
+                              <span class="th-width-min" *ngIf="thHead.name == '去年度累計貢獻度' ">
                                   去年度<br>累計貢獻度
                               </span>
-                              <span *ngIf="thHead.name == '今年度累計貢獻度' ">
+                              <span class="th-width-min" *ngIf="thHead.name == '今年度累計貢獻度' ">
                                   今年度<br>累計貢獻度
                               </span>
 
@@ -88,16 +88,21 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of tableDetailList">
-                              <td class="text-left  pr-4">
-                                    {{item.ao}}
+                              <td class="text-left  pr-4 ">
+                                    <span class="text-ellipsis" [matTooltip]="item.ao" matTooltipPosition="above">
+                                        {{item.ao}}
+                                    </span>
                               </td>
 
                               <td class="text-left  pr-4">
-                                {{item.group_name}}
+                                <span class="text-ellipsis" [matTooltip]="item.group_name" matTooltipPosition="above">
+                                    {{item.group_name}}
+                                </span>
+
                               </td>
 
                               <td class="text-left  pr-4">
-                                  <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
+                                <a href="#" class="underline text-ellipsis-name mr-2" [matTooltip]="item.cus_name" matTooltipPosition="above"> {{item.cus_name}}</a>
                                 <div class="d-block">
                                   <span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授
