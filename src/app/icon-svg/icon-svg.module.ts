@@ -20,7 +20,8 @@ import { IconGroupcenterComponent } from './icon-groupcenter/icon-groupcenter.co
     IconBlacklistComponent,
     IconCreditComponent,
     IconNetbankComponent,
-    IconGroupcenterComponent
+    IconGroupcenterComponent,
+
   ],
   exports: [
     IconTransferComponent,
@@ -28,7 +29,8 @@ import { IconGroupcenterComponent } from './icon-groupcenter/icon-groupcenter.co
     IconBlacklistComponent,
     IconCreditComponent,
     IconNetbankComponent,
-    IconGroupcenterComponent
+    IconGroupcenterComponent,
+
   ],
 
 })
