@@ -3,6 +3,7 @@
 
 @import "variables/bootstrap-material-design-base";
 
+
 // Customized BS variables
 @import "variables/custom-forms";
 @import "variables/spacing";
@@ -21,6 +22,9 @@
 @import "variables/tooltip";
 @import "variables/type";
 @import "variables/modals";
+
+
+
 
 
 // import their vars after customization for use below
@@ -54,3 +58,4 @@ $container-max-widths: (
 
 @import "variables/bootstrap-material-design";
 
+@import "variables/bs-color-base";

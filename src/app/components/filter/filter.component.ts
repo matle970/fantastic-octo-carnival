@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-filter',
@@ -9,6 +10,8 @@ export class FilterComponent implements OnInit {
 
   @ViewChild('keyword') keyword: string;
 
+  
+
   @Input() datalist: string;
 
   myKeyword: string = '';
@@ -16,6 +19,7 @@ export class FilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // $('.dropdown-toggle').dropdown();
   }
 
 }

@@ -4,7 +4,7 @@
     <div class="input-group input-group-sm">
       <input type="text" placeholder="關鍵字搜尋" class="form-control" #keyword
      aria-label="" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-round btn-primary btn-circle  shadow-none">
+        <button type="button" class="btn btn-round btn-secondary btn-circle  shadow-none">
             <i class="material-icons">
               search
             </i>
@@ -15,11 +15,11 @@
   <!-- 經管行搜尋 -->
   <div class="col-3">
       <div class="dropdown">
-          <button href="#" class="btn btn-round btn-primary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
+          <button href="#" class="btn btn-secondary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
               經管行
               <b class="caret"></b>
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu ">
               <li><a href="#">AAA</a></li>
               <li><a href="#">BBB</a></li>
               <li><a href="#">CCC</a></li>
@@ -33,11 +33,11 @@
   <!-- 授信轉介行 -->
   <div class="col-3">
       <div class="dropdown">
-          <button href="#" class="btn btn-round btn-primary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+          <button href="#" id="SUBITEM" class="btn btn-secondary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
              授信轉介行
               <b class="caret"></b>
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-labelledby="SUBITEM">
               <li><a href="#">AAA</a></li>
               <li><a href="#">BBB</a></li>
               <li><a href="#">CCC</a></li>
