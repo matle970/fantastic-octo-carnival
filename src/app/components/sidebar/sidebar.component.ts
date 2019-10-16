@@ -13,7 +13,7 @@ declare interface RouteInfo {
 // sidebar nav item - demosite
 export const ROUTES: RouteInfo[] = [
     { path: './dashboard', title: '首頁總覽',  icon: 'home', class: '' },
-    { path: './customer', title: '客戶視圖',  icon:'location_city', class: '' },
+    { path: './customer', title: '客戶視圖',  icon:'view_quilt', class: '' },
 ];
 
 //localsite
