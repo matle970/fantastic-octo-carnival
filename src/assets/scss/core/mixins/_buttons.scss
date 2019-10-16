@@ -214,7 +214,7 @@
     @include bmd-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border-color);
   }
   &.btn-secondary {
-    @include bmd-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border-color);
+    @include bmd-raised-button-variant(#FFF, $btn-secondary-bg, $btn-secondary-border-color);
   }
   &.btn-info {
     @include bmd-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border-color);

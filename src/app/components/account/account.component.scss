@@ -1,8 +1,10 @@
 .account-info{
-  width:300px;
+  width:auto;
+  overflow: hidden;
   .icon {
     display: inline-block;
     vertical-align: middle;
+    width:60px;
     &::before {
       content:'';
       width:0px;

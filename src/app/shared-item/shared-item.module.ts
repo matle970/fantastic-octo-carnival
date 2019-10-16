@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 // google map
 import { MapComponent } from './map/map.component';
+import { IconBellComponent } from './icon-bell/icon-bell.component';
+import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
 
 
 
@@ -11,10 +13,14 @@ import { MapComponent } from './map/map.component';
     CommonModule
   ],
   declarations: [
-    MapComponent
+    MapComponent,
+    IconBellComponent,
+    IconGraybellComponent
   ],
   exports: [
-    MapComponent
+    MapComponent,
+    IconBellComponent,
+    IconGraybellComponent
   ]
 })
 export class SharedItemModule { }

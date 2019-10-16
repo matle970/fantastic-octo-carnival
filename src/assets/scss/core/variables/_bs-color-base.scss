@@ -1,0 +1,28 @@
+
+
+
+
+$primary:       $brand-primary !default;
+$secondary:     $brand-secondary !default;
+$success:       $brand-success !default;
+$info:          $brand-info !default;
+$warning:       $brand-warning !default;
+$danger:        $brand-danger !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-800 !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    // "light":      $light,
+    // "dark":       $dark
+  ),
+  $theme-colors
+);
