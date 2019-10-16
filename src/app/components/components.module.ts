@@ -15,13 +15,15 @@ import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { LogoWhiteComponent } from './logo-white/logo-white.component';
 import { NoticeIconComponent } from './notice-icon/notice-icon.component';
+import { SharedItemModule } from '../shared-item/shared-item.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    SharedMaterialModule
+    SharedMaterialModule,
+    SharedItemModule
   ],
   declarations: [
     HeaderComponent,
