@@ -24,7 +24,7 @@ export class CompChartsComponent implements OnInit {
         enabled: false
       }
     },
-    colors: ['#CC3B0A'],
+    colors: ['#003049'],
     series: [
       {
         name: '存款',
@@ -97,7 +97,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#0077c8', '#48a9c5'],
+    colors: ['#09558a', '#0887b1'],
     dataLabels: {
       enabled: false
     },
@@ -182,7 +182,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#FFA51F', '#FFE180'],
+    colors: ['#f77f00', '#fbc93e'],
 
     dataLabels: {
       enabled: false
@@ -268,7 +268,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#996D31', '#CCAB7E'],
+    colors: ['#045960', '#08a08a'],
     dataLabels: {
       enabled: false,
       formatter: function(val) {

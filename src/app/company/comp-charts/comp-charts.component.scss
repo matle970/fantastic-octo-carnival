@@ -1,21 +1,21 @@
 
 // 存款 orange
-$deposit-chart-color: #CC3B0A;
+$deposit-chart-color: #003049;
 
 // 放款
-$load-chart-color: #0077c8;
+$load-chart-color: #09558a;
 
 // 貿融
-$trade-chart-color: #48a9c5;
+$trade-chart-color: #0887b1;
 
 // 進口,出口
 
-$in-chart-color: #996D31;
-$out-chart-color: #CCAB7E;
+$in-chart-color: #045960;
+$out-chart-color: #08a08a;
 
 //TMU
-$tmu-color: #FFA51F;
-$mtm-color: #FFE180;
+$tmu-color: #f77f00;
+$mtm-color: #fbc93e;
 
 .all-charts-blcok {
 
@@ -74,6 +74,8 @@ $mtm-color: #FFE180;
       font-size: 1rem;
       font-weight: 700;
       vertical-align: middle;
+      height: 30px;
+      line-height: 30px;
     }
     .total {
       font-size: 1.2rem;
