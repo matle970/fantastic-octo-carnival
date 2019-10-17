@@ -47,7 +47,7 @@
 
                   </div>
                   <div class="data-table mt-3">
-                      <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="tableDetailList">
+                      <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="dataSource">
                           <ng-container matColumnDef="ao">
                               <th class="text-nowrap text-left pr-2 min-130" (click)="orderByThis('ao')" mat-header-cell *matHeaderCellDef>
                                 經管 AO
@@ -412,13 +412,14 @@
                           <tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
                       </table>
 
-
-
-
-
-
-
                   </div>
+
+                  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+                  <mat-paginator [length]="length"
+                  [pageSize]="pageSize"
+                  [pageSizeOptions]="pageSizeOptions"
+                  (page)="pageEvent = $event" showFirstLastButtons>
+                  </mat-paginator>
 
                   <div  *ngIf="false">
                       <table class="table  table-striped">
