@@ -80,7 +80,7 @@
                                   {{element.ao}}
                                 </span>
                               </td>
-                              <td mat-footer-cell *matFooterCellDef> Total <span class="text-small"> 60 筆</span> </td>
+                              <td mat-footer-cell *matFooterCellDef> Total </td>
                           </ng-container>
                           <ng-container matColumnDef="group_name">
                               <th class="text-nowrap text-left pr-2 " mat-sort-header  mat-header-cell *matHeaderCellDef>
@@ -417,9 +417,12 @@
 
                   </div>
 
-                  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-                  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-                  </mat-paginator>
+                  <mat-paginator #paginator class="text-h3"
+               [length]="60"
+               [pageIndex]="0"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 15]"
+               (page)="pageChange($event)" showFirstLastButtons></mat-paginator>
 
                   <div  *ngIf="false">
                       <table class="table  table-striped">

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort } from '@angular/material';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -92,6 +92,8 @@ export class DashboardComponent {
     }
   ];
 
+  constructor(private matPaginatorIntl: MatPaginatorIntl) {}
+
 
   ngOnInit() {
     this.getIssues(0, 10);
@@ -102,6 +104,25 @@ export class DashboardComponent {
       console.log('click', page);
       this.getIssues(page.pageIndex, page.pageSize);
     });
+
+    // 設定顯示筆數資訊文字
+    this.matPaginatorIntl.getRangeLabel = (page: number, pageSize: number, length: number): string => {
+      if (length === 0 || pageSize === 0) {
+        return `第 0 筆、共 ${length} 筆`;
+      }
+
+      length = Math.max(length, 0);
+      const startIndex = page * pageSize;
+      const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+
+      return `第 ${startIndex + 1} - ${endIndex} 筆、共 ${length} 筆`;
+    };
+
+    // 設定其他顯示資訊文字
+    this.matPaginatorIntl.itemsPerPageLabel = '每頁筆數：';
+    this.matPaginatorIntl.nextPageLabel = '下一頁';
+    this.matPaginatorIntl.previousPageLabel = '上一頁';
+
   }
 
   sortData(event: any) {
@@ -114,6 +135,11 @@ export class DashboardComponent {
   getIssues(pageIndex, pageSize) {
     this.dataSource.sort = this.sortTable;
     // console.log(this.sortTable);
+  }
+
+  pageChange (event: any) {
+    console.log(event);
+
   }
 
   // orderByThis(typeId: string) {
