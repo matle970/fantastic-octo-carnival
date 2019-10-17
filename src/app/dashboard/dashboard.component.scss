@@ -28,6 +28,14 @@ $tablgTrHover : #dbf1d9;
 
 }
 
+.table-sticky {
+  // hide mat arrow
+  .mat-sort-header-arrow {
+    color: #fff;
+    display: none;
+  }
+}
+
 .data-table {
   height: auto;
   max-height: 550px;
@@ -54,6 +62,9 @@ $tablgTrHover : #dbf1d9;
       line-height: 1rem;
       padding-right: 24px !important;
       white-space: nowrap;
+
+
+
       .order {
         position: absolute;
         right:0;

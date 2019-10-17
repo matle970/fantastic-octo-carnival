@@ -1,26 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PageEvent, MatTableDataSource } from '@angular/material';
+import { PageEvent, MatTableDataSource, MatSort } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent {
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('sortTable') sortTable: MatSort;
 
-  dataSource = new MatTableDataSource<IndexTableElement>(TABLE_LIST);
-
-
-
-
-  nowOrder = {
-    id: 'group_name',
-    ASC: true
-  };
-
-  tableThead = [
+  tableThead: string[] = [
     'ao',
     'group_name',
     'cus_name',
@@ -34,6 +27,17 @@ export class DashboardComponent {
     'load_balance',
     'trade_balance'
   ];
+
+  dataSource = new MatTableDataSource<IndexTableElement>(TABLE_LIST);
+
+
+
+
+  nowOrder = {
+    id: 'group_name',
+    ASC: true
+  };
+
 
   tableThList = [
     {
@@ -89,47 +93,52 @@ export class DashboardComponent {
   ];
 
 
+  ngOnInit() {
+    this.getIssues(0, 10);
 
-
-  // MatPaginator Inputs
-  // length = 100;
-  // pageSize = 10;
-  // pageSizeOptions: number[] = [5, 10, 25, 100];
-
-  // // MatPaginator Output
-  // pageEvent: PageEvent;
-
-  ngOnInit(): void {
-
-    this.dataSource.paginator = this.paginator;
-  }
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  };
-
-  orderByThis(typeId: string) {
-    console.log(typeId);
-    if (this.nowOrder.id == typeId) {
-      this.nowOrder.ASC = !this.nowOrder.ASC;
-      this.nowOrder.id = typeId;
-      this.sortBy(typeId);
-    } else {
-      this.nowOrder.ASC = true;
-      this.nowOrder.id = typeId;
-      this.sortBy(typeId);
-    }
-  }
-
-  sortBy(key: string) {
-    console.log('now Sort', key);
-    const asc = this.nowOrder.ASC;
-    return this.tableDetailList.sort(function(a, b) {
-      const ai = isNaN(a[key]) ? a[key].charCodeAt(0) : a[key];
-      const bi = isNaN(b[key]) ? b[key].charCodeAt(0) : b[key];
-      return asc ? ai - bi : bi - ai;
+    console.log(this.sortTable);
+    // 分頁切換時，重新取得資料
+    this.paginator.page.subscribe((page: PageEvent) => {
+      console.log('click', page);
+      this.getIssues(page.pageIndex, page.pageSize);
     });
   }
+
+  sortData(event: any) {
+    console.log(event);
+    this.nowOrder.id = event.active ;
+    this.nowOrder.ASC = (event.direction === 'asc') ? true : false;
+
+  }
+
+  getIssues(pageIndex, pageSize) {
+    this.dataSource.sort = this.sortTable;
+    // console.log(this.sortTable);
+  }
+
+  // orderByThis(typeId: string) {
+  //   console.log(typeId);
+  //   if (this.nowOrder.id == typeId) {
+  //     this.nowOrder.ASC = !this.nowOrder.ASC;
+  //     this.nowOrder.id = typeId;
+  //     this.sortBy(typeId);
+  //   } else {
+  //     this.nowOrder.ASC = true;
+  //     this.nowOrder.id = typeId;
+  //     this.sortBy(typeId);
+  //   }
+  // }
+
+  // sortBy(key: string) {
+  //   console.log('now Sort', key);
+  //   const asc = this.nowOrder.ASC;
+  //   console.log(this.dataSource)
+  //   return this.dataSource.sort(function(a, b) {
+  //     const ai = isNaN(a[key]) ? a[key].charCodeAt(0) : a[key];
+  //     const bi = isNaN(b[key]) ? b[key].charCodeAt(0) : b[key];
+  //     return asc ? ai - bi : bi - ai;
+  //   });
+  // }
 }
 
 export interface IndexTableElement {

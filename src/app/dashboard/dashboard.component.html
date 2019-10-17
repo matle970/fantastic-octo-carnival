@@ -33,7 +33,7 @@
 
           <div class="card data-card shadow-lg">
               <!-- <div class="card-header card-header-primary filter-search">
-                  <app-filter [datalist]="tableDetailList"></app-filter>
+                  <app-filter [datalist]="dataSource"></app-filter>
               </div> -->
               <div class="card-body">
                   <div class="row data-info">
@@ -47,9 +47,12 @@
 
                   </div>
                   <div class="data-table mt-3">
-                      <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="dataSource">
+                      <table class="table m-0 p-0 table-hover table-sticky"
+                      (matSortChange)="sortData($event)"
+                      mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
                           <ng-container matColumnDef="ao">
-                              <th class="text-nowrap text-left pr-2 min-130" (click)="orderByThis('ao')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-left pr-2 min-130"
+                              mat-header-cell mat-sort-header *matHeaderCellDef>
                                 經管 AO
                                 <span class="order" *ngIf="'ao' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -80,7 +83,7 @@
                               <td mat-footer-cell *matFooterCellDef> Total <span class="text-small"> 60 筆</span> </td>
                           </ng-container>
                           <ng-container matColumnDef="group_name">
-                              <th class="text-nowrap text-left pr-2 " (click)="orderByThis('group_name')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-left pr-2 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 集團名稱
                                 <span class="order" *ngIf="'group_name' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -110,7 +113,7 @@
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
                           <ng-container matColumnDef="cus_name">
-                              <th class="text-nowrap text-left pr-2"  (click)="orderByThis('cus_name')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-left pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
                                 客戶名稱
                                 <span class="order" *ngIf="'cus_name' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -160,7 +163,7 @@
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
                           <ng-container matColumnDef="cus_id">
-                              <th class="text-nowrap text-right pr-2"  (click)="orderByThis('cus_id')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
                                 客戶ID
                                 <span class="order" *ngIf="'cus_id' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -186,7 +189,7 @@
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
                           <ng-container matColumnDef="msr">
-                              <th class="text-nowrap text-right pr-2 min-70 " (click)="orderByThis('msr')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 MSR
                                 <span class="order" *ngIf="'msr' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -213,7 +216,7 @@
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
                           <ng-container matColumnDef="rorwa">
-                              <th class="text-nowrap text-right pr-2 min-70 " (click)="orderByThis('rorwa')"  mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 RORWA
                                 <span class="order" *ngIf="'rorwa' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -240,7 +243,7 @@
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
                           <ng-container matColumnDef="raroc">
-                              <th class="text-nowrap text-right pr-2 min-70 " (click)="orderByThis('raroc')"  mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 RAROC
                                 <span class="order" *ngIf="'raroc' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -268,7 +271,7 @@
 
 
                           <ng-container matColumnDef="last_year_contribution">
-                              <th class="text-nowrap text-right pr-2 min-100  " (click)="orderByThis('last_year_contribution')"  mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-100  " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 去年度<br>累計貢獻度
                                 <span class="order" *ngIf="'last_year_contribution' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -295,7 +298,7 @@
                               <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}}</td>
                           </ng-container>
                           <ng-container matColumnDef="this_year_contribution">
-                              <th class="text-nowrap text-right pr-2 min-100 " (click)="orderByThis('this_year_contribution')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 今年度<br>累計貢獻度
                                 <span class="order" *ngIf="'this_year_contribution' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -322,7 +325,7 @@
                               <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
                           </ng-container>
                           <ng-container matColumnDef="deposit">
-                              <th class="text-nowrap text-right pr-2 min-100 " (click)="orderByThis('deposit')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 存款餘額
                                 <span class="order" *ngIf="'deposit' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -350,7 +353,7 @@
                               <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
                           </ng-container>
                           <ng-container matColumnDef="load_balance">
-                              <th class="text-nowrap text-right pr-2 min-100 " (click)="orderByThis('load_balance')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 放款餘額
                                 <span class="load_balance" *ngIf="'deposit' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -379,7 +382,7 @@
                           </ng-container>
 
                           <ng-container matColumnDef="trade_balance">
-                              <th class="text-nowrap text-right pr-2 min-100 " (click)="orderByThis('trade_balance')" mat-header-cell *matHeaderCellDef>
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 貿融餘額
                                 <span class="load_balance" *ngIf="'trade_balance' == nowOrder.id; else noOrder">
                                     <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
@@ -415,10 +418,7 @@
                   </div>
 
                   <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
-                  <mat-paginator [length]="length"
-                  [pageSize]="pageSize"
-                  [pageSizeOptions]="pageSizeOptions"
-                  (page)="pageEvent = $event" showFirstLastButtons>
+                  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
                   </mat-paginator>
 
                   <div  *ngIf="false">
@@ -462,7 +462,7 @@
                             </th>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let item of tableDetailList">
+                            <tr *ngFor="let item of dataSource">
                               <td class="text-left  pr-4 ">
                                     <span class="text-ellipsis" [matTooltip]="item.ao" matTooltipPosition="above">
                                         {{item.ao}}
@@ -558,7 +558,7 @@
               </div>
 
               <div>
-                  <app-pagination></app-pagination>
+                  <!-- <app-pagination></app-pagination> -->
               </div>
           </div>
 

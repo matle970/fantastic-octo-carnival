@@ -215,6 +215,23 @@ thead.thead-inverse,
   font-family: '微軟正黑體';
   width:calc(100% - 10px);
   margin: 0 auto;
+  .mat-sort-header-arrow {
+    color: #fff;
+    display: none;
+  }
+
+  // material table sort style
+  .text-right {
+    .mat-sort-header-container {
+      display: flex !important;
+      justify-content: flex-end !important;
+      text-align: right !important;
+    }
+    .mat-sort-header-button {
+      text-align: right;
+    }
+  }
+
   thead {
     th {
       font-family: '微軟正黑體'!important;
