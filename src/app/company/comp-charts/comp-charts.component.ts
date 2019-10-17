@@ -67,7 +67,7 @@ export class CompChartsComponent implements OnInit {
     yaxis: {
       labels:{
         style: {
-          fontSize: '14px',
+          fontSize: '0.8rem',
         }
       }
     },
@@ -150,7 +150,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
@@ -234,7 +236,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
@@ -321,7 +325,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
