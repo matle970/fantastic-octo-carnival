@@ -137,10 +137,12 @@ $tag-red: #c00000;
  */
 
 $box-thumb: rgb(224, 238, 215);
+$box-shadow: #c5c3c3;
+
 
 ::-webkit-scrollbar-track
 {
-  -webkit-box-shadow: inset 0 0 6px #097747d0;
+  -webkit-box-shadow: inset 0 0 6px #ddd;
   border-radius: 5px;
   background-color: #F5F5F5;
 }
@@ -148,6 +150,7 @@ $box-thumb: rgb(224, 238, 215);
 ::-webkit-scrollbar
 {
   width: 8px;
+  height: 8px;
   background-color: #F5F5F5;
 }
 

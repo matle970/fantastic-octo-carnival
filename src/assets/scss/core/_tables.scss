@@ -1,4 +1,5 @@
 .table{
+  font-family: '微軟正黑體';
   color: #000 !important;
    > thead > tr > th{
        border-bottom-width: 1px;
@@ -207,4 +208,42 @@ thead.thead-inverse,
 
 .table.table-hover tbody tr:hover{
   background-color: #f5f5f5;
+}
+
+
+.table-sticky {
+  font-family: '微軟正黑體';
+  width:calc(100% - 10px);
+  margin: 0 auto;
+  thead {
+    th {
+      font-family: '微軟正黑體'!important;
+      color: #009F41 !important;
+      font-size: 1rem !important;
+    }
+  }
+  td {
+    font-family: '微軟正黑體'!important;
+    font-size: 1rem!important;
+  }
+  tfoot {
+    background: #EEE;
+    color: #009F41 !important;
+    font-weight: bold !important;
+    td {
+      color: #009F41 !important;
+      font-weight: bold !important;
+    }
+
+  }
+  tfoot.mat-table-sticky {
+    box-shadow: 2px -1px 8px 1px #9999996e;
+    border-radius: 10px;
+  }
+
+  .mat-header-row {
+    // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+    // background-image: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
+  }
+
 }

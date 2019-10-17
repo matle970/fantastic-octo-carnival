@@ -6,21 +6,21 @@
     <div class="card-body">
         <h4 class="card-title text-primary">
           <a class="title-arrow">消息集錦
-              <i class="material-icons animated infinite fadeInLeft ml-2">
+              <i class="material-icons animated infinite fadeInLeft ml-2 slow">
                   double_arrow
               </i>
           </a>
         </h4>
 
         <div class="news-container">
-            <table class="table m-0 p-0 table-hover" mat-table [dataSource]="dataSource">
-              <!-- Position Column -->
+            <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="dataSource">
+
               <ng-container matColumnDef="date">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 要點新聞</th>
                 <td class="text-left" mat-cell *matCellDef="let element"> {{element.date}} </td>
               </ng-container>
 
-              <!-- Name Column -->
+
               <ng-container matColumnDef="title">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
                 <td class="text-left" mat-cell *matCellDef="let element">
@@ -39,14 +39,14 @@
 
         <h4 class="card-title text-primary mt-2">
           <a class="title-arrow">銀行同業
-              <i class="material-icons material-icons animated infinite fadeInLeft ml-2">
+              <i class="material-icons material-icons animated infinite fadeInLeft ml-2 slow">
                   double_arrow
               </i>
           </a>
 
         </h4>
         <div class="news-container">
-            <table class="table m-0 p-0 table-hover" mat-table [dataSource]="bankSource">
+            <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="bankSource">
 
                 <ng-container matColumnDef="bank">
                   <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 銀行同業</th>

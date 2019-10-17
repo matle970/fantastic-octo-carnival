@@ -1,83 +1,85 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-
 export class DashboardComponent {
-
   nowOrder = {
-    id:'group_name',
-    ASC : true
+    id: 'group_name',
+    ASC: true
   };
+
+  tableThead = [
+    'ao',
+    'group_name',
+    'cus_name',
+    'cus_id',
+    'msr',
+    'rorwa',
+    'raroc',
+    'last_year_contribution',
+    'this_year_contribution',
+    'deposit',
+    'load_balance',
+    'trade_balance'
+  ];
 
   tableThList = [
     {
-      id:'ao',
-      name: '經管 AO',
+      id: 'ao',
+      name: '經管 AO'
     },
     {
-      id:'group_name',
-      name: '集團名稱',
-    },
-
-    {
-      id:'cus_name',
-      name: '客戶名稱',
-
-    },
-    {
-      id:'cus_id',
-      name: '客戶ID',
-
+      id: 'group_name',
+      name: '集團名稱'
     },
 
     {
-      id:'msr',
-      name: 'MSR',
-
+      id: 'cus_name',
+      name: '客戶名稱'
     },
     {
-      id:'rorwa',
-      name: 'RORWA',
+      id: 'cus_id',
+      name: '客戶ID'
+    },
 
+    {
+      id: 'msr',
+      name: 'MSR'
     },
     {
-      id:'raroc',
-      name: 'RAROC',
-
+      id: 'rorwa',
+      name: 'RORWA'
     },
     {
-      id:'last_year_contribution',
-      name: '去年度累計貢獻度',
-
+      id: 'raroc',
+      name: 'RAROC'
     },
     {
-      id:'this_year_contribution',
-      name: '今年度累計貢獻度',
-
+      id: 'last_year_contribution',
+      name: '去年度累計貢獻度'
     },
     {
-      id:'deposit',
-      name: '存款餘額',
-
+      id: 'this_year_contribution',
+      name: '今年度累計貢獻度'
     },
     {
-      id:'load_balance',
-      name: '放款餘額',
-
+      id: 'deposit',
+      name: '存款餘額'
     },
     {
-      id:'trade_balance',
-      name: '貿融餘額',
+      id: 'load_balance',
+      name: '放款餘額'
     },
-
+    {
+      id: 'trade_balance',
+      name: '貿融餘額'
+    }
   ];
 
-  tableDetailList =[
+  tableDetailList = [
     {
       id: 'd001',
       ao: '人類經理 具燦星',
@@ -108,7 +110,7 @@ export class DashboardComponent {
       deposit: '100000',
       load_balance: '60000',
       trade_balance: '3000',
-      tag: [ 2, 3]
+      tag: [2, 3]
     },
     {
       id: 'd003',
@@ -124,9 +126,8 @@ export class DashboardComponent {
       deposit: '100',
       load_balance: '60000',
       trade_balance: '3000',
-      tag: [ 2, 3]
+      tag: [2, 3]
     },
-
 
     {
       id: 'c001',
@@ -288,25 +289,12 @@ export class DashboardComponent {
       load_balance: '',
       trade_balance: '',
       tag: []
-    },
-
-
-
-
-
-
-
-
-
-
-
+    }
   ];
-
-
 
   orderByThis(typeId: string) {
     console.log(typeId);
-    if(this.nowOrder.id == typeId){
+    if (this.nowOrder.id == typeId) {
       this.nowOrder.ASC = !this.nowOrder.ASC;
       this.nowOrder.id = typeId;
       this.sortBy(typeId);
@@ -315,19 +303,15 @@ export class DashboardComponent {
       this.nowOrder.id = typeId;
       this.sortBy(typeId);
     }
-
   }
 
-  sortBy (key: string) {
-    console.log('now Sort',key);
+  sortBy(key: string) {
+    console.log('now Sort', key);
     const asc = this.nowOrder.ASC;
     return this.tableDetailList.sort(function(a, b) {
       const ai = isNaN(a[key]) ? a[key].charCodeAt(0) : a[key];
       const bi = isNaN(b[key]) ? b[key].charCodeAt(0) : b[key];
       return asc ? ai - bi : bi - ai;
     });
-
-
   }
-
 }

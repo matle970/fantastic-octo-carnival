@@ -343,7 +343,7 @@ export class CompChartsComponent implements OnInit {
     // const nthis = this;
     // setTimeout(function(){
     //   nthis.reRenderCharts();
-    // });
+    // },2000);
   }
 
   allChartEnd() {
