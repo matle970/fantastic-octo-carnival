@@ -15,16 +15,14 @@
   <!-- 經管行搜尋 -->
   <div class="col-3">
       <div class="dropdown">
-          <button href="#" class="btn btn-secondary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
-              經管行
+          <button class="btn btn-secondary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
+              {{nowBranch}}
               <b class="caret"></b>
           </button>
           <ul class="dropdown-menu ">
-              <li><a href="#">AAA</a></li>
-              <li><a href="#">BBB</a></li>
-              <li><a href="#">CCC</a></li>
-              <!-- <li class="divider"></li>
-              <li><a href="#">Team A</a></li> -->
+              <li  *ngFor="let item of branch">
+                 <a  (click)="chooseBranch(item)" > {{item}}</a>
+              </li>
           </ul>
       </div>
   </div>
@@ -33,16 +31,14 @@
   <!-- 授信轉介行 -->
   <div class="col-3">
       <div class="dropdown">
-          <button href="#" id="SUBITEM" class="btn btn-secondary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
-             授信轉介行
+          <button id="SUBITEM" class="btn btn-secondary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+             {{nowForword}}
               <b class="caret"></b>
           </button>
           <ul class="dropdown-menu" aria-labelledby="SUBITEM">
-              <li><a href="#">AAA</a></li>
-              <li><a href="#">BBB</a></li>
-              <li><a href="#">CCC</a></li>
-              <!-- <li class="divider"></li>
-              <li><a href="#">Team A</a></li> -->
+              <li  *ngFor="let item of branch2">
+                  <a  (click)="chooseForword(item)" > {{item}}</a>
+               </li>
           </ul>
       </div>
   </div>
