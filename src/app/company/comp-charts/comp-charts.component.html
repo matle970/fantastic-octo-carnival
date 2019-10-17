@@ -12,16 +12,19 @@
       <div class="all-charts-blcok row">
 
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="chart-title">
-               <div class="btn shadow text-white bg-deposit has-arrow">
-                 <span class="title">
-                   存款餘額
-                 </span>
-               </div>
-               <div class="total d-inline-block font-weight-bold ml-2">
-                  {{11893 | currency:'':'':'1.0-0'}}
-               </div>
+            <div class="title-block">
+                <div class="chart-title">
+                    <div class="btn shadow text-white bg-deposit has-arrow">
+                      <span class="title">
+                        存款餘額
+                      </span>
+                    </div>
+                    <div class="total d-inline-block font-weight-bold ml-2">
+                       {{11893 | currency:'':'':'1.0-0'}}
+                    </div>
+                 </div>
             </div>
+
             <apx-chart #chartDeposit
             [chart]="DepositData.chart"
             [plotOptions]="DepositData.plotOptions"
@@ -40,7 +43,7 @@
 
 
 
-              <div class="block clearfix">
+              <div class="title-block clearfix">
                   <div class="chart-title float-left">
                       <div class="btn shadow text-white bg-load  has-arrow">
                         <span class="title">
@@ -79,7 +82,7 @@
 
           <div class="col-lg-3 col-md-6 col-sm-12">
 
-              <div class="block clearfix">
+              <div class="title-block clearfix">
                   <div class="chart-title float-left">
                       <div class="btn shadow text-white bg-in has-arrow">
                         <span class="title">
@@ -117,7 +120,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="block clearfix">
+              <div class="title-block clearfix">
                   <div class="chart-title float-left">
                       <div class="btn shadow text-black bg-tmu has-arrow">
                         <span class="title text-black">
@@ -138,6 +141,7 @@
                         102%
                       </div>
                   </div>
+              </div>
 
 
               <apx-chart #chartTmu

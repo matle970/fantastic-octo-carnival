@@ -57,7 +57,11 @@ $mtm-color: #FFE180;
   }
 
 
-
+.title-block {
+  margin-left: 20px;
+  margin-right:20px;
+  min-width: 330px;
+}
   .chart-title{
     vertical-align: middle;
     .btn {
