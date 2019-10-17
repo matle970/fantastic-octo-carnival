@@ -40,8 +40,22 @@ $tablgTrHover : #dbf1d9;
   height: auto;
   max-height: 550px;
   overflow: auto;
-  .table {
+  table {
     border-color: $table-border-color;
+    thead {
+      tr {
+        &:hover {
+          transition: all 0.5 ease;
+          // background-image: linear-gradient(-225deg, rgba(32, 226, 216, 0.473) 0%, rgba(250, 254, 165, 0.801) 100%);
+          background-color: transparent !important;
+          td {
+          background-color: transparent !important;
+            // background-color: $tablgTrHover ;
+          }
+        }
+      }
+
+    }
     tr{
       &:hover {
         transition: all 0.5 ease;
@@ -52,7 +66,6 @@ $tablgTrHover : #dbf1d9;
           // background-color: $tablgTrHover ;
         }
       }
-
     }
     th {
       position: relative;

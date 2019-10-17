@@ -107,21 +107,27 @@
 
   // flat bg with text color variations
   &.btn-primary {
+    color: white;
     @include bmd-flat-button-variant($btn-primary-bg);
   }
   &.btn-secondary {
+    color: white;
     @include bmd-flat-button-variant($btn-secondary-color);
   }
   &.btn-info {
+    color: white;
     @include bmd-flat-button-variant($btn-info-bg);
   }
   &.btn-success {
+    color: white;
     @include bmd-flat-button-variant($btn-success-bg);
   }
   &.btn-warning {
+    color: white;
     @include bmd-flat-button-variant($btn-warning-bg);
   }
   &.btn-danger {
+    color: white;
     @include bmd-flat-button-variant($btn-danger-bg);
   }
 }
@@ -141,24 +147,31 @@
 
   // flat bg with text and border color variations
   &.btn-outline {
+    font-weight: 500;
     @include bmd-flat-button-variant($bmd-btn-color, $bmd-btn-color, $bmd-btn-color, $bmd-btn-color);
   }
   &.btn-outline-primary {
+    color: $primary !important;
     @include bmd-flat-button-variant($btn-primary-bg, $btn-primary-bg, $btn-primary-bg, $btn-primary-bg);
   }
   &.btn-outline-secondary {
+    color: $secondary;
     @include bmd-flat-button-variant($btn-secondary-color, $btn-secondary-color, $btn-secondary-color, $btn-secondary-color);
   }
   &.btn-outline-info {
+    color: $info;
     @include bmd-flat-button-variant($btn-info-bg, $btn-info-bg, $btn-info-bg, $btn-info-bg);
   }
   &.btn-outline-success {
+    color: $success;
     @include bmd-flat-button-variant($btn-success-bg, $btn-success-bg, $btn-success-bg, $btn-success-bg);
   }
   &.btn-outline-warning {
+    color: $warning;
     @include bmd-flat-button-variant($btn-warning-bg, $btn-warning-bg, $btn-warning-bg, $btn-warning-bg);
   }
   &.btn-outline-danger {
+    color: $danger;
     @include bmd-flat-button-variant($btn-danger-bg, $btn-danger-bg, $btn-danger-bg, $btn-danger-bg);
   }
 }
@@ -177,7 +190,7 @@
   //$active-background: darken($background, 17%);
   $active-border: darken($border, 25%);
 
-  @include bmd-button-variant($color,
+    @include bmd-button-variant($color,
     $background,
     $focus-background,
     $active-background,
@@ -190,8 +203,9 @@
     &:focus,
     &:active,
     &:hover{
+
       // remove this line if you want black shadows
-      @include button-shadow-color($background);
+      // @include button-shadow-color($background);
     }
 
     &.btn-link{

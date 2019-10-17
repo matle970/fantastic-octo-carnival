@@ -64,7 +64,7 @@ export class BaseInfoComponent implements OnInit {
       toolbar: {
         show: false
       },
-      height: 200,
+      height: 260,
       type: 'bar',
     },
     colors: ['#81c784','#388e3c'],

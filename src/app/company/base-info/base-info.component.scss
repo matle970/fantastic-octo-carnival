@@ -9,8 +9,13 @@
 
 }
 
-.company-title {
-  font-size: 1.4rem;
+.base-block{
+  .badge {
+    border-radius: 0px;
+    border-width: 3px !important;
+    border-style: double !important;
+  }
+
 }
 .number-list {
   width: 100%;
@@ -80,8 +85,9 @@
     .note {
       color:#FFF;
       box-sizing: border-box;
-      margin:3px;
-      width:180px;
+      margin:3px auto;
+      width:150px;
+      border-radius: 5px;
     }
     .last-year {
       background: #81c784;
