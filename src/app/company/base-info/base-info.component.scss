@@ -16,6 +16,15 @@
     border-width: 3px !important;
     border-style: double !important;
   }
+  .card-body {
+    .body-subtitle {
+      .btn {
+        font-size: 1.2rem !important;
+        font-weight: 500!important;
+      }
+
+    }
+  }
 
 }
 .number-list {
@@ -37,14 +46,14 @@
       .badge{
         margin-bottom: 3px;
         width: 95%;
-        font-size: 0.7rem;
+        font-size: 1rem;
         background: #fafafa;
         color: #000;
         border: 1px solid #CCC;
         text-align: left;
         padding: 8px 3px;
         .num {
-          font-size: 1rem;
+          font-size: 1.2rem;
           color:#069F41;
           font-weight: 700;
           text-align: right;
@@ -65,7 +74,7 @@
           font-style: normal;
           font-weight: 500;
           color:#000;
-          font-size:0.8rem;
+          font-size:1rem;
           letter-spacing: 1px;
         }
       }

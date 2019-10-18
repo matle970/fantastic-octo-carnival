@@ -11,6 +11,7 @@ $layerOne: $thbgcolor;
 $layerTwo:  lighten($thbgcolor, 5%);
 $layerThree:  lighten($thbgcolor, 10%);
 $table-border-color: #FFF;
+$table-max-height : 614px;
 
 $liner-bg :linear-gradient(to 90deg, #37ecba 0%, #72afd3 100%);
 
@@ -38,7 +39,7 @@ $tablgTrHover : #dbf1d9;
 
 .data-table {
   height: auto;
-  max-height: 550px;
+  max-height: $table-max-height;
   overflow: auto;
   table {
     border-color: $table-border-color;
