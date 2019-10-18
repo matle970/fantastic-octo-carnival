@@ -4,7 +4,7 @@
   padding: 12px 30px;
   margin: $bmd-btn-margin-bottom 1px;
   min-width: auto;
-  font-size: .75rem; //  12px
+  font-size: 1rem; //  12px
   font-weight: 400;
   line-height: $bmd-line-height;
   text-decoration: none;
@@ -23,7 +23,6 @@
   //has arrow
   &.has-arrow {
     text-align: left;
-    font-size: 1rem !important;
     padding: 3px 20px 3px 10px!important;
     margin:3px 0;
     font-weight: 600;

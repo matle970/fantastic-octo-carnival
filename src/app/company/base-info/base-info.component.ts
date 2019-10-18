@@ -64,10 +64,10 @@ export class BaseInfoComponent implements OnInit {
       toolbar: {
         show: false
       },
-      height: 200,
+      height: 280,
       type: 'bar',
     },
-    colors: ['#81c784','#388e3c'],
+    colors: ['#009F41','#76BC21'],
     plotOptions: {
         bar: {
             horizontal: true,
@@ -84,6 +84,27 @@ export class BaseInfoComponent implements OnInit {
             colors: ['#000']
         }
     },
+    responsive: [
+      {
+        breakpoint: 1400,
+        options: {
+          chart: {
+            width: '85%',
+            height: 300
+          }
+        }
+      },
+      {
+        breakpoint: 900,
+        options: {
+          chart: {
+            width: '90%',
+            height: 350
+          }
+        }
+      }
+    ],
+
     stroke: {
         show: true,
         width: 1,

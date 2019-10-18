@@ -33,7 +33,7 @@
 
           <div class="card data-card shadow-lg">
               <!-- <div class="card-header card-header-primary filter-search">
-                  <app-filter [datalist]="tableDetailList"></app-filter>
+                  <app-filter [datalist]="dataSource"></app-filter>
               </div> -->
               <div class="card-body">
                   <div class="row data-info">
@@ -47,22 +47,400 @@
 
                   </div>
                   <div class="data-table mt-3">
+                      <table class="table m-0 p-0 table-hover table-sticky"
+                      (matSortChange)="sortData($event)"
+                      mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
+                          <ng-container matColumnDef="ao">
+                              <th class="text-nowrap text-left pr-2 min-130"
+                              mat-header-cell mat-sort-header *matHeaderCellDef>
+                                經管 AO
+                                <span class="order" *ngIf="'ao' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+
+                              </th>
+                              <td class="text-left" mat-cell *matCellDef="let element">
+                                <span class="text-ellipsis" [matTooltip]="element.ao" matTooltipPosition="above">
+                                  {{element.ao}}
+                                </span>
+                              </td>
+                              <td mat-footer-cell *matFooterCellDef> Total </td>
+                          </ng-container>
+                          <ng-container matColumnDef="group_name">
+                              <th class="text-nowrap text-left pr-2 " mat-sort-header  mat-header-cell *matHeaderCellDef>
+                                集團名稱
+                                <span class="order" *ngIf="'group_name' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-left" mat-cell *matCellDef="let element">
+                                <span class="text-ellipsis" [matTooltip]="element.group_name" matTooltipPosition="above">
+                                    {{element.group_name}}
+                                </span>
+                              </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+                          <ng-container matColumnDef="cus_name">
+                              <th class="text-nowrap text-left pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
+                                客戶名稱
+                                <span class="order" *ngIf="'cus_name' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-left" mat-cell *matCellDef="let element">
+                                  <a href="#" class="underline text-ellipsis-name mr-2" [matTooltip]="element.cus_name" matTooltipPosition="above">
+                                      {{element.cus_name}}
+                                  </a>
+                                  <div class="d-block">
+                                      <span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="element.tag.includes(1)">
+                                        授
+                                      </span>
+                                      <span class="mt-1 tag tag-blue" matTooltip="企網銀" matTooltipPosition="above" *ngIf="element.tag.includes(2)">
+                                        網
+                                      </span>
+                                      <span class="mt-1 tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above" *ngIf="element.tag.includes(3)">
+                                        薪
+                                      </span>
+
+
+                                      <span class="mt-1 tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" *ngIf="element.tag.includes(4)">
+                                        核
+                                      </span>
+                                      <span class="mt-1 tag tag-red" matTooltip="黑名單" matTooltipPosition="above" *ngIf="element.tag.includes(5)">
+                                        黑
+                                      </span>
+
+                                    </div>
+                              </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+                          <ng-container matColumnDef="cus_id">
+                              <th class="text-nowrap text-right pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
+                                客戶ID
+                                <span class="order" *ngIf="'cus_id' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-right" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+                          <ng-container matColumnDef="msr">
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
+                                MSR
+                                <span class="order" *ngIf="'msr' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+
+                              </th>
+                              <td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.msr}} </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+                          <ng-container matColumnDef="rorwa">
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
+                                RORWA
+                                <span class="order" *ngIf="'rorwa' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+                              </th>
+                              <td class="text-right bg-three" mat-cell *matCellDef="let element">
+                                {{element.rorwa}}
+                              </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+                          <ng-container matColumnDef="raroc">
+                              <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
+                                RAROC
+                                <span class="order" *ngIf="'raroc' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.raroc}} </td>
+                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                          </ng-container>
+
+
+                          <ng-container matColumnDef="last_year_contribution">
+                              <th class="text-nowrap text-right pr-2 min-100  " mat-sort-header  mat-header-cell *matHeaderCellDef>
+                                去年度<br>累計貢獻度
+                                <span class="order" *ngIf="'last_year_contribution' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+                              </th>
+                              <td class="text-right bg-two" mat-cell *matCellDef="let element">
+                                {{element.last_year_contribution | currency:'':'':'1.0-0'}}
+                              </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}}</td>
+                          </ng-container>
+                          <ng-container matColumnDef="this_year_contribution">
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+                                今年度<br>累計貢獻度
+                                <span class="order" *ngIf="'this_year_contribution' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+                              </th>
+                              <td class="text-right bg-two" mat-cell *matCellDef="let element">
+                                {{element.this_year_contribution | currency:'':'':'1.0-0' }}
+                              </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="deposit">
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+                                存款餘額
+                                <span class="order" *ngIf="'deposit' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-right bg-one" mat-cell *matCellDef="let element">
+                                {{element.deposit | currency:'':'':'1.0-0' }}
+                              </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="load_balance">
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+                                放款餘額
+                                <span class="load_balance" *ngIf="'deposit' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-right bg-one" mat-cell *matCellDef="let element">
+                                {{element.load_balance | currency:'':'':'1.0-0' }}
+                              </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef> {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                          </ng-container>
+
+                          <ng-container matColumnDef="trade_balance">
+                              <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+                                貿融餘額
+                                <span class="load_balance" *ngIf="'trade_balance' == nowOrder.id; else noOrder">
+                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
+                                        arrow_drop_up
+                                    </i>
+                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
+                                        arrow_drop_down
+                                    </i>
+                                </span>
+                                <ng-template #noOrder>
+                                    <span class="order" >
+                                        <i class="material-icons not-active">
+                                            arrow_drop_up
+                                        </i>
+                                        <i class="material-icons not-active">
+                                            arrow_drop_down
+                                        </i>
+                                    </span>
+                                </ng-template>
+
+                              </th>
+                              <td class="text-right bg-one" mat-cell *matCellDef="let element">
+                                {{element.trade_balance | currency:'':'':'1.0-0'}}
+                              </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                          </ng-container>
+
+                          <tr mat-header-row *matHeaderRowDef="tableThead; sticky: true"></tr>
+                          <tr mat-row *matRowDef="let row; columns: tableThead;"></tr>
+                          <tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
+                      </table>
+
+                  </div>
+
+                  <mat-paginator #paginator class="text-h3"
+               [length]="60"
+               [pageIndex]="0"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 15]"
+               (page)="pageChange($event)" showFirstLastButtons></mat-paginator>
+
+                  <div  *ngIf="false">
                       <table class="table  table-striped">
                           <thead class="text-primary text-right">
                             <th class="py-3 px-1"
                             [ngClass]="{
                             'text-left pr-2': (thHead.id=='ao' || thHead.id == 'cus_name' || thHead.id == 'group_name'),
                             'min-130': (thHead.id=='ao' || thHead.id == 'cus_name'),
-                            'min-60':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
+                            'min-70':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
                             *ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
 
-                              <span class="d-inline-block" *ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
+                              <span class="d-inline-block " *ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
                                   {{thHead.name}}
                               </span>
-                              <span *ngIf="thHead.name == '去年度累計貢獻度' ">
+                              <span class="th-width-min" *ngIf="thHead.name == '去年度累計貢獻度' ">
                                   去年度<br>累計貢獻度
                               </span>
-                              <span *ngIf="thHead.name == '今年度累計貢獻度' ">
+                              <span class="th-width-min" *ngIf="thHead.name == '今年度累計貢獻度' ">
                                   今年度<br>累計貢獻度
                               </span>
 
@@ -87,17 +465,22 @@
                             </th>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let item of tableDetailList">
-                              <td class="text-left  pr-4">
-                                    {{item.ao}}
+                            <tr *ngFor="let item of dataSource">
+                              <td class="text-left  pr-4 ">
+                                    <span class="text-ellipsis" [matTooltip]="item.ao" matTooltipPosition="above">
+                                        {{item.ao}}
+                                    </span>
                               </td>
 
                               <td class="text-left  pr-4">
-                                {{item.group_name}}
+                                <span class="text-ellipsis" [matTooltip]="item.group_name" matTooltipPosition="above">
+                                    {{item.group_name}}
+                                </span>
+
                               </td>
 
                               <td class="text-left  pr-4">
-                                  <a href="#" class="underline mr-2"> {{item.cus_name}}</a>
+                                <a href="#" class="underline text-ellipsis-name mr-2" [matTooltip]="item.cus_name" matTooltipPosition="above"> {{item.cus_name}}</a>
                                 <div class="d-block">
                                   <span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above" *ngIf="item.tag.includes(1)">
                                     授
@@ -139,19 +522,20 @@
                                 {{item.raroc}}
                               </td>
                               <td class="text-right pr-4 bg-two">
-                                {{item.last_year_contribution | currency:'':'symbol':'1.0-0' }}
+                                <!-- 如果要show $ 改為 currency:'':'symbol':'1.0-0' -->
+                                {{item.last_year_contribution | currency:'':'':'1.0-0' }}
                               </td>
                               <td class="text-right pr-4 bg-two">
-                                  {{item.this_year_contribution | currency:'':'symbol':'1.0-0'}}
+                                  {{item.this_year_contribution | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4 bg-one">
-                                  {{item.deposit | currency:'':'symbol':'1.0-0'}}
+                                  {{item.deposit | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4  bg-one">
-                                  {{item.load_balance | currency:'':'symbol':'1.0-0'}}
+                                  {{item.load_balance | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right pr-4  bg-one">
-                                  {{item.trade_balance | currency:'':'symbol':'1.0-0'}}
+                                  {{item.trade_balance | currency:'':'':'1.0-0'}}
                               </td>
 
 
@@ -177,7 +561,7 @@
               </div>
 
               <div>
-                  <app-pagination></app-pagination>
+                  <!-- <app-pagination></app-pagination> -->
               </div>
           </div>
 

@@ -1,4 +1,4 @@
-<div class="card mt-0 p-0 shadow-lg">
+<div class="card shadow-lg bottom-card">
   <!-- <div class="card-header card-header-danger">
       <h4 class="card-title">Material Dashboard PRO Angular</h4>
       <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
@@ -6,22 +6,25 @@
   <div class="card-body">
       <h4 class="card-title text-primary clearfix">
         營運量
-        <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06 (單位：新臺幣仟元)
-        </div>
+        <!-- <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06
+        </div> -->
       </h4>
-      <div class="all-charts-blcok row">
+      <div class="all-charts-blcok row no-gutters mt-4">
 
           <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="chart-title">
-               <div class="btn shadow text-white bg-deposit has-arrow">
-                 <span class="title">
-                   存款餘額
-                 </span>
-               </div>
-               <div class="total d-inline-block font-weight-bold ml-2">
-                  {{11893 | currency:'':'symbol':'1.0-0'}}
-               </div>
+            <div class="title-block row no-gutters">
+                <div class="chart-title col-12">
+                    <div class="btn text-white bg-deposit has-arrow">
+                      <span class="title">
+                        存款餘額
+                      </span>
+                    </div>
+                    <div class="total d-inline-block font-weight-bold ml-2">
+                       {{11893 | currency:'':'':'1.0-0'}}
+                    </div>
+                 </div>
             </div>
+
             <apx-chart #chartDeposit
             [chart]="DepositData.chart"
             [plotOptions]="DepositData.plotOptions"
@@ -40,25 +43,25 @@
 
 
 
-              <div class="block clearfix">
-                  <div class="chart-title float-left">
-                      <div class="btn shadow text-white bg-load  has-arrow">
+              <div class="title-block clearfix  row no-gutters">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn d-inline-block text-white bg-load  has-arrow">
                         <span class="title">
                           放款餘額
                         </span>
                       </div>
                       <div class="total d-inline-block font-weight-bold ml-2">
-                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                         {{39893 | currency:'':'':'1.0-0'}}
                       </div>
                   </div>
-                  <div class="chart-title float-right">
-                      <div class="btn shadow text-white bg-trade  has-arrow">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn d-inline-block text-white bg-trade has-arrow">
                         <span class="title">
                             貿融餘額
                         </span>
                       </div>
                       <div class="total d-inline-block font-weight-bold ml-2">
-                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                         {{39893 | currency:'':'':'1.0-0'}}
                       </div>
                   </div>
               </div>
@@ -79,25 +82,25 @@
 
           <div class="col-lg-3 col-md-6 col-sm-12">
 
-              <div class="block clearfix">
-                  <div class="chart-title float-left">
-                      <div class="btn shadow text-white bg-in has-arrow">
+              <div class="title-block clearfix row no-gutters">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn  text-white bg-in has-arrow">
                         <span class="title">
                             進口實績
                         </span>
                       </div>
                       <div class="total d-inline-block font-weight-bold ml-2">
-                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                         {{39893 | currency:'':'':'1.0-0'}}
                       </div>
                   </div>
-                  <div class="chart-title float-right">
-                      <div class="btn shadow text-white bg-out  has-arrow">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn  text-white bg-out  has-arrow">
                         <span class="title">
                             出口實績
                         </span>
                       </div>
                       <div class="total d-inline-block font-weight-bold ml-2">
-                         {{39893 | currency:'':'symbol':'1.0-0'}}
+                         {{39893 | currency:'':'':'1.0-0'}}
                       </div>
                   </div>
               </div>
@@ -117,19 +120,19 @@
           </div>
 
           <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="block clearfix">
-                  <div class="chart-title float-left">
-                      <div class="btn shadow text-black bg-tmu has-arrow">
+              <div class="title-block clearfix row no-gutters ">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn  text-black bg-tmu has-arrow">
                         <span class="title text-black">
-                            TMU使用率
+                            TMU
                         </span>
                       </div>
                       <div class="total d-inline-block font-weight-bold ml-2">
                          60%
                       </div>
                   </div>
-                  <div class="chart-title float-right">
-                      <div class="btn shadow bg-mtm text-black  has-arrow">
+                  <div class="chart-title col-sm-6 col-md-6 col-lg-6">
+                      <div class="btn  bg-mtm text-black  has-arrow">
                         <span class="title text-black">
                             MTM
                         </span>
@@ -138,6 +141,7 @@
                         102%
                       </div>
                   </div>
+              </div>
 
 
               <apx-chart #chartTmu

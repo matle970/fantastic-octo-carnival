@@ -1,6 +1,6 @@
 
 
-<div class="card shadow-lg">
+<div class="card shadow-lg base-block top-card">
     <!-- <div class="card-header card-header-danger">
         <h4 class="card-title">Material Dashboard PRO Angular</h4>
         <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
@@ -39,14 +39,14 @@
 
         </h4>
         <div class="company-title row my-1">
-          <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="col-lg-12 col-md-12 col-sm-12  text-h3">
               <span class="card-subtitle d-inline-block company-title">
                   千里馬股份有限公司
               </span>
               <span class="d-inline-block ml-3">
                   統編 : 12345678
               </span>
-              <span class="d-inline-block ml-3 badge badge-info">電子業</span>
+              <span class="d-inline-block ml-3 badge badge-secondary">電子業</span>
           </div>
 
         </div>
@@ -65,7 +65,7 @@
                 <!-- 公司資訊 -->
                 <div class="m-1 p-0">
                       <div class="d-block body-subtitle my-1">
-                          <a class="btn btn-sm btn-secondary has-arrow" (click)="openDialog(3)">
+                          <a class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(3)">
                             公司資訊
                           </a>
                       </div>
@@ -122,9 +122,11 @@
                   <!-- 經管資訊 -->
                   <div class="m-1 p-0">
                       <div class="d-block body-subtitle my-1">
-                          <a class="btn btn-sm btn-secondary has-arrow">經管資訊</a>
+                          <a class="btn btn-outline btn-outline-primary has-arrow">
+                            經管資訊
+                          </a>
                       </div>
-                      <div class="number-list shadow-sm p-1">
+                      <div class="number-list shadow-sm p-1 h-68">
                               <ol>
                                   <li>
                                       <p><em> AO 企企區中 </em>
@@ -141,7 +143,9 @@
                  <!-- 集團資訊 -->
                  <div class="m-1 p-0">
                     <div class="d-block body-subtitle m-1">
-                        <a class="btn btn-sm btn-secondary has-arrow"  (click)="openDialog(4)">集團資訊</a>
+                        <a class="btn btn-outline btn-outline-primary has-arrow"  (click)="openDialog(4)">
+                          集團資訊
+                        </a>
                     </div>
                     <div class="number-list shadow-sm p-1">
                             <ol>
@@ -153,13 +157,13 @@
                                 <li>
                                     <p>
                                       <em class="d-inline-block">集團總額度</em>
-                                      {{ 8000 | currency:'':'symbol':'1.0-0'}}
+                                      {{ 8000 | currency:'':'':'1.0-0'}}
                                     </p>
                                 </li>
                                 <li>
                                     <p>
                                       <em class="d-inline-block">集團總餘額</em>
-                                      {{ 4000 | currency:'':'symbol':'1.0-0'}}
+                                      {{ 4000 | currency:'':'':'1.0-0'}}
                                     </p>
                                 </li>
                                 <li>
@@ -188,10 +192,11 @@
                  <!-- 個人關聯戶 -->
                  <div class="m-1 p-0">
                     <div class="d-block body-subtitle my-1">
-                        <a class="btn btn-sm btn-secondary has-arrow">個人關聯戶
-                          </a>
+                        <a class="btn btn-outline btn-outline-primary has-arrow">
+                          個人關聯戶
+                        </a>
                     </div>
-                    <div class="number-list shadow-sm p-2">
+                    <div class="number-list shadow-sm p-1 h-68">
                             <ol>
                                 <li class="d-inline-block mr-1">
                                     <p><em class="d-inline-block"> 總負債 </em>
@@ -211,72 +216,58 @@
 
                 </div>
             </div>
-            <!-- <div class="row no-gutters" >
-              <div class="col-md-12">
-                  <div class="d-block body-subtitle my-1">
-                      <a href="#" class="underline">個人關聯戶
-                        </a>
-                  </div>
-                  <div class="number-list shadow-sm p-2">
-                          <ol>
-                              <li class="d-inline-block mr-4">
-                                  <p><em class="d-inline-block"> 總負債 </em>
-                                    120</p>
-                              </li>
-                              <li class="d-inline-block mr-4">
-                                  <p><em class="d-inline-block"> 總資產 </em>
-                                    780</p>
-                              </li>
-                              <li class="d-inline-block mr-4">
-                                  <p><em class="d-inline-block"> 信用卡總額度 </em>
-                                    100</p>
-                              </li>
-                            </ol>
-                  </div>
-              </div>
 
-            </div> -->
           </div>
 
           <!-- 右邊 -->
           <div class="col-lg-5 col-md-12 col-sm-12">
-              <div class="d-block body-subtitle mb-1 clearfix">
-                  <a class="btn btn-sm btn-secondary has-arrow">貢獻度</a>
-              </div>
-              <div class="d-inline-block date-block">
-                  資料期間：2018/12-2019/07 (單位：新臺幣仟元)
-              </div>
-              <!-- 圖表 -->
-              <div class="ao-charts">
-                  <apx-chart #chartObj
-                  [chart]="chartData.chart"
-                  [plotOptions]="chartData.plotOptions"
-                  [dataLabels]="chartData.dataLabels"
-                  [stroke]="chartData.stroke"
-                  [series]="chartData.series"
-                  [xaxis]="chartData.xaxis"
-                  [yaxis]="chartData.yaxis"
-                  [colors]="chartData.colors"
-                  [legend]="chartData.legend">
-                  </apx-chart>
-                  <div class="charts-note text-center d-flex justify-content-center">
-                    <div class="note last-year">
-                       <div class="w-100 font-weight-bolder">
-                          去年度累計貢獻度
-                       </div>
-                       <div class="w-100">
-                         {{ 3170 | currency:'':'symbol':'1.0-0'}}
-                       </div>
+                    <div class="d-block body-subtitle mb-1 clearfix">
+                        <a class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left">貢獻度</a>
+                        <div class="d-inline-block date-block float-right">
+                            資料期間：2018/12-2019/07
+                        </div>
+
                     </div>
-                    <div class="note this-year">
-                        <div class="w-100 font-weight-bolder">
-                            今年度累計貢獻度
-                         </div>
-                         <div class="w-100">
-                          {{ 3230 | currency:'':'symbol':'1.0-0'}}
-                         </div>
-                    </div>
-                  </div>
+
+                    <!-- 圖表 -->
+                    <div class="ao-charts">
+
+                        <div class="charts-note text-center d-flex justify-content-center">
+                            <div class="note last-year mr-2">
+                              <div class="w-100 font-weight-bolder text-small">
+                                  去年度累計貢獻度
+                              </div>
+                              <div class="w-100">
+                                {{ 3170 | currency:'':'symbol':'1.0-0'}}
+                              </div>
+                            </div>
+                            <div class="note this-year">
+                                <div class="w-100 font-weight-bolder text-small">
+                                    今年度累計貢獻度
+                                </div>
+                                <div class="w-100">
+                                  {{ 3230 | currency:'':'symbol':'1.0-0'}}
+                                </div>
+                            </div>
+                          </div>
+
+
+                        <apx-chart #chartObj
+                        [chart]="chartData.chart"
+                        [plotOptions]="chartData.plotOptions"
+                        [dataLabels]="chartData.dataLabels"
+                        [stroke]="chartData.stroke"
+                        [series]="chartData.series"
+                        [xaxis]="chartData.xaxis"
+                        [yaxis]="chartData.yaxis"
+                        [colors]="chartData.colors"
+                        [responsive]="chartData.responsive"
+                        [legend]="chartData.legend">
+                       </apx-chart>
+
+
+
+
               </div>
           </div>
 

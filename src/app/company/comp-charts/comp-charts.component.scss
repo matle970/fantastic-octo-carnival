@@ -1,21 +1,25 @@
 
 // 存款 orange
-$deposit-chart-color: #CC3B0A;
+$deposit-chart-color: #003049;
 
 // 放款
-$load-chart-color: #0077c8;
+$load-chart-color: #09558a;
 
 // 貿融
-$trade-chart-color: #48a9c5;
+$trade-chart-color: #0887b1;
 
 // 進口,出口
 
-$in-chart-color: #996D31;
-$out-chart-color: #CCAB7E;
+$in-chart-color: #045960;
+$out-chart-color: #08a08a;
 
 //TMU
-$tmu-color: #FFA51F;
-$mtm-color: #FFE180;
+$tmu-color: #f77f00;
+$mtm-color: #fbc93e;
+
+.bottom-card {
+  height: 360px ;
+}
 
 .all-charts-blcok {
 
@@ -49,33 +53,57 @@ $mtm-color: #FFE180;
     color: black;
     font-weight: bold;
     background: $tmu-color;
+    line-height: 45px;
+    .title {
+      font-size: 0.9rem !important;
+    }
+
   }
   .bg-mtm {
     color: black;
     font-weight: bold;
     background: $mtm-color;
+    line-height: 45px;
+    .title {
+      font-size: 0.9rem !important;
+    }
   }
 
 
-
+.title-block {
+  margin-left: 20px;
+  margin-right:20px;
+  min-width: 330px;
+  margin-bottom:8px;
+}
   .chart-title{
     vertical-align: middle;
     .btn {
-      padding: 4px 8px;
+      padding: 3px;
       vertical-align: middle;
       color:inherit;
+      width:70px;
+      height: 54px;
     }
     .title {
       color: white;
       font-size: 1rem;
       font-weight: 700;
       vertical-align: middle;
+      width:60px;
     }
     .total {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-weight: 700;
       vertical-align: middle;
     }
   }
 
 }
+
+@media screen and (max-width: 1400px) {
+  .bottom-card {
+     height: auto !important;
+  }
+}
+

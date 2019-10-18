@@ -9,13 +9,31 @@
 
 }
 
-.company-title {
-  font-size: 1.4rem;
+.base-block{
+  height: 480px;
+  .badge {
+    border-radius: 0px;
+    border-width: 3px !important;
+    border-style: double !important;
+  }
+  .card-body {
+    .body-subtitle {
+      .btn {
+        font-size: 1.2rem !important;
+        font-weight: 500!important;
+      }
+
+    }
+  }
+
 }
 .number-list {
   width: 100%;
   padding:0;
   margin:0;
+  &.h-68 {
+    height: 68px;
+  }
 
   ol {
     font-size:0.8rem;
@@ -28,14 +46,14 @@
       .badge{
         margin-bottom: 3px;
         width: 95%;
-        font-size: 0.7rem;
+        font-size: 1rem;
         background: #fafafa;
         color: #000;
         border: 1px solid #CCC;
         text-align: left;
         padding: 8px 3px;
         .num {
-          font-size: 1rem;
+          font-size: 1.2rem;
           color:#069F41;
           font-weight: 700;
           text-align: right;
@@ -56,7 +74,7 @@
           font-style: normal;
           font-weight: 500;
           color:#000;
-          font-size:0.8rem;
+          font-size:1rem;
           letter-spacing: 1px;
         }
       }
@@ -80,16 +98,22 @@
     .note {
       color:#FFF;
       box-sizing: border-box;
-      margin:3px;
-      width:180px;
+      margin:3px auto;
+      width:150px;
+      border-radius: 5px;
     }
     .last-year {
-      background: #81c784;
+      background: #76BC21;
     }
     .this-year {
-      background: #388e3c;
+      background: #009F41;
 
     }
   }
 
+}
+@media screen and (max-width: 1400px) {
+  .base-block{
+     height: auto !important;
+  }
 }

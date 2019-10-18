@@ -18,13 +18,13 @@ export class CompChartsComponent implements OnInit {
       toolbar: {
         show: false
       },
-      height: 200,
+      height: 220,
       type: 'line',
       zoom: {
         enabled: false
       }
     },
-    colors: ['#CC3B0A'],
+    colors: ['#003049'],
     series: [
       {
         name: '存款',
@@ -67,7 +67,7 @@ export class CompChartsComponent implements OnInit {
     yaxis: {
       labels:{
         style: {
-          fontSize: '14px',
+          fontSize: '0.8rem',
         }
       }
     },
@@ -83,7 +83,7 @@ export class CompChartsComponent implements OnInit {
   LoanData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 200,
+      height: 220,
       type: 'line',
       shadow: {
         enabled: true,
@@ -97,7 +97,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#0077c8', '#48a9c5'],
+    colors: ['#09558a', '#0887b1'],
     dataLabels: {
       enabled: false
     },
@@ -150,7 +150,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
@@ -166,7 +168,7 @@ export class CompChartsComponent implements OnInit {
   TmuData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 200,
+      height: 220,
       type: 'line',
       shadow: {
         enabled: true,
@@ -180,7 +182,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#FFA51F', '#FFE180'],
+    colors: ['#f77f00', '#fbc93e'],
 
     dataLabels: {
       enabled: false
@@ -234,7 +236,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
@@ -250,7 +254,7 @@ export class CompChartsComponent implements OnInit {
   TradeData = {
     chart: {
       fontFamily: '微軟正黑體',
-      height: 200,
+      height: 220,
       type: 'line',
       shadow: {
         enabled: true,
@@ -264,7 +268,7 @@ export class CompChartsComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#996D31', '#CCAB7E'],
+    colors: ['#045960', '#08a08a'],
     dataLabels: {
       enabled: false,
       formatter: function(val) {
@@ -321,7 +325,9 @@ export class CompChartsComponent implements OnInit {
     },
     yaxis: {
       labels:{
-
+        style: {
+          fontSize: '0.8rem',
+        }
       }
     },
     legend: {
@@ -343,7 +349,7 @@ export class CompChartsComponent implements OnInit {
     // const nthis = this;
     // setTimeout(function(){
     //   nthis.reRenderCharts();
-    // });
+    // },2000);
   }
 
   allChartEnd() {

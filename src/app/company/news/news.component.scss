@@ -1,16 +1,71 @@
+.news-container {
+  height: 180px;
+  overflow: auto;
+}
+
+
+// table design
+.news-block {
+  height: 480px;
+  table {
+    width: 100%;
+    margin: 0 auto;
+    font-family: '微軟正黑體';
+    font-size: 1rem !important;
+    tr {
+      height: 24px;
+      line-height: 24px;
+    }
+    .mat-header-row {
+      // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+      background-image: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
+    }
+
+    th {
+      padding:5px 6px;
+      margin:0;
+      font-style: normal;
+      color:#335238;
+      font-size:1rem;
+      letter-spacing: 1px;
+
+    }
+    th,td {
+      text-align: center;
+      font-size: 1rem !important;
+    }
+  }
+}
+
 
 
 .news-block{
-  height: auto;
-  min-height: 470px;
-  .table {
-    th {
-      font-style: normal;
-      color:#335238;
-      font-size:0.8rem;
-      letter-spacing: 1px;
+  .card-title {
+    height: 30px;
+    line-height: 30px;
+    a.title-arrow {
+      display:inline-block;
+      cursor: pointer;
+    }
+    i.material-icons{
+      vertical-align: middle;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .bank-date-block {
+      height: 30px;
+
+      > div {
+        height: 15px;
+        line-height: 15px;
+        margin:0;
+        padding:0;
+        text-align: center;
+      }
+
     }
   }
+
 }
 
 .list-table {

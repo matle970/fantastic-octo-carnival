@@ -1,4 +1,7 @@
 
+$tab-cathy-color: #009F41;
+$tab-cathy-lightgreen: #76Bc21;
+$tab-gray: #999;
 
 $all-A-color: #76Bc21;
 $all-b-color: #CDDE00;
@@ -13,6 +16,9 @@ $tmu-b-color: #FFE180;
 $man-A-color: #806F46;
 $man-b-color: #CCB270;
 
+.bottom-card {
+  height: 360px !important;
+}
 .customer-history {
   .nav-tabs {
     margin:0;
@@ -76,14 +82,54 @@ $man-b-color: #CCB270;
     }
   }
 
+  // style B
+  .tab-btn {
+    list-style: none;
+    padding:0;
+    margin:0;
+    width:100%;
+    clear: both;
+    height: auto;
+    overflow: hidden;
+    li{
+      cursor: pointer;
+      width: 60px;
+      border: 1px solid $tab-gray;
+      color: $tab-gray;
+      margin:1px;
+      text-align: center;
+      float: left;
+      overflow: hidden;
+      text-emphasis: none;
+      text-overflow: hidden;
+      display:inline-block;
+      border-radius: 3px;
+      transition: all .5s ease;
+      height:26px;
+      line-height: 26px;
+      padding:0;
+      margin:3px;
+      &:hover {
+        background-color:$tab-cathy-lightgreen;
+        color:#FFF;
+        border-color: $tab-cathy-lightgreen;
+      }
+      &.active {
+        background-color: $tab-cathy-color;
+        color:#FFF;
+        border-color: $tab-cathy-color;
+      }
+    }
+  }
+
 }
 
 .content-list {
-  margin: 15px 0;
+  margin: 8px 0;
   padding: 0px;
   list-style: none;
-  min-height: 336px;
-  max-height: 336px;
+  height: 240px;
+
   overflow: auto;
   li {
     padding:3px 0;
