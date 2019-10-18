@@ -16,10 +16,11 @@
     <div class="card-body">
         <h4 class="card-title text-primary">客戶歷程</h4>
         <div class="customer-history">
-            <ul class="nav nav-tabs type-list">
-                <li class="nav-item" *ngFor="let item of tablist"
+           <!-- colorful style : hide 20191018 -->
+            <ul class="nav nav-tabs type-list" *ngIf="false">
+              <li class="nav-item" *ngFor="let item of tablist"
                 (click)="selectTab(item.id)">
-                  <a class="nav-link all-type active"
+                  <a class="nav-link all-type"
                   [ngClass]="{
                   'active': item.id == activeTab,
                   'all-type': (item.id == 'all'),
@@ -30,7 +31,15 @@
                    }">
                     {{item.name}}
                   </a>
+              </li>
+            </ul>
 
+            <!-- simple style show  -->
+            <ul class="tab-btn">
+                <li class="" *ngFor="let item of tablist"
+                (click)="selectTab(item.id)" [ngClass]="{'active': item.id == activeTab}">
+                    {{item.name}}
+              </li>
             </ul>
 
             <ul class="content-list">

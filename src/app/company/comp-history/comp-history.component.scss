@@ -1,4 +1,7 @@
 
+$tab-cathy-color: #009F41;
+$tab-cathy-lightgreen: #76Bc21;
+$tab-gray: #999;
 
 $all-A-color: #76Bc21;
 $all-b-color: #CDDE00;
@@ -72,6 +75,46 @@ $man-b-color: #CCB270;
         &.active {
           border-color: $man-A-color;
         }
+      }
+    }
+  }
+
+  // style B
+  .tab-btn {
+    list-style: none;
+    padding:0;
+    margin:0;
+    width:100%;
+    clear: both;
+    height: auto;
+    overflow: hidden;
+    li{
+      cursor: pointer;
+      width: 82px;
+      border: 1px solid $tab-gray;
+      color: $tab-gray;
+      margin:1px;
+      text-align: center;
+      float: left;
+      overflow: hidden;
+      text-emphasis: none;
+      text-overflow: hidden;
+      display:inline-block;
+      border-radius: 3px;
+      transition: all .5s ease;
+      height:26px;
+      line-height: 26px;
+      padding:0;
+      margin:3px;
+      &:hover {
+        background-color:$tab-cathy-lightgreen;
+        color:#FFF;
+        border-color: $tab-cathy-lightgreen;
+      }
+      &.active {
+        background-color: $tab-cathy-color;
+        color:#FFF;
+        border-color: $tab-cathy-color;
       }
     }
   }
