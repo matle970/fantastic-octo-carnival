@@ -90,7 +90,7 @@ $man-b-color: #CCB270;
     overflow: hidden;
     li{
       cursor: pointer;
-      width: 82px;
+      width: 60px;
       border: 1px solid $tab-gray;
       color: $tab-gray;
       margin:1px;
@@ -122,7 +122,7 @@ $man-b-color: #CCB270;
 }
 
 .content-list {
-  margin: 15px 0;
+  margin: 8px 0;
   padding: 0px;
   list-style: none;
   min-height: 336px;
