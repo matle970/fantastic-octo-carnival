@@ -84,6 +84,27 @@ export class BaseInfoComponent implements OnInit {
             colors: ['#000']
         }
     },
+    responsive: [
+      {
+        breakpoint: 1400,
+        options: {
+          chart: {
+            width: '85%',
+            height: 300
+          }
+        }
+      },
+      {
+        breakpoint: 900,
+        options: {
+          chart: {
+            width: '90%',
+            height: 350
+          }
+        }
+      }
+    ],
+
     stroke: {
         show: true,
         width: 1,
