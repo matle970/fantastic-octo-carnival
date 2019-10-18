@@ -18,7 +18,7 @@ $tmu-color: #f77f00;
 $mtm-color: #fbc93e;
 
 .bottom-card {
-  height: 360px !important;
+  height: 360px ;
 }
 
 .all-charts-blcok {
@@ -100,3 +100,10 @@ $mtm-color: #fbc93e;
   }
 
 }
+
+@media screen and (max-width: 1400px) {
+  .bottom-card {
+     height: auto !important;
+  }
+}
+

@@ -10,6 +10,7 @@
 }
 
 .base-block{
+  height: 480px;
   .badge {
     border-radius: 0px;
     border-width: 3px !important;
@@ -101,4 +102,9 @@
     }
   }
 
+}
+@media screen and (max-width: 1400px) {
+  .base-block{
+     height: auto !important;
+  }
 }

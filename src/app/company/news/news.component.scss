@@ -1,11 +1,12 @@
 .news-container {
-  height: 190px;
+  height: 180px;
   overflow: auto;
 }
 
 
 // table design
 .news-block {
+  height: 480px;
   table {
     width: 100%;
     margin: 0 auto;
@@ -39,8 +40,6 @@
 
 
 .news-block{
-  height: auto;
-  min-height: 470px;
   .card-title {
     a.title-arrow {
       display:inline-block;
