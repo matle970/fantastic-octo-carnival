@@ -1,7 +1,9 @@
 $sidebarBg: #fafafa ;
-$link-color: #ffffff78;
+$link-color: #FFF;
 $link-hover: #FFF;
-$icon-color: #ffffff8a;
+$active-link-bg: #2125297a ;
+$link-hover-bg: #76bc21;
+$icon-color: #FFF;
 $link-active: #FFF;
 
 
@@ -41,7 +43,7 @@ $cathlightGreen:#76BC21;
     .nav-item {
       &.active {
         .nav-link {
-          background: #ffffff85;
+          background: $active-link-bg;
           color:$link-active!important;
           i.material-icons {
             color: $link-active !important;
@@ -66,6 +68,7 @@ $cathlightGreen:#76BC21;
         }
         &:hover {
           color: $link-hover;
+          background-color: $link-hover-bg;
         }
       }
 
