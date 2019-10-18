@@ -37,13 +37,20 @@
         </div>
 
 
-        <h4 class="card-title text-primary mt-2">
-          <a class="title-arrow">銀行同業
+        <h4 class="card-title text-primary mt-2 row no-gutters">
+          <a class="title-arrow d-inline-block col col-lg-4">銀行同業
               <i class="material-icons material-icons animated infinite fadeInLeft ml-2 slow">
                   double_arrow
               </i>
           </a>
-
+          <div class="d-inline-block bank-date-block col col-lg-4">
+            <div class="d-block w-100 text-small text-gray">上次查詢日期</div>
+            <div class="d-block w-100 text-small text-gray">2019/10/01</div>
+          </div>
+          <div class="d-inline-block bank-date-block col col-lg-4">
+              <div class="d-block w-100 text-small text-gray wrod">最近查詢日期</div>
+              <div class="d-block w-100 text-small text-gray font-weight-bolder">2019/10/10</div>
+            </div>
         </h4>
         <div class="news-container">
             <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="bankSource">

@@ -41,6 +41,8 @@
 
 .news-block{
   .card-title {
+    height: 30px;
+    line-height: 30px;
     a.title-arrow {
       display:inline-block;
       cursor: pointer;
@@ -49,6 +51,18 @@
       vertical-align: middle;
       font-size: 1.2rem;
       cursor: pointer;
+    }
+    .bank-date-block {
+      height: 30px;
+
+      > div {
+        height: 15px;
+        line-height: 15px;
+        margin:0;
+        padding:0;
+        text-align: center;
+      }
+
     }
   }
 
