@@ -17,6 +17,10 @@ $out-chart-color: #08a08a;
 $tmu-color: #f77f00;
 $mtm-color: #fbc93e;
 
+.bottom-card {
+  height: 360px !important;
+}
+
 .all-charts-blcok {
 
   .bg-deposit {
@@ -49,11 +53,20 @@ $mtm-color: #fbc93e;
     color: black;
     font-weight: bold;
     background: $tmu-color;
+    line-height: 45px;
+    .title {
+      font-size: 0.9rem !important;
+    }
+
   }
   .bg-mtm {
     color: black;
     font-weight: bold;
     background: $mtm-color;
+    line-height: 45px;
+    .title {
+      font-size: 0.9rem !important;
+    }
   }
 
 
@@ -61,24 +74,26 @@ $mtm-color: #fbc93e;
   margin-left: 20px;
   margin-right:20px;
   min-width: 330px;
+  margin-bottom:8px;
 }
   .chart-title{
     vertical-align: middle;
     .btn {
-      padding: 4px 8px;
+      padding: 3px;
       vertical-align: middle;
       color:inherit;
+      width:70px;
+      height: 54px;
     }
     .title {
       color: white;
       font-size: 1rem;
       font-weight: 700;
       vertical-align: middle;
-      height: 30px;
-      line-height: 30px;
+      width:60px;
     }
     .total {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-weight: 700;
       vertical-align: middle;
     }

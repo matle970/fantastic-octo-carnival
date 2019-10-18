@@ -16,6 +16,9 @@ $tmu-b-color: #FFE180;
 $man-A-color: #806F46;
 $man-b-color: #CCB270;
 
+.bottom-card {
+  height: 360px !important;
+}
 .customer-history {
   .nav-tabs {
     margin:0;
@@ -125,8 +128,8 @@ $man-b-color: #CCB270;
   margin: 8px 0;
   padding: 0px;
   list-style: none;
-  min-height: 336px;
-  max-height: 336px;
+  height: 240px;
+
   overflow: auto;
   li {
     padding:3px 0;

@@ -1,4 +1,16 @@
+customer-dashboard {
 
+  .card {
+    max-height: 500px;
+    overflow: auto;
+    &.top-card {
+      height: 500px !important;
+    }
+    &.bottom-card {
+      height: 360px !important;
+    }
+  }
+}
 .top-nav{
   .date-block {
     span {
