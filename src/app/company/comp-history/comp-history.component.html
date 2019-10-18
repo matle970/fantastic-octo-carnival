@@ -44,7 +44,7 @@
 
             <ul class="content-list">
               <ng-container *ngFor="let history of contentList; let ri = index">
-                  <li *ngIf="(activeTab =='all') || (activeTab == history.type)" >
+                  <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
                       <div class="list">
                         <span class="type"
                         [ngClass]="{
