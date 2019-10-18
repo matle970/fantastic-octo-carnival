@@ -10,6 +10,7 @@ export class WaterPrintComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.msg = this.msg ? this.msg: "123456";
   }
 
 }
