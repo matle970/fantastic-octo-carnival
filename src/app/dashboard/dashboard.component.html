@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="float-right">
-          <app-filter [datalist]="[]" ></app-filter>
+          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
 
     </div>

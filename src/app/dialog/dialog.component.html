@@ -2,12 +2,11 @@
   <span class="d-inline-block float-left title-name pl-2" *ngIf="contentData.id > 2">
     {{contentData.title}} : {{contentData.content_data.company_name}}
   </span>
-  <span class="d-inline-block date-block float-right mr-5">
+
+  <!-- 先 hide ，必須確認那些第二層要顯示資料日   -->
+  <!-- <span class="d-inline-block date-block float-right mr-5">
       資料日: {{contentData.content_data.date}}
-      <span  *ngIf="contentData.id > 2">
-        (單位: 新臺幣仟元)
-      </span>
-  </span>
+  </span> -->
   <button class="d-inline-block close-icon btn btn-round btn-white btn-just-icon shadow-none" mat-dialog-close>
       <i class="material-icons">close</i>
   </button>
