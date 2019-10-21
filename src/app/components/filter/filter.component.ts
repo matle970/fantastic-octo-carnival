@@ -36,7 +36,7 @@ export class FilterComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    this.fiterData();
+    // this.fiterData();
     // $('.dropdown-toggle').dropdown();
   }
 
@@ -48,29 +48,29 @@ export class FilterComponent implements OnInit, OnChanges {
 
   }
 
-  fiterData () {
-    console.log(this.datalist.data);
-    const data = this.datalist.data;
-    this.ao_list = data.map(function(item: any){
-      return item.ao;
-    });
-    this.group_list = data.map(function(item: any){
-      return item.group_name;
-    });
-    this.cus_name = data.map(function(item: any){
-      return item.cus_name;
-    });
-    this.cus_id = data.map(function(item: any){
-      return item.cus_id;
-    });
+  // fiterData () {
+  //   console.log(this.datalist.data);
+  //   const data = this.datalist.data;
+  //   this.ao_list = data.map(function(item: any){
+  //     return item.ao;
+  //   });
+  //   this.group_list = data.map(function(item: any){
+  //     return item.group_name;
+  //   });
+  //   this.cus_name = data.map(function(item: any){
+  //     return item.cus_name;
+  //   });
+  //   this.cus_id = data.map(function(item: any){
+  //     return item.cus_id;
+  //   });
 
 
-    this.ao_list = this.ao_list.filter((item, index) => this.ao_list.indexOf(item) === index);
-    this.group_list = this.group_list.filter((item, index) => this.group_list.indexOf(item) === index);
-    this.cus_name = this.cus_name.filter((item, index) => this.cus_name.indexOf(item) === index);
-    this.cus_id = this.cus_id.filter((item, index) => this.cus_id.indexOf(item) === index);
+  //   this.ao_list = this.ao_list.filter((item, index) => this.ao_list.indexOf(item) === index);
+  //   this.group_list = this.group_list.filter((item, index) => this.group_list.indexOf(item) === index);
+  //   this.cus_name = this.cus_name.filter((item, index) => this.cus_name.indexOf(item) === index);
+  //   this.cus_id = this.cus_id.filter((item, index) => this.cus_id.indexOf(item) === index);
 
-  }
+  // }
 
   chooseBranch (item: any) {
     this.nowBranch = item;
