@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+}
+.water-print {
+  position: absolute;
+  min-width: 300px;
+  min-height: 400px;
+  top:30%;
+  left:30%;
+  .id-number {
+    font-size: 6rem;
+    color:rgba(201, 195, 195, 0.575);
+  }
+}

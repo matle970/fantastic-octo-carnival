@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 @Component({
@@ -7,11 +7,12 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
   styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit, OnChanges {
 
   // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild('paginator') paginator: MatPaginator;
   @ViewChild('sortTable') sortTable: MatSort;
+  @Input() getKeyword: boolean;
 
   tableThead: string[] = [
     'ao',
@@ -94,9 +95,17 @@ export class DashboardComponent {
 
   constructor(private matPaginatorIntl: MatPaginatorIntl) {}
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('change  dashboard keyboard',changes);
+    // this.getKeyword = changes['keyword'].previousValue;
+    console.log(this.getKeyword)
+
+  }
+
 
   ngOnInit() {
     this.getIssues(0, 10);
+    console.log(this.getKeyword)
 
     console.log(this.sortTable);
     // 分頁切換時，重新取得資料

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MapComponent } from './map/map.component';
 import { IconBellComponent } from './icon-bell/icon-bell.component';
 import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
+import { WaterPrintComponent } from './water-print/water-print.component';
 
 
 
@@ -15,12 +16,14 @@ import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
   declarations: [
     MapComponent,
     IconBellComponent,
-    IconGraybellComponent
+    IconGraybellComponent,
+    WaterPrintComponent
   ],
   exports: [
     MapComponent,
     IconBellComponent,
-    IconGraybellComponent
+    IconGraybellComponent,
+    WaterPrintComponent
   ]
 })
 export class SharedItemModule { }

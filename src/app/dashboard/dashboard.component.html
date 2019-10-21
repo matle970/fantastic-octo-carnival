@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="float-right">
-          <app-filter [datalist]="[]" ></app-filter>
+          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
 
     </div>
@@ -32,6 +32,7 @@
     <div>
 
           <div class="card data-card shadow-lg">
+            <app-water-print [msg]="N123465"></app-water-print>
               <!-- <div class="card-header card-header-primary filter-search">
                   <app-filter [datalist]="dataSource"></app-filter>
               </div> -->

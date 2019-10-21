@@ -1,4 +1,14 @@
 .badge {
-  font-size: 0.9rem;;
+  font-size: 0.9rem;
   @include badge-color();
 }
+
+.card {
+  .badge {
+    border-radius: 0;
+  }
+
+
+}
+
+
