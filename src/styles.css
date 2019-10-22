@@ -1,7 +1,4 @@
-/*
-Material Icon
- @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-*/
+
 
 @font-face {
   font-family: 'Material Icons';
@@ -26,5 +23,4 @@ Material Icon
   -webkit-font-smoothing: antialiased;
 }
 
-@import url(assets/css/animate.3.7.0.min.css);/* You can add global styles to this file, and also import other style files */
-
+/* @import url(assets/css/animate.3.7.0.min.css); */
