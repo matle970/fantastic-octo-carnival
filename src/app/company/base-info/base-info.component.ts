@@ -67,7 +67,7 @@ export class BaseInfoComponent implements OnInit {
       height: 280,
       type: 'bar',
     },
-    colors: ['#009F41','#76BC21'],
+    colors: ['#76BC21','#009F41'],
     plotOptions: {
         bar: {
             horizontal: true,
