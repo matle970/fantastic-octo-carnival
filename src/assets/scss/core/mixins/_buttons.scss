@@ -5,7 +5,7 @@
   border-color: $border;
 
   @include hover {
-    color: $color;
+    color: white !important;
     background-color: $focus-background;
     border-color: $focus-border;
   }
@@ -68,7 +68,8 @@
   $active-border: $bmd-btn-active-bg
 ) {
   $background: $bmd-btn-bg;
-  $focus-background: $bmd-btn-focus-bg;
+  // $focus-background: $bmd-btn-focus-bg;
+  $focus-background: $color;
   $active-background: $bmd-btn-active-bg;
 
   @include bmd-button-variant($color,
@@ -151,7 +152,7 @@
     @include bmd-flat-button-variant($bmd-btn-color, $bmd-btn-color, $bmd-btn-color, $bmd-btn-color);
   }
   &.btn-outline-primary {
-    color: $primary !important;
+    color: $primary;
     @include bmd-flat-button-variant($btn-primary-bg, $btn-primary-bg, $btn-primary-bg, $btn-primary-bg);
   }
   &.btn-outline-secondary {
@@ -183,7 +184,7 @@
     darken($background, 3%),
     lighten($background, 3%)
   );
-  //$focus-background: darken($background, 10%);  // default bootstrap
+  // $focus-background: darken($background, 10%);  // default bootstrap
   $focus-border: darken($border, 12%);
 
   $active-background: $focus-background;

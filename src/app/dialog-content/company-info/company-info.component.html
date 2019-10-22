@@ -10,7 +10,7 @@
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
                         <ng-container *ngIf="item.infos && item.infos.length > 0">
-                          <span class="badge badge-pill badge-success mr-1" *ngFor="let info of item.infos">
+                          <span class="badge badge-secondary mr-1" *ngFor="let info of item.infos">
                             {{info}}
                           </span>
                         </ng-container>
