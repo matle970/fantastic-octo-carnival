@@ -53,20 +53,13 @@ $mtm-color: #fbc93e;
     color: black;
     font-weight: bold;
     background: $tmu-color;
-    line-height: 45px;
-    .title {
-      font-size: 0.9rem !important;
-    }
+
 
   }
   .bg-mtm {
     color: black;
     font-weight: bold;
     background: $mtm-color;
-    line-height: 45px;
-    .title {
-      font-size: 0.9rem !important;
-    }
   }
 
 
@@ -82,8 +75,9 @@ $mtm-color: #fbc93e;
       padding: 3px;
       vertical-align: middle;
       color:inherit;
-      width:70px;
-      height: 54px;
+      width:140px;
+      height: 30px;
+      text-align: center;
     }
     .title {
       color: white;
@@ -93,9 +87,11 @@ $mtm-color: #fbc93e;
       width:60px;
     }
     .total {
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: 700;
+      text-align: center;
       vertical-align: middle;
+      width:130px;
     }
   }
 
