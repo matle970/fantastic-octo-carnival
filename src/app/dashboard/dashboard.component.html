@@ -418,6 +418,7 @@
 
                   </div>
 
+                  <!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
                   <mat-paginator #paginator class="text-h3"
                [length]="60"
                [pageIndex]="0"
@@ -425,6 +426,8 @@
                [pageSizeOptions]="[5, 10, 15]"
                (page)="pageChange($event)" showFirstLastButtons></mat-paginator>
 
+
+                  <!-- 改用 material table 故以下的code hide  -->
                   <div  *ngIf="false">
                       <table class="table  table-striped">
                           <thead class="text-primary text-right">
