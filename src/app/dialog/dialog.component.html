@@ -15,4 +15,7 @@
   <app-index-notice [content]="contentData" *ngIf="contentData.id < 3"></app-index-notice>
   <app-company-info [content]="contentData" *ngIf="contentData.id == 3"></app-company-info>
   <app-group-info [content]="contentData" *ngIf="contentData.id == 4"></app-group-info>
+  <app-person-relative *ngIf="contentData.id == 5"></app-person-relative>
+  <!-- <app-person-relative [content]="contentData" *ngIf="contentData.id == 5"></app-person-relative> -->
+
 </div>
