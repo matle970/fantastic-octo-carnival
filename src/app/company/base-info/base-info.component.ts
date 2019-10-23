@@ -278,6 +278,12 @@ export class BaseInfoComponent implements OnInit {
           dialogConfig.data.content_data = [];
           dialogConfig.data.title ='個人關聯戶';
           break;
+      case 6 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title ='經管資訊';
+          break;
+
+
       default:
         dialogConfig.data.content_data = this.company_info;
         dialogConfig.data.title ='公司資訊';
