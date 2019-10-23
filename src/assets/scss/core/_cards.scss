@@ -76,7 +76,20 @@ $card-text-color: black;
     padding: $padding-card-body-y $padding-card-body-x;
   }
 
+
+
   .card-body {
+    .table-mat-list {
+      table {
+        height: auto;
+        min-height: 200px;
+        max-height: 450px;
+        thead {
+          background: rgba(255, 255, 255, 0.897);
+        }
+      }
+
+    }
       & + .card-footer{
         padding-top: 0rem;
         border: 0;
