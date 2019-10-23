@@ -6,6 +6,7 @@ import { SharedItemModule } from '../shared-item/shared-item.module';
 import { GroupInfoComponent } from './group-info/group-info.component';
 import { SharedMaterialModule } from '../shared-material/shared-material.module';
 import { PersonRelativeComponent } from './person-relative/person-relative.component';
+import { ManageInfoComponent } from './manage-info/manage-info.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import { PersonRelativeComponent } from './person-relative/person-relative.compo
     CompanyInfoComponent,
     GroupInfoComponent,
     PersonRelativeComponent,
+    ManageInfoComponent,
   ],
   exports: [
     IndexNoticeComponent,
     CompanyInfoComponent,
     GroupInfoComponent,
-    PersonRelativeComponent
+    PersonRelativeComponent,
+    ManageInfoComponent
   ],
 
 })
