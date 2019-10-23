@@ -1,0 +1,51 @@
+
+<div class="contribution-block">
+  <div class="card card-table">
+    <div class="card-header card-header-primary">
+        <h5 class="card-title ">
+            貢獻度
+            <span class="badge float-right">
+                資料期間 : 2018/12 ~ 2019/07
+            </span>
+        </h5>
+    </div>
+    <div class="card-body">
+      <div class="table-mat-list">
+          <table class="table m-0 p-0 table-hover table-sticky"
+          mat-table [dataSource]="controList">
+            <ng-container matColumnDef="now">
+              <th class="text-black text-nowrap width-100" mat-header-cell *matHeaderCellDef> 現管</th>
+              <td mat-cell *matCellDef="let element"> {{element.now}} </td>
+            </ng-container>
+            <ng-container matColumnDef="load">
+                <th class="text-black text-nowrap min-th text-right" mat-header-cell *matHeaderCellDef>放款</th>
+                <td mat-cell *matCellDef="let element"> {{element.load}} </td>
+            </ng-container>
+            <ng-container matColumnDef="trade">
+                <th class="text-black text-nowrap min-th text-center" mat-header-cell *matHeaderCellDef>貿融</th>
+                <td mat-cell *matCellDef="let element"> {{element.trade}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cus">
+                <th class="text-black text-nowrap min-th text-left" mat-header-cell *matHeaderCellDef>資顧</th>
+                <td mat-cell *matCellDef="let element"> {{element.cus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tmu">
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>TMU</th>
+                <td mat-cell *matCellDef="let element"> {{element.tmu}} </td>
+            </ng-container>
+            <ng-container matColumnDef="other">
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>Other</th>
+                <td mat-cell *matCellDef="let element"> {{element.other}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="manageColumn; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: manageColumn;"></tr>
+
+          </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

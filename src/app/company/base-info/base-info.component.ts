@@ -282,7 +282,10 @@ export class BaseInfoComponent implements OnInit {
           dialogConfig.data.content_data = [];
           dialogConfig.data.title ='經管資訊';
           break;
-
+      case 7 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title ='貢獻度';
+          break;
 
       default:
         dialogConfig.data.content_data = this.company_info;
@@ -291,13 +294,6 @@ export class BaseInfoComponent implements OnInit {
 
 
     }
-    // if(openId === 3) {
-    //   dialogConfig.data.content_data = this.company_info;
-    //   dialogConfig.data.title ='公司資訊'
-    // } else if (openId === 4) {
-    //   dialogConfig.data.content_data = this.group_info;
-    //   dialogConfig.data.title ='集團資訊'
-    // }
 
     this.dialog.open(DialogComponent, dialogConfig);
   }

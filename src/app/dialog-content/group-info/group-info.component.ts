@@ -49,16 +49,17 @@ export interface GroupElement {
   id: string;
   cus_id: string;
   cus_name: string;
+  type: string;
   mount: string;
   total: string;
 }
 
 const GROUP_DATA: GroupElement[] = [
     {
-      id:'001',
+      id: '001',
       cus_id: '24291669',
       cus_name: '康聯生醫科技股份有限公司',
-      type:'種類 A',
+      type: '種類 A',
       mount: '1000',
       total: '500'
     },
