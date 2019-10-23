@@ -1,10 +1,14 @@
 <div class="main-content mt-3">
   <div class="container-fluid">
-    <div class="d-block clearfix">
+    <div class="d-inline-block d-flex justify-content-end">
 
-      <div class="float-right ml-5 dashboard-top">
+
+      <div class="d-inline-block">
+          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
+      </div>
+
+      <div class="d-inline-block dashboard-top">
           <div class="date-block">
-
               <span class=" mr-3">
                   資料日：2019/08/06
               </span>
@@ -22,9 +26,6 @@
                   單位 ：新臺幣仟元
               </span>
         </div>
-      </div>
-      <div class="float-right">
-          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
 
     </div>
