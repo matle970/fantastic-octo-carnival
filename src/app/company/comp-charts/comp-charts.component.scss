@@ -23,6 +23,9 @@ $mtm-color: #fbc93e;
 
 .all-charts-blcok {
 
+  .card-body {
+    z-index: 99;
+  }
   .bg-deposit {
     color: white;
     font-weight: bold;

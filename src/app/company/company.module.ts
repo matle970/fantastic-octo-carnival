@@ -12,6 +12,7 @@ import { SharedMaterialModule } from './../shared-material/shared-material.modul
 
 // 共用的元件
 import { ComponentsModule } from '../components/components.module';
+import { SharedItemModule } from '../shared-item/shared-item.module';
 
 
 
@@ -21,6 +22,7 @@ import { ComponentsModule } from '../components/components.module';
     CommonModule,
     RouterModule,
     SharedMaterialModule,
+    SharedItemModule,
     ComponentsModule,
     NgApexchartsModule
   ],

@@ -12,6 +12,7 @@
   </button>
 </div>
 <div mat-dialog-content>
+  <app-water-print></app-water-print>
   <app-index-notice [content]="contentData" *ngIf="contentData.id < 3"></app-index-notice>
   <app-company-info [content]="contentData" *ngIf="contentData.id == 3"></app-company-info>
   <app-group-info [content]="contentData" *ngIf="contentData.id == 4"></app-group-info>
