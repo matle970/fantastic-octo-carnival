@@ -1,3 +1,53 @@
-<p>
-  個人關聯戶
-</p>
+
+
+<div class="person-data">
+
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-8">
+            <mat-form-field>
+                <mat-label>選擇人員</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let person of personList" [value]="person.pid">
+                    {{person.name}}  {{person.pid}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="col mt-3">
+          <span class="d-inline-block">
+            負責人 / 董事長
+          </span>
+          <span class="mr-1">
+            ∣
+          </span>
+          <span class="d-inline-block">
+              VIP
+          </span>
+          <span class="mr-1">
+              ∣
+          </span>
+          <span class="d-inline-block">
+              經管理專：信義分行 林祐辰
+          </span>
+        </div>
+      </div>
+
+    <!-- 集團資訊 -->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+               總負債： {{ 19400 | currency:'':'':'1.0-0'}}
+            </h5>
+        </div>
+        <div class="card-body">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+

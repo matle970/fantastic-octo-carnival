@@ -52,7 +52,7 @@ const BANK_DATA: BankElement[] = [
   {bank: '國泰世華',  mount: '+ 100', total: '+ 100'},
   {bank: '台北富邦',  mount: '- 100', total: '- 100'},
   {bank: '花旗銀行',  mount: '0', total: '0'},
-  {bank: '台灣銀行',  mount: '0', total: '0'},
+  {bank: '台灣銀行',  mount: '-100', total: '-100'},
   {bank: '台新銀行',  mount: '0', total: '0'},
 ];
 
