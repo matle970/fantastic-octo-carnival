@@ -20,7 +20,13 @@ export interface debt {
   styleUrls: ['./person-relative.component.scss']
 })
 export class PersonRelativeComponent implements OnInit {
+  selected = '林金霖 A123456789';
 
+  pList = [
+    '林金霖 A123456789',
+    '李知恩 A2111222333',
+    '呂珍九 A1111222333'
+  ];
 
   personList: person[] = [
     {
@@ -44,6 +50,10 @@ export class PersonRelativeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  selectPerson (item: any) {
+    this.selected = item;
   }
 
 }
