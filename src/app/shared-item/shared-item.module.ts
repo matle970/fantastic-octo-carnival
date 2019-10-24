@@ -6,6 +6,7 @@ import { MapComponent } from './map/map.component';
 import { IconBellComponent } from './icon-bell/icon-bell.component';
 import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
 import { WaterPrintComponent } from './water-print/water-print.component';
+import { NoticeModalComponent } from './notice-modal/notice-modal.component';
 
 
 
@@ -17,13 +18,15 @@ import { WaterPrintComponent } from './water-print/water-print.component';
     MapComponent,
     IconBellComponent,
     IconGraybellComponent,
-    WaterPrintComponent
+    WaterPrintComponent,
+    NoticeModalComponent
   ],
   exports: [
     MapComponent,
     IconBellComponent,
     IconGraybellComponent,
-    WaterPrintComponent
+    WaterPrintComponent,
+    NoticeModalComponent
   ]
 })
 export class SharedItemModule { }

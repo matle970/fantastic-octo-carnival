@@ -1,0 +1,29 @@
+.notice-modal {
+  position: fixed;
+  top:100px;
+  right: -1000px;
+  height: 100vh;
+  width:50vw;
+  z-index: 9;
+  margin:0 -5px 0 0;
+  background-color: #FFF;
+  border:2px solid #dbdbdb;
+  box-shadow: -3px -1px 10px #d6d5d5db;
+
+  &.close {
+    right: -1000px !important;
+    transition: all 0.8s ease-out;
+  }
+  &.open {
+    right: 0 !important;
+  }
+  .notice-head-modal {
+    .close {
+      color: #999;
+      cursor: pointer;
+      &:hover {
+        color: #009F41;
+      }
+    }
+  }
+}
