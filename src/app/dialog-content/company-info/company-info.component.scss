@@ -3,6 +3,12 @@ $arrowColor: green;
 $blackListBg: #c00000;
 .company-info {
   .company-table {
+    .tag-infomation {
+      color: black;
+      border:1px double #DDD;
+      border-color: #EEE #DDD #DDD  #86bc21;
+      border-left-width: 3px;
+    }
     .badge {
       &.badge-vip {
         background: orange;
@@ -26,6 +32,7 @@ $blackListBg: #c00000;
           -webkit-transform: rotate(-45deg);
           position: absolute;
           margin-top: 15px;
+          right: 20px;
         }
 
 

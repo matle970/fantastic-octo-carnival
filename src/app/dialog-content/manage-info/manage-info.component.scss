@@ -1,0 +1,16 @@
+.card-body {
+  .table-mat-list {
+    height: 300px;
+    overflow: auto;
+    .table {
+      height: auto;
+      max-height: 360px;
+      .min-th {
+        width:80px;
+      }
+      .width-100 {
+        width: 160px;
+      }
+    }
+  }
+}

@@ -144,7 +144,20 @@ export class CompChartsComponent implements OnInit {
         '8',
         'today'
       ],
+
       labels:{
+
+        // user 要部份隱藏，但圖表要顯示，目前無法做到
+        // 兩邊會一起隱藏，先不做
+
+
+        // formatter: function(val,timestamp,index) {
+        //   if( (val%2) === 0) {
+        //     return '';
+        //   } else {
+        //     return val;
+        //   }
+        // }
 
       }
     },

@@ -1,4 +1,5 @@
 <div class="news-block card shadow-lg top-card">
+    <app-water-print [MdSize]="true"></app-water-print>
     <!-- <div class="card-header card-header-danger">
         <h4 class="card-title">Material Dashboard PRO Angular</h4>
         <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
@@ -6,9 +7,7 @@
     <div class="card-body">
         <h4 class="card-title text-primary">
           <a class="title-arrow">消息集錦
-              <i class="material-icons animated infinite fadeInLeft ml-2 slow">
-                  double_arrow
-              </i>
+              <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
           </a>
         </h4>
 
@@ -20,11 +19,14 @@
                 <td class="text-left" mat-cell *matCellDef="let element"> {{element.date}} </td>
               </ng-container>
 
+              <ng-container matColumnDef="tag">
+                <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> </th>
+                <td class="text-left" mat-cell *matCellDef="let element"> {{element.tag}} </td>
+              </ng-container>
 
               <ng-container matColumnDef="title">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
                 <td class="text-left" mat-cell *matCellDef="let element">
-
                    <a href="#" class="underline"> {{element.title}}</a>
                 </td>
               </ng-container>
@@ -39,13 +41,11 @@
 
         <h4 class="card-title text-primary mt-2 row no-gutters">
           <a class="title-arrow d-inline-block col col-lg-4">銀行同業
-              <i class="material-icons material-icons animated infinite fadeInLeft ml-2 slow">
-                  double_arrow
-              </i>
+              <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
           </a>
           <div class="d-inline-block bank-date-block col col-lg-4">
-            <div class="d-block w-100 text-small text-gray">上次查詢日期</div>
-            <div class="d-block w-100 text-small text-gray">2019/10/01</div>
+            <div class="d-block w-100 text-gray">上次查詢日期</div>
+            <div class="d-block w-100 text-gray">2019/10/01</div>
           </div>
           <div class="d-inline-block bank-date-block col col-lg-4">
               <div class="d-block w-100 text-small text-gray wrod">最近查詢日期</div>

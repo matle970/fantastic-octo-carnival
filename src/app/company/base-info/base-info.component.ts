@@ -67,7 +67,7 @@ export class BaseInfoComponent implements OnInit {
       height: 280,
       type: 'bar',
     },
-    colors: ['#009F41','#76BC21'],
+    colors: ['#76BC21','#009F41'],
     plotOptions: {
         bar: {
             horizontal: true,
@@ -122,7 +122,7 @@ export class BaseInfoComponent implements OnInit {
       ],
     xaxis: {
         categories: ['現管', '放款', '貿融', '資顧', 'TMU', '其他'],
-        labels:{
+        labels: {
           style: {
             fontSize: '14px',
           }
@@ -264,12 +264,35 @@ export class BaseInfoComponent implements OnInit {
       title: '',
       content_data: {}
     };
-    if(openId === 3) {
-      dialogConfig.data.content_data = this.company_info;
-      dialogConfig.data.title ='公司資訊'
-    } else if (openId === 4) {
-      dialogConfig.data.content_data = this.group_info;
-      dialogConfig.data.title ='集團資訊'
+
+    switch(openId){
+      case 3 :
+          dialogConfig.data.content_data = this.company_info;
+          dialogConfig.data.title ='公司資訊';
+          break;
+      case 4 :
+          dialogConfig.data.content_data = this.group_info;
+          dialogConfig.data.title ='集團資訊';
+          break;
+      case 5 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title ='個人關聯戶';
+          break;
+      case 6 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title ='經管資訊';
+          break;
+      case 7 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title ='貢獻度';
+          break;
+
+      default:
+        dialogConfig.data.content_data = this.company_info;
+        dialogConfig.data.title ='公司資訊';
+        break;
+
+
     }
 
     this.dialog.open(DialogComponent, dialogConfig);
