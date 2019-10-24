@@ -101,7 +101,6 @@ export class NoticeModalComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.getOpenStatus = this.getOpenStatus ? true : false;
-    console.log(this.notice_one);
   }
 
   ngOnChanges( changes: SimpleChanges){
