@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter} from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 @Component({
@@ -13,6 +13,8 @@ export class DashboardComponent implements OnInit, OnChanges {
   @ViewChild('paginator') paginator: MatPaginator;
   @ViewChild('sortTable') sortTable: MatSort;
   @Input() getKeyword: boolean;
+  @Output() openStatusChange = new EventEmitter<boolean>();
+  openStatus = false;
 
   tableThead: string[] = [
     'ao',
@@ -96,16 +98,14 @@ export class DashboardComponent implements OnInit, OnChanges {
   constructor(private matPaginatorIntl: MatPaginatorIntl) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('change  dashboard keyboard',changes);
-    // this.getKeyword = changes['keyword'].previousValue;
-    console.log(this.getKeyword)
+
 
   }
 
 
   ngOnInit() {
     this.getIssues(0, 10);
-    console.log(this.getKeyword)
+
 
     console.log(this.sortTable);
     // 分頁切換時，重新取得資料
@@ -132,6 +132,13 @@ export class DashboardComponent implements OnInit, OnChanges {
     this.matPaginatorIntl.nextPageLabel = '下一頁';
     this.matPaginatorIntl.previousPageLabel = '上一頁';
 
+  }
+
+  openNotice(){
+
+    this.openStatus = true;
+    this.openStatusChange.emit(true);
+    console.log('open',this.openStatus);
   }
 
   sortData(event: any) {

@@ -6,7 +6,7 @@
     <div>
 
         <ul  class="nav nav-tabs notice-tab">
-            <li class="nav-item" *ngFor="let type of content.content_data.type_list">
+            <li class="nav-item" *ngFor="let type of content.type_list">
                 <a class="nav-link" [ngClass]="{'active': type.id == tabIndex}" (click)="changeTab(type.id)">
                   <span>{{type.name}}</span>
                   <span class="badge badge-primary ml-1">{{type.total}}</span>
@@ -22,7 +22,7 @@
     <div>
         <ul class="list-group notice-content">
 
-              <ng-container *ngFor="let item of content.content_data.data_list">
+              <ng-container *ngFor="let item of content.data_list">
                 <li class="list-group-item" *ngIf="(tabIndex == 'all')||(item.type == tabIndex)">
                   <div class="row no-gutters" >
                       <div class="col mr-2">

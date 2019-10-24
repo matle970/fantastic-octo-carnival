@@ -20,7 +20,7 @@ export class IndexNoticeComponent implements OnInit {
     // this.mycontent = this.content;
   }
 
-  changeTab (tabId: string){
+  changeTab (tabId: string) {
     this.tabIndex = tabId;
   }
 

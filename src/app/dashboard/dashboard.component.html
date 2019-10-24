@@ -1,8 +1,9 @@
 <div class="main-content mt-3">
+
+  <app-notice-modal [(getOpenStatus)]="openStatus"></app-notice-modal>
+
   <div class="container-fluid">
     <div class="d-inline-block d-flex justify-content-end">
-
-
       <div class="d-inline-block">
           <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
@@ -25,7 +26,7 @@
               <span class="mr-2">
                   單位 ：新臺幣仟元
               </span>
-              <span class="has-notification-icon mx-3">
+              <span class="has-notification-icon ml-2 mr-4" (click)="openNotice()">
                   <!-- 關鍵提醒 -->
                   <app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
               </span>
