@@ -1,9 +1,9 @@
 # Aoview
 建立日期：2019-09-24
 
-## Branch : all_ui_layout
-此分支：all_ui_layout
-主要的版面內容改在這裏
-用於與其他風格結合
+## Branch : notice_sidebar
+
+這裏是製作 鈴檔的第二層畫面
+從右邊展開
 
 
