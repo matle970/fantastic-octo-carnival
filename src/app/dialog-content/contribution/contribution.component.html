@@ -13,32 +13,55 @@
       <div class="table-mat-list">
           <table class="table m-0 p-0 table-hover table-sticky"
           mat-table [dataSource]="controList">
+            <ng-container matColumnDef="id">
+              <th class="text-black text-nowrap width-100 text-center" mat-header-cell *matHeaderCellDef> </th>
+              <td class="text-center" mat-cell *matCellDef="let element">
+                <div>{{ element.text}}</div>
+                <div>{{ element.period }}</div>
+              </td>
+              <th class="text-center" mat-footer-cell *matFooterCellDef> + /- 增減變化 </th>
+            </ng-container>
+
             <ng-container matColumnDef="now">
               <th class="text-black text-nowrap width-100" mat-header-cell *matHeaderCellDef> 現管</th>
-              <td mat-cell *matCellDef="let element"> {{element.now}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.now | currency:'':'':'1.0-0'}} </td>
+              <td mat-footer-cell *matFooterCellDef> -  </td>
             </ng-container>
             <ng-container matColumnDef="load">
-                <th class="text-black text-nowrap min-th text-right" mat-header-cell *matHeaderCellDef>放款</th>
-                <td mat-cell *matCellDef="let element"> {{element.load}} </td>
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>放款</th>
+                <td mat-cell *matCellDef="let element"> {{element.load | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> -  </td>
             </ng-container>
             <ng-container matColumnDef="trade">
-                <th class="text-black text-nowrap min-th text-center" mat-header-cell *matHeaderCellDef>貿融</th>
-                <td mat-cell *matCellDef="let element"> {{element.trade}} </td>
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>貿融</th>
+                <td mat-cell *matCellDef="let element"> {{element.trade | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> -  </td>
             </ng-container>
             <ng-container matColumnDef="cus">
-                <th class="text-black text-nowrap min-th text-left" mat-header-cell *matHeaderCellDef>資顧</th>
-                <td mat-cell *matCellDef="let element"> {{element.cus}} </td>
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>資顧</th>
+                <td mat-cell *matCellDef="let element"> {{element.cus | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> +  </td>
             </ng-container>
             <ng-container matColumnDef="tmu">
                 <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>TMU</th>
-                <td mat-cell *matCellDef="let element"> {{element.tmu}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.tmu | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> + </td>
             </ng-container>
             <ng-container matColumnDef="other">
-                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>Other</th>
-                <td mat-cell *matCellDef="let element"> {{element.other}} </td>
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>其他</th>
+                <td mat-cell *matCellDef="let element"> {{element.other | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> + </td>
             </ng-container>
+
+            <ng-container matColumnDef="all">
+                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>合計</th>
+                <td mat-cell *matCellDef="let element"> {{element.all | currency:'':'':'1.0-0'}} </td>
+                <td mat-footer-cell *matFooterCellDef> +500 </td>
+            </ng-container>
+
             <tr mat-header-row *matHeaderRowDef="manageColumn; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: manageColumn;"></tr>
+            <tr mat-footer-row *matFooterRowDef="manageColumn; sticky: true"></tr>
 
           </table>
       </div>
