@@ -15,7 +15,7 @@
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="title-block row no-gutters">
                 <div class="chart-title col-6">
-                    <div class="btn text-white bg-deposit has-arrow">
+                    <div class="btn text-white bg-deposit has-arrow" (click)="openDialog(8)">
                       <span class="title">
                         存款餘額
                       </span>
@@ -46,7 +46,7 @@
 
               <div class="title-block clearfix  row no-gutters">
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn d-inline-block text-white bg-load  has-arrow">
+                      <div class="btn d-inline-block text-white bg-load  has-arrow" (click)="openDialog(9)">
                         <span class="title">
                           放款餘額
                         </span>
@@ -56,7 +56,7 @@
                       </div>
                   </div>
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn d-inline-block text-white bg-trade has-arrow">
+                      <div class="btn d-inline-block text-white bg-trade has-arrow" (click)="openDialog(9)">
                         <span class="title">
                             貿融餘額
                         </span>
@@ -85,7 +85,7 @@
 
               <div class="title-block clearfix row no-gutters">
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn  text-white bg-in has-arrow">
+                      <div class="btn  text-white bg-in has-arrow" (click)="openDialog(10)">
                         <span class="title">
                             進口實績
                         </span>
@@ -95,7 +95,7 @@
                       </div>
                   </div>
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn  text-white bg-out  has-arrow">
+                      <div class="btn  text-white bg-out  has-arrow" (click)="openDialog(10)">
                         <span class="title">
                             出口實績
                         </span>
@@ -123,7 +123,7 @@
           <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="title-block clearfix row no-gutters ">
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn  text-black bg-tmu has-arrow">
+                      <div class="btn  text-black bg-tmu has-arrow"  (click)="openDialog(11)">
                         <span class="title text-black">
                             TMU
                         </span>
@@ -133,7 +133,7 @@
                       </div>
                   </div>
                   <div class="chart-title col-sm-6 col-md-6 col-lg-6">
-                      <div class="btn  bg-mtm text-black  has-arrow">
+                      <div class="btn  bg-mtm text-black  has-arrow" (click)="openDialog(11)">
                         <span class="title text-black">
                             MTM
                         </span>

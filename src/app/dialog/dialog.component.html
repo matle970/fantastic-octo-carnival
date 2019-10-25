@@ -1,5 +1,5 @@
 <div class="m-0 p-0 clearfix dialog-title pb-3" mat-dialog-title>
-  <span class="d-inline-block float-left title-name pl-2" *ngIf="contentData.id > 2">
+  <span class="d-inline-block float-left title-name pl-3" *ngIf="contentData.id > 2">
     {{contentData.title}} : {{contentData.content_data.company_name}}
   </span>
 
@@ -19,5 +19,10 @@
   <app-person-relative *ngIf="contentData.id == 5"></app-person-relative>
   <app-manage-info *ngIf="contentData.id == 6"></app-manage-info>
   <app-contribution *ngIf="contentData.id == 7"></app-contribution>
+
+  <!-- 存款第二層 -->
+  <app-operating-deposit *ngIf="contentData.id == 8"></app-operating-deposit>
+
+  <app-operating-financing *ngIf="contentData.id == 9"></app-operating-financing>
 
 </div>

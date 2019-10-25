@@ -8,6 +8,8 @@ import { SharedMaterialModule } from '../shared-material/shared-material.module'
 import { PersonRelativeComponent } from './person-relative/person-relative.component';
 import { ManageInfoComponent } from './manage-info/manage-info.component';
 import { ContributionComponent } from './contribution/contribution.component';
+import { OperatingDepositComponent } from './operating-deposit/operating-deposit.component';
+import { OperatingFinancingComponent } from './operating-financing/operating-financing.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import { ContributionComponent } from './contribution/contribution.component';
     PersonRelativeComponent,
     ManageInfoComponent,
     ContributionComponent,
+    OperatingDepositComponent,
+    OperatingFinancingComponent,
   ],
   exports: [
     IndexNoticeComponent,
@@ -29,7 +33,9 @@ import { ContributionComponent } from './contribution/contribution.component';
     GroupInfoComponent,
     PersonRelativeComponent,
     ManageInfoComponent,
-    ContributionComponent
+    ContributionComponent,
+    OperatingDepositComponent,
+    OperatingFinancingComponent
   ],
 
 })
