@@ -1,8 +1,9 @@
 <div class="main-content mt-3">
+
+  <app-notice-modal [(getOpenStatus)]="openStatus" [notice]="1"></app-notice-modal>
+
   <div class="container-fluid">
     <div class="d-inline-block d-flex justify-content-end">
-
-
       <div class="d-inline-block">
           <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
@@ -25,6 +26,10 @@
               <span class="mr-2">
                   單位 ：新臺幣仟元
               </span>
+              <span class="has-notification-icon ml-2 mr-4" (click)="openNotice()">
+                  <!-- 關鍵提醒 -->
+                  <app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
+              </span>
         </div>
       </div>
 
@@ -42,8 +47,7 @@
                       <div class="col-12">
                           <h3 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2">
                             經管名單列表
-                            <!-- 關鍵提醒 -->
-                            <app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
+
                           </h3>
                       </div>
 

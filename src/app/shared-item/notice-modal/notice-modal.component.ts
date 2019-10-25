@@ -1,17 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from './../../dialog/dialog.component';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter,   OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+
 @Component({
-  selector: 'app-notice-icon',
-  templateUrl: './notice-icon.component.html',
-  styleUrls: ['./notice-icon.component.scss']
+  selector: 'app-notice-modal',
+  templateUrl: './notice-modal.component.html',
+  styleUrls: ['./notice-modal.component.scss']
 })
-export class NoticeIconComponent implements OnInit {
+export class NoticeModalComponent implements OnInit, OnChanges {
 
-
+  @ViewChild('notice') notice: any;
   @Input() notice: number;
-  @Input() modalId: number;
-  
+  @Input() getOpenStatus: boolean;
+  private _getOpenStatus: boolean;
+  @Output() getOpenStatusChange = new EventEmitter<boolean>();
+
+  contentData: any;
+
+  NoticeOpen = false;
 
   // 假資料 首頁關鍵提醒
   notice_one = {
@@ -94,8 +98,7 @@ export class NoticeIconComponent implements OnInit {
 
 
     ]
-  }
-
+  };
   // 假資料 公司的關鍵提醒
   notice_two = {
     date:'2019/06/18',
@@ -178,34 +181,32 @@ export class NoticeIconComponent implements OnInit {
 
     ]
   }
+  constructor() { }
 
-  constructor(public dialog: MatDialog) {}
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getOpenStatus = this.getOpenStatus ? true : false;
   }
-  openDialog() {
 
-    const openId = this.modalId ? this.modalId : 1 ;
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
-    dialogConfig.data = {
-      id: openId,
-      title: '關鍵提醒',
-      content_data: {}
-    };
-
-    if ( openId === 1) {
-      dialogConfig.data.content_data = this.notice_one;
-    } else if ( openId === 2) {
-      dialogConfig.data.content_data = this.notice_two;
+  ngOnChanges( changes: SimpleChanges){
+    console.log(changes);
+    this.NoticeOpen = changes.getOpenStatus.currentValue;
+    if ( this.notice == 1){
+      this.contentData = this.notice_one;
+    } else {
+      this.contentData = this.notice_two;
     }
 
-    this.dialog.open(DialogComponent, dialogConfig);
+  }
+  openModal() {
+    this.NoticeOpen = true;
+    this.getOpenStatus = true;
+    this.getOpenStatusChange.emit(true);
   }
 
+  closeModal() {
+    this.NoticeOpen = false;
+    this.getOpenStatus = false;
+    this.getOpenStatusChange.emit(false);
+  }
 
 }
-
-
