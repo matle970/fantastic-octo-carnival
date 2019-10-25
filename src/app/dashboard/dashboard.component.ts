@@ -135,7 +135,6 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   openNotice(){
-
     this.openStatus = true;
     this.openStatusChange.emit(true);
     console.log('open',this.openStatus);
