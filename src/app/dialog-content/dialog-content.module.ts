@@ -10,6 +10,7 @@ import { ManageInfoComponent } from './manage-info/manage-info.component';
 import { ContributionComponent } from './contribution/contribution.component';
 import { OperatingDepositComponent } from './operating-deposit/operating-deposit.component';
 import { OperatingFinancingComponent } from './operating-financing/operating-financing.component';
+import { OperatingInoutComponent } from './operating-inout/operating-inout.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { OperatingFinancingComponent } from './operating-financing/operating-fin
     ContributionComponent,
     OperatingDepositComponent,
     OperatingFinancingComponent,
+    OperatingInoutComponent,
   ],
   exports: [
     IndexNoticeComponent,
@@ -35,7 +37,8 @@ import { OperatingFinancingComponent } from './operating-financing/operating-fin
     ManageInfoComponent,
     ContributionComponent,
     OperatingDepositComponent,
-    OperatingFinancingComponent
+    OperatingFinancingComponent,
+    OperatingInoutComponent
   ],
 
 })
