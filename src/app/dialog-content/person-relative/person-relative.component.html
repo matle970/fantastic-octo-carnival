@@ -1,0 +1,290 @@
+
+
+<div class="person-data">
+
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-8">
+            <mat-form-field>
+                <!-- <mat-label>選擇人員</mat-label> -->
+                <mat-select  [(value)]="selected">
+                  <mat-option *ngFor="let person of pList"
+                   [value]="person"
+                  (click)="selectPerson(person)">
+                    {{person}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="col mt-3">
+          <span class="d-inline-block">
+            負責人 / 董事長
+          </span>
+          <span class="mr-1">
+            ∣
+          </span>
+          <span class="d-inline-block">
+              VIP
+          </span>
+          <span class="mr-1">
+              ∣
+          </span>
+          <span class="d-inline-block">
+              經管理專：信義分行 林祐辰
+          </span>
+        </div>
+      </div>
+
+    <!-- 總負債-->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+               總負債： {{ 19400 | currency:'':'':'1.0-0'}}
+            </h5>
+        </div>
+        <div class="card-body">
+
+          <!-- angular material table
+            不支援 colspan, rowspan 暫用一般 table
+            實際開發時再找其他方式
+          -->
+
+          <div class="table-mat-list">
+             <table class="table m-0 p-0 table-hover table-sticky person-table">
+               <thead>
+                 <tr>
+                   <th class="text-center" colspan="2">類別</th>
+                   <th>帳號</th>
+                   <th>幣別</th>
+                   <th>額度</th>
+                   <th>餘額</th>
+                   <th>備註</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>房貸</td>
+                  <td>一般房貸_擔保</td>
+                  <td>0000705381000111</td>
+                  <td>新臺幣</td>
+                  <td>{{ 70000 | currency:'':'':'1.0-0' }}</td>
+                  <td>{{ 69997 | currency:'':'':'1.0-0' }}</td>
+                  <td>
+
+                    <div class="my-1">
+                        擔保品：不動產
+                    </div>
+                    <div class="my-1 text-danger">
+                        逾期中，近一年曾逾期超過30天。
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                    <td>信貸</td>
+                    <td>一般房貸_信用</td>
+                    <td>0000705381000112</td>
+                    <td>新臺幣</td>
+                    <td>{{ 70000 | currency:'':'':'1.0-0' }}</td>
+                    <td>{{ 69997 | currency:'':'':'1.0-0' }}</td>
+                    <td>
+                        <div class="text-danger">
+                            逾期中，近一年曾逾期超過30天。
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>WMA</td>
+                    <td>一般房貸_透支</td>
+                    <td>0000705381000113</td>
+                    <td>新臺幣</td>
+                    <td>{{ 50000 | currency:'':'':'1.0-0' }}</td>
+                    <td>{{ 50000 | currency:'':'':'1.0-0' }}</td>
+                    <td>
+                        <div>
+                            -
+                        </div>
+                    </td>
+                </tr>
+               </tbody>
+
+             </table>
+
+          </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- 總資產-->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+                總資產 {{ 7800 | currency:'':'':'1.0-0'}}
+            </h5>
+        </div>
+        <div class="card-body">
+          <div class="table-mat-list">
+             <table class="table m-0 p-0 table-hover table-sticky person-table">
+               <thead>
+                 <tr>
+                   <th class="text-center" colspan="2">類別</th>
+                   <th>帳號</th>
+                   <th>幣別</th>
+                   <th>近一年平均存款</th>
+                   <th>存款餘額</th>
+                   <th>備註</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td rowspan="2">活存</td>
+                  <td>活期儲蓄存款</td>
+                  <td>0000705381000114</td>
+                  <td>新臺幣</td>
+                  <td>{{ 80 | currency:'':'':'1.0-0' }}</td>
+                  <td>{{ 1400 | currency:'':'':'1.0-0' }}</td>
+                  <td><div>-</div>
+                  </td>
+                </tr>
+
+                <tr>
+                    <td>證券活期存款</td>
+                    <td>0000705381000115</td>
+                    <td>新臺幣</td>
+                    <td>{{ 120 | currency:'':'':'1.0-0' }}</td>
+                    <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                    <td>
+                        <div>
+                            非國泰證券交割戶
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">定存</td>
+                    <td>定期存款</td>
+                    <td>0000705381000117</td>
+                    <td>新臺幣</td>
+                    <td>{{ 6000 | currency:'':'':'1.0-0' }}</td>
+                    <td>{{ 6000 | currency:'':'':'1.0-0' }}</td>
+                    <td>
+                        <div>本金自動展期</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>定期存款</td>
+                    <td>000070538100USD</td>
+                    <td>美金</td>
+                    <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                    <td>{{ 45000 | currency:'':'':'1.0-0' }}</td>
+                    <td>
+                        <div class="text-danger">退票5張｜註銷1張｜拒往戶</div>
+                    </td>
+                </tr>
+                <tr>
+                  <td>支存</td>
+                  <td>支票存款</td>
+                  <td>0000705381000119</td>
+                  <td>新臺幣</td>
+                  <td>{{ 1600 | currency:'':'':'1.0-0' }}</td>
+                  <td>{{ 14500 | currency:'':'':'1.0-0' }}</td>
+                  <td>-</td>
+                </tr>
+
+
+                <tr class="bg-light text-primary">
+                  <td colspan="2">其他持有商品</td>
+                  <td>
+                    <div class="d-inline-block">
+                        <i class="far fa-check-square mr-2"></i>壽險
+                    </div>
+                  </td>
+                  <td>
+                      <div class="d-inline-block">
+                          <i class="far fa-check-square mr-2"></i>產險
+                      </div>
+                  </td>
+                  <td>
+                      <div class="d-inline-block">
+                          <i class="far fa-check-square mr-2"></i>基金
+                      </div>
+                  </td>
+                  <td>
+                      <div class="d-inline-block text-gray">
+                          <i class="far fa-window-close text-gray  mr-2"></i>國外有價證券
+                      </div>
+                  </td>
+                  <td>
+                      <div class="d-inline-block">
+                          <i class="far fa-check-square  mr-2"></i>組合式商品
+                      </div>
+                  </td>
+
+                </tr>
+
+
+               </tbody>
+
+             </table>
+
+          </div>
+
+        </div>
+
+
+    </div>
+
+
+     <!-- 信用卡-->
+     <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+                信用卡-有效卡別
+            </h5>
+        </div>
+        <div class="card-body">
+
+
+          <div class="table-mat-list">
+             <table class="table m-0 p-0 table-hover table-sticky person-table">
+               <thead>
+                 <tr>
+                   <th>卡片名稱</th>
+                   <th>卡片屬性</th>
+                   <th>主附卡</th>
+                   <th>正卡持卡人</th>
+                   <th>額度</th>
+                   <th>備註</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr>
+                  <td>亞洲萬里通聯名卡</td>
+                  <td>世界卡</td>
+                  <td>正卡</td>
+                  <td>林金霖</td>
+                  <td>{{ 200000 | currency:'':'':'1.0-0' }}</td>
+                  <td>
+                    <div class="text-danger">
+                        上期帳單逾期繳款，近一年曾逾期超過30天。
+                    </div>
+                  </td>
+                </tr>
+
+               </tbody>
+
+             </table>
+
+          </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+

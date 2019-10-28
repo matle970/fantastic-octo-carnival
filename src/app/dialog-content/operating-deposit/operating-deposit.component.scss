@@ -1,0 +1,29 @@
+$deposit-blue1: #003049;
+$deposit-blue2: #377696;
+$shadow-light : #EEE;
+$shadow-dark: #ddd;
+
+.deposit-block {
+  table {
+    .min-head {
+      width:180px;
+    }
+    .min-number {
+      width:160px;
+    }
+
+
+  }
+  .card {
+    .card-header {
+      &.card-header-primary {
+        // background: linear-gradient(60deg, $deposit-blue1, $deposit-blue2);
+      }
+      .card-title {
+        border-color: $deposit-blue1;
+      }
+    }
+
+  }
+
+}

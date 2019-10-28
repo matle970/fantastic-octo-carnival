@@ -1,13 +1,9 @@
 # Aoview
 建立日期：2019-09-24
 
-## Demo B
+## Branch : all_ui_layout
+此分支：all_ui_layout
+主要的版面內容改在這裏
+用於與其他風格結合
 
-風格名稱：demo_d
 
-### 風格特色
-
-- 左側 sidebar : hover 開關
-- 左側 sidebar : 加上底色
-- 
-  

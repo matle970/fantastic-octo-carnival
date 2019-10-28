@@ -1,0 +1,15 @@
+.card-body {
+  table {
+    th,td {
+      text-align: right;
+    }
+    tfoot {
+      th {
+        text-align: center;
+      }
+      td {
+        text-align: right;
+      }
+    }
+  }
+}

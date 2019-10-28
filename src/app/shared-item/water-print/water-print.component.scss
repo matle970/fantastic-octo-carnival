@@ -1,14 +1,33 @@
-.card {
+.card,.mat-dialog-container {
   position: relative;
+
+
 }
 .water-print {
   position: absolute;
   min-width: 300px;
   min-height: 400px;
-  top:30%;
+  top:50%;
   left:30%;
+  z-index: 0;
+  user-select: none;
   .id-number {
     font-size: 6rem;
-    color:rgba(201, 195, 195, 0.575);
+    display: inline-block;
+    color:rgba(216, 210, 210, 0.575);
+    transform: rotate(-20deg);
+    user-select: none;
+    &.md-size {
+      margin-top:50px;
+      font-size: 4rem;
+    }
+  }
+}
+
+.news-block {
+  .water-print {
+    .id-number {
+      font-size: 3rem !important;
+    }
   }
 }
