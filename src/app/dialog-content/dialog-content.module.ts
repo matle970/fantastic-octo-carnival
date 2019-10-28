@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from 'ng-apexcharts';
 
-import { IndexNoticeComponent } from './index-notice/index-notice.component';
+// import { IndexNoticeComponent } from './index-notice/index-notice.component';
 import { CompanyInfoComponent } from './company-info/company-info.component';
 import { SharedItemModule } from '../shared-item/shared-item.module';
 import { GroupInfoComponent } from './group-info/group-info.component';

@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter,   OnChanges,
 export class NoticeModalComponent implements OnInit, OnChanges {
 
   @ViewChild('notice') notice: any;
-  @Input() notice: number;
+  // @Input() notice: any;
   @Input() getOpenStatus: boolean;
   private _getOpenStatus: boolean;
   @Output() getOpenStatusChange = new EventEmitter<boolean>();
