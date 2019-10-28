@@ -249,6 +249,7 @@ export class BaseInfoComponent implements OnInit {
   ngOnInit() {
     const myChart = this.chartObj;
   }
+  
   /**
    * 暫用此方法寫
    * @param modalId 開啟modal的方式

@@ -14,9 +14,6 @@ export class DialogComponent implements OnInit {
 
   contentData: any;
 
-
-
-
   dialogList =[
     {
       id:1,

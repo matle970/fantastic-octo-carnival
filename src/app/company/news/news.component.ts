@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ModalService } from 'src/app/services/modal.service';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
+
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -14,9 +19,39 @@ export class NewsComponent implements OnInit {
   bankSource = BANK_DATA;
 
 
-  constructor() { }
+  constructor(private modalService: ModalService, public dialog: MatDialog) { }
+
 
   ngOnInit() {
+  }
+
+  openDialog(modalId: number) {
+    const openId = modalId ;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '80%';
+    dialogConfig.data = {
+      id: openId,
+      title: '',
+      content_data: {}
+    };
+
+    switch (openId) {
+      case 12 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = '要點新聞';
+          break;
+      case 13 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = '銀行同業';
+          break;
+      default:
+        dialogConfig.data.content_data = [];
+        dialogConfig.data.title = 'defalut no data';
+        break;
+    }
+
+    this.dialog.open(DialogComponent, dialogConfig);
   }
 
 }
