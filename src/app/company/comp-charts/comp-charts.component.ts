@@ -406,7 +406,7 @@ export class CompChartsComponent implements OnInit {
           dialogConfig.data.content_data = [];
           dialogConfig.data.title = '進口 / 出口';
           break;
-      case 12 :
+      case 11 :
           dialogConfig.data.content_data = [];
           dialogConfig.data.title = 'TMU / MTM';
           break;
@@ -415,8 +415,6 @@ export class CompChartsComponent implements OnInit {
         dialogConfig.data.content_data = [];
         dialogConfig.data.title = 'defalut no data';
         break;
-
-
     }
 
     this.dialog.open(DialogComponent, dialogConfig);

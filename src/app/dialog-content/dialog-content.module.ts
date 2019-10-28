@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 import { IndexNoticeComponent } from './index-notice/index-notice.component';
 import { CompanyInfoComponent } from './company-info/company-info.component';
 import { SharedItemModule } from '../shared-item/shared-item.module';
@@ -11,10 +13,14 @@ import { ContributionComponent } from './contribution/contribution.component';
 import { OperatingDepositComponent } from './operating-deposit/operating-deposit.component';
 import { OperatingFinancingComponent } from './operating-financing/operating-financing.component';
 import { OperatingInoutComponent } from './operating-inout/operating-inout.component';
+import { OperatingTmuComponent } from './operating-tmu/operating-tmu.component';
+import { NewsInfoComponent } from './news-info/news-info.component';
+import { BanksInfoComponent } from './banks-info/banks-info.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    NgApexchartsModule,
     SharedMaterialModule,
     SharedItemModule
   ],
@@ -28,6 +34,9 @@ import { OperatingInoutComponent } from './operating-inout/operating-inout.compo
     OperatingDepositComponent,
     OperatingFinancingComponent,
     OperatingInoutComponent,
+    OperatingTmuComponent,
+    NewsInfoComponent,
+    BanksInfoComponent,
   ],
   exports: [
     IndexNoticeComponent,
@@ -38,7 +47,10 @@ import { OperatingInoutComponent } from './operating-inout/operating-inout.compo
     ContributionComponent,
     OperatingDepositComponent,
     OperatingFinancingComponent,
-    OperatingInoutComponent
+    OperatingInoutComponent,
+    OperatingTmuComponent,
+    NewsInfoComponent,
+    BanksInfoComponent
   ],
 
 })

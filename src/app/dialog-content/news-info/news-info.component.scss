@@ -1,0 +1,66 @@
+
+.news-info-block {
+  height: auto;
+  max-height: 550px;
+  overflow: auto;
+  .news-info-list {
+    height: 450px;
+    padding:10px;
+    overflow-y: auto;
+    .news-info-li {
+      margin-right:15px;
+      .paper-info {
+        color: #21252996;
+      }
+      .news-title {
+        width: auto;
+        max-width: 280px;
+      }
+    }
+    .btn {
+      width: 95% !important;
+    }
+  }
+  .news-content {
+    .news-content-ana {
+      .ana-word {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+      .grade {
+        font-size: 1.8rem;
+      }
+
+    }
+    .news-content-title {
+      font-size: 1.2rem;
+      line-height: 2rem;
+      vertical-align: middle;
+      &::before {
+        content:'';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      .far {
+        font-size: 2rem;
+        vertical-align: middle;
+        display: inline-block;
+      }
+      .title {
+        line-height: 2rem;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    .news-content-word {
+      color:#000;
+      p {
+        color: #000;
+        font-size: 1.1rem;
+        text-indent: 28px !important;
+        line-height: 1.8rem;
+      }
+    }
+  }
+}
