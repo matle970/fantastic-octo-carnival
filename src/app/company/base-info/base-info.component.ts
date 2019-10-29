@@ -213,14 +213,14 @@ export class BaseInfoComponent implements OnInit {
         name:'負責人',
         content:'林金霖',
         infos:[ " 6 月壽星","AUM 9,612"],
-        tags:["VIP","高爾夫"]
+        tags:[1,2,3,4,5,6]
       },
       {
         id:'c10',
         name:'負責人配偶',
         content:'王弈',
         infos:[" 26 歲","5 月壽星","AUM 1,485"],
-        tags:["黑名單"]
+        tags:[7,8,9,10,11]
       },
       {
         id:'c11',
@@ -249,7 +249,7 @@ export class BaseInfoComponent implements OnInit {
   ngOnInit() {
     const myChart = this.chartObj;
   }
-  
+
   /**
    * 暫用此方法寫
    * @param modalId 開啟modal的方式

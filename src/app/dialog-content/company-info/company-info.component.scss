@@ -42,3 +42,28 @@ $blackListBg: #c00000;
   }
 
 }
+
+// tag design
+
+$tag-bg : #FFF;
+$tag-hover-bg : #FFF;
+$tag-border-color: #EEE;
+$tag-border-radius: 5px;
+$tag-width : 32px;
+$tag-height : 32px;
+
+.person-tag {
+  display: inline-block;
+  width: $tag-width;
+  height: $tag-height;
+  border-radius: $tag-border-radius;
+  border: 1px solid transparent;
+  img {
+    width: $tag-width;
+    height: $tag-height;
+  }
+  &:hover {
+    background-color: $tag-hover-bg;
+    border: 1px solid $tag-border-color;
+  }
+}
