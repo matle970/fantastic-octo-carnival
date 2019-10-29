@@ -16,22 +16,24 @@ $card-text-color: black;
   background: $white-color;
   width: 100%;
   position: relative;
-  overflow: hidden;
-  &::before {
-    content: 'NT81752';
-    font-style: 5rem;
-    color: #d2d2d242;
-    display: inline-block;
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    font-size: 5rem;
-    transform: rotate(-20deg);
-  }
+  // &::before {
+  //   content: 'NT81752';
+  //   font-style: 5rem;
+  //   color: #d2d2d242;
+  //   display: inline-block;
+  //   position: absolute;
+  //   top: 40%;
+  //   left: 10%;
+  //   font-size: 5rem;
+  //   transform: rotate(-20deg);
+  // }
   small{
     font-size: 0.8rem;
     word-spacing: 2px;
     letter-spacing: 1px;
+  }
+  .badge {
+    font-family: '微軟正黑體';
   }
 
     .card-category:not([class*="text-"]) {
@@ -76,7 +78,20 @@ $card-text-color: black;
     padding: $padding-card-body-y $padding-card-body-x;
   }
 
+
+
   .card-body {
+    .table-mat-list {
+      table {
+        height: auto;
+        min-height: 200px;
+        max-height: 450px;
+        thead {
+          background: rgba(255, 255, 255, 0.35);
+        }
+      }
+
+    }
       & + .card-footer{
         padding-top: 0rem;
         border: 0;
@@ -531,7 +546,7 @@ $card-text-color: black;
         border-radius: $border-radius-base;
         // margin-top: -20px;
         // padding: 15px;
-        margin: -5px -8px 0 8px;
+        margin: 10px;
         padding:8px 10px;
       }
 

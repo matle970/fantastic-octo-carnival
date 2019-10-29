@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WaterPrintComponent implements OnInit {
   @Input() msg: string;
+  @Input() MdSize: boolean;
   constructor() { }
 
   ngOnInit() {
-    this.msg = this.msg ? this.msg: "123456";
+    this.msg = this.msg ? this.msg : 'NT81752';
+    this.MdSize = (this.MdSize === true) ? true : false;
   }
 
 }

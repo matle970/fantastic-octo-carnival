@@ -1,0 +1,162 @@
+<div class="deposit-block">
+
+
+    <!-- 總存款 -->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+              總存款
+            </h5>
+        </div>
+        <div class="card-body">
+
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky">
+                    <thead>
+                      <tr>
+                        <th>幣別</th>
+                        <th class="text-right">活存餘額</th>
+                        <th class="text-right">定存餘額</th>
+                        <th class="text-right">支存餘額</th>
+                        <th class="text-right">合計</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <tr>
+                       <td>新臺幣</td>
+                       <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
+                       <td class="text-right">0</td>
+                       <td class="text-right">-</td>
+                       <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
+                     </tr>
+
+                     <tr>
+                        <td>外幣(折臺)</td>
+                        <td class="text-right">{{ 0 | currency:'':'':'1.0-0' }}</td>
+                        <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
+                        <td class="text-right">-</td>
+                        <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-light font-weigh-bolder">
+                            <td>合計(新臺幣)</td>
+                            <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
+                            <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
+                            <td class="text-right">-</td>
+                            <td class="text-right">{{ 7700 | currency:'':'':'1.0-0' }}</td>
+                        </tr>
+                        <tr class="bg-light">
+                            <td>近6個月平均積數</td>
+                            <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
+                            <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
+                            <td class="text-right">-</td>
+                            <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
+                        </tr>
+                    </tfoot>
+                  </table>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- 活存明細 -->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+              活存明細
+            </h5>
+        </div>
+        <div class="card-body">
+
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky">
+                    <thead>
+                      <tr>
+                        <th>帳號</th>
+                        <th>幣別</th>
+                        <th class="text-right">原幣餘額</th>
+                        <th class="text-right">臺幣餘額</th>
+                        <th class="text-right">利率</th>
+                        <th class="text-right">當時FTP</th>
+                        <th>起日</th>
+                        <th>迄日</th>
+                        <th>公文編號</th>
+                        <th>備註</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <tr>
+                       <td>0082-441-025866</td>
+                       <td>美金 </td>
+                       <td class="text-right">0</td>
+                       <td class="text-right">xx</td>
+                       <td class="text-right">xx</td>
+                       <td class="text-right">xx</td>
+                       <td>2019/04/01</td>
+                       <td>2019/06/30</td>
+                       <td>xxx</td>
+                       <td>信義分行｜薪轉行｜備償戶</td>
+                     </tr>
+
+                     <tr>
+                        <td>0082-940-025866</td>
+                        <td>臺幣 </td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">xx</td>
+                        <td class="text-right">xx</td>
+                        <td class="text-right">xx</td>
+                        <td>2019/04/01</td>
+                        <td>2019/06/30</td>
+                        <td>xxx</td>
+                        <td>淡水分行｜信託行</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- 支存明細 -->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+              支存明細
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky">
+                    <thead>
+                      <tr>
+                        <th class="min-head">帳號</th>
+                        <th class="text-right min-number mr-4">存款餘額</th>
+                        <th>備註</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <tr>
+                       <td>0082-441-025866</td>
+                       <td class="text-right">{{ 1230 | currency:'':'':'1.0-0' }}</td>
+                       <td>信義分行｜薪轉行｜備償戶</td>
+                     </tr>
+                     <tr>
+                        <td>0082-441-025867</td>
+                        <td class="text-right">{{ 560 | currency:'':'':'1.0-0' }}</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>

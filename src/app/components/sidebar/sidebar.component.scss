@@ -4,6 +4,13 @@ $link-hover: #FFF;
 $icon-color: #FFF;
 $link-active: #009f41;
 $icon-active-color: #009f41;
+$sidebarBg: #fafafa ;
+$link-color: #FFF;
+$link-hover: #FFF;
+$active-link-bg: #2125297a ;
+$link-hover-bg: #76bc21;
+$icon-color: #FFF;
+$link-active: #FFF;
 
 
 $cathybg : #009F41;
@@ -49,6 +56,7 @@ $lightbgActive:#FFF;
       &.active {
         .nav-link {
           background: $lightbgActive;
+          background: $active-link-bg;
           color:$link-active!important;
           i.material-icons {
             color: $link-active !important;
@@ -73,6 +81,7 @@ $lightbgActive:#FFF;
         }
         &:hover {
           color: $link-hover;
+          background-color: $link-hover-bg;
         }
       }
 

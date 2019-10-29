@@ -1,6 +1,10 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
 
+import { ModalService } from 'src/app/services/modal.service';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { DialogComponent } from './../../dialog/dialog.component';
+
 @Component({
   selector: 'app-comp-charts',
   templateUrl: './comp-charts.component.html',
@@ -144,7 +148,20 @@ export class CompChartsComponent implements OnInit {
         '8',
         'today'
       ],
+
       labels:{
+
+        // user 要部份隱藏，但圖表要顯示，目前無法做到
+        // 兩邊會一起隱藏，先不做
+
+
+        // formatter: function(val,timestamp,index) {
+        //   if( (val%2) === 0) {
+        //     return '';
+        //   } else {
+        //     return val;
+        //   }
+        // }
 
       }
     },
@@ -340,7 +357,7 @@ export class CompChartsComponent implements OnInit {
   };
 
 
-  constructor() {}
+  constructor(private modalService: ModalService, public dialog: MatDialog) { }
 
   ngOnInit() {
     // console.log(this);
@@ -363,5 +380,43 @@ export class CompChartsComponent implements OnInit {
     this.chartLoad.render();
     this.chartTrade.render();
     this.chartTmu.render();
+  }
+
+  openDialog(modalId: number) {
+    const openId = modalId ;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '80%';
+    dialogConfig.data = {
+      id: openId,
+      title: '',
+      content_data: {}
+    };
+
+    switch (openId) {
+      case 8 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = '存款餘額';
+          break;
+      case 9 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = '放款餘額 / 貿融餘額';
+          break;
+      case 10 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = '進口 / 出口';
+          break;
+      case 11 :
+          dialogConfig.data.content_data = [];
+          dialogConfig.data.title = 'TMU / MTM';
+          break;
+
+      default:
+        dialogConfig.data.content_data = [];
+        dialogConfig.data.title = 'defalut no data';
+        break;
+    }
+
+    this.dialog.open(DialogComponent, dialogConfig);
   }
 }

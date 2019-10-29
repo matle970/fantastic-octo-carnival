@@ -1,0 +1,49 @@
+<div class="management-block">
+
+    <!-- 經管資訊-->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title ">
+              經管資訊
+            </h5>
+        </div>
+        <div class="card-body">
+
+          <div class="table-mat-list">
+              <table class="table m-0 p-0 table-hover table-sticky"
+              mat-table [dataSource]="management">
+                <ng-container matColumnDef="role">
+                  <th class="text-black text-nowrap width-100" mat-header-cell *matHeaderCellDef> 客戶 ID</th>
+                  <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                </ng-container>
+                <ng-container matColumnDef="dev">
+                    <th class="text-black text-nowrap min-th text-right" mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element"> {{element.dev}} </td>
+                </ng-container>
+                <ng-container matColumnDef="wid">
+                    <th class="text-black text-nowrap min-th text-center" mat-header-cell *matHeaderCellDef>窗口</th>
+                    <td mat-cell *matCellDef="let element"> {{element.wid}} </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <th class="text-black text-nowrap min-th text-left" mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="phone">
+                    <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>電話</th>
+                    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="manageColumn; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: manageColumn;"></tr>
+
+              </table>
+          </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,6 +1,7 @@
 
 
 <div class="card shadow-lg base-block top-card">
+    <app-water-print></app-water-print>
     <!-- <div class="card-header card-header-danger">
         <h4 class="card-title">Material Dashboard PRO Angular</h4>
         <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
@@ -122,7 +123,7 @@
                   <!-- 經管資訊 -->
                   <div class="m-1 p-0">
                       <div class="d-block body-subtitle my-1">
-                          <span class="btn btn-outline btn-outline-primary has-arrow">
+                          <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(6)">
                             經管資訊
                           </span>
                       </div>
@@ -192,7 +193,7 @@
                  <!-- 個人關聯戶 -->
                  <div class="m-1 p-0">
                     <div class="d-block body-subtitle my-1">
-                        <span class="btn btn-outline btn-outline-primary has-arrow">
+                        <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(5)">
                           個人關聯戶
                         </span>
                     </div>
@@ -222,7 +223,8 @@
           <!-- 右邊 -->
           <div class="col-lg-5 col-md-12 col-sm-12">
                     <div class="d-block body-subtitle mb-1 clearfix">
-                        <span class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left">貢獻度</span>
+                        <span class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left"
+                        (click)="openDialog(7)">貢獻度</span>
                         <div class="d-inline-block date-block float-right">
                             資料期間：2018/12-2019/07
                         </div>

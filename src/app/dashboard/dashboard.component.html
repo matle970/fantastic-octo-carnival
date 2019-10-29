@@ -1,30 +1,31 @@
 <div class="main-content mt-3">
   <div class="container-fluid">
-    <div class="d-block clearfix">
+    <div class="d-inline-block d-flex justify-content-end">
 
-      <div class="float-right ml-5 dashboard-top">
+
+      <div class="d-inline-block">
+          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
+      </div>
+
+      <div class="d-inline-block dashboard-top">
           <div class="date-block">
-
-              <span class=" mr-3">
+              <span class=" mr-1">
                   資料日：2019/08/06
               </span>
               <span class="mx-1">
                 ∣
               </span>
-              <span class=" mr-3">
+              <span class=" mr-1">
                   貢獻度資料期間： 2018/12 ~ 2019/07
               </span>
               <span class="mx-1">
                   ∣
               </span>
 
-              <span class="">
+              <span class="mr-2">
                   單位 ：新臺幣仟元
               </span>
         </div>
-      </div>
-      <div class="float-right">
-          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
       </div>
 
     </div>
@@ -32,7 +33,7 @@
     <div>
 
           <div class="card data-card shadow-lg">
-            <app-water-print [msg]="N123465"></app-water-print>
+            <app-water-print></app-water-print>
               <!-- <div class="card-header card-header-primary filter-search">
                   <app-filter [datalist]="dataSource"></app-filter>
               </div> -->
@@ -418,6 +419,7 @@
 
                   </div>
 
+                  <!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
                   <mat-paginator #paginator class="text-h3"
                [length]="60"
                [pageIndex]="0"
@@ -425,6 +427,8 @@
                [pageSizeOptions]="[5, 10, 15]"
                (page)="pageChange($event)" showFirstLastButtons></mat-paginator>
 
+
+                  <!-- 改用 material table 故以下的code hide  -->
                   <div  *ngIf="false">
                       <table class="table  table-striped">
                           <thead class="text-primary text-right">
