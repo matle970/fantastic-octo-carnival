@@ -5,7 +5,7 @@
           <table  class="table table-hover company-table">
             <tbody>
               <tr *ngFor="let item of content.content_data.data_list" [ngClass]="{'text-primary active right': item.activeMap}">
-                  <th class="text-left mr-2">{{item.name}}</th>
+                  <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{item.name}}</th>
                   <td class="text-left mr-2" >
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
@@ -16,7 +16,7 @@
                         </ng-container>
 
                         <!-- 標籤 -->
-                        <div class="d-block my-3" *ngIf="item.tags && item.tags.length > 0">
+                        <div class="d-inline-block my-3" *ngIf="item.tags && item.tags.length > 0">
                             <ng-container *ngFor="let tag of item.tags">
                                 <span class="person-tag mr-2" matTooltip="酒" matTooltipPosition="above" *ngIf="tag == 1">
                                     <img src="src/assets/img/tags/icons8-wine-glass-48.png">
@@ -54,7 +54,19 @@
                                     <img src="src/assets/img/tags/icons8-medal-48.png">
                                 </span>
 
-                             </ng-container>
+                            </ng-container>
+
+
+
+                        </div>
+
+                        <!-- flag  -->
+                        <div class="d-inline-block flag-block">
+                            <ng-container *ngFor="let flag of item.travel">
+                                <span class="flag-box mr-2" [matTooltip]="flag.name" matTooltipPosition="above">
+                                  <span class="flag-icon" [ngClass]="getFlagClass(flag.code)"></span>
+                                </span>
+                            </ng-container>
                         </div>
 
                     </span>
