@@ -43,9 +43,15 @@
   .card-title {
     height: 30px;
     line-height: 30px;
+    min-width: 310px;
     a.title-arrow {
       display:inline-block;
       cursor: pointer;
+      min-width: 130px;
+      z-index: 9999;
+    }
+    .title-date {
+      min-width: 82px;
     }
     i.material-icons{
       vertical-align: middle;

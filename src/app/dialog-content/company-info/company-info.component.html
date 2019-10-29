@@ -5,7 +5,7 @@
           <table  class="table table-hover company-table">
             <tbody>
               <tr *ngFor="let item of content.content_data.data_list" [ngClass]="{'text-primary active right': item.activeMap}">
-                  <th class="text-left mr-2">{{item.name}}</th>
+                  <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{item.name}}</th>
                   <td class="text-left mr-2" >
                     <span *ngIf="(item.id !=='c02' && item.id !== 'c03')">
                         {{item.content}}
@@ -14,14 +14,60 @@
                             {{info}}
                           </span>
                         </ng-container>
-                        <ng-container *ngIf="item.tags && item.tags.length > 0">
-                            <span class="badge mr-1"
-                            [ngClass]="{'badge-black': tag =='黑名單','badge-vip':tag=='VIP','badge-primary':tag=='高爾夫'}"
-                            *ngFor="let tag of item.tags">
-                                {{tag}}
-                            </span>
-                        </ng-container>
 
+                        <!-- 標籤 -->
+                        <div class="d-inline-block my-3" *ngIf="item.tags && item.tags.length > 0">
+                            <ng-container *ngFor="let tag of item.tags">
+                                <span class="person-tag mr-2" matTooltip="酒" matTooltipPosition="above" *ngIf="tag == 1">
+                                    <img src="src/assets/img/tags/icons8-wine-glass-48.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="露營 / 登山用品" matTooltipPosition="above"  *ngIf="tag == 2">
+                                    <img src="src/assets/img/tags/icons8-camping-tent-48.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="雪茄" matTooltipPosition="above"  *ngIf="tag == 3">
+                                  <img src="src/assets/img/tags/cigar.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="高爾夫" matTooltipPosition="above"  *ngIf="tag == 4">
+                                    <img src="src/assets/img/tags/icons8-golf-ball-80.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="遊艇" matTooltipPosition="above"  *ngIf="tag == 5">
+                                    <img src="src/assets/img/tags/icons8-water-transportation-48.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="免稅店 / 機場商店" matTooltipPosition="above"  *ngIf="tag == 6">
+                                    <img src="src/assets/img/tags/icons8-duty-free-48.png">
+                                </span>
+
+                                <span class="person-tag mr-2" matTooltip="高端旅行社" matTooltipPosition="above"  *ngIf="tag == 7">
+                                  <img src="src/assets/img/tags/icons8-around-the-globe-48.png">
+                                </span>
+
+                                <span class="person-tag mr-2" matTooltip="藝術品" matTooltipPosition="above"  *ngIf="tag == 8">
+                                    <img src="src/assets/img/tags/icons8-picasso-48.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="古董" matTooltipPosition="above"  *ngIf="tag == 9">
+                                    <img src="src/assets/img/tags/gramophone.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="陶瓷" matTooltipPosition="above"  *ngIf="tag == 10">
+                                    <img src="src/assets/img/tags/icons8-pottery-48.png">
+                                </span>
+                                <span class="person-tag mr-2" matTooltip="社會菁英社團" matTooltipPosition="above"  *ngIf="tag == 11">
+                                    <img src="src/assets/img/tags/icons8-medal-48.png">
+                                </span>
+
+                            </ng-container>
+
+
+
+                        </div>
+
+                        <!-- flag  -->
+                        <div class="d-inline-block flag-block">
+                            <ng-container *ngFor="let flag of item.travel">
+                                <span class="flag-box mr-2" [matTooltip]="flag.name" matTooltipPosition="above">
+                                  <span class="flag-icon" [ngClass]="getFlagClass(flag.code)"></span>
+                                </span>
+                            </ng-container>
+                        </div>
 
                     </span>
                     <span class="text-primary" *ngIf="(item.id =='c02') || (item.id == 'c03')">

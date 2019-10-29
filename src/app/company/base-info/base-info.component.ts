@@ -213,14 +213,50 @@ export class BaseInfoComponent implements OnInit {
         name:'負責人',
         content:'林金霖',
         infos:[ " 6 月壽星","AUM 9,612"],
-        tags:["VIP","高爾夫"]
+        tags:[1,2,3,4,5,6],
+        travel:[
+          {
+            code:'ca',
+            name: '加拿大'
+          },
+          {
+            code:'th',
+            name: '菲律賓'
+          }
+
+        ]
       },
       {
-        id:'c10',
-        name:'負責人配偶',
-        content:'王弈',
-        infos:[" 26 歲","5 月壽星","AUM 1,485"],
-        tags:["黑名單"]
+        id: 'c10',
+        name: '負責人配偶',
+        content: '王弈',
+        infos:[ " 26 歲", "5 月壽星","AUM 1,485"],
+        tags:[ 7, 8, 9, 10, 11],
+        travel:[
+          {
+            code: 'kr',
+            name: '首爾'
+          },
+          {
+            code: 'no',
+            name: '挪威'
+          },
+          {
+            code: 'it',
+            name: '義大利'
+          },
+          {
+            code: 'jp',
+            name: '日本'
+          },
+          {
+            code: 'au',
+            name: '澳洲'
+          }
+
+
+
+        ]
       },
       {
         id:'c11',
@@ -249,7 +285,7 @@ export class BaseInfoComponent implements OnInit {
   ngOnInit() {
     const myChart = this.chartObj;
   }
-  
+
   /**
    * 暫用此方法寫
    * @param modalId 開啟modal的方式

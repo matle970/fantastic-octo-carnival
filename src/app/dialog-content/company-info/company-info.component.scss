@@ -3,6 +3,9 @@ $arrowColor: green;
 $blackListBg: #c00000;
 .company-info {
   .company-table {
+    .table-th {
+      min-width:150px;
+    }
     .tag-infomation {
       color: black;
       border:1px double #DDD;
@@ -41,4 +44,45 @@ $blackListBg: #c00000;
     }
   }
 
+}
+
+// tag design
+
+$tag-bg : #FFF;
+$tag-hover-bg : #FFF;
+$tag-border-color: #EEE;
+$tag-border-radius: 5px;
+$tag-width : 42px;
+$tag-height : 36px;
+
+.person-tag {
+  display: inline-block;
+  width: $tag-width+2 ;
+  height: $tag-height+6;
+  border-radius: $tag-border-radius;
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 3px;
+  img {
+    width: auto;
+    height: $tag-height;
+    margin: 0 auto;
+    padding:2px;
+  }
+  &:hover {
+    background-color: $tag-hover-bg;
+    border: 1px solid $tag-border-color;
+  }
+
+}
+
+.flag-block {
+  .flag-box {
+    padding:2px;
+    background-color: $tag-hover-bg;
+    border:1px solid $tag-border-color;
+  }
+  .flag-icon {
+    font-size: 1.6rem;
+  }
 }
