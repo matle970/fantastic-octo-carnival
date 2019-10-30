@@ -252,10 +252,7 @@ export class BaseInfoComponent implements OnInit {
           {
             code: 'au',
             name: '澳洲'
-          }
-
-
-
+          },
         ]
       },
       {
