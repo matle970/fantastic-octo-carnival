@@ -28,7 +28,7 @@
               <ng-container matColumnDef="title">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
                 <td class="text-left" mat-cell *matCellDef="let element">
-                   <a href="#" class="underline"> {{element.title}}</a>
+                   <a  href="javascript: return false;" class="underline" (click)="openDialog(12)"> {{element.title}}</a>
                 </td>
               </ng-container>
 
@@ -45,11 +45,11 @@
             銀行同業
             <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
           </a>
-          <div class="d-inline-block bank-date-block col col-lg-4">
+          <div class="title-date d-inline-block bank-date-block col col-lg-3">
             <div class="d-block w-100 text-gray">上次查詢日期</div>
             <div class="d-block w-100 text-gray">2019/10/01</div>
           </div>
-          <div class="d-inline-block bank-date-block col col-lg-4">
+          <div class="title-date d-inline-block bank-date-block col col-lg-3">
               <div class="d-block w-100 text-small text-gray wrod">最近查詢日期</div>
               <div class="d-block w-100 text-small text-gray font-weight-bolder">2019/10/10</div>
             </div>

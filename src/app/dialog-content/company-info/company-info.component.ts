@@ -14,4 +14,8 @@ export class CompanyInfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  getFlagClass(countryCode: string) {
+    return 'flag-icon-' + countryCode;
+  }
+
 }

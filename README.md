@@ -1,12 +1,5 @@
-# Aoview
-建立日期：2019-09-24
 
 下載下來後，請先 npm install 
-
-
-## Branch demo_e
-尊榮綠版本
-
 
 
 ## 分支：team

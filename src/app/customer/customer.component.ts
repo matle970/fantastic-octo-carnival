@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer.component.scss']
 })
 export class CustomerComponent implements OnInit {
-
+  openStatus = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  openNotice(){
+    this.openStatus = true;
+  }
 }

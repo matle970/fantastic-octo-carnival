@@ -6,24 +6,31 @@ import { MapComponent } from './map/map.component';
 import { IconBellComponent } from './icon-bell/icon-bell.component';
 import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
 import { WaterPrintComponent } from './water-print/water-print.component';
+import { NoticeModalComponent } from './notice-modal/notice-modal.component';
+import { IndexNoticeComponent } from './index-notice/index-notice.component';
 
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   declarations: [
     MapComponent,
     IconBellComponent,
     IconGraybellComponent,
-    WaterPrintComponent
+    WaterPrintComponent,
+    NoticeModalComponent,
+    IndexNoticeComponent
   ],
   exports: [
     MapComponent,
     IconBellComponent,
     IconGraybellComponent,
-    WaterPrintComponent
+    WaterPrintComponent,
+    NoticeModalComponent,
+    IndexNoticeComponent
   ]
 })
 export class SharedItemModule { }

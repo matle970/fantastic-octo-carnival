@@ -11,6 +11,7 @@ export class NoticeIconComponent implements OnInit {
 
   @Input() notice: number;
   @Input() modalId: number;
+  
 
   // 假資料 首頁關鍵提醒
   notice_one = {
