@@ -28,7 +28,7 @@
               <ng-container matColumnDef="title">
                 <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
                 <td class="text-left" mat-cell *matCellDef="let element">
-                   <a href="#" class="underline"> {{element.title}}</a>
+                   <a  href="javascript: return false;" class="underline" (click)="openDialog(12)"> {{element.title}}</a>
                 </td>
               </ng-container>
 
