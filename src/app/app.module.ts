@@ -1,12 +1,15 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // 客戶視圖裏的 component
 import { CompanyModule } from './company/company.module';
@@ -34,6 +37,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DialogContentModule } from './dialog-content/dialog-content.module';
 import { IconSvgModule } from './icon-svg/icon-svg.module';
 import { SharedItemModule } from './shared-item/shared-item.module';
+import { InjectService } from './services/inject.service';
 
 
 
@@ -53,6 +57,7 @@ import { SharedItemModule } from './shared-item/shared-item.module';
     CdkTableModule,
     // tslint:disable-next-line: deprecation
     HttpModule,
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -67,9 +72,14 @@ import { SharedItemModule } from './shared-item/shared-item.module';
   ],
   providers: [
     SidebarService,
-    ModalService
+    ModalService,
+    DatePipe
   ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+    InjectService.injector = this.injector;
+  }
+}

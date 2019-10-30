@@ -7,8 +7,8 @@
           <div class="d-inline-block mr-3 mt-2">
             <form class="navbar-form form-inline m-0">
                 <div class="input-group no-border">
-                    <input type="text" value="" class="form-control" placeholder="客戶 ID">
-                    <button mat-raised-button type="submit" class="btn btn-sm btn-secondary btn-round btn-just-icon">
+                    <input #searchIdBind type="text" value="" class="form-control" placeholder="客戶 ID">
+                    <button mat-raised-button type="submit" class="btn btn-sm btn-secondary btn-round btn-just-icon" (click)="getSearchId()">
                         <i class="material-icons">search</i>
                         <div class="ripple-container"></div>
                     </button>
@@ -33,7 +33,7 @@
         </div>
         <div class="row top">
             <div class="col-lg-9 col-md-12 col-sm-12">
-                <app-base-info></app-base-info>
+                <app-base-info [searchStr]="searchStr"></app-base-info>
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <app-news></app-news>
