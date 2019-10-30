@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BaseComponent } from 'src/app/base/base-component';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.scss']
 })
-export class CustomerComponent implements OnInit {
-  openStatus = false;
-  constructor() { }
+export class CustomerComponent extends BaseComponent implements OnInit {
+
+  searchStr: string; // 搜尋的客戶ID字串
+
+  @ViewChild('searchIdBind') searchData: any;
+
+  constructor() { super(); }
 
   ngOnInit() {
+    // tslint:disable-next-line: max-line-length
+    this.searchData.nativeElement.value = this.getShareDataService().customerId === undefined ? '' : this.getShareDataService().customerId; // 將第一筆的customerId 放入input
   }
 
-  openNotice(){
-    this.openStatus = true;
+  getSearchId() {
+    this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
   }
 }

@@ -222,7 +222,7 @@
                         <span class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left"
                         (click)="openDialog(7)">貢獻度</span>
                         <div class="d-inline-block date-block float-right">
-                            資料期間：2018/12-2019/07
+                            資料期間：{{contributionPeriod}}
                         </div>
 
                     </div>
@@ -236,7 +236,8 @@
                                   去年度累計貢獻度
                               </div>
                               <div class="w-100">
-                                {{ 3170 | currency:'':'':'1.0-0'}}
+                                <!-- {{ 3170 | currency:'':'symbol':'1.0-0'}} -->
+                                {{contributionLastYearTotal}}
                               </div>
                             </div>
                             <div class="note this-year">
@@ -244,7 +245,8 @@
                                     今年度累計貢獻度
                                 </div>
                                 <div class="w-100">
-                                  {{ 3230 | currency:'':'':'1.0-0'}}
+                                  <!-- {{ 3230 | currency:'':'symbol':'1.0-0'}} -->
+                                  {{contributionThisYearTotal}}
                                 </div>
                             </div>
                           </div>
