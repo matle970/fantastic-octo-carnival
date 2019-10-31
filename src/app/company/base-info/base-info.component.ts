@@ -47,6 +47,8 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
   contributionPeriod: string; // 貢獻度, 資料區間
   contributionLastYearTotal: number; // 貢獻度去年累計
   contributionThisYearTotal: number; // 貢獻度去年累計
+  contributionObj: any; // 貢獻度的資料 for dialog
+  contributionTitle = this.TITLE.contribution;
 
   // @Input() chart: ApexChart;
   // @Input() annotations: ApexAnnotations;
@@ -134,7 +136,7 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
       }
     ],
     xaxis: {
-      categories: ['現管', '放款', '貿融', '資顧', 'TMU', '其他'],
+      categories: this.contributionTitle,
       labels: {
         style: {
           fontSize: '14px',
@@ -351,8 +353,10 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
         dialogConfig.data.title = '經管資訊';
         break;
       case 7:
-        dialogConfig.data.content_data = [];
+        console.log(dialogConfig);
+        dialogConfig.data.content_data = this.contributionObj;
         dialogConfig.data.title = '貢獻度';
+        // dialogConfig.data.url = this.URL.customerProfile.Layer1.getCBContribution;
         break;
 
       default:
@@ -452,6 +456,9 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
       lastYear.push(super.getUtilsService().removeCommafy(data.lastcontri['profittype' + i]));
       thisYear.push(super.getUtilsService().removeCommafy(data.thiscontri['profittype' + i]));
     }
+    console.log(lastYear);
+    console.log(thisYear);
+
     this.chartData.series[0]['data'] = lastYear;
     this.chartData.series[1]['data'] = thisYear;
 
@@ -460,8 +467,11 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
     const thisYearStart = super.getUtilsService().changeDateStr(data.thiscontri.startym, 'yyyy/MM');
     const thisYearEnd = super.getUtilsService().changeDateStr(data.thiscontri.endym, 'yyyy/MM');
 
-    this.chartData.series[0]['name'] = lastYearStart + '-' + lastYearEnd;
-    this.chartData.series[1]['name'] =  thisYearStart + '-' + thisYearEnd;
+    const lastYearPeriod = lastYearStart + '-' + lastYearEnd;
+    const thisYearPeriod = thisYearStart + '-' + thisYearEnd;
+
+    this.chartData.series[0]['name'] = lastYearPeriod;
+    this.chartData.series[1]['name'] =  thisYearPeriod;
 
     this.chartObj.destroy();
     this.chartObj.render();
@@ -470,6 +480,20 @@ export class BaseInfoComponent extends BaseComponent implements OnInit , OnChang
     this.contributionLastYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(lastYear), true);
     this.contributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
     this.contributionPeriod = lastYearStart  + '-' + thisYearEnd; // 貢獻度資料區間
+
+    this.contributionObj = {
+      'lastYear' : {
+        'text' : '去年度累計貢獻度',
+        'period' : lastYearPeriod, // 去年度區間
+        'data' : this.chartData.series[0]['data'], // 去年度資料
+      },
+      'thisYear' : {
+        'text' : '今年度累計貢獻度',
+        'period' : thisYearPeriod, // 今年度區間
+        'data' : this.chartData.series[1]['data'], // 今年度資料
+      },
+      'contributionPeriod' : this.contributionPeriod, // 資料區間
+    };
   }
 
 }

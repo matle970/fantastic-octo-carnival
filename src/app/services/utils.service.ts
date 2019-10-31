@@ -167,4 +167,18 @@ export class UtilsService {
     });
     return total;
   }
+
+  /**
+   * 取得加總數值
+   * return +data or -data
+   * @author Tillie
+   * @param data
+   */
+  addpPusMinus(data: number) {
+    if (data > 0) {
+      return '+' + this.commafy(data);
+    } else {
+      return this.commafy(data);
+    }
+  }
 }

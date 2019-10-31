@@ -31,8 +31,8 @@ export class DialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  ngOnInit(){
-    console.log(this);
+  ngOnInit() {
+    console.log(this.data);
     this.contentData = this.data;
 
   }

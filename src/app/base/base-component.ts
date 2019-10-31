@@ -12,6 +12,7 @@ import { UtilsService } from 'src/app/services/utils.service';
  * **************************/
 export class BaseComponent {
     URL = require('src/app/base/url.json'); // URLs
+    TITLE = require('src/app/base/title.json'); // 各種title
 
     getRequestData(url: string, param?: any) {
         const request = this.setApiData(param); // 設定Request的header & body
