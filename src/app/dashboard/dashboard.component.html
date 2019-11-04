@@ -36,7 +36,6 @@
     </div>
 
     <div>
-
           <div class="card data-card shadow-lg">
             <app-water-print></app-water-print>
               <!-- <div class="card-header card-header-primary filter-search">
@@ -59,27 +58,8 @@
                           <ng-container matColumnDef="ao">
                               <th class="text-nowrap text-left pr-2 min-130"
                               mat-header-cell mat-sort-header *matHeaderCellDef>
-                                經管 AO
-                                <span class="order" *ngIf="'ao' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
-
+                                經管 AO 
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'ao'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-left" mat-cell *matCellDef="let element">
                                 <span class="text-ellipsis" [matTooltip]="element.ao" matTooltipPosition="above">
@@ -91,25 +71,7 @@
                           <ng-container matColumnDef="group_name">
                               <th class="text-nowrap text-left pr-2 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 集團名稱
-                                <span class="order" *ngIf="'group_name' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'group_name'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-left" mat-cell *matCellDef="let element">
                                 <span class="text-ellipsis" [matTooltip]="element.group_name" matTooltipPosition="above">
@@ -121,25 +83,7 @@
                           <ng-container matColumnDef="cus_name">
                               <th class="text-nowrap text-left pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
                                 客戶名稱
-                                <span class="order" *ngIf="'cus_name' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'cus_name'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-left" mat-cell *matCellDef="let element">
                                   <a href="#" class="underline text-ellipsis-name mr-2" [matTooltip]="element.cus_name" matTooltipPosition="above">
@@ -171,25 +115,7 @@
                           <ng-container matColumnDef="cus_id">
                               <th class="text-nowrap text-right pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
                                 客戶ID
-                                <span class="order" *ngIf="'cus_id' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'cus_id'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
                               <td mat-footer-cell *matFooterCellDef> -  </td>
@@ -197,26 +123,7 @@
                           <ng-container matColumnDef="msr">
                               <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 MSR
-                                <span class="order" *ngIf="'msr' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'msr'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.msr}} </td>
                               <td mat-footer-cell *matFooterCellDef> -  </td>
@@ -224,24 +131,7 @@
                           <ng-container matColumnDef="rorwa">
                               <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 RORWA
-                                <span class="order" *ngIf="'rorwa' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'rorwa'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-three" mat-cell *matCellDef="let element">
                                 {{element.rorwa}}
@@ -251,25 +141,7 @@
                           <ng-container matColumnDef="raroc">
                               <th class="text-nowrap text-right pr-2 min-70 " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 RAROC
-                                <span class="order" *ngIf="'raroc' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.raroc}} </td>
                               <td mat-footer-cell *matFooterCellDef> -  </td>
@@ -279,24 +151,7 @@
                           <ng-container matColumnDef="last_year_contribution">
                               <th class="text-nowrap text-right pr-2 min-100  " mat-sort-header  mat-header-cell *matHeaderCellDef>
                                 去年度<br>累計貢獻度
-                                <span class="order" *ngIf="'last_year_contribution' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'last_year_contribution'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-two" mat-cell *matCellDef="let element">
                                 {{element.last_year_contribution | currency:'':'':'1.0-0'}}
@@ -306,24 +161,7 @@
                           <ng-container matColumnDef="this_year_contribution">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 今年度<br>累計貢獻度
-                                <span class="order" *ngIf="'this_year_contribution' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'this_year_contribution'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-two" mat-cell *matCellDef="let element">
                                 {{element.this_year_contribution | currency:'':'':'1.0-0' }}
@@ -333,25 +171,7 @@
                           <ng-container matColumnDef="deposit">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 存款餘額
-                                <span class="order" *ngIf="'deposit' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'deposit'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-one" mat-cell *matCellDef="let element">
                                 {{element.deposit | currency:'':'':'1.0-0' }}
@@ -361,25 +181,7 @@
                           <ng-container matColumnDef="load_balance">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 放款餘額
-                                <span class="load_balance" *ngIf="'deposit' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'load_balance'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-one" mat-cell *matCellDef="let element">
                                 {{element.load_balance | currency:'':'':'1.0-0' }}
@@ -390,25 +192,7 @@
                           <ng-container matColumnDef="trade_balance">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
                                 貿融餘額
-                                <span class="load_balance" *ngIf="'trade_balance' == nowOrder.id; else noOrder">
-                                    <i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-                                        arrow_drop_up
-                                    </i>
-                                    <i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-                                        arrow_drop_down
-                                    </i>
-                                </span>
-                                <ng-template #noOrder>
-                                    <span class="order" >
-                                        <i class="material-icons not-active">
-                                            arrow_drop_up
-                                        </i>
-                                        <i class="material-icons not-active">
-                                            arrow_drop_down
-                                        </i>
-                                    </span>
-                                </ng-template>
-
+                                <app-column-toggle [app-column-toggle]="{ isColumn: 'trade_balance'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-one" mat-cell *matCellDef="let element">
                                 {{element.trade_balance | currency:'':'':'1.0-0'}}

@@ -35,10 +35,14 @@ export class DashboardComponent implements OnInit, OnChanges {
 
 
 
-
+  /**
+   * ASC: 0 no arrow
+   * ASC: 1 arror up
+   * ASC: 3 arror down
+   */
   nowOrder = {
     id: 'group_name',
-    ASC: true
+    ASC: '1'
   };
 
 
@@ -140,11 +144,16 @@ export class DashboardComponent implements OnInit, OnChanges {
     console.log('open',this.openStatus);
   }
 
+  
   sortData(event: any) {
     console.log(event);
     this.nowOrder.id = event.active ;
-    this.nowOrder.ASC = (event.direction === 'asc') ? true : false;
-
+    if(event.direction === 'asc')
+      this.nowOrder.ASC = '1';
+    else if(event.direction === 'desc')
+      this.nowOrder.ASC = '2';
+    else
+      this.nowOrder.ASC = '0';
   }
 
   getIssues(pageIndex, pageSize) {
