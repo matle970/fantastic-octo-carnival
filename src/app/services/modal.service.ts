@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 
 import { DialogComponent } from '../dialog/dialog.component';
 
-import { DummyData } from './../dummy-data/dummy-data';
+import { DummyData } from '../../localServer/dummy-data';
 
 @Injectable({
   providedIn: 'root'

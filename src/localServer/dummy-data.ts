@@ -16,7 +16,7 @@ export class DummyData {
       },
       {
         id:'trade',
-        name:'交易提醒',
+        name:'交易提醒aaa',
         total:'2',
       },
       {
