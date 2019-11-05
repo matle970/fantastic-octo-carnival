@@ -38,6 +38,7 @@ import { DialogContentModule } from './dialog-content/dialog-content.module';
 import { IconSvgModule } from './icon-svg/icon-svg.module';
 import { SharedItemModule } from './shared-item/shared-item.module';
 import { InjectService } from './services/inject.service';
+import { ColumnToggleComponent } from './column-toggle/column-toggle.component';
 
 
 
@@ -50,7 +51,8 @@ import { InjectService } from './services/inject.service';
     SearchIdComponent,
     DashboardComponent,
     CustomerComponent,
-    DialogComponent
+    DialogComponent,
+    ColumnToggleComponent
   ],
   imports: [
     SharedMaterialModule,
