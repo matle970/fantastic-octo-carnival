@@ -40,7 +40,7 @@ import { SharedItemModule } from './shared-item/shared-item.module';
 import { InjectService } from './services/inject.service';
 import { ColumnToggleComponent } from './column-toggle/column-toggle.component';
 
-
+import { EnvServiceProvider } from '../environments/EnvServiceProvider';
 
 @NgModule({
   declarations: [
@@ -73,6 +73,7 @@ import { ColumnToggleComponent } from './column-toggle/column-toggle.component';
     SharedItemModule
   ],
   providers: [
+    EnvServiceProvider,
     SidebarService,
     ModalService,
     DatePipe
