@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { onSideNavChange, animateText } from './../../animations/animations';
-import { SidebarService } from './../../services/sidebar.service';
+import { onSideNavChange, animateText } from '../animations/animations';
+import { SidebarService } from '../../services/sidebar.service';
 
 declare const $: any;
 declare interface RouteInfo {

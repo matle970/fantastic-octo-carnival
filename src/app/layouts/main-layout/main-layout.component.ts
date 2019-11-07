@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './../../services/sidebar.service';
-import { onMainContentChange } from './../../animations/animations';
+import { onMainContentChange } from '../../common-area/animations/animations';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
 @Component({

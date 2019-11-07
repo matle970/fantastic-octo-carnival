@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import { CommonAreaModule } from './common-area/common-area.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -16,10 +16,10 @@ import { CompanyModule } from './company/company.module';
 
 import { AppComponent } from './app.component';
 
-import { LogoComponent } from './components/logo/logo.component';
-import { UserComponent } from './components/user/user.component';
-import { TabsComponent } from './components/tabs/tabs.component';
-import { SearchIdComponent } from './components/search-id/search-id.component';
+import { LogoComponent } from './common-area/logo/logo.component';
+import { UserComponent } from './common-area/user/user.component';
+import { TabsComponent } from './common-area/tabs/tabs.component';
+import { SearchIdComponent } from './common-area/search-id/search-id.component';
 
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -64,7 +64,7 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ComponentsModule,
+    CommonAreaModule,
     CompanyModule,
     IconSvgModule,
     DialogContentModule,

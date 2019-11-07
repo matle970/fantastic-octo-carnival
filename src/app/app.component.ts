@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { onMainContentChange } from './animations/animations';
+import { onMainContentChange } from './common-area/animations/animations';
 import { SidebarService } from './services/sidebar.service';
 
 @Component({
