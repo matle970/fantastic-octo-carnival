@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SharedMaterialModule } from '../../shared-material/shared-material.module';
+import { SharedMaterialModule } from '../../../shared-material/shared-material.module';
 import { MainLayoutRoutes } from './main-layout.routing';
 
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
