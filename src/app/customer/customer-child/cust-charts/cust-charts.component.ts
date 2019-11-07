@@ -3,14 +3,14 @@ import { ChartComponent } from 'ng-apexcharts';
 
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from './../../dialog/dialog.component';
+import { DialogComponent } from '../../../dialog/dialog.component';
 
 @Component({
-  selector: 'app-comp-charts',
-  templateUrl: './comp-charts.component.html',
-  styleUrls: ['./comp-charts.component.scss']
+  selector: 'app-cust-charts',
+  templateUrl: './cust-charts.component.html',
+  styleUrls: ['./cust-charts.component.scss']
 })
-export class CompChartsComponent implements OnInit {
+export class CustChartsComponent implements OnInit {
   @ViewChild('chartDeposit') chartDeposit: ChartComponent;
   @ViewChild('chartLoad') chartLoad: ChartComponent;
   @ViewChild('chartTrade') chartTrade: ChartComponent;

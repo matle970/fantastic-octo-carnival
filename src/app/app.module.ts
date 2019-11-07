@@ -12,7 +12,7 @@ import { CommonAreaModule } from './common-area/common-area.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // 客戶視圖裏的 component
-import { CompanyModule } from './company/company.module';
+import { CompanyModule } from './customer/customer-child/customer-child.module';
 
 import { AppComponent } from './app.component';
 

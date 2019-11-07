@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-comp-history',
-  templateUrl: './comp-history.component.html',
-  styleUrls: ['./comp-history.component.scss']
+  selector: 'app-cust-history',
+  templateUrl: './cust-history.component.html',
+  styleUrls: ['./cust-history.component.scss']
 })
-export class CompHistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit {
 
   activeTab: any = 'all';
   tablist = [

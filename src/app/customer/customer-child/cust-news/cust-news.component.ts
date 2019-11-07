@@ -6,9 +6,9 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  selector: 'app-cust-news',
+  templateUrl: './cust-news.component.html',
+  styleUrls: ['./cust-news.component.scss']
 })
 export class NewsComponent implements OnInit {
 

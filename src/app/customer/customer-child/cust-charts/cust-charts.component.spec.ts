@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BaseInfoComponent } from './base-info.component';
+import { CustChartsComponent } from './cust-charts.component';
 
-describe('BaseInfoComponent', () => {
-  let component: BaseInfoComponent;
-  let fixture: ComponentFixture<BaseInfoComponent>;
+describe('CustChartsComponent', () => {
+  let component: CustChartsComponent;
+  let fixture: ComponentFixture<CustChartsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BaseInfoComponent ]
+      declarations: [ CustChartsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BaseInfoComponent);
+    fixture = TestBed.createComponent(CustChartsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

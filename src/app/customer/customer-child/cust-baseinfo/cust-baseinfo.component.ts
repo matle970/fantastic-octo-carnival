@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
 
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from './../../dialog/dialog.component';
+import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base-component';
 import { plainToClass } from 'class-transformer';
 
@@ -31,11 +31,11 @@ import { CommonResponse } from 'src/app/dto/common-response';
 
 
 @Component({
-  selector: 'app-base-info',
-  templateUrl: './base-info.component.html',
-  styleUrls: ['./base-info.component.scss']
+  selector: 'app-cust-baseinfo',
+  templateUrl: './cust-baseinfo.component.html',
+  styleUrls: ['./cust-baseinfo.component.scss']
 })
-export class BaseInfoComponent extends BaseComponent implements OnInit , OnChanges {
+export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnChanges {
 
   @Input() searchStr: string;
   @ViewChild('chartObj') chartObj: ChartComponent;

@@ -20,7 +20,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/env.js"
+              "src/environments/env.js"
             ],
             "styles": [
               // "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
