@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class EnvService {
 
-  public apiUrl = '';
+  public apiUrl = 'http://localhost:5000/';
   
   constructor() { }
 }
