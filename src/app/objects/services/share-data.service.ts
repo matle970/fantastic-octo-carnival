@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HeaderRequest } from 'src/app/dto/header-request';
+import { HeaderRequest } from 'src/app/objects/dto/header-request';
 
 /*******************
  * 存放已發送過API的資料
@@ -7,7 +7,7 @@ import { HeaderRequest } from 'src/app/dto/header-request';
 @Injectable({providedIn: 'root'})
 export class ShareDataService {
 
-  URL = require('src/app/base/url.json'); // URLs, 作為data的key值
+  URL = require('src/app/objects/url/url.json'); // URLs, 作為data的key值
 
   dataMap: Map<String, any> = new Map<String, any>(); // Cache data
 

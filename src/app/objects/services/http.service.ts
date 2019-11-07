@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { plainToClass } from 'class-transformer';
 import { environment } from 'src/environments/environment';
-import { ShareDataService } from 'src/app/services/share-data.service';
-import { EnvService } from '../../environments/env.service';
+import { ShareDataService } from 'src/app/objects/services/share-data.service';
+import { EnvService } from '../../../environments/env.service';
 
 /*******************
  * 發送Http的Service

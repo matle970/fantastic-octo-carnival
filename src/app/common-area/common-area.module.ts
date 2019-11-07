@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { SharedMaterialModule } from '../shared-material/shared-material.module';
+import { SharedMaterialModule } from '../objects/shared-material/shared-material.module';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -15,7 +15,7 @@ import { FilterComponent } from './filter/filter.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { LogoWhiteComponent } from './logo-white/logo-white.component';
 import { NoticeIconComponent } from './notice-icon/notice-icon.component';
-import { SharedItemModule } from '../shared-item/shared-item.module';
+import { SharedItemModule } from '../objects/shared-item/shared-item.module';
 
 
 @NgModule({

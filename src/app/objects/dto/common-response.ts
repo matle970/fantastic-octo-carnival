@@ -1,4 +1,4 @@
-import { HeaderResponse } from 'src/app/dto/header-response';
+import { HeaderResponse } from 'src/app/objects/dto/header-response';
 
 /************************************************
  * 共通的 Request Object

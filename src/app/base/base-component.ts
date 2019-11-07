@@ -1,9 +1,9 @@
-import { CommonRequest } from 'src/app/dto/common-request';
-import { CommonResponse } from 'src/app/dto/common-response';
-import { HttpService } from 'src/app/services/http.service';
-import { InjectService } from 'src/app/services/inject.service';
-import { ShareDataService } from 'src/app/services/share-data.service';
-import { UtilsService } from 'src/app/services/utils.service';
+import { CommonRequest } from 'src/app/objects/dto/common-request';
+import { CommonResponse } from 'src/app/objects/dto/common-response';
+import { HttpService } from 'src/app/objects/services/http.service';
+import { InjectService } from 'src/app/objects/services/inject.service';
+import { ShareDataService } from 'src/app/objects/services/share-data.service';
+import { UtilsService } from 'src/app/objects/services/utils.service';
 
 /****************************
  * 所有元件的共通設定
@@ -11,8 +11,8 @@ import { UtilsService } from 'src/app/services/utils.service';
  * 2. getRequestData 發送API取得資料的入口
  * **************************/
 export class BaseComponent {
-    URL = require('src/app/base/url.json'); // URLs
-    TITLE = require('src/app/base/title.json'); // 各種title
+    URL = require('src/app/objects/url/url.json'); // URLs
+    TITLE = require('src/app/objects/text/title.json'); // 各種title
 
     getRequestData(url: string, param?: any) {
         const request = this.setApiData(param); // 設定Request的header & body

@@ -8,11 +8,11 @@ import { CustChartsComponent } from './cust-charts/cust-charts.component';
 import { NewsComponent } from './cust-news/cust-news.component';
 import { HistoryComponent } from './cust-history/cust-history.component';
 
-import { SharedMaterialModule } from '../../shared-material/shared-material.module';
+import { SharedMaterialModule } from '../../objects/shared-material/shared-material.module';
 
 // 共用的元件
 import { CommonAreaModule } from '../../common-area/common-area.module';
-import { SharedItemModule } from '../../shared-item/shared-item.module';
+import { SharedItemModule } from '../../objects/shared-item/shared-item.module';
 
 
 
