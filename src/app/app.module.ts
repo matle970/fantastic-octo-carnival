@@ -34,7 +34,7 @@ import { CustomerComponent } from './customer/customer.component';
 
 // Dialog
 import { DialogComponent } from './dialog/dialog.component';
-import { DialogContentModule } from './dialog-content/dialog-content.module';
+import { DialogContentModule } from './dialog/dialog-content/dialog-content.module';
 import { IconSvgModule } from './icon-svg/icon-svg.module';
 import { SharedItemModule } from './shared-item/shared-item.module';
 import { InjectService } from './services/inject.service';
