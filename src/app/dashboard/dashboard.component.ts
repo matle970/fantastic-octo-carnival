@@ -10,14 +10,23 @@ import { getSortedData } from './service/customSort';
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
+
+  // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild('paginator') paginator: MatPaginator;
   @ViewChild('sortTable') sortTable: MatSort;
   @Input() getKeyword: boolean;
-  @Output() openStatusChange = new EventEmitter<boolean>();
-  openStatus = false;
+  //@Output() openStatusChange = new EventEmitter<boolean>();
+  //openStatus = false;
   dataSource;
-  dataList;
+  //dataList;
+
+  players;
+  trade_balance_total_Value = 0;
+
   totalDataCount: number;
+  
+
+  supervisor= false;
 
   tableThead: string[] = [
     'ao',
@@ -33,7 +42,7 @@ export class DashboardComponent implements OnInit, OnChanges {
     'load_balance',
     'trade_balance'
   ];
-  /**
+ /**
    * ASC: 0 no arrow
    * ASC: 1 arrow up
    * ASC: 2 arrow down
@@ -44,19 +53,25 @@ export class DashboardComponent implements OnInit, OnChanges {
   };
 
   constructor(private matPaginatorIntl: MatPaginatorIntl, service: DashboardDataService) {
-    this.dataList = service.getDashboardDataTable();
-    this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList);
+    const dataList = service.getDashboardDataTable();
+    this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
     this.totalDataCount = service.getDashboardDataTable().length;
+    this.supervisor = false;
+    this.players = dataList.slice();
+    //this.dataSource.use(dataList.slice());
   }
 
-  ngOnChanges(changes: SimpleChanges) {  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('change  dashboard keyboard',changes);
+    // this.getKeyword = changes['keyword'].previousValue;
+    console.log(this.getKeyword)
+
+  }
 
 
   ngOnInit() {
-
     this.getIssues(0, 10);
-
-
     console.log(this.sortTable);
     // 分頁切換時，重新取得資料
     this.paginator.page.subscribe((page: PageEvent) => {
@@ -86,17 +101,17 @@ export class DashboardComponent implements OnInit, OnChanges {
 
   }
   ngAfterViewInit() {
-      this.dataSource.sortData = (data, sort: MatSort) => {
-        return getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
-      }      
-  }
-  openNotice(){
-    this.openStatus = true;
-    this.openStatusChange.emit(true);
-    console.log('open',this.openStatus);
-  }
+    this.dataSource.sortData = (data, sort: MatSort) => {
+      return getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
+    }
+    this.trade_balance_total_Value
+}
+/*openNotice(){
+  this.openStatus = true;
+  this.openStatusChange.emit(true);
+  console.log('open',this.openStatus);
+}*/
 
-  
   sortData(event: any) {
     console.log(event);
     this.nowOrder.id = event.active ;
@@ -117,5 +132,8 @@ export class DashboardComponent implements OnInit, OnChanges {
     console.log(event);
   }
 
+  public calculateTotal() {
+    return this.players.reduce((accum, curr) => accum + curr.trade_balance, 0);
+  }
 }
 

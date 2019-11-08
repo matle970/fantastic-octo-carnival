@@ -35,6 +35,12 @@ $tablgTrHover : #dbf1d9;
     color: #fff;
     display: none;
   }
+  .mat-sort-header-container {
+
+    .mat-sort-header-button {
+      font-weight: 700 !important;
+    }
+  }
   &.mat-table {
     .mat-header-cell {
       background-color: rgba(255, 255, 255, 0.8);
@@ -50,6 +56,7 @@ $tablgTrHover : #dbf1d9;
     border-color: $table-border-color;
     thead {
       tr {
+        font-weight: 700 !important;
         &:hover {
           transition: all 0.5 ease;
           // background-image: linear-gradient(-225deg, rgba(32, 226, 216, 0.473) 0%, rgba(250, 254, 165, 0.801) 100%);
@@ -70,6 +77,7 @@ $tablgTrHover : #dbf1d9;
         td {
         background-color: transparent !important;
           // background-color: $tablgTrHover ;
+
         }
       }
     }
@@ -99,6 +107,12 @@ $tablgTrHover : #dbf1d9;
         width:80px;
         min-width:80px;
         line-height: 1rem;
+      }
+    }
+
+    td {
+      &.text-right {
+        padding-right: 24px !important;
       }
     }
 
@@ -145,3 +159,10 @@ $tablgTrHover : #dbf1d9;
   }
 }
 
+//.mat-column-ao {
+  //max-width: 100px;
+//  min-width: 180px;
+//}
+.hidden-item {
+  display: none !important;
+}
