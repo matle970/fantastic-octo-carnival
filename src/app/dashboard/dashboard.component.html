@@ -209,7 +209,7 @@
 
                   <!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
                   <mat-paginator #paginator class="text-h3"
-               [length]="60"
+               [length]="totalDataCount"
                [pageIndex]="0"
                [pageSize]="10"
                [pageSizeOptions]="[5, 10, 15]"
