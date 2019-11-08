@@ -86,7 +86,14 @@
                                     {{element.group_name}}
                                 </span>
                               </td>
-                              <td mat-footer-cell *matFooterCellDef> -  </td>
+                              <td mat-footer-cell *matFooterCellDef> 
+                                <span [hidden]="!supervisor">
+                                    -  
+                                </span>
+                                <span [hidden]="supervisor">
+                                    Total  
+                                </span> 
+                              </td>
                           </ng-container>
                           <ng-container matColumnDef="cus_name">
                               <th class="text-nowrap text-left pr-2"  mat-sort-header mat-header-cell *matHeaderCellDef>
@@ -164,7 +171,7 @@
                               <td class="text-right bg-two" mat-cell *matCellDef="let element">
                                 {{element.last_year_contribution | currency:'':'':'1.0-0'}}
                               </td>
-                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}}</td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ calculateTotal("last_year_contribution")  |  currency:'':'':'1.0-0'}}</td>
                           </ng-container>
                           <ng-container matColumnDef="this_year_contribution">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
@@ -174,7 +181,7 @@
                               <td class="text-right bg-two" mat-cell *matCellDef="let element">
                                 {{element.this_year_contribution | currency:'':'':'1.0-0' }}
                               </td>
-                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ calculateTotal("this_year_contribution")  |  currency:'':'':'1.0-0'}} </td>
                           </ng-container>
                           <ng-container matColumnDef="deposit">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
@@ -184,7 +191,7 @@
                               <td class="text-right bg-one" mat-cell *matCellDef="let element">
                                 {{element.deposit | currency:'':'':'1.0-0' }}
                               </td>
-                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef>  {{ calculateTotal("deposit")  |  currency:'':'':'1.0-0'}} </td>
                           </ng-container>
                           <ng-container matColumnDef="load_balance">
                               <th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
@@ -194,7 +201,7 @@
                               <td class="text-right bg-one" mat-cell *matCellDef="let element">
                                 {{element.load_balance | currency:'':'':'1.0-0' }}
                               </td>
-                              <td class="text-right" mat-footer-cell *matFooterCellDef> {{ 100000  |  currency:'':'':'1.0-0'}} </td>
+                              <td class="text-right" mat-footer-cell *matFooterCellDef> {{ calculateTotal("load_balance")  |  currency:'':'':'1.0-0'}} </td>
                           </ng-container>
 
                           <ng-container matColumnDef="trade_balance">
@@ -206,7 +213,7 @@
                                 {{element.trade_balance | currency:'':'':'1.0-0'}}
                               </td>
                               <td class="text-right" mat-footer-cell *matFooterCellDef>
-                                {{ 100000  |  currency:'':'':'1.0-0'}}
+                                {{ calculateTotal("trade_balance")  |  currency:'':'':'1.0-0'}}
                               </td>
                           </ng-container>
 

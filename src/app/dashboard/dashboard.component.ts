@@ -132,8 +132,8 @@ export class DashboardComponent implements OnInit, OnChanges {
     console.log(event);
   }
 
-  public calculateTotal() {
-    return this.players.reduce((accum, curr) => accum + curr.trade_balance, 0);
+  public calculateTotal(key) {
+    return this.players.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
   }
 }
 
