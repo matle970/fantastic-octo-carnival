@@ -1,47 +1,59 @@
 <div class="input-block">
 
 
-    <!-- 進口實績 -->
-    <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title ">
-                進口實績
-            </h5>
-        </div>
-        <div class="card-body">
+  <!-- 進口實績 -->
+  <div class="card card-table">
+      <div class="card-header card-header-primary">
+          <h5 class="card-title ">
+              進口實績
+          </h5>
+      </div>
+      <div class="card-body">
 
-            <div class="table-mat-list">
-                <table class="table m-0 p-0 table-hover table-sticky">
-                    <thead>
-                      <tr>
-                        <th>進口實績</th>
-                        <th class="text-right">2018/12</th>
-                        <th class="text-right">2019/01</th>
-                        <th class="text-right">2019/02</th>
-                        <th class="text-right">2019/03</th>
-                        <th class="text-right">2019/04</th>
-                        <th class="text-right">2019/05</th>
-                        <th class="text-right">2019/06</th>
-                        <th class="text-right">2019/07</th>
-                        <th class="text-right">累計</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                     <tr>
-                       <td>信用狀開狀及修改</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
+          <div class="table-mat-list">
+              <table class="table m-0 p-0 table-hover table-sticky">
+                  <thead>
+                    <tr>
+                      <th>進口實績</th>
+                      <th class="text-right">2018/12</th>
+                      <th class="text-right">2019/01</th>
+                      <th class="text-right">2019/02</th>
+                      <th class="text-right">2019/03</th>
+                      <th class="text-right">2019/04</th>
+                      <th class="text-right">2019/05</th>
+                      <th class="text-right">2019/06</th>
+                      <th class="text-right">2019/07</th>
+                      <th class="text-right">累計</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>信用狀開狀及修改</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
 
-                     </tr>
-                     <tr>
-                        <td>託收到單</td>
+                   </tr>
+                   <tr>
+                      <td>託收到單</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
+                    </tr>
+                    <tr>
+                        <td>進口託收 (OA)	</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
@@ -51,86 +63,86 @@
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
+                    </tr>
+
+
+
+                  </tbody>
+                  <tfoot>
+                      <tr class="bg-light">
+                          <td>合計</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 24000 | currency:'':'':'1.0-0' }}</td>
                       </tr>
-                      <tr>
-                          <td>進口託收 (OA)	</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
-                      </tr>
+                  </tfoot>
+                </table>
+          </div>
+      </div>
 
 
-
-                    </tbody>
-                    <tfoot>
-                        <tr class="bg-light">
-                            <td>合計</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 24000 | currency:'':'':'1.0-0' }}</td>
-                        </tr>
-                    </tfoot>
-                  </table>
-            </div>
-        </div>
+  </div>
 
 
-    </div>
+  <!-- 出口實績 -->
+  <div class="card card-table">
+      <div class="card-header card-header-primary">
+          <h5 class="card-title ">
+              出口實績
+          </h5>
+      </div>
+      <div class="card-body">
 
+          <div class="table-mat-list">
+              <table class="table m-0 p-0 table-hover table-sticky">
+                  <thead>
+                    <tr>
+                      <th>出口實績</th>
+                      <th class="text-right">2018/12</th>
+                      <th class="text-right">2019/01</th>
+                      <th class="text-right">2019/02</th>
+                      <th class="text-right">2019/03</th>
+                      <th class="text-right">2019/04</th>
+                      <th class="text-right">2019/05</th>
+                      <th class="text-right">2019/06</th>
+                      <th class="text-right">2019/07</th>
+                      <th class="text-right">累計</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <tr>
+                     <td>出口 OA</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
 
-    <!-- 出口實績 -->
-    <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title ">
-                出口實績
-            </h5>
-        </div>
-        <div class="card-body">
-
-            <div class="table-mat-list">
-                <table class="table m-0 p-0 table-hover table-sticky">
-                    <thead>
-                      <tr>
-                        <th>出口實績</th>
-                        <th class="text-right">2018/12</th>
-                        <th class="text-right">2019/01</th>
-                        <th class="text-right">2019/02</th>
-                        <th class="text-right">2019/03</th>
-                        <th class="text-right">2019/04</th>
-                        <th class="text-right">2019/05</th>
-                        <th class="text-right">2019/06</th>
-                        <th class="text-right">2019/07</th>
-                        <th class="text-right">累計</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                     <tr>
-                       <td>出口 OA</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                       <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
-
-                     </tr>
-                     <tr>
-                        <td>出口押匯</td>
+                   </tr>
+                   <tr>
+                      <td>出口押匯</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
+                    </tr>
+                    <tr>
+                        <td>出口托收</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
@@ -140,43 +152,31 @@
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
                         <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
+                    </tr>
+
+
+
+                  </tbody>
+                  <tfoot>
+                      <tr class="bg-light">
+                          <td>合計</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 24000 | currency:'':'':'1.0-0' }}</td>
                       </tr>
-                      <tr>
-                          <td>出口托收</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 8000 | currency:'':'':'1.0-0' }}</td>
-                      </tr>
+                  </tfoot>
+                </table>
+          </div>
+      </div>
 
 
-
-                    </tbody>
-                    <tfoot>
-                        <tr class="bg-light">
-                            <td>合計</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                            <td class="text-right">{{ 24000 | currency:'':'':'1.0-0' }}</td>
-                        </tr>
-                    </tfoot>
-                  </table>
-            </div>
-        </div>
-
-
-    </div>
+  </div>
 
 
 

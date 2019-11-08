@@ -2,6 +2,11 @@
   .table-mat-list {
     height: 300px;
     overflow: auto;
+    .person-table {
+      th,td {
+        text-align: left;
+      }
+    }
     .table {
       height: auto;
       max-height: 360px;
@@ -14,3 +19,5 @@
     }
   }
 }
+
+

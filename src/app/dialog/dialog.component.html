@@ -11,14 +11,14 @@
       <i class="material-icons">close</i>
   </button>
 </div>
-<div mat-dialog-content>
+<div mat-dialog-content class="dialog-content-body">
   <app-water-print></app-water-print>
   <app-index-notice [content]="contentData" *ngIf="contentData.id < 3"></app-index-notice>
   <app-company-info [content]="contentData" *ngIf="contentData.id == 3"></app-company-info>
   <app-group-info [content]="contentData" *ngIf="contentData.id == 4"></app-group-info>
   <app-person-relative *ngIf="contentData.id == 5"></app-person-relative>
   <app-manage-info *ngIf="contentData.id == 6"></app-manage-info>
-  <app-contribution *ngIf="contentData.id == 7"  [content]='contentData'></app-contribution>
+  <app-contribution *ngIf="contentData.id == 7"></app-contribution>
 
   <!-- 存款第二層 -->
   <app-operating-deposit *ngIf="contentData.id == 8"></app-operating-deposit>

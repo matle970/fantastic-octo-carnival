@@ -1,6 +1,12 @@
 
-$arrowColor: green;
+$arrowColor: #009F41;
 $blackListBg: #c00000;
+$tag-border: #009F41;
+
+$countryTagBg: #009F41;
+$countryTagBorder:#009F41;
+$countryTagColor: #FFF;
+
 .company-info {
   .company-table {
     .table-th {
@@ -9,7 +15,7 @@ $blackListBg: #c00000;
     .tag-infomation {
       color: black;
       border:1px double #DDD;
-      border-color: #EEE #DDD #DDD  #86bc21;
+      border-color: #EEE #DDD #DDD  $tag-border;
       border-left-width: 3px;
     }
     .badge {
@@ -41,6 +47,42 @@ $blackListBg: #c00000;
 
 
 
+    }
+    .country-tag {
+      font-size: 12px;
+      min-width:42px;
+      text-align: center !important;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: right;
+      padding: 0;
+      margin: 2px 16px 2px 2px;
+      background-color: $countryTagBg;
+      border-color: $countryTagBorder;
+      color: $countryTagColor;
+
+      &::after, &::before {
+        content: "";
+        position: absolute;
+      }
+      &::after {
+        height: 4px;
+        width: 4px;
+        left: -5px;
+        top: 50%;
+        margin-top: -2px;
+        border-radius: 100%;
+        background-color: currentColor;
+        color: #FFF;
+      }
+      &::before {
+        border: 8px solid transparent;
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        border-right-color: inherit;
+      }
     }
   }
 

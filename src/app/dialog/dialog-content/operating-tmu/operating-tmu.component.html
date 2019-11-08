@@ -1,19 +1,25 @@
 
 <div class="row">
 
-    <!-- 圖表 -->
-    <div class="col-12 col-lg-4 col-md-4 col-xs-12">
-          <!--TMU chart -->
-          <div class="card card-table h-100">
-              <div class="card-header card-header-primary">
-                  <h5 class="card-title ">TMU 貢獻度
-                    <span class="badge float-right">
-                        資料期間 : 2018/12 ~ 2019/05 (單位：新臺幣仟元)
-                    </span>
-                  </h5>
+  <!-- 圖表 -->
+  <div class="col-12 col-lg-5 col-md-3 col-xs-12">
+        <!--TMU chart -->
+        <div class="card card-table card-chart-table">
+            <div class="card-header card-header-primary">
+                <h5 class="card-title ">TMU 貢獻度
+                  <span class="badge float-right">
+                      (單位：新台幣仟元)
+                  </span>
+                </h5>
+            </div>
+            <div class="card-body text-center pt-3">
+              <div class="d-block clearfix">
+                <div class="d-inline-block date-block  mr-2 mb-5">
+                    資料期間 : 2018/12 ~ 2019/05
+                </div>
               </div>
-              <div class="card-body pt-5">
 
+              <div class="tmu-chart-block">
                   <apx-chart #chartTmu
                   [chart]="TmuData.chart"
                   [dataLabels]="TmuData.dataLabels"
@@ -24,175 +30,176 @@
                   [colors]="TmuData.colors"
                   [legend]="TmuData.legend"
                   [responsive]="TmuData.responsive"
-
                     ></apx-chart>
               </div>
+
+            </div>
+        </div>
+  </div>
+
+
+  <!-- table -->
+  <div class="col-12 col-lg-7 col-md-9 s col-xs-12">
+
+
+    <!-- 金融交易額度-->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title clearfix">
+                金融交易額度
+                <span class="badge float-right"> ( 單位：美金仟元 ) </span>
+            </h5>
+        </div>
+        <div class="card-body">
+
+          <div class="table-mat-list">
+            <table class="table m-0 p-0 table-hover table-sticky">
+              <thead>
+                <tr>
+                  <th>額度/帳號ID</th>
+                  <th class="th-width">額度種類</th>
+                  <th>額度期限</th>
+                  <th class="text-right">額度</th>
+                  <th class="text-right">使用額度</th>
+                  <th class="text-right">剩餘可用額度</th>
+                  <th class="text-right">使用率</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td rowspan="5">1000000002</td>
+                    <td>金融交易額度</td>
+                    <td>2020/02/07</td>
+                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right"> 10.17% </td>
+                </tr>
+                <tr>
+                    <td>避險交易額度</td>
+                    <td>2020/02/07</td>
+                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right"> 10.17% </td>
+                </tr>
+                <tr>
+                    <td>評價損失額度 (MTM)</td>
+                    <td>2020/02/07</td>
+                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right"> 10.17% </td>
+                </tr>
+                <tr>
+                    <td>初始擔保品</td>
+                    <td>2020/02/07</td>
+                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right"> 10.17% </td>
+                </tr>
+                <tr>
+                    <td>超限擔保品</td>
+                    <td>2020/02/07</td>
+                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
+                    <td class="text-right"> 10.17% </td>
+                </tr>
+
+
+              </tbody>
+
+            </table>
+
           </div>
+
+        </div>
+
+
     </div>
 
 
-    <!-- table -->
-    <div class="col-12 col-lg-8 col-md-8 col-xs-12">
+    <!-- 投資型商品-->
+    <div class="card card-table">
+        <div class="card-header card-header-primary">
+            <h5 class="card-title clearfix">
+                投資型商品
+                <span class="badge float-right"> ( 單位：台幣仟元 ) </span>
+            </h5>
+        </div>
+        <div class="card-body">
 
+          <div class="table-mat-list  down-table">
+            <table class="table m-0 p-0 table-hover table-sticky person-table">
+              <thead>
+                <tr>
+                  <th>商品類別</th>
+                  <th class="text-right">商品名稱</th>
+                  <th class="text-right">幣別</th>
+                  <th class="text-right">金額/名目本金</th>
+                  <th class="text-right">現值</th>
+                  <th class="text-right">起日</th>
+                  <th class="text-right">迄日</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>基金</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                </tr>
+                <tr>
+                    <td>國外有價證券</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                </tr>
+                <tr>
+                    <td>組合式商品(DCI/PPCD/SI)	</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                </tr>
+                <tr>
+                    <td>保險	</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
+                </tr>
+                <tr>
+                    <td>自營債券</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                </tr>
+              </tbody>
 
-      <!-- 金融交易額度-->
-      <div class="card card-table">
-          <div class="card-header card-header-primary">
-              <h5 class="card-title clearfix">
-                  金融交易額度
-                  <span class="badge float-right"> ( 單位：美金仟元 ) </span>
-              </h5>
-          </div>
-          <div class="card-body">
-
-            <div class="table-mat-list">
-              <table class="table m-0 p-0 table-hover table-sticky person-table">
-                <thead>
-                  <tr>
-                    <th>額度/帳號ID</th>
-                    <th>額度種類</th>
-                    <th>額度期限</th>
-                    <th>額度</th>
-                    <th>使用額度</th>
-                    <th>剩餘可用額度</th>
-                    <th>使用率</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td rowspan="5">1000000002</td>
-                      <td>金融交易額度</td>
-                      <td>2020/02/07</td>
-                      <td>{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td> 10.17% </td>
-                  </tr>
-                  <tr>
-                      <td>避險交易額度</td>
-                      <td>2020/02/07</td>
-                      <td>{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td> 10.17% </td>
-                  </tr>
-                  <tr>
-                      <td>評價損失額度 (MTM)</td>
-                      <td>2020/02/07</td>
-                      <td>{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td> 10.17% </td>
-                  </tr>
-                  <tr>
-                      <td>初始擔保品</td>
-                      <td>2020/02/07</td>
-                      <td>{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td> 10.17% </td>
-                  </tr>
-                  <tr>
-                      <td>超限擔保品</td>
-                      <td>2020/02/07</td>
-                      <td>{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td>{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                      <td> 10.17% </td>
-                  </tr>
-
-
-                </tbody>
-
-              </table>
-
-            </div>
+            </table>
 
           </div>
 
+        </div>
 
-      </div>
-
-
-      <!-- 投資型商品-->
-      <div class="card card-table">
-          <div class="card-header card-header-primary">
-              <h5 class="card-title clearfix">
-                  投資型商品
-                  <span class="badge float-right"> ( 單位：臺幣仟元 ) </span>
-              </h5>
-          </div>
-          <div class="card-body">
-
-            <div class="table-mat-list">
-              <table class="table m-0 p-0 table-hover table-sticky person-table">
-                <thead>
-                  <tr>
-                    <th>商品類別</th>
-                    <th class="text-right">商品名稱</th>
-                    <th class="text-right">幣別</th>
-                    <th class="text-right">金額/名目本金</th>
-                    <th class="text-right">現值</th>
-                    <th class="text-right">起日</th>
-                    <th class="text-right">迄日</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                      <td>基金</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                  </tr>
-                  <tr>
-                      <td>國外有價證券</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                  </tr>
-                  <tr>
-                      <td>組合式商品(DCI/PPCD/SI)	</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                  </tr>
-                  <tr>
-                      <td>保險	</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                  </tr>
-                  <tr>
-                      <td>自營債券</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                      <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                  </tr>
-                </tbody>
-
-              </table>
-
-            </div>
-
-          </div>
-
-
-      </div>
 
     </div>
+
+  </div>
 </div>

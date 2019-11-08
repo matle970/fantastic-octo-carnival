@@ -5,7 +5,7 @@
             <h5 class="card-title ">
                 總授信 :
                 <span class="text-small">
-                    含臺外幣，額度包含未到期額度及到期有餘額
+                    含台外幣，額度包含未到期額度及到期有餘額
                 </span>
             </h5>
         </div>
@@ -45,17 +45,15 @@
         <div class="card-body">
 
             <div class="table-mat-list">
-                <table class="table m-0 p-0 table-hover table-sticky">
+                <table class="table m-0 p-0 table-bordered table-sticky">
                     <thead>
                       <tr>
-                        <th>額度/帳號ID</th>
+                        <th>額度 ID </th>
                         <th>額度種類</th>
                         <th>幣別</th>
-                        <th class="text-right">額度</th>
-                        <th class="text-right">餘額</th>
-                        <th class="text-right pr-3">動撥利率</th>
-                        <th>動撥日</th>
-                        <th>到期日</th>
+                        <th>額度</th>
+                        <th>餘額</th>
+                        <th>台幣餘額</th>
                         <th>逐筆議價</th>
                         <th>擔保品</th>
                         <th>額度狀態</th>
@@ -63,46 +61,94 @@
                     </thead>
                     <tbody>
                      <tr>
-                       <td>1000000002</td>
+                       <td rowspan="3" class="main-text">1000000002</td>
                        <td>週轉金(信用)</td>
-                       <td>新臺幣</td>
-                       <td class="text-right">{{80000 | currency : '' : '' : '1.0-0'}}</td>
-                       <td class="text-right">{{40000 | currency : '' : '' : '1.0-0'}}</td>
-                       <td class="text-right pr-3"> - </td>
-                       <td> - </td>
-                       <td> - </td>
+                       <td>新台幣</td>
+                       <td>{{80000 | currency : '' : '' : '1.0-0'}}</td>
+                       <td>{{40000 | currency : '' : '' : '1.0-0'}}</td>
+                       <td>{{40000 | currency : '' : '' : '1.0-0'}}</td>
                        <td> N </td>
                        <td> 不動產 </td>
                        <td> 逾可動用期限 </td>
                      </tr>
+                     <tr class="title-th">
+                        <td>帳號 ID </td>
+                        <td>幣別</td>
+                        <td>動撥利率</td>
+                        <td>原幣餘額</td>
+                        <td>台幣餘額</td>
+                        <td>動撥日</td>
+                        <td>到期日</td>
+                        <td>動撥狀態</td>
+                     </tr>
                      <tr>
                         <td>14APLN-001053</td>
-                        <td> - </td>
-                        <td> - </td>
-                        <td class="text-right"> - </td>
-                        <td class="text-right">{{40000 | currency : '' : '' : '1.0-0'}}</td>
-                        <td class="text-right"> 1.21%  </td>
+                        <td>新台幣</td>
+                        <td>1.21%</td>
+                        <td>{{40000 | currency : '' : '' : '1.0-0'}}</td>
+                        <td>{{40000 | currency : '' : '' : '1.0-0'}}</td>
                         <td> 2019/02/06 </td>
-                        <td> 2019/03/06  </td>
-                        <td> - </td>
-                        <td> - </td>
-                        <td> - </td>
+                        <td> 2019/03/06 </td>
+                        <td> 正常 </td>
+                      </tr>
+
+                      <tr class="thead-th">
+                          <th>額度 ID </th>
+                          <th>額度種類</th>
+                          <th>幣別</th>
+                          <th>額度</th>
+                          <th>餘額</th>
+                          <th>台幣餘額</th>
+                          <th>逐筆議價</th>
+                          <th>擔保品</th>
+                          <th>額度狀態</th>
                       </tr>
                       <tr>
-                          <td>1000000004</td>
-                          <td> 進口遠期信用狀 </td>
-                          <td> 美金 </td>
-                          <td class="text-right"> {{ 100000 | currency : '' : '' : '1.0-0' }} </td>
-                          <td class="text-right">{{35000 | currency : '' : '' : '1.0-0'}}</td>
-                          <td class="text-right"> - </td>
-                          <td> - </td>
-                          <td> - </td>
+                          <td rowspan="4" class="main-text">1000000003</td>
+                          <td>進口遠期信用狀</td>
+                          <td>美金</td>
+                          <td>{{100000 | currency : '' : '' : '1.0-0'}}</td>
+                          <td>{{35000 | currency : '' : '' : '1.0-0'}}</td>
+                          <td>{{1166 | currency : '' : '' : '1.0-0'}}</td>
                           <td> Y </td>
                           <td> 股票 </td>
                           <td> 核准 </td>
+                      </tr>
+                      <tr class="title-th">
+                          <td>帳號 ID </td>
+                          <td>幣別</td>
+                          <td>動撥利率</td>
+                          <td>原幣餘額</td>
+                          <td>台幣餘額</td>
+                          <td>動撥日</td>
+                          <td>到期日</td>
+                          <td>動撥狀態</td>
                         </tr>
+                        <tr>
+                          <td>14APLN-001053</td>
+                          <td>美金</td>
+                          <td>0.97%</td>
+                          <td>{{100000 | currency : '' : '' : '1.0-0'}}</td>
+                          <td>{{333 | currency : '' : '' : '1.0-0'}}</td>
+                          <td> 2018/11/14</td>
+                          <td> 2019/05/13 </td>
+                          <td> 正常 </td>
+                        </tr>
+                        <tr>
+                            <td>14APLN-001053</td>
+                            <td>美金</td>
+                            <td>0.97%</td>
+                            <td>{{25000 | currency : '' : '' : '1.0-0'}}</td>
+                            <td>{{833 | currency : '' : '' : '1.0-0'}}</td>
+                            <td> 2018/10/28</td>
+                            <td> 2019/04/24</td>
+                            <td> 正常 </td>
+                        </tr>
+
+
                     </tbody>
-                  </table>
+                </table>
+
             </div>
         </div>
 

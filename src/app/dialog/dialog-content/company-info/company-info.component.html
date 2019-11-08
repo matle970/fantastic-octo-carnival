@@ -60,18 +60,25 @@
 
                         </div>
 
-                        <!-- flag  -->
-                        <div class="d-inline-block flag-block">
+                        <!-- flag 國旗icon : 這個user不用 -->
+                        <div class="d-inline-block flag-block" *ngIf="false">
                             <ng-container *ngFor="let flag of item.travel">
                                 <span class="flag-box mr-2" [matTooltip]="flag.name" matTooltipPosition="above">
                                   <span class="flag-icon" [ngClass]="getFlagClass(flag.code)"></span>
                                 </span>
                             </ng-container>
                         </div>
-
+                        <!-- flag  -->
+                        <div class="d-inline-block flag-block">
+                          <ng-container *ngFor="let flag of item.travel">
+                              <span class="country-tag">
+                               {{flag.name}}
+                              </span>
+                          </ng-container>
+                      </div>
                     </span>
-                    <span class="text-primary" *ngIf="(item.id =='c02') || (item.id == 'c03')">
-                        {{item.content | currency:'':'symbol':'1.0-0'}}
+                    <span class="text-primary font-weight-bolder text-lg" *ngIf="(item.id =='c02') || (item.id == 'c03')">
+                        {{item.content | currency:'':'':'1.0-0'}}
                     </span>
 
                   </td>

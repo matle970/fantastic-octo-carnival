@@ -1,0 +1,49 @@
+
+
+// green title
+// $th-bg: #e6ecde;
+// $th-bg-light: #f6f9f2;
+// $th-color: #009F41;
+
+
+// gray title
+$th-bg: #0000001f;
+$th-bg-light: #cccccc42;
+$th-color: #999;
+
+
+.financing-block {
+  .table {
+    width: 95%;
+    margin: 0 auto !important;
+    .main-text {
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    thead {
+      th {
+        text-align: center;
+        background: $th-bg!important;
+      }
+    }
+    .thead-th {
+      td,th {
+        color: $th-color;
+        text-align: center;
+        background: $th-bg;
+      }
+
+    }
+    tbody {
+      th,td {
+        text-align: center;
+      }
+      .title-th {
+        background: $th-bg-light;
+        color:$th-color;
+        font-weight: 700;
+      }
+    }
+
+  }
+}

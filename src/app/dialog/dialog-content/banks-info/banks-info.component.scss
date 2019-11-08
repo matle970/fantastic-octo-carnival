@@ -1,21 +1,26 @@
 .banks-info-block {
-   .table {
-     margin: 0 auto !important;
-     width: 98%;
-     thead {
-       .bg-th1 {
-         background-color: #6c7d7059;
-       }
-       .bg-th2 {
-         background-color: #ccd4d285;
-       }
-       th {
-         border:1px solid #FFF;
-       }
-     }
-     .big-word {
-       font-size: 1.2rem;
-       font-weight: 700;
-     }
-   }
- }
+  .table {
+    margin: 0 auto !important;
+    width: 98%;
+    &.table-banks{
+      th,td {
+        text-align: center !important;
+      }
+    }
+    thead {
+      .bg-th1 {
+        background-color: #6c7d7059;
+      }
+      .bg-th2 {
+        background-color: #ccd4d285;
+      }
+      th {
+        border:1px solid #FFF;
+      }
+    }
+    .big-word {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+}

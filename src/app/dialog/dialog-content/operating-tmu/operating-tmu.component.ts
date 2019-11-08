@@ -14,6 +14,7 @@ export class OperatingTmuComponent implements OnInit {
       fontFamily: '微軟正黑體',
       height: 450,
       type: 'donut',
+      width: 400,
       shadow: {
         enabled: true,
         color: '#000',
@@ -26,7 +27,7 @@ export class OperatingTmuComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#f77f00', '#fbc93e','#ff5722'],
+    colors: ['#f77f00', '#fbc93e','#999999'],
 
     dataLabels: {
       enabled: true
@@ -34,11 +35,12 @@ export class OperatingTmuComponent implements OnInit {
     plotOptions: {
       pie: {
         donut: {
+          size: '65%',
           labels: {
             show: true,
             name: {
               show: true,
-              fontSize: '1.2rem',
+              fontSize: '1rem',
               offsetY: -25
             },
             value: {
@@ -51,7 +53,7 @@ export class OperatingTmuComponent implements OnInit {
             },
             total: {
               show: false,
-              fontSize: '1rem',
+              fontSize: '0.8rem',
               label: '合計',
               color: '#000000',
               formatter: function (w) {
@@ -71,29 +73,34 @@ export class OperatingTmuComponent implements OnInit {
     },
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1400,
         options: {
           chart: {
-            width: 300,
+            width: 220,
             height: 300
           },
+          legend: {
+            position: 'top'
+          }
         }
       },
       {
         breakpoint: 900,
         options: {
           chart: {
-            width: 450,
-            height: 450
+            width: 400,
+            height: 400
           },
-
+          legend: {
+            position: 'right'
+          }
         }
       }
     ],
     stroke: {
       curve: 'smooth'
     },
-    series: [44,55,40],
+    series: [1000,1500,500],
     labels:['金融交易額度 (負債面)','投資型商品 (資產面)','FX SPOT'],
     title: {
       text: 'TMU 貢獻度',

@@ -1,0 +1,45 @@
+
+.table-mat-list {
+    .th-width {
+      width:120px;
+      min-width: 120px;
+      max-width: 120px;
+    }
+  }
+  .card-chart-table{
+    height:auto;
+    .tmu-chart-block {
+      margin: 0 auto;
+      display: inline-block;
+    }
+  }
+  
+  @media screen and  (min-width: 1991px) and (max-width:3000px) {
+    .card-chart-table{
+      height: 844px !important;
+      // height:962px;
+    }
+  }
+  
+  @media screen and  (min-width: 1401px) and (max-width:1990px) {
+    .card-chart-table{
+      height: 844px !important;
+      // height:962px!important;
+    }
+  }
+  
+  @media screen and  (min-width: 901px) and (max-width:1400px)  {
+    .date-block {
+      text-align: left;
+    }
+    .card-chart-table{
+      height:844px !important;
+    }
+  }
+  
+  @media screen and  (max-width: 900px) {
+    .card-chart-table{
+      height:auto !important;
+    }
+  }
+  

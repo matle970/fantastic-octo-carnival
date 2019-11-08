@@ -14,7 +14,7 @@
       }
       .news-title {
         width: auto;
-        max-width: 280px;
+        max-width: 160px;
       }
     }
     .btn {
@@ -23,12 +23,17 @@
   }
   .news-content {
     .news-content-ana {
+      .news-resource {
+        color: #888;
+        font-family: '微軟正黑體';
+      }
       .ana-word {
         font-size: 1.2rem;
         font-weight: 400;
       }
       .grade {
         font-size: 1.8rem;
+        line-height: 1.2rem;
       }
 
     }
@@ -62,5 +67,27 @@
         line-height: 1.8rem;
       }
     }
+  }
+}
+
+@media screen and (min-width:150px) and (max-width:900px) {
+  .news-title {
+    width: auto;
+    max-width: 120px !important;
+  }
+}
+
+
+@media screen and (min-width:901px) and (max-width:1400px) {
+  .news-title {
+    width: auto;
+    max-width: 180px!important;
+  }
+}
+
+@media screen and (min-width:1401px) and (max-width:1900px) {
+  .news-title {
+    width: auto;
+    max-width: 220px!important;
   }
 }
