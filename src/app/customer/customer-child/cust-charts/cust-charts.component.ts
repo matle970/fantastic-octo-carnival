@@ -76,12 +76,26 @@ export class CustChartsComponent implements OnInit {
       }
     },
     legend: {
+      show:true,
+      showForSingleSeries: true, // 只有一個也要出現 (為了美觀，使用者要整齊)
+      onItemClick: {
+        toggleDataSeries: false  // 只有一個不讓使用者按，不然資料會不見了
+      },
       position: 'top',
       horizontalAlign: 'center',
       labels: {
         colors: '#000000',
       },
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return pnum;
+        },
+      }
     }
+
   };
 
   LoanData = {
@@ -178,6 +192,14 @@ export class CustChartsComponent implements OnInit {
       labels: {
         colors: '#000000',
       },
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return pnum;
+        },
+      }
     }
   };
 
@@ -264,7 +286,16 @@ export class CustChartsComponent implements OnInit {
       labels: {
         colors: '#000000',
       },
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          const pnum = val*100;
+          return (pnum + '%');
+        },
+      }
     }
+
 
   };
 
@@ -353,7 +384,16 @@ export class CustChartsComponent implements OnInit {
       labels: {
         colors: '#000000',
       },
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return pnum;
+        },
+      }
     }
+
   };
 
 
@@ -382,16 +422,22 @@ export class CustChartsComponent implements OnInit {
     this.chartTmu.render();
   }
 
-  openDialog(modalId: number) {
+  openDialog(modalId: number, wide?: boolean) {
     const openId = modalId ;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
+    // dialogConfig.width = '80%';
     dialogConfig.data = {
       id: openId,
       title: '',
       content_data: {}
     };
+
+    if(wide){
+      dialogConfig.panelClass = 'open-table-wide';
+    } else {
+      dialogConfig.panelClass = 'open-table-narrow';
+    }
 
     switch (openId) {
       case 8 :

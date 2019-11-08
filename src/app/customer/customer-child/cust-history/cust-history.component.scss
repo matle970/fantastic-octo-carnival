@@ -13,7 +13,7 @@ $load-b-color: #48a9c5;
 $tmu-A-color: #f77f00;
 $tmu-b-color: #FFE180;
 
-$man-A-color: #806F46;
+$man-A-color: #009F41;
 $man-b-color: #CCB270;
 
 .bottom-card {
@@ -172,6 +172,20 @@ $man-b-color: #CCB270;
       }
       .unit {
         width: 80px;
+        font-weight: 700;
+        &.type-02 {
+          color: $deposit-A-color;
+        }
+        &.type-03 {
+          color: $load-A-color;
+        }
+        &.type-04 {
+          color: $tmu-A-color;
+        }
+        &.type-05 {
+          color: $man-A-color;
+        }
+
       }
       .content {
         width: 320px;

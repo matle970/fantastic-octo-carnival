@@ -1,66 +1,72 @@
 <div class="card shadow-lg bottom-card">
-    <app-water-print [MdSize]="true"></app-water-print>
+  <app-water-print [MdSize]="true"></app-water-print>
 
-    <div class="card-body">
-        <h4 class="card-title text-primary">客戶歷程</h4>
-        <div class="customer-history">
-           <!-- colorful style : hide 20191018 -->
-            <ul class="nav nav-tabs type-list" *ngIf="false">
-              <li class="nav-item" *ngFor="let item of tablist"
-                (click)="selectTab(item.id)">
-                  <a class="nav-link all-type"
-                  [ngClass]="{
-                  'active': item.id == activeTab,
-                  'all-type': (item.id == 'all'),
-                  'type-deposit': (item.id == 't02'),
-                  'type-load': (item.id == 't03'),
-                  'type-tmu': (item.id == 't04'),
-                  'type-man': (item.id == 't05')
-                   }">
-                    {{item.name}}
-                  </a>
-              </li>
-            </ul>
+  <div class="card-body">
+      <h4 class="card-title text-primary">客戶歷程</h4>
+      <div class="customer-history">
+         <!-- colorful style : hide 20191018 -->
+          <ul class="nav nav-tabs type-list" *ngIf="false">
+            <li class="nav-item" *ngFor="let item of tablist"
+              (click)="selectTab(item.id)">
+                <a class="nav-link all-type"
+                [ngClass]="{
+                'active': item.id == activeTab,
+                'all-type': (item.id == 'all'),
+                'type-deposit': (item.id == 't02'),
+                'type-load': (item.id == 't03'),
+                'type-tmu': (item.id == 't04'),
+                'type-man': (item.id == 't05')
+                 }">
+                  {{item.name}}
+                </a>
+            </li>
+          </ul>
 
-            <!-- simple style show  -->
-            <ul class="tab-btn">
-                <li class="" *ngFor="let item of tablist"
-                (click)="selectTab(item.id)" [ngClass]="{'active': item.id == activeTab}">
-                    {{item.name}}
-              </li>
-            </ul>
+          <!-- simple style show  -->
+          <ul class="tab-btn">
+              <li class="" *ngFor="let item of tablist"
+              (click)="selectTab(item.id)" [ngClass]="{'active': item.id == activeTab}">
+                  {{item.name}}
+            </li>
+          </ul>
 
-            <ul class="content-list">
-              <ng-container *ngFor="let history of contentList; let ri = index">
-                  <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
-                      <div class="list">
-                        <span class="type"
-                        [ngClass]="{
-                          'type-02': history.type=='t02',
-                          'type-03': history.type=='t03',
-                          'type-04': history.type=='t04',
-                          'type-05': history.type=='t05'
-                        }">
-                          {{history.type_name}}
-                        </span>
-                        <span class="date">
-                          {{ history.date_time}}
-                        </span>
-                        <span class="unit" >
-                            {{ history.unit}}
-                        </span>
-                        <span class="content text-ellipsis">
-                            {{ history.content_word}}
-                        </span>
-                      </div>
-                  </li>
-              </ng-container>
+          <ul class="content-list">
+            <ng-container *ngFor="let history of contentList; let ri = index">
+                <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
+                    <div class="list">
+                      <span class="type"
+                      [ngClass]="{
+                        'type-02': history.type=='t02',
+                        'type-03': history.type=='t03',
+                        'type-04': history.type=='t04',
+                        'type-05': history.type=='t05'
+                      }">
+                        {{history.type_name}}
+                      </span>
+                      <span class="date">
+                        {{ history.date_time}}
+                      </span>
+                      <span class="unit"
+                      [ngClass]="{
+                        'type-02': history.type=='t02',
+                        'type-03': history.type=='t03',
+                        'type-04': history.type=='t04',
+                        'type-05': history.type=='t05'
+                      }">
+                          {{ history.unit}}
+                      </span>
+                      <span class="content text-ellipsis">
+                          {{ history.content_word}}
+                      </span>
+                    </div>
+                </li>
+            </ng-container>
 
-            </ul>
+          </ul>
 
 
 
 
-        </div>
-    </div>
+      </div>
+  </div>
 </div>

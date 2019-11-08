@@ -17,6 +17,11 @@ $out-chart-color: #08a08a;
 $tmu-color: #f77f00;
 $mtm-color: #fbc93e;
 
+
+// 項目 btn 寬度
+
+$itemWidth: 75px;
+
 .bottom-card {
   height: 360px ;
 }
@@ -66,35 +71,55 @@ $mtm-color: #fbc93e;
   }
 
 
-.title-block {
-  margin-left: 20px;
-  margin-right:20px;
-  min-width: 330px;
-  margin-bottom:8px;
-}
+  .title-block {
+    margin-left: 20px;
+    margin-right:20px;
+    min-width: 220px;
+    margin-bottom:8px;
+    .chart-link-icon {
+      width:40px;
+      height:30px;
+      min-width: 30px;
+      line-height: 30px;
+      font-size: 1rem;
+      padding:3px;
+      vertical-align: middle;
+      i {
+        height: 30px;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+
   .chart-title{
     vertical-align: middle;
+    width: $itemWidth;
+
     .btn {
       padding: 3px;
       vertical-align: middle;
       color:inherit;
-      width:140px;
+      width:100px;
       height: 30px;
       text-align: center;
+      width: 95%;
     }
     .title {
       color: white;
       font-size: 1rem;
       font-weight: 700;
       vertical-align: middle;
-      width:60px;
+      width: 95%;
     }
     .total {
       font-size: 1rem;
       font-weight: 700;
       text-align: center;
+      width:95%;
       vertical-align: middle;
-      width:130px;
+      width: 100%;
     }
   }
 

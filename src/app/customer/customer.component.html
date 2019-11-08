@@ -1,35 +1,30 @@
 <div class="main-content">
-    <app-notice-modal [(getOpenStatus)]="openStatus" [notice]="2"></app-notice-modal>
+    <div class="container-fluid customer-dashboard">
 
-     <div class="container-fluid customer-dashboard" >
-        <div class="top-nav d-inline-block d-flex justify-content-end  mt-2">
-          <div class="d-inline-block mr-3 mt-2">
-            <form class="navbar-form form-inline m-0">
-                <div class="input-group no-border">
-                    <input #searchIdBind type="text" value="" class="form-control" placeholder="客戶 ID">
-                    <button mat-raised-button type="submit" class="btn btn-sm btn-secondary btn-round btn-just-icon" (click)="getSearchId()">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                    </button>
-                </div>
-            </form>
-          </div>
+        <div class="top-nav d-inline-block d-flex justify-content-end">
+            <div class="d-inline-block mr-3 mt-2">
+                <form class="navbar-form form-inline m-0">
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="客戶 ID">
+                        <button mat-raised-button type="submit" class="btn btn-sm btn-primary btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
 
-          <div class="d-inline-block date-block">
-              <span class="mr-1">
-                  資料日：2019/08/06
-              </span>
-              <span class="mx-1">
-                  ︱
-              </span>
-              <span class="mr-2">
-                  單位 ：新臺幣仟元
-              </span>
-              <span class="has-notification-icon ml-2 mr-4 notice-btn" (click)="openNotice()">
-                  <!-- 關鍵提醒 -->
-                  <app-notice-icon [notice]="0" [modalId]="2"></app-notice-icon>
-              </span>
-          </div>
+            <div class="d-inline-block date-block">
+                <span class="mr-1">
+                    資料日：2019/08/06
+                </span>
+                <span class="mx-1">
+                    ︱
+                </span>
+                <span class="mr-2">
+                    單位 ：新台幣仟元
+                </span>
+            </div>
 
 
 
@@ -44,14 +39,14 @@
 
         </div>
         <div class="row bottom">
-            <div  class="col-lg-9 col-md-12 col-sm-12">
+            <div class="col-lg-9 col-md-12 col-sm-12">
                 <app-cust-charts></app-cust-charts>
             </div>
-            <div  class="col-lg-3 col-md-12 col-sm-12">
+            <div class="col-lg-3 col-md-12 col-sm-12">
                 <app-cust-history></app-cust-history>
             </div>
         </div>
-</div>
+    </div>
 
 
 </div>

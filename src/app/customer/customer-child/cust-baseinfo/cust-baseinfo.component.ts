@@ -35,7 +35,7 @@ import { CommonResponse } from 'src/app/objects/dto/common-response';
   templateUrl: './cust-baseinfo.component.html',
   styleUrls: ['./cust-baseinfo.component.scss']
 })
-export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnChanges {
+export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
 
   @Input() searchStr: string;
   @ViewChild('chartObj') chartObj: ChartComponent;
@@ -91,12 +91,12 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
         },
       }
     },
-    dataLabels: {
+    dataLabels: {   // 顯示在圖表上的數字，要隱藏，user不用。
       enabled: false,
       offsetX: -6,
       style: {
         fontSize: '12px',
-        colors: ['#000']
+        colors: ['#000000']
       }
     },
     responsive: [
@@ -127,12 +127,12 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
     },
     series: [
       {
-        name: '',
-        data: [0, 0, 0, 0, 0, 0]
+        name: '2017/12-2018/07',
+        data: [1000, 1200, 1500, 600, 300, 200]
       },
       {
-        name: '',
-        data: [0, 0, 0, 0, 0, 0]
+        name: '2018/12-2019/07',
+        data: [900, 1000, 1100, 700, 320, 350]
       }
     ],
     xaxis: {
@@ -155,6 +155,26 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
       labels: {
         colors: '#000000',
       },
+      markers: {
+        width: 12,
+        height: 12,
+        strokeWidth: 0,
+        strokeColor: '#fff',
+        fillColors: undefined,
+        radius: 12,
+        customHTML: undefined,
+        onClick: undefined,
+        offsetX: 0,
+        offsetY: 0
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          return pnum;
+        },
+      }
     }
   };
 
@@ -172,7 +192,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
       },
       {
         id: 'c02',
-        name: '資本總額',
+        name: '資本額',
         content: '180000000',
         infos: [],
         tags: []
@@ -193,7 +213,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
       },
       {
         id: 'c05',
-        name: '代表人姓名',
+        name: '董事長',
         content: '李宛靜',
         infos: [],
         tags: []
@@ -204,7 +224,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
         content: '新北市土城區中山路66號',
         infos: [],
         tags: [],
-        activeMap: true
+        activeMap: false
       },
       {
         id: 'c07',
@@ -216,26 +236,26 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
       },
       {
         id: 'c08',
-        name: '聯絡地址',
+        name: '公司地址',
         content: '新北市土城區中山路66號',
         infos: [],
         tags: [],
-        activeMap: false
+        activeMap: true
       },
 
       {
-        id:'c09',
-        name:'負責人',
-        content:'林金霖',
-        infos:[ " 6 月壽星","AUM 9,612"],
-        tags:[1,2,3,4,5,6],
-        travel:[
+        id: 'c09',
+        name: '負責人',
+        content: '林金霖',
+        infos: [" 6 月壽星", "AUM 9,612"],
+        tags: [1, 2, 3, 4, 5, 6],
+        travel: [
           {
-            code:'ca',
+            code: 'ca',
             name: '加拿大'
           },
           {
-            code:'th',
+            code: 'th',
             name: '菲律賓'
           }
 
@@ -245,9 +265,9 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
         id: 'c10',
         name: '負責人配偶',
         content: '王弈',
-        infos:[ " 26 歲", "5 月壽星","AUM 1,485"],
-        tags:[ 7, 8, 9, 10, 11],
-        travel:[
+        infos: [" 26 歲", "5 月壽星", "AUM 1,485"],
+        tags: [7, 8, 9, 10, 11],
+        travel: [
           {
             code: 'kr',
             name: '首爾'
@@ -324,16 +344,21 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
    * @param modalId 開啟modal的方式
    */
 
-  openDialog(modalId: number) {
+  openDialog(modalId: number, wide?: boolean) {
     const openId = modalId ? modalId : 3;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
     dialogConfig.data = {
       id: openId,
       title: '',
       content_data: {}
     };
+
+    if (wide) {
+      dialogConfig.panelClass = 'open-table-wide';
+    } else {
+      dialogConfig.panelClass = 'open-table-narrow';
+    }
 
     switch (openId) {
       case 3:
@@ -353,10 +378,8 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit , OnC
         dialogConfig.data.title = '經管資訊';
         break;
       case 7:
-        console.log(dialogConfig);
         dialogConfig.data.content_data = this.contributionObj;
         dialogConfig.data.title = '貢獻度';
-        // dialogConfig.data.url = this.URL.customerProfile.Layer1.getCBContribution;
         break;
 
       default:
