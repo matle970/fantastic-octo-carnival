@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from '../../dialog/dialog.component';
+import { DialogComponent } from './../../dialog/dialog.component';
 @Component({
   selector: 'app-notice-icon',
   templateUrl: './notice-icon.component.html',
@@ -11,7 +11,6 @@ export class NoticeIconComponent implements OnInit {
 
   @Input() notice: number;
   @Input() modalId: number;
-  
 
   // 假資料 首頁關鍵提醒
   notice_one = {
@@ -54,7 +53,7 @@ export class NoticeIconComponent implements OnInit {
         type_name:'到期提醒',
         time:'2019/04/18',
         company:'群創光電股份有限公司',
-        new_title:'2019/05/18 Call Loan 新臺幣 $1,000,000 到期'
+        new_title:'2019/05/18 Call Loan 新台幣 $1,000,000 到期'
       },
       {
         id:'n003',
@@ -137,7 +136,7 @@ export class NoticeIconComponent implements OnInit {
         type_name:'到期提醒',
         time:'2019/04/18',
         company:'千里馬股份有限公司',
-        new_title:'2019/05/18 Call Loan 新臺幣 $1,000,000 到期'
+        new_title:'2019/05/18 Call Loan 新台幣 $1,000,000 到期'
       },
       {
         id:'n003',
@@ -189,7 +188,7 @@ export class NoticeIconComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
+    dialogConfig.panelClass = 'all-notice-dialog';
     dialogConfig.data = {
       id: openId,
       title: '關鍵提醒',

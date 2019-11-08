@@ -85,4 +85,4 @@ export class AppModule {
   constructor(private injector: Injector) {
     InjectService.injector = this.injector;
   }
-}
+ }

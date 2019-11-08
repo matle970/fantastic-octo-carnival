@@ -1,46 +1,47 @@
 <div class="filter-block mr-4">
-  <!-- 關鍵字搜尋 -->
-  <div class="d-inline-block mr-1">
-    <div class="input-group input-group-sm search-id-block">
-      <input type="text" #keyword placeholder="關鍵字搜尋" class="form-control" #keyword
-     aria-label="" aria-describedby="basic-addon1" >
-        <button type="button" class="btn btn-round btn-secondary btn-circle shadow-none">
-            <i class="material-icons">
-              search
-            </i>
-        </button>
+    <!-- 關鍵字搜尋 -->
+    <div class="d-inline-block mr-1">
+      <div class="input-group input-group-sm search-id-block">
+        <input type="text" #keyword placeholder="關鍵字搜尋" class="form-control" #keyword
+       aria-label="" aria-describedby="basic-addon1" >
+          <button type="button" class="btn btn-round btn-primary btn-circle shadow-none">
+              <i class="material-icons">
+                search
+              </i>
+          </button>
+      </div>
     </div>
+  
+    <!-- 經管行搜尋 -->
+    <div class="d-inline-block mr-1">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
+                {{nowBranch}}
+                <b class="caret"></b>
+            </button>
+            <ul class="dropdown-menu ">
+                <li  *ngFor="let item of branch">
+                   <a  (click)="chooseBranch(item)" > {{item}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+  
+    <!-- 授信轉介行 -->
+    <div class="d-inline-block mr-1">
+        <div class="dropdown">
+            <button id="SUBITEM" class="btn btn-primary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+               {{nowForword}}
+                <b class="caret"></b>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="SUBITEM">
+                <li  *ngFor="let item of branch2">
+                    <a  (click)="chooseForword(item)" > {{item}}</a>
+                 </li>
+            </ul>
+        </div>
+    </div>
+  
   </div>
-
-  <!-- 經管行搜尋 -->
-  <div class="d-inline-block mr-1">
-      <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle shadow-none" data-toggle="dropdown" aria-expanded="true" >
-              {{nowBranch}}
-              <b class="caret"></b>
-          </button>
-          <ul class="dropdown-menu ">
-              <li  *ngFor="let item of branch">
-                 <a  (click)="chooseBranch(item)" > {{item}}</a>
-              </li>
-          </ul>
-      </div>
-  </div>
-
-
-  <!-- 授信轉介行 -->
-  <div class="d-inline-block mr-1">
-      <div class="dropdown">
-          <button id="SUBITEM" class="btn btn-secondary  shadow-none dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
-             {{nowForword}}
-              <b class="caret"></b>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="SUBITEM">
-              <li  *ngFor="let item of branch2">
-                  <a  (click)="chooseForword(item)" > {{item}}</a>
-               </li>
-          </ul>
-      </div>
-  </div>
-
-</div>
+  

@@ -32,13 +32,20 @@ export class SidebarComponent implements OnInit {
 
   // 預設為窄版的
   public sideNavState: boolean = false;
+  
+  public onSideNavChange: boolean = true;
 
   menuItems: any[];
 
   // 預設為窄版的
   sideWide: boolean = false;
 
-  constructor(private _sidebarService: SidebarService) { }
+  constructor(private _sidebarService: SidebarService) {
+    this._sidebarService.sideNavState$.subscribe( res => {
+      // console.log(res);
+      this.onSideNavChange = res;
+    })
+   }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -49,10 +56,9 @@ export class SidebarComponent implements OnInit {
   }
 
   onSidebarToggle() {
-    this.sideWide = !this.sideWide;
+    // this.sideWide = !this.sideWide;
     this.sideNavState = !this.sideNavState;
     this._sidebarService.sideNavState$.next(this.sideNavState);
-
   }
 
   isMobileMenu() {

@@ -16,7 +16,7 @@ export class CustomerComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
       // tslint:disable-next-line: max-line-length
-      this.searchData.nativeElement.value = this.getShareDataService().customerId === undefined ? '' : this.getShareDataService().customerId; // 將第一筆的customerId 放入input
+      // this.searchData.nativeElement.value = this.getShareDataService().customerId === undefined ? '' : this.getShareDataService().customerId; // 將第一筆的customerId 放入input
   }
 
   getSearchId() {

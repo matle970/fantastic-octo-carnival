@@ -1,13 +1,13 @@
-<span class="badge float-right notifications" matTooltip="關鍵提醒" matTooltipPosition="above">
-    <!-- <i class="material-icons" [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
-      notifications
-    </i> -->
-    <span class="d-inline-block"  [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
-        <app-icon-bell *ngIf="notice > 0"></app-icon-bell>
-        <app-icon-graybell  *ngIf="notice == 0"></app-icon-graybell>
-    </span>
-    <span class="notice" [ngClass]="{'bg-danger': notice > 0,'bg-light text-gray': notice == 0}">
-      {{notice}}
-    </span>
+<span class="badge float-right notifications" matTooltip="關鍵提醒" matTooltipPosition="above" (click)="openDialog()">
+  <!-- <i class="material-icons" [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
+    notifications
+  </i> -->
+  <span class="d-inline-block"  [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
+      <app-icon-bell *ngIf="notice > 0"></app-icon-bell>
+      <app-icon-graybell  *ngIf="notice == 0"></app-icon-graybell>
+  </span>
+  <span class="notice" [ngClass]="{'bg-danger': notice > 0,'bg-light text-gray': notice == 0}">
+    {{notice}}
+  </span>
 
 </span>
