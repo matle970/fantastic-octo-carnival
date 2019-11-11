@@ -338,7 +338,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     sendRquest() {
         super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
-            console.log('data', data);
+            // console.log('data', data);
         }, (err) => {
 
         });
