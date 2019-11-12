@@ -1,20 +1,4 @@
 {
-    "customerProfile": {
-        "Layer1" : {
-            "getCBCompany": "custprofile/getCBCompany",
-            "getCBGroup": "custprofile/getCBGroup",
-            "getCBManage": "custprofile/getCBManage",
-            "getCBContribution": "custprofile/getCBContribution"
-        },
-        "Layer2" : {
-            "getCBCompanyDetail": "custprofile/getCBCompanyDetail",
-            "getCBCompanyAssociate": "custprofile/getCBCompanyAssociate",
-            "getCBCompanyAssociateAssets": "custprofile/getCBCompanyAssociateAssets",
-            "getCBGroupDetail": "custprofile/getCBGroupDetail",
-            "getCBManageDetail": "custprofile/getCBManageDetail",
-            "getCBContributionDetail": "custprofile/getCBContributionDetail",
-            "getCBCompanyNotification": "custprofile/getCBCompanyNotification"
-        }
-
-    }
+    "CUSTOMER_PROFILE_CONTRIBUTION": "custprofile/getCBContribution",
+    "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities"
 }
