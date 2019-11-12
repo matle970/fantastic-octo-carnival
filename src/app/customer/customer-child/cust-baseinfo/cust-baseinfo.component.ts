@@ -27,6 +27,7 @@ import {
 import { CommonResponse } from 'src/app/objects/dto/common-response';
 import { Contribution } from 'src/app/objects/dto/custprofile_contribution';
 import { CompanyAssociate } from 'src/app/objects/dto/custprofile_companyassociate';
+import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile_companyassociateassets';
 
 
 @Component({
@@ -46,6 +47,10 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
             'classType': CompanyAssociate
         },
         {
+            'url': this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS,
+            'classType': CompanyAssociateAssets
+        },
+        {
             'url': this.URL.CUSTPROFILE_CONTRIBUTION,
             'classType': Contribution
         }
@@ -57,6 +62,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     companyassociateObj: object = {};
     // 基本資訊-個人關聯戶第二層(客戶資產負債)
+    companyassociateassetsObj: object = {};
     // 基本資訊-集團資訊第一層
     // 基本資訊-集團資訊第二層
     // 基本資訊-經管資訊第一層
@@ -74,7 +80,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
             super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
-                console.log('data', data);
+                // console.log('data', data);
                 if (data.header.returnCode === '0000') {
                     this.dataProcess(data, this.urlList[i].url);
                 }
@@ -91,6 +97,13 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
                     data: data
                 };
                 break;
+
+            case this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS:
+                this.companyassociateassetsObj = {
+                    data: data
+                };
+                break;
+
             case this.URL.CUSTPROFILE_CONTRIBUTION:
                 this.contributionObj = {
                     data: data
@@ -112,7 +125,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
 
 
-    
+
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 

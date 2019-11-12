@@ -45,7 +45,7 @@ export class BaseComponent {
         }
     }
 
-    returnData<T>(data: string) {
+    returnData(data: string) {
         return data;
     }
 

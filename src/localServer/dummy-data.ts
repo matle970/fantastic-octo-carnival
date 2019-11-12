@@ -3,6 +3,7 @@ import { plainToClass } from "class-transformer";
 export class DummyData {
     // URLs
     URL = require('src/app/objects/url/url.json');
+
     //CB001-Composite API
     serviceToken = {
         "header": {
@@ -305,6 +306,77 @@ export class DummyData {
     }
 
     // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
+    companyassociateassets = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerid": "A222222222",
+            "assets": {
+                "sdDetail": [
+                    {
+                        "accNbr": "0000705381000111",
+                        "ntdY1AvgBal": "80000",
+                        "ntdCurrentBal": "1400000",
+                        "isSecurities": "Y"
+                    }
+                ],
+                "tdDetail": [
+                    {
+                        "accNbr": "0000705381000111",
+                        "ntdY1AvgBal": "6000000",
+                        "ntdCurrentBal": "6000000"
+                    }
+                ],
+                "cdDetail": [
+                    {
+                        "accNbr": "00154716453333",
+                        "ntdY1AvgBal": "1600000",
+                        "ntdCurrentBal": "14500000",
+                        "dishY3ChkCnt": "5",
+                        "dishCancelY3ChkCnt": "1",
+                        "lastRejectDate": "20190921",
+                        "rejectedStatusInd": "Y"
+                    }
+                ]
+            },
+            "libilities": [
+                {
+                    "productId": "房貸",
+                    "productCodeDesc": "一般房貸_擔保",
+                    "acctNbr": "0000705381000111",
+                    "currencyCodeDesc": "新臺幣",
+                    "ntdApprovalAmt": "70000",
+                    "ntdCurrentBal": "69997",
+                    "delqDays": "Y",
+                    "collateralCode": "testOO",
+                    "buildPurposeCode": "住宅"
+                }
+            ],
+            "ccCard": [
+                {
+                    "cardName": "亞洲萬里通聯名卡",
+                    "kindName": "世界卡",
+                    "primaryCardInd": "正卡",
+                    "cardholderCustName": "林金霖"
+                }
+            ],
+            "investment": {
+                "lifeInsurance": "Y",
+                "productInsurance": "Y",
+                "fund": "N",
+                "foreignsecurities": "N",
+                "structuredInvestment": "Y"
+            }
+        }
+    }
+
     // CB016-Composite API-基本資訊-集團資訊第一層
     // CB017-Composite API-基本資訊-集團資訊第二層
     // CB018-Composite API-基本資訊-經管資訊第一層
@@ -376,6 +448,10 @@ export class DummyData {
                 break;
                 
             // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
+            case this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS:
+                returnData = this.companyassociateassets;
+                break;
+
             // CB016-Composite API-基本資訊-集團資訊第一層
             // CB017-Composite API-基本資訊-集團資訊第二層
             // CB018-Composite API-基本資訊-經管資訊第一層

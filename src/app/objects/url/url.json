@@ -16,6 +16,8 @@
     "CUSTPROFILE_COMPANYASSOCIATE": "custprofile/getCBCompanyAssociate",
 
     "//_CB015-Composite API": "基本資訊-個人關聯戶第二層(客戶資產負債)",
+    "CUSTPROFILE_COMPANYASSOCIATEASSETS": "custprofile/getCBCompanyAssociateAssets",
+    
     "//_CB016-Composite API": "基本資訊-集團資訊第一層",
     "//_CB017-Composite API": "基本資訊-集團資訊第二層",
     "//_CB018-Composite API": "基本資訊-經管資訊第一層",
