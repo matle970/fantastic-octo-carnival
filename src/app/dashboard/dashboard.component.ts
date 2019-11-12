@@ -5,7 +5,7 @@ import { IndexTableElement, DashboardDataService } from './service/dashboard-dat
 import { getSortedData } from './service/customSort';
 import { BaseComponent } from '../base/base-component';
 import { Firstpage_company_list } from '../objects/dto/firstpage-company-list-response';
-import { AuthService } from '../objects/services/auth-service';
+import { AuthService } from '../services/auth-service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

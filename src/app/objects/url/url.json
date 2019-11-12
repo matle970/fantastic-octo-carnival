@@ -1,4 +1,10 @@
 {
+    "FIRSTPAGE_AO_PROFILE": "dashboard/getServiceToken",
+    "FIRSTPAGE_WM_BRANCH_LSIT":"",
+    "FIRSTPAGE_REFER_BRANCH_LIST": "",
+    "FIRSTPAGE_COMPANY_LIST": "dashboard/getAoNameList",
+    "FIRSTPAGE_ALL_NOTIFICATION": "",
+    
     "//_CB007-Composite API": "基本資訊-營運量第一層",
     "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities",
 
