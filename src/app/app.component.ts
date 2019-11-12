@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { onMainContentChange } from './common-area/animations/animations';
 import { SidebarService } from './objects/services/sidebar.service';
+import { BaseComponent } from './base/base-component';
+import { Firstpage_ao_profile } from './objects/dto/firstpage-ao-profile-response';
 
 @Component({
   selector: 'app-root',
@@ -8,28 +10,32 @@ import { SidebarService } from './objects/services/sidebar.service';
   styleUrls: ['./app.component.scss'],
   animations: [ onMainContentChange ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends BaseComponent implements OnInit {
 
   public onSideNavChange: boolean = true;
+  urlList = [{
+    'url': this.URL.FIRSTPAGE_AO_PROFILE,
+    'classType': Firstpage_ao_profile
+  }];
 
   constructor(private _sidebarService: SidebarService) {
+    super();
     this._sidebarService.sideNavState$.subscribe( res => {
       // console.log(res);
       this.onSideNavChange = res;
     })
+    this.sendRquest();
   }
 
   ngOnInit() {
-    // const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+  }
+  sendRquest() {
+    super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
+      console.log('oa info', data);
+      sessionStorage.setItem('token_id', data.body.token);
+    }, (err) => {
 
-    // if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
-    //     // if we are on windows OS we activate the perfectScrollbar function
-
-    //     document.getElementsByTagName('body')[0].classList.add('perfect-scrollbar-on');
-    // } else {
-    //     document.getElementsByTagName('body')[0].classList.remove('perfect-scrollbar-off');
-    // }
-
+    });
   }
 
 

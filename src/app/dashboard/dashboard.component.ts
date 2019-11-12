@@ -3,30 +3,36 @@ import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angu
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { getSortedData } from './service/customSort';
+import { BaseComponent } from '../base/base-component';
+import { Firstpage_company_list } from '../objects/dto/firstpage-company-list-response';
+import { AuthService } from '../objects/services/auth-service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent implements OnInit, OnChanges {
+export class DashboardComponent extends BaseComponent implements OnInit, OnChanges {
 
   // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild('paginator') paginator: MatPaginator;
   @ViewChild('sortTable') sortTable: MatSort;
   @Input() getKeyword: boolean;
-  //@Output() openStatusChange = new EventEmitter<boolean>();
-  //openStatus = false;
   dataSource;
-  //dataList;
-
-  players;
+  tableDetailList: IndexTableElement[];
+  columns;
   trade_balance_total_Value = 0;
 
   totalDataCount: number;
   
 
   supervisor= false;
+
+  urlList = [{
+    'url': this.URL.FIRSTPAGE_COMPANY_LIST,
+    'classType': Firstpage_company_list
+  }];
+
 
   tableThead: string[] = [
     'ao',
@@ -52,30 +58,35 @@ export class DashboardComponent implements OnInit, OnChanges {
     ASC: '1'
   };
 
-  constructor(private matPaginatorIntl: MatPaginatorIntl, service: DashboardDataService) {
+  //inject service if dummdy data or adserver has trouble
+  constructor(private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/) {
+    super();
+    sessionStorage.setItem('is_allow', 'true');
+    this.supervisor = false;
+    this.sendRquest();
+    /*
     const dataList = service.getDashboardDataTable();
     this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
     this.totalDataCount = service.getDashboardDataTable().length;
     this.supervisor = false;
-    this.players = dataList.slice();
-    //this.dataSource.use(dataList.slice());
+    this.players = dataList.slice();*/
   }
 
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('change  dashboard keyboard',changes);
+    //console.log('change  dashboard keyboard',changes);
     // this.getKeyword = changes['keyword'].previousValue;
-    console.log(this.getKeyword)
+    //console.log(this.getKeyword)
 
   }
 
 
   ngOnInit() {
     this.getIssues(0, 10);
-    console.log(this.sortTable);
+    //console.log(this.sortTable);
     // 分頁切換時，重新取得資料
     this.paginator.page.subscribe((page: PageEvent) => {
-      console.log('click', page);
+      //console.log('click', page);
       this.getIssues(page.pageIndex, page.pageSize);
     });
 
@@ -113,7 +124,7 @@ export class DashboardComponent implements OnInit, OnChanges {
 }*/
 
   sortData(event: any) {
-    console.log(event);
+    //console.log(event);
     this.nowOrder.id = event.active ;
     if(event.direction === 'asc')
       this.nowOrder.ASC = '1';
@@ -129,11 +140,23 @@ export class DashboardComponent implements OnInit, OnChanges {
   }
 
   pageChange (event: any) {
-    console.log(event);
+    //console.log(event);
   }
 
   public calculateTotal(key) {
-    return this.players.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
+    return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
+  }
+
+  sendRquest() {
+    super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
+      this.tableDetailList = data.body.aoData;
+      const dataList = this.tableDetailList;
+      this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
+      this.totalDataCount = dataList.length;
+      this.columns = dataList.slice();
+    }, (err) => {
+
+    });
   }
 }
 

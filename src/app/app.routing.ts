@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AuthGuard } from './objects/services/AuthGuard';
 
 // import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   },
   {
     path:'customer',
-    component: CustomerComponent
+    component: CustomerComponent,
+    canActivate: [AuthGuard]
   }
 
 ];
@@ -36,5 +38,8 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
+  providers: [
+    AuthGuard
+  ]
 })
 export class AppRoutingModule {}
