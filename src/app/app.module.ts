@@ -26,8 +26,8 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { SharedMaterialModule } from './objects/shared-material/shared-material.module';
 
 // services
-import { SidebarService } from './objects/services/sidebar.service';
-import { ModalService } from './objects/services/modal.service';
+import { SidebarService } from './services/sidebar.service';
+import { ModalService } from './services/modal.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -37,7 +37,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DialogContentModule } from './dialog/dialog-content/dialog-content.module';
 import { IconSvgModule } from './objects/icon-svg/icon-svg.module';
 import { SharedItemModule } from './objects/shared-item/shared-item.module';
-import { InjectService } from './objects/services/inject.service';
+import { InjectService } from './services/inject.service';
 import { ColumnToggleComponent } from './dashboard/column-toggle/column-toggle.component';
 
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';

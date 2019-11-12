@@ -280,19 +280,19 @@ app.use(bodyParser.json());
 // 基本資訊 > 公司資訊第一層
 app.post('/custprofile/getCBCompany', function (req, res, next) {
     console.log('POST /custprofile/getCBCompany');
-    res.json(contribution1);
+    res.json(contribution);
 });
 
 // 基本資訊 > 集團資訊第一層
 app.post('/custprofile/getCBGroup', function (req, res, next) {
     console.log('POST custprofile/getCBGroup');
-    res.json(contribution1);
+    res.json(contribution);
 });
 
 // 基本資訊 > 經管資訊第一層
 app.post('/custprofile/getCBManage', function (req, res, next) {
     console.log('POST custprofile/getCBManage');
-    res.json(contribution1);
+    res.json(contribution);
 });
 
 // 基本資訊 > 貢獻度第一層
@@ -301,7 +301,7 @@ app.post('/custprofile/getCBContribution', function (req, res, next) {
     console.log(req.body.body);
     if (req.body.body.customerId.indexOf('1') > -1) {
         console.log('取得 data 1');
-        res.json(contribution1);
+        res.json(contribution);
     } else {
         console.log('取得 data 2');
         res.json(contribution2);

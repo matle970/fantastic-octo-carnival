@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { onMainContentChange } from './common-area/animations/animations';
-import { SidebarService } from './objects/services/sidebar.service';
+import { SidebarService } from './services/sidebar.service';
 import { BaseComponent } from './base/base-component';
 import { Firstpage_ao_profile } from './objects/dto/firstpage-ao-profile-response';
 

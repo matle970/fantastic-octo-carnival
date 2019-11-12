@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-import { ModalService } from 'src/app/objects/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base-component';
@@ -25,7 +25,8 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common-response';
-import { Contribution1 } from 'src/app/objects/dto/custprofile_contribution';
+import { Contribution } from 'src/app/objects/dto/custprofile_contribution';
+import { CompanyAssociate } from 'src/app/objects/dto/custprofile_companyassociate';
 
 
 @Component({
@@ -41,10 +42,77 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     urlList = [
         {
+            'url': this.URL.CUSTPROFILE_COMPANYASSOCIATE,
+            'classType': CompanyAssociate
+        },
+        {
             'url': this.URL.CUSTPROFILE_CONTRIBUTION,
-            'classType': Contribution1
+            'classType': Contribution
         }
     ];
+
+    // 基本資訊-公司資訊第一層
+    // 基本資訊-公司資訊第二層
+    // 基本資訊-個人關聯戶第一層
+    // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
+    companyassociateObj: object = {};
+    // 基本資訊-個人關聯戶第二層(客戶資產負債)
+    // 基本資訊-集團資訊第一層
+    // 基本資訊-集團資訊第二層
+    // 基本資訊-經管資訊第一層
+    // 基本資訊-經管資訊第二層
+    // 基本資訊-貢獻度第一層
+    contributionObj: object = {};
+    // 基本資訊-貢獻度第二層
+    // 基本資訊-訊息通知
+
+
+    ngOnInit() {
+        this.sendRquest();
+    }
+
+    sendRquest() {
+        for (let i = 0; i < this.urlList.length; i++) {
+            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
+                console.log('data', data);
+                if (data.header.returnCode === '0000') {
+                    this.dataProcess(data, this.urlList[i].url);
+                }
+            }, (err) => {
+
+            });
+        }
+    }
+
+    dataProcess(data: any, url: string) {
+        switch (url) {
+            case this.URL.CUSTPROFILE_COMPANYASSOCIATE:
+                this.companyassociateObj = {
+                    data: data
+                };
+                break;
+            case this.URL.CUSTPROFILE_CONTRIBUTION:
+                this.contributionObj = {
+                    data: data
+                };
+                break;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 
@@ -53,7 +121,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     contributionPeriod: string; // 貢獻度, 資料區間
     contributionLastYearTotal: number; // 貢獻度去年累計
     contributionThisYearTotal: number; // 貢獻度去年累計
-    contributionObj: any; // 貢獻度的資料 for dialog
+    // contributionObj: any; // 貢獻度的資料 for dialog
     contributionTitle = this.TITLE.contribution;
 
     // 圖表資訊
@@ -305,27 +373,22 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
 
-    ngOnInit() {
-        this.sendRquest();
+    // ngOnInit() {
+    //     // // const myChart = this.chartObj;
+    //     // this.getBaseInfoApiUrls();
+    //     // const request = this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam()); // 取得所有需要發送的API urls
+    //     // // if (this.getShareDataService().getCacheData(this.URL.companyBaseInfo) === undefined) {
+    //     // if (!this.getShareDataService().checkIfGetCatcheDataByArry(this.apiUrls)) {
+    //     //   console.log('Get 基本資訊By API');
+    //     //   this.getBaseInfoData(request); // 取得資料ByAPI
+    //     // } else {
+    //     //   console.log('Get 基本資訊By Cache');
+    //     //   request.forEach((value: string) => {
+    //     //     this.setBaseInfo(value['url'], this.getShareDataService().getCacheData(value['url']));
+    //     //   });
+    //     // }
+    // }
 
-
-
-
-
-        // // const myChart = this.chartObj;
-        // this.getBaseInfoApiUrls();
-        // const request = this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam()); // 取得所有需要發送的API urls
-        // // if (this.getShareDataService().getCacheData(this.URL.companyBaseInfo) === undefined) {
-        // if (!this.getShareDataService().checkIfGetCatcheDataByArry(this.apiUrls)) {
-        //   console.log('Get 基本資訊By API');
-        //   this.getBaseInfoData(request); // 取得資料ByAPI
-        // } else {
-        //   console.log('Get 基本資訊By Cache');
-        //   request.forEach((value: string) => {
-        //     this.setBaseInfo(value['url'], this.getShareDataService().getCacheData(value['url']));
-        //   });
-        // }
-    }
 
     ngOnChanges() {
         if (this.searchStr !== undefined && this.searchStr !== '') {
@@ -336,13 +399,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         }
     }
 
-    sendRquest() {
-        super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
-            // console.log('data', data);
-        }, (err) => {
 
-        });
-    }
 
     /**
      * 暫用此方法寫

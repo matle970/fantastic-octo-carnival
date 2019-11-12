@@ -1,9 +1,23 @@
 {
-    "FIRSTPAGE_AO_PROFILE": "dashboard/getServiceToken",
-    "FIRSTPAGE_WM_BRANCH_LSIT":"",
-    "FIRSTPAGE_REFER_BRANCH_LIST": "",
-    "FIRSTPAGE_COMPANY_LIST": "dashboard/getAoNameList",
-    "FIRSTPAGE_ALL_NOTIFICATION": "",
+    "//_CB007-Composite API": "基本資訊-營運量第一層",
+    "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities",
+
+    "//_CB012-Composite API": "基本資訊-公司資訊第一層",
+    "//_CB013-Composite API": "基本資訊-公司資訊第二層",
+    "//_CB028-Composite API": "基本資訊-個人關聯戶第一層",
+
+    "//_CB014-Composite API": "基本資訊-個人關聯戶第二層(關聯戶基本資訊)",
+    "CUSTPROFILE_COMPANYASSOCIATE": "custprofile/getCBCompanyAssociate",
+
+    "//_CB015-Composite API": "基本資訊-個人關聯戶第二層(客戶資產負債)",
+    "//_CB016-Composite API": "基本資訊-集團資訊第一層",
+    "//_CB017-Composite API": "基本資訊-集團資訊第二層",
+    "//_CB018-Composite API": "基本資訊-經管資訊第一層",
+    "//_CB019-Composite API": "基本資訊-經管資訊第二層",
+
+    "//_CB020-Composite API": "基本資訊-貢獻度第一層",
     "CUSTPROFILE_CONTRIBUTION": "custprofile/getCBContribution",
-    "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities"
+
+    "//_CB021-Composite API": "基本資訊-貢獻度第二層",
+    "//_CB022-Composite API": "基本資訊-訊息通知"
 }
