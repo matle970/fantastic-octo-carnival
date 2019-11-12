@@ -1,4 +1,4 @@
 {
-    "CUSTOMER_PROFILE_CONTRIBUTION": "custprofile/getCBContribution",
+    "CUSTPROFILE_CONTRIBUTION": "custprofile/getCBContribution",
     "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities"
 }

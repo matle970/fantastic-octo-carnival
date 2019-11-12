@@ -213,7 +213,7 @@ export class DummyData {
         
         switch (url) {
             // 基本資訊-貢獻度第一層
-            case this.URL.CUSTOMER_PROFILE_CONTRIBUTION:
+            case this.URL.CUSTPROFILE_CONTRIBUTION:
                 returnData = this.contribution1;
                 break;
 

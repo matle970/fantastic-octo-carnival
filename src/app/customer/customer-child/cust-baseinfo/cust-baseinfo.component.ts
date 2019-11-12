@@ -25,7 +25,7 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common-response';
-import { Contribution1 } from 'src/app/objects/dto/customer_profile_contribution';
+import { Contribution1 } from 'src/app/objects/dto/custprofile_contribution';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     urlList = [
         {
-            'url': this.URL.CUSTOMER_PROFILE_CONTRIBUTION,
+            'url': this.URL.CUSTPROFILE_CONTRIBUTION,
             'classType': Contribution1
         }
     ];
