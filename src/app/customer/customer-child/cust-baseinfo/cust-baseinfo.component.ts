@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-import { ModalService } from 'src/app/objects/services/modal.service';
+import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base-component';
