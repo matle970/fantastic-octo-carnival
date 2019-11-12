@@ -1,6 +1,6 @@
 import { CommonHeader } from './common-header';
 
-export class Contribution1 {
+export class Contribution {
     header: CommonHeader;
     body: Body;
 }
@@ -17,7 +17,7 @@ class Body {
             profittype5: string,
             profittype6: string
         }
-    ]
+    ];
     thiscontri: [
         {
             startym: string,
@@ -29,5 +29,5 @@ class Body {
             profittype5: string,
             profittype6: string
         }
-    ]
+    ];
 }
