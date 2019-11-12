@@ -4,6 +4,6 @@
     "FIRSTPAGE_REFER_BRANCH_LIST": "",
     "FIRSTPAGE_COMPANY_LIST": "dashboard/getAoNameList",
     "FIRSTPAGE_ALL_NOTIFICATION": "",
-    "CUSTOMER_PROFILE_CONTRIBUTION": "custprofile/getCBContribution",
+    "CUSTPROFILE_CONTRIBUTION": "custprofile/getCBContribution",
     "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities"
 }
