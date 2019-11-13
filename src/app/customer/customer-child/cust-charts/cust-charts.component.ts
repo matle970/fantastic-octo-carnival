@@ -6,8 +6,9 @@ import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base-component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common-response';
-
+import { DummyData } from 'src/localServer/dummy-data';
 import { Assetslibilites } from 'src/app/objects/dto/product_assets_libilites';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-cust-charts',
   templateUrl: './cust-charts.component.html',
@@ -25,6 +26,61 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
       'classType': Assetslibilites
     }
   ];
+
+
+  ngOnInit() {
+    this.sendRequest();
+
+    // console.log(this);
+    // this.allChartEnd();
+
+    // const nthis = this;
+    // setTimeout(function(){
+    //   nthis.reRenderCharts();
+    // },2000);
+  }
+
+  sendRequest() {
+    for (let i = 0; i < this.urlList.length; i++) {
+      super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((resdata: any) => {
+        console.log('data', resdata.body[0]);
+        // if (data.header.returnCode === '0000') {
+        //     this.dataProcess(data, this.urlList[i].url);
+        // }
+
+
+        this.DepositData.series[0].data = resdata.body[0].depositBal;
+        this.DepositData.xaxis.categories = resdata.body[0].depositMon;
+
+        this.LoanData.series[0].data = resdata.body[0].loanBal;
+        this.LoanData.xaxis.categories = resdata.body[0].loanMon;
+        this.LoanData.series[1].data = resdata.body[0].tradeFinanceBal;
+
+        this.TradeData.series[0].data = resdata.body[0].importAmt;
+        this.TradeData.xaxis.categories = resdata.body[0].importMon;
+        this.TradeData.series[1].data = resdata.body[0].exportAmt;
+
+        this.TmuData.series[0].data = resdata.body[0].tmuUsage;
+        this.TmuData.xaxis.categories = resdata.body[0].tmuMon;
+        this.TmuData.series[1].data = resdata.body[0].mtmUsage;
+
+      }, (err) => {
+
+      });
+    }
+  }
+
+
+
+  //   dataProcess(data: any, url: string) {
+  //     switch (url) {
+  //         case this.URL.PRODUCT_ASSETS_LIBILITIES:
+  //             this. = {
+  //                 data: data
+  //             };
+  //             break;
+  //     }
+  // }
 
   apiUrls: string[] = []; // 此componment需要發送的API urls
   assetsLibilitiesTitle = this.TITLE.assetsLibilities;
@@ -66,11 +122,9 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
       }
     },
     xaxis: {
-      categories: [
-        {
-          mon: [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
-        }
-      ]
+      categories:
+        [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
+
     },
     yaxis: {
       labels: {
@@ -129,7 +183,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     series: [
       {
         name: '放款',
-        data: [1000, 800, 1200, 1600, 1500, 1300, 1200, 800, 700, 1100, 1300, 1123, 1400]
+        data: [900, 800, 1200, 1600, 1500, 1300, 1200, 800, 700, 1100, 1300, 1123, 1400]
       },
       {
         name: '貿融',
@@ -151,11 +205,10 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
       size: 6
     },
     xaxis: {
-      categories: [
-        {
-          mon: [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
-        }
-      ],
+      categories:
+        ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+
+      ,
 
       labels: {
 
@@ -248,11 +301,10 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
       size: 6
     },
     xaxis: {
-      categories: [
-        {
-          mon: [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
-        }
-      ],
+      categories:
+        ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+
+      ,
       labels: {
 
       }
@@ -337,9 +389,9 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     },
     xaxis: {
       categories: [
-        {
-          mon: [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
-        }
+
+        ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+
       ],
       labels: {
 
@@ -375,26 +427,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     super();
   }
 
-  ngOnInit() {
-    this.sendRequest();
-
-    // console.log(this);
-    // this.allChartEnd();
-
-    // const nthis = this;
-    // setTimeout(function(){
-    //   nthis.reRenderCharts();
-    // },2000);
-  }
-
-  sendRequest() {
-    super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
-      // console.log('data', data);
-    }, (err) => {
-
-    });
-  }
-
+  // ngOnInit() {
   // allChartEnd() {
   //   this.chartDeposit.destroy();
   //   this.chartLoad.destroy();
@@ -407,6 +440,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
   //   this.chartTrade.render();
   //   this.chartTmu.render();
   // }
+  //}
 
   /**
   * 暫用此方法寫
@@ -456,178 +490,179 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     this.dialog.open(DialogComponent, dialogConfig);
   }
 
-/**
-     * 之後有時間再詳寫此功能
-     * @param mid
-     */
-   openModal(mid:string) {
-       this.modalService.openModal(mid);
-   }
+  /**
+       * 之後有時間再詳寫此功能
+       * @param mid
+       */
+  openModal(mid: string) {
+    this.modalService.openModal(mid);
+  }
 
-/*******************
-   * 取得基本資訊所有的API Urls
-   * @param param : api所需的參數值
-   ********************/
-getBaseInfoApiUrls() {
+  /*******************
+     * 取得基本資訊所有的API Urls
+     * @param param : api所需的參數值
+     ********************/
+  getBaseInfoApiUrls() {
     const urls = this.URL.assetsLibilites.Layer1;
     Object.keys(urls).forEach(value => {
-        console.log(urls[value]);
-        this.apiUrls.push(urls[value]);
+      console.log(urls[value]);
+      this.apiUrls.push(urls[value]);
     });
-}
-/*******************
-* 準備發送的API request Obj
-* {'url': string, 'param': param}
-* @param param : api所需的參數值
-********************/
-prepareBaseInfoApiRequest(urls: string[], param: any) {
+  }
+  /*******************
+  * 準備發送的API request Obj
+  * {'url': string, 'param': param}
+  * @param param : api所需的參數值
+  ********************/
+  prepareBaseInfoApiRequest(urls: string[], param: any) {
 
     const requestParam = [];
     urls.forEach(value => {
-        requestParam.push({ 'url': value, 'param': param });
+      requestParam.push({ 'url': value, 'param': param });
     });
     console.log(requestParam);
     return requestParam;
-}
+  }
 
-/*******************
- * 發送API取得基本資料
- * *****************/
-getChartsData(request: any) {
+  /*******************
+   * 發送API取得基本資料
+   * *****************/
+  getChartsData(request: any) {
     request.forEach(value => {
-        this.getRequestData(value.url, value.param).then((response: any) => {
-            this.setCharts(value.url, plainToClass(CommonResponse, response));
-        }).catch((error: any) => {
-            console.log('error' + error);
-        });
+      this.getRequestData(value.url, value.param).then((response: any) => {
+        this.setCharts(value.url, plainToClass(CommonResponse, response));
+      }).catch((error: any) => {
+        console.log('error' + error);
+      });
     });
-}
+  }
 
-/*******************
- * 依各個 URL 塞各自的資料
- * *****************/
-setCharts(url: string, response: any) {
-    console.log(response);
+  /*******************
+   * 依各個 URL 塞各自的資料
+   * *****************/
+  setCharts(url: string, response: any) {
+    console.log('set', response);
     const status = response.header.returnCode;
     const data = response.body;
     if (status === '0000') {
-        switch (url) {
-            case this.URL.assetsLibilities.Layer1.getCBDeposit:
-                console.log('存款');
-                this.setDepositData(data);
-                break;
-            case this.URL.assetsLibilities.Layer1.getCBLoan:
-                console.log('放款');
-                this.setLoanData(data);
-                break;
-            case this.URL.assetsLibilities.Layer1.getCBTrade:
-                console.log('進出口');
-                this.setTradeData(data);
-                break;
-            case this.URL.assetsLibilities.Layer1.getCBTmu:
-                console.log('TMU');
-                this.setTmuData(data);
-                break;
-            default:
-                console.log('url not found');
-                break;
-        }
+      switch (url) {
+        case this.URL.assetsLibilities.Layer1.getCBDeposit:
+          console.log('存款');
+          this.setDepositData(data);
+          break;
+        case this.URL.assetsLibilities.Layer1.getCBLoan:
+          console.log('放款');
+          this.setLoanData(data);
+          break;
+        case this.URL.assetsLibilities.Layer1.getCBTrade:
+          console.log('進出口');
+          this.setTradeData(data);
+          break;
+        case this.URL.assetsLibilities.Layer1.getCBTmu:
+          console.log('TMU');
+          this.setTmuData(data);
+          break;
+        default:
+          console.log('url not found');
+          break;
+      }
     }
-}
+  }
 
-//塞存款資料
-setDepositData(data: any){
+  //塞存款資料
+  setDepositData(data: any) {
     //取得存款資料，每個值存成array
+    console.log('deposit', data);
     const series: number[] = [];
     const xaxis: string[] = [];
-    for (let i = 1; i < 10; i++) {
-        xaxis.push(data.import[0]['mon' + 0 + i]);
-        series.push(data.import[0]['useTxnAmt' + 0 + i]);
+    for (let i = 1; i < 14; i++) {
+      xaxis.push(data['depositMon']);
+      series.push(data['depositBal']);
     }
 
-    console.log(xaxis);
+    console.log('deposit2', xaxis);
     console.log(series);
 
-    // this.DepositData.xaxis['categories'] = xaxis;
+    this.DepositData.xaxis.categories[0]['categories'] = xaxis;
     this.DepositData.series[0]['data'] = series;
 
     this.chartDeposit.destroy();
     this.chartDeposit.render();
-};
+  };
 
-//塞放款貿融資料
-setLoanData(data: any){
+  //塞放款貿融資料
+  setLoanData(data: any) {
     //取得放款貿融資料，每個值存成array
     const series: number[] = [];
     const series1: number[] = [];
     const xaxis: string[] = [];
 
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 14; i++) {
+      xaxis.push(data['loanMon']);
+      series.push(data["loanBal"]);
+      series1.push(data['tradeFinanceBal']);
 
-        series.push(data.import[1]['useTxnAmt' + 0 + i]);
-        series1.push(data.export[0]['useTxnAmt' + 0 + i]);
-        xaxis.push(data.import[1]['mon' + 0 + i]);
     }
     console.log(xaxis);
     console.log(series);
     console.log(series1);
 
 
-    this.LoanData.xaxis.categories[0].mon['mon'] = xaxis;
+    this.LoanData.xaxis.categories['loanMon'] = xaxis;
     this.LoanData.series[0]['data'] = series;
     this.LoanData.series[1]['data'] = series1;
 
     this.chartLoad.destroy();
     this.chartLoad.render();
-};
+  };
 
-// //塞進出口資料
-setTradeData(data: any){
+  // //塞進出口資料
+  setTradeData(data: any) {
     //取得進出口資料，每個值存成array
     const series: number[] = [];
     const series1: number[] = [];
     const xaxis: string[] = [];
-    for (let i = 1; i < 10; i++) {
-        xaxis.push(data.import[0]['mon' + 0 + i]);
-        series.push(data.import[2]['useTxnAmt' + 0 + i]);
-        series1.push(data.export[1]['useTxnAmt' + 0 + i]);
+    for (let i = 1; i < 14; i++) {
+      xaxis.push(data['importMon']);
+      series.push(data['importAmt']);
+      series1.push(data['exportAmt']);
 
     }
     console.log(xaxis);
     console.log(series);
     console.log(series1);
 
-    // this.TradeData.xaxis['categories'] = xaxis;
+    this.TradeData.xaxis.categories[0]['categories'] = xaxis;
     this.TradeData.series[0]['data'] = series;
     this.TradeData.series[1]['data'] = series1;
 
     this.chartTrade.destroy();
     this.chartTrade.render();
-};
+  };
 
-//塞TMU&MTM資料
-setTmuData(data: any){
+  //塞TMU&MTM資料
+  setTmuData(data: any) {
     //取得放款貿融資料，每個值存成array
     const series: number[] = [];
     const series1: number[] = [];
     const xaxis: string[] = [];
-    for (let i = 1; i < 10; i++) {
-        xaxis.push(data['tmuMon']);
-        series.push(data['tmuUsage']);
-        series1.push(data['mtmUsage']);
+    for (let i = 1; i < 14; i++) {
+      xaxis.push(data['tmuMon']);
+      series.push(data['tmuUsage']);
+      series1.push(data['mtmUsage']);
 
     }
     console.log(xaxis);
     console.log(series);
     console.log(series1);
 
-    this.TmuData.xaxis.categories['categories'] = xaxis;
+    this.TmuData.xaxis.categories[0]['categories'] = xaxis;
     this.TmuData.series[0]['data'] = series;
     this.TmuData.series[1]['data'] = series1;
 
     this.chartTmu.destroy();
     this.chartTmu.render();
-};
+  };
 
 }
 
