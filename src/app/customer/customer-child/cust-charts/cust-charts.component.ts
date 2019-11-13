@@ -5,9 +5,9 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/d
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base-component';
 import { plainToClass } from 'class-transformer';
-import { CommonResponse } from 'src/app/objects/dto/common-response';
+import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { DummyData } from 'src/localServer/dummy-data';
-import { Assetslibilites } from 'src/app/objects/dto/product_assets_libilites';
+import { Assetslibilites } from 'src/app/objects/dto/product/product-assetsLibilites-response';
 import { from } from 'rxjs';
 @Component({
   selector: 'app-cust-charts',
