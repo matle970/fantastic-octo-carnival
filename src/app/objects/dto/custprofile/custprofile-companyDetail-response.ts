@@ -1,4 +1,4 @@
-import { CommonHeaderResponse } from './common-header-response';
+import { CommonHeaderResponse } from '../common/common-header-response';
 
 export class CompanyDetail {
     header: CommonHeaderResponse;

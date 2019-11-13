@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { onMainContentChange } from './common-area/animations/animations';
 import { SidebarService } from './services/sidebar.service';
 import { BaseComponent } from './base/base-component';
-import { Firstpage_ao_profile } from './objects/dto/firstpage-aoProfile-response';
+import { Firstpage_ao_profile } from './objects/dto/firstpage/firstpage-aoProfile-response';
 import { AoIdentityService } from './objects/share-data/ao-identity-service';
 
 @Component({

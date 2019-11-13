@@ -24,20 +24,20 @@ import {
     ApexTitleSubtitle,
     ApexTheme
 } from 'ng-apexcharts';
-import { CommonResponse } from 'src/app/objects/dto/common-response';
+import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 
-import { Company } from 'src/app/objects/dto/custprofile-company-response';
-import { CompanyDetail } from 'src/app/objects/dto/custprofile-companyDetail-response';
-import { CompanyAssociateTotalAssets } from 'src/app/objects/dto/custprofile-companyAssociateTotalAssets-response';
-import { CompanyAssociate } from 'src/app/objects/dto/custprofile-companyAssociate-response';
-import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile-companyAssociateAssets-response';
-import { Group } from 'src/app/objects/dto/custprofile-group-response';
-import { GroupDetail } from 'src/app/objects/dto/custprofile-groupDetail-response';
-import { Manage } from 'src/app/objects/dto/custprofile-manage-response';
-import { ManageDetail } from 'src/app/objects/dto/custprofile-manageDetail-response';
-import { Contribution } from 'src/app/objects/dto/custprofile-contribution-response';
-import { ContributionDetail } from 'src/app/objects/dto/custprofile-contributionDetail-response';
-import { CompanyNotification } from 'src/app/objects/dto/custprofile-companyNotification-response';
+import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
+import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
+import { CompanyAssociateTotalAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateTotalAssets-response';
+import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
+import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateAssets-response';
+import { Group } from 'src/app/objects/dto/custprofile/custprofile-group-response';
+import { GroupDetail } from 'src/app/objects/dto/custprofile/custprofile-groupDetail-response';
+import { Manage } from 'src/app/objects/dto/custprofile/custprofile-manage-response';
+import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manageDetail-response';
+import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
+import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
+import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
 
 
 @Component({

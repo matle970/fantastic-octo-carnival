@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CommonHeaderRequest } from '../objects/dto/common-header-request';
+import { CommonHeaderRequest } from '../objects/dto/common/common-header-request';
 
 /*******************
  * 存放已發送過API的資料

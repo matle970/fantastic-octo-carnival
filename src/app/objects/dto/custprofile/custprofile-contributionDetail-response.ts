@@ -1,4 +1,4 @@
-import { CommonHeaderRequest } from "./common-header-request";
+import { CommonHeaderRequest } from "../common/common-header-request";
 
 export class ContributionDetail {
     header: CommonHeaderRequest;
