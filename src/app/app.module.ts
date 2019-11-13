@@ -41,6 +41,8 @@ import { InjectService } from './services/inject.service';
 import { ColumnToggleComponent } from './dashboard/column-toggle/column-toggle.component';
 
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
+import { AoIdentityService } from './objects/share-data/ao-identity-service';
+import { CustomerInfoService } from './objects/share-data/customer-info-service';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
     EnvServiceProvider,
     SidebarService,
     ModalService,
-    DatePipe
+    DatePipe,
+    AoIdentityService,
+    CustomerInfoService
   ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { onMainContentChange } from './common-area/animations/animations';
 import { SidebarService } from './services/sidebar.service';
 import { BaseComponent } from './base/base-component';
 import { Firstpage_ao_profile } from './objects/dto/firstpage-aoProfile-response';
+import { AoIdentityService } from './objects/share-data/ao-identity-service';
 
 @Component({
   selector: 'app-root',
@@ -18,21 +19,23 @@ export class AppComponent extends BaseComponent implements OnInit {
     'classType': Firstpage_ao_profile
   }];
 
-  constructor(private _sidebarService: SidebarService) {
+  constructor(private _sidebarService: SidebarService, private _aoIdentity: AoIdentityService) {
     super();
     this._sidebarService.sideNavState$.subscribe( res => {
       // console.log(res);
       this.onSideNavChange = res;
     })
-    this.sendRquest();
+    this.sendRquest(_aoIdentity);
   }
 
   ngOnInit() {
   }
-  sendRquest() {
+  sendRquest(keepedData) {
     super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
-      console.log('oa info', data);
+      //console.log('oa info', data);
       sessionStorage.setItem('token_id', data.body.token);
+      keepedData.token = data.body.token;
+      keepedData.aoId = data.body.aoId;
     }, (err) => {
 
     });
