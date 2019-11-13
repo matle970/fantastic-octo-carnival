@@ -1,5 +1,5 @@
-import { CommonRequest } from 'src/app/objects/dto/common-request';
-import { CommonResponse } from 'src/app/objects/dto/common-response';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { HttpService } from 'src/app/services/http.service';
 import { InjectService } from 'src/app/services/inject.service';
 import { ShareDataService } from 'src/app/services/share-data.service';

@@ -1,7 +1,7 @@
-import { CommonHeader } from './common-header';
+import { CommonHeaderRequest } from '../common/common-header-request';
 
 export class Firstpage_company_list {
-    header: CommonHeader;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {

@@ -1,7 +1,7 @@
-import { CommonHeader } from './common-header';
+import { CommonHeaderRequest } from "../common/common-header-request";
 
 export class Contribution {
-    header: CommonHeader;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {

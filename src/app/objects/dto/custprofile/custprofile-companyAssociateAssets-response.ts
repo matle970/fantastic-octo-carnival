@@ -1,7 +1,7 @@
-import { CommonHeader } from './common-header';
+import { CommonHeaderRequest } from '../common/common-header-request';
 
 export class CompanyAssociateAssets {
-    header: CommonHeader;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {

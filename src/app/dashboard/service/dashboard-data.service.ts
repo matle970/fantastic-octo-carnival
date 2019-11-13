@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base-component';
-import { Firstpage_company_list } from 'src/app/objects/dto/firstpage-company-list-response';
 
 @Injectable({
   providedIn: 'root'

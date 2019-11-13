@@ -1,31 +1,82 @@
 {
-    "FIRSTPAGE_AO_PROFILE": "dashboard/getServiceToken",
-    "FIRSTPAGE_WM_BRANCH_LSIT":"",
-    "FIRSTPAGE_REFER_BRANCH_LIST": "",
-    "FIRSTPAGE_COMPANY_LIST": "dashboard/getAoNameList",
-    "FIRSTPAGE_ALL_NOTIFICATION": "",
+    "//_CB001-Composite API": "首頁總覽-登入人員資訊",
+    "FIRSTPAGE_AO_PROFILE": "firstpage/getCBAoProfile",
+
+    "//_CB002-Composite API": "首頁總覽-(搜尋)經營行-下拉選單)",
+    "FIRSTPAGE_WM_BRANCH_LSIT":"firstpage/getCBWMBranchList",
+
+    "//_CB003-Composite API": "首頁總覽-(搜尋)轉介行-下拉選單",
+    "FIRSTPAGE_REFER_BRANCH_LIST": "firstpage/getCBReferBranchList",
+
+    "//_CB005-Composite API": "首頁總覽-經管名單列表",
+    "FIRSTPAGE_COMPANY_LIST": "firstpage/getCBCompanyList",
+
+    "//_CB006-Composite API": "首頁總覽-訊息通知",
+    "FIRSTPAGE_ALL_NOTIFICATION": "firstpage/getCBAllNotification",
     
-    "//_CB007-Composite API": "基本資訊-營運量第一層",
+    "//_CB007-Composite API": "營運量-營運量第一層",
     "PRODUCT_ASSETS_LIBILITIES": "product/getCBAssetsLibilities",
 
+    "//_CB008-Composite API": "營運量-存款餘額第二層",
+    "PRODUCT_DEPOSIT_DETAIL": "product/getCBDepositDetail",
+
+    "//_CB009-Composite API": "營運量-放款餘額第二層",
+    "PRODUCT_LOAN_DETAIL": "product/getCBLoanDetail",
+
+    "//_CB010-Composite API": "營運量-進出口實績第二層",
+    "PRODUCT_IMPORT_EXPORT_DETAIL": "product/getCBImportExportDetail",
+
+    "//_CB011-Composite API": "營運量-TMU額度第二層",
+    "PRODUCT_TMU_DETAIL": "product/getCBTMUDetail",
+
     "//_CB012-Composite API": "基本資訊-公司資訊第一層",
+    "CUSTPROFILE_COMPANY": "custprofile/getCBCompany",
+
     "//_CB013-Composite API": "基本資訊-公司資訊第二層",
+    "CUSTPROFILE_COMPANY_DETAIL": "custprofile/getCBCompanyDetail",
+    
     "//_CB028-Composite API": "基本資訊-個人關聯戶第一層",
+    "CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS": "custprofile/getCBCompanyAssociateTotalAssets",
 
     "//_CB014-Composite API": "基本資訊-個人關聯戶第二層(關聯戶基本資訊)",
-    "CUSTPROFILE_COMPANYASSOCIATE": "custprofile/getCBCompanyAssociate",
+    "CUSTPROFILE_COMPANY_ASSOCIATE": "custprofile/getCBCompanyAssociate",
 
     "//_CB015-Composite API": "基本資訊-個人關聯戶第二層(客戶資產負債)",
-    "CUSTPROFILE_COMPANYASSOCIATEASSETS": "custprofile/getCBCompanyAssociateAssets",
-    
+    "CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS": "custprofile/getCBCompanyAssociateAssets",
+
     "//_CB016-Composite API": "基本資訊-集團資訊第一層",
+    "CUSTPROFILE_GROUP": "custprofile/getCBGroup",
+
     "//_CB017-Composite API": "基本資訊-集團資訊第二層",
+    "CUSTPROFILE_GROUP_DETAIL": "custprofile/getCBGroupDetail",
+
     "//_CB018-Composite API": "基本資訊-經管資訊第一層",
+    "CUSTPROFILE_MANAGE": "custprofile/getCBManage",
+
     "//_CB019-Composite API": "基本資訊-經管資訊第二層",
+    "CUSTPROFILE_MANAGE_DETAIL": "custprofile/getCBManageDetail",
 
     "//_CB020-Composite API": "基本資訊-貢獻度第一層",
     "CUSTPROFILE_CONTRIBUTION": "custprofile/getCBContribution",
 
     "//_CB021-Composite API": "基本資訊-貢獻度第二層",
-    "//_CB022-Composite API": "基本資訊-訊息通知"
+    "CUSTPROFILE_CONTRIBUTION_DETAIL": "custprofile/getCBContributionDetail",
+
+    "//_CB022-Composite API": "基本資訊-訊息通知",
+    "CUSTPROFILE_COMPANY_NOTIFICATION": "custprofile/getCBCompanyNotification",
+
+    "//_CB023-Composite API": "消息集錦-要點新聞第一層",
+    "NEWS_NEWS": "news/getCBNews",
+    
+    "//_CB024-Composite API": "消息集錦-要點新聞第二層",
+    "NEWS_NEWS_DETAIL": "news/getCBNewsDetail",
+
+    "//_CB025-Composite API": "消息集錦-銀行同業第一層",
+    "NEWS_BANKS": "news/getCBBanks",
+
+    "//_CB026-Composite API": "消息集錦-銀行同業第二層",
+    "NEWS_BANKS_Profile": "news/getCBBanksProfile",
+
+    "//_CB027-Composite API": "客戶歷程",
+    "JOURNEY_COMPANY_JOURNEY": "journey/getCBCompanyJourney"
 }

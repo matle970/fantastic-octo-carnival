@@ -24,10 +24,20 @@ import {
     ApexTitleSubtitle,
     ApexTheme
 } from 'ng-apexcharts';
-import { CommonResponse } from 'src/app/objects/dto/common-response';
-import { Contribution } from 'src/app/objects/dto/custprofile_contribution';
-import { CompanyAssociate } from 'src/app/objects/dto/custprofile_companyassociate';
-import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile_companyassociateassets';
+import { CommonResponse } from 'src/app/objects/dto/common/common-response';
+
+import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
+import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
+import { CompanyAssociateTotalAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateTotalAssets-response';
+import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
+import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateAssets-response';
+import { Group } from 'src/app/objects/dto/custprofile/custprofile-group-response';
+import { GroupDetail } from 'src/app/objects/dto/custprofile/custprofile-groupDetail-response';
+import { Manage } from 'src/app/objects/dto/custprofile/custprofile-manage-response';
+import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manageDetail-response';
+import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
+import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
+import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
 
 
 @Component({
@@ -43,34 +53,79 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     urlList = [
         {
-            'url': this.URL.CUSTPROFILE_COMPANYASSOCIATE,
+            'url': this.URL.CUSTPROFILE_COMPANY,
+            'classType': Company
+        },
+        {
+            'url': this.URL.CUSTPROFILE_COMPANY_DETAIL,
+            'classType': CompanyDetail
+        },
+        {
+            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS,
+            'classType': CompanyAssociateTotalAssets
+        },
+        {
+            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
             'classType': CompanyAssociate
         },
         {
-            'url': this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS,
+            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
             'classType': CompanyAssociateAssets
+        },
+        {
+            'url': this.URL.CUSTPROFILE_GROUP,
+            'classType': Group
+        },
+        {
+            'url': this.URL.CUSTPROFILE_GROUP_DETAIL,
+            'classType': GroupDetail
+        },
+        {
+            'url': this.URL.CUSTPROFILE_MANAGE,
+            'classType': Manage
+        },
+        {
+            'url': this.URL.CUSTPROFILE_MANAGE_DETAIL,
+            'classType': ManageDetail
         },
         {
             'url': this.URL.CUSTPROFILE_CONTRIBUTION,
             'classType': Contribution
+        },
+        {
+            'url': this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
+            'classType': ContributionDetail
+        },
+        {
+            'url': this.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
+            'classType': CompanyNotification
         }
     ];
 
     // 基本資訊-公司資訊第一層
+    companyObj: object = {};
     // 基本資訊-公司資訊第二層
+    companydetailObj: object = {};
     // 基本資訊-個人關聯戶第一層
+    companyassociatetotalassetsObj: object = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     companyassociateObj: object = {};
     // 基本資訊-個人關聯戶第二層(客戶資產負債)
     companyassociateassetsObj: object = {};
     // 基本資訊-集團資訊第一層
+    groupObj: object = {};
     // 基本資訊-集團資訊第二層
+    groupdetailObj: object = {};
     // 基本資訊-經管資訊第一層
+    manageObj: object = {};
     // 基本資訊-經管資訊第二層
+    managedetailObj: object = {};
     // 基本資訊-貢獻度第一層
     contributionObj: object = {};
     // 基本資訊-貢獻度第二層
+    contributiondetailObj: object = {};
     // 基本資訊-訊息通知
+    companynotificationObj: object = {};
 
 
     ngOnInit() {
@@ -79,33 +134,87 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
-                // console.log('data', data);
-                if (data.header.returnCode === '0000') {
-                    this.dataProcess(data, this.urlList[i].url);
-                }
-            }, (err) => {
+            // super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
+            //     console.log('data', data);
+            //     if (data.header.returnCode === '0000') {
+            //         this.dataProcess(data, this.urlList[i].url);
+            //     }
+            // }, (err) => {
 
-            });
+            // });
         }
     }
 
     dataProcess(data: any, url: string) {
         switch (url) {
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATE:
+            case this.URL.CUSTPROFILE_COMPANY:
+                this.companyObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_COMPANY_DETAIL:
+                this.companydetailObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS:
+                this.companyassociatetotalassetsObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
                 this.companyassociateObj = {
                     data: data
                 };
                 break;
 
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS:
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
                 this.companyassociateassetsObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_GROUP:
+                this.groupObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_GROUP_DETAIL:
+                this.groupdetailObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_MANAGE:
+                this.manageObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_MANAGE_DETAIL:
+                this.managedetailObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_CONTRIBUTION:
                 this.contributionObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
+                this.contributiondetailObj = {
+                    data: data
+                };
+                break;
+
+            case this.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
+                this.companynotificationObj = {
                     data: data
                 };
                 break;
