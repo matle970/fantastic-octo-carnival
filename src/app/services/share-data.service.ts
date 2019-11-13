@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HeaderRequest } from 'src/app/objects/dto/header-request';
+import { CommonHeaderRequest } from '../objects/dto/common-header-request';
 
 /*******************
  * 存放已發送過API的資料
@@ -44,7 +44,7 @@ export class ShareDataService {
      **********************/
     // 取得Header資訊(未來視規則更改)
     getHeaderData() {
-        const header = new HeaderRequest();
+        const header = new CommonHeaderRequest();
         header.apId = 'CRMILXCRM01';
         header.branchId = '00081';
         header.employeeId = '13063';

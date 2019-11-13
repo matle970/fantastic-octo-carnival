@@ -1,7 +1,7 @@
 /************************************************
- * 共通的 Request Header
+ * 共通的 Response Header
  **************************************************/
-export class HeaderRequest {
+export class CommonHeaderResponse {
     apId: string;
 
     branchId: string;
@@ -10,7 +10,9 @@ export class HeaderRequest {
 
     clientIp: string;
 
-    role: string;
-
     txnDateTime: string;
+
+    returnCode: string;
+
+    returnDesc: string;
 }

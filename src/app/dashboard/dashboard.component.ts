@@ -4,8 +4,8 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { getSortedData } from './service/customSort';
 import { BaseComponent } from '../base/base-component';
-import { Firstpage_company_list } from '../objects/dto/firstpage-company-list-response';
 import { AuthService } from '../services/auth-service';
+import { Firstpage_company_list } from '../objects/dto/firstpage-companyList-response';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

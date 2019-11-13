@@ -1,9 +1,9 @@
-import { HeaderResponse } from 'src/app/objects/dto/header-response';
+import { CommonHeaderResponse } from './common-header-response';
 
 /************************************************
  * 共通的 Request Object
  **************************************************/
 export class CommonResponse {
-    header: HeaderResponse;
+    header: CommonHeaderResponse;
     body: any;
 }

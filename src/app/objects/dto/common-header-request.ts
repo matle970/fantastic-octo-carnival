@@ -1,7 +1,7 @@
 /************************************************
  * 共通的 Request Header
  **************************************************/
-export class CommonHeader {
+export class CommonHeaderRequest {
     apId: string;
 
     branchId: string;

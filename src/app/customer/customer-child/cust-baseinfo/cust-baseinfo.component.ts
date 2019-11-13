@@ -25,9 +25,9 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common-response';
-import { Contribution } from 'src/app/objects/dto/custprofile_contribution';
-import { CompanyAssociate } from 'src/app/objects/dto/custprofile_companyassociate';
-import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile_companyassociateassets';
+import { Contribution } from 'src/app/objects/dto/custprofile-contribution-response';
+import { CompanyAssociate } from 'src/app/objects/dto/custprofile-companyAssociate-response';
+import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile-companyAssociateAssets-response';
 
 
 @Component({

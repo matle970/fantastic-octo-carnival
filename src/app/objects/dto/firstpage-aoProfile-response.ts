@@ -1,7 +1,7 @@
-import { CommonHeader } from './common-header';
+import { CommonHeaderResponse } from './common-header-response';
 
 export class Firstpage_ao_profile {
-    header: CommonHeader;
+    header: CommonHeaderResponse;
     body: Body;
 }
 class Body {
