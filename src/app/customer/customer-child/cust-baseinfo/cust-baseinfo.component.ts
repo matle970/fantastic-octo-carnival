@@ -134,14 +134,14 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
-                console.log('data', data);
-                if (data.header.returnCode === '0000') {
-                    this.dataProcess(data, this.urlList[i].url);
-                }
-            }, (err) => {
+            // super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
+            //     console.log('data', data);
+            //     if (data.header.returnCode === '0000') {
+            //         this.dataProcess(data, this.urlList[i].url);
+            //     }
+            // }, (err) => {
 
-            });
+            // });
         }
     }
 
