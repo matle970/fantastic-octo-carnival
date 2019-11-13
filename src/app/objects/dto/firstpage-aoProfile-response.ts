@@ -5,6 +5,6 @@ export class Firstpage_ao_profile {
     body: Body;
 }
 class Body {
-    customerid: string;
+    aoId: string;
     token: string;
 }

@@ -16,7 +16,7 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerid": "jeweltest01",
+            "aoId": "jeweltest01",
             "token": "jeweltestToken001"
         }
     };

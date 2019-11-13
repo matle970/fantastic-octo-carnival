@@ -4,8 +4,9 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { getSortedData } from './service/customSort';
 import { BaseComponent } from '../base/base-component';
-import { AuthService } from '../services/auth-service';
 import { Firstpage_company_list } from '../objects/dto/firstpage-companyList-response';
+import { AoIdentityService } from '../objects/share-data/ao-identity-service';
+import { CustomerInfoService } from '../objects/share-data/customer-info-service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -24,7 +25,6 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
   trade_balance_total_Value = 0;
 
   totalDataCount: number;
-  
 
   supervisor= false;
 
@@ -59,11 +59,12 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
   };
 
   //inject service if dummdy data or adserver has trouble
-  constructor(private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/) {
+  constructor(private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, aoIdentity: AoIdentityService, customerInfo: CustomerInfoService) {
     super();
     sessionStorage.setItem('is_allow', 'true');
     this.supervisor = false;
-    this.sendRquest();
+    this.sendRquest(customerInfo);
+    aoIdentity.print();
     /*
     const dataList = service.getDashboardDataTable();
     this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
@@ -147,9 +148,10 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
     return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
   }
 
-  sendRquest() {
+  sendRquest(keepedData) {
     super.sendRequestAsync(this.urlList[0].url, this.urlList[0].classType).then((data: any) => {
       this.tableDetailList = data.body.aoData;
+      keepedData.customerId = data.body.aoData[0].id;
       const dataList = this.tableDetailList;
       this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
       this.totalDataCount = dataList.length;

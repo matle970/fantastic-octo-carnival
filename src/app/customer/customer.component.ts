@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base-component';
+import { CustomerInfoService } from '../objects/share-data/customer-info-service';
 
 @Component({
   selector: 'app-customer',
@@ -12,7 +13,10 @@ export class CustomerComponent extends BaseComponent implements OnInit {
 
   @ViewChild('searchIdBind') searchData: any;
 
-  constructor() { super(); }
+  constructor(customerInfo: CustomerInfoService) { 
+    super();
+    customerInfo.print(); //get customer id from share data 
+  }
 
   ngOnInit() {
       // tslint:disable-next-line: max-line-length
