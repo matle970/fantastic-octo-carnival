@@ -27,9 +27,13 @@ export class AuthGuard implements CanActivate {
     }
     public isLoggedIn(): boolean{
         let status = false;
-        if( //!sessionStorage.getItem('token') == null
-            sessionStorage.getItem('is_allow') == 'true'&& 
-            sessionStorage.getItem('trustKey') != null){
+        let token = sessionStorage.getItem('token');
+        let trust = sessionStorage.getItem('trustKey');
+
+
+        if( //token != null && token != 'undefined' &&
+            trust != null && trust != 'undefined' &&
+            sessionStorage.getItem('is_allow') == 'true' ){
           status = true;
         }
         else{
