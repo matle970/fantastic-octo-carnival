@@ -43,7 +43,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
             super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((resdata: any) => {
-                console.log('data', resdata.body[0]);
+                // console.log('data', resdata.body[0]);
                 // if (data.header.returnCode === '0000') {
                 //     this.dataProcess(data, this.urlList[i].url);
                 // }
