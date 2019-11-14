@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
-import { DialogComponent } from './../../dialog/dialog.component';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 @Component({
   selector: 'app-notice-icon',
   templateUrl: './notice-icon.component.html',
