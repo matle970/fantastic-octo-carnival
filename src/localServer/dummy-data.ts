@@ -453,6 +453,83 @@ export class DummyData {
             "mtmUsage": ["0.0447", "0.0337", "0.0227", "0.0887", "0.0997", "0.0227", "0.0117", "0.0227", "0.0337", "0.0447", "0.0557", "0.0777", "0.0887"],
         }]
     }
+    // CB008-Composite API-營運量-存款餘額第二層
+    depositDetail = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId": "A111111112",
+            "assets": {
+                "ntdAssets": {
+                    "sd": "1111",
+                    "td": "2222",
+                    "cd": "3333"
+                },
+                "fxAssets": {
+                    "sd": "1111",
+                    "td": "2222",
+                    "cd": "3333"
+                },
+                "sumAssets": {
+                    "sd": "2222",
+                    "td": "4444",
+                    "cd": "6666"
+                },
+                "r6mthAvgBal": {
+                    "sd": "2000",
+                    "td": "2000",
+                    "cd": "2000"
+                }
+            },
+            "sdDetail": [{
+                "acctNbr": "",
+                "currencyCode": "",
+                "fxCurrentBal": "",
+                "ntdCurrentBal": "",
+                "currentIntRate": "",
+                "ftpRate": "",
+                "sdRemark": {
+                    "accBranchCode": "",
+                    "payrollCodeDtl": "",
+                    "isTrust": "",
+                    "isSecurities": "",
+                    "isRevers": ""
+                }
+            }],
+            "tdDetail": [{
+                "acctNbr": "",
+                "currencyCode": "",
+                "fxCurrentBal": "",
+                "ntdCurrentBal": "",
+                "currentIntRate": "",
+                "ftpRate": "",
+                "acctOpenDate": "",
+                "tdDueDate": ""
+            }],
+            "cdDetail": [{
+                "acctNbr": "",
+                "ntdCurrentBal": "",
+                "cdRemark": {
+                    "dishY3ChkCnt": "",
+                    "dishCancelY3ChkCnt": "",
+                    "rejectedStatusInd": "",
+                    "isReverse": ""
+                }
+            }]
+        }
+    }
+
+    // CB009-Composite API-營運量-放款餘額第二層
+    // CB010-Composite API-營運量-進出口實績第二層
+    
+    // CB011-Composite API-營運量-TMU額度第二層
 
     // CB021-Composite API-基本資訊-貢獻度第二層
     // CB022-Composite API-基本資訊-訊息通知
@@ -475,6 +552,22 @@ export class DummyData {
             // CB007-Composite API-基本資訊-營運量第一層
             case this.URL.PRODUCT_ASSETS_LIBILITIES:
                 returnData = this.assetslibilites
+                break;
+            // CB008-Composite API-營運量-存款餘額第二層 
+            case this.URL.PRODUCT_DEPOSIT_DETAIL:
+
+                break;
+            // CB009-Composite API-營運量-放款餘額第二層
+            case this.URL.PRODUCT_LOAN_DETAIL:
+
+                break;
+            // CB010-Composite API-營運量-進出口實績第二層
+            case this.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
+
+                break;
+            // CB011-Composite API-營運量-TMU額度第二層
+            case this.URL.PRODUCT_TMU_DETAIL:
+
                 break;
 
             // CB012-Composite API-基本資訊-公司資訊第一層

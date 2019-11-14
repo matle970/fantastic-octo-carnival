@@ -1,7 +1,7 @@
 import { CommonHeaderRequest } from "../common/common-header-request";
 
 
-export class Assetslibilities {
+export class AssetsLibilities {
     header: CommonHeaderRequest;
     body: Body;
 }
