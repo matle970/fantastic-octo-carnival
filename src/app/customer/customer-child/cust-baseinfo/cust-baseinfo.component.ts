@@ -54,51 +54,51 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     urlList = [
         {
             'url': this.URL.CUSTPROFILE_COMPANY,
-            'classType': Company
+            'dtoResponse': Company
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_DETAIL,
-            'classType': CompanyDetail
+            'dtoResponse': CompanyDetail
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS,
-            'classType': CompanyAssociateTotalAssets
+            'dtoResponse': CompanyAssociateTotalAssets
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
-            'classType': CompanyAssociate
+            'dtoResponse': CompanyAssociate
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
-            'classType': CompanyAssociateAssets
+            'dtoResponse': CompanyAssociateAssets
         },
         {
             'url': this.URL.CUSTPROFILE_GROUP,
-            'classType': Group
+            'dtoResponse': Group
         },
         {
             'url': this.URL.CUSTPROFILE_GROUP_DETAIL,
-            'classType': GroupDetail
+            'dtoResponse': GroupDetail
         },
         {
             'url': this.URL.CUSTPROFILE_MANAGE,
-            'classType': Manage
+            'dtoResponse': Manage
         },
         {
             'url': this.URL.CUSTPROFILE_MANAGE_DETAIL,
-            'classType': ManageDetail
+            'dtoResponse': ManageDetail
         },
         {
             'url': this.URL.CUSTPROFILE_CONTRIBUTION,
-            'classType': Contribution
+            'dtoResponse': Contribution
         },
         {
             'url': this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
-            'classType': ContributionDetail
+            'dtoResponse': ContributionDetail
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
-            'classType': CompanyNotification
+            'dtoResponse': CompanyNotification
         }
     ];
 
@@ -129,19 +129,19 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
 
     ngOnInit() {
-        this.sendRquest();
+        // this.sendRquest();
     }
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            // super.sendRequestAsync(this.urlList[i].url, this.urlList[i].classType).then((data: any) => {
-            //     console.log('data', data);
-            //     if (data.header.returnCode === '0000') {
-            //         this.dataProcess(data, this.urlList[i].url);
-            //     }
-            // }, (err) => {
+            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
+                console.log('data', data);
+                if (data.header.returnCode === '0000') {
+                    this.dataProcess(data, this.urlList[i].url);
+                }
+            }, (err) => {
 
-            // });
+            });
         }
     }
 
