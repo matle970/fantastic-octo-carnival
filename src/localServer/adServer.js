@@ -296,6 +296,86 @@ const assetsLibilities = {
   "mtmUsage":["0.0447","0.0337","0.0227","0.0887","0.0997","0.0227","0,0117","0.0227","0.0337","0.0447","0.0557","0.0777","0.0887"],
 }
 }
+// CB008-Composite API-營運量-存款餘額第二層
+const depositDetail = {
+  "header": {
+    "apId": "CRMLXCRM01",
+    "branchId": "00081",
+    "employeeId": "13063",
+    "clientIp": " 255.255.255.255",
+    "txnDateTime": "20190801140647462",
+    "returnCode": "0000",
+    "returnDesc": "交易成功"
+  },
+  "body":{
+    "customerId":"A111111112",
+    "assets":{
+      "ntdAssets":{
+        "sd":"1111",
+        "td":"2222",
+        "cd":"3333"
+      },
+      "fxAssets":{
+        "sd":"1111",
+        "td":"2222",
+        "cd":"3333"
+      },
+      "sumAssets":{
+        "sd":"2222",
+        "td":"4444",
+        "cd":"6666"
+      },
+      "r6mthAvgBal":{
+        "sd":"2000",
+        "td":"2000",
+        "cd":"2000"
+      }
+    },
+    "sdDetail":[
+      {
+        "acctNbr":"",
+        "currencyCode":"",
+        "fxCurrentBal":"",
+        "ntdCurrentBal":"",
+        "currentIntRate":"",
+        "ftpRate":"",
+        "sdRemark":{
+          "accBranchCode":"",
+          "payrollCodeDtl":"",
+          "isTrust":"",
+          "isSecurities":"",
+          "isRevers":""
+        }
+      }
+    ],
+    "tdDetail":[
+      {
+        "acctNbr":"",
+        "currencyCode":"",
+        "fxCurrentBal":"",
+        "ntdCurrentBal":"",
+        "currentIntRate":"",
+        "ftpRate":"",
+        "acctOpenDate":"",
+        "tdDueDate":""
+      }
+    ],
+    "cdDetail":[
+      {
+        "acctNbr":"",
+        "ntdCurrentBal":"",
+        "cdRemark":{
+          "dishY3ChkCnt":"",
+          "dishCancelY3ChkCnt":"",
+          "rejectedStatusInd":"",
+          "isReverse":""
+        }
+      }
+    ]
+  }
+}
+
+
 
 const corsOptions = {
   origin: '*',

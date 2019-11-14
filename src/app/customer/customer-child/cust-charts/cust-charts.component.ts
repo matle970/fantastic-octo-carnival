@@ -7,7 +7,7 @@ import { BaseComponent } from 'src/app/base/base-component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { DummyData } from 'src/localServer/dummy-data';
-import { Assetslibilites } from 'src/app/objects/dto/product/product-assetsLibilites-response';
+import { Assetslibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
 import { from } from 'rxjs';
 @Component({
   selector: 'app-cust-charts',
@@ -23,7 +23,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
   urlList = [
     {
       'url': this.URL.PRODUCT_ASSETS_LIBILITIES,
-      'classType': Assetslibilites
+      'classType': Assetslibilities
     }
   ];
 
