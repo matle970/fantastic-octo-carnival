@@ -278,7 +278,7 @@ companyList = {
 // CB010-Composite API-營運量-進出口實績第二層
 // CB011-Composite API-營運量-TMU額度第二層
 */
-assetslibilites = {
+assetsLibilites = {
     "header": {
         "apId": "CRMLXCRM01",
         "branchId": "00081",
@@ -315,10 +315,32 @@ assetslibilites = {
 }
 
 // CB012-Composite API-基本資訊-公司資訊第一層
+company = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {
+        "customerId": "A11111112",
+        "approvalGrade": "5+",
+        "rorwa": "1.34",
+        "raroc": "1.58",
+        "totalRelAssetBal": "222.33",
+        "totalRelCreditLimit": "151542",
+        "totalRelLiabilitiesBal": "8978789.88",
+        "tcriLevel": "5"
+    }
+}
+
 // CB013-Composite API-基本資訊-公司資訊第二層
 // CB028-Composite API-基本資訊-個人關聯戶第一層
 // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-companyassociate = {
+companyAssociate = {
     "header": {
         "apId": "CRMLXCRM01",
         "branchId": "00081",
@@ -343,7 +365,7 @@ companyassociate = {
 }
 
 // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
-companyassociateassets = {
+companyAssociateAssets = {
     "header": {
         "apId": "CRMLXCRM01",
         "branchId": "00081",
@@ -418,7 +440,11 @@ companyassociateassets = {
 // CB017-Composite API-基本資訊-集團資訊第二層
 // CB018-Composite API-基本資訊-經管資訊第一層
 // CB019-Composite API-基本資訊-經管資訊第二層
+
+/*
 // CB020-Composite API-基本資訊-貢獻度第一層
+// CB021-Composite API-基本資訊-貢獻度第二層
+*/
 contribution = {
     "header": {
         "apId": "CRMLXCRM01",
@@ -454,7 +480,6 @@ contribution = {
     }
 }
 
-// CB021-Composite API-基本資訊-貢獻度第二層
 // CB022-Composite API-基本資訊-訊息通知
 
 const corsOptions = {
@@ -478,39 +503,69 @@ app.post('/firstpage/getCBAoProfile', function (req, res, next) {
 });
 
 //CB-005-Composite API
-app.post('firstpage/getCBCompanyList', function (req, res, next) {
+app.post('/firstpage/getCBCompanyList', function (req, res, next) {
     console.log('POST ' + apiDomain + '/firstpage/getCBCompanyList');
     res.json(companyList);
 });
 
 // CB007-Composite API-營運量-第一層
-app.post('product/getCBAssetsLibilities', function (req, res, next) {
+app.post('/product/getCBAssetsLibilities', function (req, res, next) {
     console.log('POST ' + apiDomain + '/product/getCBAssetsLibilities');
-    res.json(assetsLibilities);
+    res.json(assetsLibilites);
 });
 
 // CB008-Composite API-營運量-存款餘額第二層
-app.post('product/getCBDepositDetail', function (req, res, next) {
+app.post('/product/getCBDepositDetail', function (req, res, next) {
     console.log('POST ' + apiDomain + '/product/getCBDepositDetail');
-    res.json(assetsLibilities);
+    res.json(assetsLibilites);
 });
 
 // CB009-Composite API-營運量-放款餘額第二層
-app.post('product/getCBLoanDetail', function (req, res, next) {
+app.post('/product/getCBLoanDetail', function (req, res, next) {
     console.log('POST ' + apiDomain + '/product/getCBLoanDetail');
-    res.json(assetsLibilities);
+    res.json(assetsLibilites);
 });
 
 // CB010-Composite API-營運量-進出口實績第二層
-app.post('product/getCBImportExportDetail', function (req, res, next) {
+app.post('/product/getCBImportExportDetail', function (req, res, next) {
     console.log('POST ' + apiDomain + '/product/getCBImportExportDetail');
-    res.json(assetsLibilities);
+    res.json(assetsLibilites);
 });
 
 // CB011-Composite API-營運量-TMU額度第二層
-app.post('product/getCBTMUDetail', function (req, res, next) {
+app.post('/product/getCBTMUDetail', function (req, res, next) {
     console.log('POST ' + apiDomain + '/product/getCBTMUDetail');
-    res.json(assetsLibilities);
+    res.json(assetsLibilites);
+});
+
+// CB012-Composite API-基本資訊-公司資訊第一層
+app.post('/custprofile/getCBCompany', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBCompany');
+    res.json(company);
+});
+
+// CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
+app.post('/custprofile/getCBCompanyAssociate', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBCompanyAssociate');
+    res.json(companyAssociate);
+});
+
+// CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
+app.post('/custprofile/getCBCompanyAssociateAssets', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBCompanyAssociateAssets');
+    res.json(companyAssociateAssets);
+});
+
+// CB020-Composite API-基本資訊-貢獻度第一層
+app.post('/custprofile/getCBContribution', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBContribution');
+    res.json(contribution);
+});
+
+// CB021-Composite API-基本資訊-貢獻度第二層
+app.post('/custprofile/getCBContributionDetail', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBContributionDetail');
+    res.json(contribution);
 });
 
 app.listen(5000); //dedault port

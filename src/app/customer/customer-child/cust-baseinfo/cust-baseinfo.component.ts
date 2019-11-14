@@ -103,29 +103,29 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     ];
 
     // 基本資訊-公司資訊第一層
-    companyObj: object = {};
+    CompanyObj: object = {};
     // 基本資訊-公司資訊第二層
-    companydetailObj: object = {};
+    CompanyDetailObj: object = {};
     // 基本資訊-個人關聯戶第一層
-    companyassociatetotalassetsObj: object = {};
+    CompanyAssociateTotalAssetsObj: object = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-    companyassociateObj: object = {};
+    CompanyAssociateObj: object = {};
     // 基本資訊-個人關聯戶第二層(客戶資產負債)
-    companyassociateassetsObj: object = {};
+    CompanyAssociateAssetsObj: object = {};
     // 基本資訊-集團資訊第一層
-    groupObj: object = {};
+    GroupObj: object = {};
     // 基本資訊-集團資訊第二層
-    groupdetailObj: object = {};
+    GroupDetailObj: object = {};
     // 基本資訊-經管資訊第一層
-    manageObj: object = {};
+    ManageObj: object = {};
     // 基本資訊-經管資訊第二層
-    managedetailObj: object = {};
+    ManageDetailObj: object = {};
     // 基本資訊-貢獻度第一層
-    contributionObj: object = {};
+    ContributionObj: object = {};
     // 基本資訊-貢獻度第二層
-    contributiondetailObj: object = {};
+    ContributionDetailObj: object = {};
     // 基本資訊-訊息通知
-    companynotificationObj: object = {};
+    CompanyNotificationObj: object = {};
 
 
     ngOnInit() {
@@ -136,9 +136,9 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         for (let i = 0; i < this.urlList.length; i++) {
             super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
                 console.log('data', data);
-                if (data.header.returnCode === '0000') {
-                    this.dataProcess(data, this.urlList[i].url);
-                }
+                // if (data.header.returnCode === '0000') {
+                //     this.dataProcess(data, this.urlList[i].url);
+                // }
             }, (err) => {
 
             });
@@ -148,73 +148,73 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     dataProcess(data: any, url: string) {
         switch (url) {
             case this.URL.CUSTPROFILE_COMPANY:
-                this.companyObj = {
+                this.CompanyObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_COMPANY_DETAIL:
-                this.companydetailObj = {
+                this.CompanyDetailObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS:
-                this.companyassociatetotalassetsObj = {
+                this.CompanyAssociateTotalAssetsObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
-                this.companyassociateObj = {
+                this.CompanyAssociateObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
-                this.companyassociateassetsObj = {
+                this.CompanyAssociateAssetsObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_GROUP:
-                this.groupObj = {
+                this.GroupObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_GROUP_DETAIL:
-                this.groupdetailObj = {
+                this.GroupDetailObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_MANAGE:
-                this.manageObj = {
+                this.ManageObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_MANAGE_DETAIL:
-                this.managedetailObj = {
+                this.ManageDetailObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_CONTRIBUTION:
-                this.contributionObj = {
+                this.ContributionObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
-                this.contributiondetailObj = {
+                this.ContributionDetailObj = {
                     data: data
                 };
                 break;
 
             case this.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
-                this.companynotificationObj = {
+                this.CompanyNotificationObj = {
                     data: data
                 };
                 break;
@@ -561,7 +561,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
                 dialogConfig.data.title = '經管資訊';
                 break;
             case 7:
-                dialogConfig.data.content_data = this.contributionObj;
+                dialogConfig.data.content_data = this.ContributionObj;
                 dialogConfig.data.title = '貢獻度';
                 break;
 
@@ -687,7 +687,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.contributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
         this.contributionPeriod = lastYearStart + '-' + thisYearEnd; // 貢獻度資料區間
 
-        this.contributionObj = {
+        this.ContributionObj = {
             'lastYear': {
                 'text': '去年度累計貢獻度',
                 'period': lastYearPeriod, // 去年度區間

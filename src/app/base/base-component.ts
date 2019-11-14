@@ -74,7 +74,7 @@ export class BaseComponent {
     }
 
     /**
-     * 設定 Request 的 Header & Body
+     * 設定 Request 的 Header & body
      * @param param Request的參數值放至body
      */
     setApiData(param?: any) {

@@ -4,7 +4,7 @@ import { SidebarService } from './services/sidebar.service';
 import { BaseComponent } from './base/base-component';
 import { AoIdentityService } from './objects/share-data/ao-identity-service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Firstpage_ao_profile } from './objects/dto/firstpage/firstpage-aoProfile-response';
+import { AoProfile } from './objects/dto/firstpage/firstpage-aoProfile-response';
 
 @Component({
     selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent extends BaseComponent implements OnInit {
     public onSideNavChange: boolean = true;
     urlList = [{
         'url': this.URL.FIRSTPAGE_AO_PROFILE,
-        'dtoResponse': Firstpage_ao_profile
+        'dtoResponse': AoProfile
     }];
 
     constructor(

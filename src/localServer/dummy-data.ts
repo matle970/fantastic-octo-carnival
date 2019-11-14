@@ -284,7 +284,7 @@ export class DummyData {
     // CB010-Composite API-營運量-進出口實績第二層
     // CB011-Composite API-營運量-TMU額度第二層
     */
-    assetslibilites = {
+    assetsLibilites = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -321,10 +321,32 @@ export class DummyData {
     }
 
     // CB012-Composite API-基本資訊-公司資訊第一層
+    company = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId": "A11111112",
+            "approvalGrade": "5+",
+            "rorwa": "1.34",
+            "raroc": "1.58",
+            "totalRelAssetBal": "222.33",
+            "totalRelCreditLimit": "151542",
+            "totalRelLiabilitiesBal": "8978789.88",
+            "tcriLevel": "5"
+        }
+    }
+
     // CB013-Composite API-基本資訊-公司資訊第二層
     // CB028-Composite API-基本資訊-個人關聯戶第一層
     // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-    companyassociate = {
+    companyAssociate = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -349,7 +371,7 @@ export class DummyData {
     }
 
     // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
-    companyassociateassets = {
+    companyAssociateAssets = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -424,7 +446,10 @@ export class DummyData {
     // CB017-Composite API-基本資訊-集團資訊第二層
     // CB018-Composite API-基本資訊-經管資訊第一層
     // CB019-Composite API-基本資訊-經管資訊第二層
+    /*
     // CB020-Composite API-基本資訊-貢獻度第一層
+    // CB021-Composite API-基本資訊-貢獻度第二層
+    */
     contribution = {
         "header": {
             "apId": "CRMLXCRM01",
@@ -460,7 +485,6 @@ export class DummyData {
         }
     }
 
-    // CB021-Composite API-基本資訊-貢獻度第二層
     // CB022-Composite API-基本資訊-訊息通知
 
 
@@ -480,32 +504,41 @@ export class DummyData {
 
             // CB007-Composite API-基本資訊-營運量第一層
             case this.URL.PRODUCT_ASSETS_LIBILITIES:
-                returnData = this.assetslibilites
+                returnData = this.assetsLibilites
                 break;
 
             // CB012-Composite API-基本資訊-公司資訊第一層
+            case this.URL.CUSTPROFILE_COMPANY:
+                returnData = this.company;
+                break;
+
             // CB013-Composite API-基本資訊-公司資訊第二層
             // CB028-Composite API-基本資訊-個人關聯戶第一層
             // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATE:
-                returnData = this.companyassociate;
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
+                returnData = this.companyAssociate;
                 break;
 
             // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS:
-                returnData = this.companyassociateassets;
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
+                returnData = this.companyAssociateAssets;
                 break;
 
             // CB016-Composite API-基本資訊-集團資訊第一層
             // CB017-Composite API-基本資訊-集團資訊第二層
             // CB018-Composite API-基本資訊-經管資訊第一層
             // CB019-Composite API-基本資訊-經管資訊第二層
+
             // CB020-Composite API-基本資訊-貢獻度第一層
             case this.URL.CUSTPROFILE_CONTRIBUTION:
                 returnData = this.contribution;
                 break;
 
             // CB021-Composite API-基本資訊-貢獻度第二層
+            case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
+                returnData = this.contribution;
+                break;
+
             // CB022-Composite API-基本資訊-訊息通知
         }
 

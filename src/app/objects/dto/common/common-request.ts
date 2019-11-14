@@ -5,7 +5,7 @@ import { CommonHeaderRequest } from "./common-header-request";
  **************************************************/
 export class CommonRequest {
     header: CommonHeaderRequest;
-    body: any;
+    body: Body;
 }
 class Body {
     customerId: string;

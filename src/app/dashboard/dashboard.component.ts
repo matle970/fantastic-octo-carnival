@@ -4,7 +4,7 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { getSortedData } from './service/customSort';
 import { BaseComponent } from '../base/base-component';
-import { Firstpage_company_list } from '../objects/dto/firstpage/firstpage-companyList-response';
+import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { AoIdentityService } from '../objects/share-data/ao-identity-service';
 import { CustomerInfoService } from '../objects/share-data/customer-info-service';
 @Component({
@@ -30,7 +30,7 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     urlList = [{
         'url': this.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoResponse': Firstpage_company_list
+        'dtoResponse': CompanyList
     }];
 
 
