@@ -485,7 +485,6 @@ export class DummyData {
         }
     }
 
-<<<<<<< HEAD
     // CB007-Composite API-營運量-第一層
     assetslibilites = {
         "header": {
@@ -601,8 +600,6 @@ export class DummyData {
     // CB011-Composite API-營運量-TMU額度第二層
 
     // CB021-Composite API-基本資訊-貢獻度第二層
-=======
->>>>>>> d2d303182659761122acca973a62cd18e52751e9
     // CB022-Composite API-基本資訊-訊息通知
 
 

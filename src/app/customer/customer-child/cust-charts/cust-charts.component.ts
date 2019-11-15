@@ -15,17 +15,17 @@ import { from } from 'rxjs';
     styleUrls: ['./cust-charts.component.scss']
 })
 export class CustChartsComponent extends BaseComponent implements OnInit {
-  @ViewChild('chartDeposit') chartDeposit: ChartComponent;
-  @ViewChild('chartLoad') chartLoad: ChartComponent;
-  @ViewChild('chartTrade') chartTrade: ChartComponent;
-  @ViewChild('chartTmu') chartTmu: ChartComponent;
+    @ViewChild('chartDeposit') chartDeposit: ChartComponent;
+    @ViewChild('chartLoad') chartLoad: ChartComponent;
+    @ViewChild('chartTrade') chartTrade: ChartComponent;
+    @ViewChild('chartTmu') chartTmu: ChartComponent;
 
-  urlList = [
-    {
-      'url': this.URL.PRODUCT_ASSETS_LIBILITIES,
-      'dtoResponse': AssetsLibilities
-    }
-  ];
+    urlList = [
+        {
+            'url': this.URL.PRODUCT_ASSETS_LIBILITIES,
+            'dtoResponse': AssetsLibilities
+        }
+    ];
 
 
     ngOnInit() {
@@ -43,6 +43,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
             super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((resdata: any) => {
+
                 // console.log('data', resdata.body[0]);
                 // if (data.header.returnCode === '0000') {
                 //     this.dataProcess(data, this.urlList[i].url);
@@ -50,26 +51,34 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
 
 
                 this.DepositData.series[0].data = resdata.body[0].depositBal;
-                this.DepositData.xaxis.categories = resdata.body[0].depositMon;
+                this.DepositData.xaxis.categories = this.getDataMonth(resdata.body[0].depositMon);
 
                 this.LoanData.series[0].data = resdata.body[0].loanBal;
-                this.LoanData.xaxis.categories = resdata.body[0].loanMon;
+                this.LoanData.xaxis.categories = this.getDataMonth(resdata.body[0].loanMon);
                 this.LoanData.series[1].data = resdata.body[0].tradeFinanceBal;
 
                 this.TradeData.series[0].data = resdata.body[0].importAmt;
-                this.TradeData.xaxis.categories = resdata.body[0].importMon;
+                this.TradeData.xaxis.categories = this.getDataMonth(resdata.body[0].importMon);
                 this.TradeData.series[1].data = resdata.body[0].exportAmt;
 
                 this.TmuData.series[0].data = resdata.body[0].tmuUsage;
-                this.TmuData.xaxis.categories = resdata.body[0].tmuMon;
+                this.TmuData.xaxis.categories = this.getDataMonth(resdata.body[0].tmuMon);
                 this.TmuData.series[1].data = resdata.body[0].mtmUsage;
 
             }, (err) => {
 
             });
         }
-    }
 
+    }
+    // 取得月份 format 201907, return 7
+    getDataMonth(data: any) {
+        const monthArry = [];
+        data.forEach(value => {
+            monthArry.push(parseInt(value.substring(4, 6), 10));
+        });
+        return monthArry;
+    }
 
 
     //   dataProcess(data: any, url: string) {
@@ -568,6 +577,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             }
         }
     }
+
 
     //塞存款資料
     setDepositData(data: any) {
