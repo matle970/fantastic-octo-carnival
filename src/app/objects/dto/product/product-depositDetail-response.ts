@@ -33,11 +33,11 @@ class Body {
         sdDetail:[
           {
             acctNbr: string,
-            // currencyCode:
-            // fxCurrentBal:
-            // ntdCurrentBal:
-            // currentIntRate:
-            // ftpRate:
+            currencyCode: string,
+            fxCurrentBal: string,
+            ntdCurrentBal:  string,
+            currentIntRate: string,
+            ftpRate: string,
             sdRemark:{
               accBranchCode: string,
               payrollCodeDtl: string,
@@ -50,13 +50,13 @@ class Body {
         tdDetail:[
           {
             acctNbr: string,
-            // currencyCode:
-            // fxCurrentBal:
-            // ntdCurrentBal:
-            // currentIntRate:
-            // ftpRate:
-            // acctOpenDate:
-            // tdDueDate:
+            currencyCode: string,
+            fxCurrentBal: string,
+            ntdCurrentBal: string,
+            currentIntRate:string,
+            ftpRate: string,
+            acctOpenDate: string,
+            tdDueDate: string
           }
         ]
         cdDetail:[
