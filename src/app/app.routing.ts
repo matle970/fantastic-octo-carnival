@@ -5,9 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AuthGuard } from './services/authGuard';
+import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
 
 
 const routes: Routes = [
+  {
+    path: 'timeout',
+    component: TimeoutComponent
+  },
   {
     path: '',
     redirectTo:'dashboard',

@@ -1,2 +1,7 @@
 
-<app-content-layout></app-content-layout>
+<app-content-layout *ngIf="!timeout; else timeoutTemp"></app-content-layout>
+
+<ng-template #timeoutTemp>
+    <app-timeout></app-timeout>
+</ng-template>
+

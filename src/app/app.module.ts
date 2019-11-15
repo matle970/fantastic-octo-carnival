@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app.routing';
