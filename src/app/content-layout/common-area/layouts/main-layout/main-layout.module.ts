@@ -3,15 +3,15 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SharedMaterialModule } from '../../../objects/shared-material/shared-material.module';
 import { MainLayoutRoutes } from './main-layout.routing';
 
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { CustomerComponent } from 'src/app/customer/customer.component';
-import { LogoComponent } from 'src/app/common-area/logo/logo.component';
-import { UserComponent } from 'src/app/common-area/user/user.component';
-import { FilterComponent } from 'src/app/common-area/filter/filter.component';
-import { SearchIdComponent } from 'src/app/common-area/search-id/search-id.component';
+import { SharedMaterialModule } from 'src/app/objects/shared-material/shared-material.module';
+import { LogoComponent } from '../../logo/logo.component';
+import { UserComponent } from '../../user/user.component';
+import { FilterComponent } from '../../filter/filter.component';
+import { SearchIdComponent } from '../../search-id/search-id.component';
 
 
 @NgModule({

@@ -23,15 +23,15 @@ export class BaseComponent {
     /**
     * 使用promise方式非同步發送請求
     * @param url 查詢URL
-    * @param classType class型態
+    * @param dtoResponse 回傳response
     * @param useDummyData 是否使用 Dummy data
     */
-    sendRequestAsync<T>(url: string, classType: T): Promise<{}> {
+    sendRequestAsync(url: string, dtoResponse: any): Promise<any> {
         let data: any;
 
         if (this.useDummyData) {
             const dummy = new DummyData();
-            data = dummy.getDummyData(url, classType);
+            data = dummy.getDummyData(url, dtoResponse);
             // return data;
             return new Promise((resolve, reject) => {
                 resolve(this.returnData(data));
@@ -39,7 +39,7 @@ export class BaseComponent {
             });
         } else {
             return new Promise((resolve, reject) => {
-                resolve();
+                resolve(this.sendAPI(url, dtoResponse));
                 reject();
             });
         }
@@ -49,7 +49,16 @@ export class BaseComponent {
         return data;
     }
 
-
+    /**
+     * Api 發送
+     * @param url 發送URL
+     * @param sendType 發送方式(POST / GET_PARAM - GET withoutParam / GET_NO_PARAM- GET with Params)
+     * @param dtoResponse 收到的Response
+     * @param param Request的參數值(非必要)
+     */
+    sendAPI(url: string, dtoResponse: any, param?: any) {
+        return this.getHttpService().sendHttpByPost(url, dtoResponse, param);
+    }
 
 
 
@@ -65,7 +74,7 @@ export class BaseComponent {
     }
 
     /**
-     * 設定 Request 的 Header & Body
+     * 設定 Request 的 Header & body
      * @param param Request的參數值放至body
      */
     setApiData(param?: any) {
@@ -73,17 +82,6 @@ export class BaseComponent {
         request.header = this.getShareDataService().getHeaderData();
         request.body = param;
         return request;
-    }
-
-    /**
-     * Api 發送
-     * @param url 發送URL
-     * @param sendType 發送方式(POST / GET_PARAM - GET withoutParam / GET_NO_PARAM- GET with Params)
-     * @param response 收到的Response
-     * @param param Request的參數值(非必要)
-     */
-    sendAPI<T>(url: string, response: T, param?: any) {
-        return this.getHttpService().sendHttpByPost(url, response, param);
     }
 
     /*******************

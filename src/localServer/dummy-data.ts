@@ -277,11 +277,76 @@ export class DummyData {
         }
     };
 
+    /*
+    // CB007-Composite API-營運量-第一層
+    // CB008-Composite API-營運量-存款餘額第二層
+    // CB009-Composite API-營運量-放款餘額第二層
+    // CB010-Composite API-營運量-進出口實績第二層
+    // CB011-Composite API-營運量-TMU額度第二層
+    */
+    assetsLibilites = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": [{
+            "customerId": "A111111112",
+            "deposit": "存款餘額",
+            "depositMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "depositBal": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
+            "loan": "放款餘額",
+            "loanMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "loanBal": ["5555", "4444", "3333", "2222", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999"],
+            "tradeFinance": "貿融餘額",
+            "tradeFinanceMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "tradeFinanceBal": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
+            "import": "進口實績",
+            "importMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "importAmt": ["5555", "4444", "3333", "2222", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999"],
+            "export": "出口實績",
+            "exportMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "exportAmt": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
+            "tmu": "TMU額度使用率",
+            "tmuMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "tmuUsage": ["0.0667", "0.0887", "0.0777", "0.0557", "0.0447", "0.0337", "0.0227", "0.0317", "0.0997", "0.0887", "0.0227", "0.0337", "0.0447"],
+            "mtm": "MTM額度使用率",
+            "mtmMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
+            "mtmUsage": ["0.0447", "0.0337", "0.0227", "0.0887", "0.0997", "0.0227", "0.0117", "0.0227", "0.0337", "0.0447", "0.0557", "0.0777", "0.0887"],
+        }]
+    }
+
     // CB012-Composite API-基本資訊-公司資訊第一層
+    company = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId": "A11111112",
+            "approvalGrade": "5+",
+            "rorwa": "1.34",
+            "raroc": "1.58",
+            "totalRelAssetBal": "222.33",
+            "totalRelCreditLimit": "151542",
+            "totalRelLiabilitiesBal": "8978789.88",
+            "tcriLevel": "5"
+        }
+    }
+
     // CB013-Composite API-基本資訊-公司資訊第二層
     // CB028-Composite API-基本資訊-個人關聯戶第一層
     // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-    companyassociate = {
+    companyAssociate = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -306,7 +371,7 @@ export class DummyData {
     }
 
     // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
-    companyassociateassets = {
+    companyAssociateAssets = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -381,7 +446,10 @@ export class DummyData {
     // CB017-Composite API-基本資訊-集團資訊第二層
     // CB018-Composite API-基本資訊-經管資訊第一層
     // CB019-Composite API-基本資訊-經管資訊第二層
+    /*
     // CB020-Composite API-基本資訊-貢獻度第一層
+    // CB021-Composite API-基本資訊-貢獻度第二層
+    */
     contribution = {
         "header": {
             "apId": "CRMLXCRM01",
@@ -417,6 +485,7 @@ export class DummyData {
         }
     }
 
+<<<<<<< HEAD
     // CB007-Composite API-營運量-第一層
     assetslibilites = {
         "header": {
@@ -532,10 +601,12 @@ export class DummyData {
     // CB011-Composite API-營運量-TMU額度第二層
 
     // CB021-Composite API-基本資訊-貢獻度第二層
+=======
+>>>>>>> d2d303182659761122acca973a62cd18e52751e9
     // CB022-Composite API-基本資訊-訊息通知
 
 
-    getDummyData<T>(url: string, classType: any): Promise<{}> {
+    getDummyData(url: string, dtoResponse: any): Promise<any> {
         let returnData: any;
 
         switch (url) {
@@ -551,7 +622,7 @@ export class DummyData {
 
             // CB007-Composite API-基本資訊-營運量第一層
             case this.URL.PRODUCT_ASSETS_LIBILITIES:
-                returnData = this.assetslibilites
+                returnData = this.assetsLibilites
                 break;
             // CB008-Composite API-營運量-存款餘額第二層 
             case this.URL.PRODUCT_DEPOSIT_DETAIL:
@@ -571,33 +642,42 @@ export class DummyData {
                 break;
 
             // CB012-Composite API-基本資訊-公司資訊第一層
+            case this.URL.CUSTPROFILE_COMPANY:
+                returnData = this.company;
+                break;
+
             // CB013-Composite API-基本資訊-公司資訊第二層
             // CB028-Composite API-基本資訊-個人關聯戶第一層
             // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATE:
-                returnData = this.companyassociate;
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
+                returnData = this.companyAssociate;
                 break;
 
             // CB015-Composite API-基本資訊-個人關聯戶第二層(客戶資產負債)
-            case this.URL.CUSTPROFILE_COMPANYASSOCIATEASSETS:
-                returnData = this.companyassociateassets;
+            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
+                returnData = this.companyAssociateAssets;
                 break;
 
             // CB016-Composite API-基本資訊-集團資訊第一層
             // CB017-Composite API-基本資訊-集團資訊第二層
             // CB018-Composite API-基本資訊-經管資訊第一層
             // CB019-Composite API-基本資訊-經管資訊第二層
+
             // CB020-Composite API-基本資訊-貢獻度第一層
             case this.URL.CUSTPROFILE_CONTRIBUTION:
                 returnData = this.contribution;
                 break;
 
             // CB021-Composite API-基本資訊-貢獻度第二層
+            case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
+                returnData = this.contribution;
+                break;
+
             // CB022-Composite API-基本資訊-訊息通知
         }
 
         return new Promise((resolve, reject) => {
-            resolve(plainToClass(classType, returnData));
+            resolve(plainToClass(dtoResponse, returnData));
             reject();
         });
     }

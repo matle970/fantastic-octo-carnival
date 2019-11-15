@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../../../services/sidebar.service';
 import { onMainContentChange } from '../../animations/animations';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
+import { SidebarService } from 'src/app/services/sidebar.service';
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',

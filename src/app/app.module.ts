@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app.routing';
-import { CommonAreaModule } from './common-area/common-area.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -15,11 +14,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CompanyModule } from './customer/customer-child/customer-child.module';
 
 import { AppComponent } from './app.component';
-
-import { LogoComponent } from './common-area/logo/logo.component';
-import { UserComponent } from './common-area/user/user.component';
-import { TabsComponent } from './common-area/tabs/tabs.component';
-import { SearchIdComponent } from './common-area/search-id/search-id.component';
 
 import {CdkTableModule} from '@angular/cdk/table';
 
@@ -43,10 +37,18 @@ import { ColumnToggleComponent } from './dashboard/column-toggle/column-toggle.c
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
 import { AoIdentityService } from './objects/share-data/ao-identity-service';
 import { CustomerInfoService } from './objects/share-data/customer-info-service';
+import { ContentLayoutComponent } from './content-layout/content-layout.component';
+import { LogoComponent } from './content-layout/common-area/logo/logo.component';
+import { UserComponent } from './content-layout/common-area/user/user.component';
+import { TabsComponent } from './content-layout/common-area/tabs/tabs.component';
+import { SearchIdComponent } from './content-layout/common-area/search-id/search-id.component';
+import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
+import { CommonAreaModule } from './content-layout/common-area/common-area.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContentLayoutComponent,
     LogoComponent,
     UserComponent,
     TabsComponent,
@@ -54,7 +56,8 @@ import { CustomerInfoService } from './objects/share-data/customer-info-service'
     DashboardComponent,
     CustomerComponent,
     DialogComponent,
-    ColumnToggleComponent
+    ColumnToggleComponent,
+    TimeoutComponent
   ],
   imports: [
     SharedMaterialModule,

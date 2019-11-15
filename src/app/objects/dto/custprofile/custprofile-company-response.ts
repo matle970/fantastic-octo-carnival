@@ -5,5 +5,12 @@ export class Company {
     body: Body;
 }
 class Body {
-
+    customerId: string;
+    approvalGrade: string;
+    rorwa: string;
+    raroc: string;
+    totalRelAssetBal: string;
+    totalRelCreditLimit: string;
+    totalRelLiabilitiesBal: string;
+    tcriLevel: string;
 }

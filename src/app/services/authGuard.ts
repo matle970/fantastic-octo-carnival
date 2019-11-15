@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
+/**
+ * Jewel
+ * read session
+ * check session contain token, trustkey and via dashboard
+ * else return to route path ''
+ */
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-
     constructor(private router : Router){}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -23,7 +27,13 @@ export class AuthGuard implements CanActivate {
     }
     public isLoggedIn(): boolean{
         let status = false;
-        if( sessionStorage.getItem('token_id') != null && sessionStorage.getItem('is_allow') == 'true'){
+        let token = sessionStorage.getItem('token');
+        let trust = sessionStorage.getItem('trustKey');
+
+
+        if( //token != null && token != 'undefined' &&
+            trust != null && trust != 'undefined' &&
+            sessionStorage.getItem('is_allow') == 'true' ){
           status = true;
         }
         else{

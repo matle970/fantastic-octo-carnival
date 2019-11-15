@@ -6,8 +6,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AuthGuard } from './services/authGuard';
 
-// import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-
 
 const routes: Routes = [
   {

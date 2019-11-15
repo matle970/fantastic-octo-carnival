@@ -1,6 +1,6 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class Firstpage_ao_profile {
+export class AoProfile {
     header: CommonHeaderResponse;
     body: Body;
 }
