@@ -279,7 +279,7 @@ export class DummyData {
 
     /*
     // CB009-Composite API-營運量-放款餘額第二層
-    // CB010-Composite API-營運量-進出口實績第二層
+    
     // CB011-Composite API-營運量-TMU額度第二層
     */
     // CB007-Composite API-營運量-第一層
@@ -388,6 +388,36 @@ export class DummyData {
                     "isReverse": ""
                 }
             }]
+        }
+    }
+
+    // CB010-Composite API-營運量-進出口實績第二層
+    importExportDetail = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId":"A111111112",
+            "import":[
+                {
+                    "txnTypeDesc":"進口託收",
+                    "mon":["201812","201901","201902","201903","201904","201905","201906","201907","209108","201909"],
+                    "usdTxnAmt":["10000","10000","10000","10000","10000","10000","10000","10000","10000","10000"]
+                }
+            ],
+            "export":[
+                {
+                    "txnTypeDesc":"出口OA",
+                    "mon":["201812","201901","201902","201903","201904","201905","201906","201907","209108","201909"],
+                    "usdTxnAmt":["10000","10000","10000","10000","10000","10000","10000","10000","10000","10000"]
+                }
+            ]
         }
     }
 
@@ -556,10 +586,7 @@ export class DummyData {
         }
     }
 
-    // CB009-Composite API-營運量-放款餘額第二層
-    // CB010-Composite API-營運量-進出口實績第二層
-
-    // CB011-Composite API-營運量-TMU額度第二層
+   
 
     // CB021-Composite API-基本資訊-貢獻度第二層
     // CB022-Composite API-基本資訊-訊息通知
@@ -581,11 +608,11 @@ export class DummyData {
 
             // CB007-Composite API-基本資訊-營運量第一層
             case this.URL.PRODUCT_ASSETS_LIBILITIES:
-                returnData = this.assetsLibilites
+                returnData = this.assetsLibilites;
                 break;
             // CB008-Composite API-營運量-存款餘額第二層 
             case this.URL.PRODUCT_DEPOSIT_DETAIL:
-
+                returnData = this.depositDetail;
                 break;
             // CB009-Composite API-營運量-放款餘額第二層
             case this.URL.PRODUCT_LOAN_DETAIL:
@@ -593,7 +620,7 @@ export class DummyData {
                 break;
             // CB010-Composite API-營運量-進出口實績第二層
             case this.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
-
+                returnData = this.importExportDetail;
                 break;
             // CB011-Composite API-營運量-TMU額度第二層
             case this.URL.PRODUCT_TMU_DETAIL:
