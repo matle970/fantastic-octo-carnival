@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../base/base-component';
+import { BaseComponent } from '../base/base.component';
 import { AoProfile } from '../objects/dto/firstpage/firstpage-aoProfile-response';
 import { SidebarService } from '../services/sidebar.service';
 import { AoIdentityService } from '../objects/share-data/ao-identity-service';
