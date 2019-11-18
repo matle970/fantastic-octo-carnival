@@ -3,7 +3,7 @@ import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angu
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { getSortedData } from './service/customSort';
-import { BaseComponent } from '../base/base-component';
+import { BaseComponent } from '../base/base.component';
 import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { AoIdentityService } from '../objects/share-data/ao-identity-service';
 import { CustomerInfoService } from '../objects/share-data/customer-info-service';

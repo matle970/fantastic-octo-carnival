@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AuthGuard } from './services/authguard.service';
-import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
+import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { AuthTimeout } from './services/authTimeout.service';
 

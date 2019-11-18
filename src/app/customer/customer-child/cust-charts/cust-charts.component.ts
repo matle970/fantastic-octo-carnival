@@ -3,7 +3,7 @@ import { ChartComponent } from 'ng-apexcharts';
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
-import { BaseComponent } from 'src/app/base/base-component';
+import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { AssetsLibilites } from 'src/app/objects/dto/product/product-assetsLibilites-response';

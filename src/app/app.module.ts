@@ -42,7 +42,7 @@ import { LogoComponent } from './content-layout/common-area/logo/logo.component'
 import { UserComponent } from './content-layout/common-area/user/user.component';
 import { TabsComponent } from './content-layout/common-area/tabs/tabs.component';
 import { SearchIdComponent } from './content-layout/common-area/search-id/search-id.component';
-import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
+import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { CommonAreaModule } from './content-layout/common-area/common-area.module';
 
 @NgModule({

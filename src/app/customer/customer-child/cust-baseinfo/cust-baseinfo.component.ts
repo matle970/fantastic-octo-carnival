@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
-import { BaseComponent } from 'src/app/base/base-component';
+import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import {
     ChartComponent,
@@ -130,6 +130,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     ngOnInit() {
         // this.sendRquest();
+        console.log('baseinfo',this)
     }
 
     sendRquest() {
