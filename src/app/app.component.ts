@@ -7,24 +7,32 @@ import { MatDialog } from '@angular/material';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
+
     minute = 10;    //timeout minute
-    time = this.minute*60000;
+    time = this.minute * 60000;
     timeout = false;
+
     /**
      * Jewel
      * setting timeout for 10 minutes
-     * if timeout 
-     * then clear session and redirect to timeout component 
+     * if timeout, clear session and redirect to timeout component 
      */
-    constructor(private injector: Injector, private router: Router, private dialog: MatDialog){
+    constructor(
+        private injector: Injector,
+        private router: Router,
+        private dialog: MatDialog) {
+
+    }
+    
+    ngOnInit() {
         setTimeout(() => {
             this.timeout = true;
             sessionStorage.clear();
             this.dialog.closeAll();
             this.router.navigate(['timeout']);
-          }, this.time
+        }, this.time
         );
     }
-    ngOnInit() {}
 }
