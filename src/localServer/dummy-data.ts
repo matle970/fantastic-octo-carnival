@@ -505,7 +505,7 @@ export class DummyData {
             {
               "id": "n001",
               "papaer": "經濟日報",
-              "date": "2019-11-05",
+              "date": "2019-11-05",
               "title": "台積電揮別谷底開盤價歷史",
               "tag": "+",
               "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
@@ -513,7 +513,7 @@ export class DummyData {
             {
               "id": "n002",
               "papaer": "經濟日報",
-              "date": "2019-11-02",
+              "date": "2019-11-02",
               "title": "台積電揮別谷底開盤價歷史",
               "tag": "-",
               "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
@@ -521,7 +521,7 @@ export class DummyData {
             {
               "id": "n003",
               "papaer": "經濟日報",
-              "date": "2019-10-30",
+              "date": "2019-10-30",
               "title": "台積電揮別谷底開盤價歷史",
               "tag": "+",
               "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
@@ -548,17 +548,17 @@ export class DummyData {
                   "bank": "國泰世華",
                   "valChange": "+100",
                   "totalChange": "+100"
-              },
+              },
               {
                 "bank": "富邦銀行",
                 "valChange": "-100",
                 "totalChange": "-100"
-              },
+              },
               {
                 "bank": "玉山銀行",
                 "valChange": "0",
                 "totalChange": "0"
-              }
+              }
           ]
       }
   }
