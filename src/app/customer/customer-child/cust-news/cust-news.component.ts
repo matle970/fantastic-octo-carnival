@@ -20,13 +20,13 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
   // dataSource = ELEMENT_DATA;
 
   // 新聞列表
-  newsSources: Array = [];
+  newsSources: Array<any> = [];
 
   bankColumns = ['bank', 'valChange',  'totalChange'];
 
   // 銀行列表
   // bankSource = BANK_DATA;
-  bankSource: Array =[];
+  bankSource: Array<any> =[];
 
   urlList = [
     {
