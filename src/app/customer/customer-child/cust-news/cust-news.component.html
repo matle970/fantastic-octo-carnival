@@ -13,11 +13,11 @@
       </h4>
 
       <div class="news-container mt-2">
-          <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="dataSource">
+          <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="newsSources">
 
             <ng-container matColumnDef="date">
               <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 要點新聞</th>
-              <td class="text-left" mat-cell *matCellDef="let element"> {{element.date}} </td>
+              <td class="text-left" mat-cell *matCellDef="let element"> {{element.date | date : 'MM/dd'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="tag">
@@ -63,18 +63,18 @@
               </ng-container>
 
 
-              <ng-container matColumnDef="mount">
+              <ng-container matColumnDef="valChange">
                   <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 額度變動</th>
-                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.total == 0}">
-                    {{element.mount}}
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.valChange == 0}">
+                    {{element.valChange}}
                   </td>
               </ng-container>
 
 
-              <ng-container matColumnDef="total">
+              <ng-container matColumnDef="totalChange">
                   <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 餘額變動</th>
-                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.total == 0}">
-                    {{element.total}}
+                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.totalChange == 0}">
+                    {{element.totalChange}}
                   </td>
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="bankColumns; sticky: true"></tr>

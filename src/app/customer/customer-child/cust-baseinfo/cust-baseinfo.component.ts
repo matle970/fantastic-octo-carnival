@@ -130,6 +130,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     ngOnInit() {
         // this.sendRquest();
+        console.log('baseinfo',this)
     }
 
     sendRquest() {
