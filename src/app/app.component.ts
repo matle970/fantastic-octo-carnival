@@ -28,11 +28,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         sessionStorage.setItem('isTimeout', 'N');
-        //     this.timeout = true;
-        //     sessionStorage.clear();
-        //     this.dialog.closeAll();
-        //     this.router.navigate(['timeout']);
-        // }, this.time
-        // );
+        setTimeout(() => {
+            this.timeout = true;
+            sessionStorage.clear();
+            this.dialog.closeAll();
+            this.router.navigate(['timeout']);
+        }, this.time);
     }
 }
