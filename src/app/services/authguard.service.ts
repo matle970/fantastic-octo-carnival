@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 /**
  * Jewel
@@ -8,6 +8,7 @@ import { CanActivate, CanActivateChild, Router, ActivatedRouteSnapshot, RouterSt
  * else return to route path ''
  */
 @Injectable()
+
 export class AuthGuard implements CanActivate {
     constructor(private router : Router){}
 
@@ -18,13 +19,14 @@ export class AuthGuard implements CanActivate {
 
     verifyLogin(url) : boolean{
         if(!this.isLoggedIn()){
-            this.router.navigate(['']);
+            this.router.navigate(['/content/dashboard']);
             return false;
         }
         else if(this.isLoggedIn()){
             return true;
         }
     }
+
     public isLoggedIn(): boolean{
         let status = false;
         let token = sessionStorage.getItem('token');
