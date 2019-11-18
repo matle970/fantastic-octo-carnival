@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
     }
     
     ngOnInit() {
+        sessionStorage.setItem('isTimeout', 'N');
         setTimeout(() => {
             this.timeout = true;
             sessionStorage.clear();

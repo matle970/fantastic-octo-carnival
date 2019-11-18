@@ -7,21 +7,24 @@ import { CustomerComponent } from './customer/customer.component';
 import { AuthGuard } from './services/authguard.service';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
+import { AuthTimeout } from './services/authTimeout.service';
 
 const AppRoutes: Routes = [
     {
         path: 'content',
         component: ContentLayoutComponent,
+        canActivate: [AuthTimeout],
         children: [
             {
                 path: 'dashboard',
                 component: DashboardComponent,
                 // canActivate: [AuthGuard]
+                canActivate: [AuthTimeout]
             },
             {
                 path: 'customer',
                 component: CustomerComponent,
-                canActivate: [AuthGuard]
+                canActivate: [AuthGuard, AuthTimeout],
             },
             {
                 path: '**',
@@ -52,7 +55,8 @@ const AppRoutes: Routes = [
         RouterModule
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
+        AuthTimeout
     ]
 })
 
