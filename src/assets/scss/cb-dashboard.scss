@@ -1,9 +1,15 @@
 /*
-** style A
+**
 **
 **
 */
- @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// material design change to cathy green color
+@import "material/cathy-green";
+
+// for ie support 
+@import "material/material-icon";
+
 
  @import "core/variables";
  @import "core/mixins";
@@ -50,6 +56,7 @@
 //  @import "core/responsive";
 @import "core/utilities";
 @import "core/global";
-
+@import "core/dialog";
+@import "core/loading";
 
 @import "core/angular-modal.scss";
