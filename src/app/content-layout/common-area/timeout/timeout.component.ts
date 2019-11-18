@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { BaseComponent } from "src/app/base/base.component";
 
 @Component({
@@ -7,7 +7,11 @@ import { BaseComponent } from "src/app/base/base.component";
     styleUrls: ['./timeout.component.scss']
 })
 
-export class TimeoutComponent extends BaseComponent {
-  msg = '網頁已失效，請重新開啟！';
+export class TimeoutComponent extends BaseComponent implements OnInit {
+    msg = '網頁已失效，請重新開啟！';
+
+    ngOnInit() {
+        sessionStorage.setItem('isTimeout', 'Y');
+    }
 }
 
