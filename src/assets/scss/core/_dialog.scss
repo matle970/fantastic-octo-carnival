@@ -1,0 +1,50 @@
+
+// 跳出視窗的風格
+
+
+// 關鍵提醒的寬度設定
+.all-notice-dialog {
+  .mat-dialog-container{
+    width: 90vw !important;
+    max-width: 900px !important;
+    min-width: 600px !important;
+  }
+}
+
+
+.open-table-wide {
+  .mat-dialog-container{
+    width: 90vw !important;
+    max-width: 1300px !important;
+    min-width: 600px !important;
+  }
+}
+
+
+.open-table-narrow {
+  .mat-dialog-container{
+    width: 80vw !important;
+    max-width: 950px !important;
+    min-width: 600px !important;
+  }
+}
+
+@media screen and (min-width:900) and (max-width:1400) {
+  .open-table-wide {
+    .mat-dialog-container{
+      width: 90vw !important;
+      max-width: 1300px !important;
+      min-width: 600px !important;
+    }
+  }
+}
+
+@media screen and (min-width:1401) and (max-width:2000) {
+  .open-table-wide {
+    .mat-dialog-container{
+      width: 90vw !important;
+      max-width: 1400px !important;
+      min-width: 1300px !important;
+    }
+  }
+}
