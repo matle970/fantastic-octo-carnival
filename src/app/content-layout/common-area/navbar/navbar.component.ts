@@ -29,6 +29,8 @@ export class NavbarComponent implements OnInit {
       private _sidebarService: SidebarService) {
       this.location = location;
       this.sidebarVisible = false;
+      
+      this.listTitles = ROUTES.filter(listTitle => listTitle);
       router.events.subscribe((val) => {
         // see also
         // console.log(val);
@@ -38,7 +40,6 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit(){
-      this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
 
       // setTimeout(() => {
@@ -93,6 +94,7 @@ export class NavbarComponent implements OnInit {
           titlee = titlee.slice( 1 );
       }
       // console.log(titlee);
+      console.log('listTitles: ' , this.listTitles);
       for(var item = 0; item < this.listTitles.length; item++){
         // console.log(this.listTitles[item].path);
         // tslint:disable-next-line: prefer-const
