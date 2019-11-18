@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     /**
      * Jewel
      * setting timeout for 10 minutes
-     * if timeout, clear session and redirect to timeout component 
+     * if timeout, clear session and redirect to timeout component
      */
     constructor(
         private injector: Injector,
@@ -25,14 +25,14 @@ export class AppComponent implements OnInit {
         private dialog: MatDialog) {
 
     }
-    
+
     ngOnInit() {
-        setTimeout(() => {
-            this.timeout = true;
-            sessionStorage.clear();
-            this.dialog.closeAll();
-            this.router.navigate(['timeout']);
-        }, this.time
-        );
+        // setTimeout(() => {
+        //     this.timeout = true;
+        //     sessionStorage.clear();
+        //     this.dialog.closeAll();
+        //     this.router.navigate(['timeout']);
+        // }, this.time
+        // );
     }
 }
