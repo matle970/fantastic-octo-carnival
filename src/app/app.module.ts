@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -15,7 +15,7 @@ import { CompanyModule } from './customer/customer-child/customer-child.module';
 
 import { AppComponent } from './app.component';
 
-import {CdkTableModule} from '@angular/cdk/table';
+import { CdkTableModule } from '@angular/cdk/table';
 
 import { SharedMaterialModule } from './objects/shared-material/shared-material.module';
 
@@ -46,50 +46,51 @@ import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-c
 import { CommonAreaModule } from './content-layout/common-area/common-area.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ContentLayoutComponent,
-    LogoComponent,
-    UserComponent,
-    TabsComponent,
-    SearchIdComponent,
-    DashboardComponent,
-    CustomerComponent,
-    DialogComponent,
-    ColumnToggleComponent,
-    TimeoutComponent
-  ],
-  imports: [
-    SharedMaterialModule,
-    CdkTableModule,
-    // tslint:disable-next-line: deprecation
-    HttpModule,
-    HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonAreaModule,
-    CompanyModule,
-    IconSvgModule,
-    DialogContentModule,
-    AppRoutingModule,
-    RouterModule,
-    SharedItemModule
-  ],
-  providers: [
-    EnvServiceProvider,
-    SidebarService,
-    ModalService,
-    DatePipe,
-    AoIdentityService,
-    CustomerInfoService
-  ],
-  entryComponents: [DialogComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ContentLayoutComponent,
+        LogoComponent,
+        UserComponent,
+        TabsComponent,
+        SearchIdComponent,
+        DashboardComponent,
+        CustomerComponent,
+        DialogComponent,
+        ColumnToggleComponent,
+        TimeoutComponent
+    ],
+    imports: [
+        SharedMaterialModule,
+        CdkTableModule,
+        // tslint:disable-next-line: deprecation
+        HttpModule,
+        HttpClientModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonAreaModule,
+        CompanyModule,
+        IconSvgModule,
+        DialogContentModule,
+        AppRoutingModule,
+        RouterModule,
+        SharedItemModule
+    ],
+    providers: [
+        EnvServiceProvider,
+        SidebarService,
+        ModalService,
+        DatePipe,
+        AoIdentityService,
+        CustomerInfoService
+    ],
+    entryComponents: [DialogComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-    InjectService.injector = this.injector;
-  }
- }
+    constructor(
+        private injector: Injector) {
+        InjectService.injector = this.injector;
+    }
+}

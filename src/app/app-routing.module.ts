@@ -8,16 +8,7 @@ import { AuthGuard } from './services/authguard.service';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout-component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 
-const routes: Routes = [
-    {
-        path: 'timeout',
-        component: TimeoutComponent
-    },
-    {
-        path: '',
-        redirectTo: 'content/dashboard',
-        pathMatch: 'full',
-    },
+const AppRoutes: Routes = [
     {
         path: 'content',
         component: ContentLayoutComponent,
@@ -31,17 +22,29 @@ const routes: Routes = [
                 path: 'customer',
                 component: CustomerComponent,
                 canActivate: [AuthGuard]
+            },
+            {
+                path: '**',
+                redirectTo: 'dashboard',
+                pathMatch: 'full',
             }
         ]
+    },
+    {
+        path: 'timeout',
+        component: TimeoutComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'content',
+        pathMatch: 'full',
     }
-
 ];
-
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
-        RouterModule.forRoot(routes, {
+        RouterModule.forRoot(AppRoutes, {
             useHash: false
         })
     ],
