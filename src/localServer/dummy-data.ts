@@ -333,9 +333,9 @@ export class DummyData {
             "customerId": "A111111112",
             "assets": {
                 "ntdAssets": {
-                    "sd": "1111",
-                    "td": "2222",
-                    "cd": "3333"
+                    "sd": "3333",
+                    "td": "1111",
+                    "cd": "2222"
                 },
                 "fxAssets": {
                     "sd": "1111",
@@ -354,18 +354,32 @@ export class DummyData {
                 }
             },
             "sdDetail": [{
-                "acctNbr": "",
-                "currencyCode": "",
-                "fxCurrentBal": "",
-                "ntdCurrentBal": "",
-                "currentIntRate": "",
-                "ftpRate": "",
+                "acctNbr": "2282-441-025866",
+                "currencyCode": "美美金",
+                "fxCurrentBal": "11",
+                "ntdCurrentBal": "22",
+                "currentIntRate": "1",
+                "ftpRate": "2",
                 "sdRemark": {
-                    "accBranchCode": "",
-                    "payrollCodeDtl": "",
+                    "accBranchCode": "信義分行",
+                    "payrollCodeDtl": "薪轉行",
                     "isTrust": "",
                     "isSecurities": "",
-                    "isRevers": ""
+                    "isReverse": "備償戶"
+                }
+            }, {
+                "acctNbr": "1234-441-654321",
+                "currencyCode": "台幣",
+                "fxCurrentBal": "22",
+                "ntdCurrentBal": "11",
+                "currentIntRate": "2",
+                "ftpRate": "1",
+                "sdRemark": {
+                    "accBranchCode": "台北分行",
+                    "payrollCodeDtl": "薪轉行",
+                    "isTrust": "",
+                    "isSecurities": "",
+                    "isReverse": "備償戶"
                 }
             }],
             "tdDetail": [{
@@ -379,13 +393,31 @@ export class DummyData {
                 "tdDueDate": ""
             }],
             "cdDetail": [{
-                "acctNbr": "",
-                "ntdCurrentBal": "",
+                "acctNbr": "4444-441-025866",
+                "ntdCurrentBal": "1234",
                 "cdRemark": {
-                    "dishY3ChkCnt": "",
-                    "dishCancelY3ChkCnt": "",
-                    "rejectedStatusInd": "",
-                    "isReverse": ""
+                    "dishY3ChkCnt": "5",
+                    "dishCancelY3ChkCnt": "2",
+                    "rejectedStatusInd": "Y",
+                    "isReverse": "備償戶"
+                }
+            }, {
+                "acctNbr": "2222-333-567890",
+                "ntdCurrentBal": "4321",
+                "cdRemark": {
+                    "dishY3ChkCnt": "2",
+                    "dishCancelY3ChkCnt": "5",
+                    "rejectedStatusInd": "N",
+                    "isReverse": "備償戶"
+                }
+            }, {
+                "acctNbr": "1111-555-987654",
+                "ntdCurrentBal": "7896",
+                "cdRemark": {
+                    "dishY3ChkCnt": "6",
+                    "dishCancelY3ChkCnt": "3",
+                    "rejectedStatusInd": "Y",
+                    "isReverse": "備償戶"
                 }
             }]
         }
@@ -403,19 +435,19 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerId":"A111111112",
-            "import":[
+            "customerId": "A111111112",
+            "import": [
                 {
-                    "txnTypeDesc":"進口託收",
-                    "mon":["201812","201901","201902","201903","201904","201905","201906","201907","209108","201909"],
-                    "usdTxnAmt":["10000","10000","10000","10000","10000","10000","10000","10000","10000","10000"]
+                    "txnTypeDesc": "進口託收",
+                    "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
+                    "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
                 }
             ],
-            "export":[
+            "export": [
                 {
-                    "txnTypeDesc":"出口OA",
-                    "mon":["201812","201901","201902","201903","201904","201905","201906","201907","209108","201909"],
-                    "usdTxnAmt":["10000","10000","10000","10000","10000","10000","10000","10000","10000","10000"]
+                    "txnTypeDesc": "出口OA",
+                    "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
+                    "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
                 }
             ]
         }
@@ -586,7 +618,7 @@ export class DummyData {
         }
     }
 
-   
+
 
     // CB021-Composite API-基本資訊-貢獻度第二層
     // CB022-Composite API-基本資訊-訊息通知

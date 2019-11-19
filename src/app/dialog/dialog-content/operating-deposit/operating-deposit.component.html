@@ -24,34 +24,34 @@
                   <tbody>
                    <tr>
                      <td>新台幣</td>
-                     <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
-                     <td class="text-right">0</td>
-                     <td class="text-right">-</td>
-                     <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ ntdAssets.sd | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ ntdAssets.td | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ ntdAssets.cd | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
                    </tr>
 
                    <tr>
                       <td>外幣(折台)</td>
-                      <td class="text-right">{{ 0 | currency:'':'':'1.0-0' }}</td>
-                      <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
-                      <td class="text-right">-</td>
-                      <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ fxAssets.sd | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ fxAssets.td | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ fxAssets.cd | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
                     </tr>
                   </tbody>
                   <tfoot>
                       <tr class="bg-light font-weigh-bolder">
                           <td>合計(新台幣)</td>
-                          <td class="text-right">{{ 3562 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 4138 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">-</td>
-                          <td class="text-right">{{ 7700 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ sumAssets.sd | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ sumAssets.td | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ sumAssets.cd | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
                       </tr>
                       <tr class="bg-light">
                           <td>近6個月平均積數</td>
-                          <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">-</td>
-                          <td class="text-right">{{ 2000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ r6mthAvgBal.sd | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ r6mthAvgBal.td | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ r6mthAvgBal.cd | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
                       </tr>
                   </tfoot>
                 </table>
@@ -87,21 +87,23 @@
                       <th class="text-center">備註</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngFor="let item of sdDetail">
                    <tr>
-                     <td>0082-441-025866</td>
-                     <td>美金 </td>
-                     <td class="text-right">0</td>
-                     <td class="text-right">xx</td>
-                     <td class="text-right">xx</td>
-                     <td class="text-right">xx</td>
+                     <td>{{item.acctNbr}}</td>
+                     <td>{{item.currencyCode}}</td>
+                     <td class="text-right">{{item.fxCurrentBal}}</td>
+                     <td class="text-right">{{item.ntdCurrentBal}}</td>
+                     <td class="text-right">{{item.currentIntRate}}</td>
+                     <td class="text-right">{{item.ftpRate}}</td>
                      <td class="text-center">2019/04/01</td>
                      <td class="text-center">2019/06/30</td>
                      <td class="text-center">xxx</td>
-                     <td class="text-center">信義分行｜薪轉行｜備償戶</td>
+                     <td class="text-center">
+                       {{item.sdRemark.accBranchCode}} | {{item.sdRemark.payrollCodeDtl}} | {{item.sdRemark.isReverse}}
+                     </td>
                    </tr>
 
-                   <tr>
+                   <!-- <tr>
                       <td>0082-940-025866</td>
                       <td>台幣 </td>
                       <td class="text-right">0</td>
@@ -112,7 +114,7 @@
                       <td class="text-center">2019/06/30</td>
                       <td class="text-center"> xxx</td>
                       <td class="text-center">淡水分行｜信託行</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
           </div>
@@ -138,17 +140,17 @@
                       <th  class="text-center">備註</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngFor = "let item of cdDetail">
                    <tr>
-                     <td>0082-441-025866</td>
-                     <td class="text-right">{{ 1230 | currency:'':'':'1.0-0' }}</td>
-                     <td class="text-center">信義分行｜薪轉行｜備償戶</td>
+                     <td>{{ item.acctNbr }}</td>
+                     <td class="text-right">{{ item.ntdCurrentBal }}</td>
+                     <td class="text-center">{{ item.cdRemark.dishY3ChkCnt }}｜{{ item.cdRemark.dishCancelY3ChkCnt }}｜{{item.cdRemark.rejectedStatusInd }} | {{ item.cdRemark.isReverse }}</td>
                    </tr>
-                   <tr>
+                   <!-- <tr>
                       <td>0082-441-025867</td>
                       <td class="text-right">{{ 560 | currency:'':'':'1.0-0' }}</td>
                       <td> </td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
           </div>
