@@ -17,8 +17,8 @@ export class BaseComponent {
 
     // URLs
     URL = require('src/app/objects/url/url.json');
-    // title
-    TITLE = require('src/app/objects/text/title.json');
+    // text
+    TEXT = require('src/app/objects/text/text.json');
 
     /**
     * 使用promise方式非同步發送請求

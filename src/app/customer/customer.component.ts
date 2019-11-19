@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BaseComponent } from 'src/app/base/base-component';
+import { BaseComponent } from 'src/app/base/base.component';
 import { CustomerInfoService } from '../objects/share-data/customer-info-service';
 
 @Component({

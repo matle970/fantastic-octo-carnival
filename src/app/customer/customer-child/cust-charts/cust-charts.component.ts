@@ -3,7 +3,7 @@ import { ChartComponent } from 'ng-apexcharts';
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
-import { BaseComponent } from 'src/app/base/base-component';
+import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { DummyData } from 'src/localServer/dummy-data';
@@ -92,7 +92,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     // }
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
-    assetsLibilitiesTitle = this.TITLE.assetsLibilities;
+    assetsLibilitiesText = this.TEXT.assetsLibilities;
 
     //圖表資訊 - 存款
     DepositData = {

@@ -1,29 +1,86 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
 
 import { ModalService } from 'src/app/services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { BaseComponent } from 'src/app/base/base.component';
 
+import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
+import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
+import { plainToClass } from 'class-transformer';
 
 @Component({
   selector: 'app-cust-news',
   templateUrl: './cust-news.component.html',
   styleUrls: ['./cust-news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent  extends BaseComponent  implements OnInit {
 
   displayedColumns = ['date', 'tag', 'title'];
-  dataSource = ELEMENT_DATA;
+  // dataSource = ELEMENT_DATA;
 
-  bankColumns = ['bank', 'mount',  'total'];
-  bankSource = BANK_DATA;
+  // 新聞列表
+  newsSources: Array<any> = [];
+
+  bankColumns = ['bank', 'valChange',  'totalChange'];
+
+  // 銀行列表
+  // bankSource = BANK_DATA;
+  bankSource: Array<any> =[];
+
+  urlList = [
+    {
+        'url': this.URL.NEWS_NEWS_DETAIL,
+        'dtoResponse': CompanyNews
+    },
+    {
+        'url': this.URL.NEWS_BANKS,
+        'dtoResponse': NewsBanklist
+    },
+  ]
 
 
-  constructor(private modalService: ModalService, public dialog: MatDialog) { }
+  constructor(private modalService: ModalService, public dialog: MatDialog) {
+    super();
+  }
 
 
   ngOnInit() {
+    this.sendRquest();
   }
+
+  sendRquest() {
+    for (let i = 0; i < this.urlList.length; i++) {
+      super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
+          console.log('news data', data);
+          if (data.header.returnCode === '0000') {
+              this.dataProcess(data, this.urlList[i].url);
+          }
+      }, (err) => {
+
+
+      });
+    }
+
+  }
+
+  dataProcess(data:any, url: string) {
+
+    switch (url) {
+      case this.URL.NEWS_NEWS_DETAIL:
+        this.newsSources = data.body.newsList;
+        break;
+
+      case this.URL.NEWS_BANKS:
+        this.bankSource = data.body.banksList;
+        break;
+    }
+
+    console.log('after',this)
+
+  }
+
+
 
   openDialog(modalId: number) {
     const openId = modalId ;
@@ -55,39 +112,3 @@ export class NewsComponent implements OnInit {
   }
 
 }
-
-
-export interface PeriodicElement {
-  date: string;
-  tag: string;
-  title: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {date: '06/18', tag: '+', title: '台積電揮別谷底開盤價歷史'},
-  {date: '06/18', tag: '-', title: '台積電法說會後外資調高'},
-  {date: '06/18', tag: '10', title: '張忠謀領導心法相信台積電'},
-  {date: '06/18', tag: '15', title: '台積電揮別谷底開盤價歷史'},
-  {date: '06/18', tag: '-', title: '台積電法說會後外資調高'},
-  {date: '06/18', tag: '+', title: '張忠謀領導心法相信台積電'},
-  {date: '06/18', tag: '-', title: '台積電揮別谷底開盤價歷史'},
-  {date: '06/18', tag: '3', title: '台積電法說會後外資調高'},
-  {date: '06/18', tag: '+', title: '張忠謀領導心法相信台積電'},
-  {date: '06/18', tag: '+', title: '台積電法說會後外資調高'},
-];
-
-export interface BankElement {
-  bank: string;
-  mount: string;
-  total: string;
-}
-
-
-const BANK_DATA: BankElement[] = [
-  {bank: '國泰世華',  mount: '+ 100', total: '+ 100'},
-  {bank: '台北富邦',  mount: '- 100', total: '- 100'},
-  {bank: '花旗銀行',  mount: '0', total: '0'},
-  {bank: '台灣銀行',  mount: '-100', total: '-100'},
-  {bank: '台新銀行',  mount: '0', total: '0'},
-];
-
