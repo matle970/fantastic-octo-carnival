@@ -4,7 +4,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { DummyData } from 'src/localServer/dummy-data';
 import { DialogComponent } from '../../../dialog/dialog.component';
 
-import { BaseComponent } from 'src/app/base/base-component';
+import { BaseComponent } from 'src/app/base/base.component';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { DepositDetail } from 'src/app/objects/dto/product/product-depositDetail-response'
 import { from } from 'rxjs';
