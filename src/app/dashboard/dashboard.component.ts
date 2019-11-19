@@ -5,8 +5,8 @@ import { IndexTableElement, DashboardDataService } from './service/dashboard-dat
 import { getSortedData } from './service/customSort';
 import { BaseComponent } from '../base/base.component';
 import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
-import { AoIdentityService } from '../objects/share-data/ao-identity-service';
-import { CustomerInfoService } from '../objects/share-data/customer-info-service';
+import { AoIdentityService } from '../common-services/ao-identity.service';
+import { CustomerInfoService } from '../common-services/customerid.service';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
