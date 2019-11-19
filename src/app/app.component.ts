@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
 
     minute = 10;    //timeout minute
     time = this.minute * 60000;
-    timeout = false;
 
     /**
      * Jewel
@@ -29,7 +28,6 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         sessionStorage.setItem('isTimeout', 'N');
         setTimeout(() => {
-            this.timeout = true;
             sessionStorage.clear();
             this.dialog.closeAll();
             this.router.navigate(['timeout']);

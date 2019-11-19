@@ -9,37 +9,38 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
  */
 @Injectable()
 
-export class AuthGuard implements CanActivate {
-    constructor(private router : Router){}
+export class RoutungGuard implements CanActivate {
+
+    constructor(private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let url: string = state.url;  
+        let url: string = state.url;
         return this.verifyLogin(url);
     }
 
-    verifyLogin(url) : boolean{
-        if(!this.isLoggedIn()){
-            this.router.navigate(['/content/dashboard']);
+    verifyLogin(url): boolean {
+        if (!this.isLoggedIn()) {
+            this.router.navigate(['/timeout']);
             return false;
         }
-        else if(this.isLoggedIn()){
+        else if (this.isLoggedIn()) {
             return true;
         }
     }
 
-    public isLoggedIn(): boolean{
+    isLoggedIn(): boolean {
         let status = false;
         let token = sessionStorage.getItem('token');
-        let trust = sessionStorage.getItem('trustKey');
+        let trustkey = sessionStorage.getItem('trustKey');
 
 
-        if( //token != null && token != 'undefined' &&
-            trust != null && trust != 'undefined' &&
-            sessionStorage.getItem('is_allow') == 'true' ){
-          status = true;
+        if ( //token !== null && token !== 'undefined' &&
+            trustkey !== null && trustkey !== 'undefined' &&
+            sessionStorage.getItem('is_allow') === 'true') {
+            status = true;
         }
-        else{
-          status = false;
+        else {
+            status = false;
         }
         return status;
     }

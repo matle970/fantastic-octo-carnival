@@ -4,27 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
-import { AuthGuard } from './services/authguard.service';
+import { RoutungGuard } from './services/routing-guard.service';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
-import { AuthTimeout } from './services/authTimeout.service';
+import { RoutingTimeout } from './services/routing-timeout.service';
 
 const AppRoutes: Routes = [
     {
         path: 'content',
         component: ContentLayoutComponent,
-        canActivate: [AuthTimeout],
         children: [
             {
                 path: 'dashboard',
                 component: DashboardComponent,
-                // canActivate: [AuthGuard]
-                canActivate: [AuthTimeout]
+                // canActivate: [RoutungGuard]
+                canActivate: [RoutingTimeout]
             },
             {
                 path: 'customer',
                 component: CustomerComponent,
-                canActivate: [AuthGuard, AuthTimeout],
+                canActivate: [RoutungGuard, RoutingTimeout],
             },
             {
                 path: '**',
@@ -55,8 +54,8 @@ const AppRoutes: Routes = [
         RouterModule
     ],
     providers: [
-        AuthGuard,
-        AuthTimeout
+        RoutungGuard,
+        RoutingTimeout
     ]
 })
 

@@ -82,7 +82,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     // }
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
-    assetsLibilitiesTitle = this.TITLE.assetsLibilities;
+    assetsLibilitiesText = this.TEXT.assetsLibilities;
 
     //圖表資訊 - 存款
     DepositData = {

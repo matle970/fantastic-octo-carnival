@@ -8,7 +8,11 @@ import { BaseComponent } from "src/app/base/base.component";
 })
 
 export class TimeoutComponent extends BaseComponent implements OnInit {
-    msg = '網頁已失效，請重新開啟！';
+
+    // text
+    TEXT = require('src/app/objects/text/text.json');
+
+    msg = this.TEXT.timeout;
 
     ngOnInit() {
         sessionStorage.setItem('isTimeout', 'Y');

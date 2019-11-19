@@ -41,7 +41,7 @@ export class FilterComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('change',changes);
+    // console.log('change',changes);
     // this.firstKeyChange = changes['keyword'].firstChange;
     // this.lastKeyword = changes['keyword'].previousValue;
 

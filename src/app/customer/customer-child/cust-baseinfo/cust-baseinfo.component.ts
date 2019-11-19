@@ -245,7 +245,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     contributionLastYearTotal: number; // 貢獻度去年累計
     contributionThisYearTotal: number; // 貢獻度去年累計
     // contributionObj: any; // 貢獻度的資料 for dialog
-    contributionTitle = this.TITLE.contribution;
+    contributionText = this.TEXT.contribution;
 
     // 圖表資訊
     chartData = {
@@ -312,7 +312,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
             }
         ],
         xaxis: {
-            categories: this.contributionTitle,
+            categories: this.contributionText,
             labels: {
                 style: {
                     fontSize: '14px',
