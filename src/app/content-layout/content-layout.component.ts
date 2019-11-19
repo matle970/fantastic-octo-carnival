@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { AoProfile } from '../objects/dto/firstpage/firstpage-aoProfile-response';
-import { SidebarService } from '../services/sidebar.service';
+import { SidebarService } from '../common-services/sidebar.service';
 import { AoIdentityService } from '../objects/share-data/ao-identity-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { onMainContentChange } from './common-area/animations/animations';

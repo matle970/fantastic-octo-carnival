@@ -4,10 +4,10 @@ import { Injectable } from "@angular/core";
 export class CustomerInfoService {
     private _customerId: string;
     private _token: string;
-    constructor() {}
-    
+    constructor() { }
+
     //get variable example
-    print() { 
+    print() {
         console.log('customerId: ' + this._customerId);
     }
 
@@ -15,6 +15,6 @@ export class CustomerInfoService {
         return this._customerId;
     }
     set customerId(value) {
-       this._customerId = value;
+        this._customerId = value;
     }
 }

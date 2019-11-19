@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { ModalService } from 'src/app/services/modal.service';
+import { ModalService } from 'src/app/common-services/modal.service';
 import { DummyData } from 'src/localServer/dummy-data';
 import { DialogComponent } from '../../../dialog/dialog.component';
 

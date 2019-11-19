@@ -1,6 +1,7 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { TimeoutService } from './common-services/timeout.service';
 
 @Component({
     selector: 'app-root',
@@ -21,14 +22,17 @@ export class AppComponent implements OnInit {
     constructor(
         private injector: Injector,
         private router: Router,
-        private dialog: MatDialog) {
+        private dialog: MatDialog,
+        private timeout: TimeoutService) {
 
     }
 
     ngOnInit() {
-        sessionStorage.setItem('isTimeout', 'N');
+        this.timeout.isTimeout = false;
+
         setTimeout(() => {
-            sessionStorage.clear();
+            // sessionStorage.clear();
+            this.timeout.isTimeout = true;
             this.dialog.closeAll();
             this.router.navigate(['timeout']);
         }, this.time);

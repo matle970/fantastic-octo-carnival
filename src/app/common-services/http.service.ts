@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { plainToClass } from 'class-transformer';
-import { ShareDataService } from 'src/app/services/share-data.service';
+import { ShareDataService } from 'src/app/common-services/share-data.service';
 import { EnvService } from '../../environments/env.service';
 
 /*******************

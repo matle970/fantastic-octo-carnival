@@ -1,9 +1,9 @@
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-import { HttpService } from 'src/app/services/http.service';
-import { InjectService } from 'src/app/services/inject.service';
-import { ShareDataService } from 'src/app/services/share-data.service';
-import { UtilsService } from 'src/app/services/utils.service';
+import { HttpService } from 'src/app/common-services/http.service';
+import { InjectService } from 'src/app/common-services/inject.service';
+import { ShareDataService } from 'src/app/common-services/share-data.service';
+import { UtilsService } from 'src/app/common-services/utils.service';
 import { DummyData } from 'src/localServer/dummy-data';
 
 /****************************

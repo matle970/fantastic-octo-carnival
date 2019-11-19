@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import { SidebarService } from 'src/app/services/sidebar.service';
+import { SidebarService } from 'src/app/common-services/sidebar.service';
 import { onSideNavChange, animateText } from '../animations/animations';
 
 @Component({

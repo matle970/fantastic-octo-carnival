@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { formatDate, DatePipe } from '@angular/common';
-import { Rules } from 'src/app/services/rules.service';
+import { Rules } from 'src/app/common-services/rules.service';
 
 @Injectable({ providedIn: 'root' })
 export class UtilsService {

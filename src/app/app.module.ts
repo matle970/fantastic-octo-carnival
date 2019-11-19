@@ -41,10 +41,11 @@ import { SharedItemModule } from './objects/shared-item/shared-item.module';
 import { AoIdentityService } from './objects/share-data/ao-identity-service';
 import { CustomerInfoService } from './objects/share-data/customer-info-service';
 
-// services
-import { SidebarService } from './services/sidebar.service';
-import { ModalService } from './services/modal.service';
-import { InjectService } from './services/inject.service';
+// common-services
+import { SidebarService } from './common-services/sidebar.service';
+import { ModalService } from './common-services/modal.service';
+import { InjectService } from './common-services/inject.service';
+import { TimeoutService } from './common-services/timeout.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
@@ -87,7 +88,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
         ModalService,
         DatePipe,
         AoIdentityService,
-        CustomerInfoService
+        CustomerInfoService,
+        TimeoutService
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]
