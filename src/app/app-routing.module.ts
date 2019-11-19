@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
-import { RoutungGuard } from './services/routing-guard.service';
+import { RoutungGuard } from './common-services/routing-guard.service';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
-import { RoutingTimeout } from './services/routing-timeout.service';
+import { RoutingTimeout } from './common-services/routing-timeout.service';
 
 const AppRoutes: Routes = [
     {

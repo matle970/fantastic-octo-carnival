@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { TimeoutService } from './timeout.service';
 
 /**
  * Jewel
@@ -11,7 +12,9 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 
 export class RoutingTimeout implements CanActivate {
 
-    constructor(private router: Router) { }
+    constructor(
+        private router: Router,
+        private timeout: TimeoutService) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         let url: string = state.url;
@@ -19,8 +22,7 @@ export class RoutingTimeout implements CanActivate {
     }
 
     verifyTimeout(url): boolean {
-        // console.log('timeout session', sessionStorage.getItem('isTimeout'));
-        if (sessionStorage.getItem('isTimeout') === 'Y') {
+        if (this.timeout.isTimeout) {
             this.router.navigate(['timeout']);
             return false;
         }

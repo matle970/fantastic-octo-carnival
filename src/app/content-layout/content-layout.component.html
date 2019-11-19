@@ -5,6 +5,7 @@
             <!-- sidebar: 側邊選單 -->
             <app-sidebar></app-sidebar>
         </mat-sidenav>
+
         <mat-sidenav-content opened [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
             <div class="nav_content">
                 <app-navbar></app-navbar>
