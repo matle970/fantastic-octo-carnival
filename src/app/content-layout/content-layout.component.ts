@@ -23,8 +23,8 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
     }];
 
     constructor(
-        private _sidebarService: SidebarService,
-        private _aoIdentity: AoIdentityService,
+        private SidebarService: SidebarService,
+        private AoIdentityService: AoIdentityService,
         private router: Router,
         private route: ActivatedRoute) {
 
@@ -32,7 +32,7 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._sidebarService.sideNavState$.subscribe(res => {
+        this.SidebarService.sideNavState$.subscribe(res => {
             // console.log(res);
             this.onSideNavChange = res;
         })
@@ -47,7 +47,7 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
             sessionStorage.setItem('token', this.token);
         });
 
-        this.sendRquest(this._aoIdentity);
+        this.sendRquest(this.AoIdentityService);
     }
 
     sendRquest(keepedData) {
