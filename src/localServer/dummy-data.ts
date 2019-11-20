@@ -5,7 +5,7 @@ export class DummyData {
     URL = require('src/app/objects/url/url.json');
 
     //CB001-Composite API
-    serviceToken = {
+    getCBAoProfile = {
         "header": {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
@@ -17,6 +17,7 @@ export class DummyData {
         },
         "body": {
             "aoId": "jeweltest01",
+            "employeeName": "jeweltestEmployeeName",
             "token": "jeweltestToken001"
         }
     };
@@ -705,7 +706,7 @@ export class DummyData {
         switch (url) {
             // 首頁總覽-經管名單列表 <<假的>>
             case this.URL.FIRSTPAGE_AO_PROFILE:
-                returnData = this.serviceToken;
+                returnData = this.getCBAoProfile;
                 break;
 
             // 首頁總覽-經管名單列表 <<假的>>
