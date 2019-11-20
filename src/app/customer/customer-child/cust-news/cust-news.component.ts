@@ -52,7 +52,6 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
   sendRquest() {
     for (let i = 0; i < this.urlList.length; i++) {
       super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
-          console.log('news data', data);
           if (data.header.returnCode === '0000') {
               this.dataProcess(data, this.urlList[i].url);
           }
