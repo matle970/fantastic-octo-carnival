@@ -20,20 +20,13 @@ export class DashboardComponent implements OnInit, OnChanges {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
-    urlList = [{
-        'url': this.baseService.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoResponse': CompanyList
-    }];
     dataSource;
+    dataList;
     tableDetailList: IndexTableElement[];
     columns;
     trade_balance_total_Value = 0;
-
     totalDataCount: number;
-
     supervisor = false;
-
-
 
     tableThead: string[] = [
         'ao',
@@ -63,24 +56,22 @@ export class DashboardComponent implements OnInit, OnChanges {
     constructor(
         private baseService: BaseService,
         private dashboardService: DashboardService,
-        private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, 
-        aoIdentity: AoIdentityService, 
-        customerInfo: CustomerInfoService) {
-
+        private matPaginatorIntl: MatPaginatorIntl, 
+        aoIdentity: AoIdentityService) {
         this.supervisor = false;
-        this.sendRquest(customerInfo);
+        this.dashboardService.sendRquest();
         aoIdentity.print();
     }
 
 
-    ngOnChanges(changes: SimpleChanges) {
-        this.dataSource = this.dashboardService.dataSource;
-        this.columns = this.dashboardService.columns;
-        this.totalDataCount = this.dashboardService.totalDataCount;
-    }
+    ngOnChanges(changes: SimpleChanges) { }
 
 
     ngOnInit() {
+        this.dataList = this.dashboardService.dataList;
+        this.dataSource = this.dashboardService.dataSource;
+        this.columns = this.dataList.slice();
+        this.totalDataCount = this.dashboardService.totalDataCount;
         this.getIssues(0, 10);
         //console.log(this.sortTable);
         // 分頁切換時，重新取得資料
@@ -112,7 +103,7 @@ export class DashboardComponent implements OnInit, OnChanges {
     }
     ngAfterViewInit() {
         this.dataSource.sortData = (data, sort: MatSort) => {
-            return getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
+            return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
         }
         this.trade_balance_total_Value
     }
@@ -144,19 +135,6 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
-    }
-
-    sendRquest(keepedData) {
-        this.baseService.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
-        this.tableDetailList = data.body.aoData;
-        keepedData.customerId = data.body.aoData[0].id;
-        const dataList = this.tableDetailList;
-        this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
-        this.totalDataCount = dataList.length;
-        this.columns = dataList.slice();
-        }, (err) => {
-        
-        });
     }
 }
 
