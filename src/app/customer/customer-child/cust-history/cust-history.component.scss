@@ -151,16 +151,16 @@ $man-b-color: #CCB270;
         border-radius: 5px;
         min-width: 60px;
         border: 1px solid #ddd;
-        &.type-02 {
+        &.type-deposit {
           color: $deposit-A-color;
         }
-        &.type-03 {
+        &.type-load {
           color: $load-A-color;
         }
-        &.type-04 {
+        &.type-tmu {
           color: $tmu-A-color;
         }
-        &.type-05 {
+        &.type-man {
           color: $man-A-color;
         }
 
@@ -173,16 +173,16 @@ $man-b-color: #CCB270;
       .unit {
         width: 80px;
         font-weight: 700;
-        &.type-02 {
+        &.type-deposit {
           color: $deposit-A-color;
         }
-        &.type-03 {
+        &.type-load {
           color: $load-A-color;
         }
-        &.type-04 {
+        &.type-tmu {
           color: $tmu-A-color;
         }
-        &.type-05 {
+        &.type-man {
           color: $man-A-color;
         }
 

@@ -3,8 +3,10 @@ import { BaseComponent } from '../base/base.component';
 import { AoProfile } from '../objects/dto/firstpage/firstpage-aoProfile-response';
 import { SidebarService } from '../common-services/sidebar.service';
 import { AoIdentityService } from '../common-services/ao-identity.service';
+import { TokenService } from '../common-services/token.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { onMainContentChange } from './common-area/animations/animations';
+import { TrustkeyServeice } from '../common-services/trustkey.service';
 
 @Component({
     selector: 'app-content-layout',
@@ -23,37 +25,37 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
     }];
 
     constructor(
-        private SidebarService: SidebarService,
-        private AoIdentityService: AoIdentityService,
         private router: Router,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private sidebarservice: SidebarService,
+        private aoidentityservice: AoIdentityService,
+        private tokenservice: TokenService,
+        private trustkeyservice: TrustkeyServeice) {
 
         super();
     }
 
     ngOnInit() {
-        this.SidebarService.sideNavState$.subscribe(res => {
+        this.sidebarservice.sideNavState$.subscribe(res => {
             // console.log(res);
             this.onSideNavChange = res;
         })
 
         /**Jewel
          * get request param from url
-         * and keep it in session
+         * and keep it in tokenservice
          */
         this.route.queryParams.subscribe((value) => {
-            this.token = value['token'];
-            console.log('url token: ' + this.token);
-            sessionStorage.setItem('token', this.token);
+            this.tokenservice.Token = value['token'];
         });
 
-        this.sendRquest(this.AoIdentityService);
+        this.sendRquest(this.aoidentityservice);
     }
 
     sendRquest(keepedData) {
         //TODO: assign token to request 
         super.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
-            sessionStorage.setItem('trustKey', data.body.token);
+            this.trustkeyservice.Trustkey = data.body.token;
             keepedData.token = data.body.token;
             keepedData.aoId = data.body.aoId;
         }, (err) => {

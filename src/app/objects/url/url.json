@@ -35,9 +35,6 @@
     "//_CB013-Composite API": "基本資訊-公司資訊第二層",
     "CUSTPROFILE_COMPANY_DETAIL": "/custprofile/getCBCompanyDetail",
 
-    "//_CB028-Composite API": "基本資訊-個人關聯戶第一層",
-    "CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS": "/custprofile/getCBCompanyAssociateTotalAssets",
-
     "//_CB014-Composite API": "基本資訊-個人關聯戶第二層(關聯戶基本資訊)",
     "CUSTPROFILE_COMPANY_ASSOCIATE": "/custprofile/getCBCompanyAssociate",
 

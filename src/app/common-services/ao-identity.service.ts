@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
 
 @Injectable()
 export class AoIdentityService {
-    execChange: Subject<any> = new Subject<any>();
+
     private _aoId: string;
-    private _token: string;
+    private _aoName: string;
     constructor() {}
     
     //get variable example
     print() {
-        console.log('oaId: ' + this._aoId + ', token: ' + this._token);
+        console.log('aoId: ' + this._aoId);
     }
 
     get aoId() {
@@ -19,10 +18,15 @@ export class AoIdentityService {
     set aoId(value) {
        this._aoId = value;
     }
-    get token() {
-        return this._token;
+
+    get aoName() {
+        return this._aoName;
     }
-    set token(value) {
-        this._token = value
+    set aoName(value) {
+       this._aoName = value;
+    }
+    
+    clear() {
+        this._aoId = '';
     }
 }

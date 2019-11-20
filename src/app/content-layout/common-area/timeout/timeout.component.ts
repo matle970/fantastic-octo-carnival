@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BaseComponent } from "src/app/base/base.component";
+import { TimeoutService } from "src/app/common-services/timeout.service";
 
 @Component({
     selector: 'app-timeout',
@@ -9,13 +10,19 @@ import { BaseComponent } from "src/app/base/base.component";
 
 export class TimeoutComponent extends BaseComponent implements OnInit {
 
+    constructor(
+        private timeoutservice: TimeoutService) {
+
+        super()
+    }
+
     // text
     TEXT = require('src/app/objects/text/text.json');
 
     msg = this.TEXT.timeout;
 
     ngOnInit() {
-        sessionStorage.setItem('isTimeout', 'Y');
+        this.timeoutservice.isTimeout = true;
     }
 }
 

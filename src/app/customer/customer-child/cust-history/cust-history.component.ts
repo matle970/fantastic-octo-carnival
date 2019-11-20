@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerHistoryList } from 'src/app/objects/dto/custhistory/custhistory-response';
+import { BaseComponent } from 'src/app/base/base.component';
 
 @Component({
   selector: 'app-cust-history',
   templateUrl: './cust-history.component.html',
   styleUrls: ['./cust-history.component.scss']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent extends BaseComponent  implements OnInit  {
 
   activeTab: any = 'all';
   tablist = [
@@ -21,16 +23,15 @@ export class HistoryComponent implements OnInit {
       id: 't03',
       name: '放款',
     },
-    // { // maintis 2005: user 說目前沒有 tmu 先隱藏  20191104
-    //   id: 't04',
-    //   name: 'TMU',
-    // },
     {
       id: 't05',
       name: '負責人',
     },
 
   ];
+
+  tabList: Array<any> = [];
+  historyList: Array<any> = [];
 
   contentList = [
     {
@@ -108,12 +109,33 @@ export class HistoryComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  histUrl = {
+    'url': this.URL.JOURNEY_COMPANY_JOURNEY,
+    'dtoResponse': CustomerHistoryList
+  };
 
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
-  selectTab (id) {
+  ngOnInit() {
+    this.sendRquest();
+  }
+
+  sendRquest() {
+        super.sendRequestAsync(this.histUrl.url ,this.histUrl.dtoResponse).then((data: any) => {
+          console.log('history data', data);
+          if (data.header.returnCode === '0000') {
+            this.tabList = data.body.tabList;
+            this.historyList = data.body.historyList;
+          }
+        }, (err) => {
+
+
+        });
+  }
+
+  selectTab (id: string) {
     this.activeTab = id;
   }
 

@@ -46,6 +46,8 @@ import { SidebarService } from './common-services/sidebar.service';
 import { ModalService } from './common-services/modal.service';
 import { InjectService } from './common-services/inject.service';
 import { TimeoutService } from './common-services/timeout.service';
+import { TokenService } from './common-services/token.service';
+import { TrustkeyServeice } from './common-services/trustkey.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
@@ -89,6 +91,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
         DatePipe,
         AoIdentityService,
         CustomerInfoService,
+        TokenService,
+        TrustkeyServeice,
         TimeoutService
     ],
     entryComponents: [DialogComponent],

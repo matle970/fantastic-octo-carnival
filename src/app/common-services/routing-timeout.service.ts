@@ -4,8 +4,7 @@ import { TimeoutService } from './timeout.service';
 
 /**
  * Jewel
- * read session
- * check session contain token, trustkey and via dashboard
+ * read and check value contain token, trustkey and via dashboard
  * else return to route path ''
  */
 @Injectable()
