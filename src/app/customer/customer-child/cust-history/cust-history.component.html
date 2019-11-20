@@ -19,9 +19,9 @@
                     <div class="list">
                       <span class="type"
                       [ngClass]="{
-                        'type-deposit': history.type=='tdeposit',
+                        'type-deposit': history.type=='deposit',
                         'type-loan': history.type=='loan',
-                        'type-man': history.type=='man'
+                        'type-man': history.type=='chairman'
                       }">
                         {{history.type_name}}
                       </span>
@@ -32,7 +32,7 @@
                       [ngClass]="{
                         'type-deposit': history.type=='deposit',
                         'type-loan': history.type=='loan',
-                        'type-man': history.type=='man'
+                        'type-man': history.type=='chairman'
                       }">
                           {{ history.unit}}
                       </span>
