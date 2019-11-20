@@ -3,7 +3,6 @@ import { Subject } from "rxjs";
 
 @Injectable()
 export class AoIdentityService {
-    execChange: Subject<any> = new Subject<any>();
     private _aoId: string;
     private _token: string;
     constructor() {}
