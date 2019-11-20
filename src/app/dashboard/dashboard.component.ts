@@ -59,9 +59,13 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
     };
 
     //inject service if dummdy data or adserver has trouble
-    constructor(private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, aoIdentity: AoIdentityService, customerInfo: CustomerInfoService) {
+    constructor(
+        private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, 
+        aoIdentity: AoIdentityService, 
+        customerInfo: CustomerInfoService) {
+            
         super();
-        sessionStorage.setItem('is_allow', 'true');
+        sessionStorage.setItem('is_allow', 'true'); // TBD
         this.supervisor = false;
         this.sendRquest(customerInfo);
         aoIdentity.print();

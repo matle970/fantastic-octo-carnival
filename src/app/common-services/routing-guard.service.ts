@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { TokenService } from './token.service';
+import { TrustkeyServeice } from './trustkey.service';
 
 /**
  * Jewel
- * read session
- * check session contain token, trustkey and via dashboard
+ * read and check value contain token, trustkey and via dashboard
  * else return to route path ''
  */
 @Injectable()
 
 export class RoutungGuard implements CanActivate {
 
-    constructor(private router: Router) { }
+    constructor(
+        private router: Router,
+        private tokenservice: TokenService,
+        private trustkeyservice: TrustkeyServeice) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         let url: string = state.url;
@@ -30,13 +34,12 @@ export class RoutungGuard implements CanActivate {
 
     isLoggedIn(): boolean {
         let status = false;
-        let token = sessionStorage.getItem('token');
-        let trustkey = sessionStorage.getItem('trustKey');
-
+        let token = this.tokenservice.Token;
+        let trustkey = this.trustkeyservice.Trustkey;
 
         if ( //token !== null && token !== 'undefined' &&
             trustkey !== null && trustkey !== 'undefined' &&
-            sessionStorage.getItem('is_allow') === 'true') {
+            sessionStorage.getItem('is_allow') === 'true') { // TBD
             status = true;
         }
         else {

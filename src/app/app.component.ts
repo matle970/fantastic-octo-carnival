@@ -2,6 +2,9 @@ import { Component, OnInit, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { TimeoutService } from './common-services/timeout.service';
+import { TokenService } from './common-services/token.service';
+import { TrustkeyServeice } from './common-services/trustkey.service';
+import { AoIdentityService } from './common-services/ao-identity.service';
 
 @Component({
     selector: 'app-root',
@@ -17,22 +20,28 @@ export class AppComponent implements OnInit {
     /**
      * Jewel
      * setting timeout for 10 minutes
-     * if timeout, clear session and redirect to timeout component
+     * if timeout, clear aoId, token and trustkey 
+     * redirect to timeout component
      */
     constructor(
         private injector: Injector,
         private router: Router,
         private dialog: MatDialog,
-        private timeout: TimeoutService) {
+        private aoidentityservice: AoIdentityService,
+        private tokenservice: TokenService,
+        private trustkeyservice: TrustkeyServeice,
+        private timeoutservice: TimeoutService) {
 
     }
 
     ngOnInit() {
-        this.timeout.isTimeout = false;
+        this.timeoutservice.isTimeout = false;
 
         setTimeout(() => {
-            // sessionStorage.clear();
-            this.timeout.isTimeout = true;
+            this.aoidentityservice.clear;
+            this.tokenservice.clear;
+            this.trustkeyservice.clear;
+            this.timeoutservice.isTimeout = true;
             this.dialog.closeAll();
             this.router.navigate(['timeout']);
         }, this.time);
