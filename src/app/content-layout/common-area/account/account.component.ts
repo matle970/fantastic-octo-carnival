@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AoIdentityService } from 'src/app/common-services/ao-identity.service';
 
 @Component({
   selector: 'app-account',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
+    accountName: string;
+    aoId: string;
 
-  constructor() { }
+    constructor(private aoIdentityService: AoIdentityService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.accountName = this.aoIdentityService.aoName;
+        this.aoId = this.aoIdentityService.aoId;
+    }
 
 }
