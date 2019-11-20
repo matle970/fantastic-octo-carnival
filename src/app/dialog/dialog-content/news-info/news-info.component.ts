@@ -1,62 +1,78 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from 'src/app/base/base.component';
+import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
+declare interface NewsContent {
+  id: string;
+  paper: string;
+  date: string;
+  title: string;
+  tag: string;
+  content: string;
+}
+
 
 @Component({
   selector: 'app-news-info',
   templateUrl: './news-info.component.html',
   styleUrls: ['./news-info.component.scss']
 })
-export class NewsInfoComponent implements OnInit {
-
-  nowNewsId = '001';
-
-  newsList = [
-    {
-      id: '001',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-    {
-      id: '002',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-    {
-      id: '003',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-    {
-      id: '004',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-    {
-      id: '005',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-    {
-      id: '006',
-      paper: '經濟日報',
-      date: '2019/06/18',
-      title: '台積電揮別谷底開盤股價飆歷史新高'
-    },
-
-  ];
 
 
-  constructor() { }
+export class NewsInfoComponent extends BaseComponent  implements OnInit{
+
+  nowNewsId: string;
+
+  newsList: NewsContent[];
+
+  newsUrl = {
+    'url': this.URL.NEWS_NEWS_DETAIL,
+    'dtoResponse': CompanyNews
+  };
+
+  nowNews: NewsContent;
+
+
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
+    this.sendRquest();
   }
+
+  sendRquest() {
+    super.sendRequestAsync(this.newsUrl.url, this.newsUrl.dtoResponse).then((data: any) => {
+
+          if (data.header.returnCode === '0000') {
+            this.newsList = data.body.newsList;
+            console.log(this.newsList)
+          } else {
+
+          }
+
+          // 預設出現第一筆
+          this.getNownews(this.newsList[0].id);
+    }, (err) => {
+
+
+    });
+
+  }
+
+
 
   selectNews (id: string) {
     this.nowNewsId = id;
+    this.getNownews(id);
   }
+
+  getNownews (id: string) {
+    this.nowNews = this.newsList.find(function(item) {
+      return item.id === id;
+    });
+
+  }
+
+
 
 }
