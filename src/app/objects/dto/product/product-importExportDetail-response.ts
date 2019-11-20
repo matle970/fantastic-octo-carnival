@@ -5,5 +5,19 @@ export class ImportExportDetail {
     body: Body;
 }
 class Body {
-
+   customerId: string;
+            import: [
+                {
+                    txnTypeDesc: string,
+                    mon: string[],
+                    usdTxnAmt: string[]
+                }
+            ]
+            export: [
+                {
+                    txnTypeDesc: string,
+                    mon: string[],
+                    usdTxnAmt: string[]
+                }
+            ]
 }

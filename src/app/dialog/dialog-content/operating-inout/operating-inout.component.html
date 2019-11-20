@@ -12,18 +12,19 @@
 
           <div class="table-mat-list">
               <table class="table m-0 p-0 table-hover table-sticky">
-                  <thead>
+                  <thead *ngFor = "let item of  import"> 
+                      
                     <tr>
-                      <th>進口實績</th>
-                      <th class="text-right">2018/12</th>
-                      <th class="text-right">2019/01</th>
-                      <th class="text-right">2019/02</th>
+                      <th>{{item.txnTypeDesc}}</th>
+                      <th class="text-right">{{item.mon}}</th>
+                      <!-- <th class="text-right">2019/01</th> -->
+                      <!-- <th class="text-right">2019/02</th>
                       <th class="text-right">2019/03</th>
                       <th class="text-right">2019/04</th>
                       <th class="text-right">2019/05</th>
                       <th class="text-right">2019/06</th>
                       <th class="text-right">2019/07</th>
-                      <th class="text-right">累計</th>
+                      <th class="text-right">累計</th> -->
                     </tr>
                   </thead>
                   <tbody>
