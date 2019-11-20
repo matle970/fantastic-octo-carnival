@@ -2,13 +2,8 @@ import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleCh
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
-import { getSortedData } from './service/customSort';
-import { BaseComponent } from '../base/base.component';
-import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { AoIdentityService } from '../common-services/ao-identity.service';
-import { CustomerInfoService } from '../common-services/customerid.service';
 import { DashboardService } from '../common-services/dashboard.service';
-import { t } from '@angular/core/src/render3';
 import { BaseService } from '../common-services/base/base.service';
 @Component({
     selector: 'app-dashboard',

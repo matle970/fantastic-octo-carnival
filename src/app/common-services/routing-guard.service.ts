@@ -10,7 +10,7 @@ import { TrustkeyServeice } from './trustkey.service';
  */
 @Injectable()
 
-export class RoutungGuard implements CanActivate {
+export class RoutingGuard implements CanActivate {
 
     constructor(
         private router: Router,
@@ -38,8 +38,7 @@ export class RoutungGuard implements CanActivate {
         let trustkey = this.trustkeyservice.Trustkey;
 
         if ( //token !== null && token !== 'undefined' &&
-            trustkey !== null && trustkey !== 'undefined' &&
-            sessionStorage.getItem('is_allow') === 'true') { // TBD
+            trustkey !== null && trustkey !== 'undefined') {
             status = true;
         }
         else {
