@@ -49,7 +49,7 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
 
                 this.sdDetail = resdata.body.sdDetail;
                 this.cdDetail = resdata.body.cdDetail;
-
+                this.tdDetail = resdata.body.tdDetail;
                 // console.log(this.sdDetail);
             }, (err) => {
 

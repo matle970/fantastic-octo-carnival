@@ -356,7 +356,7 @@ export class DummyData {
             },
             "sdDetail": [{
                 "acctNbr": "2282-441-025866",
-                "currencyCode": "美美金",
+                "currencyCode": "美金",
                 "fxCurrentBal": "11",
                 "ntdCurrentBal": "22",
                 "currentIntRate": "1",
@@ -384,14 +384,24 @@ export class DummyData {
                 }
             }],
             "tdDetail": [{
-                "acctNbr": "",
-                "currencyCode": "",
-                "fxCurrentBal": "",
-                "ntdCurrentBal": "",
-                "currentIntRate": "",
-                "ftpRate": "",
-                "acctOpenDate": "",
-                "tdDueDate": ""
+                "acctNbr": "9871-354-576577",
+                "currencyCode": "美金",
+                "fxCurrentBal": "1133",
+                "ntdCurrentBal": "3242",
+                "currentIntRate": "5",
+                "ftpRate": "43",
+                "acctOpenDate": "2019/04/01",
+                "tdDueDate": "2019/11/30"
+            },
+            {
+                "acctNbr": "7657-897-342344",
+                "currencyCode": "日幣",
+                "fxCurrentBal": "8383",
+                "ntdCurrentBal": "7868",
+                "currentIntRate": "2.3",
+                "ftpRate": "23",
+                "acctOpenDate": "2019/03/30",
+                "tdDueDate": "2019/10/15"
             }],
             "cdDetail": [{
                 "acctNbr": "4444-441-025866",
@@ -627,78 +637,78 @@ export class DummyData {
     // CB024 消息錦-要點新聞 第一層及第二層 (一個 api 即可)
     // CB024-Composite API  消息錦-要點新聞第二層
     companyNewsList = {
-      "header": {
-        "apId": "CRMLXCRM01",
-        "branchId": "00081",
-        "employeeId": "13063",
-        "clientIp": " 255.255.255.255",
-        "txnDateTime": "20190801140647462",
-        "returnCode": "0000",
-        "returnDesc": "交易成功"
-      },
-      "body": {
-        "customerid": "A1111111111",
-        "newsList":[
-            {
-              "id": "n001",
-              "papaer": "經濟日報",
-              "date": "2019-11-05",
-              "title": "台積電揮別谷底開盤價歷史",
-              "tag": "+",
-              "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
-            },
-            {
-              "id": "n002",
-              "papaer": "經濟日報",
-              "date": "2019-11-02",
-              "title": "台積電揮別谷底開盤價歷史",
-              "tag": "-",
-              "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
-            },
-            {
-              "id": "n003",
-              "papaer": "經濟日報",
-              "date": "2019-10-30",
-              "title": "台積電揮別谷底開盤價歷史",
-              "tag": "+",
-              "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
-            },
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerid": "A1111111111",
+            "newsList": [
+                {
+                    "id": "n001",
+                    "papaer": "經濟日報",
+                    "date": "2019-11-05",
+                    "title": "台積電揮別谷底開盤價歷史",
+                    "tag": "+",
+                    "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
+                },
+                {
+                    "id": "n002",
+                    "papaer": "經濟日報",
+                    "date": "2019-11-02",
+                    "title": "台積電揮別谷底開盤價歷史",
+                    "tag": "-",
+                    "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
+                },
+                {
+                    "id": "n003",
+                    "papaer": "經濟日報",
+                    "date": "2019-10-30",
+                    "title": "台積電揮別谷底開盤價歷史",
+                    "tag": "+",
+                    "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
+                },
 
 
-        ]
-      }
+            ]
+        }
     }
 
     newsBankList = {
-      "header": {
-          "apId": "CRMLXCRM01",
-          "branchId": "00081",
-          "employeeId": "13063",
-          "clientIp": " 255.255.255.255",
-          "txnDateTime": "20190801140647462",
-          "returnCode": "0000",
-          "returnDesc": "交易成功"
-      },
-      "body": {
-          "banksList": [
-              {
-                  "bank": "國泰世華",
-                  "valChange": "+100",
-                  "totalChange": "+100"
-              },
-              {
-                "bank": "富邦銀行",
-                "valChange": "-100",
-                "totalChange": "-100"
-              },
-              {
-                "bank": "玉山銀行",
-                "valChange": "0",
-                "totalChange": "0"
-              }
-          ]
-      }
-  }
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "banksList": [
+                {
+                    "bank": "國泰世華",
+                    "valChange": "+100",
+                    "totalChange": "+100"
+                },
+                {
+                    "bank": "富邦銀行",
+                    "valChange": "-100",
+                    "totalChange": "-100"
+                },
+                {
+                    "bank": "玉山銀行",
+                    "valChange": "0",
+                    "totalChange": "0"
+                }
+            ]
+        }
+    }
 
     getDummyData(url: string, dtoResponse: any): Promise<any> {
         let returnData: any;
@@ -770,13 +780,13 @@ export class DummyData {
             // CB022-Composite API-基本資訊-訊息通知
 
             // CB024-Composite API  消息錦-要點新聞第二層 (and 第一層，用同一個api)
-            case this.URL.NEWS_NEWS_DETAIL :
-              returnData = this.companyNewsList;
-              break;
+            case this.URL.NEWS_NEWS_DETAIL:
+                returnData = this.companyNewsList;
+                break;
 
-            case this.URL.NEWS_BANKS :
-              returnData = this.newsBankList;
-              break;
+            case this.URL.NEWS_BANKS:
+                returnData = this.newsBankList;
+                break;
 
 
         }
