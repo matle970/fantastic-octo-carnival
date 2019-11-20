@@ -7,15 +7,15 @@ import { BaseComponent } from '../base/base.component';
 import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { AoIdentityService } from '../common-services/ao-identity.service';
 import { CustomerInfoService } from '../common-services/customerid.service';
+import { DashboardService } from '../common-services/dashboard.service';
+import { t } from '@angular/core/src/render3';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent extends BaseComponent implements OnInit, OnChanges {
-
-    // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+export class DashboardComponent implements OnInit, OnChanges {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
@@ -28,10 +28,6 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     supervisor = false;
 
-    urlList = [{
-        'url': this.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoResponse': CompanyList
-    }];
 
 
     tableThead: string[] = [
@@ -60,29 +56,21 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     //inject service if dummdy data or adserver has trouble
     constructor(
+        private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, 
         aoIdentity: AoIdentityService, 
         customerInfo: CustomerInfoService) {
-            
-        super();
-        sessionStorage.setItem('is_allow', 'true'); // TBD
+
         this.supervisor = false;
-        this.sendRquest(customerInfo);
+        this.dashboardService.sendRquest();
         aoIdentity.print();
-        /*
-        const dataList = service.getDashboardDataTable();
-        this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
-        this.totalDataCount = service.getDashboardDataTable().length;
-        this.supervisor = false;
-        this.players = dataList.slice();*/
     }
 
 
     ngOnChanges(changes: SimpleChanges) {
-        //console.log('change  dashboard keyboard',changes);
-        // this.getKeyword = changes['keyword'].previousValue;
-        //console.log(this.getKeyword)
-
+        this.dataSource = this.dashboardService.dataSource;
+        this.columns = this.dashboardService.columns;
+        this.totalDataCount = this.dashboardService.totalDataCount;
     }
 
 
@@ -150,19 +138,6 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
-    }
-
-    sendRquest(keepedData) {
-        super.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
-            this.tableDetailList = data.body.aoData;
-            keepedData.customerId = data.body.aoData[0].id;
-            const dataList = this.tableDetailList;
-            this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
-            this.totalDataCount = dataList.length;
-            this.columns = dataList.slice();
-        }, (err) => {
-
-        });
     }
 }
 

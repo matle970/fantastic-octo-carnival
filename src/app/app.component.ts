@@ -1,10 +1,11 @@
 import { Component, OnInit, Injector } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { TimeoutService } from './common-services/timeout.service';
 import { TokenService } from './common-services/token.service';
 import { TrustkeyServeice } from './common-services/trustkey.service';
 import { AoIdentityService } from './common-services/ao-identity.service';
+import { AppService } from './common-services/app.service';
 
 @Component({
     selector: 'app-root',
@@ -24,13 +25,14 @@ export class AppComponent implements OnInit {
      * redirect to timeout component
      */
     constructor(
-        private injector: Injector,
         private router: Router,
         private dialog: MatDialog,
         private aoidentityservice: AoIdentityService,
         private tokenservice: TokenService,
         private trustkeyservice: TrustkeyServeice,
-        private timeoutservice: TimeoutService) {
+        private timeoutservice: TimeoutService,
+        private appService: AppService,
+        private route: ActivatedRoute) {
 
     }
 
@@ -45,5 +47,13 @@ export class AppComponent implements OnInit {
             this.dialog.closeAll();
             this.router.navigate(['timeout']);
         }, this.time);
+
+        
+        /**Jewel
+         * get request param from url
+         * and keep it in tokenservice
+         */
+        this.route.queryParams.subscribe(value => this.tokenservice.Token = value['token']);
+        this.appService.sendRquest();
     }
 }

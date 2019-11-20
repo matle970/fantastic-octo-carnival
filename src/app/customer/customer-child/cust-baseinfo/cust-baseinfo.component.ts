@@ -28,7 +28,6 @@ import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 
 import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
 import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
-import { CompanyAssociateTotalAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateTotalAssets-response';
 import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
 import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateAssets-response';
 import { Group } from 'src/app/objects/dto/custprofile/custprofile-group-response';
@@ -59,10 +58,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         {
             'url': this.URL.CUSTPROFILE_COMPANY_DETAIL,
             'dtoResponse': CompanyDetail
-        },
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS,
-            'dtoResponse': CompanyAssociateTotalAssets
         },
         {
             'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
@@ -106,8 +101,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     CompanyObj: object = {};
     // 基本資訊-公司資訊第二層
     CompanyDetailObj: object = {};
-    // 基本資訊-個人關聯戶第一層
-    CompanyAssociateTotalAssetsObj: object = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     CompanyAssociateObj: object = {};
     // 基本資訊-個人關聯戶第二層(客戶資產負債)
@@ -130,7 +123,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     ngOnInit() {
         // this.sendRquest();
-        console.log('baseinfo',this)
     }
 
     sendRquest() {
@@ -156,12 +148,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
             case this.URL.CUSTPROFILE_COMPANY_DETAIL:
                 this.CompanyDetailObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_TOTAL_ASSETS:
-                this.CompanyAssociateTotalAssetsObj = {
                     data: data
                 };
                 break;
