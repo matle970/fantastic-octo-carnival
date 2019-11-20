@@ -2,37 +2,26 @@ import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleCh
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
-import { getSortedData } from './service/customSort';
-import { BaseComponent } from '../base/base.component';
-import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { AoIdentityService } from '../common-services/ao-identity.service';
-import { CustomerInfoService } from '../common-services/customerid.service';
+import { DashboardService } from '../common-services/dashboard.service';
+import { BaseService } from '../common-services/base/base.service';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
 
-export class DashboardComponent extends BaseComponent implements OnInit, OnChanges {
-
-    // @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+export class DashboardComponent implements OnInit, OnChanges {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
     dataSource;
+    dataList;
     tableDetailList: IndexTableElement[];
     columns;
     trade_balance_total_Value = 0;
-
     totalDataCount: number;
-
     supervisor = false;
-
-    urlList = [{
-        'url': this.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoResponse': CompanyList
-    }];
-
 
     tableThead: string[] = [
         'ao',
@@ -60,33 +49,24 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     //inject service if dummdy data or adserver has trouble
     constructor(
-        private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, 
-        aoIdentity: AoIdentityService, 
-        customerInfo: CustomerInfoService) {
-            
-        super();
-        sessionStorage.setItem('is_allow', 'true'); // TBD
+        private baseService: BaseService,
+        private dashboardService: DashboardService,
+        private matPaginatorIntl: MatPaginatorIntl, 
+        aoIdentity: AoIdentityService) {
         this.supervisor = false;
-        this.sendRquest(customerInfo);
+        this.dashboardService.sendRquest();
         aoIdentity.print();
-        /*
-        const dataList = service.getDashboardDataTable();
-        this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
-        this.totalDataCount = service.getDashboardDataTable().length;
-        this.supervisor = false;
-        this.players = dataList.slice();*/
     }
 
 
-    ngOnChanges(changes: SimpleChanges) {
-        //console.log('change  dashboard keyboard',changes);
-        // this.getKeyword = changes['keyword'].previousValue;
-        //console.log(this.getKeyword)
-
-    }
+    ngOnChanges(changes: SimpleChanges) { }
 
 
     ngOnInit() {
+        this.dataList = this.dashboardService.dataList;
+        this.dataSource = this.dashboardService.dataSource;
+        this.columns = this.dataList.slice();
+        this.totalDataCount = this.dashboardService.totalDataCount;
         this.getIssues(0, 10);
         //console.log(this.sortTable);
         // 分頁切換時，重新取得資料
@@ -118,7 +98,7 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
     }
     ngAfterViewInit() {
         this.dataSource.sortData = (data, sort: MatSort) => {
-            return getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
+            return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
         }
         this.trade_balance_total_Value
     }
@@ -150,19 +130,6 @@ export class DashboardComponent extends BaseComponent implements OnInit, OnChang
 
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
-    }
-
-    sendRquest(keepedData) {
-        super.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
-            this.tableDetailList = data.body.aoData;
-            keepedData.customerId = data.body.aoData[0].id;
-            const dataList = this.tableDetailList;
-            this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
-            this.totalDataCount = dataList.length;
-            this.columns = dataList.slice();
-        }, (err) => {
-
-        });
     }
 }
 

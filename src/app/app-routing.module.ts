@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
-import { RoutungGuard } from './common-services/routing-guard.service';
+import { RoutingGuard } from './common-services/routing-guard.service';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { RoutingTimeout } from './common-services/routing-timeout.service';
@@ -23,7 +23,7 @@ const AppRoutes: Routes = [
             {
                 path: 'customer',
                 component: CustomerComponent,
-                canActivate: [RoutungGuard, RoutingTimeout],
+                canActivate: [RoutingGuard, RoutingTimeout],
             },
             {
                 path: '**',
@@ -54,7 +54,7 @@ const AppRoutes: Routes = [
         RouterModule
     ],
     providers: [
-        RoutungGuard,
+        RoutingGuard,
         RoutingTimeout
     ]
 })

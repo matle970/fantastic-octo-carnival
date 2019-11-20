@@ -101,7 +101,7 @@
                                 <app-column-toggle [app-column-toggle]="{ isColumn: 'cus_name'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-left" mat-cell *matCellDef="let element">
-                                  <a href="#" routerLink="/customer" class="underline text-ellipsis-name mr-2" [matTooltip]="element.cus_name" matTooltipPosition="above">
+                                  <a href="#" routerLink="/content/customer" class="underline text-ellipsis-name mr-2" [matTooltip]="element.cus_name" matTooltipPosition="above">
                                       {{element.cus_name}}
                                   </a>
                                   <div class="d-block">

@@ -33,10 +33,10 @@
       <div class="news-content-ana row">
         <span class="news-resource d-inline-block col-8">
           <span class="d-inline-block mr-1">
-            經濟日報
+            {{nowNews.paper}}
           </span>
           <span class="d-inline-block mr-1">
-            2019/06/18
+            {{nowNews.date}}
           </span>
         </span>
         <span class="d-inline-block col-4 d-flex justify-content-end">
@@ -44,7 +44,7 @@
              輿情分析：
           </span>
           <span class="text-lg text-primary font-weight-bolder grade">
-            +
+            {{nowNews.tag}}
           </span>
 
         </span>
@@ -54,24 +54,13 @@
       <div class="news-content-title text-lg text-primary font-weight-bolder">
         <i class="far fa-newspaper mr-3"></i>
         <span class="title">
-            台積電揮別谷底開盤股價飆歷史新高
+            {{nowNews.title}}
         </span>
 
       </div>
 
       <div class="news-content-word">
-        <p>
-            台積電本季展望略優於法人預期，且看好營運逐季成長，意味「最壞的狀況」已過。台積電預告，下半年隨著產能利用率提升與7奈米發威，毛利率會顯著回升，全年挑戰50%的目標。今年資本支出則維持100億美元到110億美元，未來幾年仍會在百億美元以上高水準。
-        </p>
-        <p>
-            外資先前已陸續看好台積電基本面將回神，近期買盤積極卡位，昨天買超逾1.7萬張，連續五個交易日站在買方，持股比攀升至78.11%。台積電昨天盤中一度攻上266元，終場漲3元、收264.5元，為去年10月來收盤新高價，總市值衝上6.85餘兆元。台積電ADR早盤漲1.4%。
-        </p>
-
-        <p>
-            台積電首季稅後純益為613.9億元，季減38.6%，年減31.6%，每股純益2.37元；毛利率41.3%，符合修正過後的區間目標（41%至43%）低標，季減6.4個百分點，年減9個百分點；營益率29.4%，落在修正過後的目標（29%至31%）下緣，季減7.6個百分點，年減9.6個百分點。
-        </p>
-
-
+        {{nowNews.content}}
       </div>
 
     </div>

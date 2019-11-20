@@ -124,7 +124,7 @@ export class HistoryComponent extends BaseComponent  implements OnInit  {
 
   sendRquest() {
         super.sendRequestAsync(this.histUrl.url ,this.histUrl.dtoResponse).then((data: any) => {
-          console.log('history data', data);
+          // console.log('history data', data);
           if (data.header.returnCode === '0000') {
             this.tabList = data.body.tabList;
             this.historyList = data.body.historyList;
