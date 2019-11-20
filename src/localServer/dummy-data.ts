@@ -280,7 +280,7 @@ export class DummyData {
 
     /*
     // CB009-Composite API-營運量-放款餘額第二層
-    
+
     // CB011-Composite API-營運量-TMU額度第二層
     */
     // CB007-Composite API-營運量-第一層
@@ -669,6 +669,7 @@ export class DummyData {
       }
     }
 
+    // CB025-Composite API 消息集錦-銀行同業第一層
     newsBankList = {
       "header": {
           "apId": "CRMLXCRM01",
@@ -698,7 +699,101 @@ export class DummyData {
               }
           ]
       }
-  }
+    }
+
+    // CB027-Composite API": "客戶歷程"
+    custHistoryList = {
+      "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+      },
+      "body": {
+        "tabList":[
+          {
+            "id": "all",
+            "name": "全部"
+          },
+          {
+            "id": "deposit",
+            "name": "存款"
+          },
+          {
+            "id": "loan",
+            "name": "放款"
+          },
+          {
+            "id": "chairman",
+            "name": "負責人"
+          }
+        ],
+        "historyList": [
+          {
+            "id": "c001",
+            "type": "loan",
+            "type_name": "放款",
+            "date_time": "2019/04/26",
+            "unit": "Myb2b",
+            "content_word": "企金授信_還款_工商貸款"
+          },
+          {
+            "id": "c002",
+            "type": "deposit",
+            "type_name": "存款",
+            "date_time": "2019/04/15",
+            "unit": "Myb2b",
+            "content_word":  "台幣存匯轉帳自行轉帳"
+          },
+          {
+            "id": "c003",
+            "type": "deposit",
+            "type_name": "存款",
+            "date_time": "2019/04/10",
+            "unit": "ATM",
+            "content_word":  "台幣存匯_轉帳_自行轉帳"
+          },
+          {
+            "id": "c004",
+            "type": "deposit",
+            "type_name": "存款",
+            "date_time": "2019/04/01",
+            "unit": "樹林分行",
+            "content_word":  "台整存匯提款自行提款"
+          },
+          {
+            "id": "c005",
+            "type": "chairman",
+            "type_name": "負責人",
+            "date_time": "2019/03/28",
+            "unit": "mybank",
+            "content_word":  "轉帳繳他人信用卡款"
+          },
+          {
+            "id": "c006",
+            "type": "chairman",
+            "type_name": "負責人",
+            "date_time": "2019/02/28",
+            "unit": "網銀",
+            "content_word":  "個金授信_還款_房屋貸款"
+          },
+          {
+            "id": "c007",
+            "type": "loan",
+            "type_name": "放款",
+            "date_time": "2019/02/25",
+            "unit": "系統作業",
+            "content_word":  "外幣授信_撥款_購置不動產"
+          }
+
+        ]
+
+       }
+
+    }
 
     getDummyData(url: string, dtoResponse: any): Promise<any> {
         let returnData: any;
@@ -718,7 +813,7 @@ export class DummyData {
             case this.URL.PRODUCT_ASSETS_LIBILITIES:
                 returnData = this.assetsLibilites;
                 break;
-            // CB008-Composite API-營運量-存款餘額第二層 
+            // CB008-Composite API-營運量-存款餘額第二層
             case this.URL.PRODUCT_DEPOSIT_DETAIL:
                 returnData = this.depositDetail;
                 break;
@@ -774,10 +869,15 @@ export class DummyData {
               returnData = this.companyNewsList;
               break;
 
+            // CB025-Composite API 消息集錦-銀行同業第一層
             case this.URL.NEWS_BANKS :
               returnData = this.newsBankList;
               break;
 
+            // CB027-Composite API 客戶歷程
+            case this.URL.JOURNEY_COMPANY_JOURNEY :
+              returnData = this.custHistoryList;
+              break;
 
         }
 
