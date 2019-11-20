@@ -530,8 +530,6 @@ export class DummyData {
         }
     }
 
-    // CB028-Composite API-基本資訊-個人關聯戶第一層
-
     // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     companyAssociate = {
         "header": {
@@ -633,7 +631,7 @@ export class DummyData {
     // CB017-Composite API-基本資訊-集團資訊第二層
     // CB018-Composite API-基本資訊-經管資訊第一層
     // CB019-Composite API-基本資訊-經管資訊第二層
-    
+
     /*
     // CB020-Composite API-基本資訊-貢獻度第一層
     // CB021-Composite API-基本資訊-貢獻度第二層
@@ -889,7 +887,6 @@ export class DummyData {
                 returnData = this.companyDetail;
                 break;
 
-            // CB028-Composite API-基本資訊-個人關聯戶第一層
             // CB014-Composite API-基本資訊-個人關聯戶第二層(關聯戶基本資訊)
             case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
                 returnData = this.companyAssociate;
