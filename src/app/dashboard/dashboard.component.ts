@@ -9,6 +9,7 @@ import { AoIdentityService } from '../common-services/ao-identity.service';
 import { CustomerInfoService } from '../common-services/customerid.service';
 import { DashboardService } from '../common-services/dashboard.service';
 import { t } from '@angular/core/src/render3';
+import { BaseService } from '../common-services/base/base.service';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -19,6 +20,10 @@ export class DashboardComponent implements OnInit, OnChanges {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
+    urlList = [{
+        'url': this.baseService.URL.FIRSTPAGE_COMPANY_LIST,
+        'dtoResponse': CompanyList
+    }];
     dataSource;
     tableDetailList: IndexTableElement[];
     columns;
@@ -56,13 +61,14 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     //inject service if dummdy data or adserver has trouble
     constructor(
+        private baseService: BaseService,
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl/*, service: DashboardDataService*/, 
         aoIdentity: AoIdentityService, 
         customerInfo: CustomerInfoService) {
 
         this.supervisor = false;
-        this.dashboardService.sendRquest();
+        this.sendRquest(customerInfo);
         aoIdentity.print();
     }
 
@@ -138,6 +144,19 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
+    }
+
+    sendRquest(keepedData) {
+        this.baseService.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
+        this.tableDetailList = data.body.aoData;
+        keepedData.customerId = data.body.aoData[0].id;
+        const dataList = this.tableDetailList;
+        this.dataSource = new MatTableDataSource<IndexTableElement>(dataList);
+        this.totalDataCount = dataList.length;
+        this.columns = dataList.slice();
+        }, (err) => {
+        
+        });
     }
 }
 
