@@ -6,6 +6,7 @@ import { TokenService } from './services/common-services/token.service';
 import { AppService } from './services/common-services/app.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
+import { DummyDataService } from './common-services/dummydata.service';
 
 @Component({
     selector: 'app-root',
@@ -31,14 +32,17 @@ export class AppComponent implements OnInit {
         private tokenservice: TokenService,
         private trustkeyservice: TrustkeyServeice,
         private timeoutservice: TimeoutService,
+        private dummydataservice: DummyDataService,
         private appService: AppService,
         private route: ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.timeoutservice.isTimeout = false;
+        // 是否使用 Dummy data
+        this.dummydataservice.useDummyData = true;
 
+        this.timeoutservice.isTimeout = false;
         setTimeout(() => {
             this.aoidentityservice.clear;
             this.tokenservice.clear;
@@ -48,7 +52,6 @@ export class AppComponent implements OnInit {
             this.router.navigate(['timeout']);
         }, this.time);
 
-        
         /**Jewel
          * get request param from url
          * and keep it in tokenservice

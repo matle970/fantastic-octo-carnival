@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 
 /*******************
- * 設定Timeout的Service
+ * 設定Trustkey的Service
  **********************/
-@Injectable()
-
+@Injectable({ providedIn: 'root' })
 export class TrustkeyServeice {
 
     private _Trustkey: string;
 
-    constructor() {}
+    constructor() { }
 
-    print() { 
+    print() {
         console.log('Trustkey: ' + this._Trustkey);
     }
 

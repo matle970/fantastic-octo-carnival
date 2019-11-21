@@ -51,6 +51,10 @@ import { InjectService } from './services/common-services/inject.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
+import { DummyDataService } from './common-services/dummydata.service';
+
+// 共同之客製作 Pipe
+import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
 
 @NgModule({
     declarations: [
@@ -82,7 +86,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
         DialogContentModule,
         AppRoutingModule,
         RouterModule,
-        SharedItemModule
+        SharedItemModule,
+        CustomPipeModule
     ],
     providers: [
         EnvServiceProvider,
@@ -93,7 +98,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
         CustomerInfoService,
         TokenService,
         TrustkeyServeice,
-        TimeoutService
+        TimeoutService,
+        DummyDataService
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]

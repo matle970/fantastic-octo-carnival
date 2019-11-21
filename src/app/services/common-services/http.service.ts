@@ -1,24 +1,68 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { plainToClass } from 'class-transformer';
-import { EnvService } from 'src/environments/env.service';
-import { ShareDataService } from './share-data.service';
+import { ShareDataService } from 'src/app/common-services/share-data.service';
+import { EnvService } from '../../environments/env.service';
+import { DummyData } from 'src/localServer/dummy-data';
+import { DummyDataService } from './dummydata.service';
 
 /*******************
  * 發送Http的Service
  **********************/
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-    // URLs
-    URL = require('src/app/objects/url/url.json');
 
     constructor(
         private httpClient: HttpClient,
-        private shareData: ShareDataService,
-        private env: EnvService
+        private sharedataservice: ShareDataService,
+        private envservice: EnvService,
+        private dummydataservice: DummyDataService
     ) { }
 
-    apiDomain: string = this.env.apiUrl; // API Domain name
+    apiDomain: string = this.envservice.apiUrl; // API Domain name
+
+    sendRequestAsync(url: string, dtoResponse: any): Promise<any> {
+        let data: any;
+
+        if (this.dummydataservice.useDummyData) {
+            const dummy = new DummyData();
+            data = dummy.getDummyData(url, dtoResponse);
+            return new Promise((resolve, reject) => {
+                resolve(this.returnData(data));
+                reject();
+            });
+        } else {
+            // return new Promise((resolve, reject) => {
+            //     resolve(this.sendAPI(url, dtoResponse));
+            //     reject();
+            // });
+        }
+    }
+
+    returnData(data: string) {
+        return data;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /******************
      * Send by post
@@ -28,7 +72,7 @@ export class HttpService {
             // console.log('this.apiDomain', this.apiDomain);
             this.httpClient.post<any>(this.apiDomain + url, param).toPromise().then((value: any) => {
                 resolve(plainToClass(rs, value)); // 回傳的資料轉回需要的response object
-                this.shareData.setCacheData(url, plainToClass(rs, value)); // 儲存 Data資料
+                this.sharedataservice.setCacheData(url, plainToClass(rs, value)); // 儲存 Data資料
             });
         });
     }

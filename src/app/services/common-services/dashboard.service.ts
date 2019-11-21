@@ -13,7 +13,7 @@ const orderDef = ["1", "2", "3+", "3", "4+", "4", "4-", "5+", "5", "5-", "6+", "
 export class DashboardService {
     _dataList;
     urlList = [{
-        'url': this.baseService.URL.FIRSTPAGE_COMPANY_LIST,
+        'url': this.baseService.geturlservice.URL.FIRSTPAGE_COMPANY_LIST,
         'dtoResponse': CompanyList
     }];
     constructor(private baseService: BaseService,
@@ -21,7 +21,7 @@ export class DashboardService {
 
   
     sendRquest() {
-        this.baseService.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
+        this.baseService.httpservice.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
             this.customerInfo.customerId = data.body.aoData[0].id;
             this._dataList = data.body.aoData;
             //console.log('list', this._dataList);
