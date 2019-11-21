@@ -51,6 +51,7 @@ import { TrustkeyServeice } from './common-services/trustkey.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
+import { DummyDataService } from './common-services/dummydata.service';
 
 @NgModule({
     declarations: [
@@ -93,7 +94,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
         CustomerInfoService,
         TokenService,
         TrustkeyServeice,
-        TimeoutService
+        TimeoutService,
+        DummyDataService
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]

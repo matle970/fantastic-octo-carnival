@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 
 /*******************
- * 設定Timeout的Service
+ * 設定Token的Service
  **********************/
-@Injectable()
-
+@Injectable({ providedIn: 'root' })
 export class TokenService {
 
     private _Token: string;
 
-    constructor() {}
+    constructor() { }
 
-    print() { 
+    print() {
         console.log('Token: ' + this._Token);
     }
 

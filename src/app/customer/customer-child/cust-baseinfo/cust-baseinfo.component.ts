@@ -25,19 +25,7 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-
-import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
-import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
-import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
-import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateAssets-response';
-import { Group } from 'src/app/objects/dto/custprofile/custprofile-group-response';
-import { GroupDetail } from 'src/app/objects/dto/custprofile/custprofile-groupDetail-response';
-import { Manage } from 'src/app/objects/dto/custprofile/custprofile-manage-response';
-import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manageDetail-response';
-import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
-import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
-import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
-
+import { CustBaseinfoService } from './service/cust-baseinfo.service';
 
 @Component({
     selector: 'app-cust-baseinfo',
@@ -46,182 +34,31 @@ import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile
 })
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
+    
+    constructor(
+        private modalservice: ModalService,
+        public dialog: MatDialog,
+        private custbaseinfoService: CustBaseinfoService) {
+        super();
+    }
+
+    ngOnInit() {
+        this.custbaseinfoService.sendRquest;
+    }
+
+
+
+
+    
+
+
+
+
+    
 
     @Input() searchStr: string;
     @ViewChild('chartObj') chartObj: ChartComponent;
-
-    urlList = [
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY,
-            'dtoResponse': Company
-        },
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY_DETAIL,
-            'dtoResponse': CompanyDetail
-        },
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
-            'dtoResponse': CompanyAssociate
-        },
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
-            'dtoResponse': CompanyAssociateAssets
-        },
-        {
-            'url': this.URL.CUSTPROFILE_GROUP,
-            'dtoResponse': Group
-        },
-        {
-            'url': this.URL.CUSTPROFILE_GROUP_DETAIL,
-            'dtoResponse': GroupDetail
-        },
-        {
-            'url': this.URL.CUSTPROFILE_MANAGE,
-            'dtoResponse': Manage
-        },
-        {
-            'url': this.URL.CUSTPROFILE_MANAGE_DETAIL,
-            'dtoResponse': ManageDetail
-        },
-        {
-            'url': this.URL.CUSTPROFILE_CONTRIBUTION,
-            'dtoResponse': Contribution
-        },
-        {
-            'url': this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
-            'dtoResponse': ContributionDetail
-        },
-        {
-            'url': this.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
-            'dtoResponse': CompanyNotification
-        }
-    ];
-
-    // 基本資訊-公司資訊第一層
-    CompanyObj: object = {};
-    // 基本資訊-公司資訊第二層
-    CompanyDetailObj: object = {};
-    // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-    CompanyAssociateObj: object = {};
-    // 基本資訊-個人關聯戶第二層(客戶資產負債)
-    CompanyAssociateAssetsObj: object = {};
-    // 基本資訊-集團資訊第一層
-    GroupObj: object = {};
-    // 基本資訊-集團資訊第二層
-    GroupDetailObj: object = {};
-    // 基本資訊-經管資訊第一層
-    ManageObj: object = {};
-    // 基本資訊-經管資訊第二層
-    ManageDetailObj: object = {};
-    // 基本資訊-貢獻度第一層
-    ContributionObj: object = {};
-    // 基本資訊-貢獻度第二層
-    ContributionDetailObj: object = {};
-    // 基本資訊-訊息通知
-    CompanyNotificationObj: object = {};
-
-
-    ngOnInit() {
-        // this.sendRquest();
-    }
-
-    sendRquest() {
-        for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
-                console.log('data', data);
-                // if (data.header.returnCode === '0000') {
-                //     this.dataProcess(data, this.urlList[i].url);
-                // }
-            }, (err) => {
-
-            });
-        }
-    }
-
-    dataProcess(data: any, url: string) {
-        switch (url) {
-            case this.URL.CUSTPROFILE_COMPANY:
-                this.CompanyObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_COMPANY_DETAIL:
-                this.CompanyDetailObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
-                this.CompanyAssociateObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
-                this.CompanyAssociateAssetsObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_GROUP:
-                this.GroupObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_GROUP_DETAIL:
-                this.GroupDetailObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_MANAGE:
-                this.ManageObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_MANAGE_DETAIL:
-                this.ManageDetailObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_CONTRIBUTION:
-                this.ContributionObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
-                this.ContributionDetailObj = {
-                    data: data
-                };
-                break;
-
-            case this.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
-                this.CompanyNotificationObj = {
-                    data: data
-                };
-                break;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ContributionObj: any;
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 
@@ -474,14 +311,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         data_list: []
     }
 
-
-    constructor(
-        private modalService: ModalService,
-        public dialog: MatDialog) {
-        super();
-    }
-
-
     // ngOnInit() {
     //     // // const myChart = this.chartObj;
     //     // this.getBaseInfoApiUrls();
@@ -568,7 +397,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
      * @param mid
      */
     openModal(mid: string) {
-        this.modalService.openModal(mid);
+        this.modalservice.openModal(mid);
 
     }
 
