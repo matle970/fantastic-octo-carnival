@@ -51,10 +51,10 @@ import { InjectService } from './services/common-services/inject.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
-import { DummyDataService } from './common-services/dummydata.service';
 
 // 共同之客製作 Pipe
 import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
+import { DummyDataService } from './services/common-services/dummydata.service';
 
 @NgModule({
     declarations: [

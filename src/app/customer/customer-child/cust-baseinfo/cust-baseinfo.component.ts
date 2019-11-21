@@ -25,6 +25,7 @@ import {
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from './service/cust-baseinfo.service';
+import { ModalService } from 'src/app/services/common-services/modal.service';
 
 @Component({
     selector: 'app-cust-baseinfo',

@@ -6,7 +6,7 @@ import { TokenService } from './services/common-services/token.service';
 import { AppService } from './services/common-services/app.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
-import { DummyDataService } from './common-services/dummydata.service';
+import { DummyDataService } from './services/common-services/dummydata.service';
 
 @Component({
     selector: 'app-root',

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from 'src/app/common-services/base/base.service';
 import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
 import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
 import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
@@ -11,6 +10,7 @@ import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manage
 import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
 import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
 import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
+import { BaseService } from 'src/app/services/common-services/base/base.service';
 
 @Injectable({
     providedIn: 'root'
