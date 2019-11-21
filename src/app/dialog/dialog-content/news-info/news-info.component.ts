@@ -18,7 +18,7 @@ declare interface NewsContent {
 })
 
 
-export class NewsInfoComponent extends BaseComponent  implements OnInit{
+export class NewsInfoComponent extends BaseComponent  implements OnInit {
 
   nowNewsId: string;
 
@@ -42,16 +42,14 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit{
 
   sendRquest() {
     super.sendRequestAsync(this.newsUrl.url, this.newsUrl.dtoResponse).then((data: any) => {
-
           if (data.header.returnCode === '0000') {
             this.newsList = data.body.newsList;
-            console.log(this.newsList)
           } else {
 
           }
-
           // 預設出現第一筆
           this.getNownews(this.newsList[0].id);
+
     }, (err) => {
 
 
