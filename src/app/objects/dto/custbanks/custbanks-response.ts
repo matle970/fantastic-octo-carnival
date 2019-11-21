@@ -8,7 +8,9 @@ export class NewsBanklist {
 
 
 class Body {
-  newsList: [
+  PreDate: Date;
+  LastDate: Date;
+  banksList: [
     {
       bank: string,
       valChange: string,

@@ -756,6 +756,78 @@ export class DummyData {
         }
     }
 
+
+    // CB026-Composite API 消息集錦-銀行同業第二層
+    newsBanksDetail = {
+      "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+      },
+      "body": {
+        "PreDate": "2019-08-01",
+        "LastDate":"2019-10-10",
+        "banksInfo":[
+          {
+            "bankName": "國泰世華",
+            "LastDateInfo": {
+                "amount": "1000",
+                "total": "50000",
+                "guarantee": "房屋"
+            },
+            "PreDateInfo": {
+                "amount": "500",
+                "total": "40000",
+                "guarantee": "房屋"
+            },
+            "changeInfo": {
+                "amount": "+500",
+                "total": "+10000"
+            }
+          },
+          {
+            "bankName": "富邦銀行",
+            "LastDateInfo": {
+                "amount": "2000",
+                "total": "3000",
+                "guarantee": "房屋"
+            },
+            "PreDateInfo": {
+                "amount": "1500",
+                "total": "2000",
+                "guarantee": "房屋"
+            },
+            "changeInfo": {
+                "amount": "+500",
+                "total": "+1000"
+            }
+          },
+          {
+            "bankName": "玉山銀行",
+            "LastDateInfo": {
+                "amount": "2000",
+                "total": "3000",
+                "guarantee": "房屋"
+            },
+            "PreDateInfo": {
+                "amount": "1000",
+                "total": "3000",
+                "guarantee": "房屋"
+            },
+            "changeInfo": {
+                "amount": "+1000",
+                "total": "+0"
+            }
+          },
+        ]
+
+      }
+    }
+
     // CB027-Composite API": "客戶歷程"
     custHistoryList = {
         "header": {
@@ -930,6 +1002,11 @@ export class DummyData {
             // CB025-Composite API 消息集錦-銀行同業第一層
             case this.URL.NEWS_BANKS:
                 returnData = this.newsBankList;
+                break;
+
+            // CB026-Composite API  消息集錦-銀行同業第二層
+            case this.URL.NEWS_BANKS_Profile:
+                returnData = this.newsBanksDetail;
                 break;
 
             // CB027-Composite API 客戶歷程
