@@ -16,13 +16,15 @@ import { OperatingInoutComponent } from './operating-inout/operating-inout.compo
 import { OperatingTmuComponent } from './operating-tmu/operating-tmu.component';
 import { NewsInfoComponent } from './news-info/news-info.component';
 import { BanksInfoComponent } from './banks-info/banks-info.component';
+import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
 
 @NgModule({
   imports: [
     CommonModule,
     NgApexchartsModule,
     SharedMaterialModule,
-    SharedItemModule
+    SharedItemModule,
+    CustomPipeModule
   ],
   declarations: [
     IndexNoticeComponent,

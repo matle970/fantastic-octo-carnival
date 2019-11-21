@@ -14,11 +14,8 @@ import { SharedMaterialModule } from '../../objects/shared-material/shared-mater
 import { SharedItemModule } from '../../objects/shared-item/shared-item.module';
 import { CommonAreaModule } from 'src/app/content-layout/common-area/common-area.module';
 
-// custom pipe
-import { DateFormat } from 'src/app/custom-pipe/dateformat.detepipe';
-import { DateShortFormat } from 'src/app/custom-pipe/date-short.detepipe';
-
-
+// 共同之客製作 Pipe
+import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
 
 
 @NgModule({
@@ -28,15 +25,14 @@ import { DateShortFormat } from 'src/app/custom-pipe/date-short.detepipe';
     SharedMaterialModule,
     SharedItemModule,
     CommonAreaModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    CustomPipeModule
   ],
   declarations: [
     CustBaseInfoComponent,
     CustChartsComponent,
     NewsComponent,
-    HistoryComponent,
-    DateFormat,
-    DateShortFormat
+    HistoryComponent
   ],
   exports: [
     CustBaseInfoComponent,
