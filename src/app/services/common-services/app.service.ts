@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base/base.service';
-import { AoProfile } from '../objects/dto/firstpage/firstpage-aoProfile-response';
 import { AoIdentityService } from './ao-identity.service';
 import { TrustkeyServeice } from './trustkey.service';
+import { AoProfile } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-response';
 
 @Injectable({
   providedIn: 'root'

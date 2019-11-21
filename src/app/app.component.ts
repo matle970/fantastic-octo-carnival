@@ -1,11 +1,11 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { TimeoutService } from './common-services/timeout.service';
-import { TokenService } from './common-services/token.service';
-import { TrustkeyServeice } from './common-services/trustkey.service';
-import { AoIdentityService } from './common-services/ao-identity.service';
-import { AppService } from './common-services/app.service';
+import { AoIdentityService } from './services/common-services/ao-identity.service';
+import { TokenService } from './services/common-services/token.service';
+import { AppService } from './services/common-services/app.service';
+import { TrustkeyServeice } from './services/common-services/trustkey.service';
+import { TimeoutService } from './services/common-services/timeout.service';
 
 @Component({
     selector: 'app-root',

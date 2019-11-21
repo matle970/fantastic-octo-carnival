@@ -1,9 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-
-import { DialogComponent } from '../dialog/dialog.component';
-
-import { DummyData } from '../../localServer/dummy-data';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Injectable({
   providedIn: 'root'

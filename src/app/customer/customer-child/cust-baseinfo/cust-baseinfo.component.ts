@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-import { ModalService } from 'src/app/common-services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
@@ -37,6 +36,7 @@ import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manage
 import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
 import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
 import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
+import { ModalService } from 'src/app/services/common-services/modal.service';
 
 
 @Component({

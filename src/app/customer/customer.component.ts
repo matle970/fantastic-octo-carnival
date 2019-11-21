@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
-import { CustomerInfoService } from '../common-services/customerid.service';
+import { CustomerInfoService } from '../services/common-services/customerid.service';
 
 @Component({
   selector: 'app-customer',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base/base.service';
-import { CompanyList } from '../objects/dto/firstpage/firstpage-companyList-response';
 import { CustomerInfoService } from './customerid.service';
-import { IndexTableElement } from '../dashboard/service/dashboard-data.service';
 import { MatTableDataSource } from '@angular/material';
+import { CompanyList } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
+import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
 
 const orderDef = ["1", "2", "3+", "3", "4+", "4", "4-", "5+", "5", "5-", "6+", "6", "6-", "7+", "7", "8", "9", "W1", "W2", "D", "N", "Z"]; 
 

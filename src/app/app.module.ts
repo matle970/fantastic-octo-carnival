@@ -38,16 +38,16 @@ import { DialogContentModule } from './dialog/dialog-content/dialog-content.modu
 import { SharedMaterialModule } from './objects/shared-material/shared-material.module';
 import { IconSvgModule } from './objects/icon-svg/icon-svg.module';
 import { SharedItemModule } from './objects/shared-item/shared-item.module';
-import { AoIdentityService } from './common-services/ao-identity.service';
-import { CustomerInfoService } from './common-services/customerid.service';
 
 // common-services
-import { SidebarService } from './common-services/sidebar.service';
-import { ModalService } from './common-services/modal.service';
-import { InjectService } from './common-services/inject.service';
-import { TimeoutService } from './common-services/timeout.service';
-import { TokenService } from './common-services/token.service';
-import { TrustkeyServeice } from './common-services/trustkey.service';
+import { SidebarService } from './services/common-services/sidebar.service';
+import { ModalService } from './services/common-services/modal.service';
+import { AoIdentityService } from './services/common-services/ao-identity.service';
+import { CustomerInfoService } from './services/common-services/customerid.service';
+import { TrustkeyServeice } from './services/common-services/trustkey.service';
+import { TimeoutService } from './services/common-services/timeout.service';
+import { TokenService } from './services/common-services/token.service';
+import { InjectService } from './services/common-services/inject.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';

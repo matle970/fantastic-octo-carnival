@@ -1,13 +1,11 @@
 import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-
-import { ModalService } from 'src/app/common-services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
-
 import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
 import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
-import { plainToClass } from 'class-transformer';
+import { ModalService } from 'src/app/services/common-services/modal.service';
+
 
 @Component({
   selector: 'app-cust-news',

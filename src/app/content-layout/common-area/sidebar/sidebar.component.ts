@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { onSideNavChange, animateText } from '../animations/animations';
-import { SidebarService } from 'src/app/common-services/sidebar.service';
+import { SidebarService } from 'src/app/services/common-services/sidebar.service';
 
 
 declare const $: any;
