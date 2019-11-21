@@ -3,15 +3,14 @@ import { Injectable } from '@angular/core';
 /*******************
  * 設定Timeout的Service
  **********************/
-@Injectable()
-
+@Injectable({ providedIn: 'root' })
 export class TimeoutService {
 
     private _isTimeout: boolean;
 
-    constructor() {}
+    constructor() { }
 
-    print() { 
+    print() {
         console.log('isTimeout: ' + this._isTimeout);
     }
 

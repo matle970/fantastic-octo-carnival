@@ -6,8 +6,6 @@ import { CommonHeaderRequest } from '../objects/dto/common/common-header-request
  **********************/
 @Injectable({ providedIn: 'root' })
 export class ShareDataService {
-    // URLs
-    URL = require('src/app/objects/url/url.json');
 
     dataMap: Map<String, any> = new Map<String, any>(); // Cache data
 
