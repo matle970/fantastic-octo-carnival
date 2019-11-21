@@ -17,16 +17,16 @@ import { plainToClass } from 'class-transformer';
 export class NewsComponent  extends BaseComponent  implements OnInit {
 
   displayedColumns = ['date', 'tag', 'title'];
-  // dataSource = ELEMENT_DATA;
 
   // 新聞列表
   newsSources: Array<any> = [];
-
   bankColumns = ['bank', 'valChange',  'totalChange'];
 
   // 銀行列表
-  // bankSource = BANK_DATA;
   bankSource: Array<any> =[];
+
+  PreDate: Date;
+  LastDate: Date;
 
   urlList = [
     {
@@ -37,7 +37,7 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
         'url': this.URL.NEWS_BANKS,
         'dtoResponse': NewsBanklist
     },
-  ]
+  ];
 
 
   constructor(private modalService: ModalService, public dialog: MatDialog) {
@@ -72,6 +72,8 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
 
       case this.URL.NEWS_BANKS:
         this.bankSource = data.body.banksList;
+        this.PreDate =  new Date(data.body.PreDate * 1000);
+        this.LastDate =  new Date(data.body.LastDate * 1000);
         break;
     }
 

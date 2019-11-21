@@ -14,6 +14,10 @@ import { SharedMaterialModule } from '../../objects/shared-material/shared-mater
 import { SharedItemModule } from '../../objects/shared-item/shared-item.module';
 import { CommonAreaModule } from 'src/app/content-layout/common-area/common-area.module';
 
+// custom pipe
+import { DateFormat } from 'src/app/custom-pipe/dateformat.detepipe';
+import { DateShortFormat } from 'src/app/custom-pipe/date-short.detepipe';
+
 
 
 
@@ -30,13 +34,16 @@ import { CommonAreaModule } from 'src/app/content-layout/common-area/common-area
     CustBaseInfoComponent,
     CustChartsComponent,
     NewsComponent,
-    HistoryComponent
+    HistoryComponent,
+    DateFormat,
+    DateShortFormat
   ],
   exports: [
     CustBaseInfoComponent,
     CustChartsComponent,
     NewsComponent,
-    HistoryComponent
+    HistoryComponent,
+
   ]
 })
 export class CompanyModule { }
