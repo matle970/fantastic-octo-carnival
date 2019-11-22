@@ -44,11 +44,14 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('change', changes.content.currentValue);
+    // console.log('change', changes.content.currentValue);
     const nthis = this;
-    setTimeout(function() {
-      nthis.getContent();
-    }, 100 );
+
+    if (changes.content.currentValue.item_id) {
+      setTimeout(function() {
+        nthis.getContent();
+      }, 100 );
+    }
   }
 
   sendRquest() {
@@ -74,10 +77,6 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
   getContent() {
     const item = this.content.item_id;
     this.getNownews(item);
-    // const nthis = this;
-    // if ( item ) {
-    //   nthis.getNownews( item );
-    // }
   }
 
 
