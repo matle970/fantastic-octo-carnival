@@ -4,7 +4,7 @@
 
 
       <div class="d-inline-block">
-          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword"></app-filter>
+          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword" (change)="onFilterChanged($event)"></app-filter>
       </div>
 
       <div class="d-inline-block dashboard-top">

@@ -3,7 +3,7 @@ import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angu
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
 import { BaseService } from '../services/common-services/base/base.service';
-import { DashboardService } from '../services/common-services/dashboard.service';
+import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 
 
@@ -14,6 +14,7 @@ import { AoIdentityService } from '../services/common-services/ao-identity.servi
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
+  [x: string]: any;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
@@ -69,6 +70,8 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.dataSource = this.dashboardService.dataSource;
         this.columns = this.dataList.slice();
         this.totalDataCount = this.dashboardService.totalDataCount;
+
+
         this.getIssues(0, 10);
         //console.log(this.sortTable);
         // 分頁切換時，重新取得資料
@@ -130,6 +133,10 @@ export class DashboardComponent implements OnInit, OnChanges {
         //console.log(event);
     }
 
+    onFilterChanged(eventArgs) {
+        //console.log("Filter: ", eventArgs);
+    }
+    
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
