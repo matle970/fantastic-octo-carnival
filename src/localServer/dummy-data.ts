@@ -22,6 +22,58 @@ export class DummyData {
         }
     };
 
+
+    //CB002
+    wmBranchList = {
+        "header": {
+
+        },
+        "body": {
+            "branch": [{
+                    "branchId": "jewelWMId001",
+                    "branchName": "jewelWMName001"
+                },{
+                    
+                    "branchId": "jewelWMId002",
+                    "branchName": "jewelWMName002"
+                },{
+                    
+                    "branchId": "jewelWMId003",
+                    "branchName": "jewelWMName003"
+                },{
+                    
+                    "branchId": "jewelWMId004",
+                    "branchName": "jewelWMName004"
+                },{
+                    
+                    "branchId": "jewelWMId005",
+                    "branchName": "jewelWMName005"
+                }
+            ]
+        }
+    }
+
+    //CB003
+    referBranchList = {
+        "branch": [{
+                "branchId": "jewelReferId001",
+                "branchName": "jewelReferName001"
+            },{   
+                "branchId": "jewelReferId002",
+                "branchName": "jewelWMName002"
+            },{
+                "branchId": "jewelReferId003",
+                "branchName": "jewelReferName003"
+            },{
+                "branchId": "jewelReferId004",
+                "branchName": "jewelReferName004"
+            },{
+                "branchId": "jewelReferId005",
+                "branchName": "jewelReferName005"
+            }
+        ]
+    }
+
     //CB-005-Composite API
     companyList = {
         "header": {
@@ -929,6 +981,14 @@ export class DummyData {
             // 首頁總覽-經管名單列表 <<假的>>
             case this.URL.FIRSTPAGE_AO_PROFILE:
                 returnData = this.getCBAoProfile;
+                break;
+
+            case this.URL.FIRSTPAGE_WM_BRANCH_LSIT: 
+                returnData = this.wmBranchList;
+                break;
+
+            case this.URL.FIRSTPAGE_REFER_BRANCH_LIST: 
+                returnData = this.referBranchList;
                 break;
 
             // 首頁總覽-經管名單列表 <<假的>>
