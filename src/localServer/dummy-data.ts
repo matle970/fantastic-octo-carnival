@@ -76,7 +76,7 @@ export class DummyData {
                     "branchName": "jewelReferName001"
                 },{   
                     "branchId": "jewelReferId002",
-                    "branchName": "jewelWMName002"
+                    "branchName": "jewelReferName002"
                 },{ 
                     "branchId": "jewelReferId003",
                     "branchName": "jewelReferName003"

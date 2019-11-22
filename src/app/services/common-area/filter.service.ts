@@ -7,12 +7,35 @@ import { ReferBranchResponse } from 'src/app/objects/dto/firstpage/firstpage-ref
   providedIn: 'root'
 })
 export class FilterService {
+    _wmBranchList;
+    _referBranchList;
     urlList = [{
-        'url': this.baseSerivce.geturlservice.URL.FIRSTPAGE_WM_BRANCH_LSIT,
+        'url': this.baseService.geturlservice.URL.FIRSTPAGE_WM_BRANCH_LSIT,
         'dtoResponse': WMBranchResponse
     },{
-        'url': this.baseSerivce.geturlservice.URL.FIRSTPAGE_REFER_BRANCH_LIST,
+        'url': this.baseService.geturlservice.URL.FIRSTPAGE_REFER_BRANCH_LIST,
         'dtoResponse': ReferBranchResponse
     }];
-    constructor(private baseSerivce: BaseService) { }
+    constructor(private baseService: BaseService) { }
+
+    sendWMBranchRequest() {
+        this.baseService.httpservice.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
+            this._wmBranchList = data.body.branch;
+            //console.log('list', this._wmBranchList);
+        }, (err) => { })
+    };
+    sendReferBranchRequest() {
+        this.baseService.httpservice.sendRequestAsync(this.urlList[1].url, this.urlList[1].dtoResponse).then((data: any) => {
+            this._referBranchList = data.body.branch;
+            //console.log('list', this._referBranchList);
+        }, (err) => { })
+    };
+
+    get wmBranchList() {
+        return this._wmBranchList;
+    }
+
+    get referBranchList() {
+        return this._referBranchList;
+    }
 }
