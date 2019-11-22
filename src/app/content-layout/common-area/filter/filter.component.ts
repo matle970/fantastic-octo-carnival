@@ -48,24 +48,6 @@ export class FilterComponent implements OnInit, OnChanges {
 
   filter(query: string) {
       this.change.emit(query); 
-  //   this.group_list = data.map(function(item: any){
-  //     return item.group_name;
-  //   });
-  //   this.cus_name = data.map(function(item: any){
-  //     return item.cus_name;
-  //   });
-  //   this.cus_id = data.map(function(item: any){
-  //     return item.cus_id;
-  //   });
-
-
-  //   this.ao_list = this.ao_list.filter((item, index) => this.ao_list.indexOf(item) === index);
-  //   this.group_list = this.group_list.filter((item, index) => this.group_list.indexOf(item) === index);
-  //   this.cus_name = this.cus_name.filter((item, index) => this.cus_name.indexOf(item) === index);
-  //   this.cus_id = this.cus_id.filter((item, index) => this.cus_id.indexOf(item) === index);
-
-  
-
   }
   // fiterData () {
   //   console.log(this.datalist.data);

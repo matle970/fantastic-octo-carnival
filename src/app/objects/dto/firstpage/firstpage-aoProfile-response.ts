@@ -1,6 +1,6 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class AoProfile {
+export class AoProfileResponse {
     header: CommonHeaderResponse;
     body: Body;
 }

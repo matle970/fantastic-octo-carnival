@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from '../common-services/base/base.service';
 import { CustomerIdService } from '../common-services/customerid.service';
 import { MatTableDataSource } from '@angular/material';
-import { CompanyList } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
+import { CompanyListResponse } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
 import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
 
 const orderDef = ["1", "2", "3+", "3", "4+", "4", "4-", "5+", "5", "5-", "6+", "6", "6-", "7+", "7", "8", "9", "W1", "W2", "D", "N", "Z"]; 
@@ -14,7 +14,7 @@ export class DashboardService {
     _dataList;
     urlList = [{
         'url': this.baseService.geturlservice.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoResponse': CompanyList
+        'dtoResponse': CompanyListResponse
     }];
     constructor(private baseService: BaseService,
                 private customerInfo: CustomerIdService) { }

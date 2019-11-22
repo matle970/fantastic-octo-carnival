@@ -26,7 +26,13 @@ export class DummyData {
     //CB002
     wmBranchList = {
         "header": {
-
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
         },
         "body": {
             "branch": [{
@@ -55,23 +61,34 @@ export class DummyData {
 
     //CB003
     referBranchList = {
-        "branch": [{
-                "branchId": "jewelReferId001",
-                "branchName": "jewelReferName001"
-            },{   
-                "branchId": "jewelReferId002",
-                "branchName": "jewelWMName002"
-            },{
-                "branchId": "jewelReferId003",
-                "branchName": "jewelReferName003"
-            },{
-                "branchId": "jewelReferId004",
-                "branchName": "jewelReferName004"
-            },{
-                "branchId": "jewelReferId005",
-                "branchName": "jewelReferName005"
-            }
-        ]
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "branch": [{
+                    "branchId": "jewelReferId001",
+                    "branchName": "jewelReferName001"
+                },{   
+                    "branchId": "jewelReferId002",
+                    "branchName": "jewelWMName002"
+                },{ 
+                    "branchId": "jewelReferId003",
+                    "branchName": "jewelReferName003"
+                },{
+                    "branchId": "jewelReferId004",
+                    "branchName": "jewelReferName004"
+                },{
+                    "branchId": "jewelReferId005",
+                    "branchName": "jewelReferName005"
+                }
+            ]
+        }
     }
 
     //CB-005-Composite API
