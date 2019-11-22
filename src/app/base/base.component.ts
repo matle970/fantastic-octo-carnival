@@ -1,10 +1,10 @@
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-import { HttpService } from 'src/app/common-services/http.service';
-import { InjectService } from 'src/app/common-services/inject.service';
-import { ShareDataService } from 'src/app/common-services/share-data.service';
-import { UtilsService } from 'src/app/common-services/utils.service';
 import { DummyData } from 'src/localServer/dummy-data';
+import { HttpService } from '../services/common-services/http.service';
+import { InjectService } from '../services/common-services/inject.service';
+import { ShareDataService } from '../services/common-services/share-data.service';
+import { UtilsService } from '../services/common-services/utils.service';
 
 /****************************
  * 所有元件的共通設定

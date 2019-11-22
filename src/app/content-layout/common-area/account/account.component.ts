@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AoIdentityService } from 'src/app/common-services/ao-identity.service';
+import { AoIdentityService } from 'src/app/services/common-services/ao-identity.service';
 
 @Component({
   selector: 'app-account',

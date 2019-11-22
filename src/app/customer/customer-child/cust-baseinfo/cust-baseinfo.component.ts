@@ -1,5 +1,4 @@
 import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-import { ModalService } from 'src/app/common-services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
@@ -25,7 +24,8 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-import { CustBaseinfoService } from './service/cust-baseinfo.service';
+import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
+import { ModalService } from 'src/app/services/common-services/modal.service';
 
 @Component({
     selector: 'app-cust-baseinfo',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BaseComponent } from "src/app/base/base.component";
-import { TimeoutService } from "src/app/common-services/timeout.service";
+import { TimeoutService } from "src/app/services/common-services/timeout.service";
 
 @Component({
     selector: 'app-timeout',

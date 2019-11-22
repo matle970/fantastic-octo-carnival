@@ -1,4 +1,4 @@
-<div class="banks-info-block">
+<div class="banks-info-block" *ngIf="banksInfo">
 
 
   <!-- 集團資訊 -->
@@ -6,7 +6,7 @@
       <div class="card-header card-header-primary">
           <h5 class="card-title ">銀行同業
             <span class="badge float-right">
-                資料月：2019/07 VS. 2018/12
+                {{ PreDate | dateFormat }} VS. {{ LastDate | dateFormat }}
             </span>
           </h5>
       </div>
@@ -17,8 +17,8 @@
                   <thead>
                     <tr class="bg-th1">
                       <th>銀行同業</th>
-                      <th  colspan="3">本期 (2019/07)</th>
-                      <th  colspan="3">上期 (2018/12)</th>
+                      <th  colspan="3">本期 ({{ PreDate | dateFormat }})</th>
+                      <th  colspan="3">上期 ({{ LastDate | dateFormat }})</th>
                       <th  colspan="2">增減異動</th>
                     </tr>
                     <tr class="bg-th2">
@@ -35,39 +35,20 @@
 
                   </thead>
                   <tbody>
-                   <tr>
-                     <td>國泰世華</td>
-                     <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                     <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                     <td>XXX</td>
-                     <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                     <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                     <td>XXX</td>
-                     <td class="text-primary big-word"> + </td>
-                     <td class="text-primary big-word"> + </td>
+                   <tr *ngFor="let bank of banksInfo">
+                     <td>{{bank.bankName}}</td>
+                     
+                     <td>{{ bank.PreDateInfo.amount | currency:'':'':'1.0-0' }}</td>
+                     <td>{{ bank.PreDateInfo.total |  currency:'':'':'1.0-0' }}</td>
+                     <td>{{ bank.PreDateInfo.guarantee}}</td>
+
+                     <td>{{ bank.LastDateInfo.amount | currency:'':'':'1.0-0' }}</td>
+                     <td>{{ bank.LastDateInfo.total | currency:'':'':'1.0-0' }}</td>
+                     <td>{{ bank.LastDateInfo.guarantee}}</td>
+
+                     <td class="text-primary big-word"> {{ bank.changeInfo.amount}} </td>
+                     <td class="text-primary big-word"> {{ bank.changeInfo.total}} </td>
                    </tr>
-                   <tr>
-                      <td>台北富邦</td>
-                      <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                      <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                      <td>XXX</td>
-                      <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                      <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                      <td>XXX</td>
-                      <td class="text-primary big-word"> - </td>
-                      <td class="text-primary big-word"> - </td>
-                    </tr>
-                    <tr>
-                        <td>台北富邦</td>
-                        <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                        <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                        <td>XXX</td>
-                        <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                        <td>{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                        <td>XXX</td>
-                        <td class="text-primary big-word"> - </td>
-                        <td class="text-primary big-word"> + </td>
-                      </tr>
                   </tbody>
                 </table>
           </div>

@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleCh
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
-import { AoIdentityService } from '../common-services/ao-identity.service';
-import { DashboardService } from '../common-services/dashboard.service';
-import { BaseService } from '../common-services/base/base.service';
+import { BaseService } from '../services/common-services/base/base.service';
+import { DashboardService } from '../services/dashboard/dashboard.service';
+import { AoIdentityService } from '../services/common-services/ao-identity.service';
+
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -12,6 +14,7 @@ import { BaseService } from '../common-services/base/base.service';
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
+  [x: string]: any;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
@@ -67,6 +70,8 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.dataSource = this.dashboardService.dataSource;
         this.columns = this.dataList.slice();
         this.totalDataCount = this.dashboardService.totalDataCount;
+
+
         this.getIssues(0, 10);
         //console.log(this.sortTable);
         // 分頁切換時，重新取得資料
@@ -128,6 +133,10 @@ export class DashboardComponent implements OnInit, OnChanges {
         //console.log(event);
     }
 
+    onFilterChanged(eventArgs) {
+        //console.log("Filter: ", eventArgs);
+    }
+    
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { AoProfile } from '../objects/dto/firstpage/firstpage-aoProfile-response';
-import { SidebarService } from '../common-services/sidebar.service';
-import { AoIdentityService } from '../common-services/ao-identity.service';
-import { TokenService } from '../common-services/token.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { onMainContentChange } from './common-area/animations/animations';
-import { TrustkeyServeice } from '../common-services/trustkey.service';
+import { SidebarService } from '../services/common-services/sidebar.service';
+import { AoIdentityService } from '../services/common-services/ao-identity.service';
+import { TokenService } from '../services/common-services/token.service';
+import { TrustkeyServeice } from '../services/common-services/trustkey.service';
 
 @Component({
     selector: 'app-content-layout',
@@ -25,7 +25,6 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
     }];
 
     constructor(
-        private router: Router,
         private route: ActivatedRoute,
         private sidebarservice: SidebarService,
         private aoidentityservice: AoIdentityService,

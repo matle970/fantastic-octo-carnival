@@ -2,8 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import { SidebarService } from 'src/app/common-services/sidebar.service';
 import { onSideNavChange, animateText } from '../animations/animations';
+import { SidebarService } from 'src/app/services/common-services/sidebar.service';
 
 @Component({
     selector: 'app-navbar',
@@ -41,23 +41,6 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
-
-        // setTimeout(() => {
-        //   this.getTitle();
-        // }, 400);
-        // this.navTitle = this.getTitle();
-
-        // 移除mobile版本
-
-        //   this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
-        //   this.router.events.subscribe((event) => {
-        //     this.sidebarClose();
-        //      var $layer: any = document.getElementsByClassName('close-layer')[0];
-        //      if ($layer) {
-        //        $layer.remove();
-        //        this.mobile_menu_visible = 0;
-        //      }
-        //  });
     }
     onSidebarToggle() {
         this.sideNavState = !this.sideNavState;

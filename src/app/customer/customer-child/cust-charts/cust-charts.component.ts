@@ -1,14 +1,13 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-import { ModalService } from 'src/app/common-services/modal.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-import { DummyData } from 'src/localServer/dummy-data';
 import { AssetsLibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
-import { from } from 'rxjs';
+import { ModalService } from 'src/app/services/common-services/modal.service';
+
 @Component({
     selector: 'app-cust-charts',
     templateUrl: './cust-charts.component.html',

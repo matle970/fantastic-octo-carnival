@@ -53,9 +53,13 @@
       cursor: pointer;
       min-width: 130px;
       z-index: 99;
+      width: 40%;
+      height: 30px;
+      vertical-align: middle;
     }
     .title-date {
-      min-width: 82px;
+      min-width: 90px;
+      width: 30%;
     }
     i.material-icons{
       vertical-align: middle;
