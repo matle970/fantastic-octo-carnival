@@ -1,7 +1,8 @@
-import { CommonHeaderResponse } from '../common/common-header-response';
+import { CommonHeaderRequest } from "../common/common-header-request";
+
 
 export class TmuDetail {
-    header: CommonHeaderResponse;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {

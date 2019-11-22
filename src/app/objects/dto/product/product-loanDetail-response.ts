@@ -1,7 +1,7 @@
-import { CommonHeaderResponse } from '../common/common-header-response';
+import { CommonHeaderRequest } from '../common/common-header-request';
 
 export class LoanDetail {
-    header: CommonHeaderResponse;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {
