@@ -117,124 +117,96 @@
 </div>
 
 
-<!-- 總資產-->
-<div class="card card-table">
-    <div class="card-header card-header-primary">
-        <h5 class="card-title ">
-            總資產 {{ 7800 | currency:'':'':'1.0-0'}}
-        </h5>
-    </div>
-    <div class="card-body">
-      <div class="table-mat-list">
-         <table class="table m-0 p-0 table-hover table-sticky person-table">
-           <thead>
-             <tr>
-               <th class="text-left" colspan="2">類別</th>
-               <th class="text-left">帳號</th>
-               <th class="text-left">幣別</th>
-               <th class="text-right">近一年平均存款</th>
-               <th class="text-right">存款餘額</th>
-               <th class="text-center">備註</th>
-             </tr>
-           </thead>
-           <tbody>
-            <tr>
-              <td class="text-left"  rowspan="2">活存</td>
-              <td class="text-left" >活期儲蓄存款</td>
-              <td class="text-left" >0000705381000114</td>
-              <td class="text-left" >新台幣</td>
-              <td class="text-right">{{ 80 | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ 1400 | currency:'':'':'1.0-0' }}</td>
-              <td class="text-center"><div>-</div>
-              </td>
-            </tr>
+    <!-- 總資產-->
+    <div class="card card-table">
+      <div class="card-header card-header-primary">
+          <h5 class="card-title ">
+              總資產 {{ 7800 | currency:'':'':'1.0-0'}}
+          </h5>
+      </div>
+      <div class="card-body">
+        <div class="table-mat-list">
+           <table class="table m-0 p-0 table-hover table-sticky person-table">
+             <thead>
+               <tr>
+                 <th class="text-left">類別</th>
+                 <th class="text-right">近一年平均存款</th>
+                 <th class="text-right">存款餘額</th>
+                 <th class="text-center" colspan="3">備註</th>
+               </tr>
+             </thead>
+             <tbody>
+              <tr>
+                <td class="text-left" >活存</td>
+                <td class="text-right">{{ 80 | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ 1400 | currency:'':'':'1.0-0' }}</td>
+                <td class="text-center"  colspan="3">
+                  <div>-</div>
+                </td>
+              </tr>
 
-            <tr>
-                <td class="text-left">證券活期存款</td>
-                <td class="text-left">0000705381000115</td>
-                <td class="text-left" >新台幣</td>
-                <td class="text-right">{{ 120 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ 1000 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-center">
-                    <div>
-                        非國泰證券交割戶
+              <tr>
+                  <td class="text-left">定存</td>
+                  <td class="text-right">{{ 6000 | currency:'':'':'1.0-0' }}</td>
+                  <td class="text-right">{{ 6000 | currency:'':'':'1.0-0' }}</td>
+                  <td class="text-center"  colspan="3">
+                      <div>
+                         -
+                      </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td class="text-left">支存</td>
+                  <td class="text-right"> {{ 1600 | currency:'':'':'1.0-0' }}</td>
+                  <td class="text-right">{{ 14500 | currency:'':'':'1.0-0' }}</td>
+                  <td class="text-center"  colspan="3">
+                      <div class="text-danger">
+                        帳號 00154716453333：退票 5 張 | 註銷 1 張
+                      </div>
+                  </td>
+              </tr>
+
+              <tr class="bg-light text-primary">
+                <td class="text-left">其他持有商品</td>
+                <td>
+                  <div class="d-inline-block">
+                      <i class="far fa-check-square mr-2"></i>壽險
+                  </div>
+                </td>
+                <td>
+                    <div class="d-inline-block">
+                        <i class="far fa-check-square mr-2"></i>產險
                     </div>
                 </td>
-            </tr>
-            <tr>
-                <td class="text-left" rowspan="2">定存</td>
-                <td class="text-left">定期存款</td>
-                <td class="text-left">0000705381000117</td>
-                <td class="text-left">新台幣</td>
-                <td class="text-right"> {{ 6000 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ 6000 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-center">
-                    <div>本金自動展期</div>
+                <td>
+                    <div class="d-inline-block">
+                        <i class="far fa-check-square mr-2"></i>基金
+                    </div>
                 </td>
-            </tr>
-
-            <tr>
-                <td class="text-left" >定期存款</td>
-                <td class="text-left" >000070538100USD</td>
-                <td class="text-left" >美金</td>
-                <td class="text-right"> {{ 1000 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ 45000 | currency:'':'':'1.0-0' }}</td>
-                <td class="text-center">
-                    <div class="text-danger">退票5張｜註銷1張｜拒往戶</div>
+                <td>
+                    <div class="d-inline-block text-gray">
+                        <i class="far fa-window-close text-gray  mr-2"></i>國外有價證券
+                    </div>
                 </td>
-            </tr>
-            <tr>
-              <td  class="text-left" >支存</td>
-              <td  class="text-left" >支票存款</td>
-              <td  class="text-left" >0000705381000119</td>
-              <td class="text-left">新台幣</td>
-              <td class="text-right">{{ 1600 | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ 14500 | currency:'':'':'1.0-0' }}</td>
-              <td class="text-center">-</td>
-            </tr>
+                <td>
+                    <div class="d-inline-block">
+                        <i class="far fa-check-square  mr-2"></i>組合式商品
+                    </div>
+                </td>
+
+              </tr>
 
 
-            <tr class="bg-light text-primary">
-              <td colspan="2">其他持有商品</td>
-              <td>
-                <div class="d-inline-block">
-                    <i class="far fa-check-square mr-2"></i>壽險
-                </div>
-              </td>
-              <td>
-                  <div class="d-inline-block">
-                      <i class="far fa-check-square mr-2"></i>產險
-                  </div>
-              </td>
-              <td>
-                  <div class="d-inline-block">
-                      <i class="far fa-check-square mr-2"></i>基金
-                  </div>
-              </td>
-              <td>
-                  <div class="d-inline-block text-gray">
-                      <i class="far fa-window-close text-gray  mr-2"></i>國外有價證券
-                  </div>
-              </td>
-              <td>
-                  <div class="d-inline-block">
-                      <i class="far fa-check-square  mr-2"></i>組合式商品
-                  </div>
-              </td>
+             </tbody>
 
-            </tr>
+           </table>
 
-
-           </tbody>
-
-         </table>
+        </div>
 
       </div>
 
-    </div>
 
-
-</div>
+  </div>
 
 
  <!-- 信用卡-->

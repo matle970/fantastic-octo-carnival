@@ -75,8 +75,6 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
         break;
     }
 
-    console.log('after',this)
-
   }
 
 
