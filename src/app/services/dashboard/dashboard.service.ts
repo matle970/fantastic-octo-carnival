@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../common-services/base/base.service';
-import { CustomerInfoService } from '../common-services/customerid.service';
+import { CustomerIdService } from '../common-services/customerid.service';
 import { MatTableDataSource } from '@angular/material';
 import { CompanyList } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
 import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
@@ -17,7 +17,7 @@ export class DashboardService {
         'dtoResponse': CompanyList
     }];
     constructor(private baseService: BaseService,
-                private customerInfo: CustomerInfoService) { }
+                private customerInfo: CustomerIdService) { }
 
   
     sendRquest() {

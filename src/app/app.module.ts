@@ -43,7 +43,7 @@ import { SharedItemModule } from './objects/shared-item/shared-item.module';
 import { SidebarService } from './services/common-services/sidebar.service';
 import { ModalService } from './services/common-services/modal.service';
 import { AoIdentityService } from './services/common-services/ao-identity.service';
-import { CustomerInfoService } from './services/common-services/customerid.service';
+import { CustomerIdService } from './services/common-services/customerid.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
 import { TokenService } from './services/common-services/token.service';
@@ -95,7 +95,7 @@ import { DummyDataService } from './services/common-services/dummydata.service';
         ModalService,
         DatePipe,
         AoIdentityService,
-        CustomerInfoService,
+        CustomerIdService,
         TokenService,
         TrustkeyServeice,
         TimeoutService,

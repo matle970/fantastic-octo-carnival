@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class CustomerInfoService {
+export class CustomerIdService {
     private _customerId: string;
     private _token: string;
     constructor() { }
