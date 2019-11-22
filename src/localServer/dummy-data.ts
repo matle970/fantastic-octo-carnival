@@ -463,7 +463,7 @@ export class DummyData {
     }
 
     // CB011-Composite API-營運量-TMU額度第二層
-
+    
     // CB012-Composite API-基本資訊-公司資訊第一層
     company = {
         "header": {
@@ -884,7 +884,7 @@ export class DummyData {
                 break;
             // CB011-Composite API-營運量-TMU額度第二層
             case this.URL.PRODUCT_TMU_DETAIL:
-
+                returnData = this
                 break;
 
             // CB012-Composite API-基本資訊-公司資訊第一層
