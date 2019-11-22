@@ -7,6 +7,7 @@ import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { AssetsLibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
 import { ModalService } from 'src/app/services/common-services/modal.service';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Component({
     selector: 'app-cust-charts',
@@ -22,6 +23,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     urlList = [
         {
             'url': this.URL.PRODUCT_ASSETS_LIBILITIES,
+            'dtoRequset': CommonRequest,
             'dtoResponse': AssetsLibilities
         }
     ];
@@ -41,7 +43,10 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((resdata: any) => {
+            super.sendRequestAsync(
+                this.urlList[i].url, 
+                this.urlList[i].dtoRequset, 
+                this.urlList[i].dtoResponse).then((resdata: any) => {
 
                 // console.log('data', resdata.body[0]);
                 // if (data.header.returnCode === '0000') {

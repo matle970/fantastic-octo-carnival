@@ -8,35 +8,33 @@
 
         <h4 class="card-title text-primary clearfix ">
             <div class="d-inline-block has-notification-icon ">
-                基本資訊
+                {{baseinfo_text}}
 
                 <!-- 關鍵提醒 -->
                 <app-notice-icon [notice]="0" [modalId]="2"></app-notice-icon>
-
             </div>
+
             <div class="d-inline-block float-right text-right">
                 <div class="d-inline-block">
                     <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above">
-                        授
+                        {{tag_green_text}}
                     </span>
                     <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above">
-                        網
+                        {{tag_blue_text}}
                     </span>
                     <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above">
-                        薪
+                        {{tag_gold_text}}
                     </span>
                     <!-- <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above">
-                  核
+                  {{tag_orange_text}}
                 </span>
                 <span class="tag tag-red" matTooltip="黑名單" matTooltipPosition="above">
-                  黑
+                  {{tag_red_text}}
                 </span> -->
-
                 </div>
-
             </div>
-
         </h4>
+        
         <div class="company-title row my-1">
             <div class="col-lg-12 col-md-12 col-sm-12  text-h3">
                 <span class="card-subtitle d-inline-block company-title">

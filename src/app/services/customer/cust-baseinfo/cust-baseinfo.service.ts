@@ -11,6 +11,8 @@ import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contri
 import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
 import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
+import { GettextService } from '../../common-services/gettext.service';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Injectable({
     providedIn: 'root'
@@ -18,52 +20,63 @@ import { BaseService } from 'src/app/services/common-services/base/base.service'
 export class CustBaseinfoService {
 
     constructor(
-        private baseservice: BaseService
+        public baseservice: BaseService,
     ) { }
 
     urlList = [
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY,
+            'dtoRequset': CommonRequest,
             'dtoResponse': Company
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
+            'dtoRequset': CommonRequest,
             'dtoResponse': CompanyDetail
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
+            'dtoRequset': CommonRequest,
             'dtoResponse': CompanyAssociate
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
+            'dtoRequset': CommonRequest,
             'dtoResponse': CompanyAssociateAssets
         },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': Group
         // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': GroupDetail
         // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': Manage
         // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': ManageDetail
         // },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
+            'dtoRequset': CommonRequest,
             'dtoResponse': Contribution
         },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': ContributionDetail
         // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
+        //     'dtoRequset': CommonRequest,
         //     'dtoResponse': CompanyNotification
         // }
     ];
@@ -93,14 +106,15 @@ export class CustBaseinfoService {
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            this.baseservice.httpservice.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
-                // console.log('data', data);
-                if (data.header.returnCode === '0000') {
-                    this.dataProcess(data, this.urlList[i].url);
-                }
-            }, (err) => {
-
-            });
+            this.baseservice.httpservice.sendRequestAsync(
+                this.urlList[i].url,
+                this.urlList[i].dtoRequset,
+                this.urlList[i].dtoResponse).then(data => {
+                    // console.log('data', data);
+                    if (data.header.returnCode === '0000') {
+                        this.dataProcess(data, this.urlList[i].url);
+                    }
+                });
         }
     }
 

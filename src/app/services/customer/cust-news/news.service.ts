@@ -3,6 +3,7 @@ import { BaseService } from '../../common-services/base/base.service';
 import { CustomerIdService } from '../../common-services/customerid.service';
 import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
 import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Injectable({
     providedIn: 'root'
@@ -16,10 +17,12 @@ export class NewsService {
   urlList =[
     {
       'url': this.baseService.geturlservice.URL.NEWS_NEWS_DETAIL,
+      'dtoRequset': CommonRequest,
       'dtoResponse': CompanyNews
     },
     {
       'url': this.baseService.geturlservice.URL.NEWS_BANKS,
+      'dtoRequset': CommonRequest,
       'dtoResponse': NewsBanklist
     }
   ];
@@ -33,7 +36,10 @@ export class NewsService {
 
   sendRquest() {
     for (let i = 0; i < this.urlList.length; i++ ) {
-      this.baseService.httpservice.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
+      this.baseService.httpservice.sendRequestAsync(
+        this.urlList[i].url, 
+        this.urlList[i].dtoRequset,
+        this.urlList[i].dtoResponse).then((data: any) => {
         if ( data.header.returnCode === '0000' && i === 0) {
           this._newsSources = data.body.newsList;
         } else if ( data.header.returnCode === '0000' && i === 1 ) {

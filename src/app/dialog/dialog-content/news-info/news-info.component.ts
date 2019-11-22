@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 declare interface NewsContent {
   id: string;
   paper: string;
@@ -26,6 +27,7 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit {
 
   newsUrl = {
     'url': this.URL.NEWS_NEWS_DETAIL,
+    'dtoRequset': CommonRequest,
     'dtoResponse': CompanyNews
   };
 
@@ -41,7 +43,10 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit {
   }
 
   sendRquest() {
-    super.sendRequestAsync(this.newsUrl.url, this.newsUrl.dtoResponse).then((data: any) => {
+    super.sendRequestAsync(
+      this.newsUrl.url,
+      this.newsUrl.dtoRequset,
+      this.newsUrl.dtoResponse).then((data: any) => {
           if (data.header.returnCode === '0000') {
             this.newsList = data.body.newsList;
           } else {

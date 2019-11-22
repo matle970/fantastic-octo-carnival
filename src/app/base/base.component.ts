@@ -23,15 +23,16 @@ export class BaseComponent {
     /**
     * 使用promise方式非同步發送請求
     * @param url 查詢URL
-    * @param dtoResponse 回傳response
+    * @param dtoRequest 回傳response
+    * @param dtoResponse 回傳response 
     * @param useDummyData 是否使用 Dummy data
     */
-    sendRequestAsync(url: string, dtoResponse: any): Promise<any> {
+    sendRequestAsync(url: string, dtoRequest: any, dtoResponse: any): Promise<any> {
         let data: any;
 
         if (this.useDummyData) {
             const dummy = new DummyData();
-            data = dummy.getDummyData(url, dtoResponse);
+            data = dummy.getDummyData(url, dtoRequest, dtoResponse);
             // return data;
             return new Promise((resolve, reject) => {
                 resolve(this.returnData(data));
