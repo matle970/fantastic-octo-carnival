@@ -24,7 +24,7 @@ import {
     ApexTheme
 } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
-import { CustBaseinfoService } from './service/cust-baseinfo.service';
+import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
 import { ModalService } from 'src/app/services/common-services/modal.service';
 
 @Component({
@@ -43,7 +43,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
     ngOnInit() {
-        this.custbaseinfoService.sendRquest;
+        this.custbaseinfoService.sendRquest();
     }
 
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
-import { CustomerInfoService } from '../services/common-services/customerid.service';
+import { CustomerIdService } from '../services/common-services/customerid.service';
 
 @Component({
   selector: 'app-customer',
@@ -13,7 +13,7 @@ export class CustomerComponent extends BaseComponent implements OnInit {
 
   @ViewChild('searchIdBind') searchData: any;
 
-  constructor(customerInfo: CustomerInfoService) { 
+  constructor(customerInfo: CustomerIdService) { 
     super();
     customerInfo.print(); //get customer id from share data 
   }

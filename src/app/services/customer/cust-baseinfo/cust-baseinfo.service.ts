@@ -38,34 +38,34 @@ export class CustBaseinfoService {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
             'dtoResponse': CompanyAssociateAssets
         },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
-            'dtoResponse': Group
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
-            'dtoResponse': GroupDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
-            'dtoResponse': Manage
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
-            'dtoResponse': ManageDetail
-        },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
+        //     'dtoResponse': Group
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
+        //     'dtoResponse': GroupDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
+        //     'dtoResponse': Manage
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+        //     'dtoResponse': ManageDetail
+        // },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
             'dtoResponse': Contribution
         },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
-            'dtoResponse': ContributionDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
-            'dtoResponse': CompanyNotification
-        }
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
+        //     'dtoResponse': ContributionDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
+        //     'dtoResponse': CompanyNotification
+        // }
     ];
 
     // 基本資訊-公司資訊第一層
@@ -94,7 +94,7 @@ export class CustBaseinfoService {
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
             this.baseservice.httpservice.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
-                console.log('data', data);
+                // console.log('data', data);
                 if (data.header.returnCode === '0000') {
                     this.dataProcess(data, this.urlList[i].url);
                 }
