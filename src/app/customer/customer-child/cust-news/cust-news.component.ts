@@ -57,38 +57,8 @@ export class NewsComponent  extends BaseComponent  implements OnInit {
     this.LastDate = this.newsService.LastDate;
   }
 
-  openDialog(id: number, wide: boolean) {
-    this.dialogService.openDialog(id, wide);
+  openDialog(id: number, wide?: boolean, itemId?: string) {
+    this.dialogService.openDialog(id, wide, itemId);
   }
-
-
-  // openDialog(modalId: number) {
-  //   const openId = modalId ;
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.autoFocus = false;
-  //   dialogConfig.width = '80%';
-  //   dialogConfig.data = {
-  //     id: openId,
-  //     title: '',
-  //     content_data: {}
-  //   };
-
-  //   switch (openId) {
-  //     case 12 :
-  //         dialogConfig.data.content_data = [];
-  //         dialogConfig.data.title = '要點新聞';
-  //         break;
-  //     case 13 :
-  //         dialogConfig.data.content_data = [];
-  //         dialogConfig.data.title = '銀行同業';
-  //         break;
-  //     default:
-  //       dialogConfig.data.content_data = [];
-  //       dialogConfig.data.title = 'defalut no data';
-  //       break;
-  //   }
-
-  //   this.dialog.open(DialogComponent, dialogConfig);
-  // }
 
 }
