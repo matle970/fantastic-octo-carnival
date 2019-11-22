@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from './base/base.service';
-import { CustomerInfoService } from './customerid.service';
+import { BaseService } from '../common-services/base/base.service';
+import { CustomerInfoService } from '../common-services/customerid.service';
 import { MatTableDataSource } from '@angular/material';
 import { CompanyList } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
 import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
