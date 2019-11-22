@@ -65,6 +65,7 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit {
   }
 
   getNownews (id: string) {
+    this.nowNewsId = id;
     this.nowNews = this.newsList.find(function(item) {
       return item.id === id;
     });
