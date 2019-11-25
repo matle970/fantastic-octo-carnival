@@ -22,7 +22,7 @@ export class DashboardService {
   
     sendRquest() {
         this.baseService.httpservice.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse).then((data: any) => {
-            this.customerInfo.customerId = data.body.aoData[0].id;
+            this.setCustomerInfo(data.body.aoData[0].cus_id);
             this._dataList = data.body.aoData;
             //console.log('list', this._dataList);
         }, (err) => { })
@@ -111,5 +111,9 @@ export class DashboardService {
                    return orderDef.indexOf(value);
           }
           return(100);
-      }
+    }
+
+    setCustomerInfo(value: string) {
+		this.customerInfo.customerId = value;
+    }
 }
