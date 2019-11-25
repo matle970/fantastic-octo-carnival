@@ -13,4 +13,8 @@ class Body {
     totalRelCreditLimit: string;
     totalRelLiabilitiesBal: string;
     tcriLevel: string;
+    customerName: string;
+    industryCode: string;
+    compFlag: Array<string>;
+    nextReviewDate: string;
 }
