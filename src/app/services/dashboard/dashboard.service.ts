@@ -117,4 +117,8 @@ export class DashboardService {
         }
         return (100);
     }
+    
+    setCustomerInfo(value: string) {
+        this.customerInfo.customerId = value;
+    }
 }

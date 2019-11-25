@@ -15,8 +15,8 @@ class AoData {
     cus_id: string;
     cus_name: string;
     msr: string;
-    rorwa: string;
-    raroc: string;
+    rorwa: number;
+    raroc: number;
     last_year_contribution: string;
     this_year_contribution: string;
     deposit: string;

@@ -1,11 +1,26 @@
 {
+  "//_customer-baseinfo基本資訊": "",
   "baseinfo_text": "基本資訊",
   "tag_green_text": "授",
   "tag_blue_text": "網",
   "tag_gold_text": "薪",
   "tag_orange_text": "",
   "tag_red_text": "",
-  "contribution" : ["現管", "放款", "貿融", "資顧", "TMU", "其他"],
+  "uniform_numbers_text": "統編 : ",
+  "companyinfo_text": "公司資訊",
+  "nextreviewdate_text": "Next Review Date",
+  "TCRI_text": "TCRI",
+  "MSR_text": "MSR",
+  "RORWA_text": "RORWA",
+  "RAROC_text": "RAROC",
 
-  "timeout" : "網頁已失效，請重新開啟！"
+  "contribution": [
+    "現管",
+    "放款",
+    "貿融",
+    "資顧",
+    "TMU",
+    "其他"
+  ],
+  "timeout": "網頁已失效，請重新開啟！"
 }

@@ -15,6 +15,7 @@ import { LogoWhiteComponent } from './logo-white/logo-white.component';
 import { NoticeIconComponent } from './notice-icon/notice-icon.component';
 import { SharedMaterialModule } from 'src/app/objects/shared-material/shared-material.module';
 import { SharedItemModule } from 'src/app/objects/shared-item/shared-item.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { SharedItemModule } from 'src/app/objects/shared-item/shared-item.module
     CommonModule,
     RouterModule,
     SharedMaterialModule,
-    SharedItemModule
+    SharedItemModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     HeaderComponent,

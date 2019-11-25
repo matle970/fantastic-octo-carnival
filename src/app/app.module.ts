@@ -5,7 +5,7 @@ import { NgModule, Injector } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CdkTableModule } from '@angular/cdk/table';
 
@@ -24,7 +24,7 @@ import { CommonAreaModule } from './content-layout/common-area/common-area.modul
 
 // customer
 import { CustomerComponent } from './customer/customer.component';
-import { CompanyModule } from './customer/customer-child/customer-child.module';
+import { CompanyModule } from './customer/customer.module';
 
 // dashboard
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -76,6 +76,7 @@ import { DummyDataService } from './services/common-services/dummydata.service';
         TimeoutComponent
     ],
     imports: [
+        CommonModule,
         SharedMaterialModule,
         CdkTableModule,
         // tslint:disable-next-line: deprecation

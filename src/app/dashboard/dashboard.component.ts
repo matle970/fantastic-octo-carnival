@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleCh
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
-import { BaseService } from '../services/common-services/base/base.service';
 import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 
@@ -14,6 +13,7 @@ import { AoIdentityService } from '../services/common-services/ao-identity.servi
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
+  [x: string]: any;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;
@@ -51,11 +51,10 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     //inject service if dummdy data or adserver has trouble
     constructor(
-        private baseService: BaseService,
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl, 
         aoIdentity: AoIdentityService) {
-        this.supervisor = false;
+        this.supervisor = true;
         this.dashboardService.sendRquest();
         aoIdentity.print();
     }
@@ -127,15 +126,27 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.dataSource.sort = this.sortTable;
 
     }
-
     pageChange(event: any) {
         //console.log(event);
     }
 
-    onFilterChanged(eventArgs) {
-        //console.log("Filter: ", eventArgs);
+    //Filter
+    onFilterReferBrandChanged(eventArgs) {
+        console.log("FilterReferBranch: ", eventArgs);
     }
-    
+    onFilterWMBrandChanged(eventArgs) {
+        console.log("FilterWMBranch: ", eventArgs);
+    }
+    onFilterDataChanged(eventArgs){
+        console.log("inputFilterData", eventArgs);
+    }
+
+
+    //keep customer data to second page
+    onCusNameClick(value) {
+        this.dashboardService.setCustomerInfo(value);
+    }
+
     public calculateTotal(key) {
         return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
