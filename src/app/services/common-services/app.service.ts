@@ -4,6 +4,7 @@ import { TrustkeyServeice } from './trustkey.service';
 import { HttpService } from './http.service';
 import { GeturlService } from './geturl.service';
 import { AoProfileResponse } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-response';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -15,12 +16,16 @@ export class AppService {
 
     urlList = [{
         'url': this.geturlservice.URL.FIRSTPAGE_AO_PROFILE,
+        'dtoRequset': CommonRequest,
         'dtoResponse': AoProfileResponse
     }];
 
     //TODO: assign token to request 
     sendRquest() {
-        this.httpservice.sendRequestAsync(this.urlList[0].url, this.urlList[0].dtoResponse)
+        this.httpservice.sendRequestAsync(
+            this.urlList[0].url,
+            this.urlList[0].dtoRequset,
+            this.urlList[0].dtoResponse)
             .then((data: any) => {
                 this.aoIdentityService.aoId = data.body.aoId;
                 this.aoIdentityService.aoName = data.body.employeeName;

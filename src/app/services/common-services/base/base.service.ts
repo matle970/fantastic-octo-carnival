@@ -3,6 +3,7 @@ import { HttpService } from '../http.service';
 import { TokenService } from '../token.service';
 import { TrustkeyServeice } from '../trustkey.service';
 import { GeturlService } from '../geturl.service';
+import { GettextService } from '../gettext.service';
 
 @Injectable({ providedIn: 'root' })
 export class BaseService {
@@ -11,7 +12,8 @@ export class BaseService {
         public httpservice: HttpService,
         public tokenservice: TokenService,
         public trustkeyserveice: TrustkeyServeice,
-        public geturlservice: GeturlService
+        public geturlservice: GeturlService,
+        public gettextservice: GettextService
     ) { }
 
 }

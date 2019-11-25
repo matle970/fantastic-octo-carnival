@@ -33,7 +33,7 @@
   <app-operating-tmu *ngIf="contentData.id == 11"></app-operating-tmu>
 
   <!-- 要點新聞 -->
-  <app-news-info *ngIf="contentData.id == 12"></app-news-info>
+  <app-news-info [content]="contentData" *ngIf="contentData.id == 12"></app-news-info>
 
   <!-- 銀行同業 -->
   <app-banks-info *ngIf="contentData.id == 13"></app-banks-info>

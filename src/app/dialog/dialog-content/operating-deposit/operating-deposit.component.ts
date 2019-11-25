@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { DepositDetail } from 'src/app/objects/dto/product/product-depositDetail-response'
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Component({
     selector: 'app-operating-deposit',
@@ -19,6 +20,7 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
     urlList = [
         {
             'url': this.URL.PRODUCT_DEPOSIT_DETAIL,
+            'dtoRequset': CommonRequest,
             'dtoResponse': DepositDetail
         }
     ];
@@ -30,7 +32,10 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((resdata: any) => {
+            super.sendRequestAsync(
+                this.urlList[i].url,
+                this.urlList[i].dtoRequset,
+                this.urlList[i].dtoResponse).then((resdata: any) => {
                 // console.log(resdata);
 
 

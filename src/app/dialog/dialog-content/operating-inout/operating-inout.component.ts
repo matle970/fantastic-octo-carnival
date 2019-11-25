@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ImportExportDetail } from 'src/app/objects/dto/product/product-importExportDetail-response';
 import { BaseComponent } from 'src/app/base/base.component';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Component({
     selector: 'app-operating-inout',
@@ -17,6 +18,7 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
     urlList = [
         {
             'url': this.URL.PRODUCT_IMPORT_EXPORT_DETAIL,
+            'dtoRequset': CommonRequest,
             'dtoResponse': ImportExportDetail
         }
     ];
@@ -26,7 +28,10 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
     }
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((resdata: any) => {
+            super.sendRequestAsync(
+                this.urlList[i].url, 
+                this.urlList[i].dtoRequset,
+                this.urlList[i].dtoResponse).then((resdata: any) => {
                 console.log(resdata);
 
             this.import[0] = resdata.body.import[0]['mon']

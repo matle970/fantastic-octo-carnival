@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerHistoryList } from 'src/app/objects/dto/custhistory/custhistory-response';
 import { BaseComponent } from 'src/app/base/base.component';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Component({
   selector: 'app-cust-history',
@@ -111,6 +112,7 @@ export class HistoryComponent extends BaseComponent  implements OnInit  {
 
   histUrl = {
     'url': this.URL.JOURNEY_COMPANY_JOURNEY,
+    'dtoRequset': CommonRequest,
     'dtoResponse': CustomerHistoryList
   };
 
@@ -123,7 +125,10 @@ export class HistoryComponent extends BaseComponent  implements OnInit  {
   }
 
   sendRquest() {
-        super.sendRequestAsync(this.histUrl.url ,this.histUrl.dtoResponse).then((data: any) => {
+        super.sendRequestAsync(
+          this.histUrl.url,
+          this.histUrl.dtoRequset,
+          this.histUrl.dtoResponse).then((data: any) => {
           // console.log('history data', data);
           if (data.header.returnCode === '0000') {
             this.tabList = data.body.tabList;

@@ -21,12 +21,12 @@ export class HttpService {
 
     apiDomain: string = this.envservice.apiUrl; // API Domain name
 
-    sendRequestAsync(url: string, dtoResponse: any): Promise<any> {
+    sendRequestAsync(url: string, dtoRequest: any, dtoResponse: any): Promise<any> {
         let data: any;
 
         if (this.dummydataservice.useDummyData) {
             const dummy = new DummyData();
-            data = dummy.getDummyData(url, dtoResponse);
+            data = dummy.getDummyData(url, dtoRequest, dtoResponse);
             return new Promise((resolve, reject) => {
                 resolve(this.returnData(data));
                 reject();

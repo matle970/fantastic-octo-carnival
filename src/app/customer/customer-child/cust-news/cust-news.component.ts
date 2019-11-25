@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
@@ -7,105 +7,58 @@ import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
 import { ModalService } from 'src/app/services/common-services/modal.service';
 
 
+import { NewsService } from 'src/app/services/customer/cust-news/news.service';
+import { DialogService } from 'src/app/services/common-services/dialog.service';
 @Component({
   selector: 'app-cust-news',
   templateUrl: './cust-news.component.html',
   styleUrls: ['./cust-news.component.scss']
 })
+
+
+
 export class NewsComponent  extends BaseComponent  implements OnInit {
+
+  constructor(
+    private newsService: NewsService,
+    private modalService: ModalService,
+    private dialogService: DialogService,
+    public dialog: MatDialog,
+    ) {
+    super();
+    this.newsService.sendRquest();
+
+  }
 
   displayedColumns = ['date', 'tag', 'title'];
 
   // 新聞列表
-  newsSources: Array<any> = [];
+  newsSources: any = [];
+
   bankColumns = ['bank', 'valChange',  'totalChange'];
 
   // 銀行列表
-  bankSource: Array<any> =[];
+  bankSource: any = [];
 
+  // 上次查詢日期
   PreDate: Date;
+
+  // 最近查詢日期
   LastDate: Date;
 
-  urlList = [
-    {
-        'url': this.URL.NEWS_NEWS_DETAIL,
-        'dtoResponse': CompanyNews
-    },
-    {
-        'url': this.URL.NEWS_BANKS,
-        'dtoResponse': NewsBanklist
-    },
-  ];
-
-
-  constructor(private modalService: ModalService, public dialog: MatDialog) {
-    super();
-  }
-
-
   ngOnInit() {
-    this.sendRquest();
+    this.getNewsDate();
   }
 
-  sendRquest() {
-    for (let i = 0; i < this.urlList.length; i++) {
-      super.sendRequestAsync(this.urlList[i].url, this.urlList[i].dtoResponse).then((data: any) => {
-          if (data.header.returnCode === '0000') {
-              this.dataProcess(data, this.urlList[i].url);
-          }
-      }, (err) => {
-
-
-      });
-    }
-
+  getNewsDate() {
+    this.newsSources = this.newsService.newsSources;
+    this.bankSource = this.newsService.banksSources;
+    this.PreDate = this.newsService.PreDate;
+    this.LastDate = this.newsService.LastDate;
   }
 
-  dataProcess(data:any, url: string) {
-
-    switch (url) {
-      case this.URL.NEWS_NEWS_DETAIL:
-        this.newsSources = data.body.newsList;
-        break;
-
-      case this.URL.NEWS_BANKS:
-        this.bankSource = data.body.banksList;
-        this.PreDate =  new Date(data.body.PreDate * 1000);
-        this.LastDate =  new Date(data.body.LastDate * 1000);
-        break;
-    }
-
-  }
-
-
-
-  openDialog(modalId: number) {
-    const openId = modalId ;
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = false;
-    dialogConfig.width = '80%';
-    dialogConfig.data = {
-      id: openId,
-      title: '',
-      content_data: {}
-    };
-
-    switch (openId) {
-      case 12 :
-          dialogConfig.data.content_data = [];
-          dialogConfig.data.title = '要點新聞';
-          break;
-      case 13 :
-          dialogConfig.data.content_data = [];
-          dialogConfig.data.title = '銀行同業';
-          break;
-      default:
-        dialogConfig.data.content_data = [];
-        dialogConfig.data.title = 'defalut no data';
-        break;
-    }
-
-    this.dialog.open(DialogComponent, dialogConfig);
+  openDialog(id: number, wide?: boolean, itemId?: string) {
+    this.dialogService.openDialog(id, wide, itemId);
   }
 
 }
