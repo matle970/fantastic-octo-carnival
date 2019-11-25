@@ -4,7 +4,12 @@
 
 
       <div class="d-inline-block">
-          <app-filter [datalist]="dataSource" ([getKeyword])="lastKeyword" (change)="onFilterChanged($event)"></app-filter>
+          <app-filter [datalist]="dataSource" 
+              ([getKeyword])="lastKeyword"
+              (referBranchData)="onFilterReferBrandChanged($event)" 
+              (wmBranchData)="onFilterWMBrandChanged($event)" 
+              (filterData) = "onFilterDataChanged($event)">
+          </app-filter>
       </div>
 
       <div class="d-inline-block dashboard-top">
@@ -149,7 +154,7 @@
                                 <app-column-toggle [app-column-toggle]="{ isColumn: 'rorwa'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
                               <td class="text-right bg-three" mat-cell *matCellDef="let element">
-                                {{element.rorwa}}
+                                {{ element.rorwa | percent: '1.2' }}
                               </td>
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
@@ -158,7 +163,9 @@
                                 RAROC
                                 <app-column-toggle [app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }"></app-column-toggle>
                               </th>
-                              <td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.raroc}} </td>
+                              <td class="text-right bg-three" mat-cell *matCellDef="let element"> 
+                                {{ element.raroc | percent: '1.2' }} 
+                              </td>
                               <td mat-footer-cell *matFooterCellDef> -  </td>
                           </ng-container>
 

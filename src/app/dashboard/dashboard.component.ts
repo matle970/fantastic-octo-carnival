@@ -126,18 +126,25 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.dataSource.sort = this.sortTable;
 
     }
-
     pageChange(event: any) {
         //console.log(event);
     }
 
-    onFilterChanged(eventArgs) {
-        //console.log("Filter: ", eventArgs);
+    //Filter
+    onFilterReferBrandChanged(eventArgs) {
+        console.log("FilterReferBranch: ", eventArgs);
     }
-    
+    onFilterWMBrandChanged(eventArgs) {
+        console.log("FilterWMBranch: ", eventArgs);
+    }
+    onFilterDataChanged(eventArgs){
+        console.log("inputFilterData", eventArgs);
+    }
+
+
+    //keep customer data to second page
     onCusNameClick(value) {
         this.dashboardService.setCustomerInfo(value);
-        //console.log('onCustomerClick', value);
     }
 
     public calculateTotal(key) {
