@@ -34,31 +34,53 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 })
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
-    
+
+    baseinfo_text: string = this.custbaseinfoService.baseservice.gettextservice.text.baseinfo_text;
+    tag_green_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_green_text;
+    tag_blue_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_blue_text;
+    tag_gold_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_gold_text;
+    tag_orange_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_orange_text;
+    tag_red_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_red_text;
+
+    CompanyObj: object = {};
+    CompanyDetailObj: object = {};
+    CompanyAssociateObj: object = {};
+    CompanyAssociateAssetsObj: object = {};
+    GroupObj: object = {};
+    GroupDetailObj: object = {};
+    ManageObj: object = {};
+    ManageDetailObj: object = {};
+    ContributionObj: object = {};
+    ContributionDetailObj: object = {};
+    CompanyNotificationObj: object = {};
+
     constructor(
         private modalservice: ModalService,
         public dialog: MatDialog,
+
         private custbaseinfoService: CustBaseinfoService) {
         super();
     }
 
-    ngOnInit() {
-        this.custbaseinfoService.sendRquest;
+    async ngOnInit() {
+        await this.custbaseinfoService.sendRquest();
+        this.CompanyDetailObj = this.custbaseinfoService.CompanyDetailObj;
+        // console.log('this.CompanyDetailObj',this.CompanyDetailObj)
     }
 
 
 
 
-    
 
 
 
 
-    
+
+
 
     @Input() searchStr: string;
     @ViewChild('chartObj') chartObj: ChartComponent;
-    ContributionObj: any;
+    // ContributionObj: any;
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 

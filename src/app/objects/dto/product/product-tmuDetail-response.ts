@@ -1,7 +1,7 @@
 import { CommonHeaderRequest } from "../common/common-header-request";
 
 
-export class TmuDetail {
+export class TMUDetail {
     header: CommonHeaderRequest;
     body: Body;
 }

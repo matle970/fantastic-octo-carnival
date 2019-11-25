@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
+import { FilterService } from 'src/app/services/common-area/filter.service';
 
 @Component({
   selector: 'app-filter',
@@ -12,6 +13,9 @@ export class FilterComponent implements OnInit, OnChanges {
   @Input() datalist: DashboardComponent;
   @ViewChild('keyword') keyword: string;
   @Output('change') change = new EventEmitter();
+
+  wmBranch: Array<{branchId: string, branchName: string}> = [{branchId: '0', branchName: '經管行'}];
+  referBranch: Array<{branchId: string, branchName: string}> = [{branchId: '0', branchName: '授信轉介行'}];
 
   firstKeyChange = true;
   lastKeyword: string;
@@ -32,9 +36,18 @@ export class FilterComponent implements OnInit, OnChanges {
 
   myKeyword = '';
 
-  constructor() { }
+  constructor(private filterSerivce: FilterService) {
+    this.filterSerivce.sendReferBranchRequest();
+    this.filterSerivce.sendWMBranchRequest();
+   }
 
   ngOnInit() {
+    this.wmBranch = this.wmBranch.concat(this.filterSerivce.wmBranchList);
+    //console.log('wmBranch', this.wmBranch);
+    this.referBranch = this.referBranch.concat(this.filterSerivce.referBranchList);
+    //console.log('referBranch', this.referBranch);
+
+
     // this.fiterData();
     // $('.dropdown-toggle').dropdown();
   }
@@ -48,24 +61,6 @@ export class FilterComponent implements OnInit, OnChanges {
 
   filter(query: string) {
       this.change.emit(query); 
-  //   this.group_list = data.map(function(item: any){
-  //     return item.group_name;
-  //   });
-  //   this.cus_name = data.map(function(item: any){
-  //     return item.cus_name;
-  //   });
-  //   this.cus_id = data.map(function(item: any){
-  //     return item.cus_id;
-  //   });
-
-
-  //   this.ao_list = this.ao_list.filter((item, index) => this.ao_list.indexOf(item) === index);
-  //   this.group_list = this.group_list.filter((item, index) => this.group_list.indexOf(item) === index);
-  //   this.cus_name = this.cus_name.filter((item, index) => this.cus_name.indexOf(item) === index);
-  //   this.cus_id = this.cus_id.filter((item, index) => this.cus_id.indexOf(item) === index);
-
-  
-
   }
   // fiterData () {
   //   console.log(this.datalist.data);

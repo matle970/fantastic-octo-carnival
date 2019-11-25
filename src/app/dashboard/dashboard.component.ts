@@ -14,7 +14,6 @@ import { AoIdentityService } from '../services/common-services/ao-identity.servi
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
-  [x: string]: any;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: boolean;

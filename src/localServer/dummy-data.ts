@@ -22,6 +22,75 @@ export class DummyData {
         }
     };
 
+
+    //CB002
+    wmBranchList = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "branch": [{
+                "branchId": "jewelWMId001",
+                "branchName": "jewelWMName001"
+            }, {
+
+                "branchId": "jewelWMId002",
+                "branchName": "jewelWMName002"
+            }, {
+
+                "branchId": "jewelWMId003",
+                "branchName": "jewelWMName003"
+            }, {
+
+                "branchId": "jewelWMId004",
+                "branchName": "jewelWMName004"
+            }, {
+
+                "branchId": "jewelWMId005",
+                "branchName": "jewelWMName005"
+            }
+            ]
+        }
+    }
+
+    //CB003
+    referBranchList = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "branch": [{
+                "branchId": "jewelReferId001",
+                "branchName": "jewelReferName001"
+            }, {
+                "branchId": "jewelReferId002",
+                "branchName": "jewelReferName002"
+            }, {
+                "branchId": "jewelReferId003",
+                "branchName": "jewelReferName003"
+            }, {
+                "branchId": "jewelReferId004",
+                "branchName": "jewelReferName004"
+            }, {
+                "branchId": "jewelReferId005",
+                "branchName": "jewelReferName005"
+            }
+            ]
+        }
+    }
+
     //CB-005-Composite API
     companyList = {
         "header": {
@@ -547,7 +616,7 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerId": "A111111112",
+            "customerId": "A999999999",
             "customerName": "千里馬股份有限公司",
             "stockCode": "0730",
             "capitalAmt": "180,000,000",
@@ -980,13 +1049,21 @@ export class DummyData {
 
     }
 
-    getDummyData(url: string, dtoResponse: any): Promise<any> {
+    getDummyData(url: string, dtoRequest: any, dtoResponse: any) {
         let returnData: any;
 
         switch (url) {
             // 首頁總覽-經管名單列表 <<假的>>
             case this.URL.FIRSTPAGE_AO_PROFILE:
                 returnData = this.getCBAoProfile;
+                break;
+
+            case this.URL.FIRSTPAGE_WM_BRANCH_LSIT:
+                returnData = this.wmBranchList;
+                break;
+
+            case this.URL.FIRSTPAGE_REFER_BRANCH_LIST:
+                returnData = this.referBranchList;
                 break;
 
             // 首頁總覽-經管名單列表 <<假的>>
@@ -1074,9 +1151,6 @@ export class DummyData {
 
         }
 
-        return new Promise((resolve, reject) => {
-            resolve(plainToClass(dtoResponse, returnData));
-            reject();
-        });
+        return plainToClass(dtoResponse, returnData);
     }
 }

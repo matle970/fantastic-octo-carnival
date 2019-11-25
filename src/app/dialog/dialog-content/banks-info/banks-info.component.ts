@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { NewsBankDetail } from 'src/app/objects/dto/custbanks/custbanks-detail-response';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 @Component({
   selector: 'app-banks-info',
   templateUrl: './banks-info.component.html',
@@ -13,6 +14,7 @@ export class BanksInfoComponent extends BaseComponent  implements OnInit {
 
   bankUrl = {
     'url': this.URL.NEWS_BANKS_Profile,
+    'dtoRequset': CommonRequest,
     'dtoResponse': NewsBankDetail
   };
 
@@ -25,7 +27,10 @@ export class BanksInfoComponent extends BaseComponent  implements OnInit {
   }
 
   sendRquest() {
-          super.sendRequestAsync(this.bankUrl.url, this.bankUrl.dtoResponse).then((data: any) => {
+          super.sendRequestAsync(
+            this.bankUrl.url,
+            this.bankUrl.dtoRequset,
+            this.bankUrl.dtoResponse).then((data: any) => {
             if (data.header.returnCode === '0000') {
               this.PreDate = data.body.PreDate;
               this.LastDate = data.body.LastDate;

@@ -18,8 +18,8 @@
                 <b class="caret"></b>
             </button>
             <ul class="dropdown-menu ">
-                <li  *ngFor="let item of branch">
-                   <a  (click)="chooseBranch(item)" > {{item}}</a>
+                <li  *ngFor="let item of wmBranch">
+                   <a  (click)="chooseBranch(item.branchName)" > {{item.branchName}}</a>
                 </li>
             </ul>
         </div>
@@ -34,8 +34,8 @@
                 <b class="caret"></b>
             </button>
             <ul class="dropdown-menu" aria-labelledby="SUBITEM">
-                <li  *ngFor="let item of branch2">
-                    <a  (click)="chooseForword(item)" > {{item}}</a>
+                <li  *ngFor="let item of referBranch">
+                    <a  (click)="chooseForword(item.branchName)" > {{item.branchName}}</a>
                  </li>
             </ul>
         </div>

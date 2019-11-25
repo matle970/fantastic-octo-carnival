@@ -48,11 +48,16 @@ import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
 import { TokenService } from './services/common-services/token.service';
 import { InjectService } from './services/common-services/inject.service';
+import { DialogService } from './services/common-services/dialog.service';
+
+// customer services
+import { NewsService } from './services/customer/cust-news/news.service';
+import { CustChartsService } from './services/customer/cust-charts/cust-charts.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
 
-// 共同之客製作 Pipe
+// 客製 Pipe
 import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
 import { DummyDataService } from './services/common-services/dummydata.service';
 
@@ -99,7 +104,11 @@ import { DummyDataService } from './services/common-services/dummydata.service';
         TokenService,
         TrustkeyServeice,
         TimeoutService,
-        DummyDataService
+        DummyDataService,
+        NewsService,
+        DialogService,
+        CustChartsService
+
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]

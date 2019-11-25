@@ -1,82 +1,81 @@
 <div class="card shadow-lg base-block top-card">
-  <app-water-print></app-water-print>
-  <!-- <div class="card-header card-header-danger">
+    <app-water-print></app-water-print>
+    <!-- <div class="card-header card-header-danger">
       <h4 class="card-title">Material Dashboard PRO Angular</h4>
       <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
   </div> -->
-  <div class="card-body">
+    <div class="card-body">
 
-    <h4 class="card-title text-primary clearfix ">
-      <div class="d-inline-block has-notification-icon ">
-        基本資訊
+        <h4 class="card-title text-primary clearfix ">
+            <div class="d-inline-block has-notification-icon ">
+                {{baseinfo_text}}
 
-        <!-- 關鍵提醒 -->
-        <app-notice-icon [notice]="0" [modalId]="2"></app-notice-icon>
+                <!-- 關鍵提醒 -->
+                <app-notice-icon [notice]="0" [modalId]="2"></app-notice-icon>
+            </div>
 
-      </div>
-      <div class="d-inline-block float-right text-right">
-        <div class="d-inline-block">
-          <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above">
-            授
-          </span>
-          <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above">
-            網
-          </span>
-          <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above">
-            薪
-          </span>
-          <!-- <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above">
-                  核
+            <div class="d-inline-block float-right text-right">
+                <div class="d-inline-block">
+                    <span class="tag tag-green" matTooltip="授信戶" matTooltipPosition="above">
+                        {{tag_green_text}}
+                    </span>
+                    <span class="tag tag-blue" matTooltip="企網銀" matTooltipPosition="above">
+                        {{tag_blue_text}}
+                    </span>
+                    <span class="tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above">
+                        {{tag_gold_text}}
+                    </span>
+                    <!-- <span class="tag tag-orange" matTooltip="集團核心" matTooltipPosition="above">
+                  {{tag_orange_text}}
                 </span>
                 <span class="tag tag-red" matTooltip="黑名單" matTooltipPosition="above">
-                  黑
+                  {{tag_red_text}}
                 </span> -->
+                </div>
+            </div>
+        </h4>
+        
+        <div class="company-title row my-1">
+            <div class="col-lg-12 col-md-12 col-sm-12  text-h3">
+                <span class="card-subtitle d-inline-block company-title">
+                    千里馬股份有限公司
+                </span>
+                <span class="d-inline-block ml-3">
+                    統編 : 12345678
+                </span>
+                <span class="d-inline-block ml-3 badge badge-secondary">電子業</span>
+            </div>
 
         </div>
 
-      </div>
-
-    </h4>
-    <div class="company-title row my-1">
-      <div class="col-lg-12 col-md-12 col-sm-12  text-h3">
-        <span class="card-subtitle d-inline-block company-title">
-          千里馬股份有限公司
-        </span>
-        <span class="d-inline-block ml-3">
-          統編 : 12345678
-        </span>
-        <span class="d-inline-block ml-3 badge badge-secondary">電子業</span>
-      </div>
-
-    </div>
 
 
+        <div class="row">
+            <!-- 左邊 -->
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <!-- 上方 -->
+                <div class="row no-gutters">
 
-    <div class="row">
-      <!-- 左邊 -->
-      <div class="col-lg-7 col-md-12 col-sm-12">
-        <!-- 上方 -->
-        <div class="row no-gutters">
-
-          <div class="col-lg-7 col-md-6">
+                    <div class="col-lg-7 col-md-6">
 
 
-            <!-- 公司資訊 -->
-            <div class="m-1 p-0">
-              <div class="d-block body-subtitle my-1">
-                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(3,true)">
-                  公司資訊
-                </span>
-              </div>
+                        <!-- 公司資訊 -->
+                        <div class="m-1 p-0">
+                            <div class="d-block body-subtitle my-1">
+                                <span class="btn btn-outline btn-outline-primary has-arrow"
+                                    (click)="openDialog(3,true)">
+                                    公司資訊
+                                </span>
+                            </div>
 
-              <div class="number-list shadow-sm p-1">
-                <ol>
-                  <li>
-                    <p><em class="d-inline-block mr-1">Next Review Date</em>2020/07/30</p>
-                  </li>
+                            <div class="number-list shadow-sm p-1">
+                                <ol>
+                                    <li>
+                                        <p><em class="d-inline-block mr-1">Next Review Date</em>2020/07/30</p>
+                                    </li>
 
-                  <!-- 20191031 立偉說要移除 「公司狀況」「最後核准變更日期」-->
-                  <!-- <li>
+                                    <!-- 20191031 立偉說要移除 「公司狀況」「最後核准變更日期」-->
+                                    <!-- <li>
                               <p>
                                 <em class="d-inline-block mr-1">公司狀況</em>
                                 核准設立
@@ -85,196 +84,189 @@
                           <li>
                               <p><em class="d-inline-block mr-1">最後核准變更日期 </em>2019/07/07</p>
                           </li> -->
-                  <li>
-                    <div class="row no-gutters company-number-block">
-                      <div class="d-inline-block col-6 col-xs-6 col-md-12 col-lg-12">
-                        <span class="badge badge-pill px-2 py-1 m-0">
-                          <span class="float-left">TCRI</span>
-                          <span class="float-right num">5+</span>
-                        </span>
-                      </div>
-                      <div class="d-inline-block col-6 col-xs-6 col-md-12 col-lg-12">
-                        <span class="badge badge-pill px-2 py-1 m-0">
-                          <span class="float-left">MSR</span>
-                          <span class="float-right num">5</span>
-                        </span>
-                      </div>
-                      <div class="d-inline-block  col-6 col-xs-6 col-md-12 col-lg-12">
-                        <span class="badge badge-pill px-2 py-1 m-0">
-                          <span class="float-left">RORWA</span>
-                          <span class="float-right num">1.34%</span>
-                        </span>
-                      </div>
-                      <div class="d-inline-block  col-6 col-xs-6 col-md-12 col-lg-12">
-                        <span class="badge badge-pill px-2 py-1 m-0">
-                          <span class="float-left">RAROC</span>
-                          <span class="float-right num">1.58%</span>
-                        </span>
-                      </div>
-                    </div>
+                                    <li>
+                                        <div class="row no-gutters company-number-block">
+                                            <div class="d-inline-block col-6 col-xs-6 col-md-12 col-lg-12">
+                                                <span class="badge badge-pill px-2 py-1 m-0">
+                                                    <span class="float-left">TCRI</span>
+                                                    <span class="float-right num">5+</span>
+                                                </span>
+                                            </div>
+                                            <div class="d-inline-block col-6 col-xs-6 col-md-12 col-lg-12">
+                                                <span class="badge badge-pill px-2 py-1 m-0">
+                                                    <span class="float-left">MSR</span>
+                                                    <span class="float-right num">5</span>
+                                                </span>
+                                            </div>
+                                            <div class="d-inline-block  col-6 col-xs-6 col-md-12 col-lg-12">
+                                                <span class="badge badge-pill px-2 py-1 m-0">
+                                                    <span class="float-left">RORWA</span>
+                                                    <span class="float-right num">1.34%</span>
+                                                </span>
+                                            </div>
+                                            <div class="d-inline-block  col-6 col-xs-6 col-md-12 col-lg-12">
+                                                <span class="badge badge-pill px-2 py-1 m-0">
+                                                    <span class="float-left">RAROC</span>
+                                                    <span class="float-right num">1.58%</span>
+                                                </span>
+                                            </div>
+                                        </div>
 
-                  </li>
+                                    </li>
 
-                </ol>
-              </div>
-            </div>
+                                </ol>
+                            </div>
+                        </div>
 
-            <!-- 經管資訊 -->
-            <div class="m-1 p-0">
-              <div class="d-block body-subtitle my-1">
-                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(6, false)">
-                  經管資訊
-                </span>
-              </div>
-              <div class="number-list shadow-sm p-1 h-68">
-                <ol>
-                  <li>
-                    <p><em> AO 企企區中 </em>
-                      NT81752 葉又萱</p>
-                  </li>
-                </ol>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 col-md-6">
-
-            <!-- 集團資訊 -->
-            <div class="m-1 p-0">
-              <div class="d-block body-subtitle m-1">
-                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(4)">
-                  集團資訊
-                </span>
-              </div>
-              <div class="number-list shadow-sm p-1">
-                <ol>
-                  <li>
-                    <p><em class="d-inline-block">德魯納集團</em>
-                      87654321</p>
-                  </li>
-
-                  <li>
-                    <p>
-                      <em class="d-inline-block">集團總額度</em>
-                      {{ 8000 | currency:'':'':'1.0-0'}}
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <em class="d-inline-block">集團總餘額</em>
-                      {{ 4000 | currency:'':'':'1.0-0'}}
-                    </p>
-                  </li>
-                  <li>
-                    <div class="row no-gutters">
-                      <div class="d-inline-block col-12 col-md-12">
-                        <span class="badge badge-pill p-2 mr-1">
-                          <span class="float-left">RORWA</span>
-                          <span class="float-right num">1.34%</span>
-                        </span>
-                      </div>
-                      <div class="d-inline-block col-12 col-md-12">
-                        <span class="badge badge-pill p-2 mr-1">
-                          <span class="float-left">RAROC</span>
-                          <span class="float-right num">1.58%</span>
-                        </span>
-                      </div>
+                        <!-- 經管資訊 -->
+                        <div class="m-1 p-0">
+                            <div class="d-block body-subtitle my-1">
+                                <span class="btn btn-outline btn-outline-primary has-arrow"
+                                    (click)="openDialog(6, false)">
+                                    經管資訊
+                                </span>
+                            </div>
+                            <div class="number-list shadow-sm p-1 h-68">
+                                <ol>
+                                    <li>
+                                        <p><em> AO 企企區中 </em>
+                                            NT81752 葉又萱</p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
 
                     </div>
 
+                    <div class="col-lg-5 col-md-6">
 
-                  </li>
-                </ol>
-              </div>
+                        <!-- 集團資訊 -->
+                        <div class="m-1 p-0">
+                            <div class="d-block body-subtitle m-1">
+                                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(4)">
+                                    集團資訊
+                                </span>
+                            </div>
+                            <div class="number-list shadow-sm p-1">
+                                <ol>
+                                    <li>
+                                        <p><em class="d-inline-block">德魯納集團</em>
+                                            87654321</p>
+                                    </li>
+
+                                    <li>
+                                        <p>
+                                            <em class="d-inline-block">集團總額度</em>
+                                            {{ 8000 | currency:'':'':'1.0-0'}}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <em class="d-inline-block">集團總餘額</em>
+                                            {{ 4000 | currency:'':'':'1.0-0'}}
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="row no-gutters">
+                                            <div class="d-inline-block col-12 col-md-12">
+                                                <span class="badge badge-pill p-2 mr-1">
+                                                    <span class="float-left">RORWA</span>
+                                                    <span class="float-right num">1.34%</span>
+                                                </span>
+                                            </div>
+                                            <div class="d-inline-block col-12 col-md-12">
+                                                <span class="badge badge-pill p-2 mr-1">
+                                                    <span class="float-left">RAROC</span>
+                                                    <span class="float-right num">1.58%</span>
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- 個人關聯戶 -->
+                        <div class="m-1 p-0">
+                            <div class="d-block body-subtitle my-1">
+                                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(5)">
+                                    個人關聯戶
+                                </span>
+                            </div>
+                            <div class="number-list shadow-sm p-1 h-68">
+                                <ol>
+                                    <li class="d-inline-block mr-1">
+                                        <p><em class="d-inline-block"> 總負債 </em>
+                                            120</p>
+                                    </li>
+                                    <li class="d-inline-block mr-1">
+                                        <p><em class="d-inline-block"> 總資產 </em>
+                                            780</p>
+                                    </li>
+                                    <li class="d-inline-block mr-1">
+                                        <p><em class="d-inline-block"> 信用卡總額度 </em>
+                                            100</p>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-            <!-- 個人關聯戶 -->
-            <div class="m-1 p-0">
-              <div class="d-block body-subtitle my-1">
-                <span class="btn btn-outline btn-outline-primary has-arrow" (click)="openDialog(5)">
-                  個人關聯戶
-                </span>
-              </div>
-              <div class="number-list shadow-sm p-1 h-68">
-                <ol>
-                  <li class="d-inline-block mr-1">
-                    <p><em class="d-inline-block"> 總負債 </em>
-                      120</p>
-                  </li>
-                  <li class="d-inline-block mr-1">
-                    <p><em class="d-inline-block"> 總資產 </em>
-                      780</p>
-                  </li>
-                  <li class="d-inline-block mr-1">
-                    <p><em class="d-inline-block"> 信用卡總額度 </em>
-                      100</p>
-                  </li>
-                </ol>
-              </div>
+            <!-- 右邊 -->
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="d-block body-subtitle mb-1 clearfix">
+                    <span class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left"
+                        (click)="openDialog(7)">貢獻度</span>
+                    <div class="d-inline-block date-block float-right">
+                        資料期間：{{contributionPeriod}}
+                    </div>
+
+                </div>
+
+                <!-- 圖表 -->
+                <div class="ao-charts">
+
+                    <div class="charts-note text-center d-flex justify-content-center">
+                        <div class="note last-year mr-2">
+                            <div class="w-100 font-weight-bolder text-small">
+                                去年度累計貢獻度
+                            </div>
+                            <div class="w-100">
+                                <!-- {{ 3170 | currency:'':'symbol':'1.0-0'}} -->
+                                {{contributionLastYearTotal}}
+                            </div>
+                        </div>
+                        <div class="note this-year">
+                            <div class="w-100 font-weight-bolder text-small">
+                                今年度累計貢獻度
+                            </div>
+                            <div class="w-100">
+                                <!-- {{ 3230 | currency:'':'symbol':'1.0-0'}} -->
+                                {{contributionThisYearTotal}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <apx-chart #chartObj [chart]="chartData.chart" [plotOptions]="chartData.plotOptions"
+                        [dataLabels]="chartData.dataLabels" [stroke]="chartData.stroke" [series]="chartData.series"
+                        [xaxis]="chartData.xaxis" [yaxis]="chartData.yaxis" [colors]="chartData.colors"
+                        [responsive]="chartData.responsive" [legend]="chartData.legend" [tooltip]="chartData.tooltip">
+                    </apx-chart>
+
+
+
+
+                </div>
             </div>
 
-          </div>
         </div>
-
-      </div>
-
-      <!-- 右邊 -->
-      <div class="col-lg-5 col-md-12 col-sm-12">
-        <div class="d-block body-subtitle mb-1 clearfix">
-          <span class="d-inline-block btn btn-outline btn-outline-primary has-arrow float-left"
-            (click)="openDialog(7)">貢獻度</span>
-          <div class="d-inline-block date-block float-right">
-            資料期間：{{contributionPeriod}}
-          </div>
-
-        </div>
-
-        <!-- 圖表 -->
-        <div class="ao-charts">
-
-          <div class="charts-note text-center d-flex justify-content-center">
-            <div class="note last-year mr-2">
-              <div class="w-100 font-weight-bolder text-small">
-                去年度累計貢獻度
-              </div>
-              <div class="w-100">
-                <!-- {{ 3170 | currency:'':'symbol':'1.0-0'}} -->
-                {{contributionLastYearTotal}}
-              </div>
-            </div>
-            <div class="note this-year">
-              <div class="w-100 font-weight-bolder text-small">
-                今年度累計貢獻度
-              </div>
-              <div class="w-100">
-                <!-- {{ 3230 | currency:'':'symbol':'1.0-0'}} -->
-                {{contributionThisYearTotal}} 
-              </div>
-            </div>
-          </div>
-
-
-          <apx-chart #chartObj 
-          [chart]="chartData.chart" 
-          [plotOptions]="chartData.plotOptions"
-          [dataLabels]="chartData.dataLabels" 
-          [stroke]="chartData.stroke" 
-          [series]="chartData.series"
-          [xaxis]="chartData.xaxis" 
-          [yaxis]="chartData.yaxis" 
-          [colors]="chartData.colors"
-          [responsive]="chartData.responsive" 
-          [legend]="chartData.legend" 
-          [tooltip]="chartData.tooltip">
-          </apx-chart>
-
-
-
-
-        </div>
-      </div>
-
     </div>
-  </div>
 </div>
