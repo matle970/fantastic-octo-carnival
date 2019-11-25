@@ -69,7 +69,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         this.setcomflag(this.Company.data.compFlag);
 
-
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
         // console.log('this.CompanyAssociate', this.CompanyAssociate);
