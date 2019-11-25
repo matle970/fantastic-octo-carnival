@@ -1,10 +1,9 @@
-import { Component, ViewChild, OnInit, OnChanges, Input} from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
-import {
-    ChartComponent} from 'ng-apexcharts';
+import { ChartComponent } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
 import { ModalService } from 'src/app/services/common-services/modal.service';
@@ -71,11 +70,11 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.setcomflag(this.Company.data.compFlag);
 
 
-        console.log('this.Company', this.Company);
-        console.log('this.CompanyDetail', this.CompanyDetail);
-        console.log('this.CompanyAssociate', this.CompanyAssociate);
-        console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-        console.log('this.Contribution', this.Contribution);
+        // console.log('this.Company', this.Company);
+        // console.log('this.CompanyDetail', this.CompanyDetail);
+        // console.log('this.CompanyAssociate', this.CompanyAssociate);
+        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
+        // console.log('this.Contribution', this.Contribution);
     }
 
     setcomflag(compFlag) {
