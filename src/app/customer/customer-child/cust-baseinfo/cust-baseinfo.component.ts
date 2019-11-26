@@ -17,19 +17,20 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
 
     // html text
-    baseinfo_text: string = this.custbaseinfoService.baseservice.gettextservice.text.baseinfo_text;
-    tag_green_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_green_text;
-    tag_blue_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_blue_text;
-    tag_gold_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_gold_text;
-    tag_orange_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_orange_text;
-    tag_red_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_red_text;
-    uniform_numbers_text: string = this.custbaseinfoService.baseservice.gettextservice.text.uniform_numbers_text;
-    companyinfo_text: string = this.custbaseinfoService.baseservice.gettextservice.text.companyinfo_text;
-    nextreviewdate_text: string = this.custbaseinfoService.baseservice.gettextservice.text.nextreviewdate_text;
-    TCRI_text: string = this.custbaseinfoService.baseservice.gettextservice.text.TCRI_text;
-    MSR_text: string = this.custbaseinfoService.baseservice.gettextservice.text.MSR_text;
-    RORWA_text: string = this.custbaseinfoService.baseservice.gettextservice.text.RORWA_text;
-    RAROC_text: string = this.custbaseinfoService.baseservice.gettextservice.text.RAROC_text;
+    text = this.custbaseinfoService.baseservice.gettextservice.custbaseinfotext;
+    baseinfo_text: string = this.text.baseinfo_text;
+    tag_green_text: string = this.text.tag_green_text;
+    tag_blue_text: string = this.text.tag_blue_text;
+    tag_gold_text: string = this.text.tag_gold_text;
+    tag_orange_text: string = this.text.tag_orange_text;
+    tag_red_text: string = this.text.tag_red_text;
+    uniform_numbers_text: string = this.text.uniform_numbers_text;
+    companyinfo_text: string = this.text.companyinfo_text;
+    nextreviewdate_text: string = this.text.nextreviewdate_text;
+    TCRI_text: string = this.text.TCRI_text;
+    MSR_text: string = this.text.MSR_text;
+    RORWA_text: string = this.text.RORWA_text;
+    RAROC_text: string = this.text.RAROC_text;
 
     Company: any = {};
     CompanyDetail: any = {};
@@ -44,11 +45,11 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     CompanyNotification: any = {};
 
     CompanyFlag: Array<any> = [
-        { id: "1", text: "授信戶", letter: "授", status: false },
-        { id: "2", text: "企網銀", letter: "企", status: false },
-        { id: "3", text: "薪轉戶", letter: "薪", status: false },
-        { id: "4", text: "集團核心", letter: "集", status: false },
-        { id: "5", text: "黑名單", letter: "黑", status: false }
+        { id: "1", text: this.text.tag_green_text, letter: this.text.tag_green_letter, status: false },
+        { id: "2", text: this.text.tag_blue_text, letter: this.text.tag_blue_letter, status: false },
+        { id: "3", text: this.text.tag_gold_text, letter: this.text.tag_gold_letter, status: false },
+        { id: "4", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
+        { id: "5", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
     ];
 
     constructor(
@@ -60,13 +61,14 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
     async ngOnInit() {
-        await this.custbaseinfoService.sendRquest()
+        await this.custbaseinfoService.sendRquest();
         this.Company = this.custbaseinfoService.Company;
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
         this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
         this.Contribution = this.custbaseinfoService.Contribution;
 
+        this.custbaseinfoService.setcomflag();
         this.setcomflag(this.Company.data.compFlag);
 
         // console.log('this.Company', this.Company);
@@ -108,7 +110,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     contributionLastYearTotal: number; // 貢獻度去年累計
     contributionThisYearTotal: number; // 貢獻度去年累計
     // contributionObj: any; // 貢獻度的資料 for dialog
-    contributionText = this.TEXT.contribution;
+    contributionText = this.text.contribution;
 
     // 圖表資訊
     chartData = {

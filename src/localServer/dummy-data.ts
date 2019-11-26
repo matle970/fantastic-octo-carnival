@@ -543,9 +543,9 @@ export class DummyData {
             "totalRelCreditLimit": "151542",
             "totalRelLiabilitiesBal": "8978789.88",
             "tcriLevel": "5",
-            "customerName": "千里馬股份有限公司",
-            "industryCode": "電子業",
-            "compFlag": ["1", "2", "3"],
+            "customerName": "草尼馬股份有限公司",
+            "industryCode": "娛樂業",
+            "compFlag": ["1", "2", "3", "4", "5"],
             "nextReviewDate": "20201021"
         }
     }
