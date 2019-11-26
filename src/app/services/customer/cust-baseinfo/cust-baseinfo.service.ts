@@ -82,27 +82,27 @@ export class CustBaseinfoService {
     ];
 
     // 基本資訊-公司資訊第一層
-    CompanyObj: object = {};
+    Company: any = {};
     // 基本資訊-公司資訊第二層
-    CompanyDetailObj: object = {};
+    CompanyDetail: any = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
-    CompanyAssociateObj: object = {};
+    CompanyAssociate: any = {};
     // 基本資訊-個人關聯戶第二層(客戶資產負債)
-    CompanyAssociateAssetsObj: object = {};
+    CompanyAssociateAssets: any = {};
     // 基本資訊-集團資訊第一層
-    GroupObj: object = {};
+    Group: any = {};
     // 基本資訊-集團資訊第二層
-    GroupDetailObj: object = {};
+    GroupDetail: any = {};
     // 基本資訊-經管資訊第一層
-    ManageObj: object = {};
+    Manage: any = {};
     // 基本資訊-經管資訊第二層
-    ManageDetailObj: object = {};
+    ManageDetail: any = {};
     // 基本資訊-貢獻度第一層
-    ContributionObj: object = {};
+    Contribution: any = {};
     // 基本資訊-貢獻度第二層
-    ContributionDetailObj: object = {};
+    ContributionDetail: any = {};
     // 基本資訊-訊息通知
-    CompanyNotificationObj: object = {};
+    CompanyNotification: any = {};
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
@@ -110,7 +110,6 @@ export class CustBaseinfoService {
                 this.urlList[i].url,
                 this.urlList[i].dtoRequset,
                 this.urlList[i].dtoResponse).then(data => {
-                    // console.log('data', data);
                     if (data.header.returnCode === '0000') {
                         this.dataProcess(data, this.urlList[i].url);
                     }
@@ -121,87 +120,74 @@ export class CustBaseinfoService {
     dataProcess(data: any, url: string) {
         switch (url) {
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY:
-                this.CompanyObj = {
-                    data: data
+                this.Company = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL:
-                this.CompanyDetailObj = {
-                    data: data
+                this.CompanyDetail = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
-                this.CompanyAssociateObj = {
-                    data: data
+                this.CompanyAssociate = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
-                this.CompanyAssociateAssetsObj = {
-                    data: data
+                this.CompanyAssociateAssets = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP:
-                this.GroupObj = {
-                    data: data
+                this.Group = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:
-                this.GroupDetailObj = {
-                    data: data
+                this.GroupDetail = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE:
-                this.ManageObj = {
-                    data: data
+                this.Manage = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL:
-                this.ManageDetailObj = {
-                    data: data
+                this.ManageDetail = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION:
-                this.ContributionObj = {
-                    data: data
+                this.Contribution = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
-                this.ContributionDetailObj = {
-                    data: data
+                this.ContributionDetail = {
+                    data: data.body
                 };
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
-                this.CompanyNotificationObj = {
-                    data: data
+                this.CompanyNotification = {
+                    data: data.body
                 };
                 break;
         }
     }
 
-    /**
-     * jeweltest
-     */
-    jeweltestSendRquest() {
-        for (let i = 0; i < this.urlList.length; i++) {
-            this.baseservice.httpservice.sendRequestAsync(
-                this.urlList[i].url,
-                this.urlList[i].dtoRequset,
-                this.urlList[i].dtoResponse).then(data => {
-                    // console.log('data', data);
-                    if (data.header.returnCode === '0000') {
-                        this.dataProcess(data, this.urlList[i].url);
-                    }
-                });
-        }
+    setcomflag() {
+
     }
 }
