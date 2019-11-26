@@ -25,111 +25,86 @@ export class CustChartsService {
     urlList = [
         {
             'url': this.baseservice.geturlservice.URL.PRODUCT_ASSETS_LIBILITIES,
-            'dtoRequest':CommonRequest,
+            'dtoRequest': CommonRequest,
             'dtoResponse': AssetsLibilities
         },
         {
             'url': this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL,
-            'dtoRequest':CommonRequest,
+            'dtoRequest': CommonRequest,
             'dtoResponse': DepositDetail
         },
         {
             'url': this.baseservice.geturlservice.URL.PRODUCT_LOAN_DETAIL,
-            'dtoRequest':CommonRequest,
+            'dtoRequest': CommonRequest,
             'dtoResponse': LoanDetail
         },
         {
             'url': this.baseservice.geturlservice.URL.PRODUCT_IMPORT_EXPORT_DETAIL,
-            'dtoRequest':CommonRequest,
+            'dtoRequest': CommonRequest,
             'dtoResponse': ImportExportDetail
         },
         {
             'url': this.baseservice.geturlservice.URL.PRODUCT_TMU_DETAIL,
-            'dtoRequest':CommonRequest,
+            'dtoRequest': CommonRequest,
             'dtoResponse': TMUDetail
         }
 
     ];
 
-    
-
-   
-
     // 營運量-營運量第一層
-    AssetsLibilitiesObj: object = {};
+    AssetsLibilitiesObj: any = {};
     // 營運量-存款餘額第二層
-    DepositDetailObj: object = {};
+    DepositDetailObj: any = {};
     // 營運量-放款餘額第二層
-    LoanDetailObj: object = {};
+    LoanDetailObj: any = {};
     // 營運量-進出口實績第二層
-    ImportExportDetailObj: object = {};
+    ImportExportDetailObj: any = {};
     // 營運量-TMU額度第二層
-    TMUDetailObj: object = {};
+    TMUDetailObj: any = {};
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
             this.baseservice.httpservice.sendRequestAsync(
                 this.urlList[i].url,
-                this.urlList[i].dtoRequest, 
-                this.urlList[i].dtoResponse).then((data: any) => {
-                // console.log('data', data)
-                if (data.header.returnCode === '0000') {
-                    this.dataProcess(data, this.urlList[i].url);
-                
+                this.urlList[i].dtoRequest,
+                this.urlList[i].dtoResponse).then(data => {
+                    console.log(data);
+                    if (data.header.returnCode === '0000') {
+                        this.dataProcess(data, this.urlList[i].url);
 
-
-
-            // this.DepositData.series[0].data = data.body[0].depositBal;
-            // this.DepositData.xaxis.categories = this.getDataMonth(data.body[0].depositMon);
-
-            // this.LoanData.series[0].data = data.body[0].loanBal;
-            // this.LoanData.xaxis.categories = this.getDataMonth(data.body[0].loanMon);
-            // this.LoanData.series[1].data = data.body[0].tradeFinanceBal;
-
-            // this.TradeData.series[0].data = data.body[0].importAmt;
-            // this.TradeData.xaxis.categories = this.getDataMonth(data.body[0].importMon);
-            // this.TradeData.series[1].data = data.body[0].exportAmt;
-
-            // this.TmuData.series[0].data = data.body[0].tmuUsage;
-            // this.TmuData.xaxis.categories = this.getDataMonth(data.body[0].tmuMon);
-            // this.TmuData.series[1].data = data.body[0].mtmUsage;
-
+                    }
+                });
         }
-
-        });
     }
-}
 
-dataProcess(data: any,url:string){
-    switch(url){
-        case this.baseservice.geturlservice.URL.PRODUCT_ASSETS_LIBILITIES:
-             this.AssetsLibilitiesObj = {
-                data:data
-            };
-            break;
-        
-        case this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL:
-            this.DepositDetailObj = {
-                data:data
-            };
-        case this.baseservice.geturlservice.URL.PRODUCT_LOAN_DETAIL:
-            this.LoanDetailObj = {
-                data:data
-            };
-        case this.baseservice.geturlservice.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
-            this.ImportExportDetailObj = {
-                data:data
-            };
-        case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY:
-            this.TMUDetailObj = {
-                data:data
-            };
+    dataProcess(data: any, url: string) {
+        switch (url) {
+            case this.baseservice.geturlservice.URL.PRODUCT_ASSETS_LIBILITIES:
+                this.AssetsLibilitiesObj = {
+                    data: data
+                };
+                break;
+
+            case this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL:
+                this.DepositDetailObj = {
+                    data: data
+                };
+
+            case this.baseservice.geturlservice.URL.PRODUCT_LOAN_DETAIL:
+                this.LoanDetailObj = {
+                    data: data
+                };
+
+            case this.baseservice.geturlservice.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
+                this.ImportExportDetailObj = {
+                    data: data
+                };
+
+            case this.baseservice.geturlservice.URL.PRODUCT_TMU_DETAIL:
+                this.TMUDetailObj = {
+                    data: data
+                };
+                break;
+        }
     }
-}
-
-// getAssetsLibilitiesObj() {
-//     // return of(this.AssetsLibilitiesObj)
-//     return (this.dataProcess);
-// }
-
 }
