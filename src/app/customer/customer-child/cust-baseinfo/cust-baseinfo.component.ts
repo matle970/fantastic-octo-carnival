@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
@@ -11,11 +11,11 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 @Component({
     selector: 'app-cust-baseinfo',
     templateUrl: './cust-baseinfo.component.html',
-    styleUrls: ['./cust-baseinfo.component.scss']
+    styleUrls: ['./cust-baseinfo.component.scss']  
 })
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
-
+    @Input('searchStr') searchStr: string;
     // html text
     text = this.custbaseinfoService.baseservice.gettextservice.custbaseinfotext;
     baseinfo_text: string = this.text.baseinfo_text;
@@ -78,6 +78,20 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         // console.log('this.Contribution', this.Contribution);
     }
 
+    async ngOnChanges() {
+        if (this.searchStr !== undefined && this.searchStr !== '') {
+            await this.custbaseinfoService.sendRquest();
+            this.Company = this.custbaseinfoService.Company;
+            this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
+            this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+            this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+            this.Contribution = this.custbaseinfoService.Contribution;
+    
+            this.custbaseinfoService.setcomflag();
+            this.setcomflag(this.Company.data.compFlag);
+        }
+    }
+
     setcomflag(compFlag) {
         for (let i = 0; i < compFlag.length; i++) {
             for (let j = 0; j < this.CompanyFlag.length; j++) {
@@ -88,17 +102,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-    @Input() searchStr: string;
     @ViewChild('chartObj') chartObj: ChartComponent;
     // ContributionObj: any;
 
@@ -368,16 +371,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     //     //   });
     //     // }
     // }
-
-
-    ngOnChanges() {
-        if (this.searchStr !== undefined && this.searchStr !== '') {
-            console.log(this.searchStr);
-            this.getShareDataService().customerId = this.searchStr;
-            // tslint:disable-next-line: max-line-length
-            this.getBaseInfoData(this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam())); // 取得資料ByAPI
-        }
-    }
 
 
 
