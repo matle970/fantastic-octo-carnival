@@ -187,4 +187,21 @@ export class CustBaseinfoService {
                 break;
         }
     }
+
+    /**
+     * jeweltest
+     */
+    jeweltestSendRquest() {
+        for (let i = 0; i < this.urlList.length; i++) {
+            this.baseservice.httpservice.sendRequestAsync(
+                this.urlList[i].url,
+                this.urlList[i].dtoRequset,
+                this.urlList[i].dtoResponse).then(data => {
+                    // console.log('data', data);
+                    if (data.header.returnCode === '0000') {
+                        this.dataProcess(data, this.urlList[i].url);
+                    }
+                });
+        }
+    }
 }

@@ -1,28 +1,10 @@
-import { Component, ViewChild, OnInit, OnChanges, Input } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { Component, ViewChild, OnInit, OnChanges, Input} from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../../../dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import {
-    ChartComponent,
-    ApexChart,
-    ApexAnnotations,
-    ApexDataLabels,
-    ApexAxisChartSeries,
-    ApexNonAxisChartSeries,
-    ApexStroke,
-    ApexLegend,
-    ApexFill,
-    ApexPlotOptions,
-    ApexTooltip,
-    ApexResponsive,
-    ApexXAxis,
-    ApexYAxis,
-    ApexGrid,
-    ApexStates,
-    ApexTitleSubtitle,
-    ApexTheme
-} from 'ng-apexcharts';
+    ChartComponent} from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
 import { ModalService } from 'src/app/services/common-services/modal.service';
@@ -35,24 +17,40 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
 
+    // html text
     baseinfo_text: string = this.custbaseinfoService.baseservice.gettextservice.text.baseinfo_text;
     tag_green_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_green_text;
     tag_blue_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_blue_text;
     tag_gold_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_gold_text;
     tag_orange_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_orange_text;
     tag_red_text: string = this.custbaseinfoService.baseservice.gettextservice.text.tag_red_text;
+    uniform_numbers_text: string = this.custbaseinfoService.baseservice.gettextservice.text.uniform_numbers_text;
+    companyinfo_text: string = this.custbaseinfoService.baseservice.gettextservice.text.companyinfo_text;
+    nextreviewdate_text: string = this.custbaseinfoService.baseservice.gettextservice.text.nextreviewdate_text;
+    TCRI_text: string = this.custbaseinfoService.baseservice.gettextservice.text.TCRI_text;
+    MSR_text: string = this.custbaseinfoService.baseservice.gettextservice.text.MSR_text;
+    RORWA_text: string = this.custbaseinfoService.baseservice.gettextservice.text.RORWA_text;
+    RAROC_text: string = this.custbaseinfoService.baseservice.gettextservice.text.RAROC_text;
 
-    CompanyObj: object = {};
-    CompanyDetailObj: object = {};
-    CompanyAssociateObj: object = {};
-    CompanyAssociateAssetsObj: object = {};
-    GroupObj: object = {};
-    GroupDetailObj: object = {};
-    ManageObj: object = {};
-    ManageDetailObj: object = {};
-    ContributionObj: object = {};
-    ContributionDetailObj: object = {};
-    CompanyNotificationObj: object = {};
+    Company: any = {};
+    CompanyDetail: any = {};
+    CompanyAssociate: any = {};
+    CompanyAssociateAssets: any = {};
+    Group: any = {};
+    GroupDetail: any = {};
+    Manage: any = {};
+    ManageDetail: any = {};
+    Contribution: any = {};
+    ContributionDetail: any = {};
+    CompanyNotification: any = {};
+
+    CompanyFlag: Array<any> = [
+        { id: "1", text: "授信戶", letter: "授", status: false },
+        { id: "2", text: "企網銀", letter: "企", status: false },
+        { id: "3", text: "薪轉戶", letter: "薪", status: false },
+        { id: "4", text: "集團核心", letter: "集", status: false },
+        { id: "5", text: "黑名單", letter: "黑", status: false }
+    ];
 
     constructor(
         private modalservice: ModalService,
@@ -63,9 +61,31 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
     async ngOnInit() {
-        await this.custbaseinfoService.sendRquest();
-        this.CompanyDetailObj = this.custbaseinfoService.CompanyDetailObj;
-        // console.log('this.CompanyDetailObj',this.CompanyDetailObj)
+        await this.custbaseinfoService.sendRquest()
+        this.Company = this.custbaseinfoService.Company;
+        this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
+        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+        this.Contribution = this.custbaseinfoService.Contribution;
+
+        this.setcomflag(this.Company.data.compFlag);
+
+
+        console.log('this.Company', this.Company);
+        console.log('this.CompanyDetail', this.CompanyDetail);
+        console.log('this.CompanyAssociate', this.CompanyAssociate);
+        console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
+        console.log('this.Contribution', this.Contribution);
+    }
+
+    setcomflag(compFlag) {
+        for (let i = 0; i < compFlag.length; i++) {
+            for (let j = 0; j < this.CompanyFlag.length; j++) {
+                if (compFlag[i] === this.CompanyFlag[j].id) {
+                    this.CompanyFlag[j].status = true;
+                }
+            }
+        }
     }
 
 
@@ -350,15 +370,12 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     // }
 
 
-    async ngOnChanges() {
-        console.log('onchange', this.searchStr);
+    ngOnChanges() {
         if (this.searchStr !== undefined && this.searchStr !== '') {
-            //console.log(this.searchStr);
+            console.log(this.searchStr);
             this.getShareDataService().customerId = this.searchStr;
             // tslint:disable-next-line: max-line-length
-            //this.getBaseInfoData(this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam())); // 取得資料ByAPI
-            await this.custbaseinfoService.jeweltestSendRquest();
-            this.CompanyDetailObj = this.custbaseinfoService.CompanyDetailObj;
+            this.getBaseInfoData(this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam())); // 取得資料ByAPI
         }
     }
 
@@ -402,7 +419,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
                 dialogConfig.data.title = '經管資訊';
                 break;
             case 7:
-                dialogConfig.data.content_data = this.ContributionObj;
+                dialogConfig.data.content_data = this.Contribution;
                 dialogConfig.data.title = '貢獻度';
                 break;
 
@@ -528,7 +545,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.contributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
         this.contributionPeriod = lastYearStart + '-' + thisYearEnd; // 貢獻度資料區間
 
-        this.ContributionObj = {
+        this.Contribution = {
             'lastYear': {
                 'text': '去年度累計貢獻度',
                 'period': lastYearPeriod, // 去年度區間
