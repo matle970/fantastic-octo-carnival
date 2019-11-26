@@ -350,12 +350,15 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     // }
 
 
-    ngOnChanges() {
+    async ngOnChanges() {
+        console.log('onchange', this.searchStr);
         if (this.searchStr !== undefined && this.searchStr !== '') {
-            console.log(this.searchStr);
+            //console.log(this.searchStr);
             this.getShareDataService().customerId = this.searchStr;
             // tslint:disable-next-line: max-line-length
-            this.getBaseInfoData(this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam())); // 取得資料ByAPI
+            //this.getBaseInfoData(this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam())); // 取得資料ByAPI
+            await this.custbaseinfoService.jeweltestSendRquest();
+            this.CompanyDetailObj = this.custbaseinfoService.CompanyDetailObj;
         }
     }
 
