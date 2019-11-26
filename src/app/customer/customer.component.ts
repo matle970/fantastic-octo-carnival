@@ -24,8 +24,8 @@ export class CustomerComponent extends BaseComponent implements OnInit {
   }
 
   getSearchId() {
-    this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
     this.customerInfo.customerId = this.searchStr;
+    this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
     //console.log('getSearchId', this.searchStr);
     }
 }
