@@ -73,8 +73,6 @@ export class CustChartsService {
                         this.dataProcess(data, this.urlList[i].url);
                         // console.log('xxx',data.header);
                     }
-                }, (err) => {
-
                 });
         }
     }

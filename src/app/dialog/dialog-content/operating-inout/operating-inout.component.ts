@@ -51,7 +51,7 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
         // console.log('xxxxx',this.export = this.ImportExportDetailObj.data.body.export);
     }
     
-
+    
 
     // import: [
     //     {

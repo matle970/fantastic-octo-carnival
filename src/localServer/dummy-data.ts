@@ -564,20 +564,28 @@ export class DummyData {
         },
         "body": {
             "customerId": "A111111112",
-            "import": [
+            tmuTransAmt: [
                 {
-                    "txnTypeDesc": "進口託收",
-                    "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
-                    "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
+                    "customerId": "A111111112",
+                    "amountType": "金融交易額度",
+                    "amountExpDate": "20191212",
+                    "amountAmt": "50000",
+                    "usageAmt": "5000",
+                    "lastAvailAmt": "45000",
+                    "amountUseRate": "10"
                 }
             ],
-            "export": [
+            tmuInvesment: [
                 {
-                    "txnTypeDesc": "出口OA",
-                    "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
-                    "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
+                    "invesTypeCode": "",
+                    "productDesc": "",
+                    "prodCurrencyDesc": "",
+                    "ntdCurrentValue": ""
                 }
-            ]
+            ],
+            tmuContribution:{
+                
+            }
         }
     }
 

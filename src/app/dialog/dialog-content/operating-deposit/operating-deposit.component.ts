@@ -49,6 +49,8 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
         this.tdDetail = this.DepositDetailObj.data.body.tdDetail;
     }
 
+    
+
     apiUrls: string[] = []; // 此componment需要發送的API urls
     // depositDetailTitle = this.TITLE.depositDetail;
 
