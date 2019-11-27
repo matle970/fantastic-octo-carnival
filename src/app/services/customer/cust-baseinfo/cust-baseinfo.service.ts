@@ -186,4 +186,8 @@ export class CustBaseinfoService {
                 break;
         }
     }
+
+    setcomflag() {
+
+    }
 }

@@ -13,7 +13,7 @@ export class CustomerComponent extends BaseComponent implements OnInit {
 
   @ViewChild('searchIdBind') searchData: any;
 
-  constructor(customerInfo: CustomerIdService) { 
+  constructor(private customerInfo: CustomerIdService) { 
     super();
     customerInfo.print(); //get customer id from share data 
   }
@@ -24,6 +24,8 @@ export class CustomerComponent extends BaseComponent implements OnInit {
   }
 
   getSearchId() {
+    this.customerInfo.customerId = this.searchStr;
     this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
-  }
+    //console.log('getSearchId', this.searchStr);
+    }
 }
