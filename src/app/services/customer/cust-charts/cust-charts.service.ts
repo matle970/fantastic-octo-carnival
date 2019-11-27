@@ -68,11 +68,13 @@ export class CustChartsService {
                 this.urlList[i].url,
                 this.urlList[i].dtoRequest,
                 this.urlList[i].dtoResponse).then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.header.returnCode === '0000') {
                         this.dataProcess(data, this.urlList[i].url);
-
+                        // console.log('xxx',data.header);
                     }
+                }, (err) => {
+
                 });
         }
     }

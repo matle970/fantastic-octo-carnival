@@ -42,7 +42,8 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
         this.fxAssets = this.DepositDetailObj.data.body.assets.fxAssets
         this.sumAssets = this.DepositDetailObj.data.body.assets.sumAssets;
         this.r6mthAvgBal = this.DepositDetailObj.data.body.assets.r6mthAvgBal;
-
+        
+        // console.log('yyy',this.sdDetail = this.DepositDetailObj.data.body.sdDetail);
         this.sdDetail = this.DepositDetailObj.data.body.sdDetail;
         this.cdDetail = this.DepositDetailObj.data.body.cdDetail;
         this.tdDetail = this.DepositDetailObj.data.body.tdDetail;
