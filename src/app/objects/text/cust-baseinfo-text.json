@@ -17,7 +17,16 @@
   "MSR_text": "MSR",
   "RORWA_text": "RORWA",
   "RAROC_text": "RAROC",
-
+  "manageinfo_text": "經管資訊",
+  "groupinfo_text": "集團資訊",
+  "personal_account_text": "個人關聯戶",
+  "debt_text": "總負債",
+  "assets_text": "總資產",
+  "creditcard_quota_text": "信用卡總額度",
+  "contribution_text": "貢獻度",
+  "data_period_text": "資料期間：",
+  "contribution_lastyeartotal_text": "去年度累積貢獻度",
+  "contribution_thisyeartotal_text": "去年度累積貢獻度",
   "contribution": [
     "現管",
     "放款",
@@ -26,5 +35,4 @@
     "TMU",
     "其他"
   ]
-
 }

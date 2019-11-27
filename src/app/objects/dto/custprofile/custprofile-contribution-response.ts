@@ -6,28 +6,15 @@ export class Contribution {
 }
 class Body {
     customerid: string;
-    lastcontri: [
-        {
-            startym: string,
-            endym: string,
-            profittype1: string,
-            profittype2: string,
-            profittype3: string,
-            profittype4: string,
-            profittype5: string,
-            profittype6: string
-        }
-    ];
-    thiscontri: [
-        {
-            startym: string,
-            endym: string,
-            profittype1: string,
-            profittype2: string,
-            profittype3: string,
-            profittype4: string,
-            profittype5: string,
-            profittype6: string
-        }
-    ];
+    contributionType: Array<string>;
+    lastcontri: {
+        startYM: string;
+        endYM: string;
+        contribution: Array<string>;
+    };
+    thiscontri: {
+        startYM: string;
+        endYM: string;
+        contribution: Array<string>;
+    }
 }

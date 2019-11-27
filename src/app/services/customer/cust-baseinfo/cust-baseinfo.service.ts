@@ -23,6 +23,9 @@ export class CustBaseinfoService {
         public baseservice: BaseService,
     ) { }
 
+    // html text
+    text = this.baseservice.gettextservice.custbaseinfotext;
+
     urlList = [
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY,
@@ -104,6 +107,24 @@ export class CustBaseinfoService {
     // 基本資訊-訊息通知
     CompanyNotification: any = {};
 
+    // 授網薪集黑
+    CompanyFlag: Array<any> = [
+        { id: "1", text: this.text.tag_green_text, letter: this.text.tag_green_letter, status: false },
+        { id: "2", text: this.text.tag_blue_text, letter: this.text.tag_blue_letter, status: false },
+        { id: "3", text: this.text.tag_gold_text, letter: this.text.tag_gold_letter, status: false },
+        { id: "4", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
+        { id: "5", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
+    ];
+
+    // 貢獻度-資料區間
+    ContributionPeriod: string;
+    // 貢獻度去年累計
+    ContributionLastYearTotal: number;
+    // 貢獻度去年累計
+    ContributionThisYearTotal: number;
+    // 圖表資訊
+    ChartData: any = {};
+
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
             this.baseservice.httpservice.sendRequestAsync(
@@ -113,6 +134,8 @@ export class CustBaseinfoService {
                     if (data.header.returnCode === '0000') {
                         this.dataProcess(data, this.urlList[i].url);
                     }
+                }, err => {
+                    console.log('Error: ', err);
                 });
         }
     }
@@ -123,6 +146,7 @@ export class CustBaseinfoService {
                 this.Company = {
                     data: data.body
                 };
+                this.setComflag(this.Company.data.compFlag);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL:
@@ -171,6 +195,7 @@ export class CustBaseinfoService {
                 this.Contribution = {
                     data: data.body
                 };
+                this.setContribution(this.Contribution);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
@@ -187,7 +212,130 @@ export class CustBaseinfoService {
         }
     }
 
-    setcomflag() {
+    setComflag(compflag) {
+        for (let i = 0; i < compflag.length; i++) {
+            for (let j = 0; j < this.CompanyFlag.length; j++) {
+                if (compflag[i] === this.CompanyFlag[j].id) {
+                    this.CompanyFlag[j].status = true;
+                }
+            }
+        }
+    }
 
+    setContribution(contribution) {
+        this.ContributionLastYearTotal = 0;
+        this.ContributionThisYearTotal = 0;
+
+        this.ContributionPeriod = contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM;
+
+        for (let i = 0; i < contribution.data.lastcontri.contribution.length; i++) {
+            this.ContributionLastYearTotal = this.ContributionLastYearTotal + contribution.data.lastcontri.contribution[i];
+            this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.lastcontri.contribution[i];
+        }
+
+        this.ChartData = {
+            chart: {
+                fontFamily: '微軟正黑體',
+                foreColor: '#000000',
+                toolbar: {
+                    show: false
+                },
+                height: 280,
+                type: 'bar',
+            },
+            colors: ['#76BC21', '#009F41'],
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                    dataLabels: {
+                        position: 'top',
+                    },
+                }
+            },
+            dataLabels: {   // 顯示在圖表上的數字，要隱藏，user不用。
+                enabled: false,
+                offsetX: -6,
+                style: {
+                    fontSize: '12px',
+                    colors: ['#000000']
+                }
+            },
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    options: {
+                        chart: {
+                            width: '85%',
+                            height: 300
+                        }
+                    }
+                },
+                {
+                    breakpoint: 900,
+                    options: {
+                        chart: {
+                            width: '90%',
+                            height: 350
+                        }
+                    }
+                }
+            ],
+            stroke: {
+                show: true,
+                width: 1,
+                colors: ['#fff']
+            },
+            series: [
+                {
+                    name: '2017/12-2018/07',
+                    data: [1000, 1200, 1500, 600, 300, 200]
+                },
+                {
+                    name: '2018/12-2019/07',
+                    data: [900, 1000, 1100, 700, 320, 350]
+                }
+            ],
+            xaxis: {
+                categories: contribution.data.contributionType,
+                labels: {
+                    style: {
+                        fontSize: '14px',
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        fontSize: '16px',
+                    }
+                }
+            },
+            legend: {
+                position: 'top',
+                labels: {
+                    colors: '#000000',
+                },
+                markers: {
+                    width: 12,
+                    height: 12,
+                    strokeWidth: 0,
+                    strokeColor: '#fff',
+                    fillColors: undefined,
+                    radius: 12,
+                    customHTML: undefined,
+                    onClick: undefined,
+                    offsetX: 0,
+                    offsetY: 0
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        return pnum;
+                    },
+                }
+            }
+        };
     }
 }
