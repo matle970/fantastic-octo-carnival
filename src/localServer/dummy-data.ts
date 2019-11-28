@@ -787,25 +787,16 @@ export class DummyData {
         },
         "body": {
             "customerid": "A1111111111",
+            "contributionType": ["現金管理", "放款", "貿融", "資顧", "TMU", "其他"],
             "lastcontri": {
-                "startym": "201712",
-                "endym": "201805",
-                "profittype1": "10000",
-                "profittype2": "20000",
-                "profittype3": "30000",
-                "profittype4": "40000",
-                "profittype5": "50000",
-                "profittype6": "60000",
+                "startYM": "208701",
+                "endYM": "208712",
+                "contribution": [10000, 20000, 30000, 40000, 50000, 60000]
             },
             "thiscontri": {
-                "startym": "201812",
-                "endym": "201905",
-                "profittype1": 6000,
-                "profittype2": 5000,
-                "profittype3": 4000,
-                "profittype4": 3000,
-                "profittype5": 2000,
-                "profittype6": 1000,
+                "startYM": "208801",
+                "endYM": "208812",
+                "contribution": [60000, 50000, 40000, 30000, 20000, 10000]
             }
         }
     }
