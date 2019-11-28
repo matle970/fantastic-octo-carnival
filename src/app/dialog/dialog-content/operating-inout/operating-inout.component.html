@@ -16,7 +16,7 @@
                       
                     <tr>
                       <th>進口實績</th>
-                      <th class="text-right" *ngFor = "let item of import[0].mon">{{item}}</th>
+                      <th class="text-right" *ngFor = "let item of import[0].mon">{{ item }}</th>
                       <!-- <th class="text-right">2019/01</th> -->
                       <!-- <th class="text-right">2019/02</th>
                       <th class="text-right">2019/03</th>
@@ -161,15 +161,16 @@
                   <tfoot>
                       <tr class="bg-light">
                           <td>合計</td>
+                          <td class="text-right" *ngFor = 'let item of export[0].all'> {{ item | currency:'':'':'1.0-0' }}</td>
+                          <!-- <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ 24000 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td> -->
+                          <td class="text-right" >{{ resdata | currency:'':'':'1.0-0' }}</td>
+                          <!-- <td class="text-right">{{ 3000 | currency:'':'':'1.0-0' }}</td> -->
                       </tr>
                   </tfoot>
                 </table>

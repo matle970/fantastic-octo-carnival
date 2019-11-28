@@ -10,14 +10,15 @@ class Body {
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[]
+                    usdTxnAmt: string[],
+                    all:string[]
                 }
             ]
             export: [
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[]
+                    usdTxnAmt: string[],
                 }
             ]
 }
