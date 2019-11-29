@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from '../../../dialog/dialog.component';
+import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';

@@ -1,0 +1,43 @@
+<div class="m-0 p-0 clearfix dialog-title pb-3" mat-dialog-title>
+    <span class="d-inline-block float-left title-name pl-3" *ngIf="contentData.id > 2">
+        {{contentData.title}} : {{contentData.content_data.company_name}}
+    </span>
+
+    <!-- 先 hide ，必須確認那些第二層要顯示資料日   -->
+    <!-- <span class="d-inline-block date-block float-right mr-5">
+      資料日: {{contentData.content_data.date}}
+  </span> -->
+    <button class="d-inline-block close-icon btn btn-round btn-white btn-just-icon shadow-none" mat-dialog-close>
+        <i class="material-icons">close</i>
+    </button>
+</div>
+<div mat-dialog-content class="dialog-content-body">
+    <app-water-print></app-water-print>
+    <app-index-notice [content]="contentData" *ngIf="contentData.id < 3"></app-index-notice>
+    <app-company-info [content]="contentData" *ngIf="contentData.id == 3"></app-company-info>
+    <app-group-info [content]="contentData" *ngIf="contentData.id == 4"></app-group-info>
+    <app-person-relative *ngIf="contentData.id == 5"></app-person-relative>
+    <app-manage-info *ngIf="contentData.id == 6"></app-manage-info>
+    <app-contribution *ngIf="contentData.id == 7"></app-contribution>
+
+    <!-- 存款第二層 -->
+    <app-operating-deposit *ngIf="contentData.id == 8"></app-operating-deposit>
+
+    <!-- 貿融 -->
+    <app-operating-financing *ngIf="contentData.id == 9"></app-operating-financing>
+
+    <!-- 進出口 -->
+    <app-operating-inout *ngIf="contentData.id == 10"></app-operating-inout>
+
+    <!-- TMU/ MTM  -->
+    <app-operating-tmu *ngIf="contentData.id == 11"></app-operating-tmu>
+
+    <!-- 要點新聞 -->
+    <app-news-info [content]="contentData" *ngIf="contentData.id == 12"></app-news-info>
+
+    <!-- 銀行同業 -->
+    <app-banks-info *ngIf="contentData.id == 13"></app-banks-info>
+
+
+
+</div>
