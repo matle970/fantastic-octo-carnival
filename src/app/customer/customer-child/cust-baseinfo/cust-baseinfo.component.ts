@@ -66,23 +66,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         private custbaseinfoService: CustBaseinfoService) {
         super();
-        // console.log('AAA');
-        // this.custbaseinfoService.sendRquest();
-        // console.log('AAAAA');
-    }
-
-    ngOnInit() {
-        // console.log('BBB');
         this.custbaseinfoService.sendRquest();
-        // console.log('CCC');
-        this.setData();
-
-
-        // console.log('this.Company', this.Company);
-        // console.log('this.CompanyDetail', this.CompanyDetail);
-        // console.log('this.CompanyAssociate', this.CompanyAssociate);
-        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-        // console.log('this.Contribution', this.Contribution);
     }
 
     ngOnChanges() {
@@ -92,16 +76,21 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         }
     }
 
+    ngOnInit() {
+        this.setData();
+        // console.log('this.Company', this.Company);
+        // console.log('this.CompanyDetail', this.CompanyDetail);
+        // console.log('this.CompanyAssociate', this.CompanyAssociate);
+        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
+        // console.log('this.Contribution', this.Contribution);
+    }
+
     setData() {
         this.Company = this.custbaseinfoService.Company;
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
         this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-        // console.log('DDD',this.Contribution);
         this.Contribution = this.custbaseinfoService.Contribution;
-        // console.log('EEE',this.Contribution);
-        // console.log('this.custbaseinfoService.Contribution', this.custbaseinfoService.Contribution);
-        // console.log('this.Contribution', this.Contribution);
 
         this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
 
