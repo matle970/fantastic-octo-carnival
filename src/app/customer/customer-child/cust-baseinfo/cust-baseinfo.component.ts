@@ -16,6 +16,7 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
     @Input('searchStr') searchStr: string;
+
     // html text
     text = this.custbaseinfoService.baseservice.gettextservice.custbaseinfotext;
     baseinfo_text: string = this.text.baseinfo_text;
@@ -42,7 +43,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
 
-
     Company: any = {};
     CompanyDetail: any = {};
     CompanyAssociate: any = {};
@@ -59,7 +59,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     ContributionPeriod: string;         // 貢獻度-資料區間
     ContributionLastYearTotal: number;  // 貢獻度去年累計
     ContributionThisYearTotal: number;  // 貢獻度去年累計
-    // ChartData: any = {};                // 圖表資訊
 
     constructor(
         private modalservice: ModalService,
@@ -67,40 +66,48 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         private custbaseinfoService: CustBaseinfoService) {
         super();
+        // console.log('AAA');
+        // this.custbaseinfoService.sendRquest();
+        // console.log('AAAAA');
     }
 
-    async ngOnInit() {
-        await this.custbaseinfoService.sendRquest();
+    ngOnInit() {
+        // console.log('BBB');
+        this.custbaseinfoService.sendRquest();
+        // console.log('CCC');
+        this.setData();
+
+
+        // console.log('this.Company', this.Company);
+        // console.log('this.CompanyDetail', this.CompanyDetail);
+        // console.log('this.CompanyAssociate', this.CompanyAssociate);
+        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
+        // console.log('this.Contribution', this.Contribution);
+    }
+
+    ngOnChanges() {
+        if (this.searchStr !== undefined && this.searchStr !== null) {
+            this.custbaseinfoService.sendRquest();
+            this.setData();
+        }
+    }
+
+    setData() {
         this.Company = this.custbaseinfoService.Company;
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
         this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+        // console.log('DDD',this.Contribution);
         this.Contribution = this.custbaseinfoService.Contribution;
+        // console.log('EEE',this.Contribution);
+        // console.log('this.custbaseinfoService.Contribution', this.custbaseinfoService.Contribution);
+        // console.log('this.Contribution', this.Contribution);
 
         this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
 
         this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
-        // this.ChartData = this.custbaseinfoService.ChartData;
-
-        // console.log('this.Company', this.Company);
-        // console.log('this.CompanyDetail', this.CompanyDetail);
-        // console.log('this.CompanyAssociate', this.CompanyAssociate);
-        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-        // console.log('this.Contribution', this.Contribution.data);
-    }
-
-    async ngOnChanges() {
-        if (this.searchStr !== undefined && this.searchStr !== '') {
-            await this.custbaseinfoService.sendRquest();
-            this.Company = this.custbaseinfoService.Company;
-            this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
-            this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-            this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-            this.Contribution = this.custbaseinfoService.Contribution;
-
-        }
     }
 
 
