@@ -66,7 +66,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         private custbaseinfoService: CustBaseinfoService) {
         super();
-        this.custbaseinfoService.sendRquest();
+        // this.custbaseinfoService.sendRquest();
     }
 
     ngOnChanges() {
@@ -76,7 +76,8 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         }
     }
 
-    ngOnInit() {
+    async ngOnInit() {
+        await this.custbaseinfoService.sendRquest();
         this.setData();
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
