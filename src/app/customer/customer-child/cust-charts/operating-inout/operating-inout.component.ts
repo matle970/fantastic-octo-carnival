@@ -20,7 +20,7 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
 
     import: any[];
     export: any[];
-    
+
 
     urlList = [
         {
@@ -54,26 +54,46 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
         // console.log('aaa',this.import[0].mon);
         this.export = this.ImportExportDetailObj.data.body.export;
         // console.log('xxxx', this.export);
-        // console.log(this.getUtilsService().changeDateStr(this.export[0].mon[0], 'yyyy/MM'));
+        // console.log('xxx',this.getUtilsService().changeDateStr(this.export[0].mon[0], 'yyyy/MM'));
+        // console.log('xx',this.import[0].mon);
 
+        //  日期轉換 20190330 return 2019/03/30
+        //  this.import[0].forEach((data, index) => {
+        //     data.mon = this.getUtilsService().changeDateStr(data.mon, 'yyyy/MM');
+        //     // data.mon = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd')
+        //     console.log('xxx',data.mon);
+        // });
 
+        // 進口實績-橫向加總&縱向加總
         for (let i = 0; i < this.import.length; i++) {
             let column1 = this.import[i].usdTxnAmt.map(Number);
             let column2 = this.SumData(column1);
             let column3 = column2.toString();
             this.import[i].column = column3;
-           
+            // console.log('xxx',column2);
+            // let column4 = Array.of(column3);
+            // console.log('xx',column3);
             let a = this.import[0].usdTxnAmt.map(Number),
                 b = this.import[1].usdTxnAmt.map(Number),
                 c = this.import[2].usdTxnAmt.map(Number);;
             let s = a.map(function (v, i) {
                 return v + b[i] + c[i];
-                
+
             });
             this.import[0].row = s;
-        }
-        
+            // console.log('xxxx',s)
 
+            let sum1 = this.import[0].usdTxnAmt.concat(this.import[1].usdTxnAmt, this.import[2].usdTxnAmt);
+            // console.log('xxxxx',sum1);
+            let sum2 = sum1.map(Number);
+            let sum3 = s.concat(sum2);
+            let sum4 = this.SumData(sum3);
+            let sum5 = sum4.toString();
+            // console.log('xxxxx',this.import[0].all);
+            this.import[0].all = sum5;
+        }
+
+        // 出口實績-橫向加總&縱向加總
         for (let i = 0; i < this.export.length; i++) {
             let column1 = this.export[i].usdTxnAmt.map(Number);
             let column2 = this.SumData(column1);
@@ -82,28 +102,22 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
 
             let a = this.export[0].usdTxnAmt.map(Number),
                 b = this.export[1].usdTxnAmt.map(Number),
-                c = this.export[2].usdTxnAmt.map(Number);;
+                c = this.export[2].usdTxnAmt.map(Number);
             let s = a.map(function (v, i) {
                 return v + b[i] + c[i];
             });
             this.export[0].row = s;
+
+            let sum1 = this.export[0].usdTxnAmt.concat(this.export[1].usdTxnAmt, this.export[2].usdTxnAmt);
+            // console.log('xxxxx',sum1);
+            let sum2 = sum1.map(Number);
+            let sum3 = s.concat(sum2);
+            let sum4 = this.SumData(sum3);
+            let sum5 = sum4.toString();
+            // console.log('xxxxx',this.import[0].all);
+            this.export[0].all = sum5;
         }
-        
-
     }
-
-
-    // for (let i = 0; i < this.export.length; i++){
-    //          let a = this.export[0], b = this.export[1];
-    // let s = a.map(function (v, i) {
-    //     return v + b[i];
-    // });
-    // console.log('yyy', s);
-    //         }
-    // }
-
-
-
     SumData(arr) {
         let sum = 0;
         for (let i = 0; i < arr.length; i++) {
@@ -111,25 +125,4 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
         };
         return sum;
     }
-
-
-
-    //
-
-    // all: ['2000','2000','2000','2000','2000','2000','2222','3333']
-
-    // import: [
-    //     {
-    //         "txnTypeDesc": "",
-    //         "mon": ["", "", "", "", "", "", "", ""],
-    //         "usdTxnAmt": ["", "", "", "", "", "", "", ""]
-    //     }
-    // ]
-    // export: [
-    //     {
-    //         "txnTypeDesc": "",
-    //         "mon": ["", "", "", "", "", "", "", ""],
-    //         "usdTxnAmt": ["", "", "", "", "", "", "", ""]
-    //     }
-    // ]
 }

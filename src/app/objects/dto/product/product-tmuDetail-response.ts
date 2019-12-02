@@ -23,7 +23,10 @@ class Body {
                     invesTypeCode: string,
                     productDesc: string,
                     prodCurrencyDesc: string,
-                    ntdCurrentValue: string
+                    bal: string,
+                    ntdCurrentValue: string,
+                    startDay: string,
+                    endDay: string
                 }
             ]
             tmuContribution:{

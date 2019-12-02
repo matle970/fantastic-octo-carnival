@@ -1,7 +1,5 @@
 import { Component, ViewChild, Input, OnInit, OnChanges } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-import { CustBaseInfoComponent } from '../cust-baseinfo.component';
-import { unsupported } from '@angular/compiler/src/render3/view/util';
 
 @Component({
     selector: 'app-contribution-chart',
@@ -67,16 +65,7 @@ export class ContributionChartComponent implements OnInit, OnChanges {
             width: 1,
             colors: ['#fff']
         },
-        series: [
-            {
-                name: '2017/12-2018/07',
-                data: [1000, 1200, 1500, 600, 300, 200]
-            },
-            {
-                name: '2018/12-2019/07',
-                data: [900, 1000, 1100, 700, 320, 350]
-            }
-        ],
+        series: [],
         xaxis: {
             categories: [],
             labels: {
@@ -120,24 +109,34 @@ export class ContributionChartComponent implements OnInit, OnChanges {
         }
     };
 
-    ngOnChanges() {
-        // console.log('this.ContributionChart', this.ContributionChart.data);
-
-        if (this.ContributionChart.data !== undefined) {
-            this.ngOnInit();
-        }
-
+    ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
+        this.setcontributionType(this.ContributionChart.data);
+        this.setlastcontri(this.ContributionChart.data);
+        this.setthiscontri(this.ContributionChart.data);
     }
 
     ngOnInit() {
-        if (this.ContributionChart.data !== undefined) {
-            let categories = this.ContributionChart.data.contributionType;
-            categories.forEach(item => {
-                if (categories.length > 0) {
-                    this.ChartData.xaxis.categories.push(item);
-                }
-            });
-            // console.log('ChartData', this.ChartData);
+
+    }
+
+    setcontributionType(data) {
+        let categories: Array<string> = data.contributionType;
+        for (let i = 0; i < categories.length; i++) {
+            this.ChartData.xaxis.categories.push(categories[i]);
         }
+    }
+
+    setlastcontri(data) {
+        let serieslastname: string = data.lastcontri.startYM + '-' + data.lastcontri.endYM;
+        let serieslastdata: Array<string> = data.lastcontri.contribution;
+
+        this.ChartData.series.push({ 'name': serieslastname, 'data': serieslastdata });
+    }
+
+    setthiscontri(data) {
+        let seriesthisname: string = data.thiscontri.startYM + '-' + data.thiscontri.endYM;
+        let seriesthisdata: Array<string> = data.thiscontri.contribution;
+
+        this.ChartData.series.push({ 'name': seriesthisname, 'data': seriesthisdata });
     }
 }

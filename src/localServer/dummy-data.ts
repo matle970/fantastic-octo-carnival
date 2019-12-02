@@ -455,8 +455,8 @@ export class DummyData {
                 "ntdCurrentBal": "3242",
                 "currentIntRate": "5",
                 "ftpRate": "43",
-                "acctOpenDate": "2019/04/01",
-                "tdDueDate": "2019/11/30"
+                "acctOpenDate": "20190401",
+                "tdDueDate": "20191130"
             },
             {
                 "acctNbr": "7657-897-342344",
@@ -465,8 +465,8 @@ export class DummyData {
                 "ntdCurrentBal": "7868",
                 "currentIntRate": "2.3",
                 "ftpRate": "23",
-                "acctOpenDate": "2019/03/30",
-                "tdDueDate": "2019/10/15"
+                "acctOpenDate": "20190330",
+                "tdDueDate": "20191015"
             }],
             "cdDetail": [{
                 "acctNbr": "4444-441-025866",

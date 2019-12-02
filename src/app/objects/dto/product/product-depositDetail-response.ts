@@ -12,22 +12,26 @@ class Body {
             ntdAssets: {
                 sd: string,
                 td: string,
-                cd: string
+                cd: string,
+                all: string
             },
             fxAssets: {
                 sd: string,
                 td: string,
-                cd: string
+                cd: string,
+                all: string
             },
             sumAssets: {
                 sd: string,
                 td: string,
-                cd: string
+                cd: string,
+                all: string
             },
             r6mthAvgBal: {
                 sd: string,
                 td: string,
-                cd: string
+                cd: string,
+                all: string
             }
         }
     sdDetail: [

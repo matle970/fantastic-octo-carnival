@@ -50,7 +50,7 @@
                           <td>合計</td>
                           <td class="text-right"  *ngFor = 'let item of import[0].row'>{{ item | currency:'':'':'1.0-0' }}</td>
                        
-                          <td class="text-right">{{ 333 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ import[0].all | currency:'':'':'1.0-0' }}</td>
                       </tr>
                   </tfoot>
                 </table>
@@ -108,7 +108,7 @@
                           <td>合計</td>
                           <td class="text-right" *ngFor = 'let item of export[0].row'> {{ item | currency:'':'':'1.0-0' }}</td>
                       
-                          <td class="text-right" >{{ 222 | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right" >{{ export[0].all | currency:'':'':'1.0-0' }}</td>
                         
                       </tr>
                   </tfoot>

@@ -194,7 +194,6 @@ export class CustBaseinfoService {
                     data: data.body
                 };
                 this.setContribution(this.Contribution);
-                console.log('FFF', this.Contribution);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:

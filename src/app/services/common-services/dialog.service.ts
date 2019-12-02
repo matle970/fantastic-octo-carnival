@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
 
 
 @Injectable({
@@ -10,7 +10,6 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 export class DialogService {
 
     constructor(public dialog: MatDialog) { }
-
 
     /**
      * 共同的開啟 dialog 功能
@@ -39,8 +38,6 @@ export class DialogService {
         } else {
             dialogConfig.panelClass = 'open-table-narrow';
         }
-
-
 
         switch (openId) {
             case 3:
