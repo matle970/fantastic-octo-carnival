@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
+import { BaseComponent } from 'src/app/base/base.component';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
+import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
+import { ModalService } from 'src/app/services/common-services/modal.service';
 
 
 @Component({
@@ -7,8 +12,49 @@ import { ChartComponent } from 'ng-apexcharts';
   templateUrl: './operating-tmu.component.html',
   styleUrls: ['./operating-tmu.component.scss']
 })
-export class OperatingTmuComponent implements OnInit {
+export class OperatingTmuComponent extends BaseComponent implements OnInit {
+  @Input() content: any;
   @ViewChild('chartTmu') chartTmu: ChartComponent;
+
+  // 營運量-TMU&MTU第二層
+  TMUDetailObj: any = {};
+
+  urlList = [
+    {
+      'url': this.URL.PRODUCT_TMU_DETAIL,
+      'dtoRequset': CommonRequest,
+      'dtoResponse': TMUDetail
+    }
+  ];
+
+
+  constructor(
+    private custchartsService: CustChartsService,
+    private modalService: ModalService
+  ) {
+    super()
+  }
+
+  async ngOnInit() {
+    await this.custchartsService.sendRequest();
+
+    this.TMUDetailObj = this.custchartsService.TMUDetailObj;
+    // console.log('xx',this.TMUDetailObj);
+
+    this.tmuTransAmt = this.TMUDetailObj.data.body.tmuTransAmt;
+    this.tmuInvesment = this.TMUDetailObj.data.body.tmuInvesment;
+    this.tmuContribution = this.TMUDetailObj.data.body.tmuContribution;
+
+    
+    // this.TmuData.series = this.TMUDetailObj.data.body.tmuContribution;
+    console.log('xxx',this.TmuData.series);
+    // console.log('xxxx',this.TMUDetailObj.data.body.tmuContribution);
+
+    this.TmuData.series = Object.values(this.TMUDetailObj.data.body.tmuContribution);
+    // console.log('xxx',this.TmuData.series);
+
+  }
+
   TmuData = {
     chart: {
       fontFamily: '微軟正黑體',
@@ -27,7 +73,7 @@ export class OperatingTmuComponent implements OnInit {
         show: false
       }
     },
-    colors: ['#f77f00', '#fbc93e','#999999'],
+    colors: ['#f77f00', '#fbc93e', '#999999'],
 
     dataLabels: {
       enabled: true
@@ -61,8 +107,8 @@ export class OperatingTmuComponent implements OnInit {
                   // return Math.floor((a + b)/10000);
                   return a + b;
                 }, 0);
-                const totalN =  Math.floor(totalNumber/10000);
-                return '$'+totalN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
+                const totalN = Math.floor(totalNumber / 10000);
+                return '$' + totalN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
               }
             }
 
@@ -100,8 +146,8 @@ export class OperatingTmuComponent implements OnInit {
     stroke: {
       curve: 'smooth'
     },
-    series: [1000,1500,500],
-    labels:['金融交易額度 (負債面)','投資型商品 (資產面)','FX SPOT'],
+    series: [1500, 1500, 500],
+    labels: ['金融交易額度 (負債面)', '投資型商品 (資產面)', 'FX SPOT'],
     title: {
       text: 'TMU 貢獻度',
       align: 'left'
@@ -124,9 +170,14 @@ export class OperatingTmuComponent implements OnInit {
 
   };
 
-  constructor() { }
-
-  ngOnInit() {
+  tmuTransAmt: any[];
+  tmuInvesment: any[];
+  tmuContribution: {
+    "trade": string,
+    "prd": string,
+    "fxSport": string
   }
+  // Contribution: any[];
 
+  
 }

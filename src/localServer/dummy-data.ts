@@ -1,4 +1,4 @@
- import { plainToClass } from "class-transformer";
+import { plainToClass } from "class-transformer";
 
 export class DummyData {
     // URLs
@@ -536,7 +536,7 @@ export class DummyData {
                     "txnTypeDesc": "出口OA",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
                     "usdTxnAmt": ["40000", "70000", "70000", "10000", "10000", "10000", "10000", "10000"],
-                   
+
                 },
                 {
                     "txnTypeDesc": "出口押匯",
@@ -573,19 +573,96 @@ export class DummyData {
                     "amountAmt": "50000",
                     "usageAmt": "5000",
                     "lastAvailAmt": "45000",
-                    "amountUseRate": "10"
+                    "amountUseRate": "0.019"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "避險交易額度",
+                    "amountExpDate": "20180204",
+                    "amountAmt": "10000",
+                    "usageAmt": "55000",
+                    "lastAvailAmt": "45000",
+                    "amountUseRate": "0.044"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "評價損失額度 (MTM)",
+                    "amountExpDate": "20190315",
+                    "amountAmt": "670000",
+                    "usageAmt": "360000",
+                    "lastAvailAmt": "210000",
+                    "amountUseRate": "0.013"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "初始擔保品",
+                    "amountExpDate": "20201111",
+                    "amountAmt": "654321",
+                    "usageAmt": "12345",
+                    "lastAvailAmt": "641976",
+                    "amountUseRate": "0.0337"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "超限擔保品",
+                    "amountExpDate": "20200101",
+                    "amountAmt": "999999",
+                    "usageAmt": "77777",
+                    "lastAvailAmt": "222222",
+                    "amountUseRate": "0"
                 }
             ],
             tmuInvesment: [
                 {
-                    "invesTypeCode": "",
-                    "productDesc": "",
-                    "prodCurrencyDesc": "",
-                    "ntdCurrentValue": ""
+                    "invesTypeCode": "基金",
+                    "productDesc": "1000",
+                    "prodCurrencyDesc": "2000",
+                    "bal": "2000",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "3000",
+                    "startDay": "20191212",  //起日(暫定)
+                    "endDay": "20201212"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "國外有價證券",
+                    "productDesc": "5555",
+                    "prodCurrencyDesc": "6666",
+                    "bal": "7777",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "8888",
+                    "startDay": "20190405",  //起日(暫定)
+                    "endDay": "20191213"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
+                    "productDesc": "9999",
+                    "prodCurrencyDesc": "7777",
+                    "bal": "8888",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "6666",
+                    "startDay": "20180819",  //起日(暫定)
+                    "endDay": "20200707"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "保險",
+                    "productDesc": "1234",
+                    "prodCurrencyDesc": "5678",
+                    "bal": "4321",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "8765",
+                    "startDay": "20170910",  //起日(暫定)
+                    "endDay": "20210203"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "自營債券",
+                    "productDesc": "9776",
+                    "prodCurrencyDesc": "4535",
+                    "bal": "6876",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "2131",
+                    "startDay": "20191130",  //起日(暫定)
+                    "endDay": "20201225"     //迄日(暫定)
                 }
             ],
-            tmuContribution:{
-                
+            tmuContribution: {
+                    "trade":"3000",  //金融交易額(暫定)
+                    "prd":"2000",    //投資型商品(暫定)
+                    "fxSport":"5000" //FS SPOT(暫定)
             }
         }
     }

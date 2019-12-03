@@ -48,10 +48,13 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
         // console.log('xxxx',this.ImportExportDetailObj = this.custchartsService.ImportExportDetailObj);
 
         this.import = this.ImportExportDetailObj.data.body.import;
-        // console.log('xxx', this.import);
+        console.log('xxx', this.import);
         // console.log(this.getUtilsService().changeDateStr(this.import[0].mon[0], 'yyyy/MM'));
         // this.import[0].mon[0] = this.getUtilsService().changeDateStr(this.import[0].mon[0], 'yyyy/MM');
         // console.log('aaa',this.import[0].mon);
+
+
+
         this.export = this.ImportExportDetailObj.data.body.export;
         // console.log('xxxx', this.export);
         // console.log('xxx',this.getUtilsService().changeDateStr(this.export[0].mon[0], 'yyyy/MM'));
@@ -117,6 +120,23 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
             // console.log('xxxxx',this.import[0].all);
             this.export[0].all = sum5;
         }
+        //日期轉換 201903 return 2019/03
+        
+        this.import[0].mon.forEach((item, index, arr) => {
+            arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
+            console.log('xxx',this.import[0].mon);
+        });
+        this.export[0].mon.forEach((item, index, arr) => {
+            arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
+            console.log('xxxx',this.export[0].mon);
+        });
+
+        // this.import[0].mon.forEach((data, index) => {
+        //     data = this.getUtilsService().changeDateStr(data, 'yyyy/MM');
+        //     // data.tdDueDate = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd')
+        //     console.log('xxx', data);
+        //     // console.log('xxxx', this.getUtilsService().changeDateStr(data.mon, 'yyyy/MM'));
+        // });
     }
     SumData(arr) {
         let sum = 0;

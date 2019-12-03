@@ -17,7 +17,7 @@ import { DummyDataService } from './services/common-services/dummydata.service';
 export class AppComponent implements OnInit {
 
     minute = 10;    //timeout minute
-    time = this.minute * 60000;
+    time = this.minute * 600000;
 
     /**
      * Jewel

@@ -70,6 +70,7 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
             data.acctOpenDate = this.getUtilsService().changeDateStr(data.acctOpenDate, 'yyyy/MM/dd');
             data.tdDueDate = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd')
             // console.log('xxx',data.acctOpenDate);
+            // console.log('xxxx',this.tdDetail[0].acctOpenDate);
         });
        
     }
