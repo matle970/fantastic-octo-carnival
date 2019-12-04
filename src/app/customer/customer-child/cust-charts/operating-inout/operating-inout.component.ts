@@ -121,14 +121,14 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
             this.export[0].all = sum5;
         }
         //日期轉換 201903 return 2019/03
-        
+
         this.import[0].mon.forEach((item, index, arr) => {
             arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
-            console.log('xxx',this.import[0].mon);
+            console.log('xxx', this.import[0].mon);
         });
         this.export[0].mon.forEach((item, index, arr) => {
             arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
-            console.log('xxxx',this.export[0].mon);
+            console.log('xxxx', this.export[0].mon);
         });
 
         // this.import[0].mon.forEach((data, index) => {

@@ -500,7 +500,57 @@ export class DummyData {
     }
 
     // CB009-Composite API-營運量-放款餘額第二層
-
+    loanDetail = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId": "",
+            "toLoan": {
+                "toAmt": "",
+                "toBal": ""
+            },
+            "facilityDetail": [
+                {
+                    "facilityNbr": "",
+                    "facRecords": [
+                        {
+                            "breakdownCodeDesc": "",
+                            "facmCurrencyCode": "",
+                            "facmApprovalAmt": "",
+                            "facmLoanBal": "",
+                            "facmNtdLoanBal": "",
+                            "negotiatPriceCode": "",
+                            "collateral": [
+                                {
+                                    "collateralCodeDesc": ""
+                                }
+                            ],
+                            "facStatusCodeDesc": "",
+                            "breakRecords": [
+                                {
+                                    "accNbr": "",
+                                    "lbCurrencyCode": "",
+                                    "lbCurrentIntRate": "",
+                                    "lbFxCurrentBal": "",
+                                    "lbNtdCurrentBal": "",
+                                    "firstFundingDate": "",
+                                    "acctDueDate": "",
+                                    "limitStatusCodeDesc": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
     // CB010-Composite API-營運量-進出口實績第二層
     importExportDetail = {
         "header": {
@@ -660,9 +710,9 @@ export class DummyData {
                 }
             ],
             tmuContribution: {
-                    "trade":"3000",  //金融交易額(暫定)
-                    "prd":"2000",    //投資型商品(暫定)
-                    "fxSport":"5000" //FS SPOT(暫定)
+                "trade": '777777',  //金融交易額(暫定)
+                "prd": '200077',    //投資型商品(暫定)
+                "fxSport": '500077' //FS SPOT(暫定)
             }
         }
     }
