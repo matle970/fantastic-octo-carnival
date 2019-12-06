@@ -7,6 +7,7 @@ import { SidebarService } from '../services/common-services/sidebar.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { TokenService } from '../services/common-services/token.service';
 import { TrustkeyServeice } from '../services/common-services/trustkey.service';
+import { AppService } from '../services/common-services/app.service';
 
 @Component({
     selector: 'app-content-layout',
@@ -29,15 +30,17 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
         private sidebarservice: SidebarService,
         private aoidentityservice: AoIdentityService,
         private tokenservice: TokenService,
-        private trustkeyservice: TrustkeyServeice) {
+        private trustkeyservice: TrustkeyServeice,
+        private appService: AppService) {
 
         super();
     }
 
-    ngOnInit() {
+    async ngOnInit() {
+        //let result = await this.appService.sendRquest();
         this.sidebarservice.sideNavState$.subscribe(res => {
             // console.log(res);
             this.onSideNavChange = res;
         })
     }
-}
+
