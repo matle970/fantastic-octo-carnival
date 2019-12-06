@@ -43,4 +43,4 @@ export class ContentLayoutComponent extends BaseComponent implements OnInit {
             this.onSideNavChange = res;
         })
     }
-
+}

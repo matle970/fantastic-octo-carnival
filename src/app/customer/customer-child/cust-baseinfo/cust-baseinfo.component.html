@@ -245,7 +245,21 @@
                         </div>
                     </div>
 
-                    <app-contribution-chart [ContributionChart]="Contribution"></app-contribution-chart>
+                    <div class="all-charts">
+                        <apx-chart #ChartObj 
+                            [chart]="ChartData.chart" 
+                            [plotOptions]="ChartData.plotOptions"
+                            [dataLabels]="ChartData.dataLabels" 
+                            [stroke]="ChartData.stroke" 
+                            [series]="ChartData.series"
+                            [xaxis]="ChartData.xaxis" 
+                            [yaxis]="ChartData.yaxis" 
+                            [colors]="ChartData.colors"
+                            [responsive]="ChartData.responsive" 
+                            [legend]="ChartData.legend" 
+                            [tooltip]="ChartData.tooltip">
+                        </apx-chart>
+                    </div>
                 </div>
             </div>
         </div>
