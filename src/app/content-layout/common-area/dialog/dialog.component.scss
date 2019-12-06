@@ -1,24 +1,23 @@
-$cathyGreen: #069F41;
+$cathyGreen: #069f41;
 
 .dialog-title {
   position: relative;
-  font-family: '微軟正黑體';
+  font-family: "微軟正黑體";
   .title-name {
     border-left: 3px solid $cathyGreen;
-    color:$cathyGreen;
+    color: $cathyGreen;
     font-weight: 700;
   }
   .close-icon {
     position: absolute;
     right: -20px;
-    top:-25px;
+    top: -25px;
     font-size: 1rem;
-    color:#999  !important;
+    color: #999 !important;
     cursor: pointer;
     transition: all ease 0.2s;
     &:hover {
       color: #000;
     }
   }
-
 }

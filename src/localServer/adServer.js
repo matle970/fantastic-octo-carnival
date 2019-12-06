@@ -467,31 +467,11 @@ company = {
         "totalRelAssetBal": "222.33",
         "totalRelCreditLimit": "151542",
         "totalRelLiabilitiesBal": "8978789.88",
-        company = {
-            "header": {
-                "apId": "CRMLXCRM01",
-                "branchId": "00081",
-                "employeeId": "13063",
-                "clientIp": " 255.255.255.255",
-                "txnDateTime": "20190801140647462",
-                "returnCode": "0000",
-                "returnDesc": "交易成功"
-            },
-            "body": {
-                "customerId": "A11111112",
-                "approvalGrade": "5+",
-                "rorwa": "1.34",
-                "raroc": "1.58",
-                "totalRelAssetBal": "222.33",
-                "totalRelCreditLimit": "151542",
-                "totalRelLiabilitiesBal": "8978789.88",
-                "tcriLevel": "5",
-                "customerName": "千里馬股份有限公司",
-                "industryCode": "電子業",
-                "compFlag": ["1", "2", "3"],
-                "nextReviewDate": "20201021"
-            }
-        }
+        "tcriLevel": "5",
+        "customerName": "草尼馬股份有限公司",
+        "industryCode": "娛樂業",
+        "compFlag": ["1", "2", "3", "4", "5"],
+        "nextReviewDate": "20201021"
     }
 }
 
@@ -666,25 +646,16 @@ contribution = {
     },
     "body": {
         "customerid": "A1111111111",
+        "contributionType": ["現金管理", "放款", "貿融", "資顧", "TMU", "其他"],
         "lastcontri": {
-            "startym": "201712",
-            "endym": "201805",
-            "profittype1": "10000",
-            "profittype2": "20000",
-            "profittype3": "30000",
-            "profittype4": "40000",
-            "profittype5": "50000",
-            "profittype6": "60000",
+            "startYM": "208701",
+            "endYM": "208712",
+            "contribution": ["10000", "20000", "30000", "40000", "50000", "60000"]
         },
         "thiscontri": {
-            "startym": "201812",
-            "endym": "201905",
-            "profittype1": 6000,
-            "profittype2": 5000,
-            "profittype3": 4000,
-            "profittype4": 3000,
-            "profittype5": 2000,
-            "profittype6": 1000,
+            "startYM": "208801",
+            "endYM": "208812",
+            "contribution": ["60000", "50000", "40000", "30000", "20000", "10000"]
         }
     }
 }

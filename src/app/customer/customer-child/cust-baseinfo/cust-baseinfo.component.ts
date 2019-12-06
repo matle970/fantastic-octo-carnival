@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from '../../../dialog/dialog.component';
+import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { ChartComponent } from 'ng-apexcharts';
@@ -11,11 +11,12 @@ import { ModalService } from 'src/app/services/common-services/modal.service';
 @Component({
     selector: 'app-cust-baseinfo',
     templateUrl: './cust-baseinfo.component.html',
-    styleUrls: ['./cust-baseinfo.component.scss']  
+    styleUrls: ['./cust-baseinfo.component.scss']
 })
 
 export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
     @Input('searchStr') searchStr: string;
+
     // html text
     text = this.custbaseinfoService.baseservice.gettextservice.custbaseinfotext;
     baseinfo_text: string = this.text.baseinfo_text;
@@ -31,6 +32,16 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     MSR_text: string = this.text.MSR_text;
     RORWA_text: string = this.text.RORWA_text;
     RAROC_text: string = this.text.RAROC_text;
+    manageinfo_text: string = this.text.manageinfo_text;
+    groupinfo_text: string = this.text.groupinfo_text;
+    personal_account_text: string = this.text.personal_account_text;
+    debt_text: string = this.text.debt_text;
+    assets_text: string = this.text.assets_text;
+    creditcard_quota_text: string = this.text.creditcard_quota_text;
+    contribution_text: string = this.text.contribution_text;
+    data_period_text: string = this.text.data_period_text;
+    contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
+    contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
 
     Company: any = {};
     CompanyDetail: any = {};
@@ -44,13 +55,10 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     ContributionDetail: any = {};
     CompanyNotification: any = {};
 
-    CompanyFlag: Array<any> = [
-        { id: "1", text: this.text.tag_green_text, letter: this.text.tag_green_letter, status: false },
-        { id: "2", text: this.text.tag_blue_text, letter: this.text.tag_blue_letter, status: false },
-        { id: "3", text: this.text.tag_gold_text, letter: this.text.tag_gold_letter, status: false },
-        { id: "4", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
-        { id: "5", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
-    ];
+    CompanyFlag: Array<any> = [];       // 授網薪集黑
+    ContributionPeriod: string;         // 貢獻度-資料區間
+    ContributionLastYearTotal: number;  // 貢獻度去年累計
+    ContributionThisYearTotal: number;  // 貢獻度去年累計
 
     constructor(
         private modalservice: ModalService,
@@ -58,19 +66,19 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         private custbaseinfoService: CustBaseinfoService) {
         super();
+        // this.custbaseinfoService.sendRquest();
+    }
+
+    ngOnChanges() {
+        if (this.searchStr !== undefined && this.searchStr !== null) {
+            this.custbaseinfoService.sendRquest();
+            this.setData();
+        }
     }
 
     async ngOnInit() {
         await this.custbaseinfoService.sendRquest();
-        this.Company = this.custbaseinfoService.Company;
-        this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
-        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-        this.Contribution = this.custbaseinfoService.Contribution;
-
-        this.custbaseinfoService.setcomflag();
-        this.setcomflag(this.Company.data.compFlag);
-
+        this.setData();
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
         // console.log('this.CompanyAssociate', this.CompanyAssociate);
@@ -78,29 +86,30 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         // console.log('this.Contribution', this.Contribution);
     }
 
-    async ngOnChanges() {
-        if (this.searchStr !== undefined && this.searchStr !== '') {
-            await this.custbaseinfoService.sendRquest();
-            this.Company = this.custbaseinfoService.Company;
-            this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
-            this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-            this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-            this.Contribution = this.custbaseinfoService.Contribution;
-    
-            this.custbaseinfoService.setcomflag();
-            this.setcomflag(this.Company.data.compFlag);
-        }
+    setData() {
+        this.Company = this.custbaseinfoService.Company;
+        this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
+        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+        this.Contribution = this.custbaseinfoService.Contribution;
+
+        this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
+
+        this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
+        this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
+        this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
     }
 
-    setcomflag(compFlag) {
-        for (let i = 0; i < compFlag.length; i++) {
-            for (let j = 0; j < this.CompanyFlag.length; j++) {
-                if (compFlag[i] === this.CompanyFlag[j].id) {
-                    this.CompanyFlag[j].status = true;
-                }
-            }
-        }
-    }
+
+
+
+
+
+
+
+
+
+
 
     @ViewChild('chartObj') chartObj: ChartComponent;
     // ContributionObj: any;
@@ -109,118 +118,9 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     lastcontriPeriod: string; // 貢獻度, 去年區間
     thiscontriPeriod: string; // 貢獻度, 今年區間
-    contributionPeriod: string; // 貢獻度, 資料區間
-    contributionLastYearTotal: number; // 貢獻度去年累計
-    contributionThisYearTotal: number; // 貢獻度去年累計
+
     // contributionObj: any; // 貢獻度的資料 for dialog
     contributionText = this.text.contribution;
-
-    // 圖表資訊
-    chartData = {
-        chart: {
-            fontFamily: '微軟正黑體',
-            foreColor: '#000000',
-            toolbar: {
-                show: false
-            },
-            height: 280,
-            type: 'bar',
-        },
-        colors: ['#76BC21', '#009F41'],
-        plotOptions: {
-            bar: {
-                horizontal: true,
-                dataLabels: {
-                    position: 'top',
-                },
-            }
-        },
-        dataLabels: {   // 顯示在圖表上的數字，要隱藏，user不用。
-            enabled: false,
-            offsetX: -6,
-            style: {
-                fontSize: '12px',
-                colors: ['#000000']
-            }
-        },
-        responsive: [
-            {
-                breakpoint: 1400,
-                options: {
-                    chart: {
-                        width: '85%',
-                        height: 300
-                    }
-                }
-            },
-            {
-                breakpoint: 900,
-                options: {
-                    chart: {
-                        width: '90%',
-                        height: 350
-                    }
-                }
-            }
-        ],
-
-        stroke: {
-            show: true,
-            width: 1,
-            colors: ['#fff']
-        },
-        series: [
-            {
-                name: '2017/12-2018/07',
-                data: [1000, 1200, 1500, 600, 300, 200]
-            },
-            {
-                name: '2018/12-2019/07',
-                data: [900, 1000, 1100, 700, 320, 350]
-            }
-        ],
-        xaxis: {
-            categories: this.contributionText,
-            labels: {
-                style: {
-                    fontSize: '14px',
-                }
-            }
-        },
-        yaxis: {
-            labels: {
-                style: {
-                    fontSize: '16px',
-                }
-            }
-        },
-        legend: {
-            position: 'top',
-            labels: {
-                colors: '#000000',
-            },
-            markers: {
-                width: 12,
-                height: 12,
-                strokeWidth: 0,
-                strokeColor: '#fff',
-                fillColors: undefined,
-                radius: 12,
-                customHTML: undefined,
-                onClick: undefined,
-                offsetX: 0,
-                offsetY: 0
-            }
-        },
-        tooltip: {
-            y: {
-                formatter: function (val) {
-                    const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                    return pnum;
-                },
-            }
-        }
-    };
 
     // 公司資料的假資料
     company_info = {
@@ -516,9 +416,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         console.log(lastYear);
         console.log(thisYear);
 
-        this.chartData.series[0]['data'] = lastYear;
-        this.chartData.series[1]['data'] = thisYear;
-
         const lastYearStart = super.getUtilsService().changeDateStr(data.lastcontri.startym, 'yyyy/MM');
         const lastYearEnd = super.getUtilsService().changeDateStr(data.lastcontri.endym, 'yyyy/MM');
         const thisYearStart = super.getUtilsService().changeDateStr(data.thiscontri.startym, 'yyyy/MM');
@@ -527,30 +424,27 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         const lastYearPeriod = lastYearStart + '-' + lastYearEnd;
         const thisYearPeriod = thisYearStart + '-' + thisYearEnd;
 
-        this.chartData.series[0]['name'] = lastYearPeriod;
-        this.chartData.series[1]['name'] = thisYearPeriod;
-
-        this.chartObj.destroy();
-        this.chartObj.render();
+        // this.chartObj.destroy();
+        // this.chartObj.render();
 
         // 去年度 &今年度 加總(取得總值後再加千分位 & $字符號)
-        this.contributionLastYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(lastYear), true);
-        this.contributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
-        this.contributionPeriod = lastYearStart + '-' + thisYearEnd; // 貢獻度資料區間
+        // this.ContributionLastYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(lastYear), true);
+        // this.ContributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
+        // this.ContributionPeriod = lastYearStart + '-' + thisYearEnd; // 貢獻度資料區間
 
-        this.Contribution = {
-            'lastYear': {
-                'text': '去年度累計貢獻度',
-                'period': lastYearPeriod, // 去年度區間
-                'data': this.chartData.series[0]['data'], // 去年度資料
-            },
-            'thisYear': {
-                'text': '今年度累計貢獻度',
-                'period': thisYearPeriod, // 今年度區間
-                'data': this.chartData.series[1]['data'], // 今年度資料
-            },
-            'contributionPeriod': this.contributionPeriod, // 資料區間
-        };
+        // this.Contribution = {
+        //     'lastYear': {
+        //         'text': '去年度累計貢獻度',
+        //         'period': lastYearPeriod, // 去年度區間
+        //         'data': this.ChartData.series[0]['data'], // 去年度資料
+        //     },
+        //     'thisYear': {
+        //         'text': '今年度累計貢獻度',
+        //         'period': thisYearPeriod, // 今年度區間
+        //         'data': this.ChartData.series[1]['data'], // 今年度資料
+        //     },
+        //     'contributionPeriod': this.ContributionPeriod, // 資料區間
+        // };
     }
 
 }

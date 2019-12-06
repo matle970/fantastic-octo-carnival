@@ -17,10 +17,10 @@ export interface controEle {
 
 @Component({
   selector: 'app-contribution',
-  templateUrl: './contribution.component.html',
-  styleUrls: ['./contribution.component.scss']
+  templateUrl: './contribution-info.component.html',
+  styleUrls: ['./contribution-info.component.scss']
 })
-export class ContributionComponent implements OnInit {
+export class ContributionInfoComponent implements OnInit {
   manageColumn = ['id', 'now', 'load', 'trade', 'cus', 'tmu', 'other', 'all'];
 
   controList: controEle[] = [

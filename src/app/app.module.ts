@@ -21,6 +21,8 @@ import { TabsComponent } from './content-layout/common-area/tabs/tabs.component'
 import { SearchIdComponent } from './content-layout/common-area/search-id/search-id.component';
 import { TimeoutComponent } from './content-layout/common-area/timeout/timeout.component';
 import { CommonAreaModule } from './content-layout/common-area/common-area.module';
+import { DialogComponent } from './content-layout/common-area/dialog/dialog.component';
+import { DialogContentModule } from './content-layout/common-area/dialog/dialog-content.module';
 
 // customer
 import { CustomerComponent } from './customer/customer.component';
@@ -29,10 +31,6 @@ import { CompanyModule } from './customer/customer.module';
 // dashboard
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ColumnToggleComponent } from './dashboard/column-toggle/column-toggle.component';
-
-// Dialog
-import { DialogComponent } from './dialog/dialog.component';
-import { DialogContentModule } from './dialog/dialog-content/dialog-content.module';
 
 // objects
 import { SharedMaterialModule } from './objects/shared-material/shared-material.module';
@@ -59,6 +57,8 @@ import { EnvServiceProvider } from '../environments/EnvServiceProvider';
 
 // 客製 Pipe
 import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
+
+// localServer
 import { DummyDataService } from './services/common-services/dummydata.service';
 import { AutoSearchComponent } from './content-layout/common-area/auto-search/auto-search.component';
 

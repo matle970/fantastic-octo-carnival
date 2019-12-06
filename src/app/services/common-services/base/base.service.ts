@@ -4,6 +4,7 @@ import { TokenService } from '../token.service';
 import { TrustkeyServeice } from '../trustkey.service';
 import { GeturlService } from '../geturl.service';
 import { GettextService } from '../gettext.service';
+import { DialogService } from '../dialog.service';
 
 @Injectable({ providedIn: 'root' })
 export class BaseService {
@@ -13,7 +14,8 @@ export class BaseService {
         public tokenservice: TokenService,
         public trustkeyserveice: TrustkeyServeice,
         public geturlservice: GeturlService,
-        public gettextservice: GettextService
+        public gettextservice: GettextService,
+        public dialogservice: DialogService
     ) { }
 
 }
