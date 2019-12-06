@@ -1,0 +1,16 @@
+<form [formGroup]="stateForm" class="mb-0">
+  <mat-form-field class="autocomplete-form" color="blue">
+    <input #keyValue (keyup.enter)="onKey($event.target.value)" (blur)="onKey($event.target.value)"
+    type="text" matInput placeholder="關鍵字搜尋" formControlName="stateGroup" [matAutocomplete]="autoGroup">
+      <mat-autocomplete #autoGroup="matAutocomplete" class="auto-list" [displayWith]="getOptionText">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.type">
+          <mat-option *ngFor="let name of group.names" [value]="{type: group.type, names: name}">
+            <!-- {{name}} -->
+            <span [innerHTML]="highlightFiltered(name)" 
+              (click)="onChoose({type: group.type, names: name})"
+            ></span>
+          </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

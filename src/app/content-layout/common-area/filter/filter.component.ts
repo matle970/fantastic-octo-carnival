@@ -1,95 +1,118 @@
-import { Component, OnInit, Input, ViewChild, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnChanges, SimpleChanges, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { FilterService } from 'src/app/services/common-area/filter.service';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
+import { StateGroup } from '../auto-search/auto-search.component';
+import { t } from '@angular/core/src/render3';
+
+export interface DataList {
+	id: string;
+	data: string;
+}
 
 @Component({
-  selector: 'app-filter',
-  templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+	selector: 'app-filter',
+	templateUrl: './filter.component.html',
+	styleUrls: ['./filter.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
-
-
 export class FilterComponent implements OnInit, OnChanges {
-  @Input() datalist: DashboardComponent;
-  @ViewChild('keyword') keyword: string;
-  @Output('change') change = new EventEmitter();
+	[x: string]: any;
+	@Input() datalist: DashboardComponent;
+	keywordList: IndexTableElement[];
+	@Input() getKeyword;
+	@Output('referBranchData') referBranchData = new EventEmitter();
+	@Output('wmBranchData') wmBranchData = new EventEmitter();
+	@Output('filterData') filterData = new EventEmitter();
 
-  wmBranch: Array<{branchId: string, branchName: string}> = [{branchId: '0', branchName: '經管行'}];
-  referBranch: Array<{branchId: string, branchName: string}> = [{branchId: '0', branchName: '授信轉介行'}];
+	wmBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '經管行' }];
+	referBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '授信轉介行' }];
 
-  firstKeyChange = true;
-  lastKeyword: string;
+	firstKeyChange = true;
+	lastKeyword: string;
 
+	searchingCtrl = new FormControl();
+	filteredValues: Observable<DataList[]>;
+	searchingList: DataList[] = [];
 
-  nowBranch = '經管行';
-  nowForword = '授信轉介行';
+	nowBranch = '經管行';
+	nowForword = '授信轉介行';
 
-  branch = ['全部','敦化分行','信義分行','大安分行'];
-  branch2 = ['全部','內湖分行','中正分行','淡水分行'];
+	myKeyword = '';
 
-  ao_list = [];
-  group_list = [];
-  cus_name = [];
-  cus_id =[];
+	constructor(private filterSerivce: FilterService, private cd: ChangeDetectorRef) {
+		this.filterSerivce.sendReferBranchRequest();
+		this.filterSerivce.sendWMBranchRequest();
+	}
 
+	ngOnInit() {
+		//this.getKeywordList();
+		this.wmBranch = this.wmBranch.concat(this.filterSerivce.wmBranchList);
+		//console.log('wmBranch', this.wmBranch);
+		this.referBranch = this.referBranch.concat(this.filterSerivce.referBranchList);
+		//console.log('referBranch', this.referBranch);
+	}
 
+	ngOnChanges(changes: SimpleChanges) {
+		if (this.datalist)
+			this.getKeywordList();
+	}
 
-  myKeyword = '';
+	chooseBranch(item: any) {
+		this.nowBranch = item;
+		this.wmBranchData.emit(item);
+	}
+	chooseForword(item: any) {
+		this.nowForword = item;
+		this.referBranchData.emit(item);
+	}
+	chooseData(eventArgs) {
+		let inputData: StateGroup;
+		inputData = eventArgs;
+		if (inputData.type === '集團名稱')
+			inputData.type = 'group_name';
+		else if (inputData.type === '客戶名稱')
+			inputData.type = 'cus_name';
+		else if (inputData.type === '客戶 ID')
+			inputData.type = 'cus_id';
 
-  constructor(private filterSerivce: FilterService) {
-    this.filterSerivce.sendReferBranchRequest();
-    this.filterSerivce.sendWMBranchRequest();
-   }
+		this.filterData.emit(inputData);
 
-  ngOnInit() {
-    this.wmBranch = this.wmBranch.concat(this.filterSerivce.wmBranchList);
-    //console.log('wmBranch', this.wmBranch);
-    this.referBranch = this.referBranch.concat(this.filterSerivce.referBranchList);
-    //console.log('referBranch', this.referBranch);
+	}
 
+	getKeywordList() {
+		let newkeywordList = [];
+		// get list
+		const groupList: any = this.datalist.map(item => item.group_name);
+		const cusIdList: any = this.datalist.map(item => item.cus_id);
+		const cusNameList: any = this.datalist.map(item => item.cus_name);
 
-    // this.fiterData();
-    // $('.dropdown-toggle').dropdown();
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    // console.log('change',changes);
-    // this.firstKeyChange = changes['keyword'].firstChange;
-    // this.lastKeyword = changes['keyword'].previousValue;
+		// get duplicates
+		const gdList: any = groupList.filter((item, index) => groupList.indexOf(item) === index);
+		const cidList: any = cusIdList.filter((item, index) => cusIdList.indexOf(item) === index);
+		const cnameList: any = cusNameList.filter((item, index) => cusNameList.indexOf(item) === index);
 
+		// remove duplicates
+		const glist: any = groupList.reduce((gdList, item) => gdList.includes(item) ? gdList : [...gdList, item], []);
+		const clist: any = cusIdList.reduce((cidList, item) => cidList.includes(item) ? cidList : [...cidList, item], []);
+		const nlist: any = cusNameList.reduce((cidList, item) => cidList.includes(item) ? cidList : [...cidList, item], []);
 
-  }
-
-  filter(query: string) {
-      this.change.emit(query); 
-  }
-  // fiterData () {
-  //   console.log(this.datalist.data);
-  //   const data = this.datalist.data;
-  //   this.ao_list = data.map(function(item: any){
-  //     return item.ao;
-  //   });
-  //   this.group_list = data.map(function(item: any){
-  //     return item.group_name;
-  //   });
-  //   this.cus_name = data.map(function(item: any){
-  //     return item.cus_name;
-  //   });
-  //   this.cus_id = data.map(function(item: any){
-  //     return item.cus_id;
-  //   });
-
-
-  //   this.ao_list = this.ao_list.filter((item, index) => this.ao_list.indexOf(item) === index);
-  //   this.group_list = this.group_list.filter((item, index) => this.group_list.indexOf(item) === index);
-  //   this.cus_name = this.cus_name.filter((item, index) => this.cus_name.indexOf(item) === index);
-  //   this.cus_id = this.cus_id.filter((item, index) => this.cus_id.indexOf(item) === index);
-
-  // }
-
-  chooseBranch (item: any) {
-    this.nowBranch = item;
-  }
-  chooseForword (item: any) {
-    this.nowForword = item;
-  }
+		newkeywordList = [
+			{
+				type: 'group_name',
+				list: glist
+			},
+			{
+				type: 'cus_id',
+				list: clist
+			},
+			{
+				type: 'cus_name',
+				list: nlist
+			}
+		];
+		this.keywordList = newkeywordList;
+	}
 }
