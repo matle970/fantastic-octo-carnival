@@ -16,6 +16,8 @@ class Body {
 class AoData {
     id: string;
     ao: string;
+    wmbranchId: string;
+    referBranchId: string;
     cus_id: string;
     cus_name: string;
     msr: string;

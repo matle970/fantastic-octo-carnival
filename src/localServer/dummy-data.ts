@@ -107,6 +107,8 @@ export class DummyData {
                 {
                     "id": "d000",
                     "ao": "人類經理 具燦星",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId001",
                     "group_name": "滿月集團",
                     "cus_id": "03546618",
                     "cus_name": "jeweltestDummyData",
@@ -122,6 +124,8 @@ export class DummyData {
                 }, {
                     "id": "d001",
                     "ao": "人類經理 具燦星",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId002",
                     "group_name": "滿月集團",
                     "cus_id": "03546618",
                     "cus_name": "德魯納股份有限公司",
@@ -138,6 +142,8 @@ export class DummyData {
                 {
                     "id": "d002",
                     "ao": "店長 鄭北東",
+                    "wmbranchId": "jewelWMId002",
+                    "referBranchId": "jewelReferId003",
                     "group_name": "滿月集團",
                     "cus_id": "11223355",
                     "cus_name": "千里馬超市",
@@ -154,6 +160,8 @@ export class DummyData {
                 {
                     "id": "d003",
                     "ao": "酒保 金時翼",
+                    "wmbranchId": "jewelWMId002",
+                    "referBranchId": "jewelReferId004",
                     "group_name": "滿月集團",
                     "cus_id": "11223355",
                     "cus_name": "天空酒吧",
@@ -170,6 +178,8 @@ export class DummyData {
                 {
                     "id": "c001",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId003",
+                    "referBranchId": "jewelReferId005",
                     "group_name": "鴻海集團",
                     "cus_id": "03546618",
                     "cus_name": "廣宇科技股份有限公司",
@@ -186,6 +196,8 @@ export class DummyData {
                 {
                     "id": "c002",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId003",
+                    "referBranchId": "jewelReferId001",
                     "group_name": "鴻海集團",
                     "cus_id": "12800225",
                     "cus_name": "群創光電股份有限公司",
@@ -202,6 +214,8 @@ export class DummyData {
                 {
                     "id": "c003",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId004",
+                    "referBranchId": "jewelReferId002",
                     "group_name": "鴻海集團",
                     "cus_id": "80731387",
                     "cus_name": "宏瀚投資股份有限公司",
@@ -218,6 +232,8 @@ export class DummyData {
                 {
                     "id": "c004",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId004",
+                    "referBranchId": "jewelReferId002",
                     "group_name": "鴻海集團",
                     "cus_id": "80732007",
                     "cus_name": "聯巨投資股份有限公司",
@@ -234,6 +250,8 @@ export class DummyData {
                 {
                     "id": "c005",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId005",
+                    "referBranchId": "jewelReferId003",
                     "group_name": "鴻海集團",
                     "cus_id": "84149499",
                     "cus_name": "天鈺科技股份有限公司",
@@ -250,6 +268,8 @@ export class DummyData {
                 {
                     "id": "c006",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId005",
+                    "referBranchId": "jewelReferId004",
                     "group_name": "鴻海集團",
                     "cus_id": "496390JA",
                     "cus_name": "捷達創新科技有限公司",
@@ -266,6 +286,8 @@ export class DummyData {
                 {
                     "id": "c007",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId005",
                     "group_name": "鴻海集團",
                     "cus_id": "27310561",
                     "cus_name": "啟耀光電股份有限公司",
@@ -282,6 +304,8 @@ export class DummyData {
                 {
                     "id": "c008",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId005",
                     "group_name": "鴻海集團",
                     "cus_id": "28488592",
                     "cus_name": "瑞祺電通股份有限公司",
@@ -298,6 +322,8 @@ export class DummyData {
                 {
                     "id": "c009",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId001",
                     "group_name": "鴻海集團",
                     "cus_id": "70380046",
                     "cus_name": "樺漢科技股份有限公司",
@@ -314,6 +340,8 @@ export class DummyData {
                 {
                     "id": "c010",
                     "ao": "企企2 葉又萱",
+                    "wmbranchId": "jewelWMId001",
+                    "referBranchId": "jewelReferId002",
                     "group_name": "鴻海集團",
                     "cus_id": "24291669",
                     "cus_name": "康聯生醫科技股份有限公司",
@@ -330,6 +358,8 @@ export class DummyData {
                 {
                     "id": "c011",
                     "ao": "企企2 jeweltest01",
+                    "branchId": "jewelWMId002",
+                    "referBranchId": "jewelReferId003",
                     "group_name": "鴻海集團",
                     "cus_id": "24291669",
                     "cus_name": "康聯生醫科技股份有限公司",
