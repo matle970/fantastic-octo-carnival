@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FilterComponent } from '../filter/filter.component';
-import { KeywordService } from 'src/app/services/dashboard/keyword.service';
 
 export interface StateGroup {
 	type: string;
