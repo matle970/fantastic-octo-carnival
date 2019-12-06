@@ -16,6 +16,7 @@ import { NoticeIconComponent } from './notice-icon/notice-icon.component';
 import { SharedMaterialModule } from 'src/app/objects/shared-material/shared-material.module';
 import { SharedItemModule } from 'src/app/objects/shared-item/shared-item.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AutoSearchComponent } from './auto-search/auto-search.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     PaginationComponent,
     LogoWhiteComponent,
     NoticeIconComponent,
+    AutoSearchComponent
   ],
   exports: [
     HeaderComponent,

@@ -9,6 +9,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
+
 $cathy-app-primary: mat-palette($mat-green);
 $cathy-app-accent:  mat-palette($mat-green, A200, A100, A400);
 
@@ -22,3 +23,44 @@ $cathy-app-theme: mat-light-theme($cathy-app-primary, $cathy-app-accent, $cathy-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($cathy-app-theme);
+
+// keyword search height
+.autocomplete-form{
+
+
+  .mat-form-field-wrapper{
+    padding-bottom: 1.5rem !important;
+  }
+  .mat-input-element {
+    color: #000;
+  }
+
+}
+
+.auto-list{
+  .mat-optgroup-label {
+    background: #d2d2d2;
+    color: #777;
+    height: 24px;
+    line-height: 24px;
+  }
+  span.autocomplete-heighlight{
+    font-weight: 700;
+    color: $dark-cathy-green;
+  }
+}
+.mat-focused {
+  .mat-form-field-label{
+    color:#009F41 !important;
+    font-weight: 500;
+  }
+}
+
+// tooltip
+.mat-tooltip {
+  font-size: 1rem !important;
+}
+
+
+
+
