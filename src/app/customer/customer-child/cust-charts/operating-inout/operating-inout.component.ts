@@ -42,30 +42,23 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
-
+        this.setData();
+    }
+    
+    setData() {
         this.ImportExportDetailObj = this.custchartsService.ImportExportDetailObj;
 
         // console.log('xxxx',this.ImportExportDetailObj = this.custchartsService.ImportExportDetailObj);
 
         this.import = this.ImportExportDetailObj.data.body.import;
-        console.log('xxx', this.import);
+        // console.log('xxx', this.import);
         // console.log(this.getUtilsService().changeDateStr(this.import[0].mon[0], 'yyyy/MM'));
-        // this.import[0].mon[0] = this.getUtilsService().changeDateStr(this.import[0].mon[0], 'yyyy/MM');
         // console.log('aaa',this.import[0].mon);
-
-
 
         this.export = this.ImportExportDetailObj.data.body.export;
         // console.log('xxxx', this.export);
         // console.log('xxx',this.getUtilsService().changeDateStr(this.export[0].mon[0], 'yyyy/MM'));
         // console.log('xx',this.import[0].mon);
-
-        //  日期轉換 20190330 return 2019/03/30
-        //  this.import[0].forEach((data, index) => {
-        //     data.mon = this.getUtilsService().changeDateStr(data.mon, 'yyyy/MM');
-        //     // data.mon = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd')
-        //     console.log('xxx',data.mon);
-        // });
 
         // 進口實績-橫向加總&縱向加總
         for (let i = 0; i < this.import.length; i++) {
@@ -124,19 +117,12 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
 
         this.import[0].mon.forEach((item, index, arr) => {
             arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
-            console.log('xxx', this.import[0].mon);
+            // console.log('xxx', this.import[0].mon);
         });
         this.export[0].mon.forEach((item, index, arr) => {
             arr[index] = this.getUtilsService().changeDateStr(item, 'yyyy/MM');
-            console.log('xxxx', this.export[0].mon);
+            // console.log('xxxx', this.export[0].mon);
         });
-
-        // this.import[0].mon.forEach((data, index) => {
-        //     data = this.getUtilsService().changeDateStr(data, 'yyyy/MM');
-        //     // data.tdDueDate = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd')
-        //     console.log('xxx', data);
-        //     // console.log('xxxx', this.getUtilsService().changeDateStr(data.mon, 'yyyy/MM'));
-        // });
     }
     SumData(arr) {
         let sum = 0;

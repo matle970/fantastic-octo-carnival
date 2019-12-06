@@ -511,38 +511,168 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerId": "",
-            "toLoan": {
-                "toAmt": "",
-                "toBal": ""
+            "customerId": "A123456789",
+            "totLoan": {
+                "totAmt": "3274888",
+                "totBal": "1919345"
             },
             "facilityDetail": [
                 {
-                    "facilityNbr": "",
+                    "facilityNbr": "1000000002",
                     "facRecords": [
                         {
-                            "breakdownCodeDesc": "",
-                            "facmCurrencyCode": "",
-                            "facmApprovalAmt": "",
-                            "facmLoanBal": "",
-                            "facmNtdLoanBal": "",
-                            "negotiatPriceCode": "",
+                            "breakdownCodeDesc": "週轉金(信用)",
+                            "facdCurrencyCode": "新台幣",
+                            "facdFxLimitAmt": "88888",
+                            "sumLbFxCurrentBal": "44444",
+                            "sumLbNtdCurrentBal": "44444",
+                            "negotiatPriceCode": "N",
                             "collateral": [
                                 {
-                                    "collateralCodeDesc": ""
+                                    "collateralCodeDesc": "不動產"
                                 }
                             ],
-                            "facStatusCodeDesc": "",
+                            "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
-                                    "accNbr": "",
-                                    "lbCurrencyCode": "",
-                                    "lbCurrentIntRate": "",
-                                    "lbFxCurrentBal": "",
-                                    "lbNtdCurrentBal": "",
-                                    "firstFundingDate": "",
-                                    "acctDueDate": "",
-                                    "limitStatusCodeDesc": ""
+                                    "accNbr": "14APLN-998877",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "99999",
+                                    "lbNtdCurrentBal": "99999",
+                                    "firstFundingDate": "20190222",
+                                    "acctDueDate": "20190313",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-887766",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "88888",
+                                    "lbNtdCurrentBal": "88888",
+                                    "firstFundingDate": "20190505",
+                                    "acctDueDate": "20190606",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-776655",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "77777",
+                                    "lbNtdCurrentBal": "77777",
+                                    "firstFundingDate": "20190505",
+                                    "acctDueDate": "20190606",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                            ]
+                        }
+                    ]
+                }
+                ,
+                {
+                    "facilityNbr": "1000000003",
+                    "facRecords": [
+                        {
+                            "breakdownCodeDesc": "週轉金(信用)",
+                            "facdCurrencyCode": "日幣",
+                            "facdFxLimitAmt": "11111",
+                            "sumLbFxCurrentBal": "22222",
+                            "sumLbNtdCurrentBal": "33333",
+                            "negotiatPriceCode": "N",
+                            "collateral": [
+                                {
+                                    "collateralCodeDesc": "不動產"
+                                }
+                            ],
+                            "limitStatusCodeDesc": "逾可動用期限",
+                            "breakRecords": [
+                                {
+                                    "accNbr": "14APLN-112233",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "11111",
+                                    "lbNtdCurrentBal": "11111",
+                                    "firstFundingDate": "20190101",
+                                    "acctDueDate": "20190303",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-223344",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "22222",
+                                    "lbNtdCurrentBal": "22222",
+                                    "firstFundingDate": "20190202",
+                                    "acctDueDate": "20190404",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-334455",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "33333",
+                                    "lbNtdCurrentBal": "33333",
+                                    "firstFundingDate": "20190202",
+                                    "acctDueDate": "20190404",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                            ]
+                        }
+                    ]
+                }
+                ,
+                {
+                    "facilityNbr": "1000000004",
+                    "facRecords": [
+                        {
+                            "breakdownCodeDesc": "週轉金(信用)",
+                            "facdCurrencyCode": "美金",
+                            "facdFxLimitAmt": "44444",
+                            "sumLbFxCurrentBal": "55555",
+                            "sumLbNtdCurrentBal": "66666",
+                            "negotiatPriceCode": "N",
+                            "collateral": [
+                                {
+                                    "collateralCodeDesc": "不動產"
+                                }
+                            ],
+                            "limitStatusCodeDesc": "逾可動用期限",
+                            "breakRecords": [
+                                {
+                                    "accNbr": "14APLN-667788",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "44444",
+                                    "lbNtdCurrentBal": "44444",
+                                    "firstFundingDate": "20190101",
+                                    "acctDueDate": "20190303",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-778899",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "55555",
+                                    "lbNtdCurrentBal": "55555",
+                                    "firstFundingDate": "20190202",
+                                    "acctDueDate": "20190404",
+                                    "acctStatusCodeDesc": "正常"
+                                }
+                                ,
+                                {
+                                    "accNbr": "14APLN-889900",
+                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrentIntRate": "1.21",
+                                    "lbFxCurrentBal": "66666",
+                                    "lbNtdCurrentBal": "66666",
+                                    "firstFundingDate": "20190202",
+                                    "acctDueDate": "20190404",
+                                    "acctStatusCodeDesc": "正常"
                                 }
                             ]
                         }
@@ -1212,7 +1342,7 @@ export class DummyData {
                 break;
             // CB009-Composite API-營運量-放款餘額第二層
             case this.URL.PRODUCT_LOAN_DETAIL:
-
+                returnData = this.loanDetail;
                 break;
             // CB010-Composite API-營運量-進出口實績第二層
             case this.URL.PRODUCT_IMPORT_EXPORT_DETAIL:

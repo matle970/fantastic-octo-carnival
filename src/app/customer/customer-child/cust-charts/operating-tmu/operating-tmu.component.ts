@@ -39,7 +39,7 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         await this.custchartsService.sendRequest();
 
         this.TMUDetailObj = this.custchartsService.TMUDetailObj;
-        // console.log('xx',this.TMUDetailObj);
+        // console.log('xx',this.TMUDetailObj.data.body);
 
         this.tmuTransAmt = this.TMUDetailObj.data.body.tmuTransAmt;
         this.tmuInvesment = this.TMUDetailObj.data.body.tmuInvesment;

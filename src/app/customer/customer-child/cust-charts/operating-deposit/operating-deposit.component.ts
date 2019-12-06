@@ -64,7 +64,7 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
         let sum4 = parseInt(this.r6mthAvgBal.sd, 10) + parseInt(this.r6mthAvgBal.td, 10) + parseInt(this.r6mthAvgBal.cd, 10);
         this.r6mthAvgBal.all = sum4.toString();
         // console.log('xxx', sum4);
-        
+
         //日期轉換 20190330 return 2019/03/30
         this.tdDetail.forEach((data, index) => {
             data.acctOpenDate = this.getUtilsService().changeDateStr(data.acctOpenDate, 'yyyy/MM/dd');
@@ -72,7 +72,7 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
             // console.log('xxx',data.acctOpenDate);
             // console.log('xxxx',this.tdDetail[0].acctOpenDate);
         });
-       
+
     }
 
 
@@ -86,28 +86,28 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
     apiUrls: string[] = []; // 此componment需要發送的API urls
     // depositDetailTitle = this.TITLE.depositDetail;
     ntdAssets: {
-        "sd": "",
-        "td": "",
-        "cd": "",
-        "all": string
+        sd: "",
+        td: "",
+        cd: "",
+        all: string
     }
     fxAssets: {
-        "sd": "",
-        "td": "",
-        "cd": "",
-        "all": string
+        sd: "",
+        td: "",
+        cd: "",
+        all: string
     }
     sumAssets: {
-        "sd": "",
-        "td": "",
-        "cd": "",
-        "all": string
+        sd: "",
+        td: "",
+        cd: "",
+        all: string
     }
     r6mthAvgBal: {
-        "sd": "",
-        "td": "",
-        "cd": "",
-        "all": string
+        sd: "",
+        td: "",
+        cd: "",
+        all: string
     }
 
     sdDetail: any[];

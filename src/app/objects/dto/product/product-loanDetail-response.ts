@@ -6,9 +6,9 @@ export class LoanDetail {
 }
 class Body {
     customerId: string;
-    toLoan: {
-        toAmt: string;
-        toBal: string
+    totLoan: {
+        totAmt: string;
+        totBal: string
     }
     facilityDetail: [
         {

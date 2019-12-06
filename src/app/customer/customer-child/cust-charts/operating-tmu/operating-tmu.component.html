@@ -68,7 +68,7 @@
                   <th class="text-right">使用率</th>
                 </tr>
               </thead>
-              <tbody *ngFor = 'let item of tmuTransAmt'>
+              <tbody *ngFor = "let item of tmuTransAmt">
                 <tr>
                     <td rowspan="5">{{item.customerId}}</td>
                     <td>{{item.amountType}}</td>
@@ -114,7 +114,7 @@
                   <th class="text-right">迄日</th>
                 </tr>
               </thead>
-              <tbody *ngFor = 'let item of tmuInvesment'>
+              <tbody *ngFor = "let item of tmuInvesment">
                 <tr>
                     <td>{{item.invesTypeCode}}</td>
                     <td class="text-right">{{ item.productDesc | currency:'TWD':'symbol':'1.0-0' }}</td>

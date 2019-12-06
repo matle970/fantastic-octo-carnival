@@ -33,7 +33,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     // 營運量-營運量第一層
     AssetsLibilitiesObj: any = {};
     // 營運量-存款餘額第二層
-    // DepositDetailObj: any = {};
+    DepositDetailObj: any = {};
     // 營運量-放款餘額第二層
     LoanDetailObj: any = {};
     // 營運量-進出口實績第二層
