@@ -116,12 +116,16 @@ export class CustBaseinfoService {
         { id: "5", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
     ];
 
-    // 貢獻度-資料區間
+    // 貢獻度-資料期間
     ContributionPeriod: string;
     // 貢獻度去年累計
     ContributionLastYearTotal: number;
     // 貢獻度去年累計
     ContributionThisYearTotal: number;
+    ChartDataseries: Array<any> = [];
+    ChartDatacategories: Array<any> = [];
+
+
 
     sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
@@ -230,5 +234,17 @@ export class CustBaseinfoService {
             this.ContributionLastYearTotal = this.ContributionLastYearTotal + contribution.data.lastcontri.contribution[i];
             this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.lastcontri.contribution[i];
         }
+
+        this.ChartDatacategories = contribution.data.contributionType;
+        this.ChartDataseries = [
+            {
+                name: contribution.data.lastcontri.startYM + '-' + contribution.data.lastcontri.endYM,
+                data: contribution.data.lastcontri.contribution
+            },
+            {
+                name: contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM,
+                data: contribution.data.thiscontri.contribution
+            }
+        ];
     }
 }

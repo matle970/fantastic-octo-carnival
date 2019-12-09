@@ -1,0 +1,17 @@
+<div *ngIf="hasResult" class="loading-block animated fadeIn">
+
+  <!-- load -->
+  <div class="lds-ellipsis" *ngIf="!isResend">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <!-- resend button -->
+  <div class="d-inline-block reflesh-btn" *ngIf="isResend">
+    <button type="button" class="btn btn-outline-primary text-lg">
+      <i class="fas fa-redo-alt mr-2 text-xs"></i>重新整理
+    </button>
+  </div>
+</div>
+

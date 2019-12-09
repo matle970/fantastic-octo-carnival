@@ -21,7 +21,7 @@ export class DashboardService {
     constructor(private baseService: BaseService,
         private customerInfo: CustomerIdService) { }
 
-
+/*
     sendRquest() {
         this.baseService.httpservice.sendRequestAsync(
             this.urlList[0].url, 
@@ -32,7 +32,17 @@ export class DashboardService {
                 //console.log('list', this._dataList);
             }, (err) => { })
     };
-
+*/
+    async sendRquest(): Promise<CompanyListResponse> {
+        let result = await this.baseService.httpservice.sendRequestAsync(
+            this.urlList[0].url, 
+            this.urlList[0].dtoRequset,
+            this.urlList[0].dtoResponse);
+        this.customerInfo.customerId = result.body.aoData[0].id;
+        this._dataList = result.body.aoData;
+        return result;
+    };
+/*
     get dataList() {
         return this._dataList;
     }
@@ -42,7 +52,7 @@ export class DashboardService {
     get totalDataCount() {
         return this._dataList.length;
     }
-
+*/
     getSortedData(id, order, value) {
         if (order === '0')
             return value;

@@ -1,13 +1,8 @@
+      
 <div class="filter-block mr-4">
     <!-- 關鍵字搜尋 -->
     <div class="d-inline-block mr-1">
-      <div class="input-group input-group-sm search-id-block">
-        <input type="text" #keyword (keyup)="filter(keyword.value)" placeholder="關鍵字搜尋" class="form-control" #keyword
-       aria-label="" aria-describedby="basic-addon1">
-          <button type="button" class="btn btn-round btn-primary btn-circle shadow-none">
-              <i class="fas fa-search"></i>
-          </button>
-      </div>
+        <app-auto-search [keywordList]="keywordList" (getCompleteKeyword)="chooseData($event)"></app-auto-search>
     </div>
 
     <!-- 經管行搜尋 -->
@@ -19,7 +14,7 @@
             </button>
             <ul class="dropdown-menu ">
                 <li  *ngFor="let item of wmBranch">
-                   <a  (click)="chooseBranch(item.branchName)" > {{item.branchName}}</a>
+                   <a  (click)="chooseBranch(item.branchId)" > {{item.branchName}}</a>
                 </li>
             </ul>
         </div>
@@ -35,7 +30,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="SUBITEM">
                 <li  *ngFor="let item of referBranch">
-                    <a  (click)="chooseForword(item.branchName)" > {{item.branchName}}</a>
+                    <a  (click)="chooseForword(item.branchId)" > {{item.branchName}}</a>
                  </li>
             </ul>
         </div>

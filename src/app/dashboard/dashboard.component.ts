@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
-import { IndexTableElement, DashboardDataService } from './service/dashboard-data.service';
+import { IndexTableElement } from './service/dashboard-data.service';
 import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
+import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
 
 
 @Component({
@@ -13,15 +14,13 @@ import { AoIdentityService } from '../services/common-services/ao-identity.servi
 })
 
 export class DashboardComponent implements OnInit, OnChanges {
-  [x: string]: any;
+    [x: string]: any;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
-    @Input() getKeyword: boolean;
+    @Input() getKeyword: any;
+    filterArgs: StateGroup;
     dataSource;
     dataList;
-    tableDetailList: IndexTableElement[];
-    columns;
-    trade_balance_total_Value = 0;
     totalDataCount: number;
     supervisor = false;
 
@@ -52,24 +51,25 @@ export class DashboardComponent implements OnInit, OnChanges {
     //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,
-        private matPaginatorIntl: MatPaginatorIntl, 
+        private matPaginatorIntl: MatPaginatorIntl,
         aoIdentity: AoIdentityService) {
         this.supervisor = true;
-        this.dashboardService.sendRquest();
         aoIdentity.print();
     }
 
 
-    ngOnChanges(changes: SimpleChanges) { }
+    async ngOnChanges(changes: SimpleChanges) {
+    }
 
 
-    ngOnInit() {
-        this.dataList = this.dashboardService.dataList;
-        this.dataSource = this.dashboardService.dataSource;
-        this.columns = this.dataList.slice();
-        this.totalDataCount = this.dashboardService.totalDataCount;
-
-
+    async ngOnInit() {
+        let result = await this.dashboardService.sendRquest();
+        this.dataList = result.body.aoData;
+        //console.log(this.dataList);
+        this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
+        this.totalDataCount = this.dataList.length;
+        this.keywordList = this.dataList;
+        this.getSortData();
         this.getIssues(0, 10);
         //console.log(this.sortTable);
         // 分頁切換時，重新取得資料
@@ -100,10 +100,8 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     }
     ngAfterViewInit() {
-        this.dataSource.sortData = (data, sort: MatSort) => {
-            return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
-        }
-        this.trade_balance_total_Value
+        if (this.dataSource)
+            this.getSortData();
     }
     /*openNotice(){
       this.openStatus = true;
@@ -112,7 +110,6 @@ export class DashboardComponent implements OnInit, OnChanges {
     }*/
 
     sortData(event: any) {
-        //console.log(event);
         this.nowOrder.id = event.active;
         if (event.direction === 'asc')
             this.nowOrder.ASC = '1';
@@ -137,8 +134,12 @@ export class DashboardComponent implements OnInit, OnChanges {
     onFilterWMBrandChanged(eventArgs) {
         console.log("FilterWMBranch: ", eventArgs);
     }
-    onFilterDataChanged(eventArgs){
-        console.log("inputFilterData", eventArgs);
+    onFilterDataChanged(eventArgs) {
+        this.filterArgs = eventArgs;
+        if (eventArgs.names)
+            this.dataSource.filter = eventArgs.names.trim().toLowerCase();
+        else 
+            this.dataSource.filter = "";
     }
 
 
@@ -148,7 +149,25 @@ export class DashboardComponent implements OnInit, OnChanges {
     }
 
     public calculateTotal(key) {
-        return this.columns.reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
+        //let filterType;
+        let sum: number = 0;
+        if (this.dataSource) {
+            for (let row of this.dataSource.data) {
+                if (this.dataSource.filter.trim().length == 0) {
+                    sum += row[key];
+                }
+                else if (row[key] != 0 && row[this.filterArgs.type].trim().toLowerCase() === this.dataSource.filter)
+                    sum += row[key];
+            }
+        }
+        return sum;
+        //return this.this.dataList.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
+    }
+
+    getSortData() {
+        this.dataSource.sortData = (data, sort: MatSort) => {
+            return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
+        }
     }
 }
 

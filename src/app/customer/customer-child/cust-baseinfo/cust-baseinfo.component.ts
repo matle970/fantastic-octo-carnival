@@ -43,6 +43,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
 
+    // response
     Company: any = {};
     CompanyDetail: any = {};
     CompanyAssociate: any = {};
@@ -56,9 +57,106 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     CompanyNotification: any = {};
 
     CompanyFlag: Array<any> = [];       // 授網薪集黑
+
+    // contribution
     ContributionPeriod: string;         // 貢獻度-資料區間
     ContributionLastYearTotal: number;  // 貢獻度去年累計
     ContributionThisYearTotal: number;  // 貢獻度去年累計
+    ChartData = {                       // 貢獻度圖表資訊
+        series: [],
+        colors: ['#76BC21', '#009F41'],
+        chart: {
+            fontFamily: '微軟正黑體',
+            foreColor: '#000000',
+            toolbar: {
+                show: false
+            },
+            height: 280,
+            type: 'bar',
+        },
+        plotOptions: {
+            bar: {
+                horizontal: true,
+                dataLabels: {
+                    position: 'top',
+                },
+            }
+        },
+        dataLabels: {   // 顯示在圖表上的數字，要隱藏，user不用。
+            enabled: false,
+            offsetX: -6,
+            style: {
+                fontSize: '12px',
+                colors: ['#000000']
+            }
+        },
+        responsive: [
+            {
+                breakpoint: 1400,
+                options: {
+                    chart: {
+                        width: '85%',
+                        height: 300
+                    }
+                }
+            },
+            {
+                breakpoint: 900,
+                options: {
+                    chart: {
+                        width: '90%',
+                        height: 350
+                    }
+                }
+            }
+        ],
+        stroke: {
+            show: true,
+            width: 1,
+            colors: ['#fff']
+        },
+        xaxis: {
+            categories: [],
+            labels: {
+                style: {
+                    fontSize: '14px',
+                }
+            }
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    fontSize: '16px',
+                }
+            }
+        },
+        legend: {
+            position: 'top',
+            labels: {
+                colors: '#000000',
+            },
+            markers: {
+                width: 12,
+                height: 12,
+                strokeWidth: 0,
+                strokeColor: '#fff',
+                fillColors: undefined,
+                radius: 12,
+                customHTML: undefined,
+                onClick: undefined,
+                offsetX: 0,
+                offsetY: 0
+            }
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                    return pnum;
+                },
+            }
+        }
+    };
 
     constructor(
         private modalservice: ModalService,
@@ -66,12 +164,11 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         private custbaseinfoService: CustBaseinfoService) {
         super();
-        // this.custbaseinfoService.sendRquest();
     }
 
-    ngOnChanges() {
+    async ngOnChanges() {
         if (this.searchStr !== undefined && this.searchStr !== null) {
-            this.custbaseinfoService.sendRquest();
+            await this.custbaseinfoService.sendRquest();
             this.setData();
         }
     }
@@ -98,6 +195,8 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
+        this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;
+        this.ChartData.series = this.custbaseinfoService.ChartDataseries;
     }
 
 
@@ -111,7 +210,7 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
 
 
-    @ViewChild('chartObj') chartObj: ChartComponent;
+    // @ViewChild('chartObj') chartObj: ChartComponent;
     // ContributionObj: any;
 
     apiUrls: string[] = []; // 此componment需要發送的API urls

@@ -60,6 +60,7 @@ import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
 
 // localServer
 import { DummyDataService } from './services/common-services/dummydata.service';
+import { AutoSearchComponent } from './content-layout/common-area/auto-search/auto-search.component';
 
 @NgModule({
     declarations: [

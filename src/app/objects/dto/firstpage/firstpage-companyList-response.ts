@@ -4,6 +4,10 @@ import { CommonHeaderResponse } from '../common/common-header-response';
 export class CompanyListResponse {
     header: CommonHeaderResponse;
     body: Body;
+
+    constructor(init?: Partial<CompanyListResponse>) { 
+        Object.assign(this, init);
+    }
 }
 class Body {
     aoData: AoData[];
@@ -12,6 +16,8 @@ class Body {
 class AoData {
     id: string;
     ao: string;
+    wmbranchId: string;
+    referBranchId: string;
     cus_id: string;
     cus_name: string;
     msr: string;
