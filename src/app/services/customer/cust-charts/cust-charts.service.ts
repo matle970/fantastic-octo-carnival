@@ -68,10 +68,8 @@ export class CustChartsService {
                 this.urlList[i].url,
                 this.urlList[i].dtoRequest,
                 this.urlList[i].dtoResponse).then(data => {
-                    // console.log(data);
                     if (data.header.returnCode === '0000') {
                         this.dataProcess(data, this.urlList[i].url);
-                        // console.log('xxx',data.header);
                     }
                 });
         }
@@ -84,22 +82,18 @@ export class CustChartsService {
                     data: data
                 };
                 break;
-
             case this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL:
                 this.DepositDetailObj = {
                     data: data
                 };
-
             case this.baseservice.geturlservice.URL.PRODUCT_LOAN_DETAIL:
                 this.LoanDetailObj = {
                     data: data
                 };
-
             case this.baseservice.geturlservice.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
                 this.ImportExportDetailObj = {
                     data: data
                 };
-
             case this.baseservice.geturlservice.URL.PRODUCT_TMU_DETAIL:
                 this.TMUDetailObj = {
                     data: data

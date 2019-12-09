@@ -72,10 +72,10 @@
                 <tr>
                     <td rowspan="5">{{item.customerId}}</td>
                     <td>{{item.amountType}}</td>
-                    <td>{{item.amountExpDate}}</td>
-                    <td class="text-right">{{ item.amountAmt | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.usageAmt | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.lastAvailAmt | currency:'':'symbol':'1.0-0' }}</td>
+                    <td>{{item.amountExpDate }}</td>
+                    <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
                     <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
                 </tr>
                 
@@ -117,10 +117,10 @@
               <tbody *ngFor = "let item of tmuInvesment">
                 <tr>
                     <td>{{item.invesTypeCode}}</td>
-                    <td class="text-right">{{ item.productDesc | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.prodCurrencyDesc | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.bal | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.ntdCurrentValue | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.productDesc | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.prodCurrencyDesc | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.bal | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.ntdCurrentValue | currency:'':'':'1.0-0' }}</td>
                     <td class="text-right">{{ item.startDay }}</td>
                     <td class="text-right">{{ item.endDay }}</td>
                 </tr>

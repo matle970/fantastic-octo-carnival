@@ -377,10 +377,10 @@ export class DummyData {
             "exportAmt": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
             "tmu": "TMU額度使用率",
             "tmuMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "tmuUsage": ["0.0667", "0.0887", "0.0777", "0.0557", "0.0447", "0.0337", "0.0227", "0.0317", "0.0997", "0.0887", "0.0227", "0.0337", "0.0447"],
+            "tmuUsage": ["0.0887", "0.0887", "0.0777", "0.0557", "0.0447", "0.0337", "0.0227", "0.0317", "0.0997", "0.0887", "0.0227", "0.0337", "0.0447"],
             "mtm": "MTM額度使用率",
             "mtmMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "mtmUsage": ["0.0447", "0.0337", "0.0227", "0.0887", "0.0997", "0.0227", "0.0117", "0.0227", "0.0337", "0.0447", "0.0557", "0.0777", "0.0887"],
+            "mtmUsage": ["0.03038", "0.01155", "0.01317", "0.02594", "0.03519", "0.00898", "0.05915", "0.03118", "0.03718", "0.01916", "0.07808", "0.00321", "0.02288"],
         }]
     }
 
@@ -424,8 +424,8 @@ export class DummyData {
                 "currencyCode": "美金",
                 "fxCurrentBal": "11",
                 "ntdCurrentBal": "22",
-                "currentIntRate": "1",
-                "ftpRate": "2",
+                "currentIntRate": "0.00",
+                "ftpRate": "0.021",
                 "sdRemark": {
                     "accBranchCode": "信義分行",
                     "payrollCodeDtl": "薪轉行",
@@ -438,8 +438,8 @@ export class DummyData {
                 "currencyCode": "台幣",
                 "fxCurrentBal": "22",
                 "ntdCurrentBal": "11",
-                "currentIntRate": "2",
-                "ftpRate": "1",
+                "currentIntRate": "0.02",
+                "ftpRate": "0.01",
                 "sdRemark": {
                     "accBranchCode": "台北分行",
                     "payrollCodeDtl": "薪轉行",
@@ -453,8 +453,8 @@ export class DummyData {
                 "currencyCode": "美金",
                 "fxCurrentBal": "1133",
                 "ntdCurrentBal": "3242",
-                "currentIntRate": "5",
-                "ftpRate": "43",
+                "currentIntRate": "0.05",
+                "ftpRate": "0.43",
                 "acctOpenDate": "20190401",
                 "tdDueDate": "20191130"
             },
@@ -463,8 +463,8 @@ export class DummyData {
                 "currencyCode": "日幣",
                 "fxCurrentBal": "8383",
                 "ntdCurrentBal": "7868",
-                "currentIntRate": "2.3",
-                "ftpRate": "23",
+                "currentIntRate": "0.023",
+                "ftpRate": "0.23",
                 "acctOpenDate": "20190330",
                 "tdDueDate": "20191015"
             }],
@@ -536,7 +536,7 @@ export class DummyData {
                             "breakRecords": [
                                 {
                                     "accNbr": "14APLN-998877",
-                                    "lbCurrencyCode": "新台幣",
+                                    "lbCurrencyCode": "日幣",
                                     "lbCurrentIntRate": "1.21",
                                     "lbFxCurrentBal": "99999",
                                     "lbNtdCurrentBal": "99999",
@@ -547,8 +547,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-887766",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "美金",
+                                    "lbCurrentIntRate": "2.21",
                                     "lbFxCurrentBal": "88888",
                                     "lbNtdCurrentBal": "88888",
                                     "firstFundingDate": "20190505",
@@ -558,8 +558,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-776655",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "人民幣",
+                                    "lbCurrentIntRate": "3.21",
                                     "lbFxCurrentBal": "77777",
                                     "lbNtdCurrentBal": "77777",
                                     "firstFundingDate": "20190505",
@@ -590,8 +590,8 @@ export class DummyData {
                             "breakRecords": [
                                 {
                                     "accNbr": "14APLN-112233",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "澳幣",
+                                    "lbCurrentIntRate": "4.21",
                                     "lbFxCurrentBal": "11111",
                                     "lbNtdCurrentBal": "11111",
                                     "firstFundingDate": "20190101",
@@ -601,8 +601,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-223344",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "韓幣",
+                                    "lbCurrentIntRate": "5.21",
                                     "lbFxCurrentBal": "22222",
                                     "lbNtdCurrentBal": "22222",
                                     "firstFundingDate": "20190202",
@@ -612,8 +612,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-334455",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "歐元",
+                                    "lbCurrentIntRate": "6.21",
                                     "lbFxCurrentBal": "33333",
                                     "lbNtdCurrentBal": "33333",
                                     "firstFundingDate": "20190202",
@@ -644,8 +644,8 @@ export class DummyData {
                             "breakRecords": [
                                 {
                                     "accNbr": "14APLN-667788",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "辛巴威幣",
+                                    "lbCurrentIntRate": "7.21",
                                     "lbFxCurrentBal": "44444",
                                     "lbNtdCurrentBal": "44444",
                                     "firstFundingDate": "20190101",
@@ -655,8 +655,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-778899",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "比特幣",
+                                    "lbCurrentIntRate": "8.21",
                                     "lbFxCurrentBal": "55555",
                                     "lbNtdCurrentBal": "55555",
                                     "firstFundingDate": "20190202",
@@ -666,8 +666,8 @@ export class DummyData {
                                 ,
                                 {
                                     "accNbr": "14APLN-889900",
-                                    "lbCurrencyCode": "新台幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrencyCode": "英鎊",
+                                    "lbCurrentIntRate": "9.21",
                                     "lbFxCurrentBal": "66666",
                                     "lbNtdCurrentBal": "66666",
                                     "firstFundingDate": "20190202",
@@ -789,7 +789,7 @@ export class DummyData {
                     "amountAmt": "999999",
                     "usageAmt": "77777",
                     "lastAvailAmt": "222222",
-                    "amountUseRate": "0"
+                    "amountUseRate": "0.01"
                 }
             ],
             tmuInvesment: [

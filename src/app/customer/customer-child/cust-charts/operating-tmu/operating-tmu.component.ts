@@ -18,6 +18,9 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
 
     // 營運量-TMU&MTU第二層
     TMUDetailObj: any = {};
+    tmuTransAmt: any[];
+    tmuInvesment: any[];
+    tmuContribution: any[];
 
     urlList = [
         {
@@ -26,7 +29,6 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
             'dtoResponse': TMUDetail
         }
     ];
-
 
     constructor(
         private custchartsService: CustChartsService,
@@ -39,21 +41,24 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         await this.custchartsService.sendRequest();
 
         this.TMUDetailObj = this.custchartsService.TMUDetailObj;
-        // console.log('xx',this.TMUDetailObj.data.body);
 
         this.tmuTransAmt = this.TMUDetailObj.data.body.tmuTransAmt;
         this.tmuInvesment = this.TMUDetailObj.data.body.tmuInvesment;
         this.tmuContribution = this.TMUDetailObj.data.body.tmuContribution;
 
-        // this.tmuContribution = this.TMUDetailObj.body.tmuContribution;
         let tmu = Object.values(this.tmuContribution);
         this.TmuData.series = tmu.map(Number);
-        // console.log('xxx', this.TmuData.series);
-        // console.log('xxxx', typeof this.TmuData.series);
-        // console.log('yy', this.tmuContribution);
-        // console.log('yyy', typeof this.tmuContribution);
 
+        //日期轉換 20190330 return 2019/03/30
+        this.tmuTransAmt.forEach((data, index) => {
+            data.amountExpDate = this.getUtilsService().changeDateStr(data.amountExpDate, 'yyyy/MM/dd');
+        });
+        this.tmuInvesment.forEach((data, index) => {
+            data.startDay = this.getUtilsService().changeDateStr(data.startDay, 'yyyy/MM/dd');
+            data.endDay = this.getUtilsService().changeDateStr(data.endDay, 'yyyy/MM/dd')
+        });
     }
+
 
     TmuData = {
         chart: {
@@ -95,7 +100,7 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         tooltip: {
             followCursor: true,
             custom: function (obj) {
-                const num = Math.round(obj.series[obj.seriesIndex]/10000);
+                const num = Math.round(obj.series[obj.seriesIndex] / 10000);
                 const val = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
                 return '<div class="px-2 py-1" >' +
                     obj.w.config.labels[obj.seriesIndex] + ' ' + val
@@ -208,16 +213,4 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         }
 
     };
-
-    tmuTransAmt: any[];
-    tmuInvesment: any[];
-    tmuContribution: any[];
-    // tmuContribution: {
-    //   "trade": '',
-    //   "prd": '',
-    //   "fxSport": ''
-    // }
-
-
-
 }

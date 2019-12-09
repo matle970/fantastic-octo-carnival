@@ -61,7 +61,7 @@
                     </thead>
                     <tbody *ngFor = " let item of facilityDetail">
                      <tr>
-                       <td rowspan="10" class="main-text">{{item.facilityNbr}}</td>
+                       <td rowspan="99" class="main-text">{{item.facilityNbr}}</td>
                        <td>{{item.facRecords[0].breakdownCodeDesc}}</td>
                        <td>{{item.facRecords[0].facdCurrencyCode}}</td>
                        <td>{{item.facRecords[0].facdFxLimitAmt | currency : '' : '' : '1.0-0'}}</td>
@@ -81,16 +81,16 @@
                         <td>到期日</td>
                         <td>動撥狀態</td>
                      </tr>
-                     <ng-container *ngFor = " let item of facilityDetail[0].facRecords[0].breakRecords">
+                     <ng-container *ngFor = " let items of item.facRecords[0].breakRecords">
                      <tr >
-                        <td>{{item.accNbr}}</td>
-                        <td>{{item.lbCurrencyCode}}</td>
-                        <td>{{item.lbCurrentIntRate}}</td>
-                        <td>{{item.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                        <td>{{item.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                        <td>{{item.firstFundingDate}} </td>
-                        <td>{{item.acctDueDate}} </td>
-                        <td>{{item.acctStatusCodeDesc}} </td>
+                        <td>{{items.accNbr}}</td>
+                        <td>{{items.lbCurrencyCode}}</td>
+                        <td>{{items.lbCurrentIntRate}}</td>
+                        <td>{{items.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                        <td>{{items.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                        <td>{{items.firstFundingDate}} </td>
+                        <td>{{items.acctDueDate}} </td>
+                        <td>{{items.acctStatusCodeDesc}} </td>
                       </tr>
                     </ng-container>
                       <!-- <tr class="thead-th">

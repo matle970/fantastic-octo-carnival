@@ -25,8 +25,8 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     urlList = [
         {
             'url': this.URL.PRODUCT_ASSETS_LIBILITIES,
-            'dtoRequset':CommonRequest,
-            'dtoResponse':AssetsLibilities
+            'dtoRequset': CommonRequest,
+            'dtoResponse': AssetsLibilities
         }
     ];
 
@@ -52,19 +52,17 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     }
 
     async ngOnInit() {
-       await this.custchartsService.sendRequest();
-        // console.log('xxxxxx', this.AssetsLibilitiesObj = this.custchartsService.AssetsLibilitiesObj);
+        await this.custchartsService.sendRequest();
+
         this.AssetsLibilitiesObj = this.custchartsService.AssetsLibilitiesObj;
-        
-    
-        // console.log(this.AssetsLibilitiesObj.data.body[0].depositBal);
+
         this.DepositData.series[0].data = this.AssetsLibilitiesObj.data.body[0].depositBal;
         this.DepositData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].depositMon);
-        
+
         this.LoanData.series[0].data = this.AssetsLibilitiesObj.data.body[0].loanBal;
         this.LoanData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].loanMon);
         this.LoanData.series[1].data = this.AssetsLibilitiesObj.data.body[0].tradeFinanceBal;
-        
+
         this.TradeData.series[0].data = this.AssetsLibilitiesObj.data.body[0].importAmt;
         this.TradeData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].importMon);
         this.TradeData.series[1].data = this.AssetsLibilitiesObj.data.body[0].exportAmt;
@@ -125,7 +123,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         },
         xaxis: {
             categories:
-            [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
+                [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
 
         },
         yaxis: {
@@ -208,7 +206,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         },
         xaxis: {
             categories:
-            ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
             ,
 
             labels: {
@@ -303,7 +301,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         },
         xaxis: {
             categories:
-            ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
             ,
             labels: {
 
@@ -326,8 +324,15 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         tooltip: {
             y: {
                 formatter: function (val) {
-                    const pnum = val * 100;
-                    return (pnum + '%');
+                    // const pnum = Math.round(val * 100);
+                    // return (pnum + '%');
+
+                    const pnum = Math.round(val * 10000) / 100
+                    // let xsd = val.toString().split('.')
+                    // if (xsd.length === 1) {
+                        // val = val.toString() + '.00'
+                        return pnum + '%';
+                    // }
                 },
             }
         }
@@ -389,7 +394,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         },
         xaxis: {
             categories:
-            ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
             ,
             labels: {
 
@@ -458,7 +463,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
                 dialogConfig.data.content_data = [];
                 dialogConfig.data.title = 'TMU / MTM';
                 break;
-
             default:
                 dialogConfig.data.content_data = [];
                 dialogConfig.data.title = 'defalut no data';
@@ -553,9 +557,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             series.push(data['depositBal']);
         }
 
-        console.log('deposit2', xaxis);
-        console.log(series);
-
         this.DepositData.xaxis.categories[0]['categories'] = xaxis;
         this.DepositData.series[0]['data'] = series;
 
@@ -576,11 +577,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             series1.push(data['tradeFinanceBal']);
 
         }
-        console.log(xaxis);
-        console.log(series);
-        console.log(series1);
-
-
         this.LoanData.xaxis.categories['loanMon'] = xaxis;
         this.LoanData.series[0]['data'] = series;
         this.LoanData.series[1]['data'] = series1;
@@ -601,10 +597,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             series1.push(data['exportAmt']);
 
         }
-        console.log(xaxis);
-        console.log(series);
-        console.log(series1);
-
         this.TradeData.xaxis.categories[0]['categories'] = xaxis;
         this.TradeData.series[0]['data'] = series;
         this.TradeData.series[1]['data'] = series1;
@@ -625,10 +617,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             series1.push(data['mtmUsage']);
 
         }
-        console.log(xaxis);
-        console.log(series);
-        console.log(series1);
-
         this.TmuData.xaxis.categories[0]['categories'] = xaxis;
         this.TmuData.series[0]['data'] = series;
         this.TmuData.series[1]['data'] = series1;

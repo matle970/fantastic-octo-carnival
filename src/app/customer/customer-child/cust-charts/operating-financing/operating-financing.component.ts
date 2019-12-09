@@ -15,7 +15,7 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
 
     // 營運量-放款貿融第二層
     LoanDetailObj: any = {};
-   
+
     urlList = [
         {
             'url': this.URL.PRODUCT_LOAN_DETAIL,
@@ -33,68 +33,22 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
-        
-        
         this.LoanDetailObj = this.custchartsService.LoanDetailObj;
-        
+
         this.totLoan = this.LoanDetailObj.data.body.totLoan;
         this.facilityDetail = this.LoanDetailObj.data.body.facilityDetail;
-        // this.facRecords = this.LoanDetailObj.data.body.facilityDetail;
-        // this.facRecords = this.LoanDetailObj.data.body.facilityDetail;
-        // console.log('xxx', this.facRecords[0]);
-        // console.log('xxxx', this.facRecords[1]);
-        
 
-
+        //日期轉換 20190330 return 2019/03/30
+        for (let i = 0; i < this.facilityDetail.length; i++) {
+            this.facilityDetail[i].facRecords[0].breakRecords.forEach((data, index) => {
+                data.firstFundingDate = this.getUtilsService().changeDateStr(data.firstFundingDate, 'yyyy/MM/dd');
+                data.acctDueDate = this.getUtilsService().changeDateStr(data.acctDueDate, 'yyyy/MM/dd')
+            });
+        }
     }
-
-    // loanDetail = {
-    //     body: {
-    //         customerId: "",
-    //         totLoan: {
-    //             totAmt: "",
-    //             totBal: ""
-    //         },
-    //         facilityDetail: [
-    //             {
-    //                 facilityNbr: "",
-    //                 facRecords: [
-    //                     {
-    //                         breakdownCodeDesc: "",
-    //                         facmCurrencyCode: "",
-    //                         facmApprovalAmt: "",
-    //                         facmLoanBal: "",
-    //                         facmNtdLoanBal: "",
-    //                         negotiatPriceCode: "",
-    //                         collateral: [
-    //                             {
-    //                                 collateralCodeDesc: ""
-    //                             }
-    //                         ],
-    //                         facStatusCodeDesc: "",
-    //                         breakRecords: [
-    //                             {
-    //                                 accNbr: "",
-    //                                 lbCurrencyCode: "",
-    //                                 lbCurrentIntRate: "",
-    //                                 lbFxCurrentBal: "",
-    //                                 lbNtdCurrentBal: "",
-    //                                 firstFundingDate: "",
-    //                                 acctDueDate: "",
-    //                                 limitStatusCodeDesc: ""
-    //                             }
-    //                         ]
-    //                     }
-    //                 ]
-    //             }
-    //         ]
-    //     }
-    // }
     totLoan: {
         totAmt: "",
         totBal: ""
     }
     facilityDetail: any[];
-
-    facRecords: any[];
 }

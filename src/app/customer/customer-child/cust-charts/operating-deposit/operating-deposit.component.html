@@ -93,8 +93,8 @@
                      <td>{{item.currencyCode}}</td>
                      <td class="text-right">{{item.fxCurrentBal}}</td>
                      <td class="text-right">{{item.ntdCurrentBal}}</td>
-                     <td class="text-right">{{item.currentIntRate | percent}}</td>
-                     <td class="text-right">{{item.ftpRate}}</td>
+                     <td class="text-right">{{item.currentIntRate | percent:'1.0-3'}}</td>
+                     <td class="text-right">{{item.ftpRate | percent:'1.0-3'}}</td>
                      <!-- <td class="text-center">2019/04/01</td>
                      <td class="text-center">2019/06/30</td>
                      <td class="text-center">xxx</td> -->
@@ -155,8 +155,8 @@
                    <td>{{ item.currencyCode }} </td>
                    <td class="text-right">{{ item.fxCurrentBal | currency:'':'':'1.0-0'}}</td>
                    <td class="text-right">{{ item.ntdCurrentBal | currency:'':'':'1.0-0' }}</td>
-                   <td class="text-right">{{ item.currentIntRate | percent }}</td>
-                   <td class="text-right">{{ item.ftpRate | percent}}</td>
+                   <td class="text-right">{{ item.currentIntRate | percent:'1.0-3' }}</td>
+                   <td class="text-right">{{ item.ftpRate | percent:'1.0-3'}}</td>
                    <td class="text-center">{{ item.acctOpenDate }}</td>
                    <td class="text-center">{{ item.tdDueDate }}</td>
                      <!-- <td class="text-center">xxx</td> -->
