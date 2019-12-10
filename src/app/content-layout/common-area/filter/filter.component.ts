@@ -62,11 +62,17 @@ export class FilterComponent implements OnInit, OnChanges {
 
 	chooseBranch(item: any) {
 		this.nowBranch = item;
-		this.wmBranchData.emit(item);
+		if(item !== '經管行')
+			this.wmBranchData.emit(item);
+		else
+			this.wmBranchData.emit('');
 	}
 	chooseForword(item: any) {
 		this.nowForword = item;
-		this.referBranchData.emit(item);
+		if(item !== '授信轉介行')
+			this.referBranchData.emit(item);
+		else
+			this.referBranchData.emit('');
 	}
 	chooseData(eventArgs) {
 		let inputData: StateGroup;

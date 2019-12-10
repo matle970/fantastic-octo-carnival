@@ -18,6 +18,7 @@ class AoData {
     ao: string;
     wmbranchId: string;
     referBranchId: string;
+    group_name: string;
     cus_id: string;
     cus_name: string;
     msr: string;

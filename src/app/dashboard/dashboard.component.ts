@@ -5,7 +5,7 @@ import { IndexTableElement } from './service/dashboard-data.service';
 import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
-
+import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-dashboard',
@@ -18,12 +18,18 @@ export class DashboardComponent implements OnInit, OnChanges {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: any;
+    filterJson = {
+        'referBranch': '',
+        'wmBranch': '',
+        'inputFilter': { 'inputType': 'group_name', 'inputValue': '' }
+    };
     filterArgs: StateGroup;
     dataSource;
     dataList;
     totalDataCount: number;
     supervisor = false;
 
+    globalFilter;
     tableThead: string[] = [
         'ao',
         'group_name',
@@ -59,22 +65,21 @@ export class DashboardComponent implements OnInit, OnChanges {
 
 
     async ngOnChanges(changes: SimpleChanges) {
+        console.log('change');
     }
 
 
     async ngOnInit() {
         let result = await this.dashboardService.sendRquest();
         this.dataList = result.body.aoData;
-        //console.log(this.dataList);
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
         this.getSortData();
         this.getIssues(0, 10);
-        //console.log(this.sortTable);
+
         // 分頁切換時，重新取得資料
         this.paginator.page.subscribe((page: PageEvent) => {
-            //console.log('click', page);
             this.getIssues(page.pageIndex, page.pageSize);
         });
 
@@ -97,7 +102,6 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.matPaginatorIntl.previousPageLabel = '上一頁';
 
         this.dataSource.paginator = this.paginator;
-
     }
     ngAfterViewInit() {
         if (this.dataSource)
@@ -128,42 +132,81 @@ export class DashboardComponent implements OnInit, OnChanges {
     }
 
     //Filter
-    onFilterReferBrandChanged(eventArgs) {
-        console.log("FilterReferBranch: ", eventArgs);
+    onFilterReferBrandChanged(filterValue) {
+        const filters = filterValue.trim().toLowerCase();
+        this.filterJson.referBranch = filters;
+        this.customFilterPredicate();
+        
+        this.dataSource.filter = JSON.stringify(this.filterJson);
     }
-    onFilterWMBrandChanged(eventArgs) {
-        console.log("FilterWMBranch: ", eventArgs);
+    onFilterWMBrandChanged(filterValue) {
+        const filters = filterValue.trim().toLowerCase();
+        this.filterJson.wmBranch = filters;
+        this.customFilterPredicate();
+        
+        this.dataSource.filter = JSON.stringify(this.filterJson);
     }
-    onFilterDataChanged(eventArgs) {
-        this.filterArgs = eventArgs;
-        if (eventArgs.names)
-            this.dataSource.filter = eventArgs.names.trim().toLowerCase();
-        else 
-            this.dataSource.filter = "";
+    onFilterDataChanged(filterValue) {
+        this.filterArgs = filterValue;
+        let filters = '';
+        this.filterJson.inputFilter.inputValue = '';
+        this.filterJson.inputFilter.inputType = 'group_name';
+        if (filterValue.names)         {
+            filters = filterValue.names.trim().toLowerCase();
+
+            this.filterJson.inputFilter.inputType = filterValue.type;
+            this.filterJson.inputFilter.inputValue = filters;
+        }
+        this.customFilterPredicate();
+        
+        this.dataSource.filter = JSON.stringify(this.filterJson);
     }
 
-
-    //keep customer data to second page
-    onCusNameClick(value) {
-        this.dashboardService.setCustomerInfo(value);
+    customFilterPredicate() {
+        this.dataSource.filterPredicate =
+            (data?: IndexTableElement, filters?: string) => {
+                const matchFilter = [];
+                //let temp = this.filterJson.inputFilter.inputValue + '+' + this.filterJson.referBranch + this.filterJson.wmBranch;
+                let temp = this.filterJson.inputFilter.inputValue;
+                const filterArray = temp.split('+');
+                const columns = (<any>Object).values([data.group_name, data.cus_id, data.cus_name, data.wmbranchId, data.referBranchId]);
+                // OR be more specific [data.name, data.race, data.color];
+        
+                filterArray.forEach(filter => {
+                    const customFilter = [];
+                    columns.forEach(column => customFilter.push(column.toLowerCase().includes(filter)));
+                    matchFilter.push(customFilter.some(Boolean)); // OR
+                });
+                return matchFilter.every(Boolean) == true
+                    && data.referBranchId.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
+                    && data.wmbranchId.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !== -1; // AND
+            }
     }
 
     public calculateTotal(key) {
         //let filterType;
         let sum: number = 0;
         if (this.dataSource) {
-            for (let row of this.dataSource.data) {
+            for (let row of this.dataSource.data) {/*
                 if (this.dataSource.filter.trim().length == 0) {
                     sum += row[key];
-                }
-                else if (row[key] != 0 && row[this.filterArgs.type].trim().toLowerCase() === this.dataSource.filter)
+                }*/
+                if (this.filterJson.inputFilter.inputValue.trim().length == 0 
+                        && this.filterJson.referBranch.trim().length ==0
+                        && this.filterJson.wmBranch.trim().length ==0 ) {
                     sum += row[key];
+                }
+                else if (row[key] != 0 && row[this.filterJson.inputFilter.inputType].trim().toLowerCase().indexOf(this.filterJson.inputFilter.inputValue) !== -1
+                && row['referBranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
+                && row['wmbranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !==-1) // AND
+                {
+                    sum += row[key];
+                }
             }
         }
         return sum;
         //return this.this.dataList.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
-
     getSortData() {
         this.dataSource.sortData = (data, sort: MatSort) => {
             return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
