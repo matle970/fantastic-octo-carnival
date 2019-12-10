@@ -415,7 +415,57 @@ depositDetail = {
 }
 
 // CB009-Composite API-營運量-放款餘額第二層
-
+loanDetail = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {
+        "customerId": "",
+        "totLoan": {
+            "totAmt": "3274888",
+            "totBal": "1919345"
+        },
+        "facilityDetail": [
+            {
+                "facilityNbr": "1000000002",
+                "facRecords": [
+                    {
+                        "breakdownCodeDesc": "週轉金(信用)",
+                        "facmCurrencyCode": "新台幣",
+                        "facmApprovalAmt": "88888",
+                        "facmLoanBal": "44444",
+                        "facmNtdLoanBal": "44444",
+                        "negotiatPriceCode": "N",
+                        "collateral": [
+                            {
+                                "collateralCodeDesc": "不動產"
+                            }
+                        ],
+                        "facStatusCodeDesc": "逾可動用期限",
+                        "breakRecords": [
+                            {
+                                "accNbr": "14APLN-001053",
+                                "lbCurrencyCode": "新台幣",
+                                "lbCurrentIntRate": "1.21",
+                                "lbFxCurrentBal": "44444",
+                                "lbNtdCurrentBal": "44444",
+                                "firstFundingDate": "20190222",
+                                "acctDueDate": "20190313",
+                                "limitStatusCodeDesc": "正常"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
 // CB010-Composite API-營運量-進出口實績第二層
 importExportDetail = {
     "header": {
@@ -432,22 +482,155 @@ importExportDetail = {
         "import": [
             {
                 "txnTypeDesc": "進口託收",
-                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
-                "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
+                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["10000", "90000", "40000", "10000", "10000", "10000", "10000", "10000"]
+            },
+            {
+                "txnTypeDesc": "信用狀開狀",
+                "mon": ["201811", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["20000", "80000", "10000", "10000", "10000", "10000", "10000", "10000"]
+            },
+            {
+                "txnTypeDesc": "拖收到單",
+                "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["30000", "70000", "50000", "10000", "10000", "10000", "10000", "10000"]
             }
         ],
         "export": [
             {
                 "txnTypeDesc": "出口OA",
-                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "209108", "201909"],
-                "usdTxnAmt": ["10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000", "10000"]
+                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["40000", "70000", "70000", "10000", "10000", "10000", "10000", "10000"],
+
+            },
+            {
+                "txnTypeDesc": "出口押匯",
+                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["50000", "80000", "90000", "10000", "10000", "10000", "10000", "10000"]
+            },
+            {
+                "txnTypeDesc": "出口托收",
+                "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                "usdTxnAmt": ["60000", "90000", "60000", "10000", "10000", "10000", "10000", "10000"]
             }
         ]
     }
 }
 
 // CB011-Composite API-營運量-TMU額度第二層
-
+tmuDetail = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "customerId": "A111111112",
+            tmuTransAmt: [
+                {
+                    "customerId": "A111111112",
+                    "amountType": "金融交易額度",
+                    "amountExpDate": "20191212",
+                    "amountAmt": "50000",
+                    "usageAmt": "5000",
+                    "lastAvailAmt": "45000",
+                    "amountUseRate": "0.019"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "避險交易額度",
+                    "amountExpDate": "20180204",
+                    "amountAmt": "10000",
+                    "usageAmt": "55000",
+                    "lastAvailAmt": "45000",
+                    "amountUseRate": "0.044"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "評價損失額度 (MTM)",
+                    "amountExpDate": "20190315",
+                    "amountAmt": "670000",
+                    "usageAmt": "360000",
+                    "lastAvailAmt": "210000",
+                    "amountUseRate": "0.013"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "初始擔保品",
+                    "amountExpDate": "20201111",
+                    "amountAmt": "654321",
+                    "usageAmt": "12345",
+                    "lastAvailAmt": "641976",
+                    "amountUseRate": "0.0337"
+                },
+                {
+                    "customerId": "A111111112",
+                    "amountType": "超限擔保品",
+                    "amountExpDate": "20200101",
+                    "amountAmt": "999999",
+                    "usageAmt": "77777",
+                    "lastAvailAmt": "222222",
+                    "amountUseRate": "0"
+                }
+            ],
+            tmuInvesment: [
+                {
+                    "invesTypeCode": "基金",
+                    "productDesc": "1000",
+                    "prodCurrencyDesc": "2000",
+                    "bal": "2000",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "3000",
+                    "startDay": "20191212",  //起日(暫定)
+                    "endDay": "20201212"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "國外有價證券",
+                    "productDesc": "5555",
+                    "prodCurrencyDesc": "6666",
+                    "bal": "7777",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "8888",
+                    "startDay": "20190405",  //起日(暫定)
+                    "endDay": "20191213"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
+                    "productDesc": "9999",
+                    "prodCurrencyDesc": "7777",
+                    "bal": "8888",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "6666",
+                    "startDay": "20180819",  //起日(暫定)
+                    "endDay": "20200707"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "保險",
+                    "productDesc": "1234",
+                    "prodCurrencyDesc": "5678",
+                    "bal": "4321",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "8765",
+                    "startDay": "20170910",  //起日(暫定)
+                    "endDay": "20210203"     //迄日(暫定)
+                },
+                {
+                    "invesTypeCode": "自營債券",
+                    "productDesc": "9776",
+                    "prodCurrencyDesc": "4535",
+                    "bal": "6876",       //金額名目本金(暫定)
+                    "ntdCurrentValue": "2131",
+                    "startDay": "20191130",  //起日(暫定)
+                    "endDay": "20201225"     //迄日(暫定)
+                }
+            ],
+            tmuContribution: {
+                "trade": '777777',  //金融交易額(暫定)
+                "prd": '200077',    //投資型商品(暫定)
+                "fxSport": '500077' //FS SPOT(暫定)
+            }
+        }
+    }
 // CB012-Composite API-基本資訊-公司資訊第一層
 company = {
     "header": {

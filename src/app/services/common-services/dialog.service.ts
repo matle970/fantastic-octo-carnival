@@ -60,6 +60,22 @@ export class DialogService {
                 dialogConfig.data.title = '貢獻度';
                 this.openWithConfig(DialogComponent, dialogConfig);
                 break;
+            case 8:
+                dialogConfig.data.title = '存款餘額';
+                this.openWithConfig(DialogComponent, dialogConfig);
+                break;
+            case 9:
+                dialogConfig.data.title = '放款餘額 / 貿融餘額';
+                this.openWithConfig(DialogComponent, dialogConfig);
+                break;
+            case 10:
+                dialogConfig.data.title = '進口 / 出口';
+                this.openWithConfig(DialogComponent, dialogConfig);
+                break;
+            case 11:
+                dialogConfig.data.title = 'TMU / MTM';
+                this.openWithConfig(DialogComponent, dialogConfig);
+                break;
             case 12:
                 dialogConfig.data.title = '要點新聞';
                 this.openWithConfig(DialogComponent, dialogConfig);

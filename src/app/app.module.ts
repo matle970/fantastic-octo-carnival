@@ -50,7 +50,7 @@ import { DialogService } from './services/common-services/dialog.service';
 
 // customer services
 import { NewsService } from './services/customer/cust-news/news.service';
-
+import { CustChartsService } from './services/customer/cust-charts/cust-charts.service';
 
 // environments
 import { EnvServiceProvider } from '../environments/EnvServiceProvider';
@@ -108,7 +108,8 @@ import { AutoSearchComponent } from './content-layout/common-area/auto-search/au
         TimeoutService,
         DummyDataService,
         NewsService,
-        DialogService
+        DialogService,
+        CustChartsService
 
     ],
     entryComponents: [DialogComponent],

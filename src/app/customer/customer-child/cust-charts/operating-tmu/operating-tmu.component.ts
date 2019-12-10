@@ -1,132 +1,216 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
+import { BaseComponent } from 'src/app/base/base.component';
+import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
+import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
+import { ModalService } from 'src/app/services/common-services/modal.service';
 
 
 @Component({
-  selector: 'app-operating-tmu',
-  templateUrl: './operating-tmu.component.html',
-  styleUrls: ['./operating-tmu.component.scss']
+    selector: 'app-operating-tmu',
+    templateUrl: './operating-tmu.component.html',
+    styleUrls: ['./operating-tmu.component.scss']
 })
-export class OperatingTmuComponent implements OnInit {
-  @ViewChild('chartTmu') chartTmu: ChartComponent;
-  TmuData = {
-    chart: {
-      fontFamily: '微軟正黑體',
-      height: 450,
-      type: 'donut',
-      width: 400,
-      shadow: {
-        enabled: true,
-        color: '#000',
-        top: 18,
-        left: 7,
-        blur: 10,
-        opacity: 1
-      },
-      toolbar: {
-        show: false
-      }
-    },
-    colors: ['#f77f00', '#fbc93e','#999999'],
+export class OperatingTmuComponent extends BaseComponent implements OnInit {
+    @Input() content: any;
+    @ViewChild('chartOperatingTmu') chartOperatingTmu: ChartComponent;
 
-    dataLabels: {
-      enabled: true
-    },
-    plotOptions: {
-      pie: {
-        donut: {
-          size: '65%',
-          labels: {
-            show: true,
-            name: {
-              show: true,
-              fontSize: '1rem',
-              offsetY: -25
-            },
-            value: {
-              show: true,
-              fontSize: '1.2rem',
-              offsetY: -10,
-              formatter: function (n) {
-                return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-              }
-            },
-            total: {
-              show: false,
-              fontSize: '0.8rem',
-              label: '合計',
-              color: '#000000',
-              formatter: function (w) {
-                const totalNumber = w.globals.seriesTotals.reduce((a: number, b: number) => {
-                  // return Math.floor((a + b)/10000);
-                  return a + b;
-                }, 0);
-                const totalN =  Math.floor(totalNumber/10000);
-                return '$'+totalN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
-              }
-            }
+    // 營運量-TMU&MTU第二層
+    TMUDetailObj: any = {};
+    tmuTransAmt: any[];
+    tmuInvesment: any[];
+    tmuContribution: any[];
 
-          },
-
+    urlList = [
+        {
+            'url': this.URL.PRODUCT_TMU_DETAIL,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': TMUDetail
         }
-      }
-    },
-    responsive: [
-      {
-        breakpoint: 1400,
-        options: {
-          chart: {
-            width: 220,
-            height: 300
-          },
-          legend: {
-            position: 'top'
-          }
-        }
-      },
-      {
-        breakpoint: 900,
-        options: {
-          chart: {
-            width: 400,
-            height: 400
-          },
-          legend: {
-            position: 'right'
-          }
-        }
-      }
-    ],
-    stroke: {
-      curve: 'smooth'
-    },
-    series: [1000,1500,500],
-    labels:['金融交易額度 (負債面)','投資型商品 (資產面)','FX SPOT'],
-    title: {
-      text: 'TMU 貢獻度',
-      align: 'left'
-    },
-    grid: {
-      borderColor: '#e7e7e7',
-      row: {
-        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-        opacity: 0.5
-      }
-    },
+    ];
 
-    legend: {
-      position: 'top',
-      horizontalAlign: 'center',
-      labels: {
-        colors: '#000000',
-      },
+    constructor(
+        private custchartsService: CustChartsService,
+        private modalService: ModalService
+    ) {
+        super()
     }
 
-  };
+    async ngOnInit() {
+        await this.custchartsService.sendRequest();
 
-  constructor() { }
+        this.TMUDetailObj = this.custchartsService.TMUDetailObj;
 
-  ngOnInit() {
-  }
+        this.tmuTransAmt = this.TMUDetailObj.data.body.tmuTransAmt;
+        this.tmuInvesment = this.TMUDetailObj.data.body.tmuInvesment;
+        this.tmuContribution = this.TMUDetailObj.data.body.tmuContribution;
 
+        let tmu = Object.values(this.tmuContribution);
+        this.TmuData.series = tmu.map(Number);
+
+        //日期轉換 20190330 return 2019/03/30
+        this.tmuTransAmt.forEach((data, index) => {
+            data.amountExpDate = this.getUtilsService().changeDateStr(data.amountExpDate, 'yyyy/MM/dd');
+        });
+        this.tmuInvesment.forEach((data, index) => {
+            data.startDay = this.getUtilsService().changeDateStr(data.startDay, 'yyyy/MM/dd');
+            data.endDay = this.getUtilsService().changeDateStr(data.endDay, 'yyyy/MM/dd')
+        });
+    }
+
+
+    TmuData = {
+        chart: {
+            fontFamily: '微軟正黑體',
+            height: 450,
+            type: 'donut',
+            width: 400,
+            shadow: {
+                enabled: true,
+                color: '#000',
+                top: 18,
+                left: 7,
+                blur: 10,
+                opacity: 1
+            },
+            toolbar: {
+                show: false
+            }
+        },
+        colors: ['#f77f00', '#fbc93e', '#999999'],
+
+        dataLabels: {
+            enabled: true,
+            enabledOnSeries: undefined,
+            textAnchor: 'middle',
+            style: {
+                color: ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000'],
+            },
+            dropShadow: {
+                enabled: false
+            },
+            offsetX: 20,
+            offsetY: -10,
+            formatter: function (val) {
+                let pieVal = Math.round(val);
+                return pieVal + ' %';
+            },
+        },
+        tooltip: {
+            followCursor: true,
+            custom: function (obj) {
+                const num = Math.round(obj.series[obj.seriesIndex] / 10000);
+                const val = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
+                return '<div class="px-2 py-1" >' +
+                    obj.w.config.labels[obj.seriesIndex] + ' ' + val
+                    + '</div>';
+            },
+            fillSeriesColor: true,
+        },
+        noData: {
+            text: '無資料',
+            align: 'center',
+            verticalAlign: 'middle',
+            offsetX: 0,
+            offsetY: 0,
+            style: {
+                color: undefined,
+                fontSize: '16px',
+                fontFamily: 'Microsoft JhengHei'
+            }
+        },
+        plotOptions: {
+            pie: {
+                donut: {
+                    size: '65%',
+                    labels: {
+                        show: true,
+                        name: {
+                            show: true,
+                            fontSize: '1rem',
+                            offsetY: -25
+                        },
+                        value: {
+                            show: true,
+                            fontSize: '1.2rem',
+                            offsetY: -10,
+                            formatter: function (n) {
+                                const valueNumber = Math.round(n / 10000);
+                                return '$' + valueNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '萬';
+                            }
+                        },
+                        total: {
+                            show: true,
+                            fontSize: '0.8rem',
+                            label: '合計',
+                            color: '#000000',
+                            formatter: function (w) {
+                                const totalNumber = w.globals.seriesTotals.reduce((a: number, b: number) => {
+                                    // return Math.floor((a + b)/10000);
+                                    return a + b;
+                                }, 0);
+                                const totalN = Math.floor(totalNumber / 10000);
+                                return '$' + totalN.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' 萬';
+                            }
+                        }
+
+                    },
+
+                }
+            }
+        },
+
+        responsive: [
+            {
+                breakpoint: 1400,
+                options: {
+                    chart: {
+                        width: 220,
+                        height: 300
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            },
+            {
+                breakpoint: 900,
+                options: {
+                    chart: {
+                        width: 400,
+                        height: 400
+                    },
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        ],
+        stroke: {
+            curve: 'smooth'
+        },
+        series: [],
+        labels: ['金融交易額度 (負債面)', '投資型商品 (資產面)', 'FX SPOT'],
+        title: {
+            text: 'TMU 貢獻度',
+            align: 'left'
+        },
+        grid: {
+            borderColor: '#e7e7e7',
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            }
+        },
+
+        legend: {
+            position: 'top',
+            horizontalAlign: 'center',
+            labels: {
+                colors: '#000000',
+            },
+        }
+
+    };
 }

@@ -27,7 +27,7 @@
                      <td class="text-right">{{ ntdAssets.sd | currency:'':'':'1.0-0' }}</td>
                      <td class="text-right">{{ ntdAssets.td | currency:'':'':'1.0-0' }}</td>
                      <td class="text-right">{{ ntdAssets.cd | currency:'':'':'1.0-0' }}</td>
-                     <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
+                     <td class="text-right">{{ ntdAssets.all | currency:'':'':'1.0-0' }}</td>
                    </tr>
 
                    <tr>
@@ -35,7 +35,7 @@
                       <td class="text-right">{{ fxAssets.sd | currency:'':'':'1.0-0' }}</td>
                       <td class="text-right">{{ fxAssets.td | currency:'':'':'1.0-0' }}</td>
                       <td class="text-right">{{ fxAssets.cd | currency:'':'':'1.0-0' }}</td>
-                      <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
+                      <td class="text-right">{{ fxAssets.all | currency:'':'':'1.0-0' }}</td>
                     </tr>
                   </tbody>
                   <tfoot>
@@ -44,14 +44,14 @@
                           <td class="text-right">{{ sumAssets.sd | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ sumAssets.td | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ sumAssets.cd | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ sumAssets.all | currency:'':'':'1.0-0' }}</td>
                       </tr>
                       <tr class="bg-light">
                           <td>近6個月平均積數</td>
                           <td class="text-right">{{ r6mthAvgBal.sd | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ r6mthAvgBal.td | currency:'':'':'1.0-0' }}</td>
                           <td class="text-right">{{ r6mthAvgBal.cd | currency:'':'':'1.0-0' }}</td>
-                          <td class="text-right">{{ all | currency:'':'':'1.0-0' }}</td>
+                          <td class="text-right">{{ r6mthAvgBal.all | currency:'':'':'1.0-0' }}</td>
                       </tr>
                   </tfoot>
                 </table>
@@ -81,9 +81,9 @@
                       <th class="text-right">台幣餘額</th>
                       <th class="text-right">利率</th>
                       <th class="text-right">當時FTP</th>
-                      <th class="text-center">起日</th>
+                      <!-- <th class="text-center">起日</th>
                       <th class="text-center">迄日</th>
-                      <th class="text-center">公文編號</th>
+                      <th class="text-center">公文編號</th> -->
                       <th class="text-center">備註</th>
                     </tr>
                   </thead>
@@ -93,11 +93,11 @@
                      <td>{{item.currencyCode}}</td>
                      <td class="text-right">{{item.fxCurrentBal}}</td>
                      <td class="text-right">{{item.ntdCurrentBal}}</td>
-                     <td class="text-right">{{item.currentIntRate}}</td>
-                     <td class="text-right">{{item.ftpRate}}</td>
-                     <td class="text-center">2019/04/01</td>
+                     <td class="text-right">{{item.currentIntRate | percent:'1.0-3'}}</td>
+                     <td class="text-right">{{item.ftpRate | percent:'1.0-3'}}</td>
+                     <!-- <td class="text-center">2019/04/01</td>
                      <td class="text-center">2019/06/30</td>
-                     <td class="text-center">xxx</td>
+                     <td class="text-center">xxx</td> -->
                      <td class="text-center">
                        {{item.sdRemark.accBranchCode}} | {{item.sdRemark.payrollCodeDtl}} | {{item.sdRemark.isReverse}}
                      </td>
@@ -122,6 +122,64 @@
 
 
   </div>
+  <!-- 定存明細 -->
+  <div class="card card-table">
+    <div class="card-header card-header-primary">
+        <h5 class="card-title ">
+          定存明細
+        </h5>
+    </div>
+    <div class="card-body">
+
+        <div class="table-mat-list">
+            <table class="table m-0 p-0 table-hover table-sticky">
+                <thead>
+                  <tr>
+                    <th width="20%">帳號</th>
+                    <th width="10%">幣別</th>
+                    <th class="text-right">原幣餘額</th>
+                    <th class="text-right">台幣餘額</th>
+                    <th class="text-right">利率</th>
+                    <th class="text-right">當時FTP</th>
+                      <!-- <th class="text-center">起日</th>
+                      <th class="text-center">迄日</th>
+                      <th class="text-center">公文編號</th> -->
+                      <th class="text-center">帳號開戶日</th>
+                      <th class="text-center">定存到期日</th>
+                      <!-- <th class="text-center">公文編號</th> -->
+                  </tr>
+                </thead>
+                <tbody *ngFor = "let item of tdDetail">
+                 <tr>
+                   <td>{{ item.acctNbr }}</td>
+                   <td>{{ item.currencyCode }} </td>
+                   <td class="text-right">{{ item.fxCurrentBal | currency:'':'':'1.0-0'}}</td>
+                   <td class="text-right">{{ item.ntdCurrentBal | currency:'':'':'1.0-0' }}</td>
+                   <td class="text-right">{{ item.currentIntRate | percent:'1.0-3' }}</td>
+                   <td class="text-right">{{ item.ftpRate | percent:'1.0-3'}}</td>
+                   <td class="text-center">{{ item.acctOpenDate }}</td>
+                   <td class="text-center">{{ item.tdDueDate }}</td>
+                     <!-- <td class="text-center">xxx</td> -->
+                     <!-- <td class="text-center">xxx</td> -->
+                 </tr>
+
+                 <!-- <tr>
+                    <td>0082-940-025866</td>
+                    <td>日幣 </td>
+                    <td class="text-right">0</td>
+                    <td class="text-right">xx</td>
+                    <td class="text-right">xx</td>
+                    <td class="text-right">xx</td>
+                    <td class="text-center">2019/04/01</td>
+                    <td class="text-center">2019/06/30</td>
+                      <td class="text-center"> xxx</td> -->
+                      <!-- <td class="text-center"> xxx</td>
+                  </tr> -->
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
 
   <!-- 支存明細 -->
   <div class="card card-table">
@@ -143,7 +201,7 @@
                   <tbody *ngFor = "let item of cdDetail">
                    <tr>
                      <td>{{ item.acctNbr }}</td>
-                     <td class="text-right">{{ item.ntdCurrentBal }}</td>
+                     <td class="text-right">{{ item.ntdCurrentBal | currency:'':'':'1.0-0' }}</td>
                      <td class="text-center">退票{{ item.cdRemark.dishY3ChkCnt }}張｜註銷{{ item.cdRemark.dishCancelY3ChkCnt }}張｜拒往戶{{item.cdRemark.rejectedStatusInd }} | {{ item.cdRemark.isReverse }}</td>
                    </tr>
                    <!-- <tr>

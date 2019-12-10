@@ -30,6 +30,9 @@
                   [colors]="TmuData.colors"
                   [legend]="TmuData.legend"
                   [responsive]="TmuData.responsive"
+                  [tooltip] = "TmuData.tooltip"
+                  [noData] = "TmuData.noData"
+                  [dataLabels] = "{enabled: false}"
                     ></apx-chart>
               </div>
 
@@ -65,50 +68,17 @@
                   <th class="text-right">使用率</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngFor = "let item of tmuTransAmt">
                 <tr>
-                    <td rowspan="5">1000000002</td>
-                    <td>金融交易額度</td>
-                    <td>2020/02/07</td>
-                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right"> 10.17% </td>
+                    <td rowspan="5">{{item.customerId}}</td>
+                    <td>{{item.amountType}}</td>
+                    <td>{{item.amountExpDate }}</td>
+                    <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
                 </tr>
-                <tr>
-                    <td>避險交易額度</td>
-                    <td>2020/02/07</td>
-                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right"> 10.17% </td>
-                </tr>
-                <tr>
-                    <td>評價損失額度 (MTM)</td>
-                    <td>2020/02/07</td>
-                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right"> 10.17% </td>
-                </tr>
-                <tr>
-                    <td>初始擔保品</td>
-                    <td>2020/02/07</td>
-                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right"> 10.17% </td>
-                </tr>
-                <tr>
-                    <td>超限擔保品</td>
-                    <td>2020/02/07</td>
-                    <td class="text-right">{{ 500000 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 50850 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 449150 | currency:'':'symbol':'1.0-0' }}</td>
-                    <td class="text-right"> 10.17% </td>
-                </tr>
-
-
+                
               </tbody>
 
             </table>
@@ -144,51 +114,15 @@
                   <th class="text-right">迄日</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngFor = "let item of tmuInvesment">
                 <tr>
-                    <td>基金</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                </tr>
-                <tr>
-                    <td>國外有價證券</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                </tr>
-                <tr>
-                    <td>組合式商品(DCI/PPCD/SI)	</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                </tr>
-                <tr>
-                    <td>保險	</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0'}}</td>
-                </tr>
-                <tr>
-                    <td>自營債券</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
-                    <td class="text-right">{{ 1000 | currency:'TWD':'symbol':'1.0-0' }}</td>
+                    <td>{{item.invesTypeCode}}</td>
+                    <td class="text-right">{{ item.productDesc | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.prodCurrencyDesc | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.bal | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.ntdCurrentValue | currency:'':'':'1.0-0' }}</td>
+                    <td class="text-right">{{ item.startDay }}</td>
+                    <td class="text-right">{{ item.endDay }}</td>
                 </tr>
               </tbody>
 

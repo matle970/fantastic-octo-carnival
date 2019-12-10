@@ -1,7 +1,7 @@
-import { CommonHeaderResponse } from '../common/common-header-response';
+import { CommonHeaderRequest } from '../common/common-header-request';
 
 export class ImportExportDetail {
-    header: CommonHeaderResponse;
+    header: CommonHeaderRequest;
     body: Body;
 }
 class Body {
@@ -10,14 +10,20 @@ class Body {
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[]
+                    usdTxnAmt: string[],
+                    column:string,
+                    row: string[],
+                    all: string
                 }
             ]
             export: [
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[]
+                    usdTxnAmt: string[],
+                    column:string,
+                    row: string[],
+                    all: string
                 }
             ]
 }
