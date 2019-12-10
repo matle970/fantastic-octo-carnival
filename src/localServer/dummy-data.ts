@@ -376,6 +376,19 @@ export class DummyData {
             ]
         }
     };
+    // CB006
+    allNotification = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {}
+    }
 
     // CB007-Composite API-營運量-第一層
     assetsLibilites = {
