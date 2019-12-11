@@ -14,7 +14,7 @@
             </button>
             <ul class="dropdown-menu ">
                 <li  *ngFor="let item of wmBranch">
-                   <a  (click)="chooseBranch(item.branchId)" > {{item.branchName}}</a>
+                   <a  (click)="chooseBranch(item)" > {{item}}</a>
                 </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="SUBITEM">
                 <li  *ngFor="let item of referBranch">
-                    <a  (click)="chooseForword(item.branchId)" > {{item.branchName}}</a>
+                    <a  (click)="chooseForword(item)" > {{item}}</a>
                  </li>
             </ul>
         </div>

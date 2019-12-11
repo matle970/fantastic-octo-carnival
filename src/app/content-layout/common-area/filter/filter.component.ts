@@ -5,7 +5,6 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
 import { StateGroup } from '../auto-search/auto-search.component';
-import { t } from '@angular/core/src/render3';
 
 export interface DataList {
 	id: string;
@@ -27,8 +26,10 @@ export class FilterComponent implements OnInit, OnChanges {
 	@Output('wmBranchData') wmBranchData = new EventEmitter();
 	@Output('filterData') filterData = new EventEmitter();
 
-	wmBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '經管行' }];
-	referBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '授信轉介行' }];
+	//wmBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '經管行' }];
+	//referBranch: Array<{ branchId: string, branchName: string }> = [{ branchId: '0', branchName: '授信轉介行' }];
+	wmBranch: Array<string> = ['經管行'];
+	referBranch: Array<string> = ['授信轉介行'];
 
 	firstKeyChange = true;
 	lastKeyword: string;
@@ -41,32 +42,47 @@ export class FilterComponent implements OnInit, OnChanges {
 	nowForword = '授信轉介行';
 
 	myKeyword = '';
+	wmBranchList;
+	referBranchList;
 
 	constructor(private filterSerivce: FilterService, private cd: ChangeDetectorRef) {
-		this.filterSerivce.sendReferBranchRequest();
-		this.filterSerivce.sendWMBranchRequest();
+		//this.filterSerivce.sendReferBranchRequest();
+		//this.filterSerivce.sendWMBranchRequest();
 	}
 
 	ngOnInit() {
+		//if (this.datalist)
+		//	this.getKeywordList();
+
 		//this.getKeywordList();
-		this.wmBranch = this.wmBranch.concat(this.filterSerivce.wmBranchList);
+		//this.wmBranch = this.wmBranch.concat(this.filterSerivce.wmBranchList);
 		//console.log('wmBranch', this.wmBranch);
-		this.referBranch = this.referBranch.concat(this.filterSerivce.referBranchList);
+		//this.referBranch = this.referBranch.concat(this.filterSerivce.referBranchList);
 		//console.log('referBranch', this.referBranch);
 	}
 
 	ngOnChanges(changes: SimpleChanges) {
-		if (this.datalist)
+		if (this.datalist) {
 			this.getKeywordList();
+
+			this.wmBranch = this.wmBranch.concat(this.wmBranchList);
+			this.referBranch = this.referBranch.concat(this.referBranchList);
+		}
 	}
 
 	chooseBranch(item: any) {
 		this.nowBranch = item;
-		this.wmBranchData.emit(item);
+		if (item !== '經管行')
+			this.wmBranchData.emit(item);
+		else
+			this.wmBranchData.emit('');
 	}
 	chooseForword(item: any) {
 		this.nowForword = item;
-		this.referBranchData.emit(item);
+		if (item !== '授信轉介行')
+			this.referBranchData.emit(item);
+		else
+			this.referBranchData.emit('');
 	}
 	chooseData(eventArgs) {
 		let inputData: StateGroup;
@@ -89,15 +105,24 @@ export class FilterComponent implements OnInit, OnChanges {
 		const cusIdList: any = this.datalist.map(item => item.cus_id);
 		const cusNameList: any = this.datalist.map(item => item.cus_name);
 
+		const referBranchList: any = this.datalist.map(item => item.referBranchId);
+		const wmBranchList: any = this.datalist.map(item => item.wmbranchId);
+
 		// get duplicates
 		const gdList: any = groupList.filter((item, index) => groupList.indexOf(item) === index);
 		const cidList: any = cusIdList.filter((item, index) => cusIdList.indexOf(item) === index);
 		const cnameList: any = cusNameList.filter((item, index) => cusNameList.indexOf(item) === index);
 
+		const referNameList: any = referBranchList.filter((item, index) => referBranchList.indexOf(item) === index);
+		const wmNameList: any = wmBranchList.filter((item, index) => wmBranchList.indexOf(item) === index);
+
 		// remove duplicates
 		const glist: any = groupList.reduce((gdList, item) => gdList.includes(item) ? gdList : [...gdList, item], []);
 		const clist: any = cusIdList.reduce((cidList, item) => cidList.includes(item) ? cidList : [...cidList, item], []);
-		const nlist: any = cusNameList.reduce((cidList, item) => cidList.includes(item) ? cidList : [...cidList, item], []);
+		const nlist: any = cusNameList.reduce((cnameList, item) => cnameList.includes(item) ? cnameList : [...cnameList, item], []);
+
+		const rlist: any = referBranchList.reduce((referNameList, item) => referNameList.includes(item) ? referNameList : [...referNameList, item], []);
+		const wlist: any = wmBranchList.reduce((wmNameList, item) => wmNameList.includes(item) ? wmNameList : [...wmNameList, item], []);
 
 		newkeywordList = [
 			{
@@ -114,5 +139,7 @@ export class FilterComponent implements OnInit, OnChanges {
 			}
 		];
 		this.keywordList = newkeywordList;
+		this.referBranchList = rlist;
+		this.wmBranchList = wlist;
 	}
 }
