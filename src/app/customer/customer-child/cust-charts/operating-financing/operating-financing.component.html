@@ -85,7 +85,7 @@
                      <tr >
                         <td>{{items.accNbr}}</td>
                         <td>{{items.lbCurrencyCode}}</td>
-                        <td>{{items.lbCurrentIntRate}}</td>
+                        <td>{{items.lbCurrentIntRate | percent:'1.0-3'}}</td>
                         <td>{{items.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
                         <td>{{items.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
                         <td>{{items.firstFundingDate}} </td>

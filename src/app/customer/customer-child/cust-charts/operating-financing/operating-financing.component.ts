@@ -15,6 +15,8 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
 
     // 營運量-放款貿融第二層
     LoanDetailObj: any = {};
+    totLoan: any = {};
+    facilityDetail: any[];
 
     urlList = [
         {
@@ -33,6 +35,10 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
+        this.setData();
+    }
+    
+    setData() {
         this.LoanDetailObj = this.custchartsService.LoanDetailObj;
 
         this.totLoan = this.LoanDetailObj.data.body.totLoan;
@@ -46,9 +52,4 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
             });
         }
     }
-    totLoan: {
-        totAmt: "",
-        totBal: ""
-    }
-    facilityDetail: any[];
 }

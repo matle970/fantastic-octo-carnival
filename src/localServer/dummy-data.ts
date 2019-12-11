@@ -457,11 +457,11 @@ export class DummyData {
                 "currentIntRate": "0.00",
                 "ftpRate": "0.021",
                 "sdRemark": {
-                    "accBranchCode": "信義分行",
-                    "payrollCodeDtl": "薪轉行",
-                    "isTrust": "",
-                    "isSecurities": "",
-                    "isReverse": "備償戶"
+                    "accBranchCode": "Y(00018信義分行)",
+                    "payrollCodeDtl": "Y(薪轉行)",
+                    "isTrust": "Y(信託帳戶)",
+                    "isSecurities": "Y(證卷帳戶)",
+                    "isReverse": "Y(備償帳戶)"
                 }
             }, {
                 "acctNbr": "1234-441-654321",
@@ -523,7 +523,7 @@ export class DummyData {
                     "dishY3ChkCnt": "6",
                     "dishCancelY3ChkCnt": "3",
                     "rejectedStatusInd": "Y",
-                    "isReverse": "備償戶"
+                    "isReverse": "Y(備償帳戶)"
                 }
             }]
         }
@@ -567,7 +567,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-998877",
                                     "lbCurrencyCode": "日幣",
-                                    "lbCurrentIntRate": "1.21",
+                                    "lbCurrentIntRate": "0.0121",
                                     "lbFxCurrentBal": "99999",
                                     "lbNtdCurrentBal": "99999",
                                     "firstFundingDate": "20190222",
@@ -578,7 +578,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-887766",
                                     "lbCurrencyCode": "美金",
-                                    "lbCurrentIntRate": "2.21",
+                                    "lbCurrentIntRate": "0.0221",
                                     "lbFxCurrentBal": "88888",
                                     "lbNtdCurrentBal": "88888",
                                     "firstFundingDate": "20190505",
@@ -589,7 +589,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-776655",
                                     "lbCurrencyCode": "人民幣",
-                                    "lbCurrentIntRate": "3.21",
+                                    "lbCurrentIntRate": "0.0321",
                                     "lbFxCurrentBal": "77777",
                                     "lbNtdCurrentBal": "77777",
                                     "firstFundingDate": "20190505",
@@ -613,7 +613,7 @@ export class DummyData {
                             "negotiatPriceCode": "N",
                             "collateral": [
                                 {
-                                    "collateralCodeDesc": "不動產"
+                                    "collateralCodeDesc": "其他有價證券"
                                 }
                             ],
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -621,7 +621,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-112233",
                                     "lbCurrencyCode": "澳幣",
-                                    "lbCurrentIntRate": "4.21",
+                                    "lbCurrentIntRate": "0.0421",
                                     "lbFxCurrentBal": "11111",
                                     "lbNtdCurrentBal": "11111",
                                     "firstFundingDate": "20190101",
@@ -632,7 +632,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-223344",
                                     "lbCurrencyCode": "韓幣",
-                                    "lbCurrentIntRate": "5.21",
+                                    "lbCurrentIntRate": "0.0521",
                                     "lbFxCurrentBal": "22222",
                                     "lbNtdCurrentBal": "22222",
                                     "firstFundingDate": "20190202",
@@ -643,7 +643,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-334455",
                                     "lbCurrencyCode": "歐元",
-                                    "lbCurrentIntRate": "6.21",
+                                    "lbCurrentIntRate": "0.0621",
                                     "lbFxCurrentBal": "33333",
                                     "lbNtdCurrentBal": "33333",
                                     "firstFundingDate": "20190202",
@@ -667,7 +667,7 @@ export class DummyData {
                             "negotiatPriceCode": "N",
                             "collateral": [
                                 {
-                                    "collateralCodeDesc": "不動產"
+                                    "collateralCodeDesc": "債券"
                                 }
                             ],
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -675,7 +675,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-667788",
                                     "lbCurrencyCode": "辛巴威幣",
-                                    "lbCurrentIntRate": "7.21",
+                                    "lbCurrentIntRate": "0.0721",
                                     "lbFxCurrentBal": "44444",
                                     "lbNtdCurrentBal": "44444",
                                     "firstFundingDate": "20190101",
@@ -686,7 +686,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-778899",
                                     "lbCurrencyCode": "比特幣",
-                                    "lbCurrentIntRate": "8.21",
+                                    "lbCurrentIntRate": "0.0821",
                                     "lbFxCurrentBal": "55555",
                                     "lbNtdCurrentBal": "55555",
                                     "firstFundingDate": "20190202",
@@ -697,7 +697,7 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-889900",
                                     "lbCurrencyCode": "英鎊",
-                                    "lbCurrentIntRate": "9.21",
+                                    "lbCurrentIntRate": "0.0921",
                                     "lbFxCurrentBal": "66666",
                                     "lbNtdCurrentBal": "66666",
                                     "firstFundingDate": "20190202",
@@ -739,6 +739,11 @@ export class DummyData {
                     "txnTypeDesc": "拖收到單",
                     "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
                     "usdTxnAmt": ["30000", "70000", "50000", "10000", "10000", "10000", "10000", "10000"]
+                },
+                {
+                    "txnTypeDesc": "信用狀信用",
+                    "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
+                    "usdTxnAmt": ["40000", "70000", "50000", "10000", "10000", "10000", "10000", "10000"]
                 }
             ],
             "export": [

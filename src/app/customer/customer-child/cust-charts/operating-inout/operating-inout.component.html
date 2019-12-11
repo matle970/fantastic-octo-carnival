@@ -21,15 +21,19 @@
                       <th class="text-right">累計</th>
                     </tr>
                   </thead>
-                  <tbody>
-                   <tr>
-                     <td>信用狀開狀及修改</td>
-                     <td class="text-right" *ngFor = "let item of import[0].usdTxnAmt">{{ item| currency:'':'':'1.0-0' }}</td>
+                  <tbody *ngFor = "let itemA of import">
                     
-                     <td class="text-right">{{ import[0].column | currency:'':'':'1.0-0' }}</td>
-
+                   <tr >
+                     <td>{{itemA.txnTypeDesc}}</td>
+                     <ng-container *ngFor = "let itemB of itemA.usdTxnAmt">
+                      <td class="text-right" >{{ itemB | currency:'':'':'1.0-0' }}</td>
+                    
+                     
+                    </ng-container>
+                    <td class="text-right">{{ itemA.column | currency:'':'':'1.0-0' }}</td>
                    </tr>
-                   <tr>
+                   
+                   <!-- <tr>
                       <td>託收到單</td>
                       <td class="text-right" *ngFor = "let item of import[1].usdTxnAmt">{{ item| currency:'':'':'1.0-0' }}</td>
                       
@@ -40,9 +44,9 @@
                         <td class="text-right" *ngFor = "let item of import[2].usdTxnAmt">{{ item| currency:'':'':'1.0-0' }}</td>
                       
                         <td class="text-right">{{ import[2].column | currency:'':'':'1.0-0' }}</td>
-                    </tr>
+                    </tr> -->
 
-
+                  
 
                   </tbody>
                   <tfoot>
