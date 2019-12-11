@@ -3,7 +3,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
-import { ChartComponent } from 'ng-apexcharts';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
 import { ModalService } from 'src/app/services/common-services/modal.service';
@@ -184,24 +183,27 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
     setData() {
+        this.setResponse();
+        this.setContribution();
+
+        this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
+    }
+
+    setResponse() {
         this.Company = this.custbaseinfoService.Company;
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
         this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
         this.Contribution = this.custbaseinfoService.Contribution;
+    }
 
-        this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
-
+    setContribution() { 
         this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
         this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;
         this.ChartData.series = this.custbaseinfoService.ChartDataseries;
     }
-
-
-
-
 
 
 
