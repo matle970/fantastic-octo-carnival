@@ -37,7 +37,7 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
         await this.custchartsService.sendRequest();
         this.setData();
     }
-    
+
     setData() {
         this.LoanDetailObj = this.custchartsService.LoanDetailObj;
 
@@ -49,6 +49,8 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
             this.facilityDetail[i].facRecords[0].breakRecords.forEach((data, index) => {
                 data.firstFundingDate = this.getUtilsService().changeDateStr(data.firstFundingDate, 'yyyy/MM/dd');
                 data.acctDueDate = this.getUtilsService().changeDateStr(data.acctDueDate, 'yyyy/MM/dd')
+
+                // console.log('xx', this.facilityDetail[0].facRecords);
             });
         }
     }

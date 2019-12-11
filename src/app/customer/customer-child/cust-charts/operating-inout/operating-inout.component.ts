@@ -44,12 +44,12 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
         await this.custchartsService.sendRequest();
         this.setData();
     }
-    
+
     setData() {
         this.ImportExportDetailObj = this.custchartsService.ImportExportDetailObj;
         this.import = this.ImportExportDetailObj.data.body.import;
         this.export = this.ImportExportDetailObj.data.body.export;
-        
+
         // 進口實績-橫向加總&縱向加總
         for (let i = 0; i < this.import.length; i++) {
             let column1 = this.import[i].usdTxnAmt.map(Number);
@@ -62,46 +62,54 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
             // let column4 = Array.of(column3);
             // console.log('xx',column3);
             
-            let a = this.import[i].usdTxnAmt.map(Number)
-        
-            //  console.log('xxx',a);
+            let a = this.import[i].usdTxnAmt.map(Number);
+            
+            let list = [];
+            this.import.forEach(function (val, index) {
+                
+                list.push(val.usdTxnAmt.map(Number));
+            });
+            
+
+             console.log('xxx', list);
+            //  console.log('xx',a);
             let sum0 = this.SumData(a);
             // console.log('xxx',sum0);
             this.import[0].row = sum0;
             // b = this.import[1].usdTxnAmt.map(Number),
-                // c = this.import[2].usdTxnAmt.map(Number);;
+            // c = this.import[2].usdTxnAmt.map(Number);;
             // let s = a.map(function (v) {
             //     return v= v++;
-                
-            
+
+
             // let a = this.import[0].usdTxnAmt.map(Number),
             //     b = this.import[1].usdTxnAmt.map(Number),
             //     c = this.import[2].usdTxnAmt.map(Number);;
             // let s = a.map(function (v, i) {
             //     return v + b[i] + c[i];
-                
-                
+
+
             // });
             // console.log('xx', s);
             // this.import[0].row = a;
             // console.log('xxxx',this.import[0].row )
 
-            for(let i = 0; i<this.import.length; i++){
-            let sum1 = this.import[i].usdTxnAmt.concat(this.import[0].usdTxnAmt);
+            // for (let i = 0; i < this.import.length; i++) {
+            //     let sum1 = this.import[i].usdTxnAmt.concat(this.import[0].usdTxnAmt);
 
-            // let sum1 = this.import[0].usdTxnAmt.concat(this.import[1].usdTxnAmt, this.import[2].usdTxnAmt);
-            // console.log('xxxxx',sum1);
-            let sum2 = sum1.map(Number);
-            // console.log('xxxxx',sum2);
-            // let sum3 = s.concat(sum2);
-            // console.log('xxxxx',sum3);
-            let sum4 = this.SumData(sum2);
-            // console.log('xxxxx',sum4);
-            let sum5 = sum4.toString();
-            // console.log('xxxxx',sum5);
-            this.import[0].all = sum5;
-            // console.log('xxxxx',this.import[0].all);
-        }
+            //     // let sum1 = this.import[0].usdTxnAmt.concat(this.import[1].usdTxnAmt, this.import[2].usdTxnAmt);
+            //     // console.log('xxxxx',sum1);
+            //     let sum2 = sum1.map(Number);
+            //     // console.log('xxxxx',sum2);
+            //     // let sum3 = s.concat(sum2);
+            //     // console.log('xxxxx',sum3);
+            //     let sum4 = this.SumData(sum2);
+            //     // console.log('xxxxx',sum4);
+            //     let sum5 = sum4.toString();
+            //     // console.log('xxxxx',sum5);
+            //     this.import[0].all = sum5;
+            //     // console.log('xxxxx',this.import[0].all);
+            // }
         }
 
         // 出口實績-橫向加總&縱向加總
@@ -110,6 +118,8 @@ export class OperatingInoutComponent extends BaseComponent implements OnInit {
             let column2 = this.SumData(column1);
             let column3 = column2.toString();
             this.export[i].column = column3
+
+
             
             let a = this.export[0].usdTxnAmt.map(Number),
                 b = this.export[1].usdTxnAmt.map(Number),

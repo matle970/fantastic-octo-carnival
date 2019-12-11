@@ -1,160 +1,126 @@
 <div class="financing-block">
-    <!-- 總授信 -->
-    <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title ">
-                總授信 :
-                <span class="text-small">
-                    含台外幣，額度包含未到期額度及到期有餘額
-                </span>
-            </h5>
-        </div>
-        <div class="card-body">
+  <!-- 總授信 -->
+  <div class="card card-table">
+    <div class="card-header card-header-primary">
+      <h5 class="card-title ">
+        總授信 :
+        <span class="text-small">
+          含台外幣，額度包含未到期額度及到期有餘額
+        </span>
+      </h5>
+    </div>
+    <div class="card-body">
 
-            <div class="row no-gutters text-center">
-              <div class="col-md-6 col-lg-6 col-xs-6">
-                <div class="text-lg font-weight-bolder">
-                    總額度
-                </div>
-                <div class="text-center text-lg text-primary">
-                    {{ totLoan.totAmt | currency:'':'':'1.0-0' }}
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-6 col-xs-6">
-                  <div class="text-lg font-weight-bolder">
-                      總餘額
-                  </div>
-                  <div class="text-center text-lg text-primary">
-                      {{ totLoan.totBal | currency:'':'':'1.0-0' }}
-                  </div>
-              </div>
-            </div>
+      <div class="row no-gutters text-center">
+        <div class="col-md-6 col-lg-6 col-xs-6">
+          <div class="text-lg font-weight-bolder">
+            總額度
+          </div>
+          <div class="text-center text-lg text-primary">
+            {{ totLoan.totAmt | currency:'':'':'1.0-0' }}
+          </div>
         </div>
 
-
+        <div class="col-md-6 col-lg-6 col-xs-6">
+          <div class="text-lg font-weight-bolder">
+            總餘額
+          </div>
+          <div class="text-center text-lg text-primary">
+            {{ totLoan.totBal | currency:'':'':'1.0-0' }}
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 授信明細 -->
-    <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title ">
-                授信明細
-            </h5>
-        </div>
-        <div class="card-body">
 
-            <div class="table-mat-list">
-                <table class="table m-0 p-0 table-bordered table-sticky">
-                    <thead>
-                      <tr>
-                        <th>額度 ID </th>
-                        <th>額度種類</th>
-                        <th>幣別</th>
-                        <th>額度</th>
-                        <th>餘額</th>
-                        <th>台幣餘額</th>
-                        <th>逐筆議價</th>
-                        <th>擔保品</th>
-                        <th>額度狀態</th>
-                      </tr>
-                    </thead>
-                    <tbody *ngFor = " let item of facilityDetail">
-                     <tr>
-                       <td rowspan="99" class="main-text">{{item.facilityNbr}}</td>
-                       <td>{{item.facRecords[0].breakdownCodeDesc}}</td>
-                       <td>{{item.facRecords[0].facdCurrencyCode}}</td>
-                       <td>{{item.facRecords[0].facdFxLimitAmt | currency : '' : '' : '1.0-0'}}</td>
-                       <td>{{item.facRecords[0].sumLbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                       <td>{{item.facRecords[0].sumLbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                       <td>{{item.facRecords[0].negotiatPriceCode}} </td>
-                       <td>{{item.facRecords[0].collateral[0].collateralCodeDesc}} </td>
-                       <td>{{item.facRecords[0].limitStatusCodeDesc}} </td>
-                     </tr>
-                     <tr class="title-th">
-                        <td>帳號 ID </td>
-                        <td>幣別</td>
-                        <td>動撥利率</td>
-                        <td>原幣餘額</td>
-                        <td>台幣餘額</td>
-                        <td>動撥日</td>
-                        <td>到期日</td>
-                        <td>動撥狀態</td>
-                     </tr>
-                     <ng-container *ngFor = " let items of item.facRecords[0].breakRecords">
-                     <tr >
-                        <td>{{items.accNbr}}</td>
-                        <td>{{items.lbCurrencyCode}}</td>
-                        <td>{{items.lbCurrentIntRate | percent:'1.0-3'}}</td>
-                        <td>{{items.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                        <td>{{items.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                        <td>{{items.firstFundingDate}} </td>
-                        <td>{{items.acctDueDate}} </td>
-                        <td>{{items.acctStatusCodeDesc}} </td>
-                      </tr>
-                    </ng-container>
-                      <!-- <tr class="thead-th">
-                          <th>額度 ID </th>
-                          <th>額度種類</th>
-                          <th>幣別</th>
-                          <th>額度</th>
-                          <th>餘額</th>
-                          <th>台幣餘額</th>
-                          <th>逐筆議價</th>
-                          <th>擔保品</th>
-                          <th>額度狀態</th>
-                      </tr>
-                      <tr>
-                          <td rowspan="4" class="main-text">{{facilityDetail[1].facilityNbr}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].breakdownCodeDesc}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].facmCurrencyCode}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].facmApprovalAmt | currency : '' : '' : '1.0-0'}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].facmLoanBal | currency : '' : '' : '1.0-0'}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].facmNtdLoanBal | currency : '' : '' : '1.0-0'}}</td>
-                          <td>{{facilityDetail[1].facRecords[0].negotiatPriceCode}} </td>
-                          <td>{{facilityDetail[1].facRecords[0].collateral[0].collateralCodeDesc}} </td>
-                          <td>{{facilityDetail[1].facRecords[0].facStatusCodeDesc}} </td>
-                      </tr> -->
-                      <!-- <tr class="title-th">
-                          <td>帳號 ID </td>
-                          <td>幣別</td>
-                          <td>動撥利率</td>
-                          <td>原幣餘額</td>
-                          <td>台幣餘額</td>
-                          <td>動撥日</td>
-                          <td>到期日</td>
-                          <td>動撥狀態</td>
-                        </tr>
-                        <tr *ngFor = "let item of facilityDetail[1].facRecords[0].breakRecords">
-                            <td>{{item.accNbr}}</td>
-                            <td>{{item.lbCurrencyCode}}</td>
-                            <td>{{item.lbCurrentIntRate}}</td>
-                            <td>{{item.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                            <td>{{item.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                            <td>{{item.firstFundingDate}} </td>
-                            <td>{{item.acctDueDate}} </td>
-                            <td>{{item.acctStatusCodeDesc}} </td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].accNbr}}</td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].lbCurrencyCode}}</td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].lbCurrentIntRate}}</td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].firstFundingDate}} </td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].acctDueDate}} </td>
-                            <td>{{facilityDetail[1].facRecords[0].breakRecords[1].limitStatusCodeDesc}} </td>
-                        </tr> -->
+  </div>
 
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-
-
+  <!-- 授信明細 -->
+  <div class="card card-table">
+    <div class="card-header card-header-primary">
+      <h5 class="card-title ">
+        授信明細
+      </h5>
     </div>
+    <div class="card-body">
+
+      <div class="table-mat-list">
+        <table class="table m-0 p-0 table-bordered table-sticky">
+          <!-- <thead>
+            <tr class="bg-primary text-white">
+              <th>額度 ID </th>
+              <th>額度種類</th>
+              <th>幣別</th>
+              <th>額度</th>
+              <th>餘額</th>
+              <th>台幣餘額</th>
+              <th>逐筆議價</th>
+              <th>擔保品</th>
+              <th>額度狀態</th>
+            </tr>
+
+          </thead> -->
+
+
+          <ng-container *ngFor=" let item of facilityDetail">
+            <tbody>
+              <tr class="bg-primary text-white">
+                <th>額度 ID </th>
+                <th>額度種類</th>
+                <th>幣別</th>
+                <th>額度</th>
+                <th>餘額</th>
+                <th>台幣餘額</th>
+                <th>逐筆議價</th>
+                <th>擔保品</th>
+                <th>額度狀態</th>
+              </tr>
+              <tr>
+                <td rowspan="99" class="main-text">{{item.facilityNbr}}</td>
+              </tr>
+              <ng-container *ngFor="let itemC of item.facRecords">
+                <tr>
+                  <td>{{itemC.breakdownCodeDesc}}</td>
+                  <td>{{itemC.facdCurrencyCode}}</td>
+                  <td>{{itemC.facdFxLimitAmt | currency : '' : '' : '1.0-0'}}</td>
+                  <td>{{itemC.sumLbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                  <td>{{itemC.sumLbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                  <td>{{itemC.negotiatPriceCode}} </td>
+                  <td>{{itemC.collateral[0].collateralCodeDesc}} </td>
+                  <td>{{itemC.limitStatusCodeDesc}} </td>
+                </tr>
+              </ng-container>
+              <tr class="title-th">
+                <td>帳號 ID </td>
+                <td>幣別</td>
+                <td>動撥利率</td>
+                <td>原幣餘額</td>
+                <td>台幣餘額</td>
+                <td>動撥日</td>
+                <td>到期日</td>
+                <td>動撥狀態</td>
+              </tr>
+              <ng-container *ngFor=" let items of item.facRecords[0].breakRecords">
+                <tr>
+                  <td>{{items.accNbr}}</td>
+                  <td>{{items.lbCurrencyCode}}</td>
+                  <td>{{items.lbCurrentIntRate | percent:'1.0-3'}}</td>
+                  <td>{{items.lbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                  <td>{{items.lbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
+                  <td>{{items.firstFundingDate}} </td>
+                  <td>{{items.acctDueDate}} </td>
+                  <td>{{items.acctStatusCodeDesc}} </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </ng-container>
+        </table>
+
+      </div>
+    </div>
+
+
+  </div>
 
 
 

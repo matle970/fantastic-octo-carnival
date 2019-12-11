@@ -1,43 +1,40 @@
-
 <div class="row">
 
   <!-- 圖表 -->
   <div class="col-12 col-lg-5 col-md-3 col-xs-12">
-        <!--TMU chart -->
-        <div class="card card-table card-chart-table">
-            <div class="card-header card-header-primary">
-                <h5 class="card-title ">TMU 貢獻度
-                  <span class="badge float-right">
-                      (單位：新台幣仟元)
-                  </span>
-                </h5>
-            </div>
-            <div class="card-body text-center pt-3">
-              <div class="d-block clearfix">
-                <div class="d-inline-block date-block  mr-2 mb-5">
-                    資料期間 : 2018/12 ~ 2019/05
-                </div>
-              </div>
-
-              <div class="tmu-chart-block">
-                  <apx-chart #chartTmu
-                  [chart]="TmuData.chart"
-                  [dataLabels]="TmuData.dataLabels"
-                  [plotOptions]="TmuData.plotOptions"
-                  [stroke]="TmuData.stroke"
-                  [series]="TmuData.series"
-                  [labels]="TmuData.labels"
-                  [colors]="TmuData.colors"
-                  [legend]="TmuData.legend"
-                  [responsive]="TmuData.responsive"
-                  [tooltip] = "TmuData.tooltip"
-                  [noData] = "TmuData.noData"
-                  [dataLabels] = "{enabled: false}"
-                    ></apx-chart>
-              </div>
-
-            </div>
+    <!--TMU chart -->
+    <div class="card card-table card-chart-table">
+      <div class="card-header card-header-primary">
+        <h5 class="card-title ">TMU 貢獻度
+          <span class="badge float-right">
+            (單位：新台幣仟元)
+          </span>
+        </h5>
+      </div>
+      <div class="card-body text-center pt-3">
+        <div class="d-block clearfix">
+          <div class="d-inline-block date-block  mr-2 mb-5">
+            資料期間 : 2018/12 ~ 2019/05
+          </div>
         </div>
+
+        <div class="tmu-chart-block">
+          <apx-chart #chartTmu [chart]="TmuData.chart" 
+            [dataLabels]="TmuData.dataLabels"
+            [plotOptions]="TmuData.plotOptions" 
+            [stroke]="TmuData.stroke" 
+            [series]="TmuData.series"
+            [labels]="TmuData.labels" 
+            [colors]="TmuData.colors" 
+            [legend]="TmuData.legend"
+            [responsive]="TmuData.responsive" 
+            [tooltip]="TmuData.tooltip" 
+            [noData]="TmuData.noData"
+            [dataLabels]="{enabled: false}"></apx-chart>
+        </div>
+
+      </div>
+    </div>
   </div>
 
 
@@ -47,45 +44,45 @@
 
     <!-- 金融交易額度-->
     <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title clearfix">
-                金融交易額度
-                <span class="badge float-right"> ( 單位：美金仟元 ) </span>
-            </h5>
-        </div>
-        <div class="card-body">
+      <div class="card-header card-header-primary">
+        <h5 class="card-title clearfix">
+          金融交易額度
+          <span class="badge float-right"> ( 單位：美金仟元 ) </span>
+        </h5>
+      </div>
+      <div class="card-body">
 
-          <div class="table-mat-list">
-            <table class="table m-0 p-0 table-hover table-sticky">
-              <thead>
-                <tr>
-                  <th>額度/帳號ID</th>
-                  <th class="th-width">額度種類</th>
-                  <th>額度期限</th>
-                  <th class="text-right">額度</th>
-                  <th class="text-right">使用額度</th>
-                  <th class="text-right">剩餘可用額度</th>
-                  <th class="text-right">使用率</th>
-                </tr>
-              </thead>
-              <tbody *ngFor = "let item of tmuTransAmt">
-                <tr>
-                    <td rowspan="5">{{item.customerId}}</td>
-                    <td>{{item.amountType}}</td>
-                    <td>{{item.amountExpDate }}</td>
-                    <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
-                </tr>
-                
-              </tbody>
+        <div class="table-mat-list">
+          <table class="table m-0 p-0 table-hover table-sticky">
+            <thead>
+              <tr>
+                <th>額度/帳號ID</th>
+                <th class="th-width">額度種類</th>
+                <th>額度期限</th>
+                <th class="text-right">額度</th>
+                <th class="text-right">使用額度</th>
+                <th class="text-right">剩餘可用額度</th>
+                <th class="text-right">使用率</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of tmuTransAmt">
+              <tr>
+                <td rowspan="5">{{item.customerId}}</td>
+                <td>{{item.amountType}}</td>
+                <td>{{item.amountExpDate }}</td>
+                <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
+              </tr>
 
-            </table>
+            </tbody>
 
-          </div>
+          </table>
 
         </div>
+
+      </div>
 
 
     </div>
@@ -93,44 +90,44 @@
 
     <!-- 投資型商品-->
     <div class="card card-table">
-        <div class="card-header card-header-primary">
-            <h5 class="card-title clearfix">
-                投資型商品
-                <span class="badge float-right"> ( 單位：台幣仟元 ) </span>
-            </h5>
-        </div>
-        <div class="card-body">
+      <div class="card-header card-header-primary">
+        <h5 class="card-title clearfix">
+          投資型商品
+          <span class="badge float-right"> ( 單位：台幣仟元 ) </span>
+        </h5>
+      </div>
+      <div class="card-body">
 
-          <div class="table-mat-list  down-table">
-            <table class="table m-0 p-0 table-hover table-sticky person-table">
-              <thead>
-                <tr>
-                  <th>商品類別</th>
-                  <th class="text-right">商品名稱</th>
-                  <th class="text-right">幣別</th>
-                  <th class="text-right">金額/名目本金</th>
-                  <th class="text-right">現值</th>
-                  <th class="text-right">起日</th>
-                  <th class="text-right">迄日</th>
-                </tr>
-              </thead>
-              <tbody *ngFor = "let item of tmuInvesment">
-                <tr>
-                    <td>{{item.invesTypeCode}}</td>
-                    <td class="text-right">{{ item.productDesc | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.prodCurrencyDesc | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.bal | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.ntdCurrentValue | currency:'':'':'1.0-0' }}</td>
-                    <td class="text-right">{{ item.startDay }}</td>
-                    <td class="text-right">{{ item.endDay }}</td>
-                </tr>
-              </tbody>
+        <div class="table-mat-list  down-table">
+          <table class="table m-0 p-0 table-hover table-sticky person-table">
+            <thead>
+              <tr>
+                <th>商品類別</th>
+                <th class="text-right">商品名稱</th>
+                <th class="text-right">幣別</th>
+                <th class="text-right">金額/名目本金</th>
+                <th class="text-right">現值</th>
+                <th class="text-right">起日</th>
+                <th class="text-right">迄日</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of tmuInvesment">
+              <tr>
+                <td>{{item.invesTypeCode}}</td>
+                <td class="text-right">{{ item.productDesc | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.prodCurrencyDesc | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.bal | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.ntdCurrentValue | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.startDay }}</td>
+                <td class="text-right">{{ item.endDay }}</td>
+              </tr>
+            </tbody>
 
-            </table>
-
-          </div>
+          </table>
 
         </div>
+
+      </div>
 
 
     </div>

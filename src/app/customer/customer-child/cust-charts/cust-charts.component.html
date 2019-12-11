@@ -1,10 +1,10 @@
 <div class="card shadow-lg bottom-card">
   <app-water-print></app-water-print>
-<!-- <div class="card-header card-header-danger">
+  <!-- <div class="card-header card-header-danger">
     <h4 class="card-title">Material Dashboard PRO Angular</h4>
     <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
 </div> -->
-<div class="card-body">
+  <div class="card-body">
     <h4 class="card-title text-primary clearfix">
       營運量
       <!-- <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06
@@ -12,186 +12,179 @@
     </h4>
     <div class="all-charts-blcok row no-gutters mt-4">
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="title-block row no-gutters">
-              <div class="chart-title col-5">
-                  <div class="btn text-white bg-deposit" >
-                    <span class="title">
-                      存款餘額
-                    </span>
-                  </div>
-                  <div class="total d-inline-block font-weight-bold">
-                     {{11893 | currency:'':'':'1.0-0'}}
-                  </div>
-               </div>
-               <div class="col-2 offset-5">
-                 <span mat-raised-button matTooltip="詳細內容" matTooltipPosition="above" class="btn btn-outline-primary chart-link-icon" (click)="openDialog(8, true)">
-                    <i class="fas fa-external-link-alt"></i>
-                 </span>
-               </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="title-block row no-gutters">
+          <div class="chart-title col-5">
+            <div class="btn text-white bg-deposit">
+              <span class="title">
+                存款餘額
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              {{11893 | currency:'':'':'1.0-0'}}
+            </div>
+          </div>
+          <div class="col-2 offset-5">
+            <span mat-raised-button matTooltip="詳細內容" matTooltipPosition="above"
+              class="btn btn-outline-primary chart-link-icon" (click)="openDialog(8, true)">
+              <i class="fas fa-external-link-alt"></i>
+            </span>
+          </div>
+        </div>
+
+        <apx-chart #chartDeposit 
+          [chart]="DepositData.chart" 
+          [plotOptions]="DepositData.plotOptions"
+          [dataLabels]="DepositData.dataLabels" 
+          [stroke]="DepositData.stroke" 
+          [series]="DepositData.series"
+          [xaxis]="DepositData.xaxis" 
+          [yaxis]="DepositData.yaxis" 
+          [colors]="DepositData.colors"
+          [legend]="DepositData.legend" 
+          [tooltip]="DepositData.tooltip"></apx-chart>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-12">
+
+
+
+        <div class="title-block clearfix  row no-gutters">
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn d-inline-block text-white bg-load">
+              <span class="title">
+                放款餘額
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              {{39893 | currency:'':'':'1.0-0'}}
+            </div>
+          </div>
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn d-inline-block text-white bg-trade">
+              <span class="title">
+                貿融餘額
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              {{39893 | currency:'':'':'1.0-0'}}
+            </div>
+          </div>
+          <div class="col-2">
+            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
+              matTooltipPosition="above" (click)="openDialog(9, true)">
+              <i class="fas fa-external-link-alt"></i>
+            </span>
           </div>
 
-          <apx-chart #chartDeposit
-          [chart]="DepositData.chart"
-          [plotOptions]="DepositData.plotOptions"
-          [dataLabels]="DepositData.dataLabels"
-          [stroke]="DepositData.stroke"
-          [series]="DepositData.series"
-          [xaxis]="DepositData.xaxis"
-          [yaxis]="DepositData.yaxis"
-          [colors]="DepositData.colors"
-          [legend]="DepositData.legend"
-          [tooltip]="DepositData.tooltip"
-          ></apx-chart>
         </div>
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
-
-
-
-            <div class="title-block clearfix  row no-gutters">
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn d-inline-block text-white bg-load">
-                      <span class="title">
-                        放款餘額
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                       {{39893 | currency:'':'':'1.0-0'}}
-                    </div>
-                </div>
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn d-inline-block text-white bg-trade">
-                      <span class="title">
-                          貿融餘額
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                       {{39893 | currency:'':'':'1.0-0'}}
-                    </div>
-                </div>
-                <div class="col-2">
-                    <span class="d-inline-block btn btn-outline-primary chart-link-icon"
-                    mat-raised-button matTooltip="詳細內容" matTooltipPosition="above"
-                    (click)="openDialog(9, true)">
-                       <i class="fas fa-external-link-alt"></i>
-                    </span>
-                </div>
-
-            </div>
-
-          <apx-chart #chartLoad
-          [chart]="LoanData.chart"
+        <apx-chart #chartLoad 
+          [chart]="LoanData.chart" 
           [plotOptions]="LoanData.plotOptions"
-          [dataLabels]="LoanData.dataLabels"
-          [stroke]="LoanData.stroke"
+          [dataLabels]="LoanData.dataLabels" 
+          [stroke]="LoanData.stroke" 
           [series]="LoanData.series"
-          [xaxis]="LoanData.xaxis"
-          [yaxis]="LoanData.yaxis"
-          [colors]="LoanData.colors"
+          [xaxis]="LoanData.xaxis" 
+          [yaxis]="LoanData.yaxis" 
+          [colors]="LoanData.colors" 
           [legend]="LoanData.legend"
-          [tooltip]="LoanData.tooltip"
-          ></apx-chart>
+          [tooltip]="LoanData.tooltip"></apx-chart>
 
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-12">
+
+        <div class="title-block clearfix row no-gutters">
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn  text-white bg-in" (click)="openDialog(10, true)">
+              <span class="title">
+                進口實績
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              {{39893 | currency:'':'':'1.0-0'}}
+            </div>
+          </div>
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn  text-white bg-out" (click)="openDialog(10, true)">
+              <span class="title">
+                出口實績
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              {{39893 | currency:'':'':'1.0-0'}}
+            </div>
+          </div>
+
+          <div class="col-2">
+            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
+              matTooltipPosition="above" (click)="openDialog(10, true)">
+              <i class="fas fa-external-link-alt"></i>
+            </span>
+          </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
 
-            <div class="title-block clearfix row no-gutters">
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn  text-white bg-in"
-                    (click)="openDialog(10, true)">
-                      <span class="title">
-                          進口實績
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                       {{39893 | currency:'':'':'1.0-0'}}
-                    </div>
-                </div>
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn  text-white bg-out" (click)="openDialog(10, true)">
-                      <span class="title">
-                          出口實績
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                       {{39893 | currency:'':'':'1.0-0'}}
-                    </div>
-                </div>
-
-                <div class="col-2">
-                    <span class="d-inline-block btn btn-outline-primary chart-link-icon"
-                    mat-raised-button matTooltip="詳細內容" matTooltipPosition="above"
-                    (click)="openDialog(10, true)">
-                       <i class="fas fa-external-link-alt"></i>
-                    </span>
-                </div>
-            </div>
-
-
-            <apx-chart #chartTrade
-          [chart]="TradeData.chart"
+        <apx-chart #chartTrade 
+          [chart]="TradeData.chart" 
           [plotOptions]="TradeData.plotOptions"
-          [dataLabels]="TradeData.dataLabels"
-          [stroke]="TradeData.stroke"
+          [dataLabels]="TradeData.dataLabels" 
+          [stroke]="TradeData.stroke" 
           [series]="TradeData.series"
-          [xaxis]="TradeData.xaxis"
-          [yaxis]="TradeData.yaxis"
-          [colors]="TradeData.colors"
+          [xaxis]="TradeData.xaxis" 
+          [yaxis]="TradeData.yaxis" 
+          [colors]="TradeData.colors" 
           [legend]="TradeData.legend"
-          [tooltip]="TradeData.tooltip"
-            ></apx-chart>
-        </div>
+          [tooltip]="TradeData.tooltip"></apx-chart>
+      </div>
 
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="title-block clearfix row no-gutters ">
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn  text-black bg-tmu" >
-                      <span class="title text-black">
-                          TMU
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                       60%
-                    </div>
-                </div>
-                <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-                    <div class="btn  bg-mtm text-black ">
-                      <span class="title text-black">
-                          MTM
-                      </span>
-                    </div>
-                    <div class="total d-inline-block font-weight-bold">
-                      102%
-                    </div>
-                </div>
-                <div class="col-2">
-                    <span class="d-inline-block btn btn-outline-primary chart-link-icon"
-                    mat-raised-button matTooltip="詳細內容"
-                    matTooltipPosition="above"
-                    (click)="openDialog(11, true)">
-                       <i class="fas fa-external-link-alt"></i>
-                    </span>
-                </div>
-
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="title-block clearfix row no-gutters ">
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn  text-black bg-tmu">
+              <span class="title text-black">
+                TMU
+              </span>
             </div>
+            <div class="total d-inline-block font-weight-bold">
+              60%
+            </div>
+          </div>
+          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
+            <div class="btn  bg-mtm text-black ">
+              <span class="title text-black">
+                MTM
+              </span>
+            </div>
+            <div class="total d-inline-block font-weight-bold">
+              102%
+            </div>
+          </div>
+          <div class="col-2">
+            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
+              matTooltipPosition="above" (click)="openDialog(11, true)">
+              <i class="fas fa-external-link-alt"></i>
+            </span>
+          </div>
 
-
-            <apx-chart #chartTmu
-          [chart]="TmuData.chart"
-          [plotOptions]="TmuData.plotOptions"
-          [dataLabels]="TmuData.dataLabels"
-          [stroke]="TmuData.stroke"
-          [series]="TmuData.series"
-          [xaxis]="TmuData.xaxis"
-          [yaxis]="TmuData.yaxis"
-          [colors]="TmuData.colors"
-          [legend]="TmuData.legend"
-          [tooltip]="TmuData.tooltip"
-            ></apx-chart>
         </div>
+
+
+        <apx-chart #chartTmu 
+          [chart]="TmuData.chart" 
+          [plotOptions]="TmuData.plotOptions"
+          [dataLabels]="TmuData.dataLabels" 
+          [stroke]="TmuData.stroke" 
+          [series]="TmuData.series" 
+          [xaxis]="TmuData.xaxis"
+          [yaxis]="TmuData.yaxis" 
+          [colors]="TmuData.colors" 
+          [legend]="TmuData.legend" 
+          [tooltip]="TmuData.tooltip">
+        </apx-chart>
+      </div>
 
     </div>
-</div>
+  </div>
 </div>
