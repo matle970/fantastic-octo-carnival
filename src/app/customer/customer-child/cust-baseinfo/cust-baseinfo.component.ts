@@ -217,16 +217,16 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
                 data = this.CompanyDetail.data;
                 break;
             case 4:
-                data = this.GroupDetail;
+                data = this.GroupDetail.data;
                 break;
             case 5:
                 // 個人關聯戶
                 break;
             case 6:
-                data = this.ManageDetail;
+                data = this.ManageDetail.data;
                 break;
             case 7:
-                data = this.ContributionDetail;
+                data = this.ContributionDetail.data;
                 break;
         }
         this.custbaseinfoService.baseservice.dialogservice.openDialog(modalId, wide, title, data);
