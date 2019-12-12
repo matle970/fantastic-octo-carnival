@@ -7,7 +7,7 @@ import { AppService } from './services/common-services/app.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
 import { DummyDataService } from './services/common-services/dummydata.service';
-import { AoProfileResponse } from './objects/dto/firstpage/firstpage-aoProfile-response';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-root',
@@ -35,11 +35,15 @@ export class AppComponent implements OnInit {
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
         private appService: AppService,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private cookieService: CookieService) {
 
     }
 
     async ngOnInit() {
+        // delete all cookies
+        this.cookieService.deleteAll();
+
         // 是否使用 Dummy data
         this.dummydataservice.useDummyData = true;
 

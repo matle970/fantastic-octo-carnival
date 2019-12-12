@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-dialog',
@@ -28,8 +28,6 @@ export class DialogComponent implements OnInit {
     constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
     ngOnInit() {
-
         this.contentData = this.data;
-
     }
 }

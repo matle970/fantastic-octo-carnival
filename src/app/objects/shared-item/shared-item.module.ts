@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // google map
-import { MapComponent } from './map/map.component';
+import { MapComponent } from '../../customer/customer-child/cust-baseinfo/company-info/map/map.component';
 import { IconBellComponent } from './icon-bell/icon-bell.component';
 import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
 import { WaterPrintComponent } from './water-print/water-print.component';
