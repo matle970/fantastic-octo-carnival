@@ -8,6 +8,7 @@ import { RouterModule, Router } from '@angular/router';
 import { DatePipe, CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CdkTableModule } from '@angular/cdk/table';
+import { CookieService } from 'ngx-cookie-service';
 
 // app
 import { AppRoutingModule } from './app-routing.module';
@@ -60,7 +61,6 @@ import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
 
 // localServer
 import { DummyDataService } from './services/common-services/dummydata.service';
-import { AutoSearchComponent } from './content-layout/common-area/auto-search/auto-search.component';
 
 @NgModule({
     declarations: [
@@ -109,8 +109,8 @@ import { AutoSearchComponent } from './content-layout/common-area/auto-search/au
         DummyDataService,
         NewsService,
         DialogService,
-        CustChartsService
-
+        CustChartsService,
+        CookieService
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]

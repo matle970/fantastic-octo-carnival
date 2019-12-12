@@ -677,8 +677,8 @@ companyDetail = {
         "realCapitalAmt": "138,629,906",
         "establishmentDate": "19740202",
         "chiefName": "李宛靜",
-        "registerAddress": "新北市土城區中山路66號",
-        "residenceAddress": "新北市土城區中山路66號",
+        "registerAddress": "台北市信義區松仁路9號",
+        "residenceAddress": "高雄市苓雅區自強三路5號",
         "address": "新北市土城區中山路66號",
         "personInCharge": {
             "name": "林金霖",
