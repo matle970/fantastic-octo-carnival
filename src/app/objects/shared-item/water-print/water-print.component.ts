@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AoIdentityService } from 'src/app/services/common-services/ao-identity.service';
 
 @Component({
   selector: 'app-water-print',
@@ -8,10 +9,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WaterPrintComponent implements OnInit {
   @Input() msg: string;
   @Input() MdSize: boolean;
-  constructor() { }
+  constructor(private aoIdentityService: AoIdentityService) { }
 
   ngOnInit() {
-    this.msg = this.msg ? this.msg : 'NT81752';
+    this.msg = this.msg ? this.msg : this.aoIdentityService.aoId;
     this.MdSize = (this.MdSize === true) ? true : false;
   }
 
