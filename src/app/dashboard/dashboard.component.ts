@@ -76,11 +76,11 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
         this.getSortData();
-        this.getIssues(0, 10);
+        this.getIssues();
 
         // 分頁切換時，重新取得資料
         this.paginator.page.subscribe((page: PageEvent) => {
-            this.getIssues(page.pageIndex, page.pageSize);
+            this.getIssues();
         });
 
         // 設定顯示筆數資訊文字
@@ -123,7 +123,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             this.nowOrder.ASC = '0';
     }
 
-    getIssues(pageIndex, pageSize) {
+    getIssues() {
         this.dataSource.sort = this.sortTable;
 
     }
