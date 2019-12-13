@@ -151,10 +151,6 @@
 								<th class="text-nowrap text-right pr-2" mat-sort-header mat-header-cell
 									*matHeaderCellDef>
 									客戶ID
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'cus_id'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-
 								</th>
 								<td class="text-right" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
 								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
