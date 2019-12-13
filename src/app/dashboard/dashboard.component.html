@@ -262,7 +262,7 @@
 								<td class="text-right bg-one" mat-cell *matCellDef="let element">
 									{{element.trade_balance | currency:'':'':'1.0-0'}}
 								</td>
-								<td class="text-right" mat-footer-cell *matFooterCellDef>
+								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
 									{{ calculateTotal("trade_balance")  |  currency:'':'':'1.0-0'}}
 								</td>
 							</ng-container>

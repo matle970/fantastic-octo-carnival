@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FilterComponent } from '../filter/filter.component';
+import { CookieService } from 'ngx-cookie-service';
 
 export interface StateGroup {
 	type: string;
@@ -29,6 +30,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	@Input() keywordList: FilterComponent;
 	keyword: any;
+	cookieValue = '';
 	@Output('getCompleteKeyword') getCompleteKeyword = new EventEmitter();
 	jeweltest: any;
 	stateForm: FormGroup = this._formBuilder.group({
@@ -48,12 +50,14 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	stateGroupOptions: Observable<StateGroup[]>;
 
-	constructor(private _formBuilder: FormBuilder/*, private _keywordService: KeywordService*/, private el: ElementRef) {
+	constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, private el: ElementRef) { }
+
+	ngOnInit() {
+		this.getCookieValue();
 	}
 
-	ngOnInit() { }
-
 	ngOnChanges(SimpleChanges: any) {
+		this.getCookieValue();
 		if (this.keywordList) {
 			this.getKeyWordList();
 
@@ -79,11 +83,16 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	onKey(event: any) {
 		let inputKeyword = "";
 		inputKeyword = this.stateForm.get('stateGroup').value;
+		this.updateCookie(inputKeyword);
+
 		this.getCompleteKeyword.emit(inputKeyword);
 	}
 
 	getOptionText(group) {
-		return group.names;
+		if (group)
+			return group.names;
+		else 
+			return '';
 	}
 
 	getKeyWordList() {
@@ -104,11 +113,32 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}
 
 	private _filterGroup(value): StateGroup[] {
-		if (value.names) {
-			return this.stateGroups
-				.map(group => ({ type: group.type, names: _filter(group.names, value.names) }))
-				.filter(group => group.names.length > 0);
+		if (value) {
+			if (value.type) {
+				return this.stateGroups
+					.map(group => ({ type: group.type, names: _filter(group.names, value.names) }))
+					.filter(group => group.names.length > 0);
+			}
+			else {
+				return this.stateGroups
+					.map(group => ({ type: group.type, names: _filter(group.names, value) }))
+					.filter(group => group.names.length > 0);
+			}
 		}
 		return this.stateGroups;
+	}
+	// 如果上次有搜尋的keyword，預設出現keyword
+	getCookieValue() {
+		this.cookieValue = this.cookieService.get('cb_search_last_word');
+		const nthis = this;
+
+		if (this.cookieValue) {
+			setTimeout(() => { nthis.keyword = this.cookieValue }, 50);
+		}
+
+	}
+
+	updateCookie(value: string) {
+		this.cookieService.set('cb_search_last_word', value);
 	}
 }
