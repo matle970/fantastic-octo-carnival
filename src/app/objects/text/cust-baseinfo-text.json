@@ -44,5 +44,21 @@
   "registeraddress_text": "註冊地址",
   "residenceaddress_text": "主要營業地址",
   "address_text": "公司地址",
-  "personincharge_text": "負責人"
+  "personincharge_text": "負責人",
+  "age_text": " 歲",
+  "birthday_text": " 月壽星",
+  "AUM_text": "AUM ",
+  "wineglass_text": "酒",
+  "campingtent_text": "露營 / 登山用品",
+  "cigar_text": "雪茄",
+  "golfball_text": "高爾夫",
+  "watertransportation_text": "遊艇",
+  "dutyfree_text": "免稅店 / 機場商店",
+  "aroundtheglobe_text": "高端旅行社",
+  "picasso_text": "藝術品",
+  "gramophone_text": "古董",
+  "pottery_text": "陶瓷",
+  "medal_text": "社會菁英社團",
+  "mate_text": "負責人配偶",
+  "contactpersons_text": "聯絡窗口 "
 }
