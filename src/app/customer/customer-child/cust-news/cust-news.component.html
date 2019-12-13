@@ -5,80 +5,82 @@
       <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
   </div> -->
   <div class="card-body">
-      <h4 class="card-title text-primary d-flex flex-wrap align-content-center">
-        <a class="title-arrow" (click)="openDialog(12, true)">
-          消息集錦
-          <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
-        </a>
-      </h4>
+    <h4 class="card-title text-primary d-flex flex-wrap align-content-center">
+      <a class="title-arrow" (click)="openDialog(12, true , 'news' ,'n001')">
+        {{news_Title}}
+        <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
+      </a>
+    </h4>
 
-      <div class="news-container mt-2">
-          <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="newsSources">
+    <div class="news-container mt-2">
+      <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="newsSources">
 
-            <ng-container matColumnDef="date">
-              <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 要點新聞</th>
-              <td class="text-left" mat-cell *matCellDef="let element"> {{element.date | dateShort }} </td>
-            </ng-container>
+        <ng-container matColumnDef="date">
+          <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> {{date_Title}}</th>
+          <td class="text-left" mat-cell *matCellDef="let element"> {{element.date | dateShort }} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="tag">
-              <th class="th-tag text-black text-nowrap" mat-header-cell *matHeaderCellDef> </th>
-              <td class="text-center" mat-cell *matCellDef="let element"> {{element.tag}} </td>
-            </ng-container>
+        <ng-container matColumnDef="tag">
+          <th class="th-tag text-black text-nowrap" mat-header-cell *matHeaderCellDef> </th>
+          <td class="text-center" mat-cell *matCellDef="let element"> {{element.tag}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="title">
-              <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 內容摘要</th>
-              <td class="text-left" mat-cell *matCellDef="let element">
-                 <a  href="javascript: return false;" class="underline" (click)="openDialog(12, true, element.id)"> {{element.title}}</a>
-              </td>
-            </ng-container>
+        <ng-container matColumnDef="title">
+          <th class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> {{title_Title}}</th>
+          <td class="text-left" mat-cell *matCellDef="let element">
+            <!-- <a  href="javascript: return false;" class="underline" (click)="openDialog(12, true , 'news' , element.id)"> {{element.title}}</a> -->
+            <a class="underline" (click)="openDialog(12, true , 'news' , element.id)"> {{element.title}}</a>
+          </td>
+        </ng-container>
 
 
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <h4 class="card-title text-primary mt-2 d-flex flex-wrap align-content-center">
+      <a class="title-arrow d-inline-block" (click)="openDialog(13, true, 'bankinfo')">
+        {{bankinfo_Title}}
+        <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
+      </a>
+      <div class="title-date d-inline-block bank-date-block">
+        <div class="d-block w-100 text-gray">{{last_Search}}</div>
+        <div class="d-block w-100 text-gray">{{ PreDate | dateFormat }}</div>
       </div>
-
-      <h4 class="card-title text-primary mt-2 d-flex flex-wrap align-content-center">
-        <a class="title-arrow d-inline-block" (click)="openDialog(13, true)">
-          銀行同業
-          <i class="fas fa-angle-double-right  animated infinite fadeInLeft ml-3 slow"></i>
-        </a>
-        <div class="title-date d-inline-block bank-date-block">
-          <div class="d-block w-100 text-gray">上次查詢日期</div>
-          <div class="d-block w-100 text-gray">{{ PreDate | dateFormat }}</div>
-        </div>
-        <div class="title-date d-inline-block bank-date-block">
-            <div class="d-block w-100 text-small text-gray wrod">最近查詢日期</div>
-            <div class="d-block w-100 text-small text-gray font-weight-bolder">{{ LastDate | date : 'yyyy/MM/dd'}}</div>
-          </div>
-      </h4>
-      <div class="news-container">
-          <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="bankSource">
-
-              <ng-container matColumnDef="bank">
-                <th width="40%" class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 銀行同業</th>
-                <td mat-cell *matCellDef="let element"> {{element.bank}} </td>
-              </ng-container>
-
-
-              <ng-container matColumnDef="valChange">
-                  <th width="30%"  class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 額度變動</th>
-                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.valChange == 0}">
-                    {{element.valChange}}
-                  </td>
-              </ng-container>
-
-
-              <ng-container matColumnDef="totalChange">
-                  <th width="30%"  class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> 餘額變動</th>
-                  <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.totalChange == 0}">
-                    {{element.totalChange}}
-                  </td>
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="bankColumns; sticky: true"></tr>
-              <tr mat-row *matRowDef="let row; columns: bankColumns;"></tr>
-            </table>
+      <div class="title-date d-inline-block bank-date-block">
+        <div class="d-block w-100 text-small text-gray wrod">{{recent_Search}}</div>
+        <div class="d-block w-100 text-small text-gray font-weight-bolder">{{ LastDate | date : 'yyyy/MM/dd'}}</div>
       </div>
+    </h4>
+    <div class="news-container">
+      <table class="table m-0 p-0 table-hover table-sticky" mat-table [dataSource]="bankSource">
+
+        <ng-container matColumnDef="bank">
+          <th width="40%" class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef> {{bankinfo_Title}}
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.bank}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="valChange">
+          <th width="30%" class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef>{{valChange}}</th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.valChange == 0}">
+            {{element.valChange}}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="totalChange">
+          <th width="30%" class="th-width text-black text-nowrap" mat-header-cell *matHeaderCellDef>{{totalChange}}</th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{'text-gray': element.totalChange == 0}">
+            {{element.totalChange}}
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="bankColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: bankColumns;"></tr>
+      </table>
+    </div>
   </div>
 </div>

@@ -1,3 +1,7 @@
+$tfoot-th-bg: #76BC21;
+$tfoot-th-color: #FFF;
+
+
 .table{
   font-family: '微軟正黑體';
   color: #000 !important;
@@ -18,6 +22,7 @@
 
     i {
       display: block;
+      font-size: 30px;
       vertical-align: middle;
       width:12px;
       height: 6px;
@@ -58,7 +63,7 @@
    > thead > tr > td,
    > tbody > tr > td,
    > tfoot > tr > td{
-       padding: 12px 8px;
+       padding: 8px;
        vertical-align: middle;
    }
 
@@ -243,7 +248,7 @@ thead.thead-inverse,
       font-family: '微軟正黑體'!important;
       color: #009F41 !important;
       font-size: 1rem !important;
-      font-weight: 500 !important;
+      font-weight: 700 !important;
     }
   }
   td {
@@ -254,21 +259,36 @@ thead.thead-inverse,
     background: #EEE;
     color: #009F41 !important;
     font-weight: bold !important;
+    tr {
+      background: #EEE;
+    }
     td {
       color: #009F41 !important;
       font-weight: bold !important;
     }
+    &:hover {
+      tr {
+        background: #EEE;
+      }
+    }
 
   }
   tfoot.mat-table-sticky {
-    // box-shadow: 2px -1px 8px 1px #9999996e;
     border-radius: 10px;
-    box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.14), 0 7px 5px -8px rgba(134, 136, 135, 0.4);
+    box-shadow: none;
+    // box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.14), 0 7px 5px -8px rgb(134, 136, 135);
+    th{
+      background: $tfoot-th-bg;
+      color:$tfoot-th-color;
+    }
   }
 
   .mat-header-row {
     // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
     // background-image: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
+    height: auto !important;
+    min-height: 40px;
+    line-height: 40px;
   }
 
 }
@@ -286,3 +306,12 @@ thead.thead-inverse,
   font-size: 1rem !important;
   font-weight: 400;
 }
+
+// dashboard th
+.data-table {
+  .mat-sort-header-button { // th 置中
+    margin: 0 auto;
+    line-height: 1.4rem;
+  }
+}
+

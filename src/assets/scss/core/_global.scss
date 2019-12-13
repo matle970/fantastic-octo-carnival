@@ -1,9 +1,20 @@
 $dashboard-bg: #FFF;
 
+
+
 // number font type
 
 .number-font {
   font-family: $font-family-Number;
+}
+
+
+// chart box
+
+.all-charts-blcok {
+  .apexcharts-canvas {
+    box-shadow: 0 5px 5px rgba(0,0,0, 0.085) !important;
+  }
 }
 
 
@@ -15,10 +26,11 @@ $pretty-text-selection: #fae8afd8;
 $underline-color: #fafaf6;
 
 
+
 a.underline {
-  color: $brand-success;
+  color: $brand-success !important;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   @include pretty-text-underline-selection($pretty-text-selection);
   @include pretty-text-underline($pretty-text-width,$underline-color,$pretty-text-hover)
 }
@@ -85,10 +97,33 @@ $tag-red: #c00000;
   margin-top:8px;
 }
 
-// notifications
+.card {
+  .card-header {
+    font-weight: 700;
+    color:#000;
+  }
+  .card-title {
+    vertical-align: middle;
+    &::before {
+      content:'';
+      width:1px;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .title-name {
+      display: inline-block;
+      vertical-align: middle;
+    }
 
+  }
+}
+
+
+// notifications
 .has-notification-icon {
   position: relative;
+  height: 42px;;
   .notifications {
     top: -5px;
     position: relative;
@@ -127,6 +162,51 @@ $tag-red: #c00000;
 
   }
 
+}
+
+
+// identity tag
+
+// identity style tag
+$identityTagBg: #f44336;
+$identityTagBorder: #f44336;
+$identityTagColor: #FFF;
+
+.identity-tag {
+  font-size: 12px;
+  min-width:52px;
+  text-align: center !important;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  padding: 0;
+  margin: 2px 16px 2px 2px;
+  background-color: $identityTagBg;
+  border-color: $identityTagBorder;
+  color: $identityTagColor;
+
+  &::after, &::before {
+    content: "";
+    position: absolute;
+  }
+  &::after {
+    height: 4px;
+    width: 4px;
+    left: -5px;
+    top: 50%;
+    margin-top: -2px;
+    border-radius: 100%;
+    background-color: currentColor;
+    color: #FFF;
+  }
+  &::before {
+    border: 8px solid transparent;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    border-right-color: inherit;
+  }
 }
 
 

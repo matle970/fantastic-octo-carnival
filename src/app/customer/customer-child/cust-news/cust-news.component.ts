@@ -1,10 +1,7 @@
-import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, SimpleChange, Output, EventEmitter } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { BaseComponent } from 'src/app/base/base.component';
-import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
-import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
-import { ModalService } from 'src/app/services/common-services/modal.service';
+
 
 
 import { NewsService } from 'src/app/services/customer/cust-news/news.service';
@@ -21,7 +18,6 @@ export class NewsComponent extends BaseComponent implements OnInit {
 
     constructor(
         private newsService: NewsService,
-        private modalService: ModalService,
         private dialogService: DialogService,
         public dialog: MatDialog,
     ) {
@@ -46,7 +42,19 @@ export class NewsComponent extends BaseComponent implements OnInit {
     // 最近查詢日期
     LastDate: Date;
 
+    // text
+    text = this.newsService.baseService.gettextservice.custnewstext;
+    news_Title: string = this.text.cust_news.news_Title;
+    date_Title: string = this.text.cust_news.date_Title;
+    title_Title: string = this.text.cust_news.title_Title;
+    bankinfo_Title: string = this.text.cust_news.bankinfo_Title;
+    last_Search: string = this.text.cust_news.last_Search;
+    recent_Search: string = this.text.cust_news.recent_Search;
+    valChange: string = this.text.cust_news.valChange;
+    totalChange: string = this.text.cust_news.totalChange;
+
     ngOnInit() {
+
         this.getNewsDate();
     }
 
@@ -57,8 +65,19 @@ export class NewsComponent extends BaseComponent implements OnInit {
         this.LastDate = this.newsService.LastDate;
     }
 
-    openDialog(id: number, wide?: boolean, itemId?: string) {
-        this.dialogService.openDialog(id, wide, itemId);
+    openDialog(id: number, wide?: boolean, datatype?: string, itemId?: string) {
+        let data: object;
+        let title: string;
+        switch (datatype) {
+            case 'news':
+                data = this.newsService._newsSources;
+                title = this.news_Title;
+                break;
+            case 'bankinfo':
+                data = this.newsService._banksSources;
+                title = this.bankinfo_Title;
+        }
+        this.dialogService.openDialog(id, wide, title, data, itemId);
     }
 
 }

@@ -13,11 +13,18 @@ export class GettextService {
     // custbaseinfo_text
     private _custbaseinfotext: any = require('src/app/objects/text/cust-baseinfo-text.json');
 
+    // custnews_text
+    private _custnewstext: any = require('src/app/objects/text/cust-news-text.json');
+
     get text() {
         return this._text;
     }
 
     get custbaseinfotext() {
         return this._custbaseinfotext;
+    }
+
+    get custnewstext() {
+        return this._custnewstext;
     }
 }

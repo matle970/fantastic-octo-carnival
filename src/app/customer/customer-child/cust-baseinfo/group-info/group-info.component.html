@@ -3,7 +3,7 @@
 
     <!-- 集團資訊 -->
   <div class="card card-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
           <h5 class="card-title ">集團資訊
             <span class="badge float-right">
                 貢獻度資料期間 : 2018/12 ~ 2019/07
@@ -65,7 +65,7 @@
 
   <!-- 集團額度使用情形 -->
   <div class="card card-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
           <h5 class="card-title ">
             集團額度使用情形
           </h5>
@@ -73,7 +73,7 @@
       <div class="card-body">
 
         <div class="table-mat-list">
-            <table class="table m-0 p-0 table-hover table-sticky"
+            <table class="table m-0 p-0 table-hover table-sticky table-bordered"
             mat-table [dataSource]="groupSources">
               <ng-container matColumnDef="cus_id">
                 <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef> 客戶 ID</th>
