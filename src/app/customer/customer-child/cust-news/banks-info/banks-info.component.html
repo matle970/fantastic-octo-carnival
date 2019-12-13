@@ -3,7 +3,7 @@
 
   <!-- 集團資訊 -->
   <div class="card card-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
           <h5 class="card-title ">銀行同業
             <span class="badge float-right">
                 {{ PreDate | dateFormat }} VS. {{ LastDate | dateFormat }}
@@ -37,7 +37,7 @@
                   <tbody>
                    <tr *ngFor="let bank of banksInfo">
                      <td>{{bank.bankName}}</td>
-                     
+
                      <td>{{ bank.PreDateInfo.amount | currency:'':'':'1.0-0' }}</td>
                      <td>{{ bank.PreDateInfo.total |  currency:'':'':'1.0-0' }}</td>
                      <td>{{ bank.PreDateInfo.guarantee}}</td>

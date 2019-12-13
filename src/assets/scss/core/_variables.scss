@@ -50,7 +50,8 @@ $container-max-widths: (
   xl: 100%
 ) ;
 
-
+$grid-columns:                12 !default;
+$grid-gutter-width:           30px !default;
 
 @import "variables/layout";
 @import "variables/menu";

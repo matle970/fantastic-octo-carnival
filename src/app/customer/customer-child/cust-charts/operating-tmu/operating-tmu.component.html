@@ -4,7 +4,7 @@
   <div class="col-12 col-lg-5 col-md-3 col-xs-12">
     <!--TMU chart -->
     <div class="card card-table card-chart-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
         <h5 class="card-title ">TMU 貢獻度
           <span class="badge float-right">
             (單位：新台幣仟元)
@@ -19,16 +19,16 @@
         </div>
 
         <div class="tmu-chart-block">
-          <apx-chart #chartTmu [chart]="TmuData.chart" 
+          <apx-chart #chartTmu [chart]="TmuData.chart"
             [dataLabels]="TmuData.dataLabels"
-            [plotOptions]="TmuData.plotOptions" 
-            [stroke]="TmuData.stroke" 
+            [plotOptions]="TmuData.plotOptions"
+            [stroke]="TmuData.stroke"
             [series]="TmuData.series"
-            [labels]="TmuData.labels" 
-            [colors]="TmuData.colors" 
+            [labels]="TmuData.labels"
+            [colors]="TmuData.colors"
             [legend]="TmuData.legend"
-            [responsive]="TmuData.responsive" 
-            [tooltip]="TmuData.tooltip" 
+            [responsive]="TmuData.responsive"
+            [tooltip]="TmuData.tooltip"
             [noData]="TmuData.noData"
             [dataLabels]="{enabled: false}"></apx-chart>
         </div>
@@ -44,7 +44,7 @@
 
     <!-- 金融交易額度-->
     <div class="card card-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
         <h5 class="card-title clearfix">
           金融交易額度
           <span class="badge float-right"> ( 單位：美金仟元 ) </span>
@@ -53,7 +53,7 @@
       <div class="card-body">
 
         <div class="table-mat-list">
-          <table class="table m-0 p-0 table-hover table-sticky">
+          <table class="table m-0 p-0 table-hover table-sticky table-bordered">
             <thead>
               <tr>
                 <th>額度/帳號ID</th>
@@ -90,7 +90,7 @@
 
     <!-- 投資型商品-->
     <div class="card card-table">
-      <div class="card-header card-header-primary">
+      <div class="card-header">
         <h5 class="card-title clearfix">
           投資型商品
           <span class="badge float-right"> ( 單位：台幣仟元 ) </span>
@@ -99,7 +99,7 @@
       <div class="card-body">
 
         <div class="table-mat-list  down-table">
-          <table class="table m-0 p-0 table-hover table-sticky person-table">
+          <table class="table m-0 p-0 table-hover table-sticky table-bordered person-table">
             <thead>
               <tr>
                 <th>商品類別</th>

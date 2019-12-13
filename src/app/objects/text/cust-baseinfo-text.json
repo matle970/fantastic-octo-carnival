@@ -34,5 +34,15 @@
     "資顧",
     "TMU",
     "其他"
-  ]
+  ],
+
+  "stockcode_text": "股票代號",
+  "capitalamt_text": "資本額",
+  "realcapitalamt_text": "實收資本額",
+  "establishmentdate_text": "核准設立日期",
+  "chiefname_text": "董事長",
+  "registeraddress_text": "註冊地址",
+  "residenceaddress_text": "主要營業地址",
+  "address_text": "公司地址",
+  "personincharge_text": "負責人"
 }
