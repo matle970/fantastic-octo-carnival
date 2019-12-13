@@ -6,7 +6,7 @@ import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class NewsService {
   _newsSources: any;
@@ -14,7 +14,7 @@ export class NewsService {
   _PreDate: any;
   _LastDate: any;
 
-  urlList =[
+  urlList = [
     {
       'url': this.baseService.geturlservice.URL.NEWS_NEWS_DETAIL,
       'dtoRequset': CommonRequest,
@@ -29,25 +29,24 @@ export class NewsService {
 
 
   constructor(
-    private baseService: BaseService,
+    public baseService: BaseService,
     private customerInfo: CustomerIdService) {
-
   }
 
   sendRquest() {
-    for (let i = 0; i < this.urlList.length; i++ ) {
+    for (let i = 0; i < this.urlList.length; i++) {
       this.baseService.httpservice.sendRequestAsync(
-        this.urlList[i].url, 
+        this.urlList[i].url,
         this.urlList[i].dtoRequset,
         this.urlList[i].dtoResponse).then((data: any) => {
-        if ( data.header.returnCode === '0000' && i === 0) {
-          this._newsSources = data.body.newsList;
-        } else if ( data.header.returnCode === '0000' && i === 1 ) {
-          this._PreDate = data.body.PreDate;
-          this._LastDate = data.body.LastDate;
-          this._banksSources = data.body.banksList;
-        }
-      }, (err) => { });
+          if (data.header.returnCode === '0000' && i === 0) {
+            this._newsSources = data.body.newsList;
+          } else if (data.header.returnCode === '0000' && i === 1) {
+            this._PreDate = data.body.PreDate;
+            this._LastDate = data.body.LastDate;
+            this._banksSources = data.body.banksList;
+          }
+        }, (err) => { });
     }
   }
 
@@ -64,7 +63,7 @@ export class NewsService {
   }
 
   get LastDate() {
-    return new Date(this._LastDate * 1000) ;
+    return new Date(this._LastDate * 1000);
   }
 
 

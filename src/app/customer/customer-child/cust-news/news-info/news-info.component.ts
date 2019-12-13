@@ -2,6 +2,7 @@ import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/cor
 import { BaseComponent } from 'src/app/base/base.component';
 import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { NewsService } from 'src/app/services/customer/cust-news/news.service';
 declare interface NewsContent {
   id: string;
   paper: string;
@@ -19,7 +20,7 @@ declare interface NewsContent {
 })
 
 
-export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChanges {
+export class NewsInfoComponent extends BaseComponent implements OnInit, OnChanges {
   @Input() content: any;
 
   nowNewsId: string;
@@ -35,9 +36,13 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
   nowNews: NewsContent;
 
 
-  constructor() {
+  constructor(private newsService: NewsService) {
     super();
   }
+
+  // text
+  text = this.newsService.baseService.gettextservice.custnewstext;
+  public_Opinion_Analysis = this.text.news_info.public_Opinion_Analysis;
 
   ngOnInit() {
     this.sendRquest();
@@ -48,9 +53,9 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
     const nthis = this;
 
     if (changes.content.currentValue.item_id) {
-      setTimeout(function() {
+      setTimeout(function () {
         nthis.getContent();
-      }, 100 );
+      }, 100);
     }
   }
 
@@ -59,18 +64,18 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
       this.newsUrl.url,
       this.newsUrl.dtoRequset,
       this.newsUrl.dtoResponse).then((data: any) => {
-          if (data.header.returnCode === '0000') {
-            this.newsList = data.body.newsList;
-          } else {
+        if (data.header.returnCode === '0000') {
+          this.newsList = data.body.newsList;
+        } else {
 
-          }
-          // 預設出現第一筆
-          this.getNownews(this.newsList[0].id);
+        }
+        // 預設出現第一筆
+        // this.getNownews(this.newsList[0].id);
 
-    }, (err) => {
+      }, (err) => {
 
 
-    });
+      });
 
   }
 
@@ -81,14 +86,14 @@ export class NewsInfoComponent extends BaseComponent  implements OnInit, OnChang
 
 
 
-  selectNews (id: string) {
+  selectNews(id: string) {
     this.nowNewsId = id;
     this.getNownews(id);
   }
 
-  getNownews (id: string) {
+  getNownews(id: string) {
     this.nowNewsId = id;
-    this.nowNews = this.newsList.find(function(item) {
+    this.nowNews = this.newsList.find(function (item) {
       return item.id === id;
     });
 
