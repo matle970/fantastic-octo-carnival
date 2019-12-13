@@ -6,6 +6,10 @@
 
 //new
 $card-text-color: black;
+$table-th-bg: #009F41;
+$table-th-color: #FFF;
+$total-th-color: #FFF;
+$total-th-bg: #76BC21;
 
 .card {
   border: 0;
@@ -84,10 +88,38 @@ $card-text-color: black;
     .table-mat-list {
       table {
         height: auto;
-        min-height: 200px;
+        min-height: 40px;
         max-height: 450px;
+        width:100%;
+        margin:0 auto !important;
         thead {
           background: rgba(255, 255, 255, 0.35);
+          th {
+            white-space: nowrap;
+            text-align: center;
+            background: $table-th-bg;
+            color:$table-th-color !important;
+            font-weight: 700;
+            padding:2px !important;
+            height: auto !important;
+            min-height: 40px;
+            line-height: 40px;
+
+          }
+        }
+        th,td {
+          text-align:center;
+        }
+        tfoot {
+          font-weight: 700;
+          th {
+            background: #76BC21;
+            color:#FFF;
+          }
+          tr,td {
+            background:#EEE;
+            color:#009F41;
+          }
         }
       }
 
@@ -207,7 +239,7 @@ $card-text-color: black;
     &.bg-primary,
     &.card-rotate.bg-primary .front,
     &.card-rotate.bg-primary .back{
-      background: linear-gradient(60deg, $green-400, $green-600);
+      background: linear-gradient(60deg, $green-600, $green-400);
     }
     .card-header-info .card-icon,
     .card-header-info .card-text,
@@ -413,6 +445,7 @@ $card-text-color: black;
 
     .card-title{
       margin-bottom: 3px;
+      font-weight: 700;
     }
 
     .card-category{

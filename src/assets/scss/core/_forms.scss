@@ -379,12 +379,12 @@ fieldset[disabled] .form-group .form-control{
 .has-success{
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
   .mat-form-field-empty.mat-form-field-label{
-    color: #4caf50;
+    color: $dark-cathy-green;
   }
   &.mat-focused{
     .mat-input-underline{
       .mat-input-ripple{
-        background-color: #4caf50;
+        background-color: $dark-cathy-green;
       }
     }
   }

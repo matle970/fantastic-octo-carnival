@@ -62,5 +62,11 @@ $cathy-app-theme: mat-light-theme($cathy-app-primary, $cathy-app-accent, $cathy-
 }
 
 
+.mat-cell:first-child,
+.mat-footer-cell:first-child,
+.mat-header-cell:first-child {
+    padding-left: 1px !important;
+}
+
 
 
