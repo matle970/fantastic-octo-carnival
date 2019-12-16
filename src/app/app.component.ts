@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
 
     minute = 10;    //timeout minute
-    time = this.minute * 600000;
+    time = this.minute * 60000;
 
     /**
      * Jewel
