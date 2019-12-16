@@ -54,6 +54,12 @@ export class DashboardComponent implements OnInit, OnChanges {
         ASC: '1'
     };
 
+
+    public loadingStatus: boolean;
+    public statusCode: boolean;
+    public hideBlock: boolean;
+    public hasResult: boolean;
+    public nodata: string;
     //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,

@@ -1,14 +1,13 @@
 <div class="main-content mt-3">
 	<div class="container-fluid">
 		<div class="d-inline-block float-right">
+
 			<div class="d-inline-block">
-				<app-filter [datalist]="dataList"
-					(referBranchData)="onFilterReferBrandChanged($event)"
-					(wmBranchData)="onFilterWMBrandChanged($event)"
-					(filterData) = "onFilterDataChanged($event)"
-				>
+				<app-filter [datalist]="dataList" (referBranchData)="onFilterReferBrandChanged($event)"
+					(wmBranchData)="onFilterWMBrandChanged($event)" (filterData)="onFilterDataChanged($event)">
 				</app-filter>
 			</div>
+
 			<div class="d-inline-block dashboard-top">
 				<div class="date-block">
 					<span class=" mr-1">
@@ -17,7 +16,7 @@
 					<span class="mx-1">
 						∣
 					</span>
-					<span class=" mr-1">
+					<span class="mr-1">
 						貢獻度資料期間： 2018/12 ~ 2019/07
 					</span>
 					<span class="mx-1">
@@ -33,394 +32,249 @@
 		<div>
 			<div class="card data-card shadow-lg">
 				<app-water-print *ngIf="!loadingStatus"></app-water-print>
-				<!-- <div class="card-header filter-search">
-                  <app-filter [datalist]="dataSource"></app-filter>
-              </div> -->
-
 				<div class="card-body" *ngIf="loadingStatus">
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
-					<div class="loading-height">
-						<app-loading></app-loading>
-					</div>
+					<!--
+					<div class="data-table">
+						<app-loading *ngIf="loadingStatus"></app-loading>
+						<app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
+					</div>-->
 				</div>
-				<div class="card-body" *ngIf="!loadingStatus">
+				<div class="card-body" *ngIf="!hideBlock">
 					<div class="row data-info">
 						<div class="col-12">
-							<h3 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2">
-								經管名單列表
+							<h3
+								class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 pr-3 clearfix">
+								<span class="title-name d-inline-block">
+									經管名單列表
+								</span>
 								<!-- 關鍵提醒 -->
-								<app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
+								<div class="d-inline-block float-right">
+									<app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
+								</div>
+
 							</h3>
 						</div>
-
-					</div>
-					<div class="data-table mt-3">
-						<table class="table m-0 p-0 table-hover table-sticky" (matSortChange)="sortData($event)"
-							mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
-							<ng-container matColumnDef="ao">
-								<th class="text-nowrap text-left pr-2 min-130" mat-header-cell mat-sort-header
-									*matHeaderCellDef [ngClass]="{
-                                'hidden-item': !supervisor ? true : false
-                            }">
-									經管 AO
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'ao'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-left" mat-cell *matCellDef="let element" [ngClass]="{
-                                'hidden-item': !supervisor ? true : false
-                            }">
-									<span class="text-ellipsis" [matTooltip]="element.ao" matTooltipPosition="above">
-										{{element.ao}}
-									</span>
-								</td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef [ngClass]="{
-                                'hidden-item': !supervisor ? true : false
-                            }"> Total </td>
-							</ng-container>
-							<ng-container matColumnDef="group_name">
-								<th class="text-nowrap text-left pr-2 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									集團名稱
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'group_name'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-
-								</th>
-								<td class="text-left" mat-cell *matCellDef="let element">
-									<span class="text-ellipsis" [matTooltip]="element.group_name"
-										matTooltipPosition="above">
-										{{element.group_name}}
-									</span>
-								</td>
-								<!--<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>-->
-								<td class="colFooter" mat-footer-cell *matFooterCellDef>
-									<span [hidden]="!supervisor">
-										-
-									</span>
-									<span [hidden]="supervisor">
-										Total
-									</span>
-								</td>
-							</ng-container>
-							<ng-container matColumnDef="cus_name">
-								<th class="text-nowrap text-left pr-2" mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									客戶名稱
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'cus_name'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-
-								</th>
-								<td class="text-left" mat-cell *matCellDef="let element">
-									<a href="#" routerLink="/content/customer" class="underline text-ellipsis-name mr-2"
-										[matTooltip]="element.cus_name" matTooltipPosition="above">
-										{{element.cus_name}}
-									</a>
-									<div class="d-block">
-										<span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above"
-											*ngIf="element.tag.includes(1)">
-											授
-										</span>
-										<span class="mt-1 tag tag-blue" matTooltip="企網銀" matTooltipPosition="above"
-											*ngIf="element.tag.includes(2)">
-											網
-										</span>
-										<span class="mt-1 tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above"
-											*ngIf="element.tag.includes(3)">
-											薪
-										</span>
-
-
-										<span class="mt-1 tag tag-orange" matTooltip="集團核心" matTooltipPosition="above"
-											*ngIf="element.tag.includes(4)">
-											核
-										</span>
-										<span class="mt-1 tag tag-red" matTooltip="黑名單" matTooltipPosition="above"
-											*ngIf="element.tag.includes(5)">
-											黑
-										</span>
-
-									</div>
-								</td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
-							</ng-container>
-							<ng-container matColumnDef="cus_id">
-								<th class="text-nowrap text-right pr-2" mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									客戶ID
-								</th>
-								<td class="text-right" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
-							</ng-container>
-							<ng-container matColumnDef="msr">
-								<th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									MSR
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'msr'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.msr}}
-								</td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
-							</ng-container>
-							<ng-container matColumnDef="rorwa">
-								<th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									RORWA
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'rorwa'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-three" mat-cell *matCellDef="let element">
-									{{element.rorwa}}
-								</td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
-							</ng-container>
-							<ng-container matColumnDef="raroc">
-								<th class="text-nowrap text-right pr-2 min-70 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									RAROC
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-three" mat-cell *matCellDef="let element"> {{element.raroc}}
-								</td>
-								<td class="colFooter" mat-footer-cell *matFooterCellDef> - </td>
-							</ng-container>
-
-
-							<ng-container matColumnDef="last_year_contribution">
-								<th class="text-nowrap text-right pr-2 min-100  " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									去年度<br>累計貢獻度
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'last_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-two" mat-cell *matCellDef="let element">
-									{{element.last_year_contribution | currency:'':'':'1.0-0'}}
-								</td>
-								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
-									{{ calculateTotal("last_year_contribution") |  currency:'':'':'1.0-0'}}</td>
-							</ng-container>
-							<ng-container matColumnDef="this_year_contribution">
-								<th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									今年度<br>累計貢獻度
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'this_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-two" mat-cell *matCellDef="let element">
-									{{element.this_year_contribution | currency:'':'':'1.0-0' }}
-								</td>
-								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
-									{{ calculateTotal("this_year_contribution")  |  currency:'':'':'1.0-0'}} </td>
-							</ng-container>
-							<ng-container matColumnDef="deposit">
-								<th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									存款餘額
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'deposit'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-one" mat-cell *matCellDef="let element">
-									{{element.deposit | currency:'':'':'1.0-0' }}
-								</td>
-								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
-									{{ calculateTotal("deposit")  |  currency:'':'':'1.0-0'}} </td>
-							</ng-container>
-							<ng-container matColumnDef="load_balance">
-								<th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									放款餘額
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'load_balance'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-one" mat-cell *matCellDef="let element">
-									{{element.load_balance | currency:'':'':'1.0-0' }}
-								</td>
-								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
-									{{ calculateTotal("load_balance")  |  currency:'':'':'1.0-0'}} </td>
-							</ng-container>
-
-							<ng-container matColumnDef="trade_balance">
-								<th class="text-nowrap text-right pr-2 min-100 " mat-sort-header mat-header-cell
-									*matHeaderCellDef>
-									貿融餘額
-									<app-column-toggle
-										[app-column-toggle]="{ isColumn: 'trade_balance'== nowOrder.id , asc: nowOrder.ASC }">
-									</app-column-toggle>
-								</th>
-								<td class="text-right bg-one" mat-cell *matCellDef="let element">
-									{{element.trade_balance | currency:'':'':'1.0-0'}}
-								</td>
-								<td class="text-right colFooter" mat-footer-cell *matFooterCellDef>
-									{{ calculateTotal("trade_balance")  |  currency:'':'':'1.0-0'}}
-								</td>
-							</ng-container>
-							<tr mat-header-row *matHeaderRowDef="tableThead; sticky: true"></tr>
-							<tr mat-row *matRowDef="let row; columns: tableThead;"></tr>
-							<tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
-						</table>
 					</div>
 
-					<!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
-					<!--<mat-paginator #paginator class="text-h3" [length]="totalDataCount" [pageIndex]="0" [pageSize]="10"
-						[pageSizeOptions]="[5, 10, 15]" (page)="pageChange($event)" showFirstLastButtons>
-					</mat-paginator>-->
-					<mat-paginator #paginator class="text-h3" [length]="totalDataCount" [pageIndex]="0" [pageSize]="70"
-						 (page)="pageChange($event)" showFirstLastButtons>
-					</mat-paginator>
 
 
-					<!-- 改用 material table 故以下的code hide  -->
-					<div *ngIf="false">
-						<table class="table  table-striped">
-							<thead class="text-primary text-right">
-								<th class="py-3 px-1" [ngClass]="{
-                            'text-left pr-2': (thHead.id=='ao' || thHead.id == 'cus_name' || thHead.id == 'group_name'),
-                            'min-130': (thHead.id=='ao' || thHead.id == 'cus_name'),
-                            'min-70':(thHead.id=='msr'|| thHead.id == 'rorwa' || thHead.id == 'raroc')}"
-									*ngFor="let thHead of tableThList" (click)="orderByThis(thHead.id)">
+					<!-- 列表 + paginator  -->
+					<div class="m-0 p-0">
+						<div class="data-table">
 
-									<span class="d-inline-block "
-										*ngIf="(thHead.name !== '去年度累計貢獻度' && thHead.name !== '今年度累計貢獻度')">
-										{{thHead.name}}
-									</span>
-									<span class="th-width-min" *ngIf="thHead.name == '去年度累計貢獻度' ">
-										去年度<br>累計貢獻度
-									</span>
-									<span class="th-width-min" *ngIf="thHead.name == '今年度累計貢獻度' ">
-										今年度<br>累計貢獻度
-									</span>
-
-									<span class="order" *ngIf="thHead.id == nowOrder.id; else noOrder">
-										<i class="material-icons" [ngClass]="{'not-active': !nowOrder.ASC}">
-											arrow_drop_up
-										</i>
-										<i class="material-icons not-active" [ngClass]="{'not-active': nowOrder.ASC}">
-											arrow_drop_down
-										</i>
-									</span>
-									<ng-template #noOrder>
-										<span class="order">
-											<i class="material-icons not-active">
-												arrow_drop_up
-											</i>
-											<i class="material-icons not-active">
-												arrow_drop_down
-											</i>
-										</span>
-									</ng-template>
-								</th>
-							</thead>
-							<tbody>
-								<tr *ngFor="let item of dataSource">
-									<td class="text-left  pr-4 ">
-										<span class="text-ellipsis" [matTooltip]="item.ao" matTooltipPosition="above">
-											{{item.ao}}
+							<table class="table m-0 p-0 table-hover table-sticky" (matSortChange)="sortData($event)"
+								mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
+								<ng-container matColumnDef="ao">
+									<th class="text-nowrap min-130" mat-header-cell mat-sort-header *matHeaderCellDef
+										[ngClass]="{
+											'hidden-item': !supervisor ? true : false
+										}">
+										經管 AO
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'ao'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class="" mat-cell *matCellDef="let element" [ngClass]="{
+											'hidden-item': !supervisor ? true : false
+										}">
+										<span class="text-ellipsis">
+											{{element.ao}}
 										</span>
 									</td>
-
-									<td class="text-left  pr-4">
-										<span class="text-ellipsis" [matTooltip]="item.group_name"
-											matTooltipPosition="above">
-											{{item.group_name}}
+									<td mat-footer-cell *matFooterCellDef [ngClass]="{
+											'hidden-item': !supervisor ? true : false
+										}"> Total </td>
+								</ng-container>
+								<ng-container matColumnDef="group_name">
+									<th class="text-nowrap " mat-sort-header mat-header-cell *matHeaderCellDef>
+										集團名稱
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'group_name'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class="" mat-cell *matCellDef="let element">
+										<span class="text-ellipsis">
+											{{element.group_name}}
 										</span>
-
 									</td>
-
-									<td class="text-left  pr-4">
-										<a href="#" class="underline text-ellipsis-name mr-2"
-											[matTooltip]="item.cus_name" matTooltipPosition="above">
-											{{item.cus_name}}</a>
+									<td class="colFooter" mat-footer-cell *matFooterCellDef>
+										<span [hidden]="!supervisor">
+											-
+										</span>
+										<span [hidden]="supervisor">
+											Total
+										</span>
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="cus_name">
+									<th class="text-nowrap  pr-2" mat-sort-header mat-header-cell *matHeaderCellDef>
+										客戶名稱
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'cus_name'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class="text-left" mat-cell *matCellDef="let element">
+										<a href="#" routerLink="/content/customer" class="underline text-ellipsis-name mr-2">
+											{{element.cus_name}}
+										</a>
 										<div class="d-block">
 											<span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above"
-												*ngIf="item.tag.includes(1)">
+												*ngIf="element.tag.includes(1)">
 												授
 											</span>
 											<span class="mt-1 tag tag-blue" matTooltip="企網銀" matTooltipPosition="above"
-												*ngIf="item.tag.includes(2)">
+												*ngIf="element.tag.includes(2)">
 												網
 											</span>
 											<span class="mt-1 tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above"
-												*ngIf="item.tag.includes(3)">
+												*ngIf="element.tag.includes(3)">
 												薪
 											</span>
 
 
 											<span class="mt-1 tag tag-orange" matTooltip="集團核心"
-												matTooltipPosition="above" *ngIf="item.tag.includes(4)">
+												matTooltipPosition="above" *ngIf="element.tag.includes(4)">
 												核
 											</span>
 											<span class="mt-1 tag tag-red" matTooltip="黑名單" matTooltipPosition="above"
-												*ngIf="item.tag.includes(5)">
+												*ngIf="element.tag.includes(5)">
 												黑
 											</span>
 
-
-
 										</div>
 									</td>
+									<td mat-footer-cell *matFooterCellDef> - </td>
+								</ng-container>
+								<ng-container matColumnDef="cus_id">
+									<th class="text-nowrap text-center" mat-header-cell *matHeaderCellDef>
+										客戶ID
+									</th>
+									<td class="" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
+									<td mat-footer-cell *matFooterCellDef> - </td>
+								</ng-container>
+								<ng-container matColumnDef="msr">
+									<th class="text-nowrap min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										MSR
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'msr'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-three" mat-cell *matCellDef="let element"> {{element.msr}} </td>
+									<td mat-footer-cell *matFooterCellDef> - </td>
+								</ng-container>
+								<ng-container matColumnDef="rorwa">
+									<th class="text-nowrap min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										RORWA
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'rorwa'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-three" mat-cell *matCellDef="let element">
+										{{element.rorwa}}
+									</td>
+									<td mat-footer-cell *matFooterCellDef> - </td>
+								</ng-container>
+								<ng-container matColumnDef="raroc">
+									<th class="text-nowrap min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										RAROC
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class="bg-three" mat-cell *matCellDef="let element"> {{element.raroc}} </td>
+									<td mat-footer-cell *matFooterCellDef> - </td>
+								</ng-container>
 
-									<td class="text-right pr-4">
-										{{item.cus_id}}
-									</td>
-									<td class="text-right pr-4 bg-three">
-										{{item.msr}}
-									</td>
-									<td class="text-right pr-4 bg-three">
-										{{item.rorwa}}
-									</td>
-									<td class="text-right pr-4 bg-three">
-										{{item.raroc}}
-									</td>
-									<td class="text-right pr-4 bg-two">
-										<!-- 如果要show $ 改為 currency:'':'symbol':'1.0-0' -->
-										{{item.last_year_contribution | currency:'':'':'1.0-0' }}
-									</td>
-									<td class="text-right pr-4 bg-two">
-										{{item.this_year_contribution | currency:'':'':'1.0-0'}}
-									</td>
-									<td class="text-right pr-4 bg-one">
-										{{item.deposit | currency:'':'':'1.0-0'}}
-									</td>
-									<td class="text-right pr-4  bg-one">
-										{{item.load_balance | currency:'':'':'1.0-0'}}
-									</td>
-									<td class="text-right pr-4  bg-one">
-										{{item.trade_balance | currency:'':'':'1.0-0'}}
-									</td>
 
+								<ng-container matColumnDef="last_year_contribution">
+									<th class="text-nowrap min-100  " mat-sort-header mat-header-cell *matHeaderCellDef>
+										去年度<br>累計貢獻度
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'last_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-two" mat-cell *matCellDef="let element">
+										{{element.last_year_contribution | currency:'':'':'1.0-0'}}
+									</td>
+									<td class="" mat-footer-cell *matFooterCellDef>
+										{{ calculateTotal("last_year_contribution")  |  currency:'':'':'1.0-0'}}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="this_year_contribution">
+									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										今年度<br>累計貢獻度
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'this_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-two" mat-cell *matCellDef="let element">
+										{{element.this_year_contribution | currency:'':'':'1.0-0' }}
+									</td>
+									<td class="" mat-footer-cell *matFooterCellDef>
+										{{ calculateTotal("this_year_contribution")  |  currency:'':'':'1.0-0'}}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="deposit">
+									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										存款餘額
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'deposit'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-one" mat-cell *matCellDef="let element">
+										{{element.deposit | currency:'':'':'1.0-0' }}
+									</td>
+									<td class="" mat-footer-cell *matFooterCellDef>
+										{{ calculateTotal("deposit")  |  currency:'':'':'1.0-0'}}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="load_balance">
+									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										放款餘額
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'load_balance'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
+									</th>
+									<td class=" bg-one" mat-cell *matCellDef="let element">
+										{{element.load_balance | currency:'':'':'1.0-0' }}
+									</td>
+									<td class="" mat-footer-cell *matFooterCellDef>
+										{{ calculateTotal("load_balance")  |  currency:'':'':'1.0-0'}}
+									</td>
+								</ng-container>
 
+								<ng-container matColumnDef="trade_balance">
+									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
+										貿融餘額
+										<app-column-toggle
+											[app-column-toggle]="{ isColumn: 'trade_balance'== nowOrder.id , asc: nowOrder.ASC }">
+										</app-column-toggle>
 
-								</tr>
-							</tbody>
-							<tfoot class="text-primary font-weight-bolder bg-light">
-								<th>Total <small class="text-primary">(60筆)</small></th>
-								<th>-</th>
-								<th>-</th>
-								<th>-</th>
-								<th>-</th>
-								<th>-</th>
-								<th>-</th>
-								<th>-</th>
-								<th>XXXX</th>
-								<th>XXXX</th>
-								<th>XXXX</th>
-								<th>XXXX</th>
-							</tfoot>
-						</table>
+									</th>
+									<td class=" bg-one" mat-cell *matCellDef="let element">
+										{{element.trade_balance | currency:'':'':'1.0-0'}}
+									</td>
+									<td class="" mat-footer-cell *matFooterCellDef>
+										{{ calculateTotal("trade_balance")  |  currency:'':'':'1.0-0'}}
+									</td>
+								</ng-container>
+
+								<tr mat-header-row *matHeaderRowDef="tableThead; sticky: true"></tr>
+								<tr mat-row *matRowDef="let row; columns: tableThead;"></tr>
+								<tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
+							</table>
+
+						</div>
+
+						<!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
+						<mat-paginator #paginator class="text-h3" [length]="60" [pageIndex]="0" [pageSize]="70"
+							 (page)="pageChange($event)" showFirstLastButtons>
+						</mat-paginator>
+
 					</div>
-
 
 
 				</div>
