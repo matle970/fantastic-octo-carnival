@@ -55,10 +55,6 @@ export class CompanyInfoComponent implements OnInit, OnChanges {
     ngOnInit() {
     }
 
-    getFlagClass(countryCode: string) {
-        return 'flag-icon-' + countryCode;
-    }
-
     chooseaddress(id: number) {
         this.choosenumber = id;
         switch (this.choosenumber) {

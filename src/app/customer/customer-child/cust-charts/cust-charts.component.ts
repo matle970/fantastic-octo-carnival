@@ -6,7 +6,6 @@ import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { AssetsLibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
-import { ModalService } from 'src/app/services/common-services/modal.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
 import { DialogService } from 'src/app/services/common-services/dialog.service';
@@ -43,7 +42,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
 
     constructor(
         private custchartsService: CustChartsService,
-        private modalService: ModalService,
         private dialogService: DialogService,
         public dialog: MatDialog) {
 

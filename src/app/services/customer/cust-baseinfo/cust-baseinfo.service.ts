@@ -25,6 +25,7 @@ export class CustBaseinfoService {
 
     // html text
     text = this.baseservice.gettextservice.custbaseinfotext;
+    companyinfo_text: string = this.text.companyinfo_text;
 
     urlList = [
         {
@@ -124,7 +125,6 @@ export class CustBaseinfoService {
     ContributionThisYearTotal: number;
     ChartDataseries: Array<any> = [];
     ChartDatacategories: Array<any> = [];
-
 
 
     sendRquest() {
@@ -246,5 +246,30 @@ export class CustBaseinfoService {
                 data: contribution.data.thiscontri.contribution
             }
         ];
+    }
+
+    openDialog(modalId: number, wide?: boolean) {
+        let title: string;
+        let data: object;
+        switch (modalId) {
+            case 3:
+                title = this.companyinfo_text;
+                data = this.CompanyDetail.data;
+                break;
+            case 4:
+                data = this.GroupDetail.data;
+                break;
+            case 5:
+                // 個人關聯戶
+                break;
+            case 6:
+                data = this.ManageDetail.data;
+                break;
+            case 7:
+                data = this.ContributionDetail.data;
+                break;
+        }
+
+        this.baseservice.dialogservice.openDialog(modalId, wide, title, data);
     }
 }
