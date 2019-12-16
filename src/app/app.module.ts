@@ -40,7 +40,6 @@ import { SharedItemModule } from './objects/shared-item/shared-item.module';
 
 // common-services
 import { SidebarService } from './services/common-services/sidebar.service';
-import { ModalService } from './services/common-services/modal.service';
 import { AoIdentityService } from './services/common-services/ao-identity.service';
 import { CustomerIdService } from './services/common-services/customerid.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
@@ -99,7 +98,6 @@ import { DummyDataService } from './services/common-services/dummydata.service';
     providers: [
         EnvServiceProvider,
         SidebarService,
-        ModalService,
         DatePipe,
         AoIdentityService,
         CustomerIdService,

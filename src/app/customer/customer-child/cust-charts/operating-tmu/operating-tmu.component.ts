@@ -4,7 +4,6 @@ import { BaseComponent } from 'src/app/base/base.component';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
-import { ModalService } from 'src/app/services/common-services/modal.service';
 
 
 @Component({
@@ -32,7 +31,6 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
 
     constructor(
         private custchartsService: CustChartsService,
-        private modalService: ModalService
     ) {
         super()
     }

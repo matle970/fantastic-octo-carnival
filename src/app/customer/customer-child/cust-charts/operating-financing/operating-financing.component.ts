@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { LoanDetail } from 'src/app/objects/dto/product/product-loanDetail-response';
 import { BaseComponent } from 'src/app/base/base.component';
-import { ModalService } from 'src/app/services/common-services/modal.service';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
 
 @Component({
@@ -28,7 +27,6 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
 
     constructor(
         private custchartsService: CustChartsService,
-        private modalService: ModalService
     ) {
         super();
     }
