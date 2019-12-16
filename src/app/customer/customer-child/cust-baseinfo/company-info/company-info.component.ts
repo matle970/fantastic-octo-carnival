@@ -41,6 +41,7 @@ export class CompanyInfoComponent implements OnInit, OnChanges {
 
     choosenumber: number = 2;
     keepaddress: string;
+    customername: string;
 
     constructor(
         private companyinfoService: CompanyInfoService
@@ -48,6 +49,7 @@ export class CompanyInfoComponent implements OnInit, OnChanges {
 
     ngOnChanges() {
         this.keepaddress = this.content.data.address;
+        this.customername = this.content.data.customerName;
     }
 
     ngOnInit() {

@@ -1087,7 +1087,7 @@ export class DummyData {
         },
         "body": {
             "customerId": "87878787",
-            "customerName": "千里馬股份有限公司",
+            "customerName": "草尼馬股份有限公司",
             "stockCode": "0730",
             "capitalAmt": "180,000,000",
             "realCapitalAmt": "138,629,906",

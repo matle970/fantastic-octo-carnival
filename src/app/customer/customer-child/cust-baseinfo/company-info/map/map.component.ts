@@ -16,6 +16,7 @@ interface Marker {
 export class MapComponent implements OnInit, OnChanges {
 
     @Input('keepaddress') keepaddress: string;
+    @Input('customername') customername: string;
 
     constructor() { }
 
@@ -25,7 +26,7 @@ export class MapComponent implements OnInit, OnChanges {
         var mapOptions = {
             zoom: 13,
             center: myLatlng,
-            scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+            scrollwheel: true, //we disable de scroll over the map, it is a really annoing when you scroll through page
             styles: [{
                 "featureType": "water",
                 "stylers": [{
@@ -114,6 +115,7 @@ export class MapComponent implements OnInit, OnChanges {
 
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var customername = this.customername;
 
         geocoder.geocode({ 'address': this.keepaddress }, function (results, status) {
             if (status == 'OK') {
@@ -121,7 +123,7 @@ export class MapComponent implements OnInit, OnChanges {
                 var marker = new google.maps.Marker({
                     map: map,
                     position: results[0].geometry.location,
-                    title: "WITTER股份有限公司"
+                    title: customername
                 });
                 // To add the marker to the map, call setMap();
                 marker.setMap(map);

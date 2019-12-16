@@ -31,7 +31,8 @@
                         </tr>
                         <!-- 核准設立日期 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{establishmentdate_text}}</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{establishmentdate_text}}
+                            </th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.establishmentDate}}
@@ -58,7 +59,8 @@
                         </tr>
                         <!-- 主要營業地址 -->
                         <tr (click)="chooseaddress(1)" [ngClass]="choosenumber == 1 ? 'text-primary active right' : ''">
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{residenceaddress_text}}</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{residenceaddress_text}}
+                            </th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.residenceAddress}}
@@ -95,48 +97,48 @@
                                     <!-- tags -->
                                     <div class="my-3">
                                         <ng-container *ngFor="let tag of content.data.personInCharge.tags">
-                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '酒'">
+                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '酒'">
                                                 <img src="assets/img/tags/icons8-wine-glass-48.png">
                                             </span>
                                             <span class="person-tag mr-2" matTooltip="{{campingtent_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '露營 / 登山用品'">
                                                 <img src="assets/img/tags/icons8-camping-tent-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '雪茄'">
+                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '雪茄'">
                                                 <img src="assets/img/tags/cigar.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '高爾夫'">
+                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高爾夫'">
                                                 <img src="assets/img/tags/icons8-golf-ball-80.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '遊艇'">
+                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '遊艇'">
                                                 <img src="assets/img/tags/icons8-water-transportation-48.png">
                                             </span>
                                             <span class="person-tag mr-2" matTooltip="{{dutyfree_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '免稅店 / 機場商店'">
                                                 <img src="assets/img/tags/icons8-duty-free-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '高端旅行社'">
+                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高端旅行社'">
                                                 <img src="assets/img/tags/icons8-around-the-globe-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '藝術品'">
+                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '藝術品'">
                                                 <img src="assets/img/tags/icons8-picasso-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '古董'">
+                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '古董'">
                                                 <img src="assets/img/tags/gramophone.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '陶瓷'">
+                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '陶瓷'">
                                                 <img src="assets/img/tags/icons8-pottery-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '社會菁英社團'">
+                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '社會菁英社團'">
                                                 <img src="assets/img/tags/icons8-medal-48.png">
                                             </span>
                                         </ng-container>
@@ -174,48 +176,48 @@
                                     <!-- tags -->
                                     <div class="my-3">
                                         <ng-container *ngFor="let tag of content.data.mate.tags">
-                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '酒'">
+                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '酒'">
                                                 <img src="assets/img/tags/icons8-wine-glass-48.png">
                                             </span>
                                             <span class="person-tag mr-2" matTooltip="{{campingtent_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '露營 / 登山用品'">
                                                 <img src="assets/img/tags/icons8-camping-tent-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '雪茄'">
+                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '雪茄'">
                                                 <img src="assets/img/tags/cigar.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '高爾夫'">
+                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高爾夫'">
                                                 <img src="assets/img/tags/icons8-golf-ball-80.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '遊艇'">
+                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '遊艇'">
                                                 <img src="assets/img/tags/icons8-water-transportation-48.png">
                                             </span>
                                             <span class="person-tag mr-2" matTooltip="{{dutyfree_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '免稅店 / 機場商店'">
                                                 <img src="assets/img/tags/icons8-duty-free-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '高端旅行社'">
+                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高端旅行社'">
                                                 <img src="assets/img/tags/icons8-around-the-globe-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '藝術品'">
+                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '藝術品'">
                                                 <img src="assets/img/tags/icons8-picasso-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '古董'">
+                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '古董'">
                                                 <img src="assets/img/tags/gramophone.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '陶瓷'">
+                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '陶瓷'">
                                                 <img src="assets/img/tags/icons8-pottery-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}" matTooltipPosition="above"
-                                                *ngIf="tag == '社會菁英社團'">
+                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '社會菁英社團'">
                                                 <img src="assets/img/tags/icons8-medal-48.png">
                                             </span>
                                         </ng-container>
@@ -235,7 +237,8 @@
                         <!-- 聯絡窗口 -->
                         <ng-container *ngFor="let contactPersons of content.data.contactPersons; let i = index">
                             <tr>
-                                <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{contactpersons_text}}{{i+1}}</th>
+                                <th class="table-th text-left mr-2 font-weight-bolder text-lg">
+                                    {{contactpersons_text}}{{i+1}}</th>
                                 <td class="text-left mr-2">
                                     <span>
                                         {{contactPersons.title}} {{contactPersons.name}}
@@ -252,7 +255,7 @@
         </div>
 
         <div class="col-6 col-md-6 col-sm-12">
-            <app-map [keepaddress]='keepaddress'></app-map>
+            <app-map [keepaddress]='keepaddress' [customername]='customername'></app-map>
         </div>
     </div>
 </div>
