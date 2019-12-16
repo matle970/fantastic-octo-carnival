@@ -155,13 +155,15 @@ export class DashboardComponent implements OnInit, OnChanges {
     onFilterDataChanged(filterValue) {
         this.filterArgs = filterValue;
         let filters = '';
-        this.filterJson.inputFilter.inputValue = '';
-        this.filterJson.inputFilter.inputType = 'group_name';
-        if (filterValue.names)         {
+        if (filterValue.names) {
             filters = filterValue.names.trim().toLowerCase();
 
             this.filterJson.inputFilter.inputType = filterValue.type;
             this.filterJson.inputFilter.inputValue = filters;
+        }
+        else {
+            this.filterJson.inputFilter.inputType = 'group_name';
+            this.filterJson.inputFilter.inputValue = filterValue.trim();
         }
         this.customFilterPredicate();
         
