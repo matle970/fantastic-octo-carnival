@@ -20,11 +20,11 @@
                     <ng-container *ngFor="let f of CompanyFlag; let fi = index">
                         <ng-container *ngIf="f.status">
                             <span class="tag" matTooltip="{{f.text}}" matTooltipPosition="above" [ngClass]="{
-                                'tag-green':f.id=='1',
-                                'tag-blue':f.id=='2',
-                                'tag-gold':f.id=='3',
-                                'tag-orange':f.id=='4',
-                                'tag-red':f.id=='5'}">
+                                'tag-green':f.id=='授信戶',
+                                'tag-blue':f.id=='企網銀',
+                                'tag-gold':f.id=='薪轉戶',
+                                'tag-orange':f.id=='集團核心',
+                                'tag-red':f.id=='黑名單'}">
                                 {{f.letter}}
                             </span>
                         </ng-container>
@@ -125,8 +125,8 @@
                                 <ol>
                                     <li>
                                         <p>
-                                            <em> AO 企企區中 </em>
-                                            NT81752 葉又萱
+                                            <em>{{Company.data?.aoType}} {{Company.data?.manageBranchName}}</em>
+                                            {{Company.data?.aoEmpCode}} {{Company.data?.aoEmpName}}
                                         </p>
                                     </li>
                                 </ol>
@@ -194,16 +194,22 @@
                             <div class="number-list shadow-sm p-1 h-68">
                                 <ol>
                                     <li class="d-inline-block mr-1">
-                                        <p><em class="d-inline-block"> {{debt_text}} </em>
-                                            120</p>
+                                        <p>
+                                            <em class="d-inline-block"> {{debt_text}} </em>
+                                            {{Company.data?.totalRelLiabilitiesBal}}
+                                        </p>
                                     </li>
                                     <li class="d-inline-block mr-1">
-                                        <p><em class="d-inline-block"> {{assets_text}} </em>
-                                            780</p>
+                                        <p>
+                                            <em class="d-inline-block"> {{assets_text}} </em>
+                                            {{Company.data?.totalRelAssetBal}}
+                                        </p>
                                     </li>
                                     <li class="d-inline-block mr-1">
-                                        <p><em class="d-inline-block"> {{creditcard_quota_text}} </em>
-                                            100</p>
+                                        <p>
+                                            <em class="d-inline-block"> {{creditcard_quota_text}} </em>
+                                            {{Company.data?.totalRelCreditLimit}}
+                                        </p>
                                     </li>
                                 </ol>
                             </div>

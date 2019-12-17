@@ -1069,8 +1069,13 @@ export class DummyData {
             "tcriLevel": "5",
             "customerName": "草尼馬股份有限公司",
             "industryCode": "娛樂業",
-            "compFlag": ["1", "2", "3", "4", "5"],
-            "nextReviewDate": "20201021"
+            "compFlag": ["集團核心", "授信戶", "薪轉戶", "企網銀", "黑名單"],
+            "nextReviewDate": "20201021",
+            "aoType": "AO",
+            "manageBranchName": "企企區中",
+            "aoEmpCode": "81752",
+            "aoEmpName": "葉又萱",
+            "parentCompanyId": "GP000013"
         }
     }
 
@@ -1226,8 +1231,68 @@ export class DummyData {
 
     // CB016-Composite API-基本資訊-集團資訊第一層
     // CB017-Composite API-基本資訊-集團資訊第二層
+
     // CB018-Composite API-基本資訊-經管資訊第一層
+    manage = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "psId": "NT48691",
+            "psName": "劉子齊",
+            "psBranchCode": null,
+            "psBranchDesc": "環服部",
+            "tmoId": "NT83333",
+            "tmoName": "毛芝瑩",
+            "tmoBranchCode": null,
+            "tmoBranchDesc": "金行部",
+            "wmAoId": "NT81757",
+            "wmAoName": "林祐辰",
+            "wmAoBranchCode": null,
+            "wmAoBranchDesc": "信義分行",
+            "principalWmAoId": "NT81757",
+            "principalWmAoName": "林祐辰",
+            "principalWmAoBranchCode": null,
+            "principalWmAoBranchDesc": "信義分行"
+        }
+    }
+
     // CB019-Composite API-基本資訊-經管資訊第二層
+    manageDetail = {
+        "header": {
+            "apId": "CRMLXCRM01",
+            "branchId": "00081",
+            "employeeId": "13063",
+            "clientIp": " 255.255.255.255",
+            "txnDateTime": "20190801140647462",
+            "returnCode": "0000",
+            "returnDesc": "交易成功"
+        },
+        "body": {
+            "psId": "NT48691",
+            "psName": "劉子齊",
+            "psBranchCode": null,
+            "psBranchDesc": "環服部",
+            "tmoId": "NT83333",
+            "tmoName": "毛芝瑩",
+            "tmoBranchCode": null,
+            "tmoBranchDesc": "金行部",
+            "wmAoId": "NT81757",
+            "wmAoName": "林祐辰",
+            "wmAoBranchCode": null,
+            "wmAoBranchDesc": "信義分行",
+            "principalWmAoId": "NT81757",
+            "principalWmAoName": "林祐辰",
+            "principalWmAoBranchCode": null,
+            "principalWmAoBranchDesc": "信義分行"
+        }
+    }
 
     /*
     // CB020-Composite API-基本資訊-貢獻度第一層
@@ -1575,8 +1640,16 @@ export class DummyData {
 
             // CB016-Composite API-基本資訊-集團資訊第一層
             // CB017-Composite API-基本資訊-集團資訊第二層
+
             // CB018-Composite API-基本資訊-經管資訊第一層
+            case this.URL.CUSTPROFILE_MANAGE:
+                returnData = this.manage;
+                break;
+
             // CB019-Composite API-基本資訊-經管資訊第二層
+            case this.URL.CUSTPROFILE_MANAGE_DETAIL:
+                returnData = this.manageDetail;
+                break;
 
             // CB020-Composite API-基本資訊-貢獻度第一層
             case this.URL.CUSTPROFILE_CONTRIBUTION:

@@ -173,18 +173,11 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     setData() {
         this.setCompany();
+        this.setManage();
         this.setCompanyAssociate();
         this.setContribution();
 
         this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
-    }
-
-    setCompanyAssociate() {
-        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-        // console.log('this.CompanyAssociate', this.CompanyAssociate);
-        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-
     }
 
     setCompany() {
@@ -192,6 +185,20 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
+    }
+
+    setManage() {
+        this.Manage = this.custbaseinfoService.Manage;
+        this.ManageDetail = this.custbaseinfoService.ManageDetail;
+        // console.log('this.Manage', this.Manage);
+        // console.log('this.ManageDetail', this.ManageDetail);
+    }
+
+    setCompanyAssociate() {
+        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+        // console.log('this.CompanyAssociate', this.CompanyAssociate);
+        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
     }
 
     setContribution() {
