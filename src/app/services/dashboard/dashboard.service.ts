@@ -38,7 +38,7 @@ export class DashboardService {
             this.urlList[0].url, 
             this.urlList[0].dtoRequset,
             this.urlList[0].dtoResponse);
-        if(result.body.lenth > 0)
+        if(result.body.aoData.length !== 0)
             this.customerInfo.customerId = result.body.aoData[0].id;
         this._dataList = result.body.aoData;
         return result;

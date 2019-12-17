@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FilterComponent } from '../filter/filter.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AoIdentityService } from 'src/app/services/common-services/ao-identity.service';
 
 export interface StateGroup {
 	type: string;
@@ -49,15 +50,14 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}];
 
 	stateGroupOptions: Observable<StateGroup[]>;
+	keywordValue = '';
 
 	constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, private el: ElementRef) { }
 
 	ngOnInit() {
-		this.getCookieValue();
 	}
 
 	ngOnChanges(SimpleChanges: any) {
-		this.getCookieValue();
 		if (this.keywordList) {
 			this.getKeyWordList();
 
@@ -78,6 +78,8 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	onChoose(item: any) {
 		const inputKeyword = item;
+		this.updateCookie(inputKeyword);
+
 		this.getCompleteKeyword.emit(inputKeyword);
 	}
 	onKey(event: any) {
@@ -87,12 +89,14 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 		this.getCompleteKeyword.emit(inputKeyword);
 	}
-
-	getOptionText(group) {
-		if (group)
+	displayFn(group) {
+		this.cookieValue = this.cookieService.get('cb_search_last_word');
+		if (group) {
 			return group.names;
-		else 
-			return '';
+		}
+		else if (this.cookieValue) {
+			return this.cookieValue;
+		}
 	}
 
 	getKeyWordList() {
@@ -127,18 +131,11 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 		}
 		return this.stateGroups;
 	}
-	// 如果上次有搜尋的keyword，預設出現keyword
-	getCookieValue() {
-		this.cookieValue = this.cookieService.get('cb_search_last_word');
-		const nthis = this;
 
-		if (this.cookieValue) {
-			setTimeout(() => { nthis.keyword = this.cookieValue }, 50);
-		}
-
-	}
-
-	updateCookie(value: string) {
-		this.cookieService.set('cb_search_last_word', value);
+	updateCookie(value) {
+		if(value.names)
+			this.cookieService.set('cb_search_last_word', value.names);
+		else
+			this.cookieService.set('cb_search_last_word', value);
 	}
 }

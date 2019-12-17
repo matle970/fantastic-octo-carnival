@@ -2,7 +2,7 @@
   <mat-form-field class="autocomplete-form" color="blue">
     <input #keyValue (keyup.enter)="onKey($event.target.value)" (blur)="onKey($event.target.value)"
     type="text" matInput placeholder="關鍵字搜尋" formControlName="stateGroup" [matAutocomplete]="autoGroup">
-      <mat-autocomplete #autoGroup="matAutocomplete" class="auto-list" [displayWith]="getOptionText">
+      <mat-autocomplete #autoGroup="matAutocomplete" class="auto-list" [displayWith]="displayFn.bind(this)">
         <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.type">
           <mat-option *ngFor="let name of group.names" [value]="{type: group.type, names: name}">
             <!-- {{name}} -->
