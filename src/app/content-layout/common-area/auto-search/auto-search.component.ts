@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FilterComponent } from '../filter/filter.component';
 import { CookieService } from 'ngx-cookie-service';
-import { AoIdentityService } from 'src/app/services/common-services/ao-identity.service';
 
 export interface StateGroup {
 	type: string;
@@ -50,7 +49,6 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}];
 
 	stateGroupOptions: Observable<StateGroup[]>;
-	keywordValue = '';
 
 	constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, private el: ElementRef) { }
 
@@ -73,7 +71,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	highlightFiltered(gname: string) {
 		const inputKeyword = this.stateForm.get('stateGroup').value;
-		return gname.replace(inputKeyword, `<span class="autocomplete-heighlight">${inputKeyword}</span>`);
+		return gname.replace(inputKeyword.names, `<span class="autocomplete-heighlight">${inputKeyword.names}</span>`);
 	}
 
 	onChoose(item: any) {
@@ -91,12 +89,10 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}
 	displayFn(group) {
 		this.cookieValue = this.cookieService.get('cb_search_last_word');
-		if (group) {
+		if (group)
 			return group.names;
-		}
-		else if (this.cookieValue) {
+		else if (this.cookieValue)
 			return this.cookieValue;
-		}
 	}
 
 	getKeyWordList() {
@@ -133,9 +129,9 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}
 
 	updateCookie(value) {
-		if(value.names)
-			this.cookieService.set('cb_search_last_word', value.names);
-		else
-			this.cookieService.set('cb_search_last_word', value);
+		if (value.names)
+			this.cookieService.set('cb_search_last_word', value.names, 365, '/');
+		else if (value)
+			this.cookieService.set('cb_search_last_word', value, 365, '/');
 	}
 }
