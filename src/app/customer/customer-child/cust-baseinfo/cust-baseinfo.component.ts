@@ -38,6 +38,13 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
 
+    // show status
+    public loadingStatus: boolean;
+    public identityStatus: boolean;
+    public hideBlock: boolean;
+    public hasResult: boolean;
+    public nodata: string;
+
     // response
     Company: any = {};
     CompanyDetail: any = {};
@@ -207,7 +214,6 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
         this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;
         this.ChartData.series = this.custbaseinfoService.ChartDataseries;
-    // console.log('yy',this.ChartData.series)
     }
 
     openDialog(modalId: number, wide?: boolean) {

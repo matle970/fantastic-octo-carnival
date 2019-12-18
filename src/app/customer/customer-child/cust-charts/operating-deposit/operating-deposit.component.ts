@@ -31,12 +31,8 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
     ];
 
     constructor(
-<<<<<<< HEAD
         private custchartsService: CustChartsService
         
-=======
-        private custchartsService: CustChartsService,
->>>>>>> b22537ecf4e27ce59202e38bfc9665148543f244
     ) {
         super()
     }
