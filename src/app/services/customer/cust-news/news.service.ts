@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../common-services/base/base.service';
-import { CustomerIdService } from '../../common-services/customerid.service';
-import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
-import { NewsBanklist } from 'src/app/objects/dto/custbanks/custbanks-response';
-import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { CompanyNews } from '../../../objects/dto/custnews/custnews-response';
+import { NewsBanklist } from '../../../objects/dto/custbanks/custbanks-response';
+import { CommonRequest } from '../../../objects/dto/common/common-request';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +28,7 @@ export class NewsService {
 
 
   constructor(
-    public baseService: BaseService,
-    private customerInfo: CustomerIdService) {
+    public baseService: BaseService) {
   }
 
   sendRquest() {
