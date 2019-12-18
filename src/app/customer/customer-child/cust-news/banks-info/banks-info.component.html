@@ -4,16 +4,21 @@
   <!-- 集團資訊 -->
   <div class="card card-table">
     <div class="card-header">
-      <h5 class="card-title ">{{bankinfo_Title}}
-        <span class="badge float-right">
-          {{ PreDate | dateFormat }} VS. {{ LastDate | dateFormat }}
-        </span>
+      <h5 class="card-title ">
+        <div class="row no-gutters">
+          <span class="col-6 text-left">
+            {{bankinfo_Title}}
+          </span>
+          <span class="col-6 text-right text-small">
+            {{ PreDate | dateFormat }} VS. {{ LastDate | dateFormat }}
+          </span>
+        </div>
       </h5>
     </div>
     <div class="card-body">
 
       <div class="table-mat-list">
-        <table class="table m-0 p-0 table-hover table-border table-sticky table-banks">
+        <table class="table m-0 p-0 table-hover table-border table-sticky table-banks table-bordered">
           <thead>
             <tr class="bg-th1">
               <th>{{bankinfo_Title}}</th>

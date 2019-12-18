@@ -1,29 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BaseComponent } from 'src/app/base/base.component';
-
-
-
-import { NewsService } from 'src/app/services/customer/cust-news/news.service';
-import { DialogService } from 'src/app/services/common-services/dialog.service';
+import { NewsService } from '../../../services/customer/cust-news/news.service';
+import { DialogService } from '../../../services/common-services/dialog.service';
 @Component({
     selector: 'app-cust-news',
     templateUrl: './cust-news.component.html',
     styleUrls: ['./cust-news.component.scss']
 })
 
-
-
-export class NewsComponent extends BaseComponent implements OnInit {
+export class NewsComponent implements OnInit {
 
     constructor(
         private newsService: NewsService,
         private dialogService: DialogService,
         public dialog: MatDialog,
     ) {
-        super();
         this.newsService.sendRquest();
-
     }
 
     displayedColumns = ['date', 'tag', 'title'];
@@ -71,7 +63,7 @@ export class NewsComponent extends BaseComponent implements OnInit {
         switch (datatype) {
             case 'news':
                 data = this.newsService._newsSources;
-                title = this.news_Title;
+                title = this.date_Title;
                 break;
             case 'bankinfo':
                 data = this.newsService._banksSources;

@@ -2,7 +2,8 @@
 .news-info-block {
   height: auto;
   max-height: 550px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   .news-info-list {
     height: 450px;
     padding:10px;
@@ -15,10 +16,34 @@
       .news-title {
         width: auto;
         max-width: 160px;
+        &.underline {
+          color: #009F41 !important;
+        }
       }
     }
     .btn {
       width: 95% !important;
+      &:hover {
+        .news-info-li {
+          div {
+            color: #FFF !important;
+          }
+        }
+        a.underline {
+          color:#FFF !important;
+        }
+      }
+      &.active {
+        .news-info-li {
+          div {
+            color: #FFF !important;
+          }
+        }
+        a.underline {
+          color:#FFF !important;
+        }
+
+      }
     }
   }
   .news-content {
@@ -34,7 +59,6 @@
       .grade {
         font-size: 1.8rem;
         line-height: 1.2rem;
-        width: 26px;
       }
 
     }
@@ -82,13 +106,20 @@
 @media screen and (min-width:901px) and (max-width:1400px) {
   .news-title {
     width: auto;
-    max-width: 180px!important;
+    max-width: 200px!important;
   }
 }
 
 @media screen and (min-width:1401px) and (max-width:1900px) {
   .news-title {
     width: auto;
-    max-width: 220px!important;
+    max-width: 230px!important;
+  }
+}
+
+@media screen and (min-width:1901px){
+  .news-title {
+    width: auto;
+    max-width: 380px!important;
   }
 }
