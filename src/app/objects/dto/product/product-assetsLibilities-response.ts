@@ -10,39 +10,39 @@ class Body {
     customerid: string;
     deposit:
         {
-            depositMon: string[],
-            depositbal: string[]
+            depositMon: Array<string>,
+            depositBal: Array<string>
 
         }
     loan:
         {
-            loanMon: string[],
-            loanbal: string[]
+            loanMon: Array<string>,
+            loanBal: Array<string>
         }
     tradeFinance:
         {
-            tradeFinanceMon: string[],
-            tradeFinanceBal: string[]
+            tradeFinanceMon: Array<string>,
+            tradeFinanceBal: Array<string>
         }
     import:
         {
-            importMon: string[],
-            importAmt: string[]
+            importMon: Array<string>,
+            importAmt: Array<string>
         }
     export:
         {
-            exportMon: string[],
-            exportAmt: string[]
+            exportMon: Array<string>,
+            exportAmt: Array<string>
         }
     tmu:
         {
-            tmuMon: string[],
-            tmuUsage: string[]
+            tmuMon: Array<string>,
+            tmuUsage: Array<string>
         }
     mtm:
         {
-            mtmMon: string[],
-            mtmUsage: string[]
+            mtmMon: Array<string>,
+            mtmUsage: Array<string>
         }
 
 

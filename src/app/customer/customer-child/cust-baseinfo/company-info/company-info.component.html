@@ -6,14 +6,14 @@
                     <tbody>
                         <!-- 股票代號 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">股票代號</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{stockcode_text}}</th>
                             <td class="text-left mr-2">
                                 <span> {{content.data.stockCode}} </span>
                             </td>
                         </tr>
                         <!-- 資本額 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">資本額</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{capitalamt_text}}</th>
                             <td class="text-left mr-2">
                                 <span class="text-primary font-weight-bolder text-lg">
                                     {{content.data.capitalAmt}}
@@ -22,7 +22,7 @@
                         </tr>
                         <!-- 實收資本額 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">實收資本額</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{realcapitalamt_text}}</th>
                             <td class="text-left mr-2">
                                 <span class="text-primary font-weight-bolder text-lg">
                                     {{content.data.realCapitalAmt}}
@@ -31,7 +31,8 @@
                         </tr>
                         <!-- 核准設立日期 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">核准設立日期</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{establishmentdate_text}}
+                            </th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.establishmentDate}}
@@ -40,7 +41,7 @@
                         </tr>
                         <!-- 董事長 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">董事長</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{chiefname_text}}</th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.chiefName}}
@@ -48,8 +49,8 @@
                             </td>
                         </tr>
                         <!-- 註冊地址 -->
-                        <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">註冊地址</th>
+                        <tr (click)="chooseaddress(0)" [ngClass]="choosenumber == 0 ? 'text-primary active right' : ''">
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{registeraddress_text}}</th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.registerAddress}}
@@ -57,8 +58,9 @@
                             </td>
                         </tr>
                         <!-- 主要營業地址 -->
-                        <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">主要營業地址</th>
+                        <tr (click)="chooseaddress(1)" [ngClass]="choosenumber == 1 ? 'text-primary active right' : ''">
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{residenceaddress_text}}
+                            </th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.residenceAddress}}
@@ -66,8 +68,8 @@
                             </td>
                         </tr>
                         <!-- 公司地址 -->
-                        <tr class="text-primary active right">
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">公司地址</th>
+                        <tr (click)="chooseaddress(2)" [ngClass]="choosenumber == 2 ? 'text-primary active right' : ''">
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{address_text}}</th>
                             <td class="text-left mr-2">
                                 <span>
                                     {{content.data.address}}
@@ -76,67 +78,67 @@
                         </tr>
                         <!-- 負責人 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">負責人</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{personincharge_text}}</th>
                             <td class="text-left mr-2">
                                 <span>
                                     <div>
                                         {{content.data.personInCharge.name}}
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            {{content.data.personInCharge.age}} 歲
+                                            {{content.data.personInCharge.age}}{{age_text}}
                                         </span>
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            {{content.data.personInCharge.birth}} 月壽星
+                                            {{content.data.personInCharge.birth}}{{birthday_text}}
                                         </span>
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            AUM {{content.data.personInCharge.aum}}
+                                            {{AUM_text}}{{content.data.personInCharge.aum}}
                                         </span>
                                     </div>
 
                                     <!-- tags -->
                                     <div class="my-3">
                                         <ng-container *ngFor="let tag of content.data.personInCharge.tags">
-                                            <span class="person-tag mr-2" matTooltip="酒" matTooltipPosition="above"
-                                                *ngIf="tag == '酒'">
+                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '酒'">
                                                 <img src="assets/img/tags/icons8-wine-glass-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="露營 / 登山用品"
+                                            <span class="person-tag mr-2" matTooltip="{{campingtent_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '露營 / 登山用品'">
                                                 <img src="assets/img/tags/icons8-camping-tent-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="雪茄" matTooltipPosition="above"
-                                                *ngIf="tag == '雪茄'">
+                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '雪茄'">
                                                 <img src="assets/img/tags/cigar.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="高爾夫" matTooltipPosition="above"
-                                                *ngIf="tag == '高爾夫'">
+                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高爾夫'">
                                                 <img src="assets/img/tags/icons8-golf-ball-80.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="遊艇" matTooltipPosition="above"
-                                                *ngIf="tag == '遊艇'">
+                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '遊艇'">
                                                 <img src="assets/img/tags/icons8-water-transportation-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="免稅店 / 機場商店"
+                                            <span class="person-tag mr-2" matTooltip="{{dutyfree_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '免稅店 / 機場商店'">
                                                 <img src="assets/img/tags/icons8-duty-free-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="高端旅行社" matTooltipPosition="above"
-                                                *ngIf="tag == '高端旅行社'">
+                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高端旅行社'">
                                                 <img src="assets/img/tags/icons8-around-the-globe-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="藝術品" matTooltipPosition="above"
-                                                *ngIf="tag == '藝術品'">
+                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '藝術品'">
                                                 <img src="assets/img/tags/icons8-picasso-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="古董" matTooltipPosition="above"
-                                                *ngIf="tag == '古董'">
+                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '古董'">
                                                 <img src="assets/img/tags/gramophone.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="陶瓷" matTooltipPosition="above"
-                                                *ngIf="tag == '陶瓷'">
+                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '陶瓷'">
                                                 <img src="assets/img/tags/icons8-pottery-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="社會菁英社團" matTooltipPosition="above"
-                                                *ngIf="tag == '社會菁英社團'">
+                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '社會菁英社團'">
                                                 <img src="assets/img/tags/icons8-medal-48.png">
                                             </span>
                                         </ng-container>
@@ -155,67 +157,67 @@
                         </tr>
                         <!-- 負責人配偶 -->
                         <tr>
-                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">負責人配偶</th>
+                            <th class="table-th text-left mr-2 font-weight-bolder text-lg">{{mate_text}}</th>
                             <td class="text-left mr-2">
                                 <span>
                                     <div>
                                         {{content.data.mate.name}}
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            {{content.data.mate.age}} 歲
+                                            {{content.data.mate.age}}{{age_text}}
                                         </span>
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            {{content.data.mate.birth}} 月壽星
+                                            {{content.data.mate.birth}}{{birthday_text}}
                                         </span>
                                         <span class="tag-infomation d-inline-block px-2 mr-1">
-                                            AUM {{content.data.mate.aum}}
+                                            {{AUM_text}}{{content.data.mate.aum}}
                                         </span>
                                     </div>
 
                                     <!-- tags -->
                                     <div class="my-3">
                                         <ng-container *ngFor="let tag of content.data.mate.tags">
-                                            <span class="person-tag mr-2" matTooltip="酒" matTooltipPosition="above"
-                                                *ngIf="tag == '酒'">
+                                            <span class="person-tag mr-2" matTooltip="{{wineglass_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '酒'">
                                                 <img src="assets/img/tags/icons8-wine-glass-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="露營 / 登山用品"
+                                            <span class="person-tag mr-2" matTooltip="{{campingtent_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '露營 / 登山用品'">
                                                 <img src="assets/img/tags/icons8-camping-tent-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="雪茄" matTooltipPosition="above"
-                                                *ngIf="tag == '雪茄'">
+                                            <span class="person-tag mr-2" matTooltip="{{cigar_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '雪茄'">
                                                 <img src="assets/img/tags/cigar.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="高爾夫" matTooltipPosition="above"
-                                                *ngIf="tag == '高爾夫'">
+                                            <span class="person-tag mr-2" matTooltip="{{golfball_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高爾夫'">
                                                 <img src="assets/img/tags/icons8-golf-ball-80.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="遊艇" matTooltipPosition="above"
-                                                *ngIf="tag == '遊艇'">
+                                            <span class="person-tag mr-2" matTooltip="{{watertransportation_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '遊艇'">
                                                 <img src="assets/img/tags/icons8-water-transportation-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="免稅店 / 機場商店"
+                                            <span class="person-tag mr-2" matTooltip="{{dutyfree_text}}"
                                                 matTooltipPosition="above" *ngIf="tag == '免稅店 / 機場商店'">
                                                 <img src="assets/img/tags/icons8-duty-free-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="高端旅行社" matTooltipPosition="above"
-                                                *ngIf="tag == '高端旅行社'">
+                                            <span class="person-tag mr-2" matTooltip="{{aroundtheglobe_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '高端旅行社'">
                                                 <img src="assets/img/tags/icons8-around-the-globe-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="藝術品" matTooltipPosition="above"
-                                                *ngIf="tag == '藝術品'">
+                                            <span class="person-tag mr-2" matTooltip="{{picasso_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '藝術品'">
                                                 <img src="assets/img/tags/icons8-picasso-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="古董" matTooltipPosition="above"
-                                                *ngIf="tag == '古董'">
+                                            <span class="person-tag mr-2" matTooltip="{{gramophone_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '古董'">
                                                 <img src="assets/img/tags/gramophone.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="陶瓷" matTooltipPosition="above"
-                                                *ngIf="tag == '陶瓷'">
+                                            <span class="person-tag mr-2" matTooltip="{{pottery_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '陶瓷'">
                                                 <img src="assets/img/tags/icons8-pottery-48.png">
                                             </span>
-                                            <span class="person-tag mr-2" matTooltip="社會菁英社團" matTooltipPosition="above"
-                                                *ngIf="tag == '社會菁英社團'">
+                                            <span class="person-tag mr-2" matTooltip="{{medal_text}}"
+                                                matTooltipPosition="above" *ngIf="tag == '社會菁英社團'">
                                                 <img src="assets/img/tags/icons8-medal-48.png">
                                             </span>
                                         </ng-container>
@@ -235,7 +237,8 @@
                         <!-- 聯絡窗口 -->
                         <ng-container *ngFor="let contactPersons of content.data.contactPersons; let i = index">
                             <tr>
-                                <th class="table-th text-left mr-2 font-weight-bolder text-lg">聯絡窗口 {{i+1}}</th>
+                                <th class="table-th text-left mr-2 font-weight-bolder text-lg">
+                                    {{contactpersons_text}}{{i+1}}</th>
                                 <td class="text-left mr-2">
                                     <span>
                                         {{contactPersons.title}} {{contactPersons.name}}
@@ -252,7 +255,7 @@
         </div>
 
         <div class="col-6 col-md-6 col-sm-12">
-            <app-map></app-map>
+            <app-map [keepaddress]='keepaddress' [customername]='customername'></app-map>
         </div>
     </div>
 </div>

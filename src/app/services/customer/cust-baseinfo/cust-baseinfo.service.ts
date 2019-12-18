@@ -25,6 +25,8 @@ export class CustBaseinfoService {
 
     // html text
     text = this.baseservice.gettextservice.custbaseinfotext;
+    companyinfo_text: string = this.text.companyinfo_text;
+    manageinfo_text: string = this.text.manageinfo_text;
 
     urlList = [
         {
@@ -57,16 +59,16 @@ export class CustBaseinfoService {
         //     'dtoRequset': CommonRequest,
         //     'dtoResponse': GroupDetail
         // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': Manage
-        // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': ManageDetail
-        // },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': Manage
+        },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': ManageDetail
+        },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
             'dtoRequset': CommonRequest,
@@ -109,11 +111,11 @@ export class CustBaseinfoService {
 
     // 授網薪集黑
     CompanyFlag: Array<any> = [
-        { id: "1", text: this.text.tag_green_text, letter: this.text.tag_green_letter, status: false },
-        { id: "2", text: this.text.tag_blue_text, letter: this.text.tag_blue_letter, status: false },
-        { id: "3", text: this.text.tag_gold_text, letter: this.text.tag_gold_letter, status: false },
-        { id: "4", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
-        { id: "5", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
+        { id: "授信戶", text: this.text.tag_green_text, letter: this.text.tag_green_letter, status: false },
+        { id: "企網銀", text: this.text.tag_blue_text, letter: this.text.tag_blue_letter, status: false },
+        { id: "薪轉戶", text: this.text.tag_gold_text, letter: this.text.tag_gold_letter, status: false },
+        { id: "集團核心", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
+        { id: "黑名單", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
     ];
 
     // 貢獻度-資料期間
@@ -124,7 +126,6 @@ export class CustBaseinfoService {
     ContributionThisYearTotal: number;
     ChartDataseries: Array<any> = [];
     ChartDatacategories: Array<any> = [];
-
 
 
     sendRquest() {
@@ -246,5 +247,31 @@ export class CustBaseinfoService {
                 data: contribution.data.thiscontri.contribution
             }
         ];
+    }
+
+    openDialog(modalId: number, wide?: boolean) {
+        let title: string;
+        let data: object;
+        switch (modalId) {
+            case 3:
+                title = this.companyinfo_text;
+                data = this.CompanyDetail.data;
+                break;
+            case 4:
+                data = this.GroupDetail.data;
+                break;
+            case 5:
+                // 個人關聯戶
+                break;
+            case 6:
+                title = this.manageinfo_text;
+                data = this.ManageDetail.data;
+                break;
+            case 7:
+                data = this.ContributionDetail.data;
+                break;
+        }
+
+        this.baseservice.dialogservice.openDialog(modalId, wide, title, data);
     }
 }

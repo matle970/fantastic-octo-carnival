@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
+import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
+import { NoticeService } from 'src/app/services/common-area/notice.service';
 @Component({
     selector: 'app-notice-icon',
     templateUrl: './notice-icon.component.html',
@@ -9,9 +11,10 @@ import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialo
 export class NoticeIconComponent implements OnInit {
 
 
-    @Input() notice: number;
-    @Input() modalId: number;
-
+    @Input() notice: number;    //TODO
+    @Input() modalId: number;   //TODO
+    @Input('datalist') datalist: DashboardComponent;
+    cusIdList: string[];
     // 假資料 首頁關鍵提醒
     notice_one = {
         date: '2019/06/18',
@@ -178,7 +181,15 @@ export class NoticeIconComponent implements OnInit {
         ]
     }
 
-    constructor(public dialog: MatDialog) { }
+    constructor(public dialog: MatDialog, private noticeService : NoticeService) { }
+
+    async ngOnChanges(changes: SimpleChanges) {
+        if (this.datalist) {
+            this.getCustomerIdList();
+            //TODO send request
+            //let result = await this.noticeService.sendRquest();
+        }
+    }
 
     ngOnInit(): void {
     }
@@ -204,7 +215,10 @@ export class NoticeIconComponent implements OnInit {
         this.dialog.open(DialogComponent, dialogConfig);
     }
 
-
+    getCustomerIdList() {
+        const cusIdList: any = this.datalist.map(item => item.cus_id);
+        this.cusIdList = cusIdList;
+    }
 }
 
 

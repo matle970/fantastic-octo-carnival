@@ -1,12 +1,19 @@
+
 <span class="order" *ngIf="theColumn.isColumn; else noOrder" >
-    <i class="fas fa-caret-up"  [ngClass]="{ 'not-active': !(theColumn.asc == '1')}">
+    <i class="material-icons"  [ngClass]="{ 'not-active': !(theColumn.asc == '1')}">
+        arrow_drop_up
     </i>
-    <i class="fas fa-caret-down not-active" [ngClass]="{'not-active': !(theColumn.asc == '2')}">
+    <i class="material-icons not-active" [ngClass]="{'not-active': !(theColumn.asc == '2')}">
+        arrow_drop_down
     </i>
 </span>
 <ng-template #noOrder>
     <span class="order" >
-        <i class="fas fa-caret-up not-active"></i>
-        <i class="fas fa-caret-down not-active" ></i>
+        <i class="material-icons not-active">
+            arrow_drop_up
+        </i>
+        <i class="material-icons not-active" >
+            arrow_drop_down
+        </i>
     </span>
 </ng-template>

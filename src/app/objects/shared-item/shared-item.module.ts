@@ -7,6 +7,7 @@ import { IconBellComponent } from './icon-bell/icon-bell.component';
 import { IconGraybellComponent } from './icon-graybell/icon-graybell.component';
 import { WaterPrintComponent } from './water-print/water-print.component';
 import { LoadingComponent } from './loading/loading.component';
+import { NoDataComponent } from './no-data/no-data.component';
 
 
 
@@ -19,14 +20,16 @@ import { LoadingComponent } from './loading/loading.component';
     IconBellComponent,
     IconGraybellComponent,
     WaterPrintComponent,
-    LoadingComponent
+    LoadingComponent,
+    NoDataComponent
   ],
   exports: [
     MapComponent,
     IconBellComponent,
     IconGraybellComponent,
     WaterPrintComponent,
-    LoadingComponent
+    LoadingComponent,
+    NoDataComponent
   ]
 })
 export class SharedItemModule { }

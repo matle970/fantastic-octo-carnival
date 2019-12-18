@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
 
     minute = 10;    //timeout minute
-    time = this.minute * 600000;
+    time = this.minute * 60000;
 
     /**
      * Jewel
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
     async ngOnInit() {
         // delete all cookies
-        this.cookieService.deleteAll();
+        //this.cookieService.deleteAll();
 
         // 是否使用 Dummy data
         this.dummydataservice.useDummyData = true;

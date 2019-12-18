@@ -1,11 +1,8 @@
-import { Component, ViewChild, OnInit, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
+import { Component, OnInit, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
-import { ModalService } from 'src/app/services/common-services/modal.service';
 
 @Component({
     selector: 'app-cust-baseinfo',
@@ -158,9 +155,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     };
 
     constructor(
-        private modalservice: ModalService,
-        public dialog: MatDialog,
-
         private custbaseinfoService: CustBaseinfoService) {
         super();
     }
@@ -178,58 +172,48 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     }
 
     setData() {
-        this.setResponse();
+        this.setCompany();
+        this.setManage();
+        this.setCompanyAssociate();
         this.setContribution();
 
         this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
     }
 
-    setResponse() {
+    setCompany() {
         this.Company = this.custbaseinfoService.Company;
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
-        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-        this.Contribution = this.custbaseinfoService.Contribution;
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
+    }
+
+    setManage() {
+        this.Manage = this.custbaseinfoService.Manage;
+        this.ManageDetail = this.custbaseinfoService.ManageDetail;
+        // console.log('this.Manage', this.Manage);
+        // console.log('this.ManageDetail', this.ManageDetail);
+    }
+
+    setCompanyAssociate() {
+        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
         // console.log('this.CompanyAssociate', this.CompanyAssociate);
         // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-        // console.log('this.Contribution', this.Contribution);
     }
 
     setContribution() {
+        this.Contribution = this.custbaseinfoService.Contribution;
+        // console.log('this.Contribution', this.Contribution);
         this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
         this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;
         this.ChartData.series = this.custbaseinfoService.ChartDataseries;
+    // console.log('yy',this.ChartData.series)
     }
 
-    /**
-    * @param modalId 開啟modal的方式
-    */
     openDialog(modalId: number, wide?: boolean) {
-        let title: string;
-        let data: object;
-        switch (modalId) {
-            case 3:
-                title = this.companyinfo_text;
-                data = this.CompanyDetail.data;
-                break;
-            case 4:
-                data = this.GroupDetail.data;
-                break;
-            case 5:
-                // 個人關聯戶
-                break;
-            case 6:
-                data = this.ManageDetail.data;
-                break;
-            case 7:
-                data = this.ContributionDetail.data;
-                break;
-        }
-        this.custbaseinfoService.baseservice.dialogservice.openDialog(modalId, wide, title, data);
+        this.custbaseinfoService.openDialog(modalId, wide);
     }
 
 
@@ -237,228 +221,25 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
 
 
-    // @ViewChild('chartObj') chartObj: ChartComponent;
-    // ContributionObj: any;
+
+
+
+
+
+
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 
     lastcontriPeriod: string; // 貢獻度, 去年區間
     thiscontriPeriod: string; // 貢獻度, 今年區間
 
-    // contributionObj: any; // 貢獻度的資料 for dialog
     contributionText = this.text.contribution;
-
-    // 公司資料的假資料
-    // company_info = {
-    //     date: '2019/06/18',
-    //     company_name: '千里馬股份有限公司',
-    //     data_list: [
-    //         {
-    //             id: 'c01',
-    //             name: '股票代號',
-    //             content: '0730',
-    //             infos: [],
-    //             tags: []
-    //         },
-    //         {
-    //             id: 'c02',
-    //             name: '資本額',
-    //             content: '180000000',
-    //             infos: [],
-    //             tags: []
-    //         },
-    //         {
-    //             id: 'c03',
-    //             name: '實收資本額',
-    //             content: '138629906',
-    //             infos: [],
-    //             tags: []
-    //         },
-    //         {
-    //             id: 'c04',
-    //             name: '核准設立日期',
-    //             content: '1974/02/20',
-    //             infos: [],
-    //             tags: []
-    //         },
-    //         {
-    //             id: 'c05',
-    //             name: '董事長',
-    //             content: '李宛靜',
-    //             infos: [],
-    //             tags: []
-    //         },
-    //         {
-    //             id: 'c06',
-    //             name: '註冊地址',
-    //             content: '新北市土城區中山路66號',
-    //             infos: [],
-    //             tags: [],
-    //             activeMap: false
-    //         },
-    //         {
-    //             id: 'c07',
-    //             name: '主要營業地址',
-    //             content: '新北市土城區中山路66號',
-    //             infos: [],
-    //             tags: [],
-    //             activeMap: false
-    //         },
-    //         {
-    //             id: 'c08',
-    //             name: '公司地址',
-    //             content: '新北市土城區中山路66號',
-    //             infos: [],
-    //             tags: [],
-    //             activeMap: true
-    //         },
-
-    //         {
-    //             id: 'c09',
-    //             name: '負責人',
-    //             content: '林金霖',
-    //             infos: [" 6 月壽星", "AUM 9,612"],
-    //             tags: [1, 2, 3, 4, 5, 6],
-    //             travel: [
-    //                 {
-    //                     code: 'ca',
-    //                     name: '加拿大'
-    //                 },
-    //                 {
-    //                     code: 'th',
-    //                     name: '菲律賓'
-    //                 }
-
-    //             ]
-    //         },
-    //         {
-    //             id: 'c10',
-    //             name: '負責人配偶',
-    //             content: '王弈',
-    //             infos: [" 26 歲", "5 月壽星", "AUM 1,485"],
-    //             tags: [7, 8, 9, 10, 11],
-    //             travel: [
-    //                 {
-    //                     code: 'kr',
-    //                     name: '首爾'
-    //                 },
-    //                 {
-    //                     code: 'no',
-    //                     name: '挪威'
-    //                 },
-    //                 {
-    //                     code: 'it',
-    //                     name: '義大利'
-    //                 },
-    //                 {
-    //                     code: 'jp',
-    //                     name: '日本'
-    //                 },
-    //                 {
-    //                     code: 'au',
-    //                     name: '澳洲'
-    //                 },
-    //             ]
-    //         },
-    //         {
-    //             id: 'c11',
-    //             name: '聯絡窗口 1',
-    //             content: '財務長 徐以威',
-    //             infos: ["02 8722 6666 #7169"]
-    //         },
-    //         {
-    //             id: 'c12',
-    //             name: '聯絡窗口 2',
-    //             content: '經辦小姐 尤昕寧',
-    //             infos: ["02 8722 6666 #7155"]
-    //         },
-    //     ]
-    // }
 
     //集團資訊的假資料
     group_info = {
         date: '2019/08/06',
         company_name: '德魯納集團',
         data_list: []
-    }
-
-    // ngOnInit() {
-    //     // // const myChart = this.chartObj;
-    //     // this.getBaseInfoApiUrls();
-    //     // const request = this.prepareBaseInfoApiRequest(this.apiUrls, this.getShareDataService().getCustomerProfileParam()); // 取得所有需要發送的API urls
-    //     // // if (this.getShareDataService().getCacheData(this.URL.companyBaseInfo) === undefined) {
-    //     // if (!this.getShareDataService().checkIfGetCatcheDataByArry(this.apiUrls)) {
-    //     //   console.log('Get 基本資訊By API');
-    //     //   this.getBaseInfoData(request); // 取得資料ByAPI
-    //     // } else {
-    //     //   console.log('Get 基本資訊By Cache');
-    //     //   request.forEach((value: string) => {
-    //     //     this.setBaseInfo(value['url'], this.getShareDataService().getCacheData(value['url']));
-    //     //   });
-    //     // }
-    // }
-
-
-
-    /**
-     * @param modalId 開啟modal的方式
-     */
-    // openDialog(modalId: number, wide?: boolean) {
-    //     const openId = modalId ? modalId : 3;
-    //     const dialogConfig = new MatDialogConfig();
-    //     dialogConfig.autoFocus = false;
-    //     dialogConfig.data = {
-    //         id: openId,
-    //         title: '',
-    //         content_data: {}
-    //     };
-
-    //     if (wide) {
-    //         dialogConfig.panelClass = 'open-table-wide';
-    //     } else {
-    //         dialogConfig.panelClass = 'open-table-narrow';
-    //     }
-
-    //     switch (openId) {
-    //         case 3:
-    //             dialogConfig.data.content_data = this.company_info;
-    //             dialogConfig.data.title = '公司資訊';
-    //             break;
-    //         case 4:
-    //             dialogConfig.data.content_data = this.group_info;
-    //             dialogConfig.data.title = '集團資訊';
-    //             break;
-    //         case 5:
-    //             dialogConfig.data.content_data = [];
-    //             dialogConfig.data.title = '個人關聯戶';
-    //             break;
-    //         case 6:
-    //             dialogConfig.data.content_data = [];
-    //             dialogConfig.data.title = '經管資訊';
-    //             break;
-    //         case 7:
-    //             dialogConfig.data.content_data = this.Contribution;
-    //             dialogConfig.data.title = '貢獻度';
-    //             break;
-
-    //         default:
-    //             dialogConfig.data.content_data = this.company_info;
-    //             dialogConfig.data.title = '公司資訊';
-    //             break;
-
-
-    //     }
-
-    //     this.dialog.open(DialogComponent, dialogConfig);
-    // }
-
-    /**
-     * 之後有時間再詳寫此功能
-     * @param mid
-     */
-    openModal(mid: string) {
-        this.modalservice.openModal(mid);
-
     }
 
     /*******************
@@ -548,28 +329,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
         const lastYearPeriod = lastYearStart + '-' + lastYearEnd;
         const thisYearPeriod = thisYearStart + '-' + thisYearEnd;
-
-        // this.chartObj.destroy();
-        // this.chartObj.render();
-
-        // 去年度 &今年度 加總(取得總值後再加千分位 & $字符號)
-        // this.ContributionLastYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(lastYear), true);
-        // this.ContributionThisYearTotal = super.getUtilsService().commafy(super.getUtilsService().getSumByArry(thisYear), true);
-        // this.ContributionPeriod = lastYearStart + '-' + thisYearEnd; // 貢獻度資料區間
-
-        // this.Contribution = {
-        //     'lastYear': {
-        //         'text': '去年度累計貢獻度',
-        //         'period': lastYearPeriod, // 去年度區間
-        //         'data': this.ChartData.series[0]['data'], // 去年度資料
-        //     },
-        //     'thisYear': {
-        //         'text': '今年度累計貢獻度',
-        //         'period': thisYearPeriod, // 今年度區間
-        //         'data': this.ChartData.series[1]['data'], // 今年度資料
-        //     },
-        //     'contributionPeriod': this.ContributionPeriod, // 資料區間
-        // };
     }
 
 }

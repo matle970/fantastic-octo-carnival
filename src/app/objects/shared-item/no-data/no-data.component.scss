@@ -1,0 +1,15 @@
+
+
+.no-data-block{
+  width:100%;
+  text-align: center;
+  vertical-align: middle;
+  .word {
+    text-align: center;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    color: #444;
+    display: inline-block;
+    margin:10px auto;
+  }
+}

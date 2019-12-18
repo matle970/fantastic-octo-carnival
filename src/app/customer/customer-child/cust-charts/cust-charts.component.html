@@ -6,7 +6,7 @@
 </div> -->
   <div class="card-body">
     <h4 class="card-title text-primary clearfix">
-      營運量
+      {{assetslibilities_text}}
       <!-- <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06
       </div> -->
     </h4>
@@ -17,7 +17,7 @@
           <div class="chart-title col-5">
             <div class="btn text-white bg-deposit">
               <span class="title">
-                存款餘額
+                {{deposit_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -53,7 +53,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn d-inline-block text-white bg-load">
               <span class="title">
-                放款餘額
+                {{loan_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -63,7 +63,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn d-inline-block text-white bg-trade">
               <span class="title">
-                貿融餘額
+                {{tradeFinance_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -99,7 +99,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn  text-white bg-in" (click)="openDialog(10, true)">
               <span class="title">
-                進口實績
+                {{import_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -109,7 +109,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn  text-white bg-out" (click)="openDialog(10, true)">
               <span class="title">
-                出口實績
+                {{export_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -144,7 +144,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn  text-black bg-tmu">
               <span class="title text-black">
-                TMU
+                {{tmu_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">
@@ -154,7 +154,7 @@
           <div class="chart-title col-sm-5 col-md-5 col-lg-5">
             <div class="btn  bg-mtm text-black ">
               <span class="title text-black">
-                MTM
+                {{mtm_text}}
               </span>
             </div>
             <div class="total d-inline-block font-weight-bold">

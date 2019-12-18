@@ -6,7 +6,7 @@ $tag-orange: #ed7d31;
 $tag-red: #c00000;
 
 
-$thbgcolor: #dbdbdb96;
+$thbgcolor: rgba(219, 219, 219, 0.8);
 $layerOne: $thbgcolor;
 $layerTwo:  lighten($thbgcolor, 5%);
 $layerThree:  lighten($thbgcolor, 10%);
@@ -20,7 +20,7 @@ $tablgTrHover : #dbf1d9;
 .data-card {
   .card-body {
     height: 100%;
-    min-height: 760px;
+    min-height: 614px;
     .loading-height {
       height: 100%;
       min-height: 60vh;
@@ -55,29 +55,46 @@ $tablgTrHover : #dbf1d9;
   }
   &.mat-table {
     .mat-header-cell {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: #FFF;
     }
   }
 }
 
 .data-table {
-  height: auto;
-  max-height: $table-max-height;
+  height: 60vh;
   overflow: auto;
-  table {
+  max-height: $table-max-height;
+  min-height: 300px;
+  .table {
     border-color: $table-border-color;
     thead {
       tr {
         font-weight: 700 !important;
-        &:hover {
-          transition: all 0.5 ease;
-          // background-image: linear-gradient(-225deg, rgba(32, 226, 216, 0.473) 0%, rgba(250, 254, 165, 0.801) 100%);
-          background-color: transparent !important;
-          td {
-          background-color: transparent !important;
-            // background-color: $tablgTrHover ;
+        th {
+          position: relative;
+          cursor: pointer;
+          width:auto;
+          text-align: center;
+          line-height: 1rem;
+          white-space: nowrap;
+          .order {
+            position: absolute;
+            right:0;
+            top:40%;
+          }
+          &.min-130 {
+            min-width: 130px;
+          }
+          &.min-60 {
+            width: 60px;
+          }
+          .th-width-min {
+            width:80px;
+            min-width:80px;
+            line-height: 1rem;
           }
         }
+
       }
     }
     tr{
@@ -86,53 +103,19 @@ $tablgTrHover : #dbf1d9;
         // background-image: linear-gradient(-225deg, rgba(32, 226, 216, 0.473) 0%, rgba(250, 254, 165, 0.801) 100%);
         background-color: $tablgTrHover ;
         td {
-        background-color: transparent !important;
-          // background-color: $tablgTrHover ;
-        }
-        td.colFooter {
-          //opacity: 0.7 !important;
-          //color: green !important;
-          background-color: rgb(231, 231, 231) !important;
+          background-color: $tablgTrHover !important;
         }
       }
     }
-    th {
-      position: relative;
-      cursor: pointer;
-      width:auto;
-      text-align: right;
-      line-height: 1rem;
-      padding-right: 24px !important;
-      white-space: nowrap;
 
-
-
-      .order {
-        position: absolute;
-        right:0;
-        top:40%;
-      }
-      &.min-130 {
-        min-width: 130px;
-      }
-      &.min-60 {
-        width: 60px;
-      }
-      .th-width-min {
-        width:80px;
-        min-width:80px;
-        line-height: 1rem;
-      }
-    }
 
     td {
-      &.text-right {
+      text-align: center;
+      .text {
         padding-right: 24px !important;
       }
     }
-    //td.footer {
-    //  background-color: red;
-    //}
+
     .bg-one {
       background: $layerOne;
     }
@@ -166,17 +149,3 @@ $tablgTrHover : #dbf1d9;
 
 
 
-
-.has-notification-icon {
-  position: relative;
-  .notifications {
-    position: absolute;
-    top: -3px;
-    left: 140px;
-  }
-}
-
-
-.hidden-item {
-  display: none !important;
-}

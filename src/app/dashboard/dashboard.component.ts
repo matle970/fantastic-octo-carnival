@@ -54,6 +54,12 @@ export class DashboardComponent implements OnInit, OnChanges {
         ASC: '1'
     };
 
+
+    public loadingStatus: boolean = true;
+    public statusCode: boolean;
+    public hideBlock: boolean;
+    public hasResult: boolean;
+    public nodata: string;
     //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,
@@ -76,11 +82,12 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
         this.getSortData();
-        this.getIssues(0, 10);
+        this.getIssues();
+        this.checkResult(); //TODO check return code
 
         // 分頁切換時，重新取得資料
         this.paginator.page.subscribe((page: PageEvent) => {
-            this.getIssues(page.pageIndex, page.pageSize);
+            this.getIssues();
         });
 
         // 設定顯示筆數資訊文字
@@ -123,7 +130,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             this.nowOrder.ASC = '0';
     }
 
-    getIssues(pageIndex, pageSize) {
+    getIssues() {
         this.dataSource.sort = this.sortTable;
 
     }
@@ -138,6 +145,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.customFilterPredicate();
         
         this.dataSource.filter = JSON.stringify(this.filterJson);
+        this.checkResult();
     }
     onFilterWMBrandChanged(filterValue) {
         const filters = filterValue.trim().toLowerCase();
@@ -145,21 +153,25 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.customFilterPredicate();
         
         this.dataSource.filter = JSON.stringify(this.filterJson);
+        this.checkResult();
     }
     onFilterDataChanged(filterValue) {
         this.filterArgs = filterValue;
         let filters = '';
-        this.filterJson.inputFilter.inputValue = '';
-        this.filterJson.inputFilter.inputType = 'group_name';
-        if (filterValue.names)         {
+        if (filterValue.names) {
             filters = filterValue.names.trim().toLowerCase();
 
             this.filterJson.inputFilter.inputType = filterValue.type;
             this.filterJson.inputFilter.inputValue = filters;
         }
+        else {
+            this.filterJson.inputFilter.inputType = 'group_name';
+            this.filterJson.inputFilter.inputValue = filterValue.trim();
+        }
         this.customFilterPredicate();
         
         this.dataSource.filter = JSON.stringify(this.filterJson);
+        this.checkResult();
     }
 
     customFilterPredicate() {
@@ -210,6 +222,20 @@ export class DashboardComponent implements OnInit, OnChanges {
     getSortData() {
         this.dataSource.sortData = (data, sort: MatSort) => {
             return this.dashboardService.getSortedData(this.nowOrder.id, this.nowOrder.ASC, data);
+        }
+    }
+    checkResult() {
+        if(this.dataSource.filteredData.length === 0) {
+            this.nodata = '無符合條件之客戶';
+            this.hideBlock = true;
+            this.hasResult = false;
+            this.loadingStatus = false;
+        }
+        else {
+            this.nodata = '';
+            this.hideBlock = false;
+            this.hasResult = true;
+            this.loadingStatus = false;
         }
     }
 }
