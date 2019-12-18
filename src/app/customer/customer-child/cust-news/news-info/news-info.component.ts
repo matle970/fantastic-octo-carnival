@@ -17,7 +17,7 @@ declare interface NewsContent {
 })
 
 
-export class NewsInfoComponent implements OnInit, OnChanges {
+export class NewsInfoComponent implements OnInit {
   @Input() content: any;
 
   nowNewsId: string;
@@ -36,18 +36,19 @@ export class NewsInfoComponent implements OnInit, OnChanges {
     this.sendRquest();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // console.log('change', changes.content.currentValue);
-    const nthis = this;
-    if (changes.content.currentValue.item_id) {
-      setTimeout(function () {
-        nthis.getContent();
-      }, 100);
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   // console.log('change', changes.content.currentValue);
+  //   const nthis = this;
+  //   if (changes.content.currentValue.item_id) {
+  //     setTimeout(function () {
+  //       nthis.getContent();
+  //     }, 100);
+  //   }
+  // }
 
-  sendRquest() {
-    this.custNewsInfoService.sendRquest();
+ async sendRquest() {
+   await this.custNewsInfoService.sendRquest();
+    this.getContent();
   }
 
   getContent() {
