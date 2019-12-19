@@ -29,7 +29,6 @@ export const _filter = (opt: string[], value: string): string[] => {
 export class AutoSearchComponent implements OnInit, OnChanges {
 
 	@Input() keywordList: FilterComponent;
-	keyword: any;
 	cookieValue = '';
 	@Output('getCompleteKeyword') getCompleteKeyword = new EventEmitter();
 	jeweltest: any;
@@ -53,6 +52,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, private el: ElementRef) { }
 
 	ngOnInit() {
+		this.getCookieValue();
 	}
 
 	ngOnChanges(SimpleChanges: any) {
@@ -78,15 +78,26 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 		const inputKeyword = item;
 		this.updateCookie(inputKeyword);
 
-		this.getCompleteKeyword.emit(inputKeyword);
+		this.getCompleteKeyword.emit(inputKeyword.trim().toLowerCase());
 	}
 	onKey(event: any) {
 		let inputKeyword = "";
 		inputKeyword = this.stateForm.get('stateGroup').value;
 		this.updateCookie(inputKeyword);
 
-		this.getCompleteKeyword.emit(inputKeyword);
+		this.getCompleteKeyword.emit(inputKeyword.trim().toLowerCase());
 	}
+
+	onKeyUpClear(event: any) {
+		const inputKeyword = this.stateForm.get('stateGroup').value;
+		if (inputKeyword == '') {
+			this.keyword = inputKeyword;
+
+			this.updateCookie(inputKeyword);
+			this.getCompleteKeyword.emit(inputKeyword.trim().toLowerCase());
+		}
+	}
+	/*
 	displayFn(group) {
 		this.cookieValue = this.cookieService.get('cb_search_last_word');
 		if (group)
@@ -94,7 +105,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 		else if (this.cookieValue)
 			return this.cookieValue;
 	}
-
+*/
 	getKeyWordList() {
 		this.stateGroups = [
 			{
@@ -112,19 +123,13 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 		];
 	}
 
-	private _filterGroup(value): StateGroup[] {
+	private _filterGroup(value: string): StateGroup[] {
 		if (value) {
-			if (value.type) {
-				return this.stateGroups
-					.map(group => ({ type: group.type, names: _filter(group.names, value.names) }))
-					.filter(group => group.names.length > 0);
-			}
-			else {
-				return this.stateGroups
-					.map(group => ({ type: group.type, names: _filter(group.names, value) }))
-					.filter(group => group.names.length > 0);
-			}
+			return this.stateGroups
+				.map(group => ({ type: group.type, names: _filter(group.names, value) }))
+				.filter(group => group.names.length > 0);
 		}
+
 		return this.stateGroups;
 	}
 
@@ -133,5 +138,11 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 			this.cookieService.set('cb_search_last_word', value.names, 365, '/');
 		else if (value)
 			this.cookieService.set('cb_search_last_word', value, 365, '/');
+	}
+	// 如果上次有搜尋的keyword，預設出現keyword
+	getCookieValue() {
+		this.cookieValue = this.cookieService.get('cb_search_last_word');
+		if (this.cookieValue)
+			this.stateForm.get('stateGroup').setValue(this.cookieValue);
 	}
 }

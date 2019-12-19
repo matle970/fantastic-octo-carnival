@@ -198,26 +198,10 @@ export class DashboardComponent implements OnInit, OnChanges {
     public calculateTotal(key) {
         //let filterType;
         let sum: number = 0;
-        if (this.dataSource) {
-            for (let row of this.dataSource.data) {/*
-                if (this.dataSource.filter.trim().length == 0) {
-                    sum += row[key];
-                }*/
-                if (this.filterJson.inputFilter.inputValue.trim().length == 0 
-                        && this.filterJson.referBranch.trim().length ==0
-                        && this.filterJson.wmBranch.trim().length ==0 ) {
-                    sum += row[key];
-                }
-                else if (row[key] != 0 && row[this.filterJson.inputFilter.inputType].trim().toLowerCase().indexOf(this.filterJson.inputFilter.inputValue) !== -1
-                && row['referBranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
-                && row['wmbranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !==-1) // AND
-                {
-                    sum += row[key];
-                }
-            }
+        if(this.dataSource) {
+            return this.dataSource.filteredData.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
         }
         return sum;
-        //return this.this.dataList.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
     getSortData() {
         this.dataSource.sortData = (data, sort: MatSort) => {
