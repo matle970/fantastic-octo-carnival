@@ -40,23 +40,6 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         this.setData();
     }
     setData() {
-        // this.TMUDetail = this.custchartsService.TMUDetail;
-
-        // this.tmuTransAmt = this.TMUDetail.data.body.tmuTransAmt;
-        // this.tmuInvesment = this.TMUDetail.data.body.tmuInvesment;
-        // this.tmuContribution = this.TMUDetail.data.body.tmuContribution;
-
-        // let tmu = Object.values(this.tmuContribution);
-        // this.TmuData.series = tmu.map(Number);
-
-        //日期轉換 20190330 return 2019/03/30
-        // this.tmuTransAmt.forEach((data, index) => {
-        //     data.amountExpDate = this.getUtilsService().changeDateStr(data.amountExpDate, 'yyyy/MM/dd');
-        // });
-        // this.tmuInvesment.forEach((data, index) => {
-        //     data.startDay = this.getUtilsService().changeDateStr(data.startDay, 'yyyy/MM/dd');
-        //     data.endDay = this.getUtilsService().changeDateStr(data.endDay, 'yyyy/MM/dd')
-        // });
         this.setTMUDetailData();
     }
 
@@ -216,7 +199,6 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
     setTMUDetailData() {
         this.tmuTransAmt = this.custchartsService._tmuTransAmt;
         this.tmuInvesment = this.custchartsService._tmuInvesment;
-        // let Tmu = this.custchartsService._tmuContribution;
         this.TmuData.series = this.custchartsService._tmuContribution;
         
     }

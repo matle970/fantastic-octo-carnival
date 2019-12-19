@@ -207,7 +207,6 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
         this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;
         this.ChartData.series = this.custbaseinfoService.ChartDataseries;
-    // console.log('yy',this.ChartData.series)
     }
 
     openDialog(modalId: number, wide?: boolean) {

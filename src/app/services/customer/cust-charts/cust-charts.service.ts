@@ -100,12 +100,17 @@ export class CustChartsService {
     //進出口第二層
     _import: Array<any> = [];
     _export: Array<any> = [];
-
+    inTotal: Array<any> = [];
+    incolumnTotal: Array<any> = [];
+    outTotal: Array<any> = [];
+    outcolumnTotal: Array<any> = [];
+    
     //TMU&MTM第二層
     _tmuTransAmt: Array<any> = [];
     _tmuInvesment: Array<any> = [];
     _tmuContribution: Array<any> = [];
- 
+    
+
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
             this.baseservice.httpservice.sendRequestAsync(
@@ -136,25 +141,24 @@ export class CustChartsService {
                     data: data.body
                 };
                 this.setDepositDetailData(this.DepositDetail);
-                // console.log('xx', this.DepositDetail)
                 break;
             case this.baseservice.geturlservice.URL.PRODUCT_LOAN_DETAIL:
                 this.LoanDetail = {
                     data: data.body
                 };
+                this.setLoanDetailData(this.LoanDetail);
+                break;
             case this.baseservice.geturlservice.URL.PRODUCT_IMPORT_EXPORT_DETAIL:
                 this.ImportExportDetail = {
                     data: data.body
                 };
                 this.setImportExportDetailData(this.ImportExportDetail);
-                // console.log('xx', this.ImportExportDetail)
                 break;
             case this.baseservice.geturlservice.URL.PRODUCT_TMU_DETAIL:
                 this.TMUDetail = {
                     data: data.body
                 };
                 this.setTMUDetailData(this.TMUDetail);
-                // console.log('tt',this.TMUDetail)
                 break;
         }
     }
@@ -162,7 +166,7 @@ export class CustChartsService {
     setDepositData(depositData) {
         this.DepositDatacategories = this.getDataMonth(depositData.data[0].depositMon);
         this.DepositDataseries = depositData.data[0].depositBal;
-        // console.log('111',depositData.data)
+
     }
 
     setLoanData(loanData) {
@@ -184,7 +188,6 @@ export class CustChartsService {
         this.TmuDataseries = tmuData.data[0].tmuUsage;
         this.MtmDataseries = tmuData.data[0].mtmUsage;
         this.MtmDatacategories = this.getDataMonth(tmuData.data[0].mtmMon);
-        // console.log('xx',tmuData)
     }
 
     setDepositDetailData(depositDetailData) {
@@ -192,13 +195,11 @@ export class CustChartsService {
         this._fxAssets = depositDetailData.data.assets.fxAssets;
         this._sumAssets = depositDetailData.data.assets.sumAssets;
         this._r6mthAvgBal = depositDetailData.data.assets.r6mthAvgBal;
-        // console.log('111', this._ntdAssets);
-        // console.log('xxx',this._ntdAssets)
+
         this._sdDetail = depositDetailData.data.sdDetail;
         this._tdDetail = depositDetailData.data.tdDetail;
         this._cdDetail = depositDetailData.data.cdDetail;
 
-        // console.log('xxx',DepositDetailData.data.sdDetail)
     }
 
     setLoanDetailData(loanDetailData) {
@@ -208,9 +209,59 @@ export class CustChartsService {
     setImportExportDetailData(importExportDetailData) {
         this._import = importExportDetailData.data.import;
         this._export = importExportDetailData.data.export;
-        // console.log('xyx', importExportDetailData.data.import)
-        // console.log('xxx', this._import)
+        
+        // 進口實績-橫向加總&縱向加總
+        for (let i = 0; i < this._import.length; i++) {
+            let column1 = this._import[i].usdTxnAmt.map(Number);
+            let column2 = this.SumData(column1);
+            this._import[i].column = column2;
+            this.incolumnTotal.push(column2)
+          
+        }
+        let usdTxnAmt = [];
+        let insumTotal = [];
+        this.inTotal = insumTotal;
+        this._import.forEach(element => {
+            usdTxnAmt.push(element.usdTxnAmt);
+            
+        });
+        usdTxnAmt.forEach((element, index) => {
+            element.forEach((value, index) => {
+                if (typeof (insumTotal[index]) === 'undefined') {
+                    insumTotal[index] = parseInt(value, 10);
+                } else {
+                    let sum = insumTotal[index];
+                    insumTotal[index] = sum + parseInt(value, 10);
+                }
+                // console.log('yy',sumTotal[index])
+            });
+        });
 
+        // 出口實績-橫向加總&縱向加總
+        for (let i = 0; i < this._export.length; i++) {
+            let column1 = this._export[i].usdTxnAmt.map(Number);
+            let column2 = this.SumData(column1);
+            // let column3 = column2.toString();
+            this._export[i].column = column2;
+            this.outcolumnTotal.push(column2)
+        }
+        let exusdTxnAmt = [];
+        let outsumTotal = [];
+        this.outTotal = outsumTotal;
+        this._export.forEach(element => {
+            exusdTxnAmt.push(element.usdTxnAmt);
+
+        });
+        exusdTxnAmt.forEach((element, index) => {
+            element.forEach((value, index) => {
+                if (typeof (outsumTotal[index]) === 'undefined') {
+                    outsumTotal[index] = parseInt(value, 10);
+                } else {
+                    let sum = outsumTotal[index];
+                    outsumTotal[index] = sum + parseInt(value, 10);
+                }
+            });
+        });
     }
 
     setTMUDetailData(tMUDetailData) {
@@ -218,10 +269,7 @@ export class CustChartsService {
         this._tmuInvesment = tMUDetailData.data.tmuInvesment;
         let Tmu = Object.values(tMUDetailData.data.tmuContribution);
         this._tmuContribution = Tmu.map(Number);
-        // console.log('xx',tMUDetailData.data.tmuTransAmt)
-        // console.log('xxx',this._tmuTransAmt)
-        // console.log('yy',tMUDetailData.data.tmuContribution)
-        // console.log('yyy',this._tmuContribution)
+
     }
 
     // 取得月份 format 201907, return 7
@@ -231,5 +279,13 @@ export class CustChartsService {
             monthArry.push(parseInt(value.substring(4, 6), 10));
         });
         return monthArry;
+    }
+    //加總
+    SumData(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        };
+        return sum;
     }
 }

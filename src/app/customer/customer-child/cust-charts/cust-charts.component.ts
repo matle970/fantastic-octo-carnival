@@ -373,15 +373,9 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         tooltip: {
             y: {
                 formatter: function (val) {
-                    // const pnum = Math.round(val * 100);
-                    // return (pnum + '%');
-
                     const pnum = Math.round(val * 10000) / 100
-                    // let xsd = val.toString().split('.')
-                    // if (xsd.length === 1) {
-                    // val = val.toString() + '.00'
                     return pnum + '%';
-                    // }
+                    
                 },
             }
         }
@@ -400,27 +394,9 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     async ngOnInit() {
         await this.custchartsService.sendRequest();
         this.setData();
-        // console.log('xx',this.setData());
     }
 
     setData() {
-        // this.AssetsLibilities = this.custchartsService.AssetsLibilities;
-
-        // this.DepositData.series[0].data= this.AssetsLibilities.data.body[0].depositBal;
-        // this.DepositData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].depositMon);
-
-        // console.log('xxx',this.DepositData.series);
-        // this.LoanData.series[0].data = this.AssetsLibilities.data.body[0].loanBal;
-        // this.LoanData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].loanMon);
-        // this.LoanData.series[1].data = this.AssetsLibilities.data.body[0].tradeFinanceBal;
-
-        // this.TradeData.series[0].data = this.AssetsLibilities.data.body[0].importAmt;
-        // this.TradeData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].importMon);
-        // this.TradeData.series[1].data = this.AssetsLibilities.data.body[0].exportAmt;
-
-        // this.TmuData.series[0].data = this.AssetsLibilities.data.body[0].tmuUsage
-        // this.TmuData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].tmuMon);
-        // this.TmuData.series[1].data = this.AssetsLibilities.data.body[0].mtmUsage;
         this.setResponse();
         this.setDepositChartsData();
         this.setLoanChartsData();
@@ -437,14 +413,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
     setDepositChartsData() {
         this.DepositData.series[0].data = this.custchartsService.DepositDataseries;
         this.DepositData.xaxis.categories = this.custchartsService.DepositDatacategories;
-        //     for (let i = 0; i < this.custchartsService.DepositDataseries.length; i++) {
-        //         this.DepositData.series.push(
-        //             {
-        //                 // name: '存款',
-        //                 data: this.custchartsService.DepositDataseries[i]
-        //             }
-        //         )
-        //     }
     }
 
     setLoanChartsData() {
@@ -571,7 +539,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         urls.forEach(value => {
             requestParam.push({ 'url': value, 'param': param });
         });
-        // console.log(requestParam);
         return requestParam;
     }
 
