@@ -13,7 +13,7 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
     @Input() content: any;
 
     // 營運量-放款貿融第二層
-    LoanDetailObj: any = {};
+    LoanDetail: any = {};
     totLoan: any = {};
     facilityDetail: any[];
 
@@ -37,10 +37,10 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
     }
 
     setData() {
-        this.LoanDetailObj = this.custchartsService.LoanDetailObj;
+        this.LoanDetail = this.custchartsService.LoanDetail;
 
-        this.totLoan = this.LoanDetailObj.data.body.totLoan;
-        this.facilityDetail = this.LoanDetailObj.data.body.facilityDetail;
+        this.totLoan = this.LoanDetail.data.body.totLoan;
+        this.facilityDetail = this.LoanDetail.data.body.facilityDetail;
 
         //日期轉換 20190330 return 2019/03/30
         for (let i = 0; i < this.facilityDetail.length; i++) {
@@ -51,5 +51,9 @@ export class OperatingFinancingComponent extends BaseComponent implements OnInit
                 // console.log('xx', this.facilityDetail[0].facRecords);
             });
         }
+    }
+
+    setLoanDetailData(){
+
     }
 }

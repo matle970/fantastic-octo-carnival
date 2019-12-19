@@ -11,9 +11,9 @@ class Body {
                     txnTypeDesc: string,
                     mon: string[],
                     usdTxnAmt: string[],
-                    column:string,
+                    column:string[],
                     row: string[],
-                    all: string
+                    all: string[]
                 }
             ]
             export: [

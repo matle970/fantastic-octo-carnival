@@ -31,13 +31,13 @@
 
 		<div>
 			<div class="card data-card shadow-lg">
-				<app-water-print *ngIf="!loadingStatus"></app-water-print>
-				<div class="card-body" *ngIf="loadingStatus">
+				<app-water-print *ngIf="!hideBlock"></app-water-print>
+				<div class="card-body" *ngIf="hideBlock">
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
 					<div class="data-table">
-						<!--<app-loading *ngIf="loadingStatus"></app-loading>-->
+						<app-loading *ngIf="loadingStatus"></app-loading>
 						<app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 								</span>
 								<!-- 關鍵提醒 -->
 								<div class="d-inline-block float-right">
-									<app-notice-icon [notice]="7" [modalId]="1"></app-notice-icon>
+									<app-notice-icon [datalist]="dataList" [notice]="7" [modalId]="1"></app-notice-icon>
 								</div>
 
 							</h3>

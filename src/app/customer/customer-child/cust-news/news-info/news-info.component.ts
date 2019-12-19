@@ -1,8 +1,6 @@
 import { Component, OnChanges, SimpleChanges, OnInit, Input } from '@angular/core';
-import { BaseComponent } from 'src/app/base/base.component';
-import { CompanyNews } from 'src/app/objects/dto/custnews/custnews-response';
-import { CommonRequest } from 'src/app/objects/dto/common/common-request';
-import { NewsService } from 'src/app/services/customer/cust-news/news.service';
+import { CustNewsInfoService } from '../../../../services/customer/cust-news/cust-news-info.service';
+
 declare interface NewsContent {
   id: string;
   paper: string;
@@ -12,7 +10,6 @@ declare interface NewsContent {
   content: string;
 }
 
-
 @Component({
   selector: 'app-news-info',
   templateUrl: './news-info.component.html',
@@ -20,71 +17,44 @@ declare interface NewsContent {
 })
 
 
-export class NewsInfoComponent extends BaseComponent implements OnInit, OnChanges {
+export class NewsInfoComponent implements OnInit {
   @Input() content: any;
 
   nowNewsId: string;
-
   newsList: NewsContent[];
-
-  newsUrl = {
-    'url': this.URL.NEWS_NEWS_DETAIL,
-    'dtoRequset': CommonRequest,
-    'dtoResponse': CompanyNews
-  };
-
   nowNews: NewsContent;
 
+  constructor(private custNewsInfoService: CustNewsInfoService) {
 
-  constructor(private newsService: NewsService) {
-    super();
   }
 
   // text
-  text = this.newsService.baseService.gettextservice.custnewstext;
+  text = this.custNewsInfoService.baseService.gettextservice.custnewstext;
   public_Opinion_Analysis = this.text.news_info.public_Opinion_Analysis;
 
   ngOnInit() {
     this.sendRquest();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // console.log('change', changes.content.currentValue);
-    const nthis = this;
+  // ngOnChanges(changes: SimpleChanges) {
+  //   // console.log('change', changes.content.currentValue);
+  //   const nthis = this;
+  //   if (changes.content.currentValue.item_id) {
+  //     setTimeout(function () {
+  //       nthis.getContent();
+  //     }, 100);
+  //   }
+  // }
 
-    if (changes.content.currentValue.item_id) {
-      setTimeout(function () {
-        nthis.getContent();
-      }, 100);
-    }
-  }
-
-  sendRquest() {
-    super.sendRequestAsync(
-      this.newsUrl.url,
-      this.newsUrl.dtoRequset,
-      this.newsUrl.dtoResponse).then((data: any) => {
-        if (data.header.returnCode === '0000') {
-          this.newsList = data.body.newsList;
-        } else {
-
-        }
-        // 預設出現第一筆
-        // this.getNownews(this.newsList[0].id);
-
-      }, (err) => {
-
-
-      });
-
+ async sendRquest() {
+   await this.custNewsInfoService.sendRquest();
+    this.getContent();
   }
 
   getContent() {
     const item = this.content.item_id;
     this.getNownews(item);
   }
-
-
 
   selectNews(id: string) {
     this.nowNewsId = id;
@@ -93,12 +63,10 @@ export class NewsInfoComponent extends BaseComponent implements OnInit, OnChange
 
   getNownews(id: string) {
     this.nowNewsId = id;
-    this.nowNews = this.newsList.find(function (item) {
-      return item.id === id;
-    });
-
+    this.nowNews = this.custNewsInfoService.newsList.find(
+      item => item.id === id
+    );
+    this.newsList = this.custNewsInfoService.newsList;
   }
-
-
 
 }

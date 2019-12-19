@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit, OnChanges {
     };
 
 
-    public loadingStatus: boolean;
+    public loadingStatus: boolean = true;
     public statusCode: boolean;
     public hideBlock: boolean;
     public hasResult: boolean;
@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.keywordList = this.dataList;
         this.getSortData();
         this.getIssues();
-        this.checkResult();
+        this.checkResult(); //TODO check return code
 
         // 分頁切換時，重新取得資料
         this.paginator.page.subscribe((page: PageEvent) => {
@@ -229,7 +229,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             this.nodata = '無符合條件之客戶';
             this.hideBlock = true;
             this.hasResult = false;
-            this.loadingStatus = true;
+            this.loadingStatus = false;
         }
         else {
             this.nodata = '';

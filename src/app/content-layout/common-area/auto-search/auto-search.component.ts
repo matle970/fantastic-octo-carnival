@@ -53,11 +53,9 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, private el: ElementRef) { }
 
 	ngOnInit() {
-		this.getCookieValue();
 	}
 
 	ngOnChanges(SimpleChanges: any) {
-		this.getCookieValue();
 		if (this.keywordList) {
 			this.getKeyWordList();
 
@@ -73,11 +71,13 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	highlightFiltered(gname: string) {
 		const inputKeyword = this.stateForm.get('stateGroup').value;
-		return gname.replace(inputKeyword, `<span class="autocomplete-heighlight">${inputKeyword}</span>`);
+		return gname.replace(inputKeyword.names, `<span class="autocomplete-heighlight">${inputKeyword.names}</span>`);
 	}
 
 	onChoose(item: any) {
 		const inputKeyword = item;
+		this.updateCookie(inputKeyword);
+
 		this.getCompleteKeyword.emit(inputKeyword);
 	}
 	onKey(event: any) {
@@ -87,12 +87,12 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 		this.getCompleteKeyword.emit(inputKeyword);
 	}
-
-	getOptionText(group) {
+	displayFn(group) {
+		this.cookieValue = this.cookieService.get('cb_search_last_word');
 		if (group)
 			return group.names;
-		else 
-			return '';
+		else if (this.cookieValue)
+			return this.cookieValue;
 	}
 
 	getKeyWordList() {
@@ -127,18 +127,11 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 		}
 		return this.stateGroups;
 	}
-	// 如果上次有搜尋的keyword，預設出現keyword
-	getCookieValue() {
-		this.cookieValue = this.cookieService.get('cb_search_last_word');
-		const nthis = this;
 
-		if (this.cookieValue) {
-			setTimeout(() => { nthis.keyword = this.cookieValue }, 50);
-		}
-
-	}
-
-	updateCookie(value: string) {
-		this.cookieService.set('cb_search_last_word', value);
+	updateCookie(value) {
+		if (value.names)
+			this.cookieService.set('cb_search_last_word', value.names, 365, '/');
+		else if (value)
+			this.cookieService.set('cb_search_last_word', value, 365, '/');
 	}
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges, Input, ChangeDetectionStrategy } from '@angular/core';
-import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cust-baseinfo.service';
@@ -10,7 +9,7 @@ import { CustBaseinfoService } from '../../../services/customer/cust-baseinfo/cu
     styleUrls: ['./cust-baseinfo.component.scss']
 })
 
-export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnChanges {
+export class CustBaseInfoComponent implements OnInit, OnChanges {
     @Input('searchStr') searchStr: string;
 
     // html text
@@ -38,6 +37,13 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
     data_period_text: string = this.text.data_period_text;
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
+
+    // show status
+    public loadingStatus: boolean;
+    public identityStatus: boolean;
+    public hideBlock: boolean;
+    public hasResult: boolean;
+    public nodata: string;
 
     // response
     Company: any = {};
@@ -156,7 +162,6 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     constructor(
         private custbaseinfoService: CustBaseinfoService) {
-        super();
     }
 
     async ngOnChanges() {
@@ -173,18 +178,11 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
 
     setData() {
         this.setCompany();
+        this.setManage();
         this.setCompanyAssociate();
         this.setContribution();
 
         this.CompanyFlag = this.custbaseinfoService.CompanyFlag;
-    }
-
-    setCompanyAssociate() {
-        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
-        // console.log('this.CompanyAssociate', this.CompanyAssociate);
-        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
-
     }
 
     setCompany() {
@@ -192,6 +190,20 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
         this.CompanyDetail = this.custbaseinfoService.CompanyDetail;
         // console.log('this.Company', this.Company);
         // console.log('this.CompanyDetail', this.CompanyDetail);
+    }
+
+    setManage() {
+        this.Manage = this.custbaseinfoService.Manage;
+        this.ManageDetail = this.custbaseinfoService.ManageDetail;
+        // console.log('this.Manage', this.Manage);
+        // console.log('this.ManageDetail', this.ManageDetail);
+    }
+
+    setCompanyAssociate() {
+        this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
+        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
+        // console.log('this.CompanyAssociate', this.CompanyAssociate);
+        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
     }
 
     setContribution() {
@@ -238,89 +250,88 @@ export class CustBaseInfoComponent extends BaseComponent implements OnInit, OnCh
      * 取得基本資訊所有的API Urls
      * @param param : api所需的參數值
      ********************/
-    getBaseInfoApiUrls() {
-        const urls = this.URL.customerProfile.Layer1;
-        Object.keys(urls).forEach(value => {
-            console.log(urls[value]);
-            this.apiUrls.push(urls[value]);
-        });
-    }
+    // getBaseInfoApiUrls() {
+    //     const urls = this.URL.customerProfile.Layer1;
+    //     Object.keys(urls).forEach(value => {
+    //         console.log(urls[value]);
+    //         this.apiUrls.push(urls[value]);
+    //     });
+    // }
 
     /*******************
      * 準備發送的API request Obj
      * {'url': string, 'param': param}
      * @param param : api所需的參數值
      ********************/
-    prepareBaseInfoApiRequest(urls: string[], param: any) {
+    // prepareBaseInfoApiRequest(urls: string[], param: any) {
 
-        const requestParam = [];
-        urls.forEach(value => {
-            requestParam.push({ 'url': value, 'param': param });
-        });
-        return requestParam;
-    }
+    //     const requestParam = [];
+    //     urls.forEach(value => {
+    //         requestParam.push({ 'url': value, 'param': param });
+    //     });
+    //     return requestParam;
+    // }
 
     /*******************
      * 發送API取得基本資料
      * *****************/
-    getBaseInfoData(request: any) {
-        request.forEach(value => {
-            this.getRequestData(value.url, value.param).then((response: any) => {
-                this.setBaseInfo(value.url, plainToClass(CommonResponse, response));
-            }).catch((error: any) => {
-                console.log('error' + error);
-            });
-        });
-    }
+    // getBaseInfoData(request: any) {
+    //     request.forEach(value => {
+    //         this.getRequestData(value.url, value.param).then((response: any) => {
+    //             this.setBaseInfo(value.url, plainToClass(CommonResponse, response));
+    //         }).catch((error: any) => {
+    //             console.log('error' + error);
+    //         });
+    //     });
+    // }
 
     /*******************
      * 依各個 URL 塞各自的資料
      * *****************/
-    setBaseInfo(url: string, response: any) {
-        console.log(response);
-        const status = response.header.returnCode;
-        const data = response.body;
-        if (status === '0000') {
-            switch (url) {
-                case this.URL.customerProfile.Layer1.getCBCompany:
-                    console.log('公司資訊');
-                    break;
-                case this.URL.customerProfile.Layer1.getCBGroup:
-                    console.log('集團資訊');
-                    break;
-                case this.URL.customerProfile.Layer1.getCBManage:
-                    console.log('經管資訊');
-                    break;
-                case this.URL.customerProfile.Layer1.getCBContribution:
-                    console.log('貢獻度');
-                    this.setContributionData(data);
-                    break;
-                default:
-                    console.log('url not found');
-                    break;
-            }
-        }
-    }
+    // setBaseInfo(url: string, response: any) {
+    //     console.log(response);
+    //     const status = response.header.returnCode;
+    //     const data = response.body;
+    //     if (status === '0000') {
+    //         switch (url) {
+    //             case this.URL.customerProfile.Layer1.getCBCompany:
+    //                 console.log('公司資訊');
+    //                 break;
+    //             case this.URL.customerProfile.Layer1.getCBGroup:
+    //                 console.log('集團資訊');
+    //                 break;
+    //             case this.URL.customerProfile.Layer1.getCBManage:
+    //                 console.log('經管資訊');
+    //                 break;
+    //             case this.URL.customerProfile.Layer1.getCBContribution:
+    //                 console.log('貢獻度');
+    //                 this.setContributionData(data);
+    //                 break;
+    //             default:
+    //                 console.log('url not found');
+    //                 break;
+    //         }
+    //     }
+    // }
 
     // 塞貢獻度資料
-    setContributionData(data: any) {
-        // 取得貢獻度資料, 每個值存成arry & 圖表標頭 & 更新圖表
-        const lastYear: number[] = [];
-        const thisYear: number[] = [];
-        for (let i = 1; i < 7; i++) {
-            lastYear.push(super.getUtilsService().removeCommafy(data.lastcontri['profittype' + i]));
-            thisYear.push(super.getUtilsService().removeCommafy(data.thiscontri['profittype' + i]));
-        }
-        console.log(lastYear);
-        console.log(thisYear);
+    // setContributionData(data: any) {
+    //     // 取得貢獻度資料, 每個值存成arry & 圖表標頭 & 更新圖表
+    //     const lastYear: number[] = [];
+    //     const thisYear: number[] = [];
+    //     for (let i = 1; i < 7; i++) {
+    //         lastYear.push(super.getUtilsService().removeCommafy(data.lastcontri['profittype' + i]));
+    //         thisYear.push(super.getUtilsService().removeCommafy(data.thiscontri['profittype' + i]));
+    //     }
+    //     console.log(lastYear);
+    //     console.log(thisYear);
 
-        const lastYearStart = super.getUtilsService().changeDateStr(data.lastcontri.startym, 'yyyy/MM');
-        const lastYearEnd = super.getUtilsService().changeDateStr(data.lastcontri.endym, 'yyyy/MM');
-        const thisYearStart = super.getUtilsService().changeDateStr(data.thiscontri.startym, 'yyyy/MM');
-        const thisYearEnd = super.getUtilsService().changeDateStr(data.thiscontri.endym, 'yyyy/MM');
+    //     const lastYearStart = super.getUtilsService().changeDateStr(data.lastcontri.startym, 'yyyy/MM');
+    //     const lastYearEnd = super.getUtilsService().changeDateStr(data.lastcontri.endym, 'yyyy/MM');
+    //     const thisYearStart = super.getUtilsService().changeDateStr(data.thiscontri.startym, 'yyyy/MM');
+    //     const thisYearEnd = super.getUtilsService().changeDateStr(data.thiscontri.endym, 'yyyy/MM');
 
-        const lastYearPeriod = lastYearStart + '-' + lastYearEnd;
-        const thisYearPeriod = thisYearStart + '-' + thisYearEnd;
-    }
-
+    //     const lastYearPeriod = lastYearStart + '-' + lastYearEnd;
+    //     const thisYearPeriod = thisYearStart + '-' + thisYearEnd;
+    // }
 }

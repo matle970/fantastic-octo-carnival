@@ -1,52 +1,128 @@
 <div class="card shadow-lg bottom-card">
-  <app-water-print [MdSize]="true"></app-water-print>
-
+  <!-- <app-water-print [MdSize]="true" *ngIf="!hideBlock"></app-water-print> -->
+  <app-water-print [MdSize]="true" ></app-water-print>
   <div class="card-body">
-      <h4 class="card-title text-primary">客戶歷程</h4>
-      <div class="customer-history">
+      <h4 class="card-title text-primary">
+        {{cust_history}}
+      </h4>
+      <div class="h-100" *ngIf="hideBlock">
+          <!-- <app-identity-status [identityType]="identityStatus" *ngIf="!loadingStatus"></app-identity-status> -->
+          <app-loading *ngIf="loadingStatus"></app-loading>
+          <!-- <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data> -->
+          <app-no-data [message]="nodata"></app-no-data>
+      </div>
+      <!-- <div class="customer-history" *ngIf="!hideBlock"> -->
+        <div class="customer-history" >
 
           <!-- simple style show  -->
-          <ul class="tab-btn">
-              <li class="" *ngFor="let item of tabList"
-              (click)="selectTab(item.id)" [ngClass]="{'active': item.id == activeTab}">
-                  {{item.name}}
-            </li>
-          </ul>
 
-          <ul class="content-list">
-            <ng-container *ngFor="let history of historyList; let ri = index">
+          <div class="d-block pr-2">
+            <div class="tab-btn row no-gutters">
+              <div class="col-3" *ngFor="let item of tabList"
+              (click)="selectTab(item.id)">
+
+                  <div class="tab-btn-item" [ngClass]="{'active': item.id == activeTab}">
+                    {{item.name}}
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <!-- <ul class="content-list" *ngIf="identityShow && activeTab === 'chairman'">
+            <app-no-data [message]="identyWord"></app-no-data>
+          </ul> -->
+
+          <!-- <ul class="content-list" *ngIf="!identityShow"> -->
+            <ul class="content-list">
+              <div class="d-inline-block my-1 pl-3" *ngIf="activeTab === 'chairman'">
+                  <ng-container>
+                    <span class="identity-tag" *ngFor="let idt of identity">
+                      {{idt}}
+                    </span>
+                  </ng-container>
+              </div>
+              <ng-container *ngFor="let history of historyList; let ri = index">
                 <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
-                    <div class="list">
-                      <span class="type"
-                      [ngClass]="{
-                        'type-deposit': history.type=='deposit',
-                        'type-loan': history.type=='loan',
-                        'type-man': history.type=='chairman'
-                      }">
-                        {{history.type_name}}
-                      </span>
-                      <span class="date">
-                        {{ history.date_time}}
-                      </span>
-                      <span class="unit"
-                      [ngClass]="{
-                        'type-deposit': history.type=='deposit',
-                        'type-loan': history.type=='loan',
-                        'type-man': history.type=='chairman'
-                      }">
-                          {{ history.unit}}
-                      </span>
-                      <span class="content text-ellipsis">
-                          {{ history.content_word}}
-                      </span>
+                    <div class="list row no-gutters">
+                      <div class="d-inline-block col type-block">
+                          <span class="type"
+                          [ngClass]="{
+                            'type-deposit': history.type=='deposit',
+                            'type-loan': history.type=='loan',
+                            'type-man': history.type=='chairman'
+                          }">
+                            {{history.type_name}}
+                          </span>
+                      </div>
+
+                      <div class="d-inline-block col content-block">
+                        <div class="w-100">
+                            <span class="date">
+                                {{ history.date_time}}
+                              </span>
+                              <span class="unit"
+                              [ngClass]="{
+                                'type-deposit': history.type=='deposit',
+                                'type-loan': history.type=='loan',
+                                'type-man': history.type=='chairman'
+                              }">
+                                  {{ history.unit}}
+                              </span>
+                        </div>
+
+                        <div class="w-100">
+                            <span class="content text-ellipsis">
+                                {{ history.content_word}}
+                            </span>
+                        </div>
+
+                      </div>
                     </div>
                 </li>
-            </ng-container>
-
+              </ng-container>
           </ul>
 
+          <!-- <ul class="content-list" *ngIf="identityShow">
+                <ng-container *ngFor="let history of contentList; let ri = index">
+                    <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
+                        <div class="list row no-gutters" *ngIf="activeTab !== 't05'">
+                          <div class="d-inline-block col type-block">
+                              <span class="type"
+                              [ngClass]="{
+                                'type-deposit': history.type=='deposit',
+                                'type-loan': history.type=='loan',
+                                'type-man': history.type=='chairman'
+                              }">
+                                {{history.type_name}}
+                              </span>
+                          </div>
 
+                          <div class="d-inline-block col content-block">
+                            <div class="w-100">
+                                <span class="date">
+                                    {{ history.date_time}}
+                                  </span>
+                                  <span class="unit"
+                                  [ngClass]="{
+                                    'type-deposit': history.type=='deposit',
+                                    'type-loan': history.type=='loan',
+                                    'type-man': history.type=='chairman'
+                                  }">
+                                      {{ history.unit}}
+                                  </span>
+                            </div>
 
+                            <div class="w-100">
+                                <span class="content text-ellipsis">
+                                    {{ history.content_word}}
+                                </span>
+                            </div>
+
+                          </div>
+                        </div>
+                    </li>
+                </ng-container>
+          </ul> -->
 
       </div>
   </div>

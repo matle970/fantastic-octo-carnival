@@ -1,6 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/content-layout/common-area/dialog/dialog.component';
 import { BaseComponent } from 'src/app/base/base.component';
 import { plainToClass } from 'class-transformer';
@@ -8,7 +8,7 @@ import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { AssetsLibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
-import { DialogService } from 'src/app/services/common-services/dialog.service';
+
 
 @Component({
     selector: 'app-cust-charts',
@@ -16,6 +16,9 @@ import { DialogService } from 'src/app/services/common-services/dialog.service';
     styleUrls: ['./cust-charts.component.scss']
 })
 export class CustChartsComponent extends BaseComponent implements OnInit {
+    @Input() content: any;
+
+    //viewchild 看上去好像沒用到，看要不要刪掉
     @ViewChild('chartDeposit') chartDeposit: ChartComponent;
     @ViewChild('chartLoad') chartLoad: ChartComponent;
     @ViewChild('chartTrade') chartTrade: ChartComponent;
@@ -29,59 +32,30 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         }
     ];
 
+    //營運量第一層 html text
+    text = this.custchartsService.baseservice.gettextservice.custchartstext;
+    assetslibilities_text: string = this.text.assetslibilities_text;
+    deposit_text: string = this.text.deposit_text;
+    loan_text: string = this.text.loan_text;
+    tradeFinance_text: string = this.text.tradeFinance_text;
+    import_text: string = this.text.import_text;
+    export_text: string = this.text.export_text;
+    tmu_text: string = this.text.tmu_text;
+    mtm_text: string = this.text.mtm_text;
+    //營運量第二層 htm text
+
+
+    // response
     // 營運量-營運量第一層
-    AssetsLibilitiesObj: any = {};
+    AssetsLibilities: any = {};
     // 營運量-存款餘額第二層
-    DepositDetailObj: any = {};
+    DepositDetail: any = {};
     // 營運量-放款餘額第二層
-    LoanDetailObj: any = {};
+    LoanDetail: any = {};
     // 營運量-進出口實績第二層
-    ImportExportDetailObj: any = {};
+    ImportExportDetail: any = {};
     // 營運量-TMU額度第二層
-    TMUDetailObj: any = {};
-
-    constructor(
-        private custchartsService: CustChartsService,
-        private dialogService: DialogService,
-        public dialog: MatDialog) {
-
-        super();
-
-    }
-
-    async ngOnInit() {
-        await this.custchartsService.sendRequest();
-
-        this.AssetsLibilitiesObj = this.custchartsService.AssetsLibilitiesObj;
-
-        this.DepositData.series[0].data = this.AssetsLibilitiesObj.data.body[0].depositBal;
-        this.DepositData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].depositMon);
-
-        this.LoanData.series[0].data = this.AssetsLibilitiesObj.data.body[0].loanBal;
-        this.LoanData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].loanMon);
-        this.LoanData.series[1].data = this.AssetsLibilitiesObj.data.body[0].tradeFinanceBal;
-
-        this.TradeData.series[0].data = this.AssetsLibilitiesObj.data.body[0].importAmt;
-        this.TradeData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].importMon);
-        this.TradeData.series[1].data = this.AssetsLibilitiesObj.data.body[0].exportAmt;
-
-        this.TmuData.series[0].data = this.AssetsLibilitiesObj.data.body[0].tmuUsage
-        this.TmuData.xaxis.categories = this.getDataMonth(this.AssetsLibilitiesObj.data.body[0].tmuMon);
-        this.TmuData.series[1].data = this.AssetsLibilitiesObj.data.body[0].mtmUsage;
-
-    }
-
-    // 取得月份 format 201907, return 7
-    getDataMonth(data: any) {
-        const monthArry = [];
-        data.forEach(value => {
-            monthArry.push(parseInt(value.substring(4, 6), 10));
-        });
-        return monthArry;
-    }
-
-    apiUrls: string[] = []; // 此componment需要發送的API urls
-    // assetsLibilitiesText = this.TEXT.assetsLibilities;
+    TMUDetail: any = {};
 
     //圖表資訊 - 存款
     DepositData = {
@@ -100,7 +74,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         series: [
             {
                 name: '存款',
-                data: [100, 99, 98, 95, 70, 60, 65, 50, 55, 60, 45, 35, 40]
+                data: []
             }
         ],
         dataLabels: {
@@ -120,9 +94,8 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             }
         },
         xaxis: {
-            categories:
-                [201812, 201901, 201902, 201903, 201904, 201905, 201906, 201907, 201908, 201909, 201910, 201911, 201912]
-
+            categories: [],
+            labels: {}
         },
         yaxis: {
             labels: {
@@ -181,11 +154,11 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         series: [
             {
                 name: '放款',
-                data: [900, 800, 1200, 1600, 1500, 1300, 1200, 800, 700, 1100, 1300, 1123, 1400]
+                data: []
             },
             {
                 name: '貿融',
-                data: [500, 700, 500, 600, 400, 300, 200, 100, 200, 300, 300, 423, 600]
+                data: []
             }
         ],
         title: {
@@ -203,15 +176,11 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             size: 6
         },
         xaxis: {
-            categories:
-                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
-            ,
-
+            categories: [],
             labels: {
 
                 // user 要部份隱藏，但圖表要顯示，目前無法做到
                 // 兩邊會一起隱藏，先不做
-
 
                 // formatter: function(val,timestamp,index) {
                 //   if( (val%2) === 0) {
@@ -220,7 +189,6 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
                 //     return val;
                 //   }
                 // }
-
             }
         },
         yaxis: {
@@ -246,7 +214,90 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
             }
         }
     };
+    // 圖表資訊-進出口
+    TradeData = {
+        chart: {
+            fontFamily: '微軟正黑體',
+            height: 220,
+            type: 'line',
+            shadow: {
+                enabled: true,
+                color: '#000',
+                top: 18,
+                left: 7,
+                blur: 10,
+                opacity: 1
+            },
+            toolbar: {
+                show: false
+            }
+        },
+        colors: ['#045960', '#08a08a'],
+        dataLabels: {
+            enabled: false,
+            formatter: function (val) {
+                return val ? val.toFixed(1) + '%' : ''
+            }
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        series: [
+            {
+                name: '進口',
+                data: []
+            },
+            {
+                name: '出口',
+                data: []
+            }
+        ],
+        title: {
+            text: 'Average High & Low Temperature',
+            align: 'left'
+        },
+        grid: {
+            borderColor: '#e7e7e7',
+            row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+            }
+        },
+        markers: {
+            size: 6
+        },
+        xaxis: {
+            categories:
+                []
+            ,
+            labels: {
 
+            }
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    fontSize: '0.8rem',
+                }
+            }
+        },
+        legend: {
+            position: 'top',
+            horizontalAlign: 'center',
+            labels: {
+                colors: '#000000',
+            },
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                    return pnum;
+                },
+            }
+        }
+
+    };
     // 圖表資訊-TMU&MTM
     TmuData = {
         chart: {
@@ -276,11 +327,11 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         series: [
             {
                 name: 'TMU',
-                data: [0.1, 0.5, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 0.4, 0.3, 0.2, 0.5, 0.1]
+                data: []
             },
             {
                 name: 'MTM',
-                data: [0.2, 0.3, 0.5, 0.4, 0.5, 0.6, 0.7, 0.3, 0.5, 0.3, 0.2, 0.6, 0.7]
+                data: []
             }
         ],
         title: {
@@ -299,7 +350,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         },
         xaxis: {
             categories:
-                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
+                []
             ,
             labels: {
 
@@ -328,8 +379,8 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
                     const pnum = Math.round(val * 10000) / 100
                     // let xsd = val.toString().split('.')
                     // if (xsd.length === 1) {
-                        // val = val.toString() + '.00'
-                        return pnum + '%';
+                    // val = val.toString() + '.00'
+                    return pnum + '%';
                     // }
                 },
             }
@@ -337,141 +388,167 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
 
 
     };
-    // 圖表資訊-進出口
-    TradeData = {
-        chart: {
-            fontFamily: '微軟正黑體',
-            height: 220,
-            type: 'line',
-            shadow: {
-                enabled: true,
-                color: '#000',
-                top: 18,
-                left: 7,
-                blur: 10,
-                opacity: 1
-            },
-            toolbar: {
-                show: false
-            }
-        },
-        colors: ['#045960', '#08a08a'],
-        dataLabels: {
-            enabled: false,
-            formatter: function (val) {
-                return val ? val.toFixed(1) + '%' : ''
-            }
 
-        },
-        stroke: {
-            curve: 'smooth'
-        },
-        series: [
-            {
-                name: '進口',
-                data: [1000, 800, 1200, 1600, 1500, 1300, 1200, 800, 700, 1100, 1300, 1123, 1400]
-            },
-            {
-                name: '出口',
-                data: [500, 700, 500, 600, 400, 300, 200, 100, 200, 300, 300, 423, 600]
-            }
-        ],
-        title: {
-            text: 'Average High & Low Temperature',
-            align: 'left'
-        },
-        grid: {
-            borderColor: '#e7e7e7',
-            row: {
-                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                opacity: 0.5
-            }
-        },
-        markers: {
-            size: 6
-        },
-        xaxis: {
-            categories:
-                ['201812', '201901', '201902', '201903', '201904', '201905', '201906', '201907', '201908', '201909', '201910', '201911', '201912']
-            ,
-            labels: {
+    constructor(
+        // 想辦法藏到service ,odalservice matdialog
+        // private modalservice: ModalService,
+        public dialog: MatDialog,
 
-            }
-        },
-        yaxis: {
-            labels: {
-                style: {
-                    fontSize: '0.8rem',
-                }
-            }
-        },
-        legend: {
-            position: 'top',
-            horizontalAlign: 'center',
-            labels: {
-                colors: '#000000',
-            },
-        },
-        tooltip: {
-            y: {
-                formatter: function (val) {
-                    const pnum = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                    return pnum;
-                },
-            }
-        }
+        private custchartsService: CustChartsService) {
+        super();
+    }
+    async ngOnInit() {
+        await this.custchartsService.sendRequest();
+        this.setData();
+        // console.log('xx',this.setData());
+    }
 
-    };
+    setData() {
+        // this.AssetsLibilities = this.custchartsService.AssetsLibilities;
+
+        // this.DepositData.series[0].data= this.AssetsLibilities.data.body[0].depositBal;
+        // this.DepositData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].depositMon);
+
+        // console.log('xxx',this.DepositData.series);
+        // this.LoanData.series[0].data = this.AssetsLibilities.data.body[0].loanBal;
+        // this.LoanData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].loanMon);
+        // this.LoanData.series[1].data = this.AssetsLibilities.data.body[0].tradeFinanceBal;
+
+        // this.TradeData.series[0].data = this.AssetsLibilities.data.body[0].importAmt;
+        // this.TradeData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].importMon);
+        // this.TradeData.series[1].data = this.AssetsLibilities.data.body[0].exportAmt;
+
+        // this.TmuData.series[0].data = this.AssetsLibilities.data.body[0].tmuUsage
+        // this.TmuData.xaxis.categories = this.getDataMonth(this.AssetsLibilities.data.body[0].tmuMon);
+        // this.TmuData.series[1].data = this.AssetsLibilities.data.body[0].mtmUsage;
+        this.setResponse();
+        this.setDepositChartsData();
+        this.setLoanChartsData();
+        this.setTradeChartsData();
+        this.setTmuChartsData();
+    }
+    setResponse() {
+        this.AssetsLibilities = this.custchartsService.AssetsLibilities;
+        this.DepositDetail = this.custchartsService.DepositDetail;
+        this.LoanDetail = this.custchartsService.LoanDetail;
+        this.ImportExportDetail = this.custchartsService.ImportExportDetail;
+        this.TMUDetail = this.custchartsService.TMUDetail;
+    }
+    setDepositChartsData() {
+        this.DepositData.series[0].data = this.custchartsService.DepositDataseries;
+        this.DepositData.xaxis.categories = this.custchartsService.DepositDatacategories;
+        //     for (let i = 0; i < this.custchartsService.DepositDataseries.length; i++) {
+        //         this.DepositData.series.push(
+        //             {
+        //                 // name: '存款',
+        //                 data: this.custchartsService.DepositDataseries[i]
+        //             }
+        //         )
+        //     }
+    }
+
+    setLoanChartsData() {
+        this.LoanData.series[0].data = this.custchartsService.LoanDataseries;
+        this.LoanData.series[1].data = this.custchartsService.TradeFinanceDataseries;
+        this.LoanData.xaxis.categories = this.custchartsService.LoanDatacategories;
+    }
+
+    setTradeChartsData() {
+        this.TradeData.series[0].data = this.custchartsService.ImportDataseries;
+        this.TradeData.series[1].data = this.custchartsService.ExportDataseries;
+        this.TradeData.xaxis.categories = this.custchartsService.ImportDatacategories;
+    }
+
+    setTmuChartsData() {
+        this.TmuData.series[0].data = this.custchartsService.TmuDataseries;
+        this.TmuData.series[1].data = this.custchartsService.MtmDataseries;
+        this.TmuData.xaxis.categories = this.custchartsService.TmuDatacategories;
+    }
+    // /**
+    // * 暫用此方法寫
+    // * @param modalId 開啟modal的方式
+    // */
+    // openDialog(modalId: number, wide?: boolean) {
+    //     const openId = modalId ? modalId : 8;
+    //     const dialogConfig = new MatDialogConfig();
+    //     dialogConfig.autoFocus = false;
+
+    //     dialogConfig.data = {
+    //         id: openId,
+    //         title: '',
+    //         content_data: {}
+    //     };
+
+    //     if (wide) {
+    //         dialogConfig.panelClass = 'open-table-wide';
+    //     } else {
+    //         dialogConfig.panelClass = 'open-table-narrow';
+    //     }
+
+    //     switch (openId) {
+    //         case 8:
+    //             dialogConfig.data.content_data = [];
+    //             dialogConfig.data.title = '存款餘額';
+    //             break;
+    //         case 9:
+    //             dialogConfig.data.content_data = [];
+    //             dialogConfig.data.title = '放款餘額 / 貿融餘額';
+    //             break;
+    //         case 10:
+    //             dialogConfig.data.content_data = [];
+    //             dialogConfig.data.title = '進口 / 出口';
+    //             break;
+    //         case 11:
+    //             dialogConfig.data.content_data = [];
+    //             dialogConfig.data.title = 'TMU / MTM';
+    //             break;
+    //         default:
+    //             dialogConfig.data.content_data = [];
+    //             dialogConfig.data.title = 'defalut no data';
+    //             break;
+    //     }
+
+    //     this.dialog.open(DialogComponent, dialogConfig);
+    // }
 
     /**
-    * 暫用此方法寫
     * @param modalId 開啟modal的方式
     */
     openDialog(modalId: number, wide?: boolean) {
-        const openId = modalId ? modalId : 8;
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.autoFocus = false;
-
-        dialogConfig.data = {
-            id: openId,
-            title: '',
-            content_data: {}
-        };
-
-        if (wide) {
-            dialogConfig.panelClass = 'open-table-wide';
-        } else {
-            dialogConfig.panelClass = 'open-table-narrow';
-        }
-
-        switch (openId) {
+        let title: string;
+        let data: object;
+        switch (modalId) {
             case 8:
-                dialogConfig.data.content_data = [];
-                dialogConfig.data.title = '存款餘額';
+                title = this.deposit_text;
+                data = this.DepositDetail.data;
+                // console.log('xx', data);
                 break;
             case 9:
-                dialogConfig.data.content_data = [];
-                dialogConfig.data.title = '放款餘額 / 貿融餘額';
+                data = this.LoanDetail.data;
+                // dialogConfig.data.title = '放款餘額 / 貿融餘額';
                 break;
             case 10:
-                dialogConfig.data.content_data = [];
-                dialogConfig.data.title = '進口 / 出口';
+                data = this.ImportExportDetail.data;
+                // dialogConfig.data.title = '進口 / 出口';
                 break;
             case 11:
-                dialogConfig.data.content_data = [];
-                dialogConfig.data.title = 'TMU / MTM';
-                break;
-            default:
-                dialogConfig.data.content_data = [];
-                dialogConfig.data.title = 'defalut no data';
+                data = this.TMUDetail.data;
+                // dialogConfig.data.title = 'TMU / MTM';
                 break;
         }
-
-        this.dialog.open(DialogComponent, dialogConfig);
+        this.custchartsService.baseservice.dialogservice.openDialog(modalId, wide, title, data);
     }
 
+    apiUrls: string[] = []; // 此componment需要發送的API urls
 
+    /**
+     * 之後有時間再詳寫此功能
+     * @param mid
+     */
+    openModal(mid: string) {
+        // this.modalservice.openModal(mid);
 
+    }
     /*******************
        * 取得基本資訊所有的API Urls
        * @param param : api所需的參數值
@@ -494,7 +571,7 @@ export class CustChartsComponent extends BaseComponent implements OnInit {
         urls.forEach(value => {
             requestParam.push({ 'url': value, 'param': param });
         });
-        console.log(requestParam);
+        // console.log(requestParam);
         return requestParam;
     }
 

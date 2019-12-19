@@ -84,21 +84,16 @@ $man-b-color: #CCB270;
 
   // style B
   .tab-btn {
-    list-style: none;
-    padding:0;
-    margin:0;
     width:100%;
-    clear: both;
     height: auto;
-    overflow: hidden;
-    li{
+    box-sizing: border-box;
+    .tab-btn-item {
       cursor: pointer;
-      width: 60px;
+      width:98%;
       border: 1px solid $tab-gray;
       color: $tab-gray;
-      margin:1px;
+      margin:3px;
       text-align: center;
-      float: left;
       overflow: hidden;
       text-emphasis: none;
       text-overflow: hidden;
@@ -108,7 +103,7 @@ $man-b-color: #CCB270;
       height:26px;
       line-height: 26px;
       padding:0;
-      margin:3px;
+      box-sizing: border-box;
       &:hover {
         background-color:$tab-cathy-lightgreen;
         color:#FFF;
@@ -129,18 +124,31 @@ $man-b-color: #CCB270;
   padding: 0px;
   list-style: none;
   height: 240px;
-
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   li {
-    padding:3px 0;
+    padding:0 0 6px 10px;
     .list {
-      display: block;
-      padding: 8px 2px 8px 2px;
+      padding:2px;
       span {
         display: inline-block;
-        padding:5px;
+        padding:0px;
         vertical-align: middle;
         height: 100%;
+      }
+      .type-block {
+        width: auto;
+        min-width: 62px;
+        max-width: 68px;
+      }
+      .content-block {
+        width: auto;
+        min-width: 100px;
+        max-width: 400px;
+        div {
+          height: 25px;
+          line-height: 25px;
+        }
       }
       .type {
         font-weight: 700;
@@ -151,17 +159,24 @@ $man-b-color: #CCB270;
         border-radius: 5px;
         min-width: 60px;
         border: 1px solid #ddd;
+        height: 50px;
+        line-height: 50px;
+
         &.type-deposit {
           color: $deposit-A-color;
+          border-color: $deposit-A-color;
         }
-        &.type-load {
+        &.type-loan {
           color: $load-A-color;
+          border-color: $load-A-color;
         }
-        &.type-tmu {
+        &.type-04 {
           color: $tmu-A-color;
+          border-color: $tmu-A-color;
         }
         &.type-man {
           color: $man-A-color;
+          border-color: $man-A-color;
         }
 
       }
@@ -169,6 +184,7 @@ $man-b-color: #CCB270;
         width: auto;
         max-width: 120px;
         font-size: 1rem;
+        margin-right: 10px;
       }
       .unit {
         width: 80px;
@@ -176,10 +192,10 @@ $man-b-color: #CCB270;
         &.type-deposit {
           color: $deposit-A-color;
         }
-        &.type-load {
+        &.type-loan {
           color: $load-A-color;
         }
-        &.type-tmu {
+        &.type-04 {
           color: $tmu-A-color;
         }
         &.type-man {

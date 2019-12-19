@@ -1,59 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { ManageInfoService } from 'src/app/services/customer/cust-baseinfo/manage-info.service';
 
 export interface aoList {
-  id: string;
-  role: string;
-  dev: string;
-  wid: string;
-  name: string;
-  phone: string;
+    role: string;
+    dev: string;
+    wid: string;
+    name: string;
 }
 
 @Component({
-  selector: 'app-manage-info',
-  templateUrl: './manage-info.component.html',
-  styleUrls: ['./manage-info.component.scss']
+    selector: 'app-manage-info',
+    templateUrl: './manage-info.component.html',
+    styleUrls: ['./manage-info.component.scss']
 })
-export class ManageInfoComponent implements OnInit {
-  manageColumn = ['role', 'dev', 'wid', 'name', 'phone'];
-  management: aoList[] = [
-    {
-      id: 'a001',
-      role: 'PS',
-      dev: '環服部',
-      wid: 'NT48691',
-      name: '劉子齊',
-      phone: '02-12345678 #1234'
-    },
-    {
-      id: 'a002',
-      role: 'TMO',
-      dev: '金行部',
-      wid: 'NT83333',
-      name: '毛芝瑩',
-      phone: '02-12345678 #1234'
-    },
-    {
-      id: 'a003',
-      role: '公司戶分行理專',
-      dev: '信義分行',
-      wid: 'NT81757',
-      name: '林祐辰',
-      phone: '02-12345678 #1234'
-    },
-    {
-      id: 'a004',
-      role: '負責人分行理專',
-      dev: '信義分行',
-      wid: 'NT81757',
-      name: '林祐辰',
-      phone: '02-12345678 #1234'
-    },
-  ];
+export class ManageInfoComponent implements OnInit, OnChanges {
 
-  constructor() { }
+    @Input() content: any;
 
-  ngOnInit() {
-  }
+    // html text
+    text = this.manageinfoService.baseservice.gettextservice.custbaseinfotext;
+    customerid_text: string = this.text.customerid_text;
+    window_text: string = this.text.window_text;
+    phone_text: string = this.text.phone_text;
+
+    manageColumn = ['role', 'dev'];
+    management: aoList[] = [];
+
+    constructor(
+        private manageinfoService: ManageInfoService
+    ) { }
+
+    ngOnChanges() {
+
+        if (this.content.psId !== null) {
+            this.management.push(
+                {
+                    role: 'PS',
+                    dev: this.content.data.psBranchDesc,
+                    wid: this.content.data.psId,
+                    name: this.content.data.psName
+                }
+            );
+        }
+
+        if (this.content.tmoId !== null) {
+            this.management.push(
+                {
+                    role: 'TMO',
+                    dev: this.content.data.tmoBranchDesc,
+                    wid: this.content.data.tmoId,
+                    name: this.content.data.tmoName
+                }
+            );
+        }
+
+        if (this.content.principalWmAoId !== null) {
+            this.management.push(
+                {
+                    role: '公司戶分行理專',
+                    dev: this.content.data.principalWmAoBranchDesc,
+                    wid: this.content.data.principalWmAoId,
+                    name: this.content.data.principalWmAoName
+                }
+            );
+        }
+
+        if (this.content.wmAoId !== null) {
+            this.management.push(
+                {
+                    role: '負責人分行理專',
+                    dev: this.content.data.wmAoBranchDesc,
+                    wid: this.content.data.wmAoId,
+                    name: this.content.data.wmAoName
+                }
+            );
+        }
+    }
+
+    ngOnInit() {
+    }
 
 }

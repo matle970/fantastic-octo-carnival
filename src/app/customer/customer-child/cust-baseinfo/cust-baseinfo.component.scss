@@ -1,68 +1,119 @@
-
-.has-notification-icon{
+.has-notification-icon {
   position: relative;
   .notifications {
     position: absolute;
     top: -10px;
     left: 80px;
   }
-
+  &.bad-alert {
+    .notifications {
+      position: absolute;
+      top: -10px;
+      left: 80px;
+      .notice {
+        margin-top: -5px;
+        margin-left: -7px;
+      }
+    }
+  }
 }
 
-.base-block{
-  height: 480px;
+.base-block {
+  height: 500px;
   .badge {
     border-radius: 0px;
     border-width: 3px !important;
     border-style: double !important;
-  }
-  .company-number-block {
-    height: 167px;
-  }
-  .card-body {
-    .body-subtitle {
-      .btn {
-        font-size: 1.2rem !important;
-        font-weight: 500!important;
-      }
-
+    box-sizing: border-box;
+    vertical-align: middle;
+    .title {
+      width: 50%;
+    }
+    .num {
+      width: 50%;
+    }
+    span {
+      vertical-align: middle !important;
+      display: inline-block;
+    }
+    &::before {
+      content: "";
+      height: 100%;
+      width: 1px;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
 
+  .company-number-block {
+    .badge {
+      margin-bottom: 2px !important;
+    }
+  }
+  .card-body {
+    .line {
+      // border-top:1px solid blue; // test for line
+    }
+    .company-title {
+      // border:1px solid red;
+      vertical-align: middle;
+      height: 40px;
+      &::before {
+        content: "";
+        vertical-align: middle;
+        display: inline-block;
+        width: 1px;
+        height: 98%;
+        vertical-align: middle;
+      }
+      span {
+        // border:1px solid blue;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    .body-subtitle {
+      .btn {
+        font-size: 1.2rem !important;
+        font-weight: 500 !important;
+        width: 130px;
+      }
+    }
+  }
 }
 .number-list {
   width: 100%;
-  padding:0;
-  margin:0;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
   &.h-68 {
     height: 68px;
   }
 
   ol {
-    font-size:0.8rem;
-    font-style:normal;
-    padding:0;
+    font-size: 0.8rem;
+    font-style: normal;
+    padding: 0;
     margin: 0;
     padding-left: 0px;
     list-style: none;
     li {
-      .badge{
+      .badge {
         margin-bottom: 3px;
         width: 95%;
         font-size: 1rem;
-        background: #fafafa;
+        background: rgba(250, 250, 250, 0.82);
         color: #000;
-        border: 1px solid #CCC;
+        border: 1px solid #ccc;
         text-align: left;
         padding: 8px 3px;
         .num {
           font-size: 1.2rem;
-          color:#069F41;
+          color: #069f41;
           font-weight: 700;
           text-align: right;
           display: inline-block;
         }
-
       }
       p {
         font-style: normal;
@@ -70,53 +121,49 @@
         word-spacing: 2px;
         padding-bottom: 0rem !important;
         margin-bottom: 0.4rem;
-        color:#069F41;
+        color: #069f41;
         font-weight: 700;
         em {
-          display:block;
+          display: block;
           font-style: normal;
           font-weight: 500;
-          color:#000;
-          font-size:1rem;
+          color: #000;
+          font-size: 1rem;
           letter-spacing: 1px;
         }
       }
     }
   }
-
-
 }
 
 .tag {
   margin-right: 2px;
-  width:36px;
+  width: 36px;
   height: 36px;
   line-height: 36px;
 }
 
-.ao-charts{
-  .charts-note{
+.ao-charts {
+  .charts-note {
     box-sizing: border-box;
-    margin:3px auto;
+    margin: 3px auto;
     .note {
-      color:#FFF;
+      color: #fff;
       box-sizing: border-box;
-      margin:3px auto;
-      width:150px;
+      margin: 5px;
+      width: 150px;
       border-radius: 5px;
     }
     .last-year {
-      background: #76BC21;
+      background: #76bc21;
     }
     .this-year {
-      background: #009F41;
-
+      background: #009f41;
     }
   }
-
 }
 @media screen and (max-width: 1400px) {
-  .base-block{
-     height: auto !important;
+  .base-block {
+    height: auto !important;
   }
 }

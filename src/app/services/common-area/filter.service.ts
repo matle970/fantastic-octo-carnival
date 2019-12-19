@@ -3,7 +3,9 @@ import { BaseService } from '../common-services/base/base.service';
 import { WMBranchResponse } from 'src/app/objects/dto/firstpage/firstpage-wmBranch-response';
 import { ReferBranchResponse } from 'src/app/objects/dto/firstpage/firstpage-referBranch-response';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
-
+/**
+ * Should be deleted
+ */
 @Injectable({
   providedIn: 'root'
 })

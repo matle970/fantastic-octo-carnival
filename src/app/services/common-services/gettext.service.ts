@@ -16,6 +16,12 @@ export class GettextService {
     // custnews_text
     private _custnewstext: any = require('src/app/objects/text/cust-news-text.json');
 
+    // custcharts_text
+    private _custchartstext: any = require('src/app/objects/text/cust-charts-text.json');
+
+    // custnews_text
+    private _custhistorytext: any = require('src/app/objects/text/cust-history-text.json');
+
     get text() {
         return this._text;
     }
@@ -26,5 +32,13 @@ export class GettextService {
 
     get custnewstext() {
         return this._custnewstext;
+    }
+
+    get custchartstext() {
+        return this._custchartstext;
+    }
+
+    get custhistorytext() {
+        return this._custhistorytext;
     }
 }
