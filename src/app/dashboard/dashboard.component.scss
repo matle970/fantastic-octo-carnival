@@ -61,12 +61,29 @@ $tablgTrHover : #dbf1d9;
 }
 
 .data-table {
-  height: 60vh;
+  height: 68vh;
   overflow: auto;
   max-height: $table-max-height;
   min-height: 300px;
+  &.no-data {
+    .table {
+      thead {
+        th {
+          text-align: center !important;
+        }
+      }
+      td.no-data-border {
+        height: 300px;
+        border: 1px solid #EEE;
+      }
+    }
+
+  }
+
+
   .table {
     border-color: $table-border-color;
+
     thead {
       tr {
         font-weight: 700 !important;
@@ -77,6 +94,7 @@ $tablgTrHover : #dbf1d9;
           text-align: center;
           line-height: 1rem;
           white-space: nowrap;
+          padding-right: 30px !important;
           .order {
             position: absolute;
             right:0;
@@ -93,9 +111,24 @@ $tablgTrHover : #dbf1d9;
             min-width:80px;
             line-height: 1rem;
           }
+          &.cus-id-th {
+            padding-right: 0px;
+            text-align: center;
+          }
         }
 
       }
+    }
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          // padding:5px !important;
+
+
+        }
+      }
+
     }
     tr{
       &:hover {
@@ -111,9 +144,7 @@ $tablgTrHover : #dbf1d9;
 
     td {
       text-align: center;
-      .text {
-        padding-right: 24px !important;
-      }
+
     }
 
     .bg-one {

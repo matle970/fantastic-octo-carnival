@@ -31,17 +31,40 @@
 
 		<div>
 			<div class="card data-card shadow-lg">
-				<app-water-print *ngIf="!hideBlock"></app-water-print>
+				<app-water-print [hidden]="hideBlock"></app-water-print>
 				<div class="card-body" *ngIf="hideBlock">
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
-					<div class="data-table">
-						<app-loading *ngIf="loadingStatus"></app-loading>
-						<app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
+					<div class="data-table no-data">
+						<table  class="table m-0 p-0 table-hover table-sticky">
+						   <thead>
+							  <th class="text-nowrap">經管 AO</th>
+							  <th class="text-nowrap">集團名稱</th>
+							  <th class="text-nowrap">客戶名稱</th>
+							  <th class="text-nowrap">客戶 ID </th>
+							  <th class="text-nowrap">MSR</th>
+							  <th class="text-nowrap">RORWA</th>
+							  <th class="text-nowrap">RAROC</th>
+							  <th class="text-nowrap">去年度<br>累計貢獻度</th>
+							  <th class="text-nowrap">今年度<br>累計貢獻度</th>
+							  <th class="text-nowrap">存款餘額</th>
+							  <th class="text-nowrap">放款餘額</th>
+							  <th class="text-nowrap">貿融餘額</th>
+						   </thead>
+						   <tbody>
+							 <tr>
+							   <td colspan="12" class="no-data-border">
+								  <app-loading *ngIf="loadingStatus"></app-loading>
+								  <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
+							   </td>
+  
+							 </tr>
+						   </tbody>
+						</table>
 					</div>
 				</div>
-				<div class="card-body" *ngIf="!hideBlock">
+				<div class="card-body" [hidden]="hideBlock">
 					<div class="row data-info">
 						<div class="col-12">
 							<h3
@@ -49,7 +72,6 @@
 								<span class="title-name d-inline-block">
 									經管名單列表
 								</span>
-								<!-- 關鍵提醒 -->
 								<div class="d-inline-block float-right">
 									<app-notice-icon [datalist]="dataList" [notice]="7" [modalId]="1"></app-notice-icon>
 								</div>
@@ -59,7 +81,7 @@
 					</div>
 
 
-
+				
 					<!-- 列表 + paginator  -->
 					<div class="m-0 p-0">
 						<div class="data-table">
