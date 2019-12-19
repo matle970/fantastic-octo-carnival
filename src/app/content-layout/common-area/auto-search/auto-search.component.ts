@@ -71,7 +71,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 
 	highlightFiltered(gname: string) {
 		const inputKeyword = this.stateForm.get('stateGroup').value;
-		return gname.replace(inputKeyword.names, `<span class="autocomplete-heighlight">${inputKeyword.names}</span>`);
+		return gname.replace(inputKeyword, `<span class="autocomplete-heighlight">${inputKeyword}</span>`);
 	}
 
 	onChoose(item: any) {

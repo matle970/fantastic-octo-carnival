@@ -123,39 +123,39 @@
                                     <li>
                                         <p>
                                             <em class="d-inline-block">
-                                                德魯納集團
+                                                {{Group.data?.parentCustomerName}}
                                             </em>
-                                            87654321
+                                            {{Group.data?.parentCompanyId}}
                                         </p>
                                     </li>
                                     <li>
                                         <p>
                                             <em class="d-inline-block">
-                                                集團總額度
+                                                {{sumfacdfxlimitamt_text}}
                                             </em>
-                                            {{ 8000 | currency:'':'':'1.0-0'}}
+                                            {{sumfacdFxLimitAmt}}
                                         </p>
                                     </li>
                                     <li>
                                         <p>
                                             <em class="d-inline-block">
-                                                集團總餘額
+                                                {{sumlbfxcurrentbal_text}}
                                             </em>
-                                            {{ 4000 | currency:'':'':'1.0-0'}}
+                                            {{sumLbFxCurrentBal}}
                                         </p>
                                     </li>
                                     <li>
                                         <div class="row no-gutters">
                                             <div class="d-inline-block col-12 col-md-12">
                                                 <span class="badge badge-pill p-2 mr-1">
-                                                    <span class="title text-left">RORWA</span>
-                                                    <span class="num text-right">1.34%</span>
+                                                    <span class="title text-left">{{RORWA_text}}</span>
+                                                    <span class="num text-right">{{Group.data?.rorwa}}</span>
                                                 </span>
                                             </div>
                                             <div class="d-inline-block col-12 col-md-12">
                                                 <span class="badge badge-pill p-2 mr-1">
-                                                    <span class="title text-left">RAROC</span>
-                                                    <span class="num text-right">1.58%</span>
+                                                    <span class="title text-left">{{RAROC_text}}</span>
+                                                    <span class="num text-right">{{Group.data?.raroc}}</span>
                                                 </span>
                                             </div>
                                         </div>
@@ -339,39 +339,39 @@
                             <li>
                                 <p>
                                     <em class="d-inline-block">
-                                        德魯納集團
+                                        {{Group.data?.parentCustomerName}}
                                     </em>
-                                    87654321
+                                    {{Group.data?.parentCompanyId}}
                                 </p>
                             </li>
                             <li>
                                 <p>
                                     <em class="d-inline-block">
-                                        集團總額度
+                                        {{sumfacdfxlimitamt_text}}
                                     </em>
-                                    {{ 8000 | currency:'':'':'1.0-0'}}
+                                    {{sumfacdFxLimitAmt}}
                                 </p>
                             </li>
                             <li>
                                 <p>
                                     <em class="d-inline-block">
-                                        集團總餘額
+                                        {{sumlbfxcurrentbal_text}}
                                     </em>
-                                    {{ 4000 | currency:'':'':'1.0-0'}}
+                                    {{sumLbFxCurrentBal}}
                                 </p>
                             </li>
                             <li>
                                 <div class="row no-gutters">
                                     <div class="d-inline-block col-12 col-md-12">
                                         <span class="badge badge-pill p-2 mr-1">
-                                            <span class="title text-left">RORWA</span>
-                                            <span class="num text-right">1.34%</span>
+                                            <span class="title text-left">{{RORWA_text}}</span>
+                                            <span class="num text-right">{{Group.data?.rorwa}}</span>
                                         </span>
                                     </div>
                                     <div class="d-inline-block col-12 col-md-12">
                                         <span class="badge badge-pill p-2 mr-1">
-                                            <span class="title text-left">RAROC</span>
-                                            <span class="num text-right">1.58%</span>
+                                            <span class="title text-left">{{RAROC_text}}</span>
+                                            <span class="num text-right">{{Group.data?.raroc}}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -569,33 +569,41 @@
                 <div class="number-list shadow-sm p-1">
                     <ol>
                         <li>
-                            <p><em class="d-inline-block">德魯納集團</em>
-                                87654321</p>
-                        </li>
-                        <li>
                             <p>
-                                <em class="d-inline-block">集團總額度</em>
-                                {{ 8000 | currency:'':'':'1.0-0'}}
+                                <em class="d-inline-block">
+                                    {{Group.data?.parentCustomerName}}
+                                </em>
+                                {{Group.data?.parentCompanyId}}
                             </p>
                         </li>
                         <li>
                             <p>
-                                <em class="d-inline-block">集團總餘額</em>
-                                {{ 4000 | currency:'':'':'1.0-0'}}
+                                <em class="d-inline-block">
+                                    {{sumfacdfxlimitamt_text}}
+                                </em>
+                                {{sumfacdFxLimitAmt}}
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <em class="d-inline-block">
+                                    {{sumlbfxcurrentbal_text}}
+                                </em>
+                                {{sumLbFxCurrentBal}}
                             </p>
                         </li>
                         <li>
                             <div class="row no-gutters">
                                 <div class="d-inline-block col-12 col-md-12">
                                     <span class="badge badge-pill p-2 mr-1">
-                                        <span class="title text-left">RORWA</span>
-                                        <span class="num text-right">1.34%</span>
+                                        <span class="title text-left">{{RORWA_text}}</span>
+                                        <span class="num text-right">{{Group.data?.rorwa}}</span>
                                     </span>
                                 </div>
                                 <div class="d-inline-block col-12 col-md-12">
                                     <span class="badge badge-pill p-2 mr-1">
-                                        <span class="title text-left">RAROC</span>
-                                        <span class="num text-right">1.58%</span>
+                                        <span class="title text-left">{{RAROC_text}}</span>
+                                        <span class="num text-right">{{Group.data?.raroc}}</span>
                                     </span>
                                 </div>
                             </div>
@@ -670,18 +678,10 @@
                         </div>
                     </div>
 
-                    <apx-chart #chartObj 
-                        [chart]="ChartData.chart" 
-                        [plotOptions]="ChartData.plotOptions"
-                        [dataLabels]="ChartData.dataLabels" 
-                        [stroke]="ChartData.stroke" 
-                        [series]="ChartData.series"
-                        [xaxis]="ChartData.xaxis" 
-                        [yaxis]="ChartData.yaxis" 
-                        [colors]="ChartData.colors"
-                        [responsive]="ChartData.responsive" 
-                        [legend]="ChartData.legend" 
-                        [tooltip]="ChartData.tooltip">
+                    <apx-chart #chartObj [chart]="ChartData.chart" [plotOptions]="ChartData.plotOptions"
+                        [dataLabels]="ChartData.dataLabels" [stroke]="ChartData.stroke" [series]="ChartData.series"
+                        [xaxis]="ChartData.xaxis" [yaxis]="ChartData.yaxis" [colors]="ChartData.colors"
+                        [responsive]="ChartData.responsive" [legend]="ChartData.legend" [tooltip]="ChartData.tooltip">
                     </apx-chart>
                 </div>
             </div>
