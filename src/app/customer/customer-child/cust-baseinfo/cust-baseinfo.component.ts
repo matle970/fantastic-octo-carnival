@@ -29,6 +29,8 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     RAROC_text: string = this.text.RAROC_text;
     manageinfo_text: string = this.text.manageinfo_text;
     groupinfo_text: string = this.text.groupinfo_text;
+    sumfacdfxlimitamt_text: string = this.text.sumfacdfxlimitamt_text;
+    sumlbfxcurrentbal_text: string = this.text.sumfacdfxlimitamt_text;
     personal_account_text: string = this.text.personal_account_text;
     debt_text: string = this.text.debt_text;
     assets_text: string = this.text.assets_text;
@@ -45,22 +47,30 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     public hasResult: boolean;
     public nodata: string;
 
-    // response
+    // 授網薪集黑
+    CompanyFlag: Array<any> = [];
+
+    // company
     Company: any = {};
     CompanyDetail: any = {};
+
+    // comanyassociate
     CompanyAssociate: any = {};
     CompanyAssociateAssets: any = {};
+
+    // group
     Group: any = {};
     GroupDetail: any = {};
+    sumfacdFxLimitAmt: number = 0;
+    sumLbFxCurrentBal: number = 0;
+
+    // manage
     Manage: any = {};
     ManageDetail: any = {};
-    Contribution: any = {};
-    ContributionDetail: any = {};
-    CompanyNotification: any = {};
-
-    CompanyFlag: Array<any> = [];       // 授網薪集黑
 
     // contribution
+    Contribution: any = {};
+    ContributionDetail: any = {};
     ContributionPeriod: string;         // 貢獻度-資料區間
     ContributionLastYearTotal: number;  // 貢獻度去年累計
     ContributionThisYearTotal: number;  // 貢獻度去年累計
@@ -160,6 +170,8 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
         }
     };
 
+    CompanyNotification: any = {};
+
     constructor(
         private custbaseinfoService: CustBaseinfoService) {
     }
@@ -179,6 +191,7 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     setData() {
         this.setCompany();
         this.setManage();
+        this.setGroup();
         this.setCompanyAssociate();
         this.setContribution();
 
@@ -197,6 +210,15 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
         this.ManageDetail = this.custbaseinfoService.ManageDetail;
         // console.log('this.Manage', this.Manage);
         // console.log('this.ManageDetail', this.ManageDetail);
+    }
+
+    setGroup() {
+        this.Group = this.custbaseinfoService.Group;
+        this.GroupDetail = this.custbaseinfoService.GroupDetail;
+        this.sumfacdFxLimitAmt = this.custbaseinfoService.sumfacdFxLimitAmt;
+        this.sumLbFxCurrentBal = this.custbaseinfoService.sumLbFxCurrentBal;
+        // console.log('this.Group', this.Group);
+        // console.log('this.GroupDetail', this.GroupDetail);
     }
 
     setCompanyAssociate() {

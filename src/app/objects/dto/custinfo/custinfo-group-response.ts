@@ -5,5 +5,8 @@ export class Group {
     body: Body;
 }
 class Body {
-
+    parentCompanyId: string;
+    parentCustomerName: string;
+    rorwa: string;
+    raroc: string;
 }

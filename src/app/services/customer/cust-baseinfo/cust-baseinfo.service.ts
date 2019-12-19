@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Company } from 'src/app/objects/dto/custprofile/custprofile-company-response';
-import { CompanyDetail } from 'src/app/objects/dto/custprofile/custprofile-companyDetail-response';
-import { CompanyAssociate } from 'src/app/objects/dto/custprofile/custprofile-companyAssociate-response';
-import { CompanyAssociateAssets } from 'src/app/objects/dto/custprofile/custprofile-companyAssociateAssets-response';
-import { Group } from 'src/app/objects/dto/custprofile/custprofile-group-response';
-import { GroupDetail } from 'src/app/objects/dto/custprofile/custprofile-groupDetail-response';
-import { Manage } from 'src/app/objects/dto/custprofile/custprofile-manage-response';
-import { ManageDetail } from 'src/app/objects/dto/custprofile/custprofile-manageDetail-response';
-import { Contribution } from 'src/app/objects/dto/custprofile/custprofile-contribution-response';
-import { ContributionDetail } from 'src/app/objects/dto/custprofile/custprofile-contributionDetail-response';
-import { CompanyNotification } from 'src/app/objects/dto/custprofile/custprofile-companyNotification-response';
+import { Company } from 'src/app/objects/dto/custinfo/custinfo-company-response';
+import { CompanyDetail } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
+import { CompanyAssociate } from 'src/app/objects/dto/custinfo/custinfo-companyAssociate-response';
+import { CompanyAssociateAssets } from 'src/app/objects/dto/custinfo/custinfo-companyAssociateAssets-response';
+import { Group } from 'src/app/objects/dto/custinfo/custinfo-group-response';
+import { GroupDetail } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
+import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
+import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
+import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
+import { ContributionDetail } from 'src/app/objects/dto/custinfo/custinfo-contributionDetail-response';
+import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
-import { GettextService } from '../../common-services/gettext.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 
 @Injectable({
@@ -27,6 +26,7 @@ export class CustBaseinfoService {
     text = this.baseservice.gettextservice.custbaseinfotext;
     companyinfo_text: string = this.text.companyinfo_text;
     manageinfo_text: string = this.text.manageinfo_text;
+    groupinfo_text: string = this.text.groupinfo_text;
 
     urlList = [
         {
@@ -49,16 +49,16 @@ export class CustBaseinfoService {
             'dtoRequset': CommonRequest,
             'dtoResponse': CompanyAssociateAssets
         },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': Group
-        // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': GroupDetail
-        // },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': Group
+        },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': GroupDetail
+        },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
             'dtoRequset': CommonRequest,
@@ -117,6 +117,11 @@ export class CustBaseinfoService {
         { id: "集團核心", text: this.text.tag_orange_text, letter: this.text.tag_orange_letter, status: false },
         { id: "黑名單", text: this.text.tag_red_text, letter: this.text.tag_red_letter, status: false }
     ];
+
+    // 集團資訊-集團總額度
+    sumfacdFxLimitAmt: number = 0;
+    // 集團資訊-集團總餘額    
+    sumLbFxCurrentBal: number = 0;
 
     // 貢獻度-資料期間
     ContributionPeriod: string;
@@ -180,6 +185,7 @@ export class CustBaseinfoService {
                 this.GroupDetail = {
                     data: data.body
                 };
+                this.setGroupDetail(this.GroupDetail);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE:
@@ -225,6 +231,13 @@ export class CustBaseinfoService {
         }
     }
 
+    setGroupDetail(groupdetail) {
+        for (let i = 0; i < groupdetail.data.groupMemberLoanInfo.length; i++) {
+            this.sumLbFxCurrentBal = this.sumLbFxCurrentBal + Number(groupdetail.data.groupMemberLoanInfo[i].sumLbFxCurrentBal);
+            this.sumfacdFxLimitAmt = this.sumfacdFxLimitAmt + Number(groupdetail.data.groupMemberLoanInfo[i].sumfacdFxLimitAmt);
+        }
+    }
+
     setContribution(contribution) {
         this.ContributionLastYearTotal = 0;
         this.ContributionThisYearTotal = 0;
@@ -258,6 +271,7 @@ export class CustBaseinfoService {
                 data = this.CompanyDetail.data;
                 break;
             case 4:
+                title = this.groupinfo_text;
                 data = this.GroupDetail.data;
                 break;
             case 5:
