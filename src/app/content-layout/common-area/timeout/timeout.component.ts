@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { BaseComponent } from "src/app/base/base.component";
 import { TimeoutService } from "src/app/services/common-services/timeout.service";
 
 @Component({
@@ -8,12 +7,10 @@ import { TimeoutService } from "src/app/services/common-services/timeout.service
     styleUrls: ['./timeout.component.scss']
 })
 
-export class TimeoutComponent extends BaseComponent implements OnInit {
+export class TimeoutComponent implements OnInit {
 
     constructor(
         private timeoutservice: TimeoutService) {
-
-        super()
     }
 
     // text
