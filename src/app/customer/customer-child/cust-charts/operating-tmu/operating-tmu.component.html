@@ -113,13 +113,13 @@
             </thead>
             <tbody *ngFor="let item of tmuInvesment">
               <tr>
-                <td>{{item.invesTypeCode}}</td>
-                <td class="text-right">{{ item.productDesc | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.prodCurrencyDesc | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.bal | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.ntdCurrentValue | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.startDay }}</td>
-                <td class="text-right">{{ item.endDay }}</td>
+                <td>{{ item.invesTypeCode }}</td>
+                <td class="text-right">{{ item.productDesc }}</td>
+                <td class="text-right">{{ item.prodCurrencyDesc }}</td>
+                <td class="text-right">{{ item.referenceNetvalue | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.fxCurrentValue | currency:'':'':'1.0-0' }}</td>
+                <td class="text-right">{{ item.startDate }}</td>
+                <td class="text-right">{{ item.endDate }}</td>
               </tr>
             </tbody>
 

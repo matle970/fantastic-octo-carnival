@@ -19,6 +19,7 @@ export class ManageInfoComponent implements OnInit, OnChanges {
 
     // html text
     text = this.manageinfoService.baseservice.gettextservice.custbaseinfotext;
+    manageinfo_text: string = this.text.manageinfo_text;
     customerid_text: string = this.text.customerid_text;
     window_text: string = this.text.window_text;
     phone_text: string = this.text.phone_text;
