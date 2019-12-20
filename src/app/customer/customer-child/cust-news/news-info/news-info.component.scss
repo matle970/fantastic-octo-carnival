@@ -110,16 +110,23 @@
   }
 }
 
-@media screen and (min-width:1401px) and (max-width:1900px) {
+@media screen and (min-width:1401px) and (max-width:1600px) {
+  .news-title {
+    width: auto;
+    max-width: 217px!important;
+  }
+}
+
+@media screen and (min-width:1601) and (max-width:1900px) {
   .news-title {
     width: auto;
     max-width: 230px!important;
   }
 }
 
-@media screen and (min-width:1901px){
+@media screen and (min-width:1901px) and (max-width:2050px) {
   .news-title {
     width: auto;
-    max-width: 380px!important;
+    max-width: 250px!important;
   }
 }
