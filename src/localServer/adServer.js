@@ -814,7 +814,63 @@ companyAssociateAssets = {
 }
 
 // CB016-Composite API-基本資訊-集團資訊第一層
+group = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {
+        "parentCompanyId": "GP000013",
+        "parentCustomerName": "增你強集團",
+        "rorwa": "0",
+        "raroc": "0"
+    }
+}
+
 // CB017-Composite API-基本資訊-集團資訊第二層
+groupDetail = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {
+        "parentCompanyId": "GP000013",
+        "parentCustomerName": "增你強集團",
+        "groupInfo": {
+            "sumLastYearAccumContri": "10000000",
+            "sumThisYearAccumContri": "12000000",
+            "sumTotalDepositBal": "5000000",
+            "sumTotalLoanBal": "0",
+            "sumTotalTradeFinanceBal": "2500000"
+        },
+        "groupMemberLoanInfo": [
+            {
+                "customerId": "12401698",
+                "customerName": "增你強股份有限公司",
+                "breakdownCodeDesc": "週轉金(信用)",
+                "sumfacdFxLimitAmt": "1000000",
+                "sumLbFxCurrentBal": "500000"
+            },
+            {
+                "customerId": "80156546",
+                "customerName": "建洋實業股份有限公司",
+                "breakdownCodeDesc": "進口遠期信用狀 ",
+                "sumfacdFxLimitAmt": "2000000",
+                "sumLbFxCurrentBal": "500000"
+            }
+        ]
+    }
+}
 
 // CB018-Composite API-基本資訊-經管資訊第一層
 manage = {
@@ -1154,6 +1210,18 @@ app.post('/custprofile/getCBCompanyAssociate', function (req, res, next) {
 app.post('/custprofile/getCBCompanyAssociateAssets', function (req, res, next) {
     console.log('POST ' + apiDomain + '/custprofile/getCBCompanyAssociateAssets');
     res.json(companyAssociateAssets);
+});
+
+// CB016-Composite API-基本資訊-集團資訊第一層
+app.post('/custprofile/getCBGroup', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBCompanyAssociateAssets');
+    res.json(group);
+});
+
+// CB017-Composite API-基本資訊-集團資訊第二層
+app.post('/custprofile/getCBGroupDetail', function (req, res, next) {
+    console.log('POST ' + apiDomain + '/custprofile/getCBGroupDetail');
+    res.json(groupDetail);
 });
 
 // CB018-Composite API-基本資訊-經管資訊第一層

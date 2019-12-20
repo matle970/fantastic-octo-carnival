@@ -25,8 +25,8 @@ $tfoot-th-color: #FFF;
       font-size: 30px;
       vertical-align: middle;
       width:12px;
-      height: 6px;
-      line-height: 6px;
+      height: 7px;
+      line-height: 7px;
       margin: 0;
       padding: 0;
       &.not-active {
@@ -307,11 +307,23 @@ thead.thead-inverse,
   font-weight: 400;
 }
 
-// dashboard th
+// dashboard th center
 .data-table {
   .mat-sort-header-button { // th 置中
     margin: 0 auto;
     line-height: 1.4rem;
+  }
+  table {
+    thead {
+      th {
+        padding: 8px 0 8px 0;
+        padding-left: 22px;
+        box-sizing: border-box;
+        &.cus-id-th {
+          padding-left: 0 !important;
+        }
+      }
+    }
   }
 }
 

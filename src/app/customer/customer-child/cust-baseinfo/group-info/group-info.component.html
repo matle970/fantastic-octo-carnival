@@ -1,115 +1,86 @@
-
 <div class="group-info">
-
     <!-- 集團資訊 -->
-  <div class="card card-table">
-      <div class="card-header">
-          <h5 class="card-title ">集團資訊
-            <span class="badge float-right">
-                貢獻度資料期間 : 2018/12 ~ 2019/07
-            </span>
-          </h5>
-      </div>
-      <div class="card-body">
-
-          <div class="row no-gutters text-center">
-            <div class="col-md-3">
-              <div>
-                  去年度累計貢獻度
-              </div>
-              <div class="text-center text-lg text-primary">
-                  {{2000| currency:'':'':'1.0-0'}}
-              </div>
-            </div>
-
-            <div class="col-md-3">
-                <div>
-                    今年度累計貢獻度
+    <div class="card card-table">
+        <div class="card-header">
+            <h5 class="card-title">
+                <div class="row no-gutters">
+                    <span class="col-6 text-left">
+                        {{groupinfo_text}}
+                    </span>
+                    <span class="col-6 text-right text-small">
+                        <!-- 待處理 -->
+                        {{contribute_data_period_text}}2018/12 ~ 2019/07
+                    </span>
                 </div>
-                <div class="text-center text-lg text-primary">
-                    150
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div>
-                    存款餘額
-                </div>
-                <div class="text-center text-lg text-primary">
-                    {{1500| currency:'':'':'1.0-0'}}
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div>
-                    放款餘額
-                </div>
-                <div class="text-center text-lg text-primary">
-                    {{2000| currency:'':'':'1.0-0'}}
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div>
-                    貿融餘額
-                </div>
-                <div class="text-center text-lg text-primary">
-                    {{5000| currency:'':'':'1.0-0'}}
-                </div>
-            </div>
-          </div>
-      </div>
-
-
-  </div>
-
-
-  <!-- 集團額度使用情形 -->
-  <div class="card card-table">
-      <div class="card-header">
-          <h5 class="card-title ">
-            集團額度使用情形
-          </h5>
-      </div>
-      <div class="card-body">
-
-        <div class="table-mat-list">
-            <table class="table m-0 p-0 table-hover table-sticky table-bordered"
-            mat-table [dataSource]="groupSources">
-              <ng-container matColumnDef="cus_id">
-                <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef> 客戶 ID</th>
-                <td mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
-              </ng-container>
-              <ng-container matColumnDef="cus_name">
-                  <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef> 客戶名稱</th>
-                  <td mat-cell *matCellDef="let element"> {{element.cus_name}} </td>
-              </ng-container>
-              <ng-container matColumnDef="type">
-                  <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef> 額度種類</th>
-                  <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-              </ng-container>
-              <ng-container matColumnDef="mount">
-                  <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef> 額度</th>
-                  <td class="text-right" mat-cell *matCellDef="let element">
-                      {{element.mount| currency:'':'':'1.0-0'}}
-                  </td>
-              </ng-container>
-              <ng-container matColumnDef="total">
-                  <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef> 餘額</th>
-                  <td class="text-right" mat-cell *matCellDef="let element">
-                      {{element.total| currency:'':'':'1.0-0'}}
-                  </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="groupColumns; sticky: true"></tr>
-              <tr mat-row *matRowDef="let row; columns: groupColumns;"></tr>
-
-            </table>
+            </h5>
         </div>
 
+        <div class="card-body">
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky table-bordered">
+                    <thead>
+                        <tr>
+                            <th>{{contribution_lastyeartotal_text}}</th>
+                            <th>{{contribution_thisyeartotal_text}}</th>
+                            <th>{{sumtotaldepositbal_text}}</th>
+                            <th>{{sumtotalloanbal_text}}</th>
+                            <th>{{sumtotaltradefinancebal_text}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{content.data.groupInfo.sumLastYearAccumContri}}</td>
+                            <td>{{content.data.groupInfo.sumThisYearAccumContri}}</td>
+                            <td>{{content.data.groupInfo.sumTotalDepositBal}}</td>
+                            <td>{{content.data.groupInfo.sumTotalLoanBal}}</td>
+                            <td>{{content.data.groupInfo.sumTotalTradeFinanceBal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
+    <!-- 集團額度使用情形 -->
+    <div class="card card-table">
+        <div class="card-header">
+            <h5 class="card-title ">
+                {{group_amount_usage_text}}
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky table-bordered" mat-table
+                    [dataSource]="groupSources">
+                    <ng-container matColumnDef="cus_id">
+                        <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>{{customerid_text}}</th>
+                        <td mat-cell *matCellDef="let element">{{element.cus_id}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="cus_name">
+                        <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>{{customer_name_text}}</th>
+                        <td mat-cell *matCellDef="let element">{{element.cus_name}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="type">
+                        <th class="text-black text-nowrap" mat-header-cell *matHeaderCellDef>{{amount_type_text}}</th>
+                        <td mat-cell *matCellDef="let element">{{element.type}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="mount">
+                        <th class="text-black text-nowrap " mat-header-cell *matHeaderCellDef>{{amount_text}}</th>
+                        <td class="" mat-cell *matCellDef="let element">
+                            {{element.mount}}
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="total">
+                        <th class="text-black text-nowrap " mat-header-cell *matHeaderCellDef>{{balance_text}}</th>
+                        <td class="" mat-cell *matCellDef="let element">
+                            {{element.total}}
+                        </td>
+                    </ng-container>
 
-      </div>
-
-
-  </div>
+                    <tr mat-header-row *matHeaderRowDef="groupColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: groupColumns;"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
