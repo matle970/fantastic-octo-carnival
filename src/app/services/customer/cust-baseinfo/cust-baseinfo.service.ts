@@ -8,7 +8,6 @@ import { GroupDetail } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-r
 import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
 import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
 import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
-import { ContributionDetail } from 'src/app/objects/dto/custinfo/custinfo-contributionDetail-response';
 import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
@@ -27,6 +26,7 @@ export class CustBaseinfoService {
     companyinfo_text: string = this.text.companyinfo_text;
     manageinfo_text: string = this.text.manageinfo_text;
     groupinfo_text: string = this.text.groupinfo_text;
+    contribution_text: string = this.text.contribution_text;
 
     urlList = [
         {
@@ -74,11 +74,6 @@ export class CustBaseinfoService {
             'dtoRequset': CommonRequest,
             'dtoResponse': Contribution
         },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': ContributionDetail
-        // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
         //     'dtoRequset': CommonRequest,
@@ -204,13 +199,10 @@ export class CustBaseinfoService {
                 this.Contribution = {
                     data: data.body
                 };
-                this.setContribution(this.Contribution);
-                break;
-
-            case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
                 this.ContributionDetail = {
                     data: data.body
                 };
+                this.setContribution(this.Contribution);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
@@ -282,6 +274,7 @@ export class CustBaseinfoService {
                 data = this.ManageDetail.data;
                 break;
             case 7:
+                title = this.contribution_text;
                 data = this.ContributionDetail.data;
                 break;
         }

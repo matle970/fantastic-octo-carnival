@@ -228,6 +228,7 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
 
     setContribution() {
         this.Contribution = this.custbaseinfoService.Contribution;
+        this.ContributionDetail = this.custbaseinfoService.ContributionDetail;
         // console.log('this.Contribution', this.Contribution);
         this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;

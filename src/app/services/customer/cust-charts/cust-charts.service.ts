@@ -212,7 +212,7 @@ export class CustChartsService {
         for (let i = 0; i < this._import.length; i++) {
             let column1 = this._import[i].usdTxnAmt.map(Number);
             let column2 = this.SumData(column1);
-            console.log('zz',column2)
+            // console.log('zz',column2)
             this._import[i].column = column2;
             this.incolumnTotal.push(column2)
             //   console.log('xx',this.incolumnTotal)

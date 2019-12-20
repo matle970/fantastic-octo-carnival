@@ -1374,7 +1374,7 @@ export class DummyData {
             "thiscontri": {
                 "startYM": "208801",
                 "endYM": "208812",
-                "contribution": [60000, 50000, 40000, 30000, 20000, 10000]
+                "contribution": [60000, 50000, 40000, 40000, 20000, 20000]
             }
         }
     }
@@ -1450,8 +1450,6 @@ export class DummyData {
                     "tag": "+",
                     "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
                 },
-
-
             ]
         }
     }
@@ -1491,7 +1489,6 @@ export class DummyData {
                     "valChange": "0",
                     "totalChange": "0"
                 }
-
             ]
         }
     }
@@ -1564,7 +1561,6 @@ export class DummyData {
                     }
                 },
             ]
-
         }
     }
 
@@ -1655,11 +1651,8 @@ export class DummyData {
                     "unit": "系統作業",
                     "content_word": "外幣授信_撥款_購置不動產"
                 }
-
             ]
-
         }
-
     }
 
     getDummyData(url: string, dtoRequest: any, dtoResponse: any) {
@@ -1746,12 +1739,8 @@ export class DummyData {
                 break;
 
             // CB020-Composite API-基本資訊-貢獻度第一層
-            case this.URL.CUSTPROFILE_CONTRIBUTION:
-                returnData = this.contribution;
-                break;
-
             // CB021-Composite API-基本資訊-貢獻度第二層
-            case this.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
+            case this.URL.CUSTPROFILE_CONTRIBUTION:
                 returnData = this.contribution;
                 break;
 
@@ -1776,7 +1765,6 @@ export class DummyData {
             case this.URL.JOURNEY_COMPANY_JOURNEY:
                 returnData = this.custHistoryList;
                 break;
-
         }
 
         return plainToClass(dtoResponse, returnData);

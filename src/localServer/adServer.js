@@ -959,7 +959,7 @@ contribution = {
         "thiscontri": {
             "startYM": "208801",
             "endYM": "208812",
-            "contribution": ["60000", "50000", "40000", "30000", "20000", "10000"]
+            "contribution": ["60000", "50000", "40000", "40000", "20000", "20000"]
         }
     }
 }
@@ -1237,14 +1237,9 @@ app.post('/custprofile/getCBManage', function (req, res, next) {
 });
 
 // CB020-Composite API-基本資訊-貢獻度第一層
+// CB021-Composite API-基本資訊-貢獻度第二層
 app.post('/custprofile/getCBContribution', function (req, res, next) {
     console.log('POST ' + apiDomain + '/custprofile/getCBContribution');
-    res.json(contribution);
-});
-
-// CB021-Composite API-基本資訊-貢獻度第二層
-app.post('/custprofile/getCBContributionDetail', function (req, res, next) {
-    console.log('POST ' + apiDomain + '/custprofile/getCBContributionDetail');
     res.json(contribution);
 });
 

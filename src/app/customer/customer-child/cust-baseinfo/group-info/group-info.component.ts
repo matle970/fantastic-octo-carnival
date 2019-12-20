@@ -21,7 +21,7 @@ export class GroupInfoComponent implements OnInit, OnChanges {
     // html text
     text = this.groupinfoService.baseservice.gettextservice.custbaseinfotext;
     groupinfo_text: string = this.text.groupinfo_text;
-    contribute_data_period_text: string = this.text.contribute_data_period_text;
+    data_period_text: string = this.groupinfoService.baseservice.gettextservice.text.data_period_text;
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
     sumtotaldepositbal_text: string = this.text.sumtotaldepositbal_text;
@@ -37,11 +37,28 @@ export class GroupInfoComponent implements OnInit, OnChanges {
     groupColumns = ['cus_id', 'cus_name', 'type', 'mount', 'total'];
     groupSources: GroupElement[] = [];
 
+    // 資料期間
+    data_period: string;
+
     constructor(
         private groupinfoService: GroupInfoService
     ) { }
 
     ngOnChanges() {
+        this.getdataperiod();
+        this.setgroupSources();
+    }
+
+    ngOnInit() { }
+
+    getdataperiod() {
+        let sysdate = new Date();
+        this.data_period =
+            String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
+            String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1).padStart(2, '0');
+    }
+
+    setgroupSources() {
         if (this.content.data.groupMemberLoanInfo.length !== 0) {
             for (let i = 0; i < this.content.data.groupMemberLoanInfo.length; i++) {
                 this.groupSources.push(
@@ -56,7 +73,4 @@ export class GroupInfoComponent implements OnInit, OnChanges {
             }
         }
     }
-
-    ngOnInit() { }
-
 }

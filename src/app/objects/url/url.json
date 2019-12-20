@@ -54,10 +54,8 @@
     "CUSTPROFILE_MANAGE_DETAIL": "/custprofile/getCBManageDetail",
 
     "//_CB020-Composite API": "基本資訊-貢獻度第一層",
-    "CUSTPROFILE_CONTRIBUTION": "/custprofile/getCBContribution",
-
     "//_CB021-Composite API": "基本資訊-貢獻度第二層",
-    "CUSTPROFILE_CONTRIBUTION_DETAIL": "/custprofile/getCBContributionDetail",
+    "CUSTPROFILE_CONTRIBUTION": "/custprofile/getCBContribution",
 
     "//_CB022-Composite API": "基本資訊-訊息通知",
     "CUSTPROFILE_COMPANY_NOTIFICATION": "/custprofile/getCBCompanyNotification",
