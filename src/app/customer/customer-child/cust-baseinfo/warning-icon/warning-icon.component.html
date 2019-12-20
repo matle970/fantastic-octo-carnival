@@ -1,0 +1,11 @@
+<span class="badge float-right notifications" matTooltip="逾期" matTooltipPosition="above">
+    <!-- <i class="material-icons" [ngClass]="{'has-msg animated infinite swing': notice > 0,'no-msg': notice == 0}">
+    notifications
+  </i> -->
+    <span class="d-inline-block">
+        <app-icon-delay></app-icon-delay>
+    </span>
+    <span class="notice" [ngClass]="{'bg-dark': alert > 0,'bg-light text-gray': alert == 0}">
+        {{alert}}
+    </span>
+</span>

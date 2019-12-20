@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from '../../common-services/base/base.service';
 import { AssetsLibilities } from 'src/app/objects/dto/product/product-assetsLibilities-response';
-import { ReadyState } from '@angular/http';
-import { CustChartsComponent } from 'src/app/customer/customer-child/cust-charts/cust-charts.component';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
-import { CustomerIdService } from '../../common-services/customerid.service';
-import { of } from 'rxjs';
 import { DepositDetail } from 'src/app/objects/dto/product/product-depositDetail-response';
 import { LoanDetail } from 'src/app/objects/dto/product/product-loanDetail-response';
 import { ImportExportDetail } from 'src/app/objects/dto/product/product-importExportDetail-response';
 import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
-
+import { MatDialog } from '@angular/material';
 
 @Injectable({
     providedIn: 'root'
@@ -19,10 +15,8 @@ export class CustChartsService {
 
     constructor(
         public baseservice: BaseService,
-
+        public dialog: MatDialog
     ) { }
-
-
 
     urlList = [
         {
@@ -104,12 +98,12 @@ export class CustChartsService {
     incolumnTotal: Array<any> = [];
     outTotal: Array<any> = [];
     outcolumnTotal: Array<any> = [];
-    
+
     //TMU&MTM第二層
     _tmuTransAmt: Array<any> = [];
     _tmuInvesment: Array<any> = [];
     _tmuContribution: Array<any> = [];
-    
+
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
@@ -207,23 +201,28 @@ export class CustChartsService {
     }
 
     setImportExportDetailData(importExportDetailData) {
+        // this.incolumnTotal = [];
+        // this._import = [];
+        // this._export = [];
         this._import = importExportDetailData.data.import;
         this._export = importExportDetailData.data.export;
-        
+
         // 進口實績-橫向加總&縱向加總
+
         for (let i = 0; i < this._import.length; i++) {
             let column1 = this._import[i].usdTxnAmt.map(Number);
             let column2 = this.SumData(column1);
+            console.log('zz',column2)
             this._import[i].column = column2;
             this.incolumnTotal.push(column2)
-          
+            //   console.log('xx',this.incolumnTotal)
         }
         let usdTxnAmt = [];
         let insumTotal = [];
         this.inTotal = insumTotal;
         this._import.forEach(element => {
             usdTxnAmt.push(element.usdTxnAmt);
-            
+
         });
         usdTxnAmt.forEach((element, index) => {
             element.forEach((value, index) => {
@@ -233,7 +232,6 @@ export class CustChartsService {
                     let sum = insumTotal[index];
                     insumTotal[index] = sum + parseInt(value, 10);
                 }
-                // console.log('yy',sumTotal[index])
             });
         });
 

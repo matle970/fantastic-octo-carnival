@@ -38,6 +38,13 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     contribution_lastyeartotal_text: string = this.text.contribution_lastyeartotal_text;
     contribution_thisyeartotal_text: string = this.text.contribution_thisyeartotal_text;
 
+    // show status
+    public loadingStatus: boolean;
+    public identityStatus: boolean;
+    public hideBlock: boolean;
+    public hasResult: boolean;
+    public nodata: string;
+
     // response
     Company: any = {};
     CompanyDetail: any = {};

@@ -888,7 +888,7 @@ export class DummyData {
                 {
                     "txnTypeDesc": "進口託收",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["10000", "90000", "40000", "60000", "50000", "50000", "70000", "30000"]
+                    "usdTxnAmt": ["10001", "90000", "40000", "60000", "50000", "50000", "70000", "30000"]
                 },
                 {
                     "txnTypeDesc": "信用狀開狀",
@@ -910,7 +910,7 @@ export class DummyData {
                 {
                     "txnTypeDesc": "出口OA",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["40000", "70000", "70000", "10000", "10000", "10000", "10000", "10000"],
+                    "usdTxnAmt": ["40001", "70000", "70000", "10000", "10000", "10000", "10000", "10000"],
 
                 },
                 {
@@ -995,53 +995,53 @@ export class DummyData {
             tmuInvesment: [
                 {
                     "invesTypeCode": "基金",
-                    "productDesc": "1000",
-                    "prodCurrencyDesc": "2000",
-                    "bal": "2000",       //金額名目本金(暫定)
-                    "ntdCurrentValue": "3000",
-                    "startDay": "20191212",  //起日(暫定)
-                    "endDay": "20201212"     //迄日(暫定)
+                    "productDesc": "國外-安聯(盧森堡)亞洲靈活債劵基金AM-美元-穩定配權",
+                    "prodCurrencyDesc": "美元",
+                    "referenceNetvalue": "2000",       //金額名目本金(暫定)
+                    "fxCurrentValue": "3000",
+                    "startDate": "20191212",  //起日(暫定)
+                    "endDate": "20201212"     //迄日(暫定)
                 },
                 {
                     "invesTypeCode": "國外有價證券",
-                    "productDesc": "5555",
-                    "prodCurrencyDesc": "6666",
-                    "bal": "7777",       //金額名目本金(暫定)
-                    "ntdCurrentValue": "8888",
-                    "startDay": "20190405",  //起日(暫定)
-                    "endDay": "20191213"     //迄日(暫定)
+                    "productDesc": "國內-全聯(熱狗堡)亞洲靈活債劵基金AM-新台幣-穩定配息",
+                    "prodCurrencyDesc": "新台幣",
+                    "referenceNetvalue": "7777",       //金額名目本金(暫定)
+                    "fxCurrentValue": "8888",
+                    "startDate": "20190405",  //起日(暫定)
+                    "endDate": "20191213"     //迄日(暫定)
                 },
                 {
                     "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
-                    "productDesc": "9999",
-                    "prodCurrencyDesc": "7777",
-                    "bal": "8888",       //金額名目本金(暫定)
-                    "ntdCurrentValue": "6666",
-                    "startDay": "20180819",  //起日(暫定)
-                    "endDay": "20200707"     //迄日(暫定)
+                    "productDesc": "國內-美聯社(潛艇堡)亞洲靈活債劵基金AM-日幣-穩定配息",
+                    "prodCurrencyDesc": "日幣",
+                    "referenceNetvalue": "8888",       //金額名目本金(暫定)
+                    "fxCurrentValue": "6666",
+                    "startDate": "20180819",  //起日(暫定)
+                    "endDate": "20200707"     //迄日(暫定)
                 },
                 {
                     "invesTypeCode": "保險",
-                    "productDesc": "1234",
-                    "prodCurrencyDesc": "5678",
-                    "bal": "4321",       //金額名目本金(暫定)
-                    "ntdCurrentValue": "8765",
-                    "startDay": "20170910",  //起日(暫定)
-                    "endDay": "20210203"     //迄日(暫定)
+                    "productDesc": "國外-屈臣氏(牛肉堡)亞洲靈活債劵基金AM-人民幣-穩定配權",
+                    "prodCurrencyDesc": "人民幣",
+                    "referenceNetvalue": "4321",       //金額名目本金(暫定)
+                    "fxCurrentValue": "8765",
+                    "startDate": "20170910",  //起日(暫定)
+                    "endDate": "20210203"     //迄日(暫定)
                 },
                 {
                     "invesTypeCode": "自營債券",
-                    "productDesc": "9776",
-                    "prodCurrencyDesc": "4535",
-                    "bal": "6876",       //金額名目本金(暫定)
-                    "ntdCurrentValue": "2131",
-                    "startDay": "20191130",  //起日(暫定)
-                    "endDay": "20201225"     //迄日(暫定)
+                    "productDesc": "國內-麥當勞(豬肉堡)亞洲靈活債劵基金AM-韓元-穩定配息",
+                    "prodCurrencyDesc": "韓元",
+                    "referenceNetvalue": "6876",       //金額名目本金(暫定)
+                    "fxCurrentValue": "2131",
+                    "startDate": "20191130",  //起日(暫定)
+                    "endDate": "20201225"     //迄日(暫定)
                 }
             ],
             tmuContribution: {
-                "trade": '777777',  //金融交易額(暫定)
-                "prd": '200077',    //投資型商品(暫定)
+                "derivative": '777777',  //金融交易額(暫定)
+                "wms": '200077',    //投資型商品(暫定)
                 "fxSport": '500077' //FS SPOT(暫定)
             }
         }

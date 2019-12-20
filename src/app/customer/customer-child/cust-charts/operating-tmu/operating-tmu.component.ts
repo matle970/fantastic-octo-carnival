@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-import { BaseComponent } from 'src/app/base/base.component';
+// import { BaseComponent } from 'src/app/base/base.component';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
+import { UtilsService } from 'src/app/services/common-services/utils.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-ch
     templateUrl: './operating-tmu.component.html',
     styleUrls: ['./operating-tmu.component.scss']
 })
-export class OperatingTmuComponent extends BaseComponent implements OnInit {
+export class OperatingTmuComponent implements OnInit {
     @Input() content: any;
     @ViewChild('chartOperatingTmu') chartOperatingTmu: ChartComponent;
 
@@ -21,19 +22,18 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
     tmuInvesment: Array<any> = [];
     tmuContribution: Array<any> = [];
 
-    urlList = [
-        {
-            'url': this.URL.PRODUCT_TMU_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': TMUDetail
-        }
-    ];
+    // urlList = [
+    //     {
+    //         'url': this.URL.PRODUCT_TMU_DETAIL,
+    //         'dtoRequset': CommonRequest,
+    //         'dtoResponse': TMUDetail
+    //     }
+    // ];
 
     constructor(
         private custchartsService: CustChartsService,
-    ) {
-        super()
-    }
+        private utilsService: UtilsService
+    ) {}
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
@@ -201,5 +201,14 @@ export class OperatingTmuComponent extends BaseComponent implements OnInit {
         this.tmuInvesment = this.custchartsService._tmuInvesment;
         this.TmuData.series = this.custchartsService._tmuContribution;
         
+
+        // 日期轉換 20190330 return 2019/03/30
+        this.tmuTransAmt.forEach((data, index) => {
+            data.amountExpDate = this.utilsService.changeDateStr(data.amountExpDate, 'yyyy/MM/dd');
+        });
+        this.tmuInvesment.forEach((data, index) => {
+            data.startDate = this.utilsService.changeDateStr(data.startDate, 'yyyy/MM/dd');
+            data.endDate = this.utilsService.changeDateStr(data.endDate, 'yyyy/MM/dd')
+        });
     }
 }

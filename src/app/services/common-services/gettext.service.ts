@@ -18,7 +18,10 @@ export class GettextService {
 
     // custcharts_text
     private _custchartstext: any = require('src/app/objects/text/cust-charts-text.json');
-    
+
+    // custnews_text
+    private _custhistorytext: any = require('src/app/objects/text/cust-history-text.json');
+
     get text() {
         return this._text;
     }
@@ -33,5 +36,9 @@ export class GettextService {
 
     get custchartstext() {
         return this._custchartstext;
+    }
+
+    get custhistorytext() {
+        return this._custhistorytext;
     }
 }

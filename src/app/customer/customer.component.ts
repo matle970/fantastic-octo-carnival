@@ -1,31 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BaseComponent } from 'src/app/base/base.component';
 import { CustomerIdService } from '../services/common-services/customerid.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+    selector: 'app-customer',
+    templateUrl: './customer.component.html',
+    styleUrls: ['./customer.component.scss']
 })
-export class CustomerComponent extends BaseComponent implements OnInit {
+export class CustomerComponent implements OnInit {
 
-  searchStr: string; // 搜尋的客戶ID字串
+    searchStr: string; // 搜尋的客戶ID字串
 
-  @ViewChild('searchIdBind') searchData: any;
+    @ViewChild('searchIdBind') searchData: any;
 
-  constructor(private customerInfo: CustomerIdService) { 
-    super();
-    customerInfo.print(); //get customer id from share data 
-  }
+    constructor(private customerInfo: CustomerIdService) {
+        customerInfo.print(); //get customer id from share data 
+    }
 
-  ngOnInit() {
-      // tslint:disable-next-line: max-line-length
-      // this.searchData.nativeElement.value = this.getShareDataService().customerId === undefined ? '' : this.getShareDataService().customerId; // 將第一筆的customerId 放入input
-  }
+    ngOnInit() {
+    }
 
-  getSearchId() {
-    this.customerInfo.customerId = this.searchStr;
-    this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
-    //console.log('getSearchId', this.searchStr);
+    getSearchId() {
+        this.customerInfo.customerId = this.searchStr;
+        this.searchStr = this.searchData.nativeElement.value; // 取得html的元素目前的值
     }
 }

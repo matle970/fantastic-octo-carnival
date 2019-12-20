@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BaseComponent } from 'src/app/base/base.component';
 import { DepositDetail } from 'src/app/objects/dto/product/product-depositDetail-response'
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
+import { UtilsService } from 'src/app/services/common-services/utils.service';
 
 @Component({
     selector: 'app-operating-deposit',
     templateUrl: './operating-deposit.component.html',
     styleUrls: ['./operating-deposit.component.scss']
 })
-export class OperatingDepositComponent extends BaseComponent implements OnInit {
+export class OperatingDepositComponent implements OnInit {
     @Input() content: any;
 
     // 營運量-存款餘額第二層
@@ -22,19 +22,19 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
     sumAssets: any = {};
     r6mthAvgBal: any = {};
 
-    urlList = [
-        {
-            'url': this.URL.PRODUCT_DEPOSIT_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': DepositDetail
-        }
-    ];
+    // urlList = [
+    //     {
+    //         'url': this.URL.PRODUCT_DEPOSIT_DETAIL,
+    //         'dtoRequset': CommonRequest,
+    //         'dtoResponse': DepositDetail
+    //     }
+    // ];
 
     constructor(
-        private custchartsService: CustChartsService
+        private custchartsService: CustChartsService,
+        private utilsService: UtilsService
     ) {
-        super()
-    }
+}
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
@@ -77,8 +77,8 @@ export class OperatingDepositComponent extends BaseComponent implements OnInit {
         this.r6mthAvgBal.all = sum4.toString();
         //日期轉換 20190330 return 2019/03/30
         this.tdDetail.forEach((data, index) => {
-            data.acctOpenDate = this.getUtilsService().changeDateStr(data.acctOpenDate, 'yyyy/MM/dd');
-            data.tdDueDate = this.getUtilsService().changeDateStr(data.tdDueDate, 'yyyy/MM/dd');
+            data.acctOpenDate = this.utilsService.changeDateStr(data.acctOpenDate, 'yyyy/MM/dd');
+            data.tdDueDate = this.utilsService.changeDateStr(data.tdDueDate, 'yyyy/MM/dd');
         });
     }
 }

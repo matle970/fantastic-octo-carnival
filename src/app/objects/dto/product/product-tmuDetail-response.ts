@@ -23,15 +23,15 @@ class Body {
             invesTypeCode: string,
             productDesc: string,
             prodCurrencyDesc: string,
-            bal: string,        //金額名目本金(暫定)
-            ntdCurrentValue: string,
-            startDay: string,   //起日(暫定)
-            endDay: string      //迄日(暫定)
+            referenceNetvalue: string,  
+            fxCurrentValue: string,
+            startDate: string,   
+            endDate: string      
         }
     ]
     tmuContribution: {
-        trade: string,  //金融交易額(暫定)
-        prd: string,    //投資型商品(暫定)
-        fxSport: string //FS SPOT(暫定)
+        derivative: string,  
+        wms: string,    
+        fxSport: string 
     }
 }
