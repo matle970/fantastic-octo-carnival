@@ -5,6 +5,7 @@ import { startWith, map } from 'rxjs/operators';
 import { FilterComponent } from '../filter/filter.component';
 import { CookieService } from 'ngx-cookie-service';
 
+
 export interface StateGroup {
 	type: string;
 	names: string[];
@@ -65,7 +66,7 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 					map(value => this._filterGroup(value))
 				);
 
-			this.keyword = this.stateForm.get('stateGroup').value;
+			//this.keyword = this.stateForm.get('stateGroup').value;
 		}
 	}
 
@@ -91,21 +92,12 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	onKeyUpClear(event: any) {
 		const inputKeyword = this.stateForm.get('stateGroup').value;
 		if (inputKeyword == '') {
-			this.keyword = inputKeyword;
 
 			this.updateCookie(inputKeyword);
 			this.getCompleteKeyword.emit(inputKeyword.trim().toLowerCase());
 		}
 	}
-	/*
-	displayFn(group) {
-		this.cookieValue = this.cookieService.get('cb_search_last_word');
-		if (group)
-			return group.names;
-		else if (this.cookieValue)
-			return this.cookieValue;
-	}
-*/
+
 	getKeyWordList() {
 		this.stateGroups = [
 			{
@@ -134,15 +126,13 @@ export class AutoSearchComponent implements OnInit, OnChanges {
 	}
 
 	updateCookie(value) {
-		if (value.names)
-			this.cookieService.set('cb_search_last_word', value.names, 365, '/');
-		else if (value)
 			this.cookieService.set('cb_search_last_word', value, 365, '/');
 	}
 	// 如果上次有搜尋的keyword，預設出現keyword
 	getCookieValue() {
 		this.cookieValue = this.cookieService.get('cb_search_last_word');
 		if (this.cookieValue)
-			this.stateForm.get('stateGroup').setValue(this.cookieValue);
+		setTimeout(() => { this.stateForm.get('stateGroup').setValue(this.cookieValue) }, 50);
+			//this.stateForm.get('stateGroup').setValue(this.cookieValue);
 	}
 }
