@@ -194,7 +194,7 @@
 										</app-column-toggle>
 									</th>
 									<td class=" bg-three" mat-cell *matCellDef="let element">
-										{{element.rorwa}}
+										{{element.rorwa | percent: '1.0-2' }}
 									</td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
@@ -205,7 +205,9 @@
 											[app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
-									<td class="bg-three" mat-cell *matCellDef="let element"> {{element.raroc}} </td>
+									<td class="bg-three" mat-cell *matCellDef="let element"> 
+										{{element.raroc | percent: '1.0-2' }} 
+									</td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
 
