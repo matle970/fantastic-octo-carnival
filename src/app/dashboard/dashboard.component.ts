@@ -6,6 +6,7 @@ import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
 import { filter } from 'rxjs/operators';
+import { DateUtilService } from '../services/date-util.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -60,11 +61,17 @@ export class DashboardComponent implements OnInit, OnChanges {
     public hideBlock: boolean;
     public hasResult: boolean;
     public nodata: string;
+
+    yesterdayDate: string;
+    lastDecember: string;
+    lastMonth: string;
+
     //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl,
-        aoIdentity: AoIdentityService) {
+        aoIdentity: AoIdentityService,
+        private dateUtilService : DateUtilService ) {
         this.supervisor = true;
         aoIdentity.print();
     }
@@ -76,6 +83,10 @@ export class DashboardComponent implements OnInit, OnChanges {
 
 
     async ngOnInit() {
+        this.yesterdayDate = this.dateUtilService.yesterdayDate;
+        this.lastDecember = this.dateUtilService.lastDecember;
+        this.lastMonth = this.dateUtilService.lastMonth;
+        
         let result = await this.dashboardService.sendRquest();
         this.dataList = result.body.aoData;
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
