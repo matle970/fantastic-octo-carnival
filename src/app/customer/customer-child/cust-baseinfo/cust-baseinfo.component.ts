@@ -69,7 +69,6 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
     // contribution
     Contribution: any = {};
     ContributionDetail: any = {};
-    ContributionPeriod: string;         // 貢獻度-資料區間
     ContributionLastYearTotal: number;  // 貢獻度去年累計
     ContributionThisYearTotal: number;  // 貢獻度去年累計
     ChartData = {                       // 貢獻度圖表資訊
@@ -228,8 +227,8 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
 
     setContribution() {
         this.Contribution = this.custbaseinfoService.Contribution;
+        this.ContributionDetail = this.custbaseinfoService.ContributionDetail;
         // console.log('this.Contribution', this.Contribution);
-        this.ContributionPeriod = this.custbaseinfoService.ContributionPeriod;
         this.ContributionLastYearTotal = this.custbaseinfoService.ContributionLastYearTotal;
         this.ContributionThisYearTotal = this.custbaseinfoService.ContributionThisYearTotal;
         this.ChartData.xaxis.categories = this.custbaseinfoService.ChartDatacategories;

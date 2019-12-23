@@ -2,16 +2,25 @@
   .table-mat-list {
     height: 300px;
     overflow: auto;
+
     .person-table {
-      th,td {
-        text-align: left;
+      th,
+      td {
       }
     }
     .table {
       height: auto;
       max-height: 360px;
+
+      td {
+        .width-mid {
+          width: auto;
+          min-width: 80px;
+        }
+      }
+
       .min-th {
-        width:80px;
+        width: 80px;
       }
       .width-100 {
         width: 160px;
@@ -19,5 +28,3 @@
     }
   }
 }
-
-
