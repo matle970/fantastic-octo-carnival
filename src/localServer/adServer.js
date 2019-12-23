@@ -730,12 +730,34 @@ companyAssociate = {
     "body": {
         "records": [
             {
-                "customerId": "A11111112",
-                "customerName": "XXX",
+                "customerId": "A111111112",
+                "customerName": "xxx",
                 "relationDesc": "負責人",
                 "vipTypeCode": "HVIP",
                 "wmAoName": "Camile",
-                "wmAoBranchDesc": "忠孝分行"
+                "wmAoBranchDesc": "忠孝分行",
+                "isAmlGovInd": "N",
+                "employeeInd": "N",
+                "ccVip1Ind": "N",
+                "cubManagerInd": "N",
+                "lowMarketingInd": "N",
+                "blackListInd": "N",
+                "secretInd": "N"
+            },
+            {
+                "customerId": "A123456789",
+                "customerName": "Witter",
+                "relationDesc": "董事長",
+                "vipTypeCode": "VVIP",
+                "wmAoName": "Jewel",
+                "wmAoBranchDesc": "珠寶分行",
+                "isAmlGovInd": "Y",
+                "employeeInd": "Y",
+                "ccVip1Ind": "Y",
+                "cubManagerInd": "Y",
+                "lowMarketingInd": "Y",
+                "blackListInd": "Y",
+                "secretInd": "Y"
             }
         ]
     }

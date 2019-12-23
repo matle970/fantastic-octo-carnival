@@ -26,6 +26,7 @@ export class CustBaseinfoService {
     companyinfo_text: string = this.text.companyinfo_text;
     manageinfo_text: string = this.text.manageinfo_text;
     groupinfo_text: string = this.text.groupinfo_text;
+    personal_account_text: string = this.text.personal_account_text;
     contribution_text: string = this.text.contribution_text;
 
     urlList = [
@@ -118,8 +119,6 @@ export class CustBaseinfoService {
     // 集團資訊-集團總餘額    
     sumLbFxCurrentBal: number = 0;
 
-    // 貢獻度-資料期間
-    ContributionPeriod: string;
     // 貢獻度去年累計
     ContributionLastYearTotal: number;
     // 貢獻度去年累計
@@ -234,21 +233,24 @@ export class CustBaseinfoService {
         this.ContributionLastYearTotal = 0;
         this.ContributionThisYearTotal = 0;
 
-        this.ContributionPeriod = contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM;
-
         for (let i = 0; i < contribution.data.lastcontri.contribution.length; i++) {
             this.ContributionLastYearTotal = this.ContributionLastYearTotal + contribution.data.lastcontri.contribution[i];
-            this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.lastcontri.contribution[i];
+            this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.thiscontri.contribution[i];
         }
 
         this.ChartDatacategories = contribution.data.contributionType;
+        let sysdate = new Date();
         this.ChartDataseries = [
             {
-                name: contribution.data.lastcontri.startYM + '-' + contribution.data.lastcontri.endYM,
+                name: 
+                    String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +
+                    String(sysdate.getFullYear() - 1) + '/' + '11',
                 data: contribution.data.lastcontri.contribution
             },
             {
-                name: contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM,
+                name: 
+                    String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
+                    String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1).padStart(2, '0'),
                 data: contribution.data.thiscontri.contribution
             }
         ];
@@ -267,7 +269,8 @@ export class CustBaseinfoService {
                 data = this.GroupDetail.data;
                 break;
             case 5:
-                // 個人關聯戶
+                title = this.personal_account_text;
+                data = this.CompanyAssociate.data;
                 break;
             case 6:
                 title = this.manageinfo_text;

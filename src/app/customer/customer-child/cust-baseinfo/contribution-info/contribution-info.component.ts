@@ -55,7 +55,7 @@ export class ContributionInfoComponent implements OnInit, OnChanges {
         this.contribution_thisyear_period = this.data_period;
         this.contribution_lastyear_period =
             String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +
-            String(sysdate.getFullYear()) + '/' + '11';
+            String(sysdate.getFullYear() - 1) + '/' + '11';
     }
 
     getsum() {
