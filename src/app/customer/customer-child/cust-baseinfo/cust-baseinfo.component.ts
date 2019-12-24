@@ -54,7 +54,6 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
 
     // comanyassociate
     CompanyAssociate: any = {};
-    CompanyAssociateAssets: any = {};
 
     // group
     Group: any = {};
@@ -220,9 +219,7 @@ export class CustBaseInfoComponent implements OnInit, OnChanges {
 
     setCompanyAssociate() {
         this.CompanyAssociate = this.custbaseinfoService.CompanyAssociate;
-        this.CompanyAssociateAssets = this.custbaseinfoService.CompanyAssociateAssets;
         // console.log('this.CompanyAssociate', this.CompanyAssociate);
-        // console.log('this.CompanyAssociateAssets', this.CompanyAssociateAssets);
     }
 
     setContribution() {

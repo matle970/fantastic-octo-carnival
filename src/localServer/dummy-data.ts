@@ -1190,7 +1190,7 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerid": "A222222222",
+            "customerid": "A111111112",
             "assets": {
                 "sdDetail": [
                     {

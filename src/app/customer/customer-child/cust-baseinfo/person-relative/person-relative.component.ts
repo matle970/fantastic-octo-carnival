@@ -44,9 +44,18 @@ export class PersonRelativeComponent implements OnInit, OnChanges {
         // console.log('content', this.content);
 
         this.setCompanyAssociate();
+        this.setCompanyAssociateAssets();
     }
 
     ngOnInit() {
+    }
+
+    selectPerson(index: any) {
+        this.selected = this.content.data.records[index].customerName + ' ' + this.content.data.records[index].customerId;
+        this.relationDesc = this.content.data.records[index].relationDesc;
+        this.vipTypeCode = this.content.data.records[index].vipTypeCode;
+        this.wmAoBranchDesc = this.content.data.records[index].wmAoBranchDesc;
+        this.wmAoName = this.content.data.records[index].wmAoName;
     }
 
     setCompanyAssociate() {
@@ -60,16 +69,9 @@ export class PersonRelativeComponent implements OnInit, OnChanges {
         this.wmAoName = this.content.data.records[0].wmAoName;
     }
 
-    selectPerson(index: any) {
-        this.selected = this.content.data.records[index].customerName + ' ' + this.content.data.records[index].customerId;
-        this.relationDesc = this.content.data.records[index].relationDesc;
-        this.vipTypeCode = this.content.data.records[index].vipTypeCode;
-        this.wmAoBranchDesc = this.content.data.records[index].wmAoBranchDesc;
-        this.wmAoName = this.content.data.records[index].wmAoName;
+    async setCompanyAssociateAssets() {
+        await this.personrelativeService.sendRquest();
     }
-
-
-
 
 
 
