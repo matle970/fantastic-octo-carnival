@@ -37,23 +37,19 @@ export class OperatingFinancingComponent implements OnInit {
     }
 
     setData() {
-        this.LoanDetail = this.custchartsService.LoanDetail;
+        this.setLoanDetailData();
+    }
 
-        this.totLoan = this.LoanDetail.data.body.totLoan;
-        this.facilityDetail = this.LoanDetail.data.body.facilityDetail;
+    setLoanDetailData(){
+        this.facilityDetail = this.custchartsService._facilityDetail;
+        this.totLoan = this.custchartsService._totLoan;
 
         //日期轉換 20190330 return 2019/03/30
         for (let i = 0; i < this.facilityDetail.length; i++) {
             this.facilityDetail[i].facRecords[0].breakRecords.forEach((data, index) => {
                 data.firstFundingDate = this.utilsService.changeDateStr(data.firstFundingDate, 'yyyy/MM/dd');
                 data.acctDueDate = this.utilsService.changeDateStr(data.acctDueDate, 'yyyy/MM/dd')
-
-                // console.log('xx', this.facilityDetail[0].facRecords);
             });
         }
-    }
-
-    setLoanDetailData(){
-
     }
 }

@@ -10,20 +10,20 @@ class Body {
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[],
-                    column:string[],
-                    row: string[],
-                    all: string[]
+                    usdTxnAmt: number[],
+                    column:number[],
+                    row: number[],
+                    all: number[]
                 }
             ]
             export: [
                 {
                     txnTypeDesc: string,
                     mon: string[],
-                    usdTxnAmt: string[],
-                    column:string,
-                    row: string[],
-                    all: string
+                    usdTxnAmt: number[],
+                    column:number,
+                    row: number[],
+                    all: number
                 }
             ]
 }

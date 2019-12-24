@@ -217,6 +217,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             }
         }
         return sum;
+        
         //return this.this.dataList.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
     getSortData() {

@@ -36,7 +36,7 @@ export class CustChartsComponent implements OnInit {
     mtm_text: string = this.text.mtm_text;
     //營運量第二層 htm text
 
-
+    currentValue: any = {};
     // response
     // 營運量-營運量第一層
     AssetsLibilities: any = {};
@@ -375,7 +375,7 @@ export class CustChartsComponent implements OnInit {
 
     constructor(
         private custchartsService: CustChartsService
-        ) {
+    ) {
     }
     async ngOnInit() {
         await this.custchartsService.sendRequest();
@@ -395,16 +395,20 @@ export class CustChartsComponent implements OnInit {
         this.LoanDetail = this.custchartsService.LoanDetail;
         this.ImportExportDetail = this.custchartsService.ImportExportDetail;
         this.TMUDetail = this.custchartsService.TMUDetail;
+       
     }
+    
     setDepositChartsData() {
         this.DepositData.series[0].data = this.custchartsService.DepositDataseries;
         this.DepositData.xaxis.categories = this.custchartsService.DepositDatacategories;
+        this.currentValue = this.custchartsService._currentValue;
     }
 
     setLoanChartsData() {
         this.LoanData.series[0].data = this.custchartsService.LoanDataseries;
         this.LoanData.series[1].data = this.custchartsService.TradeFinanceDataseries;
         this.LoanData.xaxis.categories = this.custchartsService.LoanDatacategories;
+        
     }
 
     setTradeChartsData() {

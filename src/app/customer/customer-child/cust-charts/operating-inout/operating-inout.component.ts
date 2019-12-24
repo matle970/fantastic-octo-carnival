@@ -1,8 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CommonRequest } from 'src/app/objects/dto/common/common-request';
-import { ImportExportDetail } from 'src/app/objects/dto/product/product-importExportDetail-response';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
-import { copyStyles } from '@angular/animations/browser/src/util';
 import { UtilsService } from 'src/app/services/common-services/utils.service';
 
 @Component({
@@ -10,7 +7,7 @@ import { UtilsService } from 'src/app/services/common-services/utils.service';
     templateUrl: './operating-inout.component.html',
     styleUrls: ['./operating-inout.component.scss']
 })
-export class OperatingInoutComponent implements OnInit {
+export class OperatingInoutComponent implements OnInit, OnChanges {
     @Input() content: any;
 
     // 營運量-進出口實績第二層
@@ -31,30 +28,33 @@ export class OperatingInoutComponent implements OnInit {
         private custchartsService: CustChartsService,
         private utilsService: UtilsService
 
-    ) {}
+    ) { }
 
-    async ngOnInit() {
-        await this.custchartsService.sendRequest();
+    ngOnInit() {
+        this.custchartsService.sendRequest();
         this.setData();
+    }
+    
+    ngOnChanges() {
+        
     }
 
     setData() {
         this.setImportExportDetailData();
     }
-   
+
     setImportExportDetailData() {
         let cust = this.custchartsService;
-        
+
         this.import = cust._import
         this.export = cust._export
-        
-        this.import[0].row = cust.inTotal;
-        this.import[0].all = cust.SumData(cust.incolumnTotal);
-        console.log('xx',cust.incolumnTotal)
 
+        this.import[0].row = cust.inTotal;
+        this.import[0].all = (cust.SumData(cust.inTotal))*2;
+     
         this.export[0].row = cust.outTotal;
-        this.export[0].all = cust.SumData(cust.outcolumnTotal);
-        
+        this.export[0].all = (cust.SumData(cust.outTotal))*2;
+
         //日期轉換 201903 return 2019/03
         this.import[0].mon.forEach((item, index, arr) => {
             arr[index] = this.utilsService.changeDateStr(item, 'yyyy/MM');
@@ -64,4 +64,5 @@ export class OperatingInoutComponent implements OnInit {
         });
 
     }
+
 }
