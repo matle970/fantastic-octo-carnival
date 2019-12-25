@@ -18,6 +18,7 @@ import { CommonAreaModule } from 'src/app/content-layout/common-area/common-area
 // 共同之客製作 Pipe
 import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
 
+import { NewsInfoComponent } from 'src/app/customer/customer-child/cust-news/news-info/news-info.component';
 
 @NgModule({
     imports: [
@@ -34,14 +35,17 @@ import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
         CustBaseInfoComponent,
         CustChartsComponent,
         NewsComponent,
-        HistoryComponent
+        HistoryComponent,
+        
 
     ],
+
     exports: [
         CustBaseInfoComponent,
         CustChartsComponent,
         NewsComponent,
-        HistoryComponent
+        HistoryComponent,
+
 
     ]
 })
