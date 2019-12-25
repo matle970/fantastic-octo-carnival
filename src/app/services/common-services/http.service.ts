@@ -21,6 +21,12 @@ export class HttpService {
 
     apiDomain: string = this.envservice.apiUrl; // API Domain name
 
+    /**
+    * Send request
+    * @param url 查詢URL
+    * @param dtoRequest 請求樣式
+    * @param dtoResponse 回傳樣式
+    */
     sendRequestAsync(url: string, dtoRequest: any, dtoResponse: any): Promise<any> {
         let data: any;
 
@@ -43,7 +49,15 @@ export class HttpService {
         return data;
     }
 
-
+    /**
+    * Send request
+    * @param url 查詢URL
+    * @param dtoRequest 請求樣式
+    * @param dtoResponse 回傳樣式
+    */
+    sendAPI(url: string, dtoRequest: any, dtoResponse?: any) {
+        
+    }
 
 
 
