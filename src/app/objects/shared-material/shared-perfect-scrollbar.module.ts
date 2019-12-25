@@ -10,13 +10,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 @NgModule({
-  imports:[
+  imports: [
     CommonModule,
     PerfectScrollbarModule
   ],
-  providers:[
+  providers: [
     {
-      provide:PERFECT_SCROLLBAR_CONFIG,
+      provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
   ],
