@@ -1,189 +1,168 @@
+
 <div class="card shadow-lg bottom-card">
-  <app-water-print></app-water-print>
-  <!-- <div class="card-header card-header-danger">
-    <h4 class="card-title">Material Dashboard PRO Angular</h4>
-    <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard Angular.</p>
-</div> -->
-  <div class="card-body">
+
+  <app-water-print *ngIf="!hideBlock"></app-water-print>
+
+<div class="card-body">
+
     <h4 class="card-title text-primary clearfix">
       {{assetslibilities_text}}
-      <!-- <div class="d-inline-block date-block text-right float-right">資料日：2019/08/06
-      </div> -->
     </h4>
-    <div class="all-charts-blcok row no-gutters mt-4">
+    <div class="h-100" *ngIf="hideBlock">
+        <app-loading *ngIf="loadingStatus"></app-loading>
+        <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
+    </div>
+    <div class="all-charts-blcok row" *ngIf="!hideBlock">
 
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="title-block row no-gutters">
-          <div class="chart-title col-5">
-            <div class="btn text-white bg-deposit">
-              <span class="title">
-                {{deposit_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold" >
-              {{ currentValue.currentDeposit | currency:'':'':'1.0-0'}}
-            </div>
+        <!-- 存款 -->
+        <div class="chart-item-block col-lg-3 col-md-6 col-sm-12">
+          <div class="title-block d-flex justify-content-center">
+              <div class="chart-title onlyOne">
+                  <div class="btn text-white bg-deposit has-arrow" (click)="openDialog(8, true)">
+                      <span class="title w-100 d-inline-block">
+                        {{deposit_text}}
+                      </span>
+                      <div class="total w-100 d-inline-block font-weight-bold">
+                        {{ currentValue.currentDeposit | currency:'':'':'1.0-0'}}
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="col-2 offset-5">
-            <span mat-raised-button matTooltip="詳細內容" matTooltipPosition="above"
-              class="btn btn-outline-primary chart-link-icon" (click)="openDialog(8, true)">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </div>
-        </div>
 
-        <apx-chart #chartDeposit 
-          [chart]="DepositData.chart" 
+          <apx-chart #chartDeposit
+          [chart]="DepositData.chart"
           [plotOptions]="DepositData.plotOptions"
-          [dataLabels]="DepositData.dataLabels" 
-          [stroke]="DepositData.stroke" 
+          [dataLabels]="DepositData.dataLabels"
+          [stroke]="DepositData.stroke"
           [series]="DepositData.series"
-          [xaxis]="DepositData.xaxis" 
-          [yaxis]="DepositData.yaxis" 
+          [xaxis]="DepositData.xaxis"
+          [yaxis]="DepositData.yaxis"
           [colors]="DepositData.colors"
-          [legend]="DepositData.legend" 
-          [tooltip]="DepositData.tooltip"></apx-chart>
-      </div>
-
-      <div class="col-lg-3 col-md-6 col-sm-12">
-
-
-
-        <div class="title-block clearfix  row no-gutters">
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn d-inline-block text-white bg-load">
-              <span class="title">
-                {{loan_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{ currentValue.currentLoan| currency:'':'':'1.0-0'}}
-            </div>
-          </div>
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn d-inline-block text-white bg-trade">
-              <span class="title">
-                {{tradeFinance_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{ currentValue.currentTradeFinance| currency:'':'':'1.0-0'}}
-            </div>
-          </div>
-          <div class="col-2">
-            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
-              matTooltipPosition="above" (click)="openDialog(9, true)">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </div>
-
+          [legend]="DepositData.legend"
+          [tooltip]="DepositData.tooltip"
+          ></apx-chart>
         </div>
 
-        <apx-chart #chartLoad 
-          [chart]="LoanData.chart" 
+        <!-- 放款/貿融 -->
+        <div class="chart-item-block col-lg-3 col-md-6 col-sm-12">
+
+          <div class="title-block d-flex justify-content-center">
+              <div class="chart-title">
+                  <div class="btn d-inline-block text-white bg-load  has-arrow" (click)="openDialog(9, true)">
+                      <span class="title w-100 d-inline-block">
+                        {{loan_text}}
+                      </span>
+                      <div class="total w-100 d-inline-block font-weight-bold">
+                        {{ currentValue.currentLoan| currency:'':'':'1.0-0'}}
+                      </div>
+                  </div>
+                  <div class="btn d-inline-block text-white bg-trade has-arrow" (click)="openDialog(9, true)">
+                      <span class="title w-100 d-inline-block">
+                          {{tradeFinance_text}}
+                      </span>
+                      <div class="total d-inline-block font-weight-bold">
+                        {{ currentValue.currentTradeFinance| currency:'':'':'1.0-0'}}
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <apx-chart #chartLoad
+          [chart]="LoanData.chart"
           [plotOptions]="LoanData.plotOptions"
-          [dataLabels]="LoanData.dataLabels" 
-          [stroke]="LoanData.stroke" 
+          [dataLabels]="LoanData.dataLabels"
+          [stroke]="LoanData.stroke"
           [series]="LoanData.series"
-          [xaxis]="LoanData.xaxis" 
-          [yaxis]="LoanData.yaxis" 
-          [colors]="LoanData.colors" 
+          [xaxis]="LoanData.xaxis"
+          [yaxis]="LoanData.yaxis"
+          [colors]="LoanData.colors"
           [legend]="LoanData.legend"
-          [tooltip]="LoanData.tooltip"></apx-chart>
+          [tooltip]="LoanData.tooltip"
+          ></apx-chart>
 
-      </div>
-
-      <div class="col-lg-3 col-md-6 col-sm-12">
-
-        <div class="title-block clearfix row no-gutters">
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn  text-white bg-in" (click)="openDialog(10, true)">
-              <span class="title">
-                {{import_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{currentValue.currentImport | currency:'':'':'1.0-0'}}
-            </div>
-          </div>
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn  text-white bg-out" (click)="openDialog(10, true)">
-              <span class="title">
-                {{export_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{currentValue.currentExport | currency:'':'':'1.0-0'}}
-            </div>
-          </div>
-
-          <div class="col-2">
-            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
-              matTooltipPosition="above" (click)="openDialog(10, true)">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </div>
         </div>
 
+        <!-- 進出口  -->
+        <div class="chart-item-block col-lg-3 col-md-6 col-sm-12">
 
-        <apx-chart #chartTrade 
-          [chart]="TradeData.chart" 
+            <div class="title-block d-flex justify-content-center">
+                <div class="chart-title">
+                    <div class="btn  text-white bg-in has-arrow" (click)="openDialog(10, true)">
+                      <span class="title w-100 d-inline-block">
+                          {{import_text}}
+                      </span>
+                      <div class="total w-100 d-inline-block font-weight-bold">
+                          {{currentValue.currentImport | currency:'':'':'1.0-0'}}
+                      </div>
+                    </div>
+
+                    <div class="btn text-white bg-out  has-arrow" (click)="openDialog(10, true)">
+                        <span class="title w-100 d-inline-block">
+                            {{export_text}}
+                        </span>
+                        <div class="total w-100 d-inline-block font-weight-bold">
+                            {{currentValue.currentExport | currency:'':'':'1.0-0'}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <apx-chart #chartTrade
+          [chart]="TradeData.chart"
           [plotOptions]="TradeData.plotOptions"
-          [dataLabels]="TradeData.dataLabels" 
-          [stroke]="TradeData.stroke" 
+          [dataLabels]="TradeData.dataLabels"
+          [stroke]="TradeData.stroke"
           [series]="TradeData.series"
-          [xaxis]="TradeData.xaxis" 
-          [yaxis]="TradeData.yaxis" 
-          [colors]="TradeData.colors" 
+          [xaxis]="TradeData.xaxis"
+          [yaxis]="TradeData.yaxis"
+          [colors]="TradeData.colors"
           [legend]="TradeData.legend"
-          [tooltip]="TradeData.tooltip"></apx-chart>
-      </div>
-
-      <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="title-block clearfix row no-gutters ">
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn  text-black bg-tmu">
-              <span class="title text-black">
-                {{tmu_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{currentValue.currentTmu | percent:'1.0-3'}}
-            </div>
-          </div>
-          <div class="chart-title col-sm-5 col-md-5 col-lg-5">
-            <div class="btn  bg-mtm text-black ">
-              <span class="title text-black">
-                {{mtm_text}}
-              </span>
-            </div>
-            <div class="total d-inline-block font-weight-bold">
-              {{currentValue.currentMtm | percent:'1.0-3'}}
-            </div>
-          </div>
-          <div class="col-2">
-            <span class="d-inline-block btn btn-outline-primary chart-link-icon" mat-raised-button matTooltip="詳細內容"
-              matTooltipPosition="above" (click)="openDialog(11, true)">
-              <i class="fas fa-external-link-alt"></i>
-            </span>
-          </div>
+          [tooltip]="TradeData.tooltip"
+            ></apx-chart>
         </div>
 
+        <!-- tmu  -->
+        <div class="chart-item-block no-line  col-lg-3 col-md-6 col-sm-12">
+            <div class="title-block d-flex justify-content-center ">
+                <div class="chart-title">
+                    <div class="btn text-white bg-tmu has-arrow"  (click)="openDialog(11, true)">
+                        <span class="title  d-inline-block">
+                            {{tmu_text}}
+                        </span>
+                        <div class="total d-inline-block font-weight-bold">
+                           {{currentValue.currentTmu | percent:'1.0-3'}}
+                        </div>
+                    </div>
+                    <div class="btn text-white bg-mtm  has-arrow" (click)="openDialog(11, true)">
+                        <span class="title  d-inline-block">
+                            {{mtm_text}}
+                        </span>
+                        <div class="total d-inline-block font-weight-bold">
+                            {{currentValue.currentMtm | percent:'1.0-3'}}
+                        </div>
+                    </div>
+                </div>
 
-        <apx-chart #chartTmu 
-          [chart]="TmuData.chart" 
+            </div>
+
+
+            <apx-chart #chartTmu
+          [chart]="TmuData.chart"
           [plotOptions]="TmuData.plotOptions"
-          [dataLabels]="TmuData.dataLabels" 
-          [stroke]="TmuData.stroke" 
-          [series]="TmuData.series" 
+          [dataLabels]="TmuData.dataLabels"
+          [stroke]="TmuData.stroke"
+          [series]="TmuData.series"
           [xaxis]="TmuData.xaxis"
-          [yaxis]="TmuData.yaxis" 
-          [colors]="TmuData.colors" 
-          [legend]="TmuData.legend" 
-          [tooltip]="TmuData.tooltip">
-        </apx-chart>
-      </div>
+          [yaxis]="TmuData.yaxis"
+          [colors]="TmuData.colors"
+          [legend]="TmuData.legend"
+          [tooltip]="TmuData.tooltip"
+            ></apx-chart>
+        </div>
 
     </div>
-  </div>
+</div>
+
 </div>

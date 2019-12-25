@@ -16,8 +16,16 @@ export class CustChartsService {
 
     constructor(
         public baseservice: BaseService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        
     ) { }
+
+    //html text
+    text = this.baseservice.gettextservice.custchartstext;
+    depositinfo_text: string = this.text.depositinfo_text;
+    loaninfo_text: string = this.text.loaninfo_text;
+    inoutinfo_text: string = this.text.inoutinfo_text;
+    tmuinfo_text: string = this.text.tmuinfo_text;
 
     urlList = [
         {
@@ -254,6 +262,30 @@ export class CustChartsService {
         let Tmu = Object.values(tMUDetailData.data.tmuContribution);
         this._tmuContribution = Tmu.map(Number);
 
+    }
+
+    openDialog(modalId: number, wide?: boolean) {
+        let title: string;
+        let data: object;
+        switch (modalId) {
+            case 8:
+                title = this.depositinfo_text;
+                data = this.DepositDetail.data;
+                break;
+            case 9:
+                title = this.loaninfo_text;
+                data = this.LoanDetail.data;
+                break;
+            case 10:
+                title = this.inoutinfo_text;
+                data = this.ImportExportDetail.data;
+                break;
+            case 11:
+                title = this.tmuinfo_text;
+                data = this.TMUDetail.data;
+                break;
+        }
+        this.baseservice.dialogservice.openDialog(modalId, wide, title, data);
     }
 
     // 取得月份 format 201907, return 7

@@ -1,45 +1,62 @@
-
+.tmu-block {
+  .tmu-border-block {
+    // border:1px solid #DDD;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin:6px;
+    padding:10px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)
+  }
+}
 .table-mat-list {
-    .th-width {
-      width:120px;
-      min-width: 120px;
-      max-width: 120px;
-    }
+  .th-width {
+    width:120px;
+    min-width: 120px;
+    max-width: 120px;
   }
-  .card-chart-table{
-    height:auto;
-    .tmu-chart-block {
-      margin: 0 auto;
-      display: inline-block;
-    }
+}
+.card-chart-table{
+  height:auto;
+  .table {
+    border: none !important;
   }
-  
-  @media screen and  (min-width: 1991px) and (max-width:3000px) {
-    .card-chart-table{
-      height: 844px !important;
-      // height:962px;
-    }
+
+  .tmu-chart-block {
+    margin: 0 auto;
+    display: inline-block;
   }
-  
-  @media screen and  (min-width: 1401px) and (max-width:1990px) {
-    .card-chart-table{
-      height: 844px !important;
-      // height:962px!important;
-    }
-  }
-  
-  @media screen and  (min-width: 901px) and (max-width:1400px)  {
-    .date-block {
-      text-align: left;
-    }
-    .card-chart-table{
-      height:844px !important;
-    }
-  }
-  
-  @media screen and  (max-width: 900px) {
-    .card-chart-table{
-      height:auto !important;
-    }
-  }
-  
+}
+
+// .ins-table {
+//   height: 430px;
+// }
+
+// @media screen and  (min-width: 1991px) and (max-width:3000px) {
+//   .card-chart-table{
+//     height: 863px !important;
+//     // height:962px;
+//   }
+// }
+
+// @media screen and  (min-width: 1401px) and (max-width:1990px) {
+//   .card-chart-table{
+//     height: 863px !important;
+//     // height:962px!important;
+//   }
+// }
+
+// @media screen and  (min-width: 901px) and (max-width:1400px)  {
+//   .date-block {
+//     text-align: left;
+//   }
+//   .card-chart-table{
+//     height:863px !important;
+//   }
+// }
+
+// @media screen and  (max-width: 900px) {
+//   .card-chart-table{
+//     height:auto !important;
+//   }
+// }

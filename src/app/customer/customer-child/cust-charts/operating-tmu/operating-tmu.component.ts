@@ -15,6 +15,17 @@ export class OperatingTmuComponent implements OnInit {
     @Input() content: any;
     @ViewChild('chartOperatingTmu') chartOperatingTmu: ChartComponent;
 
+     //營運量第二層-TMU&MTM html text
+     text = this.custchartsService.baseservice.gettextservice.custchartstext;
+     tmuContribution_text: string = this.text.tmuContribution_text;
+     unitNTD_text: string = this.text.unitNTD_text;
+     validTime_text: string = this.text.validTime_text;
+     derivative_text: string = this.text.derivative_text;
+     unitUSD_text: string = this.text.unitUSD_text;
+     wms_text: string = this.text.wms_text;
+     unitNNTD_text: string = this.text.unitNtd_text;
+
+
     // 營運量-TMU&MTU第二層
     TMUDetail: any = {};
     tmuTransAmt: Array<any> = [];

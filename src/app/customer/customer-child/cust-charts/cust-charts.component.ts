@@ -478,30 +478,7 @@ export class CustChartsComponent implements OnInit {
     /**
     * @param modalId 開啟modal的方式
     */
-    openDialog(modalId: number, wide?: boolean) {
-        let title: string;
-        let data: object;
-        switch (modalId) {
-            case 8:
-                title = this.deposit_text;
-                data = this.DepositDetail.data;
-                // console.log('xx', data);
-                break;
-            case 9:
-                data = this.LoanDetail.data;
-                // dialogConfig.data.title = '放款餘額 / 貿融餘額';
-                break;
-            case 10:
-                data = this.ImportExportDetail.data;
-                // dialogConfig.data.title = '進口 / 出口';
-                break;
-            case 11:
-                data = this.TMUDetail.data;
-                // dialogConfig.data.title = 'TMU / MTM';
-                break;
-        }
-        this.custchartsService.baseservice.dialogservice.openDialog(modalId, wide, title, data);
-    }
+    
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 
@@ -663,4 +640,7 @@ export class CustChartsComponent implements OnInit {
     //     this.chartTmu.render();
     // };
 
+    openDialog(modalId: number, wide?: boolean) {
+        this.custchartsService.openDialog(modalId, wide);
+    }
 }
