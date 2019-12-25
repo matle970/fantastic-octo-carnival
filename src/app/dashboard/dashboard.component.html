@@ -36,7 +36,7 @@
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
-					<div class="data-table no-data">
+					<perfect-scrollbar class="data-table no-data ps-show-always">
 						<table  class="table m-0 p-0 table-hover table-sticky">
 						   <thead>
 							  <th class="text-nowrap">經管 AO</th>
@@ -58,11 +58,11 @@
 								  <app-loading *ngIf="loadingStatus"></app-loading>
 								  <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
 							   </td>
-  
+
 							 </tr>
 						   </tbody>
 						</table>
-					</div>
+					</perfect-scrollbar>
 				</div>
 				<div class="card-body" [hidden]="hideBlock">
 					<div class="row data-info">
@@ -81,44 +81,44 @@
 					</div>
 
 
-				
+
 					<!-- 列表 + paginator  -->
 					<div class="m-0 p-0">
-						<div class="data-table">
+						<perfect-scrollbar class="data-table ps-show-always">
 
 							<table class="table m-0 p-0 table-hover table-sticky" (matSortChange)="sortData($event)"
 								mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
-								<ng-container matColumnDef="ao">
+								<ng-container matColumnDef="aoEmpName">
 									<th class="text-nowrap min-130" mat-header-cell mat-sort-header *matHeaderCellDef
 										[ngClass]="{
 											'hidden-item': !supervisor ? true : false
 										}">
 										經管 AO
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'ao'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'aoEmpName'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class="" mat-cell *matCellDef="let element" [ngClass]="{
 											'hidden-item': !supervisor ? true : false
 										}">
 										<span class="text-ellipsis">
-											{{element.ao}}
+											{{element.aoEmpName}}
 										</span>
 									</td>
 									<td mat-footer-cell *matFooterCellDef [ngClass]="{
 											'hidden-item': !supervisor ? true : false
 										}"> Total </td>
 								</ng-container>
-								<ng-container matColumnDef="group_name">
+								<ng-container matColumnDef="parentCompanyName">
 									<th class="text-nowrap " mat-sort-header mat-header-cell *matHeaderCellDef>
 										集團名稱
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'group_name'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'parentCompanyName'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class="" mat-cell *matCellDef="let element">
 										<span class="text-ellipsis">
-											{{element.group_name}}
+											{{element.parentCompanyName}}
 										</span>
 									</td>
 									<td class="colFooter" mat-footer-cell *matFooterCellDef>
@@ -130,38 +130,36 @@
 										</span>
 									</td>
 								</ng-container>
-								<ng-container matColumnDef="cus_name">
+								<ng-container matColumnDef="customerName">
 									<th class="text-nowrap  pr-2" mat-sort-header mat-header-cell *matHeaderCellDef>
 										客戶名稱
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'cus_name'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'customerName'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class="text-left" mat-cell *matCellDef="let element">
 										<a href="#" routerLink="/content/customer" class="underline text-ellipsis-name mr-2">
-											{{element.cus_name}}
+											{{element.customerName}}
 										</a>
 										<div class="d-block">
 											<span class="mt-1 tag tag-green" matTooltip="授信戶" matTooltipPosition="above"
-												*ngIf="element.tag.includes(1)">
+												*ngIf="element.creditInd==='Y'">
 												授
 											</span>
 											<span class="mt-1 tag tag-blue" matTooltip="企網銀" matTooltipPosition="above"
-												*ngIf="element.tag.includes(2)">
+												*ngIf="element.geblnd==='Y'">
 												網
 											</span>
 											<span class="mt-1 tag tag-gold" matTooltip="薪轉戶" matTooltipPosition="above"
-												*ngIf="element.tag.includes(3)">
+												*ngIf="element.payrollComInd==='Y'">
 												薪
 											</span>
-
-
-											<span class="mt-1 tag tag-orange" matTooltip="集團核心"
-												matTooltipPosition="above" *ngIf="element.tag.includes(4)">
+											<span class="mt-1 tag tag-orange" matTooltip="集團核心" matTooltipPosition="above" 
+												*ngIf="element.coreCompany==='Y'">
 												核
 											</span>
 											<span class="mt-1 tag tag-red" matTooltip="黑名單" matTooltipPosition="above"
-												*ngIf="element.tag.includes(5)">
+												*ngIf="element.blackListInd==='Y'">
 												黑
 											</span>
 
@@ -169,21 +167,21 @@
 									</td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
-								<ng-container matColumnDef="cus_id">
+								<ng-container matColumnDef="customerId">
 									<th class="text-nowrap text-center" mat-header-cell *matHeaderCellDef>
 										客戶ID
 									</th>
-									<td class="" mat-cell *matCellDef="let element"> {{element.cus_id}} </td>
+									<td class="" mat-cell *matCellDef="let element"> {{element.customerId}} </td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
-								<ng-container matColumnDef="msr">
+								<ng-container matColumnDef="approvalGrade">
 									<th class="text-nowrap min-70 " mat-sort-header mat-header-cell *matHeaderCellDef>
 										MSR
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'msr'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'approvalGrade'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
-									<td class=" bg-three" mat-cell *matCellDef="let element"> {{element.msr}} </td>
+									<td class=" bg-three" mat-cell *matCellDef="let element"> {{element.approvalGrade}} </td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
 								<ng-container matColumnDef="rorwa">
@@ -205,92 +203,89 @@
 											[app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
-									<td class="bg-three" mat-cell *matCellDef="let element"> 
-										{{element.raroc | percent: '1.0-2' }} 
+									<td class="bg-three" mat-cell *matCellDef="let element">
+										{{element.raroc | percent: '1.0-2' }}
 									</td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
-
-
-								<ng-container matColumnDef="last_year_contribution">
+								<ng-container matColumnDef="lastYearAccumContri">
 									<th class="text-nowrap min-100  " mat-sort-header mat-header-cell *matHeaderCellDef>
 										去年度<br>累計貢獻度
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'last_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'lastYearAccumContri'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class=" bg-two" mat-cell *matCellDef="let element">
-										{{element.last_year_contribution | currency:'':'':'1.0-0'}}
+										{{element.lastYearAccumContri | currency:'':'':'1.0-0'}}
 									</td>
 									<td class="" mat-footer-cell *matFooterCellDef>
-										{{ calculateTotal("last_year_contribution")  |  currency:'':'':'1.0-0'}}
+										{{ calculateTotal("lastYearAccumContri")  |  currency:'':'':'1.0-0'}}
 									</td>
 								</ng-container>
-								<ng-container matColumnDef="this_year_contribution">
+								<ng-container matColumnDef="thisYearAccumContri">
 									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
 										今年度<br>累計貢獻度
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'this_year_contribution'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'thisYearAccumContri'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class=" bg-two" mat-cell *matCellDef="let element">
-										{{element.this_year_contribution | currency:'':'':'1.0-0' }}
+										{{element.thisYearAccumContri | currency:'':'':'1.0-0' }}
 									</td>
 									<td class="" mat-footer-cell *matFooterCellDef>
-										{{ calculateTotal("this_year_contribution")  |  currency:'':'':'1.0-0'}}
+										{{ calculateTotal("thisYearAccumContri")  |  currency:'':'':'1.0-0'}}
 									</td>
 								</ng-container>
-								<ng-container matColumnDef="deposit">
+								<ng-container matColumnDef="totalDepositBal">
 									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
 										存款餘額
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'deposit'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'totalDepositBal'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class=" bg-one" mat-cell *matCellDef="let element">
-										{{element.deposit | currency:'':'':'1.0-0' }}
+										{{element.totalDepositBal | currency:'':'':'1.0-0' }}
 									</td>
 									<td class="" mat-footer-cell *matFooterCellDef>
-										{{ calculateTotal("deposit")  |  currency:'':'':'1.0-0'}}
+										{{ calculateTotal("totalDepositBal")  |  currency:'':'':'1.0-0'}}
 									</td>
 								</ng-container>
-								<ng-container matColumnDef="load_balance">
+								<ng-container matColumnDef="totalLoanBal">
 									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
 										放款餘額
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'load_balance'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'totalLoanBal'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
 									<td class=" bg-one" mat-cell *matCellDef="let element">
-										{{element.load_balance | currency:'':'':'1.0-0' }}
+										{{element.totalLoanBal | currency:'':'':'1.0-0' }}
 									</td>
 									<td class="" mat-footer-cell *matFooterCellDef>
-										{{ calculateTotal("load_balance")  |  currency:'':'':'1.0-0'}}
+										{{ calculateTotal("totalLoanBal")  |  currency:'':'':'1.0-0'}}
 									</td>
 								</ng-container>
-
-								<ng-container matColumnDef="trade_balance">
+								<ng-container matColumnDef="totalTradeFinanceBal">
 									<th class="text-nowrap min-100 " mat-sort-header mat-header-cell *matHeaderCellDef>
 										貿融餘額
 										<app-column-toggle
-											[app-column-toggle]="{ isColumn: 'trade_balance'== nowOrder.id , asc: nowOrder.ASC }">
+											[app-column-toggle]="{ isColumn: 'totalTradeFinanceBal'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 
 									</th>
 									<td class=" bg-one" mat-cell *matCellDef="let element">
-										{{element.trade_balance | currency:'':'':'1.0-0'}}
+										{{element.totalTradeFinanceBal | currency:'':'':'1.0-0'}}
 									</td>
 									<td class="" mat-footer-cell *matFooterCellDef>
-										{{ calculateTotal("trade_balance")  |  currency:'':'':'1.0-0'}}
+										{{ calculateTotal("totalTradeFinanceBal")  |  currency:'':'':'1.0-0'}}
 									</td>
 								</ng-container>
-
+-->
 								<tr mat-header-row *matHeaderRowDef="tableThead; sticky: true"></tr>
 								<tr mat-row *matRowDef="let row; columns: tableThead;"></tr>
 								<tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
 							</table>
 
-						</div>
+						</perfect-scrollbar>
 
 						<!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
 						<mat-paginator #paginator class="text-h3" [length]="60" [pageIndex]="0" [pageSize]="70"

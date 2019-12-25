@@ -3,7 +3,7 @@
   <!-- 新聞項目列表 -->
   <div class="col-6 col-lg-3 col-md-4 col-xs-6 d-flex align-items-start">
 
-    <div class="w-100 news-info-list">
+    <perfect-scrollbar class="w-100 news-info-list ps-show-always">
       <div class="btn btn-lg btn-block btn-outline-primary has-arrow mb-3" [ngClass]="{'active': nowNewsId === new.id}"
         (click)="selectNews(new.id)" *ngFor="let new of newsList">
         <div class="row news-info-li">
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-    </div>
+    </perfect-scrollbar>
 
   </div>
 
@@ -66,3 +66,5 @@
   </div>
 
 </div>
+
+

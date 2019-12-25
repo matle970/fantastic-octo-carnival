@@ -9,6 +9,7 @@ import { NewsComponent } from './customer-child/cust-news/cust-news.component';
 import { HistoryComponent } from './customer-child/cust-history/cust-history.component';
 
 import { SharedMaterialModule } from '../objects/shared-material/shared-material.module';
+import { SharedPerfectScrollbarModule } from '../objects/shared-material/shared-perfect-scrollbar.module';
 
 // 共用的元件
 import { SharedItemModule } from '../objects/shared-item/shared-item.module';
@@ -17,12 +18,14 @@ import { CommonAreaModule } from 'src/app/content-layout/common-area/common-area
 // 共同之客製作 Pipe
 import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
 
+import { NewsInfoComponent } from 'src/app/customer/customer-child/cust-news/news-info/news-info.component';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         SharedMaterialModule,
+        SharedPerfectScrollbarModule,
         SharedItemModule,
         CommonAreaModule,
         NgApexchartsModule,
@@ -32,13 +35,18 @@ import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
         CustBaseInfoComponent,
         CustChartsComponent,
         NewsComponent,
-        HistoryComponent
+        HistoryComponent,
+        
+
     ],
+
     exports: [
         CustBaseInfoComponent,
         CustChartsComponent,
         NewsComponent,
         HistoryComponent,
+
+
     ]
 })
 export class CompanyModule { }

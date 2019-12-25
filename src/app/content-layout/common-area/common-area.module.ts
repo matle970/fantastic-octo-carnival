@@ -14,6 +14,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { LogoWhiteComponent } from './logo-white/logo-white.component';
 import { NoticeIconComponent } from './notice-icon/notice-icon.component';
 import { SharedMaterialModule } from 'src/app/objects/shared-material/shared-material.module';
+import { SharedPerfectScrollbarModule } from 'src/app/objects/shared-material/shared-perfect-scrollbar.module';
 import { SharedItemModule } from 'src/app/objects/shared-item/shared-item.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AutoSearchComponent } from './auto-search/auto-search.component';
@@ -24,6 +25,7 @@ import { AutoSearchComponent } from './auto-search/auto-search.component';
     CommonModule,
     RouterModule,
     SharedMaterialModule,
+    SharedPerfectScrollbarModule,
     SharedItemModule,
     FormsModule,
     ReactiveFormsModule,

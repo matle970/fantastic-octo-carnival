@@ -96,285 +96,66 @@ export class DummyData {
             "apId": "CRMLXCRM01",
             "branchId": "00081",
             "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
+            "clientIp": "225.225.225.225",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
         },
         "body": {
-            "aoData": [
-                {
-                    "id": "d000",
-                    "ao": "人類經理 具燦星",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName001",
-                    "group_name": "滿月集團",
-                    "cus_id": "03546618",
-                    "cus_name": "jeweltestDummyData",
-                    "msr": "4",
-                    "rorwa": 0.0036,
-                    "raroc": 0.0036,
-                    "last_year_contribution": 10000,
-                    "this_year_contribution": 9000,
-                    "deposit": 1000000,
-                    "load_balance": 600000,
-                    "trade_balance": 3000,
-                    "tag": [1, 2, 3]
-                }, {
-                    "id": "d001",
-                    "ao": "人類經理 具燦星",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName002",
-                    "group_name": "滿月集團",
-                    "cus_id": "03546618",
-                    "cus_name": "德魯納股份有限公司",
-                    "msr": "4",
-                    "rorwa": 0.0036,
-                    "raroc": 0.0036,
-                    "last_year_contribution": 10000,
-                    "this_year_contribution": 9000,
-                    "deposit": 1000000,
-                    "load_balance": 600000,
-                    "trade_balance": 3000,
-                    "tag": [1, 2, 3]
-                },
-                {
-                    "id": "d002",
-                    "ao": "店長 鄭北東",
-                    "wmbranchId": "jewelWMName002",
-                    "referBranchId": "jewelReferName003",
-                    "group_name": "滿月集團",
-                    "cus_id": "11223355",
-                    "cus_name": "千里馬超市",
-                    "msr": "4",
-                    "rorwa": 0.0056,
-                    "raroc": 0.0036,
-                    "last_year_contribution": 100,
-                    "this_year_contribution": 500,
-                    "deposit": 100000,
-                    "load_balance": 60000,
-                    "trade_balance": 3000,
-                    "tag": [2, 3]
-                },
-                {
-                    "id": "d003",
-                    "ao": "酒保 金時翼",
-                    "wmbranchId": "jewelWMName002",
-                    "referBranchId": "jewelReferName004",
-                    "group_name": "滿月集團",
-                    "cus_id": "11223355",
-                    "cus_name": "天空酒吧",
-                    "msr": "4",
-                    "rorwa": 0.0056,
-                    "raroc": 0.0036,
-                    "last_year_contribution": 50000,
-                    "this_year_contribution": 500,
-                    "deposit": 100,
-                    "load_balance": 60000,
-                    "trade_balance": 3000,
-                    "tag": [2, 3]
-                },
-                {
-                    "id": "c001",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName003",
-                    "referBranchId": "jewelReferName005",
-                    "group_name": "鴻海集團",
-                    "cus_id": "03546618",
-                    "cus_name": "廣宇科技股份有限公司",
-                    "msr": "4",
-                    "rorwa": 0.0036,
-                    "raroc": 0.0036,
-                    "last_year_contribution": 1000,
-                    "this_year_contribution": 900,
-                    "deposit": 10000,
-                    "load_balance": 2000,
-                    "trade_balance": 3000,
-                    "tag": [1, 2, 3]
-                },
-                {
-                    "id": "c002",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName003",
-                    "referBranchId": "jewelReferName001",
-                    "group_name": "鴻海集團",
-                    "cus_id": "12800225",
-                    "cus_name": "群創光電股份有限公司",
-                    "msr": "D",
-                    "rorwa": null,
-                    "raroc": null,
-                    "last_year_contribution": 1000,
-                    "this_year_contribution": 900,
-                    "deposit": null,
-                    "load_balance": 2000,
-                    "trade_balance": 3000,
-                    "tag": [1]
-                },
-                {
-                    "id": "c003",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName004",
-                    "referBranchId": "jewelReferName002",
-                    "group_name": "鴻海集團",
-                    "cus_id": "80731387",
-                    "cus_name": "宏瀚投資股份有限公司",
-                    "msr": "4",
-                    "rorwa": 0.0085,
-                    "raroc": 0.0085,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": [1, 2]
-                },
-                {
-                    "id": "c004",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName004",
-                    "referBranchId": "jewelReferName002",
-                    "group_name": "鴻海集團",
-                    "cus_id": "80732007",
-                    "cus_name": "聯巨投資股份有限公司",
-                    "msr": "6+",
-                    "rorwa": 0.0074,
-                    "raroc": 0.0074,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": [3]
-                },
-                {
-                    "id": "c005",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName005",
-                    "referBranchId": "jewelReferName003",
-                    "group_name": "鴻海集團",
-                    "cus_id": "84149499",
-                    "cus_name": "天鈺科技股份有限公司",
-                    "msr": "5",
-                    "rorwa": 6.0022,
-                    "raroc": 6.0022,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": [4]
-                },
-                {
-                    "id": "c006",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName005",
-                    "referBranchId": "jewelReferName004",
-                    "group_name": "鴻海集團",
-                    "cus_id": "496390JA",
-                    "cus_name": "捷達創新科技有限公司",
-                    "msr": "W2",
-                    "rorwa": null,
-                    "raroc": null,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": [5]
-                },
-                {
-                    "id": "c007",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName005",
-                    "group_name": "鴻海集團",
-                    "cus_id": "27310561",
-                    "cus_name": "啟耀光電股份有限公司",
-                    "msr": "8",
-                    "rorwa": null,
-                    "raroc": null,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": []
-                },
-                {
-                    "id": "c008",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName005",
-                    "group_name": "鴻海集團",
-                    "cus_id": "28488592",
-                    "cus_name": "瑞祺電通股份有限公司",
-                    "msr": "5",
-                    "rorwa": null,
-                    "raroc": null,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": []
-                },
-                {
-                    "id": "c009",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName001",
-                    "group_name": "鴻海集團",
-                    "cus_id": "70380046",
-                    "cus_name": "樺漢科技股份有限公司",
-                    "msr": "4+",
-                    "rorwa": 0.0043,
-                    "raroc": 0.0043,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": []
-                },
-                {
-                    "id": "c010",
-                    "ao": "企企2 葉又萱",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName002",
-                    "group_name": "鴻海集團",
-                    "cus_id": "24291669",
-                    "cus_name": "康聯生醫科技股份有限公司",
-                    "msr": "6",
-                    "rorwa": 1.0098,
-                    "raroc": 1.0098,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": []
-                },
-                {
-                    "id": "c011",
-                    "ao": "企企2 jeweltest01",
-                    "wmbranchId": "jewelWMName001",
-                    "referBranchId": "jewelReferName003",
-                    "group_name": "鴻海集團",
-                    "cus_id": "24291669",
-                    "cus_name": "康聯生醫科技股份有限公司",
-                    "msr": "6",
-                    "rorwa": 1.0098,
-                    "raroc": 1.0098,
-                    "last_year_contribution": null,
-                    "this_year_contribution": null,
-                    "deposit": null,
-                    "load_balance": null,
-                    "trade_balance": null,
-                    "tag": []
-                }
+            "bossId": "NT81752",
+            "records": [{
+                "customerId": "03546618",
+                "customerName": "Busto Aa",
+                "parentCompanyId": "GP12345",
+                "parentCompanyName": "Ja",
+                "aoEmpCode": "NT54138",
+                "aoEmpName": "V",
+                "approvalGrade": "4+",
+                "rorwa": 0.0036,
+                "raroc": 0.0036,
+                "lastYearAccumContri": 100000000,
+                "thisYearAccumContri": 120000000,
+                "totalDepositBal": 120000000,
+                "totalLoanBal": 100000000,
+                "totalTradeFinanceBal": 100000000,
+                "manageBranchCode": "1234",
+                "manageBranchName": "A",
+                "loanTransferBranchCode": "5678",
+                "loanTransferBranchName": "B",
+                "coreCompany": "N",
+                "creditInd": "N",
+                "payrollComInd": "N",
+                "geblnd": "N",
+                "blackListInd": "N"
+            },{
+                "customerId": "03546619",
+                "customerName": "Custo Aa",
+                "parentCompanyId": "GP12345",
+                "parentCompanyName": "fa",
+                "aoEmpCode": "NT54138",
+                "aoEmpName": "z",
+                "approvalGrade": "4+",
+                "rorwa": 0.0036,
+                "raroc": 0.0036,
+                "lastYearAccumContri": 100000000,
+                "thisYearAccumContri": 120000000,
+                "totalDepositBal": 120000000,
+                "totalLoanBal": 100000000,
+                "totalTradeFinanceBal": 100000000,
+                "manageBranchCode": "1234",
+                "manageBranchName": "T",
+                "loanTransferBranchCode": "5678",
+                "loanTransferBranchName": "T",
+                "coreCompany": "Y",
+                "creditInd": "Y",
+                "payrollComInd": "N",
+                "geblnd": "N",
+                "blackListInd": "N"
+            }
             ]
         }
-    };
+    }
+
     // CB006
     allNotification = {
         "header": {
@@ -1519,13 +1300,13 @@ export class DummyData {
                 {
                     "bankName": "國泰世華",
                     "LastDateInfo": {
-                        "amount": "1000",
-                        "total": "50000",
+                        "amount": 1000,
+                        "total": 50000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "500",
-                        "total": "40000",
+                        "amount": 500,
+                        "total": 40000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1536,13 +1317,13 @@ export class DummyData {
                 {
                     "bankName": "富邦銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1500",
-                        "total": "2000",
+                        "amount": 1500,
+                        "total": 2000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1553,13 +1334,13 @@ export class DummyData {
                 {
                     "bankName": "玉山銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1000",
-                        "total": "3000",
+                        "amount": 1000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1583,80 +1364,50 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "tabList": [
+            "customerId":"mongodb_id",
+            "updateDate":"2019/12/25",
+            "journey": [
                 {
-                    "id": "all",
-                    "name": "全部"
+                    "category": "放款",
+                    "date": "2019/04/26",
+                    "channel": "Myb2b",
+                    "channelDetail": "企金授信_還款_工商貸款"
                 },
                 {
-                    "id": "deposit",
-                    "name": "存款"
+                    "category": "存款",
+                    "date": "2019/04/15",
+                    "channel": "Myb2b",
+                    "channelDetail": "台幣存匯轉帳自行轉帳"
                 },
                 {
-                    "id": "loan",
-                    "name": "放款"
+                    "category": "存款",
+                    "date": "2019/04/10",
+                    "channel": "ATM",
+                    "channelDetail": "台幣存匯_轉帳_自行轉帳"
                 },
                 {
-                    "id": "chairman",
-                    "name": "負責人"
-                }
-            ],
-            "historyList": [
-                {
-                    "id": "c001",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/04/26",
-                    "unit": "Myb2b",
-                    "content_word": "企金授信_還款_工商貸款"
+                    "category": "存款",
+                    "date": "2019/04/01",
+                    "channel": "樹林分行",
+                    "channelDetail": "台整存匯提款自行提款"
                 },
                 {
-                    "id": "c002",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/15",
-                    "unit": "Myb2b",
-                    "content_word": "台幣存匯轉帳自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/03/28",
+                    "channel": "mybank",
+                    "channelDetail": "轉帳繳他人信用卡款"
                 },
                 {
-                    "id": "c003",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/10",
-                    "unit": "ATM",
-                    "content_word": "台幣存匯_轉帳_自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/02/28",
+                    "channel": "網銀",
+                    "channelDetail": "個金授信_還款_房屋貸款"
                 },
                 {
-                    "id": "c004",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/01",
-                    "unit": "樹林分行",
-                    "content_word": "台整存匯提款自行提款"
-                },
-                {
-                    "id": "c005",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/03/28",
-                    "unit": "mybank",
-                    "content_word": "轉帳繳他人信用卡款"
-                },
-                {
-                    "id": "c006",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/02/28",
-                    "unit": "網銀",
-                    "content_word": "個金授信_還款_房屋貸款"
-                },
-                {
-                    "id": "c007",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/02/25",
-                    "unit": "系統作業",
-                    "content_word": "外幣授信_撥款_購置不動產"
+                    "category": "放款",
+                    "date": "2019/02/25",
+                    "channel": "系統作業",
+                    "channelDetail": "外幣授信_撥款_購置不動產"
                 }
             ]
         }
