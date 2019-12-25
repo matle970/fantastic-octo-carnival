@@ -68,5 +68,29 @@ $cathy-app-theme: mat-light-theme($cathy-app-primary, $cathy-app-accent, $cathy-
     padding-left: 1px !important;
 }
 
+//layout
+
+.mat-drawer-content{
+  background-color: #FFF !important;
+}
+
+
+
+// mat-dialog for scroll bar style
+.mat-dialog-content {
+  margin: 0 auto !important;
+  overflow: hidden !important;
+}
+
+.mat-dialog-container {
+  overflow: hidden !important;
+}
+
+// @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+//   /* IE10+ CSS styles go here */
+//   .mat-header-row, .mat-row, .mat-footer-row{
+//     -ms-flex-align: stretch;
+//   }
+// }
 
 

@@ -33,6 +33,13 @@ a.underline {
   font-size: 1rem;
   @include pretty-text-underline-selection($pretty-text-selection);
   @include pretty-text-underline($pretty-text-width,$underline-color,$pretty-text-hover)
+  &.news-title{   // for ie support
+    color:#009F41 !important;
+    @include pretty-text-underline-selection(#FFF);
+    @include pretty-text-underline($pretty-text-width,#FFF,#009F41);
+
+  }
+
 }
 
 .card, .table {

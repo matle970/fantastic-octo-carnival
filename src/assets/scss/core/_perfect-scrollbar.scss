@@ -1,0 +1,52 @@
+
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+$scroll-bg: #a9cfb1;
+$scrollbox: #EEE;
+
+.ps__rail-y, .ps__rail-x {
+  opacity: 1 !important;
+}
+
+.ps__rail-y {
+  width: 12px !important;
+}
+
+.ps-show-always > .ps.ps--active-y > .ps__rail-y,
+.ps-show-always > .ps.ps--active-x > .ps__rail-x {
+  z-index: 1002;
+}
+
+.ps__rail-y> .ps__thumb-y {
+  width: 8px !important;
+}
+
+.ps__rail-y:hover > .ps__thumb-y,
+.ps__rail-y:focus > .ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  width: 8px !important; // hover and don't change width
+}
+
+.ps-container > .ps-scrollbar-x-rail,
+.ps-container > .ps-scrollbar-y-rail {
+  opacity: 1 !important;
+}
+
+// always visible
+.ps--active-x > .ps__rail-x, .ps--active-y > .ps__rail-y {
+  display: block;
+  background-color: $scrollbox !important;
+}
+
+.ps__thumb-x,.ps__thumb-y {
+  background: $scroll-bg !important;
+  box-shadow: inset 0 0 8px rgb(114, 172, 138)!important;
+  // background: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  background: linear-gradient(to top, #9cc8ad 0%, #9fccae 100%);
+  opacity: 1 !important;
+}
+
+.ps--active-x > .ps--active-x {
+  display: block !important;
+  background-color: $scrollbox !important;
+}

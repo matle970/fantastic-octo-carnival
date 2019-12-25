@@ -33,7 +33,7 @@
           </ul> -->
 
           <!-- <ul class="content-list" *ngIf="!identityShow"> -->
-            <ul class="content-list">
+            <perfect-scrollbar class="content-list ps-show-always">
               <div class="d-inline-block my-1 pl-3" *ngIf="activeTab === 'chairman'">
                   <ng-container>
                     <span class="identity-tag" *ngFor="let idt of identity">
@@ -80,7 +80,7 @@
                     </div>
                 </li>
               </ng-container>
-          </ul>
+            </perfect-scrollbar>
 
           <!-- <ul class="content-list" *ngIf="identityShow">
                 <ng-container *ngFor="let history of contentList; let ri = index">

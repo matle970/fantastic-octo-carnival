@@ -35,6 +35,7 @@ import { ColumnToggleComponent } from './dashboard/column-toggle/column-toggle.c
 
 // objects
 import { SharedMaterialModule } from './objects/shared-material/shared-material.module';
+import { SharedPerfectScrollbarModule } from './objects/shared-material/shared-perfect-scrollbar.module';
 import { IconSvgModule } from './objects/icon-svg/icon-svg.module';
 import { SharedItemModule } from './objects/shared-item/shared-item.module';
 
@@ -78,6 +79,7 @@ import { DummyDataService } from './services/common-services/dummydata.service';
     imports: [
         CommonModule,
         SharedMaterialModule,
+        SharedPerfectScrollbarModule,
         CdkTableModule,
         // tslint:disable-next-line: deprecation
         HttpModule,
