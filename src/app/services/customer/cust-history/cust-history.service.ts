@@ -7,7 +7,7 @@ import { CommonRequest } from '../../../objects/dto/common/common-request';
     providedIn: 'root'
 })
 export class CustHistoryService {
-    tabList: Array<any> = [];
+    // tabList: Array<any> = [];
     historyList: Array<any> = [];
 
     histUrl = {
@@ -26,8 +26,8 @@ export class CustHistoryService {
             this.histUrl.dtoResponse).then((data: any) => {
             // console.log('history data', data);
             if (data.header.returnCode === '0000') {
-              this.tabList = data.body.tabList;
-              this.historyList = data.body.historyList;
+              // this.tabList = data.body.tabList;
+              this.historyList = data.body.journey;
             }
           }, (err) => {
           });

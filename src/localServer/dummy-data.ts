@@ -1315,13 +1315,13 @@ export class DummyData {
                 {
                     "bankName": "國泰世華",
                     "LastDateInfo": {
-                        "amount": "1000",
-                        "total": "50000",
+                        "amount": 1000,
+                        "total": 50000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "500",
-                        "total": "40000",
+                        "amount": 500,
+                        "total": 40000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1332,13 +1332,13 @@ export class DummyData {
                 {
                     "bankName": "富邦銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1500",
-                        "total": "2000",
+                        "amount": 1500,
+                        "total": 2000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1349,13 +1349,13 @@ export class DummyData {
                 {
                     "bankName": "玉山銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1000",
-                        "total": "3000",
+                        "amount": 1000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1379,80 +1379,50 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "tabList": [
+            "customerId":"mongodb_id",
+            "updateDate":"2019/12/25",
+            "journey": [
                 {
-                    "id": "all",
-                    "name": "全部"
+                    "category": "放款",
+                    "date": "2019/04/26",
+                    "channel": "Myb2b",
+                    "channelDetail": "企金授信_還款_工商貸款"
                 },
                 {
-                    "id": "deposit",
-                    "name": "存款"
+                    "category": "存款",
+                    "date": "2019/04/15",
+                    "channel": "Myb2b",
+                    "channelDetail": "台幣存匯轉帳自行轉帳"
                 },
                 {
-                    "id": "loan",
-                    "name": "放款"
+                    "category": "存款",
+                    "date": "2019/04/10",
+                    "channel": "ATM",
+                    "channelDetail": "台幣存匯_轉帳_自行轉帳"
                 },
                 {
-                    "id": "chairman",
-                    "name": "負責人"
-                }
-            ],
-            "historyList": [
-                {
-                    "id": "c001",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/04/26",
-                    "unit": "Myb2b",
-                    "content_word": "企金授信_還款_工商貸款"
+                    "category": "存款",
+                    "date": "2019/04/01",
+                    "channel": "樹林分行",
+                    "channelDetail": "台整存匯提款自行提款"
                 },
                 {
-                    "id": "c002",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/15",
-                    "unit": "Myb2b",
-                    "content_word": "台幣存匯轉帳自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/03/28",
+                    "channel": "mybank",
+                    "channelDetail": "轉帳繳他人信用卡款"
                 },
                 {
-                    "id": "c003",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/10",
-                    "unit": "ATM",
-                    "content_word": "台幣存匯_轉帳_自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/02/28",
+                    "channel": "網銀",
+                    "channelDetail": "個金授信_還款_房屋貸款"
                 },
                 {
-                    "id": "c004",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/01",
-                    "unit": "樹林分行",
-                    "content_word": "台整存匯提款自行提款"
-                },
-                {
-                    "id": "c005",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/03/28",
-                    "unit": "mybank",
-                    "content_word": "轉帳繳他人信用卡款"
-                },
-                {
-                    "id": "c006",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/02/28",
-                    "unit": "網銀",
-                    "content_word": "個金授信_還款_房屋貸款"
-                },
-                {
-                    "id": "c007",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/02/25",
-                    "unit": "系統作業",
-                    "content_word": "外幣授信_撥款_購置不動產"
+                    "category": "放款",
+                    "date": "2019/02/25",
+                    "channel": "系統作業",
+                    "channelDetail": "外幣授信_撥款_購置不動產"
                 }
             ]
         }
