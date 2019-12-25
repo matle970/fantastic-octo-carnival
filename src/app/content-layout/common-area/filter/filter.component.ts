@@ -101,12 +101,12 @@ export class FilterComponent implements OnInit, OnChanges {
 	getKeywordList() {
 		let newkeywordList = [];
 		// get list
-		const groupList: any = this.datalist.map(item => item.group_name);
-		const cusIdList: any = this.datalist.map(item => item.cus_id);
-		const cusNameList: any = this.datalist.map(item => item.cus_name);
+		const groupList: any = this.datalist.map(item => item.parentCompanyName);
+		const cusIdList: any = this.datalist.map(item => item.customerId);
+		const cusNameList: any = this.datalist.map(item => item.customerName);
 
-		const referBranchList: any = this.datalist.map(item => item.referBranchId);
-		const wmBranchList: any = this.datalist.map(item => item.wmbranchId);
+		const referBranchList: any = this.datalist.map(item => item.loanTransferBranchName);
+		const wmBranchList: any = this.datalist.map(item => item.manageBranchName);
 
 		// get duplicates
 		const gdList: any = groupList.filter((item, index) => groupList.indexOf(item) === index);

@@ -10,20 +10,27 @@ export class DashboardDataService {
     constructor() { }
 }
 export interface IndexTableElement {
-    id: string;
-    ao: string;
-    wmbranchId: string;
-    referBranchId: string;
-    group_name: string;
-    cus_id: string;
-    cus_name: string;
-    msr: string;
-    rorwa: string;
-    raroc: string;
-    last_year_contribution: string;
-    this_year_contribution: string;
-    deposit: string;
-    load_balance: string;
-    trade_balance: string;
-    tag: any;
+    customerId: string;
+    customerName: string;
+    parentCompanyId: string;
+    parentCompanyName: string;
+    aoEmpCode: string;
+    aoEmpName: string;
+    approvalGrade: string;
+    rorwa: number;
+    raroc: number;
+    lastYearAccumContri: number;
+    thisYearAccumContri: number;
+    totalDepositBal: number;
+    totalLoanBal: number;
+    totalTradeFinanceBal: number;
+    manageBranchCode: string;
+    manageBranchName: string;
+    loanTransferBranchCode: string;
+    loanTransferBranchName: string;
+    coreCompany: string;
+    creditInd: string;
+    payrollComInd: string;
+    geblnd: string;
+    blackListInd: string;
 };

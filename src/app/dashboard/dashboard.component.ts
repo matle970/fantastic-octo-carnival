@@ -32,18 +32,18 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     globalFilter;
     tableThead: string[] = [
-        'ao',
-        'group_name',
-        'cus_name',
-        'cus_id',
-        'msr',
+        'aoEmpName',
+        'parentCompanyName',
+        'customerName',
+        'customerId',
+        'approvalGrade',
         'rorwa',
         'raroc',
-        'last_year_contribution',
-        'this_year_contribution',
-        'deposit',
-        'load_balance',
-        'trade_balance'
+        'lastYearAccumContri',
+        'thisYearAccumContri',
+        'totalDepositBal',
+        'totalLoanBal',
+        'totalTradeFinanceBal'
     ];
     /**
       * ASC: 0 no arrow
@@ -66,7 +66,6 @@ export class DashboardComponent implements OnInit, OnChanges {
     lastDecember: string;
     lastMonth: string;
 
-    //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl,
@@ -76,11 +75,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         aoIdentity.print();
     }
 
-
-    async ngOnChanges(changes: SimpleChanges) {
-        console.log('change');
-    }
-
+    async ngOnChanges(changes: SimpleChanges) { }
 
     async ngOnInit() {
         this.yesterdayDate = this.dateUtilService.yesterdayDate;
@@ -88,7 +83,8 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.lastMonth = this.dateUtilService.lastMonth;
         
         let result = await this.dashboardService.sendRquest();
-        this.dataList = result.body.aoData;
+        this.dataList = result.body.records;
+        console.log('data', this.dataList);
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
@@ -192,7 +188,7 @@ export class DashboardComponent implements OnInit, OnChanges {
                 //let temp = this.filterJson.inputFilter.inputValue + '+' + this.filterJson.referBranch + this.filterJson.wmBranch;
                 let temp = this.filterJson.inputFilter.inputValue;
                 const filterArray = temp.split('+');
-                const columns = (<any>Object).values([data.group_name, data.cus_id, data.cus_name, data.wmbranchId, data.referBranchId]);
+                const columns = (<any>Object).values([data.parentCompanyName, data.customerId, data.customerName, data.manageBranchName, data.loanTransferBranchName]);
                 // OR be more specific [data.name, data.race, data.color];
         
                 filterArray.forEach(filter => {
@@ -201,8 +197,8 @@ export class DashboardComponent implements OnInit, OnChanges {
                     matchFilter.push(customFilter.some(Boolean)); // OR
                 });
                 return matchFilter.every(Boolean) == true
-                    && data.referBranchId.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
-                    && data.wmbranchId.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !== -1; // AND
+                    && data.loanTransferBranchName.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
+                    && data.manageBranchName.toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !== -1; // AND
             }
     }
 
