@@ -22,13 +22,6 @@ export class OperatingDepositComponent implements OnInit {
     sumAssets: any = {};
     r6mthAvgBal: any = {};
 
-    // urlList = [
-    //     {
-    //         'url': this.URL.PRODUCT_DEPOSIT_DETAIL,
-    //         'dtoRequset': CommonRequest,
-    //         'dtoResponse': DepositDetail
-    //     }
-    // ];
 
     constructor(
         private custchartsService: CustChartsService,

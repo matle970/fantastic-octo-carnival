@@ -1,74 +1,62 @@
-
 <div class="contribution-block">
-  <div class="card card-table">
-    <div class="card-header">
-        <h5 class="card-title ">
-            貢獻度
-            <span class="badge float-right">
-                資料期間 : 2018/12 ~ 2019/07
-            </span>
-        </h5>
+    <div class="card card-table">
+        <div class="card-header">
+            <h5 class="card-title ">
+                <span class="row no-gutters">
+                    <span class="col-6 text-left">
+                        {{contribution_text}}
+                    </span>
+                    <span class="col-6 text-right text-small">
+                        {{data_period_text}}{{data_period}}
+                    </span>
+                </span>
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-black text-nowrap"> </th>
+                            <ng-container *ngFor="let type of content.data.contributionType">
+                                <th class="text-black text-nowrap">{{type}}</th>
+                            </ng-container>
+                            <th class="text-black text-nowrap">{{sum_text}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>{{contribution_lastyeartotal_text}}</div>
+                                <div>{{contribution_lastyear_period}}</div>
+                            </td>
+                            <ng-container *ngFor="let lastdata of content.data.lastcontri.contribution">
+                                <td>{{lastdata}}</td>
+                            </ng-container>
+                            <td>{{lastsum}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>{{contribution_thisyeartotal_text}}</div>
+                                <div>{{contribution_thisyear_period}}</div>
+                            </td>
+                            <ng-container *ngFor="let thisdata of content.data.thiscontri.contribution">
+                                <td>{{thisdata}}</td>
+                            </ng-container>
+                            <td>{{thissum}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="pl-4 text-nowrap">{{change_text}}</th>
+                            <ng-container *ngFor="let change of changearr">
+                                <td>{{change}}</td>
+                            </ng-container>
+                            <td>{{changesum}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-      <div class="table-mat-list">
-          <table class="table m-0 p-0 table-hover table-sticky table-bordered"
-          mat-table [dataSource]="controList">
-            <ng-container matColumnDef="id">
-              <th class="text-black text-nowrap text-left" mat-header-cell *matHeaderCellDef> </th>
-              <td class="text-left" mat-cell *matCellDef="let element">
-                <div>{{ element.text}}</div>
-                <div>{{ element.period }}</div>
-              </td>
-              <th class="text-left pl-4" mat-footer-cell *matFooterCellDef> + /- 增減變化 </th>
-            </ng-container>
-
-            <ng-container matColumnDef="now">
-              <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef> 現管</th>
-              <td class="text-right" mat-cell *matCellDef="let element"> {{element.now | currency:'':'':'1.0-0'}} </td>
-              <td class="text-right" mat-footer-cell *matFooterCellDef> -  </td>
-            </ng-container>
-            <ng-container matColumnDef="load">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>放款</th>
-                <td class="text-right" mat-cell *matCellDef="let element"> {{element.load | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right" mat-footer-cell *matFooterCellDef> -  </td>
-            </ng-container>
-            <ng-container matColumnDef="trade">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>貿融</th>
-                <td class="text-right" mat-cell *matCellDef="let element"> {{element.trade | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right" mat-footer-cell *matFooterCellDef> -  </td>
-            </ng-container>
-            <ng-container matColumnDef="cus">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>資顧</th>
-                <td class="text-right" mat-cell *matCellDef="let element"> {{element.cus | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right" mat-footer-cell *matFooterCellDef> +  </td>
-            </ng-container>
-            <ng-container matColumnDef="tmu">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>TMU</th>
-                <td mat-cell *matCellDef="let element text-right"> {{element.tmu | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right"  mat-footer-cell *matFooterCellDef> + </td>
-            </ng-container>
-            <ng-container matColumnDef="other">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>其他</th>
-                <td class="text-right"  mat-cell *matCellDef="let element"> {{element.other | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right"  mat-footer-cell *matFooterCellDef> + </td>
-            </ng-container>
-
-            <ng-container matColumnDef="all">
-                <th class="text-black text-nowrap text-right" mat-header-cell *matHeaderCellDef>合計</th>
-                <td class="text-right"  mat-cell *matCellDef="let element"> {{element.all | currency:'':'':'1.0-0'}} </td>
-                <td class="text-right"  mat-footer-cell *matFooterCellDef> +500 </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="manageColumn; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: manageColumn;"></tr>
-            <tr mat-footer-row *matFooterRowDef="manageColumn; sticky: true"></tr>
-
-          </table>
-      </div>
-
-
-    </div>
-
-  </div>
-
 </div>

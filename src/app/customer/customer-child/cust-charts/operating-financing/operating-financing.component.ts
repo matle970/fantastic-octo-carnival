@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { LoanDetail } from 'src/app/objects/dto/product/product-loanDetail-response';
-// import { BaseComponent } from 'src/app/base/base.component';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';
 import { UtilsService } from 'src/app/services/common-services/utils.service';
 

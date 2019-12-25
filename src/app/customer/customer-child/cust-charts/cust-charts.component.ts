@@ -36,11 +36,17 @@ export class CustChartsComponent implements OnInit {
     mtm_text: string = this.text.mtm_text;
     //營運量第二層 htm text
 
-    currentValue: any = {};
+
+    // show status
+    
+    public nodata: string;
+
+    
     // response
     // 營運量-營運量第一層
     AssetsLibilities: any = {};
     // 營運量-存款餘額第二層
+    currentValue: any = {};
     DepositDetail: any = {};
     // 營運量-放款餘額第二層
     LoanDetail: any = {};

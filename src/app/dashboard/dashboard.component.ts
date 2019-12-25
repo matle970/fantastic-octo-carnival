@@ -6,6 +6,7 @@ import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
 import { filter } from 'rxjs/operators';
+import { DateUtilService } from '../services/date-util.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -60,11 +61,17 @@ export class DashboardComponent implements OnInit, OnChanges {
     public hideBlock: boolean;
     public hasResult: boolean;
     public nodata: string;
+
+    yesterdayDate: string;
+    lastDecember: string;
+    lastMonth: string;
+
     //inject service if dummdy data or adserver has trouble
     constructor(
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl,
-        aoIdentity: AoIdentityService) {
+        aoIdentity: AoIdentityService,
+        private dateUtilService : DateUtilService ) {
         this.supervisor = true;
         aoIdentity.print();
     }
@@ -76,6 +83,10 @@ export class DashboardComponent implements OnInit, OnChanges {
 
 
     async ngOnInit() {
+        this.yesterdayDate = this.dateUtilService.yesterdayDate;
+        this.lastDecember = this.dateUtilService.lastDecember;
+        this.lastMonth = this.dateUtilService.lastMonth;
+        
         let result = await this.dashboardService.sendRquest();
         this.dataList = result.body.aoData;
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
@@ -135,7 +146,7 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     }
     pageChange(event: any) {
-        //console.log(event);
+        // console.log(event);
     }
 
     //Filter
@@ -198,27 +209,10 @@ export class DashboardComponent implements OnInit, OnChanges {
     public calculateTotal(key) {
         //let filterType;
         let sum: number = 0;
-        if (this.dataSource) {
-            for (let row of this.dataSource.data) {/*
-                if (this.dataSource.filter.trim().length == 0) {
-                    sum += row[key];
-                }*/
-                if (this.filterJson.inputFilter.inputValue.trim().length == 0 
-                        && this.filterJson.referBranch.trim().length ==0
-                        && this.filterJson.wmBranch.trim().length ==0 ) {
-                    sum += row[key];
-                }
-                else if (row[key] != 0 && row[this.filterJson.inputFilter.inputType].trim().toLowerCase().indexOf(this.filterJson.inputFilter.inputValue) !== -1
-                && row['referBranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.referBranch.toLocaleLowerCase()) !== -1
-                && row['wmbranchId'].toString().trim().toLocaleLowerCase().indexOf(this.filterJson.wmBranch.toLocaleLowerCase()) !==-1) // AND
-                {
-                    sum += row[key];
-                }
-            }
+        if(this.dataSource) {
+            return this.dataSource.filteredData.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
         }
         return sum;
-        
-        //return this.this.dataList.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
     }
     getSortData() {
         this.dataSource.sortData = (data, sort: MatSort) => {

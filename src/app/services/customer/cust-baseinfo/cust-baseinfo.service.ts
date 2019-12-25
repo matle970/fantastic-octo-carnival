@@ -8,7 +8,6 @@ import { GroupDetail } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-r
 import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
 import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
 import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
-import { ContributionDetail } from 'src/app/objects/dto/custinfo/custinfo-contributionDetail-response';
 import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
@@ -27,6 +26,8 @@ export class CustBaseinfoService {
     companyinfo_text: string = this.text.companyinfo_text;
     manageinfo_text: string = this.text.manageinfo_text;
     groupinfo_text: string = this.text.groupinfo_text;
+    personal_account_text: string = this.text.personal_account_text;
+    contribution_text: string = this.text.contribution_text;
 
     urlList = [
         {
@@ -43,11 +44,6 @@ export class CustBaseinfoService {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
             'dtoRequset': CommonRequest,
             'dtoResponse': CompanyAssociate
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyAssociateAssets
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
@@ -75,11 +71,6 @@ export class CustBaseinfoService {
             'dtoResponse': Contribution
         },
         // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': ContributionDetail
-        // },
-        // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
         //     'dtoRequset': CommonRequest,
         //     'dtoResponse': CompanyNotification
@@ -92,8 +83,6 @@ export class CustBaseinfoService {
     CompanyDetail: any = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     CompanyAssociate: any = {};
-    // 基本資訊-個人關聯戶第二層(客戶資產負債)
-    CompanyAssociateAssets: any = {};
     // 基本資訊-集團資訊第一層
     Group: any = {};
     // 基本資訊-集團資訊第二層
@@ -123,8 +112,6 @@ export class CustBaseinfoService {
     // 集團資訊-集團總餘額    
     sumLbFxCurrentBal: number = 0;
 
-    // 貢獻度-資料期間
-    ContributionPeriod: string;
     // 貢獻度去年累計
     ContributionLastYearTotal: number;
     // 貢獻度去年累計
@@ -169,12 +156,6 @@ export class CustBaseinfoService {
                 };
                 break;
 
-            case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
-                this.CompanyAssociateAssets = {
-                    data: data.body
-                };
-                break;
-
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP:
                 this.Group = {
                     data: data.body
@@ -204,13 +185,10 @@ export class CustBaseinfoService {
                 this.Contribution = {
                     data: data.body
                 };
-                this.setContribution(this.Contribution);
-                break;
-
-            case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION_DETAIL:
                 this.ContributionDetail = {
                     data: data.body
                 };
+                this.setContribution(this.Contribution);
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION:
@@ -242,21 +220,24 @@ export class CustBaseinfoService {
         this.ContributionLastYearTotal = 0;
         this.ContributionThisYearTotal = 0;
 
-        this.ContributionPeriod = contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM;
-
         for (let i = 0; i < contribution.data.lastcontri.contribution.length; i++) {
             this.ContributionLastYearTotal = this.ContributionLastYearTotal + contribution.data.lastcontri.contribution[i];
-            this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.lastcontri.contribution[i];
+            this.ContributionThisYearTotal = this.ContributionThisYearTotal + contribution.data.thiscontri.contribution[i];
         }
 
         this.ChartDatacategories = contribution.data.contributionType;
+        let sysdate = new Date();
         this.ChartDataseries = [
             {
-                name: contribution.data.lastcontri.startYM + '-' + contribution.data.lastcontri.endYM,
+                name: 
+                    String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +
+                    String(sysdate.getFullYear() - 1) + '/' + '11',
                 data: contribution.data.lastcontri.contribution
             },
             {
-                name: contribution.data.thiscontri.startYM + '-' + contribution.data.thiscontri.endYM,
+                name: 
+                    String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
+                    String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1).padStart(2, '0'),
                 data: contribution.data.thiscontri.contribution
             }
         ];
@@ -275,13 +256,15 @@ export class CustBaseinfoService {
                 data = this.GroupDetail.data;
                 break;
             case 5:
-                // 個人關聯戶
+                title = this.personal_account_text;
+                data = this.CompanyAssociate.data;
                 break;
             case 6:
                 title = this.manageinfo_text;
                 data = this.ManageDetail.data;
                 break;
             case 7:
+                title = this.contribution_text;
                 data = this.ContributionDetail.data;
                 break;
         }

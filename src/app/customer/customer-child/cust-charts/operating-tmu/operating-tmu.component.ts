@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-// import { BaseComponent } from 'src/app/base/base.component';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
 import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
 import { CustChartsService } from 'src/app/services/customer/cust-charts/cust-charts.service';

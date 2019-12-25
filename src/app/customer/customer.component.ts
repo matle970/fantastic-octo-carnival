@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerIdService } from '../services/common-services/customerid.service';
+import { DateUtilService } from '../services/date-util.service';
 
 @Component({
     selector: 'app-customer',
@@ -9,14 +10,15 @@ import { CustomerIdService } from '../services/common-services/customerid.servic
 export class CustomerComponent implements OnInit {
 
     searchStr: string; // 搜尋的客戶ID字串
-
+    yesterdayDate: string;
     @ViewChild('searchIdBind') searchData: any;
 
-    constructor(private customerInfo: CustomerIdService) {
+    constructor(private customerInfo: CustomerIdService, private dateUtilService: DateUtilService) {
         customerInfo.print(); //get customer id from share data 
     }
 
     ngOnInit() {
+        this.yesterdayDate = this.dateUtilService.yesterdayDate;
     }
 
     getSearchId() {

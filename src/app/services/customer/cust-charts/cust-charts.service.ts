@@ -68,19 +68,16 @@ export class CustChartsService {
     TradeFinanceDataseries: Array<any> = [];
     LoanDatacategories: Array<any> = [];
     tradeFinanceDatacategories: Array<any> = [];
-    _currentValue2: any = {};
     //進出口餘額
     ImportDataseries: Array<any> = [];
     ExportDataseries: Array<any> = [];
     ImportDatacategories: Array<any> = [];
     ExportDatacategories: Array<any> = [];
-
     //TMU&MTM餘額
     TmuDataseries: Array<any> = [];
     MtmDataseries: Array<any> = [];
     TmuDatacategories: Array<any> = [];
     MtmDatacategories: Array<any> = [];
-
     //存款第二層
     _ntdAssets: any = {};
     _fxAssets: any = {};
@@ -89,11 +86,9 @@ export class CustChartsService {
     _sdDetail: Array<any> = [];
     _tdDetail: Array<any> = [];
     _cdDetail: Array<any> = [];
-
     //放款貿融第二層
     _totLoan: any = {};
     _facilityDetail: Array<any> = [];
-
     //進出口第二層
     _import: Array<any> = [];
     _export: Array<any> = [];
@@ -101,12 +96,10 @@ export class CustChartsService {
     incolumnTotal: any = [];
     outTotal: Array<any> = [];
     outcolumnTotal: Array<any> = [];
-
     //TMU&MTM第二層
     _tmuTransAmt: Array<any> = [];
     _tmuInvesment: Array<any> = [];
     _tmuContribution: Array<any> = [];
-
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
@@ -131,7 +124,6 @@ export class CustChartsService {
                 this.setLoanData(this.AssetsLibilities);
                 this.setTradeData(this.AssetsLibilities);
                 this.setTmuData(this.AssetsLibilities);
-
                 break;
             case this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL:
                 this.DepositDetail = {
@@ -164,7 +156,7 @@ export class CustChartsService {
         this.DepositDatacategories = this.getDataMonth(depositData.data.depositMon);
         this.DepositDataseries = depositData.data.depositBal;
         this._currentValue = depositData.data.currentValue;
-        // console.log('yy',this._currentValue)
+
     }
 
     setLoanData(loanData) {
@@ -201,38 +193,18 @@ export class CustChartsService {
     }
 
     setLoanDetailData(loanDetailData) {
-
         this._facilityDetail = loanDetailData.data.facilityDetail;
         this._totLoan = loanDetailData.data.totLoan;
     }
 
     setImportExportDetailData(importExportDetailData) {
-
         this._import = importExportDetailData.data.import;
         this._export = importExportDetailData.data.export;
-
-        // let column4 = [];
-        // for (let i = 0; i < this._import[i].length; i++)  {
-        //     for (let j = 0; j < this._import[i].usdTxnAmt.length; j++) {
-
-        //         let column1 = this._import[j].usdTxnAmt;
-        //         let column2 = this.SumData(column1);
-        //         // let column3 = this._import[i].usdTxnAmt.push(column2)
-        //         this._import[j].column = column2;
-        //             // this.incolumnTotal.push(column2)
-        //         console.log('333', column1)
-        //     }
-        // }
-
-
-
 
         // 進口實績-橫向加總&縱向加總
         for (let i = 0; i < this._import.length; i++) {
             this._import[i].column = this.SumData(this._import[i].usdTxnAmt);
-
             let column2 = this._import[i].column;
-
 
             let usdTxnAmt = [];
             let insumTotal = [];
@@ -300,13 +272,4 @@ export class CustChartsService {
         };
         return sum;
     }
-
-    // getSum(data: any) {
-    //     const incolumnTotal = [];
-    //     data.forEach(value => {
-    //         this.incolumnTotal.push();
-    //     });
-    //     return incolumnTotal;
-    // }
-    // this.incolumnTotal.push(column2)
 }

@@ -730,12 +730,34 @@ companyAssociate = {
     "body": {
         "records": [
             {
-                "customerId": "A11111112",
-                "customerName": "XXX",
+                "customerId": "A111111112",
+                "customerName": "xxx",
                 "relationDesc": "負責人",
                 "vipTypeCode": "HVIP",
                 "wmAoName": "Camile",
-                "wmAoBranchDesc": "忠孝分行"
+                "wmAoBranchDesc": "忠孝分行",
+                "isAmlGovInd": "N",
+                "employeeInd": "N",
+                "ccVip1Ind": "N",
+                "cubManagerInd": "N",
+                "lowMarketingInd": "N",
+                "blackListInd": "N",
+                "secretInd": "N"
+            },
+            {
+                "customerId": "A123456789",
+                "customerName": "Witter",
+                "relationDesc": "董事長",
+                "vipTypeCode": "VVIP",
+                "wmAoName": "Jewel",
+                "wmAoBranchDesc": "珠寶分行",
+                "isAmlGovInd": "Y",
+                "employeeInd": "Y",
+                "ccVip1Ind": "Y",
+                "cubManagerInd": "Y",
+                "lowMarketingInd": "Y",
+                "blackListInd": "Y",
+                "secretInd": "Y"
             }
         ]
     }
@@ -959,7 +981,7 @@ contribution = {
         "thiscontri": {
             "startYM": "208801",
             "endYM": "208812",
-            "contribution": ["60000", "50000", "40000", "30000", "20000", "10000"]
+            "contribution": ["60000", "50000", "40000", "40000", "20000", "20000"]
         }
     }
 }
@@ -1237,14 +1259,9 @@ app.post('/custprofile/getCBManage', function (req, res, next) {
 });
 
 // CB020-Composite API-基本資訊-貢獻度第一層
+// CB021-Composite API-基本資訊-貢獻度第二層
 app.post('/custprofile/getCBContribution', function (req, res, next) {
     console.log('POST ' + apiDomain + '/custprofile/getCBContribution');
-    res.json(contribution);
-});
-
-// CB021-Composite API-基本資訊-貢獻度第二層
-app.post('/custprofile/getCBContributionDetail', function (req, res, next) {
-    console.log('POST ' + apiDomain + '/custprofile/getCBContributionDetail');
     res.json(contribution);
 });
 
