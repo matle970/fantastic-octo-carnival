@@ -9,16 +9,18 @@ $scrollbox: #EEE;
 }
 
 .ps__rail-y {
-  width: 12px !important;
+  width: 8px !important;
 }
 
 .ps-show-always > .ps.ps--active-y > .ps__rail-y,
 .ps-show-always > .ps.ps--active-x > .ps__rail-x {
   z-index: 1002;
+  border-radius: 10px;
 }
 
 .ps__rail-y> .ps__thumb-y {
   width: 8px !important;
+  right: 0 !important;
 }
 
 .ps__rail-y:hover > .ps__thumb-y,
