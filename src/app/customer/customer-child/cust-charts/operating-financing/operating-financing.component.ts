@@ -68,10 +68,7 @@ export class OperatingFinancingComponent implements OnInit {
     setLoanDetailData() {
         this.facilityDetail = this.custchartsService._facilityDetail;
         this.totLoan = this.custchartsService._totLoan;
-
-        console.log('11', this.facilityDetail.length)
-        console.log('22', this.facilityDetail[0].facRecords.length)
-        console.log('33', this.facilityDetail[0].facRecords[0].breakRecords.length)
+        
         //日期轉換 20190330 return 2019/03/30
         for (let i = 0; i < this.facilityDetail.length; i++) {
             this.facilityDetail[i].facRecords[0].breakRecords.forEach((data, index) => {
