@@ -17,7 +17,6 @@ const AppRoutes: Routes = [
             {
                 path: 'dashboard',
                 component: DashboardComponent,
-                // canActivate: [RoutungGuard]
                 canActivate: [RoutingTimeout, RoutingGuard]
             },
             {

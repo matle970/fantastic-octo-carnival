@@ -46,11 +46,6 @@ export class CustBaseinfoService {
             'dtoResponse': CompanyAssociate
         },
         {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyAssociateAssets
-        },
-        {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
             'dtoRequset': CommonRequest,
             'dtoResponse': Group
@@ -88,8 +83,6 @@ export class CustBaseinfoService {
     CompanyDetail: any = {};
     // 基本資訊-個人關聯戶第二層(關聯戶基本資訊)
     CompanyAssociate: any = {};
-    // 基本資訊-個人關聯戶第二層(客戶資產負債)
-    CompanyAssociateAssets: any = {};
     // 基本資訊-集團資訊第一層
     Group: any = {};
     // 基本資訊-集團資訊第二層
@@ -159,12 +152,6 @@ export class CustBaseinfoService {
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE:
                 this.CompanyAssociate = {
-                    data: data.body
-                };
-                break;
-
-            case this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE_ASSETS:
-                this.CompanyAssociateAssets = {
                     data: data.body
                 };
                 break;
