@@ -1,4 +1,26 @@
 {
 "cust_history":"客戶歷程",
-"identity":["AML","黑名單","低度行銷"]
+"identity":["AML","黑名單","低度行銷"],
+"all":"全部",
+"deposit":"存款",
+"loan":"放款",
+"chairman":"負責人",
+"tabList": [
+    {
+        "id": "all",
+        "name": "全部"
+    },
+    {
+        "id": "deposit",
+        "name": "存款"
+    },
+    {
+        "id": "loan",
+        "name": "放款"
+    },
+    {
+        "id": "chairman",
+        "name": "負責人"
+    }
+]
 }
