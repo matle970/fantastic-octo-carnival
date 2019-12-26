@@ -7,8 +7,8 @@ export class LoanDetail {
 class Body {
     customerId: string;
     totLoan: {
-        totAmt: string;
-        totBal: string
+        totAmt: number;
+        totBal: number
     }
     facilityDetail: [
         {
@@ -17,9 +17,9 @@ class Body {
                 {
                     breakdownCodeDesc: string,
                     facmCurrencyCode: string,
-                    facmApprovalAmt: string,
-                    facmLoanBal: string,
-                    facmNtdLoanBal: string,
+                    facmApprovalAmt: number,
+                    facmLoanBal: number,
+                    facmNtdLoanBal: number,
                     negotiatPriceCode: string,
                     collateralCodeDesc: string,
                     facStatusCodeDesc: string,
@@ -27,9 +27,9 @@ class Body {
                         {
                             accNbr: string,
                             lbCurrencyCode: string,
-                            lbCurrentIntRate: string,
-                            lbFxCurrentBal: string,
-                            lbNtdCurrentBal: string,
+                            lbCurrentIntRate: number,
+                            lbFxCurrentBal: number,
+                            lbNtdCurrentBal: number,
                             firstFundingDate: string,
                             acctDueDate: string,
                             limitStatusCodeDesc: string

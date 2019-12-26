@@ -34,14 +34,15 @@ export class CustChartsComponent implements OnInit {
     export_text: string = this.text.export_text;
     tmu_text: string = this.text.tmu_text;
     mtm_text: string = this.text.mtm_text;
-    //營運量第二層 htm text
-
+    
 
     // show status
-    
+    public hideBlock: boolean;
+    public loadingStatus: boolean;
+    public hasResult: boolean; // 是否查到 客戶id
     public nodata: string;
 
-    
+
     // response
     // 營運量-營運量第一層
     AssetsLibilities: any = {};
@@ -378,9 +379,14 @@ export class CustChartsComponent implements OnInit {
 
 
     };
+    
+
 
     constructor(
-        private custchartsService: CustChartsService
+        private custchartsService: CustChartsService,
+        // private _hideblockService: HideBlockService,
+        // private _loadingService: LoadingService,
+        // private _statusService: StatusService
     ) {
     }
     async ngOnInit() {
@@ -401,9 +407,9 @@ export class CustChartsComponent implements OnInit {
         this.LoanDetail = this.custchartsService.LoanDetail;
         this.ImportExportDetail = this.custchartsService.ImportExportDetail;
         this.TMUDetail = this.custchartsService.TMUDetail;
-       
+
     }
-    
+
     setDepositChartsData() {
         this.DepositData.series[0].data = this.custchartsService.DepositDataseries;
         this.DepositData.xaxis.categories = this.custchartsService.DepositDatacategories;
@@ -414,7 +420,7 @@ export class CustChartsComponent implements OnInit {
         this.LoanData.series[0].data = this.custchartsService.LoanDataseries;
         this.LoanData.series[1].data = this.custchartsService.TradeFinanceDataseries;
         this.LoanData.xaxis.categories = this.custchartsService.LoanDatacategories;
-        
+
     }
 
     setTradeChartsData() {
@@ -478,7 +484,7 @@ export class CustChartsComponent implements OnInit {
     /**
     * @param modalId 開啟modal的方式
     */
-    
+
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 

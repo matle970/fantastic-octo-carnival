@@ -9,33 +9,33 @@ export class AssetsLibilities {
 class Body {
     customerid: string;
     deposit: string
-    depositMon: Array<string>
-    depositBal: Array<string>
+    depositMon: Array<number>
+    depositBal: Array<number>
     loan: string
-    loanMon: Array<string>
-    loanBal: Array<string>
+    loanMon: Array<number>
+    loanBal: Array<number>
     tradeFinance: string
-    tradeFinanceMon: Array<string>
-    tradeFinanceBal: Array<string>
+    tradeFinanceMon: Array<number>
+    tradeFinanceBal: Array<number>
     import: string
-    importMon: Array<string>
-    importAmt: Array<string>
+    importMon: Array<number>
+    importAmt: Array<number>
     export: string
-    exportMon: Array<string>
-    exportAmt: Array<string>
+    exportMon: Array<number>
+    exportAmt: Array<number>
     tmu: string
-    tmuMon: Array<string>
-    tmuUsage: Array<string>
+    tmuMon: Array<number>
+    tmuUsage: Array<number>
     mtm: string
-    mtmMon: Array<string>
-    mtmUsage: Array<string>
+    mtmMon: Array<number>
+    mtmUsage: Array<number>
     currentValue: {
-        currentDeposit: string,
-        currentLoan: string,
-        currentTradeFinance: string,
-        currentImport: string,
-        currentExport: string,
-        currentTmu: string,
-        currentMtm: string
+        currentDeposit: number,
+        currentLoan: number,
+        currentTradeFinance: number,
+        currentImport: number,
+        currentExport: number,
+        currentTmu: number,
+        currentMtm: number
     }
 }
