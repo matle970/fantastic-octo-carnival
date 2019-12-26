@@ -10,7 +10,7 @@ getCBAoProfile = {
         "returnDesc": "交易成功"
     },
     "body": {
-        "aoId": "jeweltest01",
+        "loginId": "jeweltest01",
         "employeeName": "jeweltestEmployeeName",
         "token": "jeweltestToken001"
     }

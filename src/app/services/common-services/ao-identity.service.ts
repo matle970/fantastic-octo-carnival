@@ -3,30 +3,31 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class AoIdentityService {
 
-    private _aoId: string;
-    private _aoName: string;
+    private _loginId: string;
+    private _employeeName: string;
+
     constructor() {}
     
     //get variable example
     print() {
-        console.log('aoId: ' + this._aoId);
+        console.log('aoId: ' + this._loginId);
     }
 
-    get aoId() {
-        return this._aoId;
+    get loginId() {
+        return this._loginId;
     }
-    set aoId(value) {
-       this._aoId = value;
+    set loginId(value) {
+       this._loginId = value;
     }
 
-    get aoName() {
-        return this._aoName;
+    get employeeName() {
+        return this._employeeName;
     }
-    set aoName(value) {
-       this._aoName = value;
+    set employeeName(value) {
+       this._employeeName = value;
     }
     
     clear() {
-        this._aoId = '';
+        this._employeeName = '';
     }
 }

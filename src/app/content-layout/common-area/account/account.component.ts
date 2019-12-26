@@ -13,8 +13,8 @@ export class AccountComponent implements OnInit {
     constructor(private aoIdentityService: AoIdentityService) { }
 
     ngOnInit() {
-        this.accountName = this.aoIdentityService.aoName;
-        this.aoId = this.aoIdentityService.aoId;
+        this.accountName = this.aoIdentityService.employeeName;
+        this.aoId = this.aoIdentityService.loginId;
     }
 
 }

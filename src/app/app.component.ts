@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Injector } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AoIdentityService } from './services/common-services/ao-identity.service';
 import { TokenService } from './services/common-services/token.service';
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     minute = 10;    //timeout minute
     time = this.minute * 60000;
 
+    getAo=false;
     /**
      * Jewel
      * setting timeout for 10 minutes
@@ -33,7 +34,8 @@ export class AppComponent implements OnInit {
         private trustkeyservice: TrustkeyServeice,
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
-        private appService: AppService
+        private appService: AppService,
+        private route: ActivatedRoute,
         ) {
 
     }
@@ -58,6 +60,10 @@ export class AppComponent implements OnInit {
          */
         this.tokenservice.setdata(window.location.href);
         this.tokenservice.print();
-        await this.appService.sendRquest();
+        let result = await this.appService.sendRquest();
+        this.aoidentityservice.loginId = result.body.loginId;
+        this.aoidentityservice.employeeName = result.body.employeeName;
+        this.trustkeyservice.Trustkey = result.body.trustKey;
+        this.getAo=true;
     }
 }

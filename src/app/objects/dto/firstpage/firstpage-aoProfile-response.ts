@@ -9,6 +9,7 @@ export class AoProfileResponse {
     body: Body;
 }
 class Body {
-    aoId: string;
+    loginId: string;
+    employeeName: string;
     trustKey: string;
 }

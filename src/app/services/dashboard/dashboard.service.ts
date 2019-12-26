@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material';
 import { CompanyListResponse } from 'src/app/objects/dto/firstpage/firstpage-companyList-response';
 import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+import { Http } from '@angular/http';
 
 const orderDef = ["1", "2", "3+", "3", "4+", "4", "4-", "5+", "5", "5-", "6+", "6", "6-", "7+", "7", "8", "9", "W1", "W2", "D", "N", "Z"];
 
@@ -19,7 +20,8 @@ export class DashboardService {
         'dtoResponse': CompanyListResponse
     }];
     constructor(private baseService: BaseService,
-        private customerInfo: CustomerIdService) { }
+        private customerInfo: CustomerIdService,
+        private http: Http) { }
 
 /*
     sendRquest() {
@@ -44,6 +46,7 @@ export class DashboardService {
         //this._dataList = result.body.aoData;
         return result;
     };
+    
 /*
     get dataList() {
         return this._dataList;
