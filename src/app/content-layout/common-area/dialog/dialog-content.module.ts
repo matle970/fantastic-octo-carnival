@@ -7,6 +7,7 @@ import { CompanyInfoComponent } from '../../../customer/customer-child/cust-base
 import { SharedItemModule } from '../../../objects/shared-item/shared-item.module';
 import { GroupInfoComponent } from '../../../customer/customer-child/cust-baseinfo/group-info/group-info.component';
 import { SharedMaterialModule } from '../../../objects/shared-material/shared-material.module';
+import { SharedPerfectScrollbarModule } from 'src/app/objects/shared-material/shared-perfect-scrollbar.module';
 import { PersonRelativeComponent } from '../../../customer/customer-child/cust-baseinfo/person-relative/person-relative.component';
 import { ManageInfoComponent } from '../../../customer/customer-child/cust-baseinfo/manage-info/manage-info.component';
 import { ContributionInfoComponent } from '../../../customer/customer-child/cust-baseinfo/contribution-info/contribution-info.component';
@@ -23,6 +24,7 @@ import { CustomPipeModule } from 'src/app/custom-pipe/custom-pipe.module';
         CommonModule,
         NgApexchartsModule,
         SharedMaterialModule,
+        SharedPerfectScrollbarModule,
         SharedItemModule,
         CustomPipeModule
     ],

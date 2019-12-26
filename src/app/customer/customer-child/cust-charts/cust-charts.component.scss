@@ -1,3 +1,4 @@
+
 // 存款 orange
 $deposit-chart-color: #003049;
 
@@ -19,18 +20,23 @@ $mtm-color: #fbc93e;
 
 // 項目 btn 寬度
 
-$itemWidth: 75px;
+$itemWidth: 100px;
 
 .bottom-card {
-  height: 360px;
+  height: 360px ;
 }
 
 .all-charts-blcok {
+  .chart-item-block {
+    // border-right:1px solid #EEE;
+    &.no-line {
+      // border-right:1px solid #FFF;
+    }
+  }
 
   .card-body {
     z-index: 99;
   }
-
   .bg-deposit {
     color: white;
     font-weight: bold;
@@ -42,25 +48,21 @@ $itemWidth: 75px;
     font-weight: bold;
     background: $load-chart-color;
   }
-
   .bg-trade {
     color: white;
     font-weight: bold;
     background: $trade-chart-color;
   }
-
   .bg-in {
     color: white;
     font-weight: bold;
     background: $in-chart-color;
   }
-
   .bg-out {
     color: black;
     font-weight: bold;
     background: $out-chart-color;
   }
-
   .bg-tmu {
     color: black;
     font-weight: bold;
@@ -68,7 +70,6 @@ $itemWidth: 75px;
 
 
   }
-
   .bg-mtm {
     color: black;
     font-weight: bold;
@@ -77,20 +78,59 @@ $itemWidth: 75px;
 
 
   .title-block {
-    margin-left: 20px;
-    margin-right: 20px;
+    width:100%;
     min-width: 220px;
-    margin-bottom: 8px;
+    margin-bottom:8px;
+    .chart-title{
+      vertical-align: middle;
+      min-width:$itemWidth*2 ;
+      &.onlyOne {
+        min-width: $itemWidth !important;
+      }
+      .btn {
+        padding: 3px;
+        vertical-align: middle;
+        color: inherit;
+        text-align: center;
+        min-width:90px;
+        width: $itemWidth;
+        margin:3px;
+        &:hover {
+          color: #FFF;
+          .title {
+            color: #FFF;
+          }
+        }
+      }
+      .title {
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        vertical-align: middle;
+        width: 95%;
+        &.black-word {
+          color: #000;
+        }
+      }
+      .total {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        width:95%;
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
 
-    .chart-link-icon {
-      width: 40px;
-      height: 30px;
+
+    .chart-link-icon { // 單一按鈕 style
+      width:40px;
+      height:30px;
       min-width: 30px;
       line-height: 30px;
       font-size: 1rem;
-      padding: 3px;
+      padding:3px;
       vertical-align: middle;
-
       i {
         height: 30px;
         vertical-align: middle;
@@ -100,42 +140,13 @@ $itemWidth: 75px;
   }
 
 
-  .chart-title {
-    vertical-align: middle;
-    width: $itemWidth;
 
-    .btn {
-      padding: 3px;
-      vertical-align: middle;
-      color: inherit;
-      width: 100px;
-      height: 30px;
-      text-align: center;
-      width: 95%;
-    }
-
-    .title {
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-      vertical-align: middle;
-      width: 95%;
-    }
-
-    .total {
-      font-size: 1rem;
-      font-weight: 700;
-      text-align: center;
-      width: 95%;
-      vertical-align: middle;
-      width: 100%;
-    }
-  }
 
 }
 
 @media screen and (max-width: 1400px) {
   .bottom-card {
-    height: auto !important;
+     height: auto !important;
   }
 }
+

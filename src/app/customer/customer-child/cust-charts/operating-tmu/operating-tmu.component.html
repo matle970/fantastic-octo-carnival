@@ -1,136 +1,168 @@
-<div class="row">
+
+<div class="row tmu-block">
 
   <!-- 圖表 -->
-  <div class="col-12 col-lg-5 col-md-3 col-xs-12">
-    <!--TMU chart -->
-    <div class="card card-table card-chart-table">
-      <div class="card-header">
-        <h5 class="card-title ">TMU 貢獻度
-          <span class="badge float-right">
-            (單位：新台幣仟元)
-          </span>
-        </h5>
-      </div>
-      <div class="card-body text-center pt-3">
-        <div class="d-block clearfix">
-          <div class="d-inline-block date-block  mr-2 mb-5">
-            資料期間 : 2018/12 ~ 2019/05
-          </div>
-        </div>
+  <div class="col-12 col-lg-5 col-md-5 col-xs-12 ">
+    <div class="tmu-border-block">
+        <!--TMU chart -->
+        <div class="card card-table card-chart-table w-100">
+            <div class="card-header">
+                <h5 class="card-title ">
+                  <div class="row">
+                    <span class="col-6 text-left">
+                        {{tmuContribution_text}}
+                    </span>
+                    <span class="col-6 text-right text-small">
+                        {{unitNTD_text}}
+                    </span>
+                  </div>
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-mat-list">
+                    <table class="table m-0 p-0 table-sticky">
+                      <thead>
+                        <tr>
+                          <th>{{validTime_text}}</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        <tr >
+                          <td>
+                              <div class="tmu-chart-block">
 
-        <div class="tmu-chart-block">
-          <apx-chart #chartTmu [chart]="TmuData.chart"
-            [dataLabels]="TmuData.dataLabels"
-            [plotOptions]="TmuData.plotOptions"
-            [stroke]="TmuData.stroke"
-            [series]="TmuData.series"
-            [labels]="TmuData.labels"
-            [colors]="TmuData.colors"
-            [legend]="TmuData.legend"
-            [responsive]="TmuData.responsive"
-            [tooltip]="TmuData.tooltip"
-            [noData]="TmuData.noData"
-            [dataLabels]="{enabled: false}"></apx-chart>
-        </div>
+                                <div class="tmu-chart-block">
+                                    <apx-chart #chartTmu
+                                    [chart]="TmuData.chart"
+                                    [dataLabels]="TmuData.dataLabels"
+                                    [plotOptions]="TmuData.plotOptions"
+                                    [stroke]="TmuData.stroke"
+                                    [series]="TmuData.series"
+                                    [labels]="TmuData.labels"
+                                    [colors]="TmuData.colors"
+                                    [legend]="TmuData.legend"
+                                    [responsive]="TmuData.responsive"
+                                      ></apx-chart>
+                                </div>
 
-      </div>
+                              </div>
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 
 
-  <!-- table -->
-  <div class="col-12 col-lg-7 col-md-9 s col-xs-12">
+ <!-- table -->
+  <div class="col-12 col-lg-7 col-md-6 col-xs-12 ">
+    <div class="tmu-border-block">
+        <!-- 金融交易額度-->
+        <div class="card card-table">
+            <div class="card-header">
+                <h5 class="card-title clearfix">
+                    <div class="row">
+                        <span class="col-6 text-left">
+                            {{derivative_text}}
+                        </span>
+                        <span class="col-6 text-right text-small">
+                            {{unitUSD_text}}
+                        </span>
+                    </div>
 
+                  </h5>
+            </div>
+            <div class="card-body">
 
-    <!-- 金融交易額度-->
-    <div class="card card-table">
-      <div class="card-header">
-        <h5 class="card-title clearfix">
-          金融交易額度
-          <span class="badge float-right"> ( 單位：美金仟元 ) </span>
-        </h5>
+              <div class="table-mat-list">
+                <table class="table m-0 p-0 table-hover table-sticky table-bordered">
+                  <thead>
+                    <tr>
+                      <th>額度/帳號ID</th>
+                      <th class="th-width">額度種類</th>
+                      <th>額度期限</th>
+                      <th class="">額度</th>
+                      <th class="">使用額度</th>
+                      <th class="">剩餘可用額度</th>
+                      <th class="">使用率</th>
+                    </tr>
+                  </thead>
+          <tbody *ngFor="let item of tmuTransAmt">
+            <tr>
+              <td rowspan="5">{{item.customerId}}</td>
+              <td>{{item.amountType}}</td>
+              <td>{{item.amountExpDate }}</td>
+              <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
+              <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
+              <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
+              <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
       </div>
-      <div class="card-body">
-
-        <div class="table-mat-list">
-          <table class="table m-0 p-0 table-hover table-sticky table-bordered">
-            <thead>
-              <tr>
-                <th>額度/帳號ID</th>
-                <th class="th-width">額度種類</th>
-                <th>額度期限</th>
-                <th class="text-right">額度</th>
-                <th class="text-right">使用額度</th>
-                <th class="text-right">剩餘可用額度</th>
-                <th class="text-right">使用率</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of tmuTransAmt">
-              <tr>
-                <td rowspan="5">{{item.customerId}}</td>
-                <td>{{item.amountType}}</td>
-                <td>{{item.amountExpDate }}</td>
-                <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </div>
-
 
     </div>
 
-
-    <!-- 投資型商品-->
-    <div class="card card-table">
-      <div class="card-header">
-        <h5 class="card-title clearfix">
-          投資型商品
-          <span class="badge float-right"> ( 單位：台幣仟元 ) </span>
-        </h5>
-      </div>
-      <div class="card-body">
-
-        <div class="table-mat-list  down-table">
-          <table class="table m-0 p-0 table-hover table-sticky table-bordered person-table">
-            <thead>
-              <tr>
-                <th>商品類別</th>
-                <th class="text-right">商品名稱</th>
-                <th class="text-right">幣別</th>
-                <th class="text-right">金額/名目本金</th>
-                <th class="text-right">現值</th>
-                <th class="text-right">起日</th>
-                <th class="text-right">迄日</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let item of tmuInvesment">
-              <tr>
-                <td>{{ item.invesTypeCode }}</td>
-                <td class="text-right">{{ item.productDesc }}</td>
-                <td class="text-right">{{ item.prodCurrencyDesc }}</td>
-                <td class="text-right">{{ item.referenceNetvalue | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.fxCurrentValue | currency:'':'':'1.0-0' }}</td>
-                <td class="text-right">{{ item.startDate }}</td>
-                <td class="text-right">{{ item.endDate }}</td>
-              </tr>
-            </tbody>
-
-          </table>
-
-        </div>
-
-      </div>
-
-
-    </div>
 
   </div>
+
+
+  <!-- 投資型商品-->
+        <div class="card card-table ins-table">
+            <div class="card-header">
+                <h5 class="card-title clearfix">
+                    <div class="row">
+                        <span class="col-6 text-left">
+                            {{wms_text}}
+                        </span>
+                        <span class="col-6 text-right text-small">
+                            {{unitNNTD_text}}
+                        </span>
+                    </div>
+                  </h5>
+            </div>
+            <div class="card-body">
+
+              <div class="table-mat-list  down-table">
+                <table class="table m-0 p-0 table-hover table-sticky person-table table-bordered">
+                  <thead>
+            <tr>
+              <th>商品類別</th>
+              <th class="">商品名稱</th>
+              <th class="">幣別</th>
+              <th class="">金額/名目本金</th>
+              <th class="">現值</th>
+              <th class="">起日</th>
+              <th class="">迄日</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of tmuInvesment">
+            <tr>
+              <td>{{ item.invesTypeCode }}</td>
+              <td class="">{{ item.productDesc }}</td>
+              <td class="">{{ item.prodCurrencyDesc }}</td>
+              <td class="">{{ item.referenceNetvalue | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ item.fxCurrentValue | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ item.startDate }}</td>
+              <td class="">{{ item.endDate }}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
 </div>

@@ -36,7 +36,7 @@
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
-					<div class="data-table no-data">
+					<perfect-scrollbar class="data-table no-data ps-show-always">
 						<table  class="table m-0 p-0 table-hover table-sticky">
 						   <thead>
 							  <th class="text-nowrap">經管 AO</th>
@@ -58,11 +58,11 @@
 								  <app-loading *ngIf="loadingStatus"></app-loading>
 								  <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
 							   </td>
-  
+
 							 </tr>
 						   </tbody>
 						</table>
-					</div>
+					</perfect-scrollbar>
 				</div>
 				<div class="card-body" [hidden]="hideBlock">
 					<div class="row data-info">
@@ -81,10 +81,10 @@
 					</div>
 
 
-				
+
 					<!-- 列表 + paginator  -->
 					<div class="m-0 p-0">
-						<div class="data-table">
+						<perfect-scrollbar class="data-table ps-show-always">
 
 							<table class="table m-0 p-0 table-hover table-sticky" (matSortChange)="sortData($event)"
 								mat-table [dataSource]="dataSource" matSort #sortTable="matSort">
@@ -203,8 +203,8 @@
 											[app-column-toggle]="{ isColumn: 'raroc'== nowOrder.id , asc: nowOrder.ASC }">
 										</app-column-toggle>
 									</th>
-									<td class="bg-three" mat-cell *matCellDef="let element"> 
-										{{element.raroc | percent: '1.0-2' }} 
+									<td class="bg-three" mat-cell *matCellDef="let element">
+										{{element.raroc | percent: '1.0-2' }}
 									</td>
 									<td mat-footer-cell *matFooterCellDef> - </td>
 								</ng-container>
@@ -285,7 +285,7 @@
 								<tr mat-footer-row *matFooterRowDef="tableThead; sticky: true"></tr>
 							</table>
 
-						</div>
+						</perfect-scrollbar>
 
 						<!-- 與user討論後，在 xx 筆以內，不顯示。待user提供筆數，可能為 30筆 -->
 						<mat-paginator #paginator class="text-h3" [length]="60" [pageIndex]="0" [pageSize]="70"

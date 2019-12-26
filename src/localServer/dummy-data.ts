@@ -181,7 +181,7 @@ export class DummyData {
             "returnCode": "0000",
             "returnDesc": "交易成功"
         },
-        "body": [{
+        "body": {
             "customerId": "A111111112",
             "deposit": "存款餘額",
             "depositMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
@@ -204,7 +204,16 @@ export class DummyData {
             "mtm": "MTM額度使用率",
             "mtmMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
             "mtmUsage": ["0.03038", "0.01155", "0.01317", "0.02594", "0.03519", "0.00898", "0.05915", "0.03118", "0.03718", "0.01916", "0.07808", "0.00321", "0.02288"],
-        }]
+            "currentValue": {
+                "currentDeposit": "12345",
+                "currentLoan": "34567",
+                "currentTradeFinance": "76543",
+                "currentImport": "56789",
+                "currentExport": "98765",
+                "currentTmu": "0.6",
+                "currentMtm": "1.04"
+            }
+        }
     }
 
     // CB008-Composite API-營運量-存款餘額第二層
@@ -350,11 +359,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "44444",
                             "sumLbNtdCurrentBal": "44444",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "不動產"
-                                }
-                            ],
+                            "collateralCodeDesc": "有價證券",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -399,11 +404,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "44444",
                             "sumLbNtdCurrentBal": "44444",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "不動產"
-                                }
-                            ],
+                            "collateralCodeDesc": "汽車",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -453,11 +454,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "22222",
                             "sumLbNtdCurrentBal": "33333",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "其他有價證券"
-                                }
-                            ],
+                            "collateralCodeDesc": "其他有價證券",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -502,11 +499,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "44444",
                             "sumLbNtdCurrentBal": "44444",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "不動產"
-                                }
-                            ],
+                            "collateralCodeDesc": "不動產",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -551,11 +544,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "44444",
                             "sumLbNtdCurrentBal": "44444",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "不動產"
-                                }
-                            ],
+                            "collateralCodeDesc": "遊艇",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -605,11 +594,7 @@ export class DummyData {
                             "sumLbFxCurrentBal": "55555",
                             "sumLbNtdCurrentBal": "66666",
                             "negotiatPriceCode": "N",
-                            "collateral": [
-                                {
-                                    "collateralCodeDesc": "債券"
-                                }
-                            ],
+                            "collateralCodeDesc": "債券",
                             "limitStatusCodeDesc": "逾可動用期限",
                             "breakRecords": [
                                 {
@@ -668,45 +653,45 @@ export class DummyData {
                 {
                     "txnTypeDesc": "進口託收",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["10001", "90000", "40000", "60000", "50000", "50000", "70000", "30000"]
+                    "usdTxnAmt": [40001, 70000, 70000, 10000, 10000, 10000, 10000, 10000]
                 },
                 {
                     "txnTypeDesc": "信用狀開狀",
                     "mon": ["201811", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["20000", "80000", "30000", "70000", "60000", "40000", "50000", "50000"]
+                    "usdTxnAmt": [50000, 80000, 90000, 10000, 10000, 10000, 10000, 10000]
                 },
                 {
                     "txnTypeDesc": "拖收到單",
                     "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["30000", "70000", "50000", "50000", "80000", "20000", "40000", "60000"]
+                    "usdTxnAmt": [60000, 90000, 60000, 10000, 10000, 10000, 10000, 10000]
                 },
                 {
                     "txnTypeDesc": "信用狀信用",
                     "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["40000", "60000", "70000", "30000", "90000", "10000", "20000", "80000"]
+                    "usdTxnAmt": [70000, 70000, 50000, 10000, 10000, 10000, 10000, 10000]
                 }
             ],
             "export": [
                 {
                     "txnTypeDesc": "出口OA",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["40001", "70000", "70000", "10000", "10000", "10000", "10000", "10000"],
+                    "usdTxnAmt": [1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888]
 
                 },
                 {
                     "txnTypeDesc": "出口押匯",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["50000", "80000", "90000", "10000", "10000", "10000", "10000", "10000"]
+                    "usdTxnAmt": [8888, 7777, 6666, 5555, 4444, 3333, 2222, 1111]
                 },
                 {
                     "txnTypeDesc": "出口托收",
                     "mon": ["201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["60000", "90000", "60000", "10000", "10000", "10000", "10000", "10000"]
+                    "usdTxnAmt": [9999, 8888, 7777, 6666, 5555, 4444, 3333, 2222]
                 },
                 {
                     "txnTypeDesc": "用狀信用",
                     "mon": ["201810", "201901", "201902", "201903", "201904", "201905", "201906", "201907"],
-                    "usdTxnAmt": ["70000", "70000", "50000", "10000", "10000", "10000", "10000", "10000"]
+                    "usdTxnAmt": [2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999]
                 }
             ]
         }
@@ -1315,13 +1300,13 @@ export class DummyData {
                 {
                     "bankName": "國泰世華",
                     "LastDateInfo": {
-                        "amount": "1000",
-                        "total": "50000",
+                        "amount": 1000,
+                        "total": 50000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "500",
-                        "total": "40000",
+                        "amount": 500,
+                        "total": 40000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1332,13 +1317,13 @@ export class DummyData {
                 {
                     "bankName": "富邦銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1500",
-                        "total": "2000",
+                        "amount": 1500,
+                        "total": 2000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1349,13 +1334,13 @@ export class DummyData {
                 {
                     "bankName": "玉山銀行",
                     "LastDateInfo": {
-                        "amount": "2000",
-                        "total": "3000",
+                        "amount": 2000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "PreDateInfo": {
-                        "amount": "1000",
-                        "total": "3000",
+                        "amount": 1000,
+                        "total": 3000,
                         "guarantee": "房屋"
                     },
                     "changeInfo": {
@@ -1379,80 +1364,50 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "tabList": [
+            "customerId":"mongodb_id",
+            "updateDate":"2019/12/25",
+            "journey": [
                 {
-                    "id": "all",
-                    "name": "全部"
+                    "category": "放款",
+                    "date": "2019/04/26",
+                    "channel": "Myb2b",
+                    "channelDetail": "企金授信_還款_工商貸款"
                 },
                 {
-                    "id": "deposit",
-                    "name": "存款"
+                    "category": "存款",
+                    "date": "2019/04/15",
+                    "channel": "Myb2b",
+                    "channelDetail": "台幣存匯轉帳自行轉帳"
                 },
                 {
-                    "id": "loan",
-                    "name": "放款"
+                    "category": "存款",
+                    "date": "2019/04/10",
+                    "channel": "ATM",
+                    "channelDetail": "台幣存匯_轉帳_自行轉帳"
                 },
                 {
-                    "id": "chairman",
-                    "name": "負責人"
-                }
-            ],
-            "historyList": [
-                {
-                    "id": "c001",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/04/26",
-                    "unit": "Myb2b",
-                    "content_word": "企金授信_還款_工商貸款"
+                    "category": "存款",
+                    "date": "2019/04/01",
+                    "channel": "樹林分行",
+                    "channelDetail": "台整存匯提款自行提款"
                 },
                 {
-                    "id": "c002",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/15",
-                    "unit": "Myb2b",
-                    "content_word": "台幣存匯轉帳自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/03/28",
+                    "channel": "mybank",
+                    "channelDetail": "轉帳繳他人信用卡款"
                 },
                 {
-                    "id": "c003",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/10",
-                    "unit": "ATM",
-                    "content_word": "台幣存匯_轉帳_自行轉帳"
+                    "category": "負責人",
+                    "date": "2019/02/28",
+                    "channel": "網銀",
+                    "channelDetail": "個金授信_還款_房屋貸款"
                 },
                 {
-                    "id": "c004",
-                    "type": "deposit",
-                    "type_name": "存款",
-                    "date_time": "2019/04/01",
-                    "unit": "樹林分行",
-                    "content_word": "台整存匯提款自行提款"
-                },
-                {
-                    "id": "c005",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/03/28",
-                    "unit": "mybank",
-                    "content_word": "轉帳繳他人信用卡款"
-                },
-                {
-                    "id": "c006",
-                    "type": "chairman",
-                    "type_name": "負責人",
-                    "date_time": "2019/02/28",
-                    "unit": "網銀",
-                    "content_word": "個金授信_還款_房屋貸款"
-                },
-                {
-                    "id": "c007",
-                    "type": "loan",
-                    "type_name": "放款",
-                    "date_time": "2019/02/25",
-                    "unit": "系統作業",
-                    "content_word": "外幣授信_撥款_購置不動產"
+                    "category": "放款",
+                    "date": "2019/02/25",
+                    "channel": "系統作業",
+                    "channelDetail": "外幣授信_撥款_購置不動產"
                 }
             ]
         }

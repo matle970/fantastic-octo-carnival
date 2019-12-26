@@ -12,6 +12,12 @@ import { UtilsService } from 'src/app/services/common-services/utils.service';
 export class OperatingDepositComponent implements OnInit {
     @Input() content: any;
 
+    //營運量第二層-存款 html text
+    text = this.custchartsService.baseservice.gettextservice.custchartstext;
+    deposit_text: string = this.text.deposit_text;
+    assets_text: string = this.text.assets_text;
+    currencyCode_text: string = this.text.currencyCode_text;
+
     // 營運量-存款餘額第二層
     DepositDetail: any = {};
     sdDetail: Array<any> = [];
@@ -22,13 +28,6 @@ export class OperatingDepositComponent implements OnInit {
     sumAssets: any = {};
     r6mthAvgBal: any = {};
 
-    // urlList = [
-    //     {
-    //         'url': this.URL.PRODUCT_DEPOSIT_DETAIL,
-    //         'dtoRequset': CommonRequest,
-    //         'dtoResponse': DepositDetail
-    //     }
-    // ];
 
     constructor(
         private custchartsService: CustChartsService,

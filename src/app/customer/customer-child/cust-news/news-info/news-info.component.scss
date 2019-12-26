@@ -2,7 +2,7 @@
 .news-info-block {
   height: auto;
   max-height: 550px;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
   .news-info-list {
     height: 450px;

@@ -37,10 +37,16 @@ export class CustChartsComponent implements OnInit {
     //營運量第二層 htm text
 
 
+    // show status
+    
+    public nodata: string;
+
+    
     // response
     // 營運量-營運量第一層
     AssetsLibilities: any = {};
     // 營運量-存款餘額第二層
+    currentValue: any = {};
     DepositDetail: any = {};
     // 營運量-放款餘額第二層
     LoanDetail: any = {};
@@ -375,7 +381,7 @@ export class CustChartsComponent implements OnInit {
 
     constructor(
         private custchartsService: CustChartsService
-        ) {
+    ) {
     }
     async ngOnInit() {
         await this.custchartsService.sendRequest();
@@ -395,16 +401,20 @@ export class CustChartsComponent implements OnInit {
         this.LoanDetail = this.custchartsService.LoanDetail;
         this.ImportExportDetail = this.custchartsService.ImportExportDetail;
         this.TMUDetail = this.custchartsService.TMUDetail;
+       
     }
+    
     setDepositChartsData() {
         this.DepositData.series[0].data = this.custchartsService.DepositDataseries;
         this.DepositData.xaxis.categories = this.custchartsService.DepositDatacategories;
+        this.currentValue = this.custchartsService._currentValue;
     }
 
     setLoanChartsData() {
         this.LoanData.series[0].data = this.custchartsService.LoanDataseries;
         this.LoanData.series[1].data = this.custchartsService.TradeFinanceDataseries;
         this.LoanData.xaxis.categories = this.custchartsService.LoanDatacategories;
+        
     }
 
     setTradeChartsData() {
@@ -468,30 +478,7 @@ export class CustChartsComponent implements OnInit {
     /**
     * @param modalId 開啟modal的方式
     */
-    openDialog(modalId: number, wide?: boolean) {
-        let title: string;
-        let data: object;
-        switch (modalId) {
-            case 8:
-                title = this.deposit_text;
-                data = this.DepositDetail.data;
-                // console.log('xx', data);
-                break;
-            case 9:
-                data = this.LoanDetail.data;
-                // dialogConfig.data.title = '放款餘額 / 貿融餘額';
-                break;
-            case 10:
-                data = this.ImportExportDetail.data;
-                // dialogConfig.data.title = '進口 / 出口';
-                break;
-            case 11:
-                data = this.TMUDetail.data;
-                // dialogConfig.data.title = 'TMU / MTM';
-                break;
-        }
-        this.custchartsService.baseservice.dialogservice.openDialog(modalId, wide, title, data);
-    }
+    
 
     apiUrls: string[] = []; // 此componment需要發送的API urls
 
@@ -653,4 +640,7 @@ export class CustChartsComponent implements OnInit {
     //     this.chartTmu.render();
     // };
 
+    openDialog(modalId: number, wide?: boolean) {
+        this.custchartsService.openDialog(modalId, wide);
+    }
 }

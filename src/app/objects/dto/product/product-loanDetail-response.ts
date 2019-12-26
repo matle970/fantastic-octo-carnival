@@ -21,12 +21,8 @@ class Body {
                     facmLoanBal: string,
                     facmNtdLoanBal: string,
                     negotiatPriceCode: string,
-                    collateral: [
-                        {
-                            collateralCodeDesc: string;
-                        }
-                    ],
-                    facStatusCodeDesc: string;
+                    collateralCodeDesc: string,
+                    facStatusCodeDesc: string,
                     breakRecords: [
                         {
                             accNbr: string,

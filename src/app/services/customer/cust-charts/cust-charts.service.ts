@@ -7,6 +7,7 @@ import { LoanDetail } from 'src/app/objects/dto/product/product-loanDetail-respo
 import { ImportExportDetail } from 'src/app/objects/dto/product/product-importExportDetail-response';
 import { TMUDetail } from 'src/app/objects/dto/product/product-tmuDetail-response';
 import { MatDialog } from '@angular/material';
+import { getUrlScheme } from '@angular/compiler';
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +16,16 @@ export class CustChartsService {
 
     constructor(
         public baseservice: BaseService,
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        
     ) { }
+
+    //html text
+    text = this.baseservice.gettextservice.custchartstext;
+    depositinfo_text: string = this.text.depositinfo_text;
+    loaninfo_text: string = this.text.loaninfo_text;
+    inoutinfo_text: string = this.text.inoutinfo_text;
+    tmuinfo_text: string = this.text.tmuinfo_text;
 
     urlList = [
         {
@@ -61,25 +70,22 @@ export class CustChartsService {
     //存款餘額
     DepositDataseries: Array<any> = [];
     DepositDatacategories: Array<any> = [];
-
+    _currentValue: any = {};
     //放款貿融餘額
     LoanDataseries: Array<any> = [];
     TradeFinanceDataseries: Array<any> = [];
     LoanDatacategories: Array<any> = [];
     tradeFinanceDatacategories: Array<any> = [];
-
     //進出口餘額
     ImportDataseries: Array<any> = [];
     ExportDataseries: Array<any> = [];
     ImportDatacategories: Array<any> = [];
     ExportDatacategories: Array<any> = [];
-
     //TMU&MTM餘額
     TmuDataseries: Array<any> = [];
     MtmDataseries: Array<any> = [];
     TmuDatacategories: Array<any> = [];
     MtmDatacategories: Array<any> = [];
-
     //存款第二層
     _ntdAssets: any = {};
     _fxAssets: any = {};
@@ -88,22 +94,20 @@ export class CustChartsService {
     _sdDetail: Array<any> = [];
     _tdDetail: Array<any> = [];
     _cdDetail: Array<any> = [];
-
     //放款貿融第二層
-
+    _totLoan: any = {};
+    _facilityDetail: Array<any> = [];
     //進出口第二層
     _import: Array<any> = [];
     _export: Array<any> = [];
     inTotal: Array<any> = [];
-    incolumnTotal: Array<any> = [];
+    incolumnTotal: any = [];
     outTotal: Array<any> = [];
     outcolumnTotal: Array<any> = [];
-
     //TMU&MTM第二層
     _tmuTransAmt: Array<any> = [];
     _tmuInvesment: Array<any> = [];
     _tmuContribution: Array<any> = [];
-
 
     sendRequest() {
         for (let i = 0; i < this.urlList.length; i++) {
@@ -128,7 +132,6 @@ export class CustChartsService {
                 this.setLoanData(this.AssetsLibilities);
                 this.setTradeData(this.AssetsLibilities);
                 this.setTmuData(this.AssetsLibilities);
-
                 break;
             case this.baseservice.geturlservice.URL.PRODUCT_DEPOSIT_DETAIL:
                 this.DepositDetail = {
@@ -158,30 +161,31 @@ export class CustChartsService {
     }
 
     setDepositData(depositData) {
-        this.DepositDatacategories = this.getDataMonth(depositData.data[0].depositMon);
-        this.DepositDataseries = depositData.data[0].depositBal;
+        this.DepositDatacategories = this.getDataMonth(depositData.data.depositMon);
+        this.DepositDataseries = depositData.data.depositBal;
+        this._currentValue = depositData.data.currentValue;
 
     }
 
     setLoanData(loanData) {
-        this.LoanDatacategories = this.getDataMonth(loanData.data[0].loanMon);
-        this.LoanDataseries = loanData.data[0].loanBal;
-        this.TradeFinanceDataseries = loanData.data[0].tradeFinanceBal;
-        this.LoanDatacategories = this.getDataMonth(loanData.data[0].tradeFinanceMon);
+        this.LoanDatacategories = this.getDataMonth(loanData.data.loanMon);
+        this.LoanDataseries = loanData.data.loanBal;
+        this.TradeFinanceDataseries = loanData.data.tradeFinanceBal;
+        this.LoanDatacategories = this.getDataMonth(loanData.data.tradeFinanceMon);
     }
 
     setTradeData(tradeData) {
-        this.ImportDatacategories = this.getDataMonth(tradeData.data[0].importMon);
-        this.ImportDataseries = tradeData.data[0].importAmt;
-        this.ExportDataseries = tradeData.data[0].exportAmt;
-        this.ExportDatacategories = this.getDataMonth(tradeData.data[0].exportMon);
+        this.ImportDatacategories = this.getDataMonth(tradeData.data.importMon);
+        this.ImportDataseries = tradeData.data.importAmt;
+        this.ExportDataseries = tradeData.data.exportAmt;
+        this.ExportDatacategories = this.getDataMonth(tradeData.data.exportMon);
     }
 
     setTmuData(tmuData) {
-        this.TmuDatacategories = this.getDataMonth(tmuData.data[0].tmuMon);
-        this.TmuDataseries = tmuData.data[0].tmuUsage;
-        this.MtmDataseries = tmuData.data[0].mtmUsage;
-        this.MtmDatacategories = this.getDataMonth(tmuData.data[0].mtmMon);
+        this.TmuDatacategories = this.getDataMonth(tmuData.data.tmuMon);
+        this.TmuDataseries = tmuData.data.tmuUsage;
+        this.MtmDataseries = tmuData.data.mtmUsage;
+        this.MtmDatacategories = this.getDataMonth(tmuData.data.mtmMon);
     }
 
     setDepositDetailData(depositDetailData) {
@@ -197,77 +201,91 @@ export class CustChartsService {
     }
 
     setLoanDetailData(loanDetailData) {
-
+        this._facilityDetail = loanDetailData.data.facilityDetail;
+        this._totLoan = loanDetailData.data.totLoan;
     }
 
     setImportExportDetailData(importExportDetailData) {
-        // this.incolumnTotal = [];
-        // this._import = [];
-        // this._export = [];
         this._import = importExportDetailData.data.import;
         this._export = importExportDetailData.data.export;
 
         // 進口實績-橫向加總&縱向加總
-
         for (let i = 0; i < this._import.length; i++) {
-            let column1 = this._import[i].usdTxnAmt.map(Number);
-            let column2 = this.SumData(column1);
-            // console.log('zz',column2)
-            this._import[i].column = column2;
-            this.incolumnTotal.push(column2)
-            //   console.log('xx',this.incolumnTotal)
-        }
-        let usdTxnAmt = [];
-        let insumTotal = [];
-        this.inTotal = insumTotal;
-        this._import.forEach(element => {
-            usdTxnAmt.push(element.usdTxnAmt);
+            this._import[i].column = this.SumData(this._import[i].usdTxnAmt);
+            let column2 = this._import[i].column;
 
-        });
-        usdTxnAmt.forEach((element, index) => {
-            element.forEach((value, index) => {
-                if (typeof (insumTotal[index]) === 'undefined') {
-                    insumTotal[index] = parseInt(value, 10);
-                } else {
-                    let sum = insumTotal[index];
-                    insumTotal[index] = sum + parseInt(value, 10);
-                }
+            let usdTxnAmt = [];
+            let insumTotal = [];
+            this.inTotal = insumTotal;
+            this._import.forEach(element => {
+                usdTxnAmt.push(element.usdTxnAmt);
             });
-        });
+            usdTxnAmt.forEach((element, index) => {
+                element.forEach((value, index) => {
+                    if (typeof (insumTotal[index]) === 'undefined') {
+                        insumTotal[index] = parseInt(value, 10);
+                    } else {
+                        let sum = insumTotal[index];
+                        insumTotal[index] = sum + parseInt(value, 10);
+                    }
+                });
+            });
+
+        }
 
         // 出口實績-橫向加總&縱向加總
         for (let i = 0; i < this._export.length; i++) {
-            let column1 = this._export[i].usdTxnAmt.map(Number);
-            let column2 = this.SumData(column1);
-            // let column3 = column2.toString();
-            this._export[i].column = column2;
-            this.outcolumnTotal.push(column2)
-        }
-        let exusdTxnAmt = [];
-        let outsumTotal = [];
-        this.outTotal = outsumTotal;
-        this._export.forEach(element => {
-            exusdTxnAmt.push(element.usdTxnAmt);
+            this._export[i].column = this.SumData(this._export[i].usdTxnAmt);
+            let column2 = this._export[i].column;
 
-        });
-        exusdTxnAmt.forEach((element, index) => {
-            element.forEach((value, index) => {
-                if (typeof (outsumTotal[index]) === 'undefined') {
-                    outsumTotal[index] = parseInt(value, 10);
-                } else {
-                    let sum = outsumTotal[index];
-                    outsumTotal[index] = sum + parseInt(value, 10);
-                }
+            let exusdTxnAmt = [];
+            let outsumTotal = [];
+            this.outTotal = outsumTotal;
+            this._export.forEach(element => {
+                exusdTxnAmt.push(element.usdTxnAmt);
             });
-        });
+            exusdTxnAmt.forEach((element, index) => {
+                element.forEach((value, index) => {
+                    if (typeof (outsumTotal[index]) === 'undefined') {
+                        outsumTotal[index] = parseInt(value, 10);
+                    } else {
+                        let sum = outsumTotal[index];
+                        outsumTotal[index] = sum + parseInt(value, 10);
+                    }
+                });
+            });
+        }
     }
-
     setTMUDetailData(tMUDetailData) {
         this._tmuTransAmt = tMUDetailData.data.tmuTransAmt;
         this._tmuInvesment = tMUDetailData.data.tmuInvesment;
         let Tmu = Object.values(tMUDetailData.data.tmuContribution);
         this._tmuContribution = Tmu.map(Number);
 
+    }
+
+    openDialog(modalId: number, wide?: boolean) {
+        let title: string;
+        let data: object;
+        switch (modalId) {
+            case 8:
+                title = this.depositinfo_text;
+                data = this.DepositDetail.data;
+                break;
+            case 9:
+                title = this.loaninfo_text;
+                data = this.LoanDetail.data;
+                break;
+            case 10:
+                title = this.inoutinfo_text;
+                data = this.ImportExportDetail.data;
+                break;
+            case 11:
+                title = this.tmuinfo_text;
+                data = this.TMUDetail.data;
+                break;
+        }
+        this.baseservice.dialogservice.openDialog(modalId, wide, title, data);
     }
 
     // 取得月份 format 201907, return 7

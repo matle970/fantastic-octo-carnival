@@ -143,7 +143,7 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     }
     pageChange(event: any) {
-        //console.log(event);
+        // console.log(event);
     }
 
     //Filter

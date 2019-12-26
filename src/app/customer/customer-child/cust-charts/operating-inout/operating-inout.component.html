@@ -5,7 +5,7 @@
   <div class="card card-table">
     <div class="card-header">
       <h5 class="card-title ">
-        進口實績
+        {{import_text}}
       </h5>
     </div>
     <div class="card-body">
@@ -13,25 +13,25 @@
         <table class="table m-0 p-0 table-hover table-sticky table-bordered">
           <thead>
             <tr>
-              <th>進口實績</th>
-              <th class="text-right" *ngFor="let item of import[0].mon">{{ item }}</th>
-              <th class="text-right">累計</th>
+              <th>{{import_text}}</th>
+              <th class="" *ngFor="let item of import[0].mon">{{ item }}</th>
+              <th class="">{{grandTotal_text}}</th>
             </tr>
           </thead>
           <tbody *ngFor="let itemA of import">
             <tr>
               <td>{{itemA.txnTypeDesc}}</td>
               <ng-container *ngFor="let itemB of itemA.usdTxnAmt">
-                <td class="text-right">{{ itemB | currency:'':'':'1.0-0' }}</td>
+                <td class="">{{ itemB | currency:'':'':'1.0-0' }}</td>
               </ng-container>
-              <td class="text-right">{{ itemA.column | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ itemA.column | currency:'':'':'1.0-0' }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr class="bg-light">
-              <td>合計</td>
-              <td class="text-right" *ngFor='let item of import[0].row'>{{ item | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ import[0].all | currency:'':'':'1.0-0' }}</td>
+              <th>{{total_text}}</th>
+              <td class="" *ngFor='let item of import[0].row'>{{ item | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ import[0].all | currency:'':'':'1.0-0' }}</td>
             </tr>
           </tfoot>
         </table>
@@ -42,7 +42,7 @@
   <div class="card card-table">
     <div class="card-header">
       <h5 class="card-title ">
-        出口實績
+        {{export_text}}
       </h5>
     </div>
     <div class="card-body">
@@ -50,25 +50,25 @@
         <table class="table m-0 p-0 table-hover table-sticky table-bordered">
           <thead>
             <tr>
-              <th>出口實績</th>
-              <th class="text-right" *ngFor="let item of export[0].mon">{{ item }}</th>
-              <th class="text-right">累計</th>
+              <th>{{export_text}}</th>
+              <th class="" *ngFor="let item of export[0].mon">{{ item }}</th>
+              <th class="">{{grandTotal_text}}</th>
             </tr>
           </thead>
           <tbody *ngFor="let itemA of export">
             <tr>
               <td>{{itemA.txnTypeDesc}}</td>
               <ng-container *ngFor="let itemB of itemA.usdTxnAmt">
-                <td class="text-right">{{ itemB | currency:'':'':'1.0-0' }}</td>
+                <td class="">{{ itemB | currency:'':'':'1.0-0' }}</td>
               </ng-container>
-              <td class="text-right">{{ itemA.column | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ itemA.column | currency:'':'':'1.0-0' }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr class="bg-light">
-              <td>合計</td>
-              <td class="text-right" *ngFor="let item of export[0].row"> {{ item | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ export[0].all | currency:'':'':'1.0-0' }}</td>
+              <th>{{total_text}}</th>
+              <td class="" *ngFor="let item of export[0].row"> {{ item | currency:'':'':'1.0-0' }}</td>
+              <td class="">{{ export[0].all | currency:'':'':'1.0-0' }}</td>
             </tr>
           </tfoot>
         </table>

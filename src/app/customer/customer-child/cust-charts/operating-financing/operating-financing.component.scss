@@ -11,10 +11,12 @@ $th-bg: #0000001f;
 $th-bg-light: #cccccc42;
 $th-color: #999;
 
+$th-green :#009F41;
+$th-g-color: #FFF;
+
 
 .financing-block {
   .table {
-    width: 95%;
     margin: 0 auto !important;
     .main-text {
       font-weight: 700;
@@ -23,7 +25,13 @@ $th-color: #999;
     thead {
       th {
         text-align: center;
-        background: $th-bg!important;
+      }
+    }
+    .thead-th-dark {
+      td,th {
+        color: $th-g-color;
+        text-align: center;
+        background: $th-green;
       }
     }
     .thead-th {

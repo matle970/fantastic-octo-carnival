@@ -33,7 +33,7 @@
           </ul> -->
 
           <!-- <ul class="content-list" *ngIf="!identityShow"> -->
-            <ul class="content-list">
+            <perfect-scrollbar class="content-list ps-show-always">
               <div class="d-inline-block my-1 pl-3" *ngIf="activeTab === 'chairman'">
                   <ng-container>
                     <span class="identity-tag" *ngFor="let idt of identity">
@@ -42,37 +42,37 @@
                   </ng-container>
               </div>
               <ng-container *ngFor="let history of historyList; let ri = index">
-                <li *ngIf="('all' == activeTab ) || ( activeTab == history.type)" >
+                <li *ngIf="('all' == activeTab ) || ( activeTab == aTab(history.category))" >
                     <div class="list row no-gutters">
                       <div class="d-inline-block col type-block">
                           <span class="type"
                           [ngClass]="{
-                            'type-deposit': history.type=='deposit',
-                            'type-loan': history.type=='loan',
-                            'type-man': history.type=='chairman'
+                            'type-deposit': aTab(history.category)=='deposit',
+                            'type-loan': aTab(history.category)=='loan',
+                            'type-man': aTab(history.category)=='chairman'
                           }">
-                            {{history.type_name}}
+                            {{history.category}}
                           </span>
                       </div>
 
                       <div class="d-inline-block col content-block">
                         <div class="w-100">
                             <span class="date">
-                                {{ history.date_time}}
+                                {{ history.date}}
                               </span>
                               <span class="unit"
                               [ngClass]="{
-                                'type-deposit': history.type=='deposit',
-                                'type-loan': history.type=='loan',
-                                'type-man': history.type=='chairman'
+                                'type-deposit': aTab(history.category)=='deposit',
+                                'type-loan': aTab(history.category)=='loan',
+                                'type-man': aTab(history.category)=='chairman'
                               }">
-                                  {{ history.unit}}
+                                  {{ history.channel}}
                               </span>
                         </div>
 
                         <div class="w-100">
                             <span class="content text-ellipsis">
-                                {{ history.content_word}}
+                                {{ history.channelDetail}}
                             </span>
                         </div>
 
@@ -80,7 +80,7 @@
                     </div>
                 </li>
               </ng-container>
-          </ul>
+            </perfect-scrollbar>
 
           <!-- <ul class="content-list" *ngIf="identityShow">
                 <ng-container *ngFor="let history of contentList; let ri = index">

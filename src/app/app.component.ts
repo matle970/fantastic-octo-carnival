@@ -53,11 +53,12 @@ export class AppComponent implements OnInit {
             this.router.navigate(['timeout']);
         }, this.time);
 
-        /**Jewel
-         * get request param from url
+        /**
+         * get userId and token from url
          * and keep it in tokenservice
          */
-        this.route.queryParams.subscribe(value => this.tokenservice.Token = value['token']);
+        this.tokenservice.setdata(window.location.href);
+        this.tokenservice.print();
         this.appService.sendRquest();
     }
 }

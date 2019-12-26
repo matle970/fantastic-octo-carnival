@@ -51,7 +51,7 @@ export class ContributionInfoComponent implements OnInit, OnChanges {
         let sysdate = new Date();
         this.data_period =
             String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
-            String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1).padStart(2, '0');
+            String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1);
         this.contribution_thisyear_period = this.data_period;
         this.contribution_lastyear_period =
             String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +

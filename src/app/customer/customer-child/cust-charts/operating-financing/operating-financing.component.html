@@ -3,35 +3,39 @@
   <div class="card card-table">
     <div class="card-header">
       <h5 class="card-title ">
-        總授信 :
-        <span class="text-small">
-          含台外幣，額度包含未到期額度及到期有餘額
-        </span>
+        <div class="row">
+          <span class="col-6 text-left">
+            {{totLoan_text}}
+          </span>
+          <span class="col-6 text-right text-small">
+            {{tot_text}}
+          </span>
+        </div>
       </h5>
     </div>
     <div class="card-body">
-
-      <div class="row no-gutters text-center">
-        <div class="col-md-6 col-lg-6 col-xs-6">
-          <div class="text-lg font-weight-bolder">
-            總額度
-          </div>
-          <div class="text-center text-lg text-primary">
-            {{ totLoan.totAmt | currency:'':'':'1.0-0' }}
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-6 col-xs-6">
-          <div class="text-lg font-weight-bolder">
-            總餘額
-          </div>
-          <div class="text-center text-lg text-primary">
-            {{ totLoan.totBal | currency:'':'':'1.0-0' }}
-          </div>
-        </div>
+      <div class="table-mat-list">
+        <table class="table m-0 p-0 table-hover table-sticky table-bordered">
+          <thead>
+            <tr>
+              <th>
+                {{totAmt_text}}
+              </th>
+              <th>
+                {{totBal_text}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> {{ totLoan.totAmt | currency:'':'':'1.0-0' }}</td>
+              <td> {{ totLoan.totBal | currency:'':'':'1.0-0' }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
 
+    </div>
 
   </div>
 
@@ -39,7 +43,7 @@
   <div class="card card-table">
     <div class="card-header">
       <h5 class="card-title ">
-        授信明細
+        {{loanDetail_text}}
       </h5>
     </div>
     <div class="card-body">
@@ -48,35 +52,33 @@
         <table class="table m-0 p-0 table-bordered table-sticky">
           <thead>
             <tr>
-              <th>額度 ID </th>
-              <th>額度種類</th>
-              <th>幣別</th>
-              <th>額度</th>
-              <th>餘額</th>
-              <th>台幣餘額</th>
-              <th>逐筆議價</th>
-              <th>擔保品</th>
-              <th>額度狀態</th>
+              <th>{{facilityNbr_text}}</th>
+              <th>{{breakdownCodeDesc_text}}</th>
+              <th>{{facdCurrencyCode_text}}</th>
+              <th>{{facdFxLimitAmt_text}}</th>
+              <th>{{sumLbFxCurrentBal_text}}</th>
+              <th>{{sumLbNtdCurrentBal_text}}</th>
+              <th>{{negotiatPriceCode_text}}</th>
+              <th>{{collateralCodeDesc_text}}</th>
+              <th>{{limitStatusCodeDesc_text}}</th>
             </tr>
-
           </thead>
-
-
           <ng-container *ngFor=" let item of facilityDetail; let i = index">
             <tbody>
               <tr class="bg-primary text-white" *ngIf="i !== 0">
-                <th>額度 ID </th>
-                <th>額度種類</th>
-                <th>幣別</th>
-                <th>額度</th>
-                <th>餘額</th>
-                <th>台幣餘額</th>
-                <th>逐筆議價</th>
-                <th>擔保品</th>
-                <th>額度狀態</th>
+                <th>{{facilityNbr_text}}</th>
+                <th>{{breakdownCodeDesc_text}}</th>
+                <th>{{facdCurrencyCode_text}}</th>
+                <th>{{facdFxLimitAmt_text}}</th>
+                <th>{{sumLbFxCurrentBal_text}}</th>
+                <th>{{sumLbNtdCurrentBal_text}}</th>
+                <th>{{negotiatPriceCode_text}}</th>
+                <th>{{collateralCodeDesc_text}}</th>
+                <th>{{limitStatusCodeDesc_text}}</th>
               </tr>
               <tr>
-                <td rowspan="99" class="main-text">{{item.facilityNbr}}</td>
+                <td [attr.rowspan]="item.facRecords.length+facilityDetail.length+3" class="main-text">
+                  {{item.facilityNbr}}</td>
               </tr>
               <ng-container *ngFor="let itemC of item.facRecords">
                 <tr>
@@ -86,19 +88,19 @@
                   <td>{{itemC.sumLbFxCurrentBal | currency : '' : '' : '1.0-0'}}</td>
                   <td>{{itemC.sumLbNtdCurrentBal | currency : '' : '' : '1.0-0'}}</td>
                   <td>{{itemC.negotiatPriceCode}} </td>
-                  <td>{{itemC.collateral[0].collateralCodeDesc}} </td>
+                  <td>{{itemC.collateralCodeDesc}} </td>
                   <td>{{itemC.limitStatusCodeDesc}} </td>
                 </tr>
               </ng-container>
               <tr class="title-th">
-                <td>帳號 ID </td>
-                <td>幣別</td>
-                <td>動撥利率</td>
-                <td>原幣餘額</td>
-                <td>台幣餘額</td>
-                <td>動撥日</td>
-                <td>到期日</td>
-                <td>動撥狀態</td>
+                <td>{{accNbr_text}}</td>
+                <td>{{lbCurrencyCode_text}}</td>
+                <td>{{lbCurrentIntRate_text}}</td>
+                <td>{{lbFxCurrentBal_text}}</td>
+                <td>{{lbNtdCurrentBal_text}}</td>
+                <td>{{firstFundingDate_text}}</td>
+                <td>{{acctDueDate_text}}</td>
+                <td>{{acctStatusCodeDesc_text}}</td>
               </tr>
               <ng-container *ngFor=" let items of item.facRecords[0].breakRecords">
                 <tr>
