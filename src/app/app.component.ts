@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     minute = 10;    //timeout minute
     time = this.minute * 60000;
 
+    getAo=false;
     /**
      * Jewel
      * setting timeout for 10 minutes
@@ -59,6 +60,10 @@ export class AppComponent implements OnInit {
          */
         this.tokenservice.setdata(window.location.href);
         this.tokenservice.print();
-        this.appService.sendRquest();
+        let result = await this.appService.sendRquest();
+        this.aoidentityservice.loginId = result.body.loginId;
+        this.aoidentityservice.employeeName = result.body.employeeName;
+        this.trustkeyservice.Trustkey = result.body.trustKey;
+        this.getAo=true;
     }
 }

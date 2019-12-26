@@ -11,6 +11,9 @@ import { CommonHeaderResponse } from 'src/app/objects/dto/common/common-header-r
 import { CommonResponse } from 'src/app/objects/dto/common/common-response';
 import { DummyDataService } from './dummydata.service';
 import { DummyData } from 'src/localServer/dummy-data';
+import { RequestOptions, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { AoProfileRequest } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-request';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -19,7 +22,7 @@ export class AppService {
         private aoIdentityService: AoIdentityService,
         private trustKeyService: TrustkeyServeice,
         private geturlservice: GeturlService,
-        private dummy : DummyDataService) { }
+        private http: HttpClient) { }
 
     urlList = [{
         'url': this.geturlservice.URL.FIRSTPAGE_AO_PROFILE,
@@ -28,7 +31,7 @@ export class AppService {
     }];
 
     //TODO: assign token to request 
-    async sendRquest()/*: Promise<AoProfileResponse>*/ {
+    async sendRquest(): Promise<AoProfileResponse> {
         /*
         let result = await this.httpservice.sendRequestAsync(
             this.urlList[0].url,
@@ -36,7 +39,7 @@ export class AppService {
             this.urlList[0].dtoResponse);
             let a = new AoProfileResponse(result);
             return a*/
-        
+        /*
         this.httpservice.sendRequestAsync(
             this.urlList[0].url,
             this.urlList[0].dtoRequset,
@@ -45,7 +48,16 @@ export class AppService {
                 this.aoIdentityService.aoId = data.body.aoId;
                 this.aoIdentityService.aoName = data.body.employeeName;
                 this.trustKeyService.Trustkey = data.body.trustKey;
-            }, (err) => { });
+            }, (err) => { });*/
+
+        ////////////////////////////
+        let param = new AoProfileRequest;
+        param.body.customerId = 'helloImJewel';
+        param.body.token = 'donttrustLOL';
+
+            let result = await this.http.post<any>('http://localhost:8081/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
+            let a = new AoProfileResponse(result);
+            return a;
     }
 }
 

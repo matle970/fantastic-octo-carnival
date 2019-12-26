@@ -12,7 +12,7 @@ export class WaterPrintComponent implements OnInit {
   constructor(private aoIdentityService: AoIdentityService) { }
 
   ngOnInit() {
-    this.msg = this.msg ? this.msg : this.aoIdentityService.aoId;
+    this.msg = this.msg ? this.msg : this.aoIdentityService.loginId;
     this.MdSize = (this.MdSize === true) ? true : false;
   }
 
