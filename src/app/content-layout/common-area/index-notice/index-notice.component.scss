@@ -1,15 +1,84 @@
-
 .notice-tab {
-    width: auto;
-    min-width: 80%;
-  }
-  .notice-content {
-    height: auto;
-    min-height: 450px;
-    max-height: 500px;
-    overflow: auto;
-    li {
-      border-bottom: 1px solid #EEE;
+  width: auto;
+  min-width: 80%;
+  position: relative;
+  padding-right: 40px;
+  .all-read-icon {
+    position: absolute;
+    right: 30px;
+    top: 0px;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background: #76bc21;
+      i {
+        color: #fff;
+      }
+    }
+    i {
+      font-size: 1.2rem;
+      color: #76bc21;
+      line-height: 36px;
+      margin: 0 auto;
     }
   }
-  
+}
+.notice-content {
+  height: auto;
+  min-height: 450px;
+  max-height: 500px;
+  overflow: auto;
+  li {
+    border-bottom: 1px solid #eee;
+    transition: all 0.5s ease;
+    vertical-align: middle;
+    cursor: pointer !important;
+    .read-icon-box {
+      text-align: center;
+      &::before {
+        content: "";
+        width: 1px;
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    .read-icon {
+      display: none;
+      transition: all 0.5s ease-in-out;
+      i {
+        font-size: 1.2rem;
+        color: #76bc21;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+    &:hover {
+      background: #eee;
+      .read-icon {
+        display: inline-block !important;
+      }
+    }
+  }
+  .readbox {
+    max-width: 22px;
+  }
+  .unread {
+    display: inline-block;
+    position: relative;
+    &::before {
+      content: "";
+      display: inline-block;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      color: #fff;
+      background: #009f41;
+      top: -4px;
+      position: relative;
+    }
+  }
+}

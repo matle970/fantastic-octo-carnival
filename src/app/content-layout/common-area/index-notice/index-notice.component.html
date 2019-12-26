@@ -1,20 +1,19 @@
-
 <div>
-
 
     <!-- tabs -->
     <div>
-
-        <ul  class="nav nav-tabs notice-tab">
+        <ul class="nav nav-tabs notice-tab">
             <li class="nav-item" *ngFor="let type of content.content_data.type_list">
                 <a class="nav-link" [ngClass]="{'active': type.id == tabIndex}" (click)="changeTab(type.id)">
-                  <span>{{type.name}}</span>
-                  <span class="badge badge-primary ml-1">{{type.total}}</span>
+                    <span>{{type.name}}</span>
+                    <span class="badge badge-primary ml-1">{{filterUnreadNumber(type.id)}}</span>
                 </a>
             </li>
-
+            <span class="d-inline-block all-read-icon" (click)="checkAll()" matTooltip="全部設為已讀取"
+                matTooltipPosition="above">
+                <i class="fas fa-envelope-open"></i>
+            </span>
         </ul>
-
     </div>
 
     <!-- content   -->
@@ -22,30 +21,41 @@
     <div>
         <ul class="list-group notice-content">
 
-              <ng-container *ngFor="let item of content.content_data.data_list">
-                <li class="list-group-item" *ngIf="(tabIndex == 'all')||(item.type == tabIndex)">
-                  <div class="row no-gutters" >
-                      <div class="col mr-2">
-                        {{item.type_name}}
-                      </div>
-                      <div class="col mr-1">
-                          {{item.time}}
-                      </div>
-                      <div class="col-8">
-                          <div>
-                              {{item.company}}
-                          </div>
-                          <div>
-                              <a href="#" class="underline">
-                                  {{item.new_title}}
-                              </a>
-                          </div>
+            <ng-container *ngFor="let item of indexNotice ; let i = index;">
+                <li class="list-group-item" (click)="changeReadStatus(i)"
+                    *ngIf="(tabIndex == 'all')||(item.type == tabIndex)">
+                    <div class="row no-gutters">
+                        <div class="col readbox">
+                            <i class="unread" *ngIf="!item.read"></i>
+                        </div>
+                        <div class="col mr-2">
+                            {{item.type_name}}
+                        </div>
+                        <div class="col mr-1">
+                            {{item.time}}
+                        </div>
+                        <div class="col-8">
+                            <div class="font-weight-bolder">
+                                {{item.company}}
+                            </div>
+                            <div>
+                                {{item.new_title}}
+                            </div>
 
-                      </div>
+                        </div>
+                        <div class="col read-icon-box">
+                            <span class="read-icon">
+                                <i class="fas fa-envelope" matTooltip="未讀取" matTooltipPosition="above"
+                                    *ngIf="!item.read"></i>
+                                <i class="fas fa-envelope-open" matTooltip="已讀取" matTooltipPosition="above"
+                                    *ngIf="item.read"></i>
+                            </span>
+                        </div>
 
-                  </div>
+                    </div>
                 </li>
-              </ng-container>
+            </ng-container>
+
         </ul>
 
 
