@@ -259,11 +259,11 @@ export class DummyData {
                 "currentIntRate": 0.00,
                 "ftpRate": 0.021,
                 "sdRemark": {
-                    "accBranchCode": "Y(00018信義分行)",
-                    "payrollCodeDtl": "Y(薪轉行)",
-                    "isTrust": "Y(信託帳戶)",
-                    "isSecurities": "Y(證卷帳戶)",
-                    "isReverse": "Y(備償帳戶)"
+                    "accBranchCode": "信義分行",
+                    "payrollCodeDtl": "薪轉行",
+                    "isTrust": "信託帳戶",
+                    "isSecurities": "證卷帳戶",
+                    "isReverse": "備償帳戶"
                 }
             }, {
                 "acctNbr": "1234-441-654321",
@@ -275,8 +275,8 @@ export class DummyData {
                 "sdRemark": {
                     "accBranchCode": "台北分行",
                     "payrollCodeDtl": "薪轉行",
-                    "isTrust": "",
-                    "isSecurities": "",
+                    "isTrust": "信託帳戶",
+                    "isSecurities": "證卷帳戶",
                     "isReverse": "備償戶"
                 }
             }],
@@ -306,7 +306,7 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "5",
                     "dishCancelY3ChkCnt": "2",
-                    "rejectedStatusInd": "Y",
+                    "rejectedStatusInd": "",
                     "isReverse": "備償戶"
                 }
             }, {
@@ -315,7 +315,7 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "2",
                     "dishCancelY3ChkCnt": "5",
-                    "rejectedStatusInd": "N",
+                    "rejectedStatusInd": "",
                     "isReverse": "備償戶"
                 }
             }, {
@@ -324,8 +324,8 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "6",
                     "dishCancelY3ChkCnt": "3",
-                    "rejectedStatusInd": "Y",
-                    "isReverse": "Y(備償帳戶)"
+                    "rejectedStatusInd": "",
+                    "isReverse": "備償戶"
                 }
             }]
         }
@@ -805,9 +805,9 @@ export class DummyData {
                 }
             ],
             tmuContribution: {
-                "derivative": 777777,  //金融交易額(暫定)
-                "wms": 200077,    //投資型商品(暫定)
-                "fxSport": 500077 //FS SPOT(暫定)
+                "derivative": 777777,  
+                "wms": 200077,   
+                "fxSport": 500077 
             }
         }
     }
