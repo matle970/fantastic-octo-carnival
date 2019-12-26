@@ -1,5 +1,5 @@
-import { Component, OnInit, Injector } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AoIdentityService } from './services/common-services/ao-identity.service';
 import { TokenService } from './services/common-services/token.service';
@@ -33,8 +33,7 @@ export class AppComponent implements OnInit {
         private trustkeyservice: TrustkeyServeice,
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
-        private appService: AppService,
-        private route: ActivatedRoute,
+        private appService: AppService
         ) {
 
     }
@@ -59,6 +58,6 @@ export class AppComponent implements OnInit {
          */
         this.tokenservice.setdata(window.location.href);
         this.tokenservice.print();
-        this.appService.sendRquest();
+        await this.appService.sendRquest();
     }
 }

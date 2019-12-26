@@ -1,7 +1,7 @@
 // @angular
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector  } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Router } from '@angular/router';
@@ -61,6 +61,7 @@ import { CustomPipeModule } from './custom-pipe/custom-pipe.module';
 
 // localServer
 import { DummyDataService } from './services/common-services/dummydata.service';
+import { NoticeService } from './services/common-area/notice.service';
 
 @NgModule({
     declarations: [
@@ -110,7 +111,8 @@ import { DummyDataService } from './services/common-services/dummydata.service';
         NewsService,
         DialogService,
         CustChartsService,
-        CookieService
+        CookieService,
+        NoticeService
     ],
     entryComponents: [DialogComponent],
     bootstrap: [AppComponent]

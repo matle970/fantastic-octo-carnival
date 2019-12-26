@@ -84,7 +84,6 @@ export class DashboardComponent implements OnInit, OnChanges {
         
         let result = await this.dashboardService.sendRquest();
         this.dataList = result.body.records;
-        console.log('data', this.dataList);
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
@@ -114,6 +113,8 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.matPaginatorIntl.itemsPerPageLabel = '每頁筆數：';
         this.matPaginatorIntl.nextPageLabel = '下一頁';
         this.matPaginatorIntl.previousPageLabel = '上一頁';
+        this.matPaginatorIntl.firstPageLabel = '首頁';
+        this.matPaginatorIntl.lastPageLabel = '末頁';
 
         this.dataSource.paginator = this.paginator;
     }
