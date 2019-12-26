@@ -10,7 +10,7 @@ getCBAoProfile = {
         "returnDesc": "交易成功"
     },
     "body": {
-        "aoId": "jeweltest01",
+        "loginId": "jeweltest01",
         "employeeName": "jeweltestEmployeeName",
         "token": "jeweltestToken001"
     }
@@ -1169,15 +1169,13 @@ const corsOptions = {
 var apiDomain = 'http://localhost:5000';
 var express = require('express');
 var cors = require('cors');
-var bodyParser = require('body-parser');
 var app = express();
 app.use(cors(corsOptions));
-app.use(bodyParser.json());
 
 // CB001-Composite API
 app.post('/firstpage/getCBAoProfile', function (req, res, next) {
     console.log('POST ' + apiDomain + '/firstpage/getCBAoProfile');
-    res.json(serviceToken);
+    res.json(getCBAoProfile);
 });
 
 //CB-005-Composite API

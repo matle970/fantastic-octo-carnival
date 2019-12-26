@@ -55,7 +55,7 @@ export class AppService {
         param.body.customerId = 'helloImJewel';
         param.body.token = 'donttrustLOL';
 
-            let result = await this.http.post<any>('http://localhost:8081/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
+            let result = await this.http.post<any>('http://localhost:5000/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
             let a = new AoProfileResponse(result);
             return a;
     }
