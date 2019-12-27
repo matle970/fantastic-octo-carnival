@@ -14,8 +14,7 @@ export class AccountComponent implements OnInit {
     constructor(private aoIdentityService: AoIdentityService) { }
 
     ngOnInit() {
-        this.employeeName = this.aoIdentityService.employeeName;
         this.loginId = this.aoIdentityService.loginId;
+        this.employeeName = this.aoIdentityService.employeeName;
     }
-
 }
