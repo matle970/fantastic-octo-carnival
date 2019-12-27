@@ -58,9 +58,10 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     public loadingStatus: boolean = true;
     public statusCode: boolean;
-    public hideBlock: boolean;
+    public hideBlock: boolean = true;
     public hasResult: boolean;
     public nodata: string;
+    companyListReturnCode;
 
     yesterdayDate: string;
     lastDecember: string;
@@ -83,12 +84,16 @@ export class DashboardComponent implements OnInit, OnChanges {
         this.lastMonth = this.dateUtilService.lastMonth;
         
         let result = await this.dashboardService.sendRquest();
+        this.companyListReturnCode = result.header.returnCode;
+        console.log('returnCode', this.companyListReturnCode);
         this.dataList = result.body.records;
         this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
         this.totalDataCount = this.dataList.length;
         this.keywordList = this.dataList;
         this.getSortData();
         this.getIssues();
+        
+        if(result.header.returnCode === '0000')
         this.checkResult(); //TODO check return code
 
         // 分頁切換時，重新取得資料

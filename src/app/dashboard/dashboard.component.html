@@ -36,7 +36,7 @@
 					<h4 class="card-title has-notification-icon d-block w-100 mr-2 text-primary pl-2 clearfix">
 						經管名單列表
 					</h4>
-					<perfect-scrollbar class="data-table no-data ps-show-always">
+					<div class="data-table no-data">
 						<table  class="table m-0 p-0 table-hover table-sticky">
 						   <thead>
 							  <th class="text-nowrap">經管 AO</th>
@@ -56,13 +56,12 @@
 							 <tr>
 							   <td colspan="12" class="no-data-border">
 								  <app-loading *ngIf="loadingStatus"></app-loading>
-								  <app-no-data [message]="nodata" *ngIf="!hasResult"></app-no-data>
+								  <app-no-data [message]="nodata" *ngIf="!hasResult && !loadingStatus"></app-no-data>
 							   </td>
-
 							 </tr>
 						   </tbody>
 						</table>
-					</perfect-scrollbar>
+					</div>
 				</div>
 				<div class="card-body" [hidden]="hideBlock">
 					<div class="row data-info">
