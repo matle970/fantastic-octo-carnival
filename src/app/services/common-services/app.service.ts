@@ -39,8 +39,6 @@ export class AppService {
             this.urlList[0].url,
             this.urlList[0].dtoRequset,
             this.urlList[0].dtoResponse);
-            console.log('userId', this.tokenservice.UserID);
-            console.log('token', this.tokenservice.Token);
 
             let param = new AoProfileRequest;
             param.body.customerId = this.tokenservice.UserID;
