@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DummyData } from 'src/localServer/dummy-data';
 import { DummyDataService } from './dummydata.service';
-import { ShareDataService } from './share-data.service';
 import { EnvService } from 'src/environments/env.service';
 import { GeturlService } from './geturl.service';
 import { TokenService } from './token.service';
@@ -12,6 +11,8 @@ import { TokenService } from './token.service';
  **********************/
 @Injectable({ providedIn: 'root' })
 export class HttpService {
+
+    apiDomain: string = this.envservice.apiUrl; // API Domain name
 
     constructor(
         private httpClient: HttpClient,
@@ -71,16 +72,14 @@ export class HttpService {
         return this.sendHttpByPost(url, dtoResponse, RequestData);
     }
 
-    apiDomain: string = this.envservice.apiUrl; // API Domain name
-
     /**
     * send HTTP by POST
     * @param url 查詢URL
     * @param dtoRequest 請求樣式
     * @param dtoResponse 回傳樣式
     */
-    sendHttpByPost(url: string, dtoResponse: any, RequestData: object) {
-        this.httpClient.post<any>(this.apiDomain + url, RequestData).toPromise().then((value: any) => { 
+    async sendHttpByPost(url: string, dtoResponse: any, RequestData: object) {
+        await this.httpClient.post<any>(this.apiDomain + url, RequestData).toPromise().then((value: any) => {
             console.log('value', value);
             return value;
         });

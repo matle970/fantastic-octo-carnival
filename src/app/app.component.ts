@@ -1,5 +1,5 @@
-import { Component, OnInit, Injector } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AoIdentityService } from './services/common-services/ao-identity.service';
 import { TokenService } from './services/common-services/token.service';
@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
     minute = 10;    //timeout minute
     time = this.minute * 60000;
 
-    aoProfileReturnCode: string;
+    returncode: string;
+
     /**
-     * Jewel
      * setting timeout for 10 minutes
      * if timeout, clear aoId, token and trustkey 
      * redirect to timeout component
@@ -35,10 +35,7 @@ export class AppComponent implements OnInit {
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
         private appService: AppService,
-        private route: ActivatedRoute,
-        ) {
-
-    }
+    ) { }
 
     async ngOnInit() {
         // 是否使用 Dummy data
@@ -60,11 +57,7 @@ export class AppComponent implements OnInit {
          */
         this.tokenservice.setdata(window.location.href);
         this.tokenservice.print();
-        let result = await this.appService.sendRquest();
-        this.aoidentityservice.loginId = result.body.loginId;
-        this.aoidentityservice.employeeName = result.body.employeeName;
-        this.trustkeyservice.Trustkey = result.body.trustKey;
-        this.aoProfileReturnCode=result.header.returnCode;
-        console.log("aoProfile", this.aoProfileReturnCode);
+        await this.appService.sendRquest();
+        this.returncode = this.appService.returncode;
     }
 }

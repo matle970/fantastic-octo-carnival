@@ -12,7 +12,7 @@ getCBAoProfile = {
     "body": {
         "loginId": "jeweltest01",
         "employeeName": "jeweltestEmployeeName",
-        "token": "jeweltestToken001"
+        "trustKey": "jeweltestToken001"
     }
 };
 
