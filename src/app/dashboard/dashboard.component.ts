@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
-import { IndexTableElement } from './service/dashboard-data.service';
+import { IndexTableElement } from './model/dashboardModel';
 import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';

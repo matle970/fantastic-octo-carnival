@@ -3,10 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class DashboardDataService {
-    //getDashboardDataTable() {
-    //  return tableDetailList;  
-    //}
+export class DashboardModel {
+
     constructor() { }
 }
 export interface IndexTableElement {
