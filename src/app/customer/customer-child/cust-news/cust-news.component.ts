@@ -15,7 +15,7 @@ export class NewsComponent implements OnInit {
         private dialogService: DialogService,
         public dialog: MatDialog,
     ) {
-        this.newsService.sendRquest();
+        // this.newsService.sendRquest();
     }
 
     displayedColumns = ['date', 'tag', 'title'];
@@ -50,13 +50,14 @@ export class NewsComponent implements OnInit {
         this.getNewsDate();
     }
 
-    getNewsDate() {
-        this.newsSources = this.newsService.newsSources;
-        this.bankSource = this.newsService.banksSources;
-        this.PreDate = this.newsService.PreDate;
-        this.LastDate = this.newsService.LastDate;
-    }
-
+    async getNewsDate() {
+        await this.newsService.sendRquest();
+         this.newsSources = this.newsService.newsSources;
+         this.bankSource = this.newsService.banksSources;
+         this.PreDate = this.newsService.PreDate;
+         this.LastDate = this.newsService.LastDate;
+     }
+     
     openDialog(id: number, wide?: boolean, datatype?: string, itemId?: string) {
         let data: object;
         let title: string;
