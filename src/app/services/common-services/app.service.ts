@@ -14,6 +14,7 @@ import { DummyData } from 'src/localServer/dummy-data';
 import { RequestOptions, Http } from '@angular/http';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AoProfileRequest } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-request';
+import { TokenService } from './token.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -22,7 +23,8 @@ export class AppService {
         private aoIdentityService: AoIdentityService,
         private trustKeyService: TrustkeyServeice,
         private geturlservice: GeturlService,
-        private http: HttpClient) { }
+        private http: HttpClient,
+        private tokenservice: TokenService) { }
 
     urlList = [{
         'url': this.geturlservice.URL.FIRSTPAGE_AO_PROFILE,
@@ -37,25 +39,22 @@ export class AppService {
             this.urlList[0].url,
             this.urlList[0].dtoRequset,
             this.urlList[0].dtoResponse);
+            console.log('userId', this.tokenservice.UserID);
+            console.log('token', this.tokenservice.Token);
+
+            let param = new AoProfileRequest;
+            param.body.customerId = this.tokenservice.UserID;
+            param.body.token = this.tokenservice.Token;    
+
             let a = new AoProfileResponse(result);
             return a;
-        /*
-        this.httpservice.sendRequestAsync(
-            this.urlList[0].url,
-            this.urlList[0].dtoRequset,
-            this.urlList[0].dtoResponse)
-            .then((data: any) => {
-                this.aoIdentityService.aoId = data.body.aoId;
-                this.aoIdentityService.aoName = data.body.employeeName;
-                this.trustKeyService.Trustkey = data.body.trustKey;
-            }, (err) => { });*/
+/*
+            console.log('userId', this.tokenservice.UserID);
+            console.log('token', this.tokenservice.Token);
 
-        ////////////////////////////
-        /*
-        let param = new AoProfileRequest;
-        param.body.customerId = 'helloImJewel';
-        param.body.token = 'donttrustLOL';
-
+            let param = new AoProfileRequest;
+            param.body.customerId = this.tokenservice.UserID;
+            param.body.token = this.tokenservice.Token;    
         let result = await this.http.post<any>('http://localhost:8081/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
         let a = new AoProfileResponse(result);
         return a;*/
