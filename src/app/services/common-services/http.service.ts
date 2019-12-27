@@ -13,6 +13,8 @@ import { TokenService } from './token.service';
 @Injectable({ providedIn: 'root' })
 export class HttpService {
 
+    apiDomain: string = this.envservice.apiUrl; // API Domain name
+
     constructor(
         private httpClient: HttpClient,
         private envservice: EnvService,
@@ -71,8 +73,6 @@ export class HttpService {
         return this.sendHttpByPost(url, dtoResponse, RequestData);
     }
 
-    apiDomain: string = this.envservice.apiUrl; // API Domain name
-
     /**
     * send HTTP by POST
     * @param url 查詢URL
@@ -80,7 +80,7 @@ export class HttpService {
     * @param dtoResponse 回傳樣式
     */
     sendHttpByPost(url: string, dtoResponse: any, RequestData: object) {
-        this.httpClient.post<any>(this.apiDomain + url, RequestData).toPromise().then((value: any) => { 
+        this.httpClient.post<any>(this.apiDomain + url, RequestData).toPromise().then((value: any) => {
             console.log('value', value);
             return value;
         });

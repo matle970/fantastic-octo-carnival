@@ -16,9 +16,9 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "aoId": "jeweltest01",
+            "loginId": "jeweltest01",
             "employeeName": "jeweltestEmployeeName",
-            "token": "jeweltestToken001"
+            "trustKey": "jeweltestToken001"
         }
     };
 
@@ -127,7 +127,7 @@ export class DummyData {
                 "payrollComInd": "N",
                 "geblnd": "N",
                 "blackListInd": "N"
-            },{
+            }, {
                 "customerId": "03546619",
                 "customerName": "Custo Aa",
                 "parentCompanyId": "GP12345",
@@ -762,52 +762,52 @@ export class DummyData {
                     "invesTypeCode": "基金",
                     "productDesc": "國外-安聯(盧森堡)亞洲靈活債劵基金AM-美元-穩定配權",
                     "prodCurrencyDesc": "美元",
-                    "referenceNetvalue": 2000,       
+                    "referenceNetvalue": 2000,
                     "fxCurrentValue": 3000,
-                    "startDate": "20191212",  
-                    "endDate": "20201212"     
+                    "startDate": "20191212",
+                    "endDate": "20201212"
                 },
                 {
                     "invesTypeCode": "國外有價證券",
                     "productDesc": "國內-全聯(熱狗堡)亞洲靈活債劵基金AM-新台幣-穩定配息",
                     "prodCurrencyDesc": "新台幣",
-                    "referenceNetvalue": 7777,      
+                    "referenceNetvalue": 7777,
                     "fxCurrentValue": 8888,
-                    "startDate": "20190405",  
-                    "endDate": "20191213"     
+                    "startDate": "20190405",
+                    "endDate": "20191213"
                 },
                 {
                     "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
                     "productDesc": "國內-美聯社(潛艇堡)亞洲靈活債劵基金AM-日幣-穩定配息",
                     "prodCurrencyDesc": "日幣",
-                    "referenceNetvalue": 8888,     
+                    "referenceNetvalue": 8888,
                     "fxCurrentValue": 6666,
-                    "startDate": "20180819",  
-                    "endDate": "20200707"     
+                    "startDate": "20180819",
+                    "endDate": "20200707"
                 },
                 {
                     "invesTypeCode": "保險",
                     "productDesc": "國外-屈臣氏(牛肉堡)亞洲靈活債劵基金AM-人民幣-穩定配權",
                     "prodCurrencyDesc": "人民幣",
-                    "referenceNetvalue": 4321,       
+                    "referenceNetvalue": 4321,
                     "fxCurrentValue": 8765,
-                    "startDate": "20170910",  
-                    "endDate": "20210203"     
+                    "startDate": "20170910",
+                    "endDate": "20210203"
                 },
                 {
                     "invesTypeCode": "自營債券",
                     "productDesc": "國內-麥當勞(豬肉堡)亞洲靈活債劵基金AM-韓元-穩定配息",
                     "prodCurrencyDesc": "韓元",
-                    "referenceNetvalue": 6876,       
+                    "referenceNetvalue": 6876,
                     "fxCurrentValue": 2131,
-                    "startDate": "20191130",  
-                    "endDate": "20201225"     
+                    "startDate": "20191130",
+                    "endDate": "20201225"
                 }
             ],
             tmuContribution: {
-                "derivative": 777777,  
-                "wms": 200077,   
-                "fxSport": 500077 
+                "derivative": 777777,
+                "wms": 200077,
+                "fxSport": 500077
             }
         }
     }
@@ -1364,8 +1364,8 @@ export class DummyData {
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerId":"mongodb_id",
-            "updateDate":"2019/12/25",
+            "customerId": "mongodb_id",
+            "updateDate": "2019/12/25",
             "journey": [
                 {
                     "category": "放款",
