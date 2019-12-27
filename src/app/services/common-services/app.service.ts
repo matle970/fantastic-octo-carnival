@@ -32,13 +32,13 @@ export class AppService {
 
     //TODO: assign token to request 
     async sendRquest(): Promise<AoProfileResponse> {
-        /*
+        
         let result = await this.httpservice.sendRequestAsync(
             this.urlList[0].url,
             this.urlList[0].dtoRequset,
             this.urlList[0].dtoResponse);
             let a = new AoProfileResponse(result);
-            return a*/
+            return a;
         /*
         this.httpservice.sendRequestAsync(
             this.urlList[0].url,
@@ -51,13 +51,14 @@ export class AppService {
             }, (err) => { });*/
 
         ////////////////////////////
+        /*
         let param = new AoProfileRequest;
         param.body.customerId = 'helloImJewel';
         param.body.token = 'donttrustLOL';
 
-            let result = await this.http.post<any>('http://localhost:5000/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
-            let a = new AoProfileResponse(result);
-            return a;
+        let result = await this.http.post<any>('http://localhost:8081/firstpage/getCBAoProfile', JSON.parse(JSON.stringify(param))).toPromise();
+        let a = new AoProfileResponse(result);
+        return a;*/
     }
 }
 
