@@ -58,11 +58,24 @@
   "total_text": "合計",
   "tmuContribution_text": "TMU 貢獻度",
   "unitNTD_text": "(單位：新台幣仟元)",
-  "validTime_text": "資料期間 : 2018/12 ~ 2019/05",
+  "validTime_text": "資料期間 :",
+  "validDate_text": "2018/12 ~ 2019/05",
   "derivative_text": "金融交易額度",
   "unitUSD_text": "( 單位：美金仟元 )",
   "wms_text": "投資型商品",
-  "unitNNTD_text": "( 單位：台幣仟元 )"
-
+  "unitNNTD_text": "( 單位：台幣仟元 )",
+  "amountType_text": "額度種類",
+  "amountExpDate_text": "額度期限",
+  "amountAmt_text": "額度",
+  "usageAmt_text": "使用餘額",
+  "lastAvailAmt_text": "剩餘可用額度",
+  "amountUseRate_text": "使用率",
+  "invesTypeCode_text": "商品類別",
+  "productDesc_text": "商品名稱",
+  "prodCurrencyDesc_text": "幣別",
+  "referenceNetvalue_text": "金額/名目本金", 
+  "fxCurrentValue_text": "現值",
+  "startDate_text": "起日", 
+  "endDate_text": "迄日"
 
 }

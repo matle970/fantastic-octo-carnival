@@ -10,38 +10,38 @@ class Body {
     assets:
         {
             ntdAssets: {
-                sd: string,
-                td: string,
-                cd: string,
-                all: string
+                sd: number,
+                td: number,
+                cd: number,
+                all: number
             },
             fxAssets: {
-                sd: string,
-                td: string,
-                cd: string,
-                all: string
+                sd: number,
+                td: number,
+                cd: number,
+                all: number
             },
             sumAssets: {
-                sd: string,
-                td: string,
-                cd: string,
-                all: string
+                sd: number,
+                td: number,
+                cd: number,
+                all: number
             },
             r6mthAvgBal: {
-                sd: string,
-                td: string,
-                cd: string,
-                all: string
+                sd: number,
+                td: number,
+                cd: number,
+                all: number
             }
         }
     sdDetail: [
         {
             acctNbr: string,
             currencyCode: string,
-            fxCurrentBal: string,
-            ntdCurrentBal: string,
-            currentIntRate: string,
-            ftpRate: string,
+            fxCurrentBal: number,
+            ntdCurrentBal: number,
+            currentIntRate: number,
+            ftpRate: number,
             sdRemark: {
                 accBranchCode: string,
                 payrollCodeDtl: string,
@@ -55,10 +55,10 @@ class Body {
         {
             acctNbr: string,
             currencyCode: string,
-            fxCurrentBal: string,
-            ntdCurrentBal: string,
-            currentIntRate: string,
-            ftpRate: string,
+            fxCurrentBal: number,
+            ntdCurrentBal: number,
+            currentIntRate: number,
+            ftpRate: number,
             acctOpenDate: string,
             tdDueDate: string
         }
@@ -66,7 +66,7 @@ class Body {
     cdDetail: [
         {
             acctNbr: string,
-            ntdCurrentBal: string,
+            ntdCurrentBal: number,
             cdRemark: {
                 dishY3ChkCnt: string,
                 dishCancelY3ChkCnt: string,

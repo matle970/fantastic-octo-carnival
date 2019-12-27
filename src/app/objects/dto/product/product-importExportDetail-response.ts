@@ -9,20 +9,20 @@ class Body {
             import: [
                 {
                     txnTypeDesc: string,
-                    mon: string[],
-                    usdTxnAmt: number[],
-                    column:number[],
-                    row: number[],
-                    all: number[]
+                    mon: Array<string>,
+                    usdTxnAmt: Array<number>,
+                    column:Array<number>,
+                    row: Array<number>,
+                    all: number
                 }
             ]
             export: [
                 {
                     txnTypeDesc: string,
-                    mon: string[],
-                    usdTxnAmt: number[],
-                    column:number,
-                    row: number[],
+                    mon: Array<string>,
+                    usdTxnAmt: Array<number>,
+                    column:Array<number>,
+                    row: Array<number>,
                     all: number
                 }
             ]

@@ -185,33 +185,33 @@ export class DummyData {
             "customerId": "A111111112",
             "deposit": "存款餘額",
             "depositMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "depositBal": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
+            "depositBal": [1111, 2222, 3333, 4444, 5555, 4444, 3333, 2222, 1111, 7777, 8888, 9999, 6666],
             "loan": "放款餘額",
             "loanMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "loanBal": ["5555", "4444", "3333", "2222", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999"],
+            "loanBal": [5555, 4444, 3333, 2222, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999],
             "tradeFinance": "貿融餘額",
             "tradeFinanceMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "tradeFinanceBal": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
+            "tradeFinanceBal": [1111, 2222, 3333, 4444, 5555, 4444, 3333, 2222, 1111, 7777, 8888, 9999, 6666],
             "import": "進口實績",
             "importMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "importAmt": ["5555", "4444", "3333", "2222", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999"],
+            "importAmt": [5555, 4444, 3333, 2222, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999],
             "export": "出口實績",
             "exportMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
             "exportAmt": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
             "tmu": "TMU額度使用率",
             "tmuMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "tmuUsage": ["0.0887", "0.0887", "0.0777", "0.0557", "0.0447", "0.0337", "0.0227", "0.0317", "0.0997", "0.0887", "0.0227", "0.0337", "0.0447"],
+            "tmuUsage": [0.0887, 0.0887, 0.0777, 0.0557, 0.0447, 0.0337, 0.0227, 0.0317, 0.0997, 0.0887, 0.0227, 0.0337, 0.0447],
             "mtm": "MTM額度使用率",
             "mtmMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-            "mtmUsage": ["0.03038", "0.01155", "0.01317", "0.02594", "0.03519", "0.00898", "0.05915", "0.03118", "0.03718", "0.01916", "0.07808", "0.00321", "0.02288"],
+            "mtmUsage": [0.03038, 0.01155, 0.01317, 0.02594, 0.03519, 0.00898, 0.05915, 0.03118, 0.03718, 0.01916, 0.07808, 0.00321, 0.02288],
             "currentValue": {
-                "currentDeposit": "12345",
-                "currentLoan": "34567",
-                "currentTradeFinance": "76543",
-                "currentImport": "56789",
-                "currentExport": "98765",
-                "currentTmu": "0.6",
-                "currentMtm": "1.04"
+                "currentDeposit": 12345,
+                "currentLoan": 34567,
+                "currentTradeFinance": 76543,
+                "currentImport": 56789,
+                "currentExport": 98765,
+                "currentTmu": 0.6,
+                "currentMtm": 1.04
             }
         }
     }
@@ -231,72 +231,72 @@ export class DummyData {
             "customerId": "A111111112",
             "assets": {
                 "ntdAssets": {
-                    "sd": "5555",
-                    "td": "6666",
-                    "cd": "7777"
+                    "sd": 4444,
+                    "td": 6666,
+                    "cd": 7777
                 },
                 "fxAssets": {
-                    "sd": "9999",
-                    "td": "8888",
-                    "cd": "1111"
+                    "sd": 7777,
+                    "td": 8888,
+                    "cd": 1111
                 },
                 "sumAssets": {
-                    "sd": "5555",
-                    "td": "4444",
-                    "cd": "3333"
+                    "sd": 6666,
+                    "td": 4444,
+                    "cd": 3333
                 },
                 "r6mthAvgBal": {
-                    "sd": "1234",
-                    "td": "6543",
-                    "cd": "9876"
+                    "sd": 1234,
+                    "td": 6543,
+                    "cd": 9876
                 }
             },
             "sdDetail": [{
                 "acctNbr": "2282-441-025866",
                 "currencyCode": "美金",
-                "fxCurrentBal": "11",
-                "ntdCurrentBal": "22",
-                "currentIntRate": "0.00",
-                "ftpRate": "0.021",
+                "fxCurrentBal": 11,
+                "ntdCurrentBal": 22,
+                "currentIntRate": 0.00,
+                "ftpRate": 0.021,
                 "sdRemark": {
-                    "accBranchCode": "Y(00018信義分行)",
-                    "payrollCodeDtl": "Y(薪轉行)",
-                    "isTrust": "Y(信託帳戶)",
-                    "isSecurities": "Y(證卷帳戶)",
-                    "isReverse": "Y(備償帳戶)"
+                    "accBranchCode": "信義分行",
+                    "payrollCodeDtl": "薪轉行",
+                    "isTrust": "信託帳戶",
+                    "isSecurities": "證卷帳戶",
+                    "isReverse": "備償帳戶"
                 }
             }, {
                 "acctNbr": "1234-441-654321",
                 "currencyCode": "台幣",
-                "fxCurrentBal": "22",
-                "ntdCurrentBal": "11",
-                "currentIntRate": "0.02",
-                "ftpRate": "0.01",
+                "fxCurrentBal": 22,
+                "ntdCurrentBal": 11,
+                "currentIntRate": 0.02,
+                "ftpRate": 0.01,
                 "sdRemark": {
                     "accBranchCode": "台北分行",
                     "payrollCodeDtl": "薪轉行",
-                    "isTrust": "",
-                    "isSecurities": "",
+                    "isTrust": "信託帳戶",
+                    "isSecurities": "證卷帳戶",
                     "isReverse": "備償戶"
                 }
             }],
             "tdDetail": [{
                 "acctNbr": "9871-354-576577",
                 "currencyCode": "美金",
-                "fxCurrentBal": "1133",
-                "ntdCurrentBal": "3242",
-                "currentIntRate": "0.05",
-                "ftpRate": "0.43",
+                "fxCurrentBal": 1133,
+                "ntdCurrentBal": 3242,
+                "currentIntRate": 0.05,
+                "ftpRate": 0.43,
                 "acctOpenDate": "20190401",
                 "tdDueDate": "20191130"
             },
             {
                 "acctNbr": "7657-897-342344",
                 "currencyCode": "日幣",
-                "fxCurrentBal": "8383",
-                "ntdCurrentBal": "7868",
-                "currentIntRate": "0.023",
-                "ftpRate": "0.23",
+                "fxCurrentBal": 8383,
+                "ntdCurrentBal": 7868,
+                "currentIntRate": 0.023,
+                "ftpRate": 0.23,
                 "acctOpenDate": "20190330",
                 "tdDueDate": "20191015"
             }],
@@ -306,7 +306,7 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "5",
                     "dishCancelY3ChkCnt": "2",
-                    "rejectedStatusInd": "Y",
+                    "rejectedStatusInd": "",
                     "isReverse": "備償戶"
                 }
             }, {
@@ -315,7 +315,7 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "2",
                     "dishCancelY3ChkCnt": "5",
-                    "rejectedStatusInd": "N",
+                    "rejectedStatusInd": "",
                     "isReverse": "備償戶"
                 }
             }, {
@@ -324,8 +324,8 @@ export class DummyData {
                 "cdRemark": {
                     "dishY3ChkCnt": "6",
                     "dishCancelY3ChkCnt": "3",
-                    "rejectedStatusInd": "Y",
-                    "isReverse": "Y(備償帳戶)"
+                    "rejectedStatusInd": "",
+                    "isReverse": "備償戶"
                 }
             }]
         }
@@ -345,8 +345,8 @@ export class DummyData {
         "body": {
             "customerId": "A123456789",
             "totLoan": {
-                "totAmt": "3274888",
-                "totBal": "1919345"
+                "totAmt": 3274888,
+                "totBal": 1919345
             },
             "facilityDetail": [
                 {
@@ -355,9 +355,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "週轉金(信用)",
                             "facdCurrencyCode": "新台幣",
-                            "facdFxLimitAmt": "88888",
-                            "sumLbFxCurrentBal": "44444",
-                            "sumLbNtdCurrentBal": "44444",
+                            "facdFxLimitAmt": 88888,
+                            "sumLbFxCurrentBal": 44444,
+                            "sumLbNtdCurrentBal": 44444,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "有價證券",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -365,9 +365,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-998877",
                                     "lbCurrencyCode": "日幣",
-                                    "lbCurrentIntRate": "0.0121",
-                                    "lbFxCurrentBal": "99999",
-                                    "lbNtdCurrentBal": "99999",
+                                    "lbCurrentIntRate": 0.0121,
+                                    "lbFxCurrentBal": 99999,
+                                    "lbNtdCurrentBal": 99999,
                                     "firstFundingDate": "20190222",
                                     "acctDueDate": "20190313",
                                     "acctStatusCodeDesc": "正常"
@@ -376,9 +376,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-887766",
                                     "lbCurrencyCode": "美金",
-                                    "lbCurrentIntRate": "0.0221",
-                                    "lbFxCurrentBal": "88888",
-                                    "lbNtdCurrentBal": "88888",
+                                    "lbCurrentIntRate": 0.0221,
+                                    "lbFxCurrentBal": 88888,
+                                    "lbNtdCurrentBal": 88888,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -387,9 +387,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-776655",
                                     "lbCurrencyCode": "人民幣",
-                                    "lbCurrentIntRate": "0.0321",
-                                    "lbFxCurrentBal": "77777",
-                                    "lbNtdCurrentBal": "77777",
+                                    "lbCurrentIntRate": 0.0321,
+                                    "lbFxCurrentBal": 77777,
+                                    "lbNtdCurrentBal": 77777,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -400,9 +400,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "進口遠期信用狀",
                             "facdCurrencyCode": "澳門元",
-                            "facdFxLimitAmt": "77777",
-                            "sumLbFxCurrentBal": "44444",
-                            "sumLbNtdCurrentBal": "44444",
+                            "facdFxLimitAmt": 77777,
+                            "sumLbFxCurrentBal": 44444,
+                            "sumLbNtdCurrentBal": 44444,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "汽車",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -410,9 +410,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-998877",
                                     "lbCurrencyCode": "日幣",
-                                    "lbCurrentIntRate": "0.0121",
-                                    "lbFxCurrentBal": "99999",
-                                    "lbNtdCurrentBal": "99999",
+                                    "lbCurrentIntRate": 0.0121,
+                                    "lbFxCurrentBal": 99999,
+                                    "lbNtdCurrentBal": 99999,
                                     "firstFundingDate": "20190222",
                                     "acctDueDate": "20190313",
                                     "acctStatusCodeDesc": "正常"
@@ -421,9 +421,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-887766",
                                     "lbCurrencyCode": "美金",
-                                    "lbCurrentIntRate": "0.0221",
-                                    "lbFxCurrentBal": "88888",
-                                    "lbNtdCurrentBal": "88888",
+                                    "lbCurrentIntRate": 0.0221,
+                                    "lbFxCurrentBal": 88888,
+                                    "lbNtdCurrentBal": 88888,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -432,9 +432,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-776655",
                                     "lbCurrencyCode": "人民幣",
-                                    "lbCurrentIntRate": "0.0321",
-                                    "lbFxCurrentBal": "77777",
-                                    "lbNtdCurrentBal": "77777",
+                                    "lbCurrentIntRate": 0.0321,
+                                    "lbFxCurrentBal": 77777,
+                                    "lbNtdCurrentBal": 77777,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -450,9 +450,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "週轉金(信用)",
                             "facdCurrencyCode": "日幣",
-                            "facdFxLimitAmt": "11111",
-                            "sumLbFxCurrentBal": "22222",
-                            "sumLbNtdCurrentBal": "33333",
+                            "facdFxLimitAmt": 11111,
+                            "sumLbFxCurrentBal": 22222,
+                            "sumLbNtdCurrentBal": 33333,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "其他有價證券",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -460,9 +460,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-112233",
                                     "lbCurrencyCode": "澳幣",
-                                    "lbCurrentIntRate": "0.0421",
-                                    "lbFxCurrentBal": "11111",
-                                    "lbNtdCurrentBal": "11111",
+                                    "lbCurrentIntRate": 0.0421,
+                                    "lbFxCurrentBal": 11111,
+                                    "lbNtdCurrentBal": 11111,
                                     "firstFundingDate": "20190101",
                                     "acctDueDate": "20190303",
                                     "acctStatusCodeDesc": "正常"
@@ -471,9 +471,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-223344",
                                     "lbCurrencyCode": "韓幣",
-                                    "lbCurrentIntRate": "0.0521",
-                                    "lbFxCurrentBal": "22222",
-                                    "lbNtdCurrentBal": "22222",
+                                    "lbCurrentIntRate": 0.0521,
+                                    "lbFxCurrentBal": 22222,
+                                    "lbNtdCurrentBal": 22222,
                                     "firstFundingDate": "20190202",
                                     "acctDueDate": "20190404",
                                     "acctStatusCodeDesc": "正常"
@@ -482,9 +482,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-334455",
                                     "lbCurrencyCode": "歐元",
-                                    "lbCurrentIntRate": "0.0621",
-                                    "lbFxCurrentBal": "33333",
-                                    "lbNtdCurrentBal": "33333",
+                                    "lbCurrentIntRate": 0.0621,
+                                    "lbFxCurrentBal": 33333,
+                                    "lbNtdCurrentBal": 33333,
                                     "firstFundingDate": "20190202",
                                     "acctDueDate": "20190404",
                                     "acctStatusCodeDesc": "正常"
@@ -495,9 +495,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "週轉金(不動產)",
                             "facdCurrencyCode": "港幣",
-                            "facdFxLimitAmt": "77777",
-                            "sumLbFxCurrentBal": "44444",
-                            "sumLbNtdCurrentBal": "44444",
+                            "facdFxLimitAmt": 77777,
+                            "sumLbFxCurrentBal": 44444,
+                            "sumLbNtdCurrentBal": 44444,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "不動產",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -505,9 +505,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-998877",
                                     "lbCurrencyCode": "日幣",
-                                    "lbCurrentIntRate": "0.0121",
-                                    "lbFxCurrentBal": "99999",
-                                    "lbNtdCurrentBal": "99999",
+                                    "lbCurrentIntRate": 0.0121,
+                                    "lbFxCurrentBal": 99999,
+                                    "lbNtdCurrentBal": 99999,
                                     "firstFundingDate": "20190222",
                                     "acctDueDate": "20190313",
                                     "acctStatusCodeDesc": "正常"
@@ -516,9 +516,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-887766",
                                     "lbCurrencyCode": "美金",
-                                    "lbCurrentIntRate": "0.0221",
-                                    "lbFxCurrentBal": "88888",
-                                    "lbNtdCurrentBal": "88888",
+                                    "lbCurrentIntRate": 0.0221,
+                                    "lbFxCurrentBal": 88888,
+                                    "lbNtdCurrentBal": 88888,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -527,9 +527,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-776655",
                                     "lbCurrencyCode": "人民幣",
-                                    "lbCurrentIntRate": "0.0321",
-                                    "lbFxCurrentBal": "77777",
-                                    "lbNtdCurrentBal": "77777",
+                                    "lbCurrentIntRate": 0.0321,
+                                    "lbFxCurrentBal": 77777,
+                                    "lbNtdCurrentBal": 77777,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -540,9 +540,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "週轉金(動產)",
                             "facdCurrencyCode": "越南盾",
-                            "facdFxLimitAmt": "77777",
-                            "sumLbFxCurrentBal": "44444",
-                            "sumLbNtdCurrentBal": "44444",
+                            "facdFxLimitAmt": 77777,
+                            "sumLbFxCurrentBal": 44444,
+                            "sumLbNtdCurrentBal": 44444,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "遊艇",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -550,9 +550,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-998877",
                                     "lbCurrencyCode": "日幣",
-                                    "lbCurrentIntRate": "0.0121",
-                                    "lbFxCurrentBal": "99999",
-                                    "lbNtdCurrentBal": "99999",
+                                    "lbCurrentIntRate": 0.0121,
+                                    "lbFxCurrentBal": 99999,
+                                    "lbNtdCurrentBal": 99999,
                                     "firstFundingDate": "20190222",
                                     "acctDueDate": "20190313",
                                     "acctStatusCodeDesc": "正常"
@@ -561,9 +561,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-887766",
                                     "lbCurrencyCode": "美金",
-                                    "lbCurrentIntRate": "0.0221",
-                                    "lbFxCurrentBal": "88888",
-                                    "lbNtdCurrentBal": "88888",
+                                    "lbCurrentIntRate": 0.0221,
+                                    "lbFxCurrentBal": 88888,
+                                    "lbNtdCurrentBal": 88888,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -572,9 +572,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-776655",
                                     "lbCurrencyCode": "人民幣",
-                                    "lbCurrentIntRate": "0.0321",
-                                    "lbFxCurrentBal": "77777",
-                                    "lbNtdCurrentBal": "77777",
+                                    "lbCurrentIntRate": 0.0321,
+                                    "lbFxCurrentBal": 77777,
+                                    "lbNtdCurrentBal": 77777,
                                     "firstFundingDate": "20190505",
                                     "acctDueDate": "20190606",
                                     "acctStatusCodeDesc": "正常"
@@ -590,9 +590,9 @@ export class DummyData {
                         {
                             "breakdownCodeDesc": "週轉金(信用)",
                             "facdCurrencyCode": "美金",
-                            "facdFxLimitAmt": "44444",
-                            "sumLbFxCurrentBal": "55555",
-                            "sumLbNtdCurrentBal": "66666",
+                            "facdFxLimitAmt": 44444,
+                            "sumLbFxCurrentBal": 55555,
+                            "sumLbNtdCurrentBal": 66666,
                             "negotiatPriceCode": "N",
                             "collateralCodeDesc": "債券",
                             "limitStatusCodeDesc": "逾可動用期限",
@@ -600,9 +600,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-667788",
                                     "lbCurrencyCode": "辛巴威幣",
-                                    "lbCurrentIntRate": "0.0721",
-                                    "lbFxCurrentBal": "44444",
-                                    "lbNtdCurrentBal": "44444",
+                                    "lbCurrentIntRate": 0.0721,
+                                    "lbFxCurrentBal": 44444,
+                                    "lbNtdCurrentBal": 44444,
                                     "firstFundingDate": "20190101",
                                     "acctDueDate": "20190303",
                                     "acctStatusCodeDesc": "正常"
@@ -611,9 +611,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-778899",
                                     "lbCurrencyCode": "比特幣",
-                                    "lbCurrentIntRate": "0.0821",
-                                    "lbFxCurrentBal": "55555",
-                                    "lbNtdCurrentBal": "55555",
+                                    "lbCurrentIntRate": 0.0821,
+                                    "lbFxCurrentBal": 55555,
+                                    "lbNtdCurrentBal": 55555,
                                     "firstFundingDate": "20190202",
                                     "acctDueDate": "20190404",
                                     "acctStatusCodeDesc": "正常"
@@ -622,9 +622,9 @@ export class DummyData {
                                 {
                                     "accNbr": "14APLN-889900",
                                     "lbCurrencyCode": "英鎊",
-                                    "lbCurrentIntRate": "0.0921",
-                                    "lbFxCurrentBal": "66666",
-                                    "lbNtdCurrentBal": "66666",
+                                    "lbCurrentIntRate": 0.0921,
+                                    "lbFxCurrentBal": 66666,
+                                    "lbNtdCurrentBal": 66666,
                                     "firstFundingDate": "20190202",
                                     "acctDueDate": "20190404",
                                     "acctStatusCodeDesc": "正常"
@@ -715,46 +715,46 @@ export class DummyData {
                     "customerId": "A111111112",
                     "amountType": "金融交易額度",
                     "amountExpDate": "20191212",
-                    "amountAmt": "50000",
-                    "usageAmt": "5000",
-                    "lastAvailAmt": "45000",
-                    "amountUseRate": "0.019"
+                    "amountAmt": 50000,
+                    "usageAmt": 5000,
+                    "lastAvailAmt": 45000,
+                    "amountUseRate": 0.019
                 },
                 {
                     "customerId": "A111111112",
                     "amountType": "避險交易額度",
                     "amountExpDate": "20180204",
-                    "amountAmt": "10000",
-                    "usageAmt": "55000",
-                    "lastAvailAmt": "45000",
-                    "amountUseRate": "0.044"
+                    "amountAmt": 10000,
+                    "usageAmt": 55000,
+                    "lastAvailAmt": 45000,
+                    "amountUseRate": 0.044
                 },
                 {
                     "customerId": "A111111112",
                     "amountType": "評價損失額度 (MTM)",
                     "amountExpDate": "20190315",
-                    "amountAmt": "670000",
-                    "usageAmt": "360000",
-                    "lastAvailAmt": "210000",
-                    "amountUseRate": "0.013"
+                    "amountAmt": 670000,
+                    "usageAmt": 360000,
+                    "lastAvailAmt": 210000,
+                    "amountUseRate": 0.013
                 },
                 {
                     "customerId": "A111111112",
                     "amountType": "初始擔保品",
                     "amountExpDate": "20201111",
-                    "amountAmt": "654321",
-                    "usageAmt": "12345",
-                    "lastAvailAmt": "641976",
-                    "amountUseRate": "0.0337"
+                    "amountAmt": 654321,
+                    "usageAmt": 12345,
+                    "lastAvailAmt": 641976,
+                    "amountUseRate": 0.0337
                 },
                 {
                     "customerId": "A111111112",
                     "amountType": "超限擔保品",
                     "amountExpDate": "20200101",
-                    "amountAmt": "999999",
-                    "usageAmt": "77777",
-                    "lastAvailAmt": "222222",
-                    "amountUseRate": "0.01"
+                    "amountAmt": 999999,
+                    "usageAmt": 77777,
+                    "lastAvailAmt": 222222,
+                    "amountUseRate": 0.01
                 }
             ],
             tmuInvesment: [
@@ -762,52 +762,52 @@ export class DummyData {
                     "invesTypeCode": "基金",
                     "productDesc": "國外-安聯(盧森堡)亞洲靈活債劵基金AM-美元-穩定配權",
                     "prodCurrencyDesc": "美元",
-                    "referenceNetvalue": "2000",       //金額名目本金(暫定)
-                    "fxCurrentValue": "3000",
-                    "startDate": "20191212",  //起日(暫定)
-                    "endDate": "20201212"     //迄日(暫定)
+                    "referenceNetvalue": 2000,       
+                    "fxCurrentValue": 3000,
+                    "startDate": "20191212",  
+                    "endDate": "20201212"     
                 },
                 {
                     "invesTypeCode": "國外有價證券",
                     "productDesc": "國內-全聯(熱狗堡)亞洲靈活債劵基金AM-新台幣-穩定配息",
                     "prodCurrencyDesc": "新台幣",
-                    "referenceNetvalue": "7777",       //金額名目本金(暫定)
-                    "fxCurrentValue": "8888",
-                    "startDate": "20190405",  //起日(暫定)
-                    "endDate": "20191213"     //迄日(暫定)
+                    "referenceNetvalue": 7777,      
+                    "fxCurrentValue": 8888,
+                    "startDate": "20190405",  
+                    "endDate": "20191213"     
                 },
                 {
                     "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
                     "productDesc": "國內-美聯社(潛艇堡)亞洲靈活債劵基金AM-日幣-穩定配息",
                     "prodCurrencyDesc": "日幣",
-                    "referenceNetvalue": "8888",       //金額名目本金(暫定)
-                    "fxCurrentValue": "6666",
-                    "startDate": "20180819",  //起日(暫定)
-                    "endDate": "20200707"     //迄日(暫定)
+                    "referenceNetvalue": 8888,     
+                    "fxCurrentValue": 6666,
+                    "startDate": "20180819",  
+                    "endDate": "20200707"     
                 },
                 {
                     "invesTypeCode": "保險",
                     "productDesc": "國外-屈臣氏(牛肉堡)亞洲靈活債劵基金AM-人民幣-穩定配權",
                     "prodCurrencyDesc": "人民幣",
-                    "referenceNetvalue": "4321",       //金額名目本金(暫定)
-                    "fxCurrentValue": "8765",
-                    "startDate": "20170910",  //起日(暫定)
-                    "endDate": "20210203"     //迄日(暫定)
+                    "referenceNetvalue": 4321,       
+                    "fxCurrentValue": 8765,
+                    "startDate": "20170910",  
+                    "endDate": "20210203"     
                 },
                 {
                     "invesTypeCode": "自營債券",
                     "productDesc": "國內-麥當勞(豬肉堡)亞洲靈活債劵基金AM-韓元-穩定配息",
                     "prodCurrencyDesc": "韓元",
-                    "referenceNetvalue": "6876",       //金額名目本金(暫定)
-                    "fxCurrentValue": "2131",
-                    "startDate": "20191130",  //起日(暫定)
-                    "endDate": "20201225"     //迄日(暫定)
+                    "referenceNetvalue": 6876,       
+                    "fxCurrentValue": 2131,
+                    "startDate": "20191130",  
+                    "endDate": "20201225"     
                 }
             ],
             tmuContribution: {
-                "derivative": '777777',  //金融交易額(暫定)
-                "wms": '200077',    //投資型商品(暫定)
-                "fxSport": '500077' //FS SPOT(暫定)
+                "derivative": 777777,  
+                "wms": 200077,   
+                "fxSport": 500077 
             }
         }
     }

@@ -12,10 +12,10 @@ class Body {
             customerId: string,
             amountType: string,
             amountExpDate: string,
-            amountAmt: string,
-            usageAmt: string,
-            lastAvailAmt: string,
-            amountUseRate: string
+            amountAmt: number,
+            usageAmt: number,
+            lastAvailAmt: number,
+            amountUseRate: number
         }
     ]
     tmuInvesment: [
@@ -23,15 +23,15 @@ class Body {
             invesTypeCode: string,
             productDesc: string,
             prodCurrencyDesc: string,
-            referenceNetvalue: string,  
-            fxCurrentValue: string,
-            startDate: string,   
+            referenceNetvalue: number,  
+            fxCurrentValue: number,
+            startDate: number,   
             endDate: string      
         }
     ]
     tmuContribution: {
-        derivative: string,  
-        wms: string,    
-        fxSport: string 
+        derivative: number,  
+        wms: number,    
+        fxSport: number 
     }
 }

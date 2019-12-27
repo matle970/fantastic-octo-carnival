@@ -23,7 +23,7 @@
                     <table class="table m-0 p-0 table-sticky">
                       <thead>
                         <tr>
-                          <th>{{validTime_text}}</th>
+                          <th>{{validTime_text}}{{validDate_text}}</th>
                         </tr>
                       </thead>
                       <tbody >
@@ -82,18 +82,18 @@
                 <table class="table m-0 p-0 table-hover table-sticky table-bordered">
                   <thead>
                     <tr>
-                      <th>額度/帳號ID</th>
-                      <th class="th-width">額度種類</th>
-                      <th>額度期限</th>
-                      <th class="">額度</th>
-                      <th class="">使用額度</th>
-                      <th class="">剩餘可用額度</th>
-                      <th class="">使用率</th>
+                      <!-- <th>額度/帳號ID</th> -->
+                      <th class="th-width">{{amountType_text}}</th>
+                      <th>{{amountExpDate_text}}</th>
+                      <th class="">{{amountAmt_text}}</th>
+                      <th class="">{{usageAmt_text}}</th>
+                      <th class="">{{lastAvailAmt_text}}</th>
+                      <th class="">{{amountUseRate_text}}</th>
                     </tr>
                   </thead>
           <tbody *ngFor="let item of tmuTransAmt">
             <tr>
-              <td rowspan="5">{{item.customerId}}</td>
+              <!-- <td rowspan="5">{{item.customerId}}</td> -->
               <td>{{item.amountType}}</td>
               <td>{{item.amountExpDate }}</td>
               <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
@@ -134,13 +134,13 @@
                 <table class="table m-0 p-0 table-hover table-sticky person-table table-bordered">
                   <thead>
             <tr>
-              <th>商品類別</th>
-              <th class="">商品名稱</th>
-              <th class="">幣別</th>
-              <th class="">金額/名目本金</th>
-              <th class="">現值</th>
-              <th class="">起日</th>
-              <th class="">迄日</th>
+              <th>{{invesTypeCode_text}}</th>
+              <th class="">{{productDesc_text}}</th>
+              <th class="">{{prodCurrencyDesc_text}}</th>
+              <th class="">{{referenceNetvalue_text}}</th>
+              <th class="">{{fxCurrentValue_text}}</th>
+              <th class="">{{startDate_text}}</th>
+              <th class="">{{endDate_text}}</th>
             </tr>
           </thead>
           <tbody *ngFor="let item of tmuInvesment">

@@ -15,15 +15,31 @@ export class OperatingTmuComponent implements OnInit {
     @Input() content: any;
     @ViewChild('chartOperatingTmu') chartOperatingTmu: ChartComponent;
 
-     //營運量第二層-TMU&MTM html text
-     text = this.custchartsService.baseservice.gettextservice.custchartstext;
-     tmuContribution_text: string = this.text.tmuContribution_text;
-     unitNTD_text: string = this.text.unitNTD_text;
-     validTime_text: string = this.text.validTime_text;
-     derivative_text: string = this.text.derivative_text;
-     unitUSD_text: string = this.text.unitUSD_text;
-     wms_text: string = this.text.wms_text;
-     unitNNTD_text: string = this.text.unitNtd_text;
+    //營運量第二層-TMU&MTM html text
+    text = this.custchartsService.baseservice.gettextservice.custchartstext;
+    tmuContribution_text: string = this.text.tmuContribution_text;
+    unitNTD_text: string = this.text.unitNTD_text;
+    validTime_text: string = this.text.validTime_text;
+    validDate_text: string = this.text.validDate_text;
+    derivative_text: string = this.text.derivative_text;
+    unitUSD_text: string = this.text.unitUSD_text;
+    wms_text: string = this.text.wms_text;
+    unitNNTD_text: string = this.text.unitNNTD_text;
+    amountType_text: string = this.text.amountType_text;
+    amountExpDate_text: string = this.text.amountAmt_text;
+    amountAmt_text: string = this.text.amountAmt_text;
+    usageAmt_text: string = this.text.usageAmt_text;
+    lastAvailAmt_text: string = this.text.lastAvailAmt_text;
+    amountUseRate_text: string = this.text.amountUseRate_text;
+    invesTypeCode_text: string = this.text.invesTypeCode_text;
+    productDesc_text: string = this.text.productDesc_text;
+    prodCurrencyDesc_text: string = this.text.prodCurrencyDesc_text;
+    referenceNetvalue_text: string = this.text.referenceNetvalue_text;
+    fxCurrentValue_text: string = this.text.fxCurrentValue_text;
+    startDate_text: string = this.text.startDate_text;
+    endDate_text: string = this.text.endDate_text;
+
+
 
 
     // 營運量-TMU&MTU第二層
@@ -43,7 +59,7 @@ export class OperatingTmuComponent implements OnInit {
     constructor(
         private custchartsService: CustChartsService,
         private utilsService: UtilsService
-    ) {}
+    ) { }
 
     async ngOnInit() {
         await this.custchartsService.sendRequest();
@@ -210,7 +226,7 @@ export class OperatingTmuComponent implements OnInit {
         this.tmuTransAmt = this.custchartsService._tmuTransAmt;
         this.tmuInvesment = this.custchartsService._tmuInvesment;
         this.TmuData.series = this.custchartsService._tmuContribution;
-        
+
 
         // 日期轉換 20190330 return 2019/03/30
         this.tmuTransAmt.forEach((data, index) => {
