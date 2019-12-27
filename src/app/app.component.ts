@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     minute = 10;    //timeout minute
     time = this.minute * 60000;
 
-    getAo=false;
+    aoProfileReturnCode: string;
     /**
      * Jewel
      * setting timeout for 10 minutes
@@ -64,6 +64,7 @@ export class AppComponent implements OnInit {
         this.aoidentityservice.loginId = result.body.loginId;
         this.aoidentityservice.employeeName = result.body.employeeName;
         this.trustkeyservice.Trustkey = result.body.trustKey;
-        this.getAo=true;
+        this.aoProfileReturnCode=result.header.returnCode;
+        console.log("aoProfile", this.aoProfileReturnCode);
     }
 }

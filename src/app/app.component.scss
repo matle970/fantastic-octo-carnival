@@ -4,3 +4,9 @@
   min-height: calc(100% - 60px);
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%) !important;
 }
+
+.loading {
+  display: block;
+  height: 100vh;
+  color: #FFFFFF;
+}

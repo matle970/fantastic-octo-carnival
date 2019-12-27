@@ -2,6 +2,13 @@
 <router-outlet></router-outlet>
 -->
 
-<div *ngIf="getAo===true">
+<div *ngIf="aoProfileReturnCode === '0000'; else loadingPage">
     <router-outlet></router-outlet>
 </div>
+
+
+<ng-template #loadingPage>
+    <div class="loading">
+        <app-loading></app-loading>
+    </div>
+</ng-template>
