@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
          */
         this.tokenservice.setdata(window.location.href);
         // this.tokenservice.print();
-        await this.appService.sendRquest();
-        this.returncode = this.appService.returncode;
+        let data = await this.appService.sendRquest();
+        this.returncode = data.header.returnCode;
     }
 }

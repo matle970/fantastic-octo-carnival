@@ -5,6 +5,7 @@ export class CommonHeaderRequest {
     constructor(init?: Partial<CommonHeaderRequest>) { 
         Object.assign(this, init);
     }
+    
     apId: string;
 
     branchId: string;

@@ -4,10 +4,10 @@ import { CommonHeaderRequest } from "./common-header-request";
  * 共通的 Request Object
  **************************************************/
 export class CommonRequest {
-    header: CommonHeaderRequest;
-    body: Body;
+    header: CommonHeaderRequest = new CommonHeaderRequest;
+    body: Body = new Body;
 }
 class Body {
-    customerId: string;
+    bossId: string;
     trustKey: string;
 }

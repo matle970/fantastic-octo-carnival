@@ -2,7 +2,10 @@
  * 共通的 Response Header
  **************************************************/
 export class CommonHeaderResponse {
-
+    constructor(init?: Partial<CommonHeaderResponse>) { 
+        Object.assign(this, init);
+    }
+    
     apId: string;
 
     branchId: string;

@@ -42,10 +42,11 @@ export class DashboardService {
         };
     */
     async sendRquest(): Promise<CompanyListResponse> {
-        let param = new CompanyListRequest;
-        //TODO HEADER
-        param.body.bossId = this.aoIdentityService.loginId;
-        param.body.trustKey = this.trustKeyService.Trustkey;
+        // set param in http.service.ts
+        // let param = new CompanyListRequest;
+        // //TODO HEADER
+        // param.body.bossId = this.aoIdentityService.loginId;
+        // param.body.trustKey = this.trustKeyService.Trustkey;
 
         let result = await this.baseService.httpservice.sendRequestAsync(
             this.urlList[0].url,
