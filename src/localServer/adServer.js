@@ -5,6 +5,8 @@ getCBAoProfile = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -22,255 +24,83 @@ companyList = {
         "apId": "CRMLXCRM01",
         "branchId": "00081",
         "employeeId": "13063",
-        "clientIp": " 255.255.255.255",
+        "clientIp": "225.225.225.225",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
     },
     "body": {
-        "aoData": [
-            {
-                "id": "d000",
-                "ao": "人類經理 具燦星",
-                "group_name": "滿月集團",
-                "cus_id": "03546618",
-                "cus_name": "jeweltestDummyData",
-                "msr": "4",
-                "rorwa": "0.36%",
-                "raroc": "0.36%",
-                "last_year_contribution": "10000",
-                "this_year_contribution": "9000",
-                "deposit": "1000000",
-                "load_balance": "600000",
-                "trade_balance": "3000",
-                "tag": [1, 2, 3]
-            }, {
-                "id": "d001",
-                "ao": "人類經理 具燦星",
-                "group_name": "滿月集團",
-                "cus_id": "03546618",
-                "cus_name": "德魯納股份有限公司",
-                "msr": "4",
-                "rorwa": "0.36%",
-                "raroc": "0.36%",
-                "last_year_contribution": "10000",
-                "this_year_contribution": "9000",
-                "deposit": "1000000",
-                "load_balance": "600000",
-                "trade_balance": "3000",
-                "tag": [1, 2, 3]
-            },
-            {
-                "id": "d002",
-                "ao": "店長 鄭北東",
-                "group_name": "滿月集團",
-                "cus_id": "11223355",
-                "cus_name": "千里馬超市",
-                "msr": "4",
-                "rorwa": "0.56%",
-                "raroc": "0.36%",
-                "last_year_contribution": "100",
-                "this_year_contribution": "500",
-                "deposit": "100000",
-                "load_balance": "60000",
-                "trade_balance": "3000",
-                "tag": [2, 3]
-            },
-            {
-                "id": "d003",
-                "ao": "酒保 金時翼",
-                "group_name": "滿月集團",
-                "cus_id": "11223355",
-                "cus_name": "天空酒吧",
-                "msr": "4",
-                "rorwa": "0.56%",
-                "raroc": "0.36%",
-                "last_year_contribution": "50000",
-                "this_year_contribution": "500",
-                "deposit": "100",
-                "load_balance": "60000",
-                "trade_balance": "3000",
-                "tag": [2, 3]
-            },
-            {
-                "id": "c001",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "03546618",
-                "cus_name": "廣宇科技股份有限公司",
-                "msr": "4",
-                "rorwa": "0.36%",
-                "raroc": "0.36%",
-                "last_year_contribution": "1000",
-                "this_year_contribution": "900",
-                "deposit": "10000",
-                "load_balance": "2000",
-                "trade_balance": "3000",
-                "tag": [1, 2, 3]
-            },
-            {
-                "id": "c002",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "12800225",
-                "cus_name": "群創光電股份有限公司",
-                "msr": "D",
-                "rorwa": "",
-                "raroc": "",
-                "last_year_contribution": "1000",
-                "this_year_contribution": "900",
-                "deposit": "",
-                "load_balance": "2000",
-                "trade_balance": "3000",
-                "tag": [1]
-            },
-            {
-                "id": "c003",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "80731387",
-                "cus_name": "宏瀚投資股份有限公司",
-                "msr": "4",
-                "rorwa": "0.85%",
-                "raroc": "0.85%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": [1, 2]
-            },
-            {
-                "id": "c004",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "80732007",
-                "cus_name": "聯巨投資股份有限公司",
-                "msr": "6+",
-                "rorwa": "0.74%",
-                "raroc": "0.74%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": [3]
-            },
-            {
-                "id": "c005",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "84149499",
-                "cus_name": "天鈺科技股份有限公司",
-                "msr": "5",
-                "rorwa": "6.22%",
-                "raroc": "6.22%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": [4]
-            },
-            {
-                "id": "c006",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "496390JA",
-                "cus_name": "捷達創新科技有限公司",
-                "msr": "W2",
-                "rorwa": "",
-                "raroc": "",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": [5]
-            },
-            {
-                "id": "c007",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "27310561",
-                "cus_name": "啟耀光電股份有限公司",
-                "msr": "8",
-                "rorwa": "",
-                "raroc": "",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": []
-            },
-            {
-                "id": "c008",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "28488592",
-                "cus_name": "瑞祺電通股份有限公司",
-                "msr": "5",
-                "rorwa": "",
-                "raroc": "",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": []
-            },
-            {
-                "id": "c009",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "70380046",
-                "cus_name": "樺漢科技股份有限公司",
-                "msr": "4+",
-                "rorwa": "0.43%",
-                "raroc": "0.43%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": []
-            },
-            {
-                "id": "c010",
-                "ao": "企企2 葉又萱",
-                "group_name": "鴻海集團",
-                "cus_id": "24291669",
-                "cus_name": "康聯生醫科技股份有限公司",
-                "msr": "6",
-                "rorwa": "1.98%",
-                "raroc": "1.98%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": []
-            },
-            {
-                "id": "c011",
-                "ao": "企企2 jeweltest01",
-                "group_name": "鴻海集團",
-                "cus_id": "24291669",
-                "cus_name": "康聯生醫科技股份有限公司",
-                "msr": "6",
-                "rorwa": "1.98%",
-                "raroc": "1.98%",
-                "last_year_contribution": "",
-                "this_year_contribution": "",
-                "deposit": "",
-                "load_balance": "",
-                "trade_balance": "",
-                "tag": []
-            }
+        "bossId": "NT81752",
+        "records": [{
+            "customerId": "03546618",
+            "customerName": "Busto Aa",
+            "parentCompanyId": "GP12345",
+            "parentCompanyName": "Ja",
+            "aoEmpCode": "NT54138",
+            "aoEmpName": "V",
+            "approvalGrade": "4+",
+            "rorwa": 0.0036,
+            "raroc": 0.0036,
+            "lastYearAccumContri": 100000000,
+            "thisYearAccumContri": 120000000,
+            "totalDepositBal": 120000000,
+            "totalLoanBal": 100000000,
+            "totalTradeFinanceBal": 100000000,
+            "manageBranchCode": "1234",
+            "manageBranchName": "A",
+            "loanTransferBranchCode": "5678",
+            "loanTransferBranchName": "B",
+            "coreCompany": "N",
+            "creditInd": "N",
+            "payrollComInd": "N",
+            "geblnd": "N",
+            "blackListInd": "N"
+        }, {
+            "customerId": "03546619",
+            "customerName": "Custo Aa",
+            "parentCompanyId": "GP12345",
+            "parentCompanyName": "fa",
+            "aoEmpCode": "NT54138",
+            "aoEmpName": "z",
+            "approvalGrade": "4+",
+            "rorwa": 0.0036,
+            "raroc": 0.0036,
+            "lastYearAccumContri": 100000000,
+            "thisYearAccumContri": 120000000,
+            "totalDepositBal": 120000000,
+            "totalLoanBal": 100000000,
+            "totalTradeFinanceBal": 100000000,
+            "manageBranchCode": "1234",
+            "manageBranchName": "T",
+            "loanTransferBranchCode": "5678",
+            "loanTransferBranchName": "T",
+            "coreCompany": "Y",
+            "creditInd": "Y",
+            "payrollComInd": "N",
+            "geblnd": "N",
+            "blackListInd": "N"
+        }
         ]
     }
-};
+}
+
+// CB006
+allNotification = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {}
+}
 
 // CB007-Composite API-營運量-第一層
 assetsLibilites = {
@@ -279,6 +109,8 @@ assetsLibilites = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -325,6 +157,8 @@ depositDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -361,11 +195,11 @@ depositDetail = {
             "currentIntRate": 0.00,
             "ftpRate": 0.021,
             "sdRemark": {
-                "accBranchCode": "Y(00018信義分行)",
-                "payrollCodeDtl": "Y(薪轉行)",
-                "isTrust": "Y(信託帳戶)",
-                "isSecurities": "Y(證卷帳戶)",
-                "isReverse": "Y(備償帳戶)"
+                "accBranchCode": "信義分行",
+                "payrollCodeDtl": "薪轉行",
+                "isTrust": "信託帳戶",
+                "isSecurities": "證卷帳戶",
+                "isReverse": "備償帳戶"
             }
         }, {
             "acctNbr": "1234-441-654321",
@@ -377,8 +211,8 @@ depositDetail = {
             "sdRemark": {
                 "accBranchCode": "台北分行",
                 "payrollCodeDtl": "薪轉行",
-                "isTrust": "",
-                "isSecurities": "",
+                "isTrust": "信託帳戶",
+                "isSecurities": "證卷帳戶",
                 "isReverse": "備償戶"
             }
         }],
@@ -408,7 +242,7 @@ depositDetail = {
             "cdRemark": {
                 "dishY3ChkCnt": "5",
                 "dishCancelY3ChkCnt": "2",
-                "rejectedStatusInd": "Y",
+                "rejectedStatusInd": "",
                 "isReverse": "備償戶"
             }
         }, {
@@ -417,7 +251,7 @@ depositDetail = {
             "cdRemark": {
                 "dishY3ChkCnt": "2",
                 "dishCancelY3ChkCnt": "5",
-                "rejectedStatusInd": "N",
+                "rejectedStatusInd": "",
                 "isReverse": "備償戶"
             }
         }, {
@@ -426,8 +260,8 @@ depositDetail = {
             "cdRemark": {
                 "dishY3ChkCnt": "6",
                 "dishCancelY3ChkCnt": "3",
-                "rejectedStatusInd": "Y",
-                "isReverse": "Y(備償帳戶)"
+                "rejectedStatusInd": "",
+                "isReverse": "備償戶"
             }
         }]
     }
@@ -440,6 +274,8 @@ loanDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -738,6 +574,7 @@ loanDetail = {
         ]
     }
 }
+
 // CB010-Composite API-營運量-進出口實績第二層
 importExportDetail = {
     "header": {
@@ -745,6 +582,8 @@ importExportDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -806,6 +645,8 @@ tmuDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -864,55 +705,56 @@ tmuDetail = {
                 "invesTypeCode": "基金",
                 "productDesc": "國外-安聯(盧森堡)亞洲靈活債劵基金AM-美元-穩定配權",
                 "prodCurrencyDesc": "美元",
-                "referenceNetvalue": 2000,       
+                "referenceNetvalue": 2000,
                 "fxCurrentValue": 3000,
-                "startDate": "20191212",  
-                "endDate": "20201212"     
+                "startDate": "20191212",
+                "endDate": "20201212"
             },
             {
                 "invesTypeCode": "國外有價證券",
                 "productDesc": "國內-全聯(熱狗堡)亞洲靈活債劵基金AM-新台幣-穩定配息",
                 "prodCurrencyDesc": "新台幣",
-                "referenceNetvalue": 7777,      
+                "referenceNetvalue": 7777,
                 "fxCurrentValue": 8888,
-                "startDate": "20190405",  
-                "endDate": "20191213"     
+                "startDate": "20190405",
+                "endDate": "20191213"
             },
             {
                 "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
                 "productDesc": "國內-美聯社(潛艇堡)亞洲靈活債劵基金AM-日幣-穩定配息",
                 "prodCurrencyDesc": "日幣",
-                "referenceNetvalue": 8888,     
+                "referenceNetvalue": 8888,
                 "fxCurrentValue": 6666,
-                "startDate": "20180819",  
-                "endDate": "20200707"     
+                "startDate": "20180819",
+                "endDate": "20200707"
             },
             {
                 "invesTypeCode": "保險",
                 "productDesc": "國外-屈臣氏(牛肉堡)亞洲靈活債劵基金AM-人民幣-穩定配權",
                 "prodCurrencyDesc": "人民幣",
-                "referenceNetvalue": 4321,       
+                "referenceNetvalue": 4321,
                 "fxCurrentValue": 8765,
-                "startDate": "20170910",  
-                "endDate": "20210203"     
+                "startDate": "20170910",
+                "endDate": "20210203"
             },
             {
                 "invesTypeCode": "自營債券",
                 "productDesc": "國內-麥當勞(豬肉堡)亞洲靈活債劵基金AM-韓元-穩定配息",
                 "prodCurrencyDesc": "韓元",
-                "referenceNetvalue": 6876,       
+                "referenceNetvalue": 6876,
                 "fxCurrentValue": 2131,
-                "startDate": "20191130",  
-                "endDate": "20201225"     
+                "startDate": "20191130",
+                "endDate": "20201225"
             }
         ],
         tmuContribution: {
-            "derivative": 777777,  //金融交易額(暫定)
-            "wms": 200077,    //投資型商品(暫定)
-            "fxSport": 500077 //FS SPOT(暫定)
+            "derivative": 777777,
+            "wms": 200077,
+            "fxSport": 500077
         }
     }
 }
+
 // CB012-Composite API-基本資訊-公司資訊第一層
 company = {
     "header": {
@@ -920,6 +762,8 @@ company = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -952,6 +796,8 @@ companyDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1005,6 +851,8 @@ companyAssociate = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1052,12 +900,14 @@ companyAssociateAssets = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
     },
     "body": {
-        "customerid": "A222222222",
+        "customerid": "A111111112",
         "assets": {
             "sdDetail": [
                 {
@@ -1124,6 +974,8 @@ group = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1143,6 +995,8 @@ groupDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1183,6 +1037,8 @@ manage = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1214,6 +1070,8 @@ manageDetail = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1248,6 +1106,8 @@ contribution = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1258,12 +1118,12 @@ contribution = {
         "lastcontri": {
             "startYM": "208701",
             "endYM": "208712",
-            "contribution": ["10000", "20000", "30000", "40000", "50000", "60000"]
+            "contribution": [10000, 20000, 30000, 40000, 50000, 60000]
         },
         "thiscontri": {
             "startYM": "208801",
             "endYM": "208812",
-            "contribution": ["60000", "50000", "40000", "40000", "20000", "20000"]
+            "contribution": [60000, 50000, 40000, 40000, 20000, 20000]
         }
     }
 }
@@ -1276,6 +1136,8 @@ companyNewsList = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
@@ -1285,30 +1147,28 @@ companyNewsList = {
         "newsList": [
             {
                 "id": "n001",
-                "papaer": "經濟日報",
-                "date": "2019-11-05",
-                "title": "台積電揮別谷底開盤價歷史",
+                "paper": "中時電子報",
+                "date": "2019-11-03",
+                "title": "經營之神看走眼？他爆王永慶曾評台積電這3字",
                 "tag": "+",
-                "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
+                "content": "<p>台積電（2330）股價衝衝衝，昨天（19日）收在315元，再創歷史新高，惟今天股價稍做休息，收在313.5元。台積電晶圓代工先進製程領先全球，投資人都看好搶進，不過，「經營之神」台塑集團創辦人王永慶長子王文洋爆料，對電子產業不熟悉王永慶曾跟他說「台積電沒前途」，台塑集團還賣掉全部台積電持股。</p><p>鏡週刊報導，王文洋透露，早期台塑曾投資台積電，他還當過第一屆董事，「是我們聘請張忠謀當董事長的」，但他說「我爸爸他們覺得這種公司沒前途，說我不懂」，並將台積電持股全賣掉，他覺得相當惋惜。</p><p>台塑集團創辦人王永慶於2008年過世，時任台積電董事長的張忠謀曾感嘆王永慶是「時代巨人」，強調台積電成立之初，王永慶是很重要的投資人，沒有王永慶就沒有現在的台積電，並表示與他有多次會面，很佩服和敬仰他。</p>"
             },
             {
                 "id": "n002",
-                "papaer": "經濟日報",
+                "paper": "非凡商業周刊",
                 "date": "2019-11-02",
-                "title": "台積電揮別谷底開盤價歷史",
-                "tag": "-",
-                "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
+                "title": "富爸爸帶小金雞搶市 台積電集團強棒輩出",
+                "tag": "+",
+                "content": "<p>台積電（2330）股價近期來到300元，市值突破8兆元新台幣，擠入全球前20大市值企業，超越半導體巨擘英特爾，成為全球半導體指標企業，也帶動台股加權指數改寫29年半新高。</p><p>5G商機7奈米訂單滿載</p><p>台積電2018年以261種製程技術，為481家客戶生產1.4萬多種產品，可見台積電對我們日常生活的影響力無所不在，中美貿易戰開打1年多，台積電獲利不受影響，股價頻創新高，就是靠著不斷演進的製程奠定領先地位，全球5G（第5代行動通訊）的商轉，更讓台積電7奈米製程訂單滿載。</p><p>觀察台積電今年前3季財報表現，營收年增1.5%，毛利率44.3%，營益率33%，稅後每股純益8.84元，預估明年現金股息至少10元以上，採每季配息更是受到外資歡迎，法說會預估第4季營收達102億美元～103億美元，季增約8.5%～9.6%，中位數為9%，毛利率估48%～50%，營益率37%～39%，雙率均較第3季成長，受惠7奈米製程順利推進，第4季目標是：毛利率50%、營益率39%。第4季業績表現更好，讓外資紛紛提高台積電目標價，目前外資圈給台積電最高目標價，仍是花旗的364元，其次為高盛的355元，摩根大通、麥格理和美銀皆給與350元，各家外資目標價可參考表2。</p><p>台積電上調5G智慧型手機的滲透率展望，由個位數成長上修到15%左右，宣布全年資本支出由原先的100億美元～110億美元，大舉調高至140億美元～150億美元，將繼續保持晶圓製程領先地位。</p><p>台積不怕禁令外資喊進</p><p>在中美貿易戰中，當川普在5月16日宣布華為禁售令，台積電5月17日立即宣布將繼續出貨華為，理由是：「內部做過評估，國外的法律事務所也幫我們看過，結論是我們沒有超過25%。」台積電發言體系解釋，歸功於內部發展超過10年的出口管控系統，這套系統由當時任職台積電法務長的美籍律師建立，成立層級極高的出口管制委員會，由法務、晶圓廠營運、研發、行銷與業務、採購、人資等6大部門最高主管參與。</p>"
             },
             {
                 "id": "n003",
-                "papaer": "經濟日報",
-                "date": "2019-10-30",
-                "title": "台積電揮別谷底開盤價歷史",
+                "paper": "鉅亨網",
+                "date": "2019-11-01",
+                "title": "台積電Q3每股配息2.5元 明年3/19除息",
                 "tag": "+",
-                "content": "新聞內容新聞內容新聞內容新聞內容新聞內容"
-            },
-
-
+                "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
+            }
         ]
     }
 }
@@ -1320,11 +1180,15 @@ newsBankList = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
     },
     "body": {
+        "PreDate": "1564617600",
+        "LastDate": "1570665600",
         "banksList": [
             {
                 "bank": "國泰世華",
@@ -1340,7 +1204,85 @@ newsBankList = {
                 "bank": "玉山銀行",
                 "valChange": "0",
                 "totalChange": "0"
+            },
+            {
+                "bank": "中國信託",
+                "valChange": "0",
+                "totalChange": "0"
             }
+        ]
+    }
+}
+
+
+// CB026-Composite API 消息集錦-銀行同業第二層
+newsBanksDetail = {
+    "header": {
+        "apId": "CRMLXCRM01",
+        "branchId": "00081",
+        "employeeId": "13063",
+        "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
+        "txnDateTime": "20190801140647462",
+        "returnCode": "0000",
+        "returnDesc": "交易成功"
+    },
+    "body": {
+        "PreDate": "2019-08-01",
+        "LastDate": "2019-10-10",
+        "banksInfo": [
+            {
+                "bankName": "國泰世華",
+                "LastDateInfo": {
+                    "amount": 1000,
+                    "total": 50000,
+                    "guarantee": "房屋"
+                },
+                "PreDateInfo": {
+                    "amount": 500,
+                    "total": 40000,
+                    "guarantee": "房屋"
+                },
+                "changeInfo": {
+                    "amount": "+500",
+                    "total": "+10000"
+                }
+            },
+            {
+                "bankName": "富邦銀行",
+                "LastDateInfo": {
+                    "amount": 2000,
+                    "total": 3000,
+                    "guarantee": "房屋"
+                },
+                "PreDateInfo": {
+                    "amount": 1500,
+                    "total": 2000,
+                    "guarantee": "房屋"
+                },
+                "changeInfo": {
+                    "amount": "+500",
+                    "total": "+1000"
+                }
+            },
+            {
+                "bankName": "玉山銀行",
+                "LastDateInfo": {
+                    "amount": 2000,
+                    "total": 3000,
+                    "guarantee": "房屋"
+                },
+                "PreDateInfo": {
+                    "amount": 1000,
+                    "total": 3000,
+                    "guarantee": "房屋"
+                },
+                "changeInfo": {
+                    "amount": "+1000",
+                    "total": "+0"
+                }
+            },
         ]
     }
 }
@@ -1352,93 +1294,61 @@ custHistoryList = {
         "branchId": "00081",
         "employeeId": "13063",
         "clientIp": " 255.255.255.255",
+        "role": "經辦",
+        "roleCode": "01",
         "txnDateTime": "20190801140647462",
         "returnCode": "0000",
         "returnDesc": "交易成功"
     },
     "body": {
-        "tabList": [
+        "customerId": "mongodb_id",
+        "updateDate": "2019/12/25",
+        "journey": [
             {
-                "id": "all",
-                "name": "全部"
+                "category": "放款",
+                "date": "2019/04/26",
+                "channel": "Myb2b",
+                "channelDetail": "企金授信_還款_工商貸款"
             },
             {
-                "id": "deposit",
-                "name": "存款"
+                "category": "存款",
+                "date": "2019/04/15",
+                "channel": "Myb2b",
+                "channelDetail": "台幣存匯轉帳自行轉帳"
             },
             {
-                "id": "loan",
-                "name": "放款"
+                "category": "存款",
+                "date": "2019/04/10",
+                "channel": "ATM",
+                "channelDetail": "台幣存匯_轉帳_自行轉帳"
             },
             {
-                "id": "chairman",
-                "name": "負責人"
+                "category": "存款",
+                "date": "2019/04/01",
+                "channel": "樹林分行",
+                "channelDetail": "台整存匯提款自行提款"
+            },
+            {
+                "category": "負責人",
+                "date": "2019/03/28",
+                "channel": "mybank",
+                "channelDetail": "轉帳繳他人信用卡款"
+            },
+            {
+                "category": "負責人",
+                "date": "2019/02/28",
+                "channel": "網銀",
+                "channelDetail": "個金授信_還款_房屋貸款"
+            },
+            {
+                "category": "放款",
+                "date": "2019/02/25",
+                "channel": "系統作業",
+                "channelDetail": "外幣授信_撥款_購置不動產"
             }
-        ],
-        "historyList": [
-            {
-                "id": "c001",
-                "type": "loan",
-                "type_name": "放款",
-                "date_time": "2019/04/26",
-                "unit": "Myb2b",
-                "content_word": "企金授信_還款_工商貸款"
-            },
-            {
-                "id": "c002",
-                "type": "deposit",
-                "type_name": "存款",
-                "date_time": "2019/04/15",
-                "unit": "Myb2b",
-                "content_word": "台幣存匯轉帳自行轉帳"
-            },
-            {
-                "id": "c003",
-                "type": "deposit",
-                "type_name": "存款",
-                "date_time": "2019/04/10",
-                "unit": "ATM",
-                "content_word": "台幣存匯_轉帳_自行轉帳"
-            },
-            {
-                "id": "c004",
-                "type": "deposit",
-                "type_name": "存款",
-                "date_time": "2019/04/01",
-                "unit": "樹林分行",
-                "content_word": "台整存匯提款自行提款"
-            },
-            {
-                "id": "c005",
-                "type": "chairman",
-                "type_name": "負責人",
-                "date_time": "2019/03/28",
-                "unit": "mybank",
-                "content_word": "轉帳繳他人信用卡款"
-            },
-            {
-                "id": "c006",
-                "type": "chairman",
-                "type_name": "負責人",
-                "date_time": "2019/02/28",
-                "unit": "網銀",
-                "content_word": "個金授信_還款_房屋貸款"
-            },
-            {
-                "id": "c007",
-                "type": "loan",
-                "type_name": "放款",
-                "date_time": "2019/02/25",
-                "unit": "系統作業",
-                "content_word": "外幣授信_撥款_購置不動產"
-            }
-
         ]
-
     }
-
 }
-
 
 
 

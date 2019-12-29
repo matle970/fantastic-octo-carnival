@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 /*******************
- * 設定Token的Service
+ * 設定userID & Token的Service
  **********************/
 @Injectable({ providedIn: 'root' })
 export class TokenService {

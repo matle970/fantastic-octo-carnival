@@ -36,6 +36,8 @@ export class AppService {
         this.headservice.branchId = data.body.branchId;
         this.headservice.employeeId = data.body.employeeId;
         this.headservice.clientIp = data.body.clientIp;
+        this.headservice.role = data.header.role;
+        this.headservice.roleCode = data.header.roleCode;
         this.headservice.txnDateTime = data.body.txnDateTime;
         this.aoIdentityService.loginId = data.body.loginId;
         this.aoIdentityService.employeeName = data.body.employeeName;

@@ -1,13 +1,17 @@
 
 import { CommonHeaderResponse } from '../common/common-header-response';
 
+/************************************************
+ * CB005 Response Object
+ **************************************************/
 export class CompanyListResponse {
-    header: CommonHeaderResponse;
-    body: Body;
-
     constructor(init?: Partial<CompanyListResponse>) {
         Object.assign(this, init);
     }
+
+    header: CommonHeaderResponse;
+    body: Body;
+    
 }
 class Body {
     bossId: string;

@@ -11,6 +11,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -22,74 +24,6 @@ export class DummyData {
         }
     };
 
-    //CB002
-    wmBranchList = {
-        "header": {
-            "apId": "CRMLXCRM01",
-            "branchId": "00081",
-            "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
-            "txnDateTime": "20190801140647462",
-            "returnCode": "0000",
-            "returnDesc": "交易成功"
-        },
-        "body": {
-            "branch": [{
-                "branchId": "jewelWMId001",
-                "branchName": "jewelWMName001"
-            }, {
-
-                "branchId": "jewelWMId002",
-                "branchName": "jewelWMName002"
-            }, {
-
-                "branchId": "jewelWMId003",
-                "branchName": "jewelWMName003"
-            }, {
-
-                "branchId": "jewelWMId004",
-                "branchName": "jewelWMName004"
-            }, {
-
-                "branchId": "jewelWMId005",
-                "branchName": "jewelWMName005"
-            }
-            ]
-        }
-    }
-
-    //CB003
-    referBranchList = {
-        "header": {
-            "apId": "CRMLXCRM01",
-            "branchId": "00081",
-            "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
-            "txnDateTime": "20190801140647462",
-            "returnCode": "0000",
-            "returnDesc": "交易成功"
-        },
-        "body": {
-            "branch": [{
-                "branchId": "jewelReferId001",
-                "branchName": "jewelReferName001"
-            }, {
-                "branchId": "jewelReferId002",
-                "branchName": "jewelReferName002"
-            }, {
-                "branchId": "jewelReferId003",
-                "branchName": "jewelReferName003"
-            }, {
-                "branchId": "jewelReferId004",
-                "branchName": "jewelReferName004"
-            }, {
-                "branchId": "jewelReferId005",
-                "branchName": "jewelReferName005"
-            }
-            ]
-        }
-    }
-
     //CB-005-Composite API
     companyList = {
         "header": {
@@ -97,6 +31,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": "225.225.225.225",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -163,6 +99,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -177,6 +115,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -223,6 +163,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -338,6 +280,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -636,6 +580,7 @@ export class DummyData {
             ]
         }
     }
+
     // CB010-Composite API-營運量-進出口實績第二層
     importExportDetail = {
         "header": {
@@ -643,6 +588,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -704,6 +651,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -819,6 +768,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -851,6 +802,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -904,6 +857,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -951,6 +906,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1023,6 +980,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1042,6 +1001,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1082,6 +1043,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1113,6 +1076,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1147,6 +1112,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1175,6 +1142,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1217,6 +1186,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1257,6 +1228,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1327,6 +1300,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1388,14 +1363,6 @@ export class DummyData {
             // 首頁總覽-經管名單列表 <<假的>>
             case this.URL.FIRSTPAGE_AO_PROFILE:
                 returnData = this.getCBAoProfile;
-                break;
-
-            case this.URL.FIRSTPAGE_WM_BRANCH_LSIT:
-                returnData = this.wmBranchList;
-                break;
-
-            case this.URL.FIRSTPAGE_REFER_BRANCH_LIST:
-                returnData = this.referBranchList;
                 break;
 
             // 首頁總覽-經管名單列表 <<假的>>

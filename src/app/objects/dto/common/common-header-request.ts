@@ -15,5 +15,7 @@ export class CommonHeaderRequest {
 
     role: string;
 
+    roleCode: string;
+
     txnDateTime: string;
 }

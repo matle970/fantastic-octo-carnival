@@ -1,7 +1,7 @@
 import { CommonHeaderRequest } from "../common/common-header-request";
 
 /************************************************
- * 共通的 Request Object
+ * CB005 Request Object
  **************************************************/
 export class CompanyListRequest {
     header: CommonHeaderRequest = new CommonHeaderRequest;
