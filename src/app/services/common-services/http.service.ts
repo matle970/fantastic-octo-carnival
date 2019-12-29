@@ -12,14 +12,12 @@ import { TokenService } from './token.service';
 @Injectable({ providedIn: 'root' })
 export class HttpService {
 
-    apiDomain: string = this.envservice.apiUrl; // API Domain name
-
     constructor(
         private httpClient: HttpClient,
         private envservice: EnvService,
         private dummydataservice: DummyDataService,
-        private geturlservice: GeturlService,
-        private tokenservice: TokenService
+        private tokenservice: TokenService,
+        private geturlservice: GeturlService
     ) { }
 
     /**
@@ -28,60 +26,28 @@ export class HttpService {
     * @param dtoRequest 請求樣式
     * @param dtoResponse 回傳樣式
     */
-    sendRequestAsync(url: string, dtoRequest: any, dtoResponse: any): Promise<any> {
+    async sendRequestAsync(url: string, dtoRequest: any, dtoResponse: any) {
         let data: any;
 
-        if (this.dummydataservice.useDummyData) {
-            const dummy = new DummyData();
+        if (this.dummydataservice.useDummyData === true) {
+            const dummy = new DummyData;
             data = dummy.getDummyData(url, dtoRequest, dtoResponse);
-            return new Promise((resolve, reject) => {
-                resolve(this.returnData(data));
-                reject();
-            });
+            return data;
         } else {
-            return new Promise((resolve, reject) => {
-                resolve(this.sendAPI(url, dtoRequest, dtoResponse));
-                reject();
-            });
+            let param = new dtoRequest;
+
+            switch (url) {
+                case this.geturlservice.URL.FIRSTPAGE_AO_PROFILE:
+                    param.body.customerId = this.tokenservice.UserID;
+                    param.body.token = this.tokenservice.Token;
+                    data = await this.httpClient.post(this.envservice.apiUrl + url, param).toPromise();
+                    break;
+
+                default:
+                    break;
+            }
+            data = new dtoResponse(data);
+            return data;
         }
-    }
-
-    returnData(data: string) {
-        return data;
-    }
-
-    /**
-    * Send request
-    * @param url 查詢URL
-    * @param dtoRequest 請求樣式
-    * @param dtoResponse 回傳樣式
-    */
-    sendAPI(url: string, dtoRequest: any, dtoResponse: any) {
-        let RequestData: any;
-        switch (url) {
-            case this.geturlservice.URL.FIRSTPAGE_AO_PROFILE:
-                RequestData = {
-                    "header": {},
-                    "body": {
-                        "customerId": this.tokenservice.UserID,
-                        "token": this.tokenservice.Token
-                    }
-                }
-                break;
-        }
-        return this.sendHttpByPost(url, dtoResponse, RequestData);
-    }
-
-    /**
-    * send HTTP by POST
-    * @param url 查詢URL
-    * @param dtoRequest 請求樣式
-    * @param dtoResponse 回傳樣式
-    */
-    async sendHttpByPost(url: string, dtoResponse: any, RequestData: object) {
-        await this.httpClient.post<any>(this.apiDomain + url, RequestData).toPromise().then((value: any) => {
-            console.log('value', value);
-            return value;
-        });
     }
 }

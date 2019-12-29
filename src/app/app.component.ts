@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
     /**
      * setting timeout for 10 minutes
-     * if timeout, clear aoId, token and trustkey 
+     * if timeout, clear aoId, token and trustkey
      * redirect to timeout component
      */
     constructor(
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
          * and keep it in tokenservice
          */
         this.tokenservice.setdata(window.location.href);
-        this.tokenservice.print();
+        // this.tokenservice.print();
         await this.appService.sendRquest();
         this.returncode = this.appService.returncode;
     }
