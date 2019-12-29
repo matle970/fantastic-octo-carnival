@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
  * 設定Header的Service
  **********************/
 @Injectable({ providedIn: 'root' })
-export class HeadServeice {
+export class HeaderServeice {
 
     private _apId: string;
     private _branchId: string;

@@ -5,7 +5,7 @@ import { HttpService } from './http.service';
 import { GeturlService } from './geturl.service';
 import { AoProfileRequest } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-request';
 import { AoProfileResponse } from 'src/app/objects/dto/firstpage/firstpage-aoProfile-response';
-import { HeadServeice } from './head.service';
+import { HeaderServeice } from './header.service';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -14,7 +14,7 @@ export class AppService {
 
     constructor(
         private httpservice: HttpService,
-        private headservice: HeadServeice,
+        private headerservice: HeaderServeice,
         private aoIdentityService: AoIdentityService,
         private trustKeyService: TrustkeyServeice,
         private geturlservice: GeturlService,
@@ -32,13 +32,13 @@ export class AppService {
             this.urlList[0].url,
             this.urlList[0].dtoRequset,
             this.urlList[0].dtoResponse);
-        this.headservice.apId = data.body.apId;
-        this.headservice.branchId = data.body.branchId;
-        this.headservice.employeeId = data.body.employeeId;
-        this.headservice.clientIp = data.body.clientIp;
-        this.headservice.role = data.header.role;
-        this.headservice.roleCode = data.header.roleCode;
-        this.headservice.txnDateTime = data.body.txnDateTime;
+        this.headerservice.apId = data.body.apId;
+        this.headerservice.branchId = data.body.branchId;
+        this.headerservice.employeeId = data.body.employeeId;
+        this.headerservice.clientIp = data.body.clientIp;
+        this.headerservice.role = data.header.role;
+        this.headerservice.roleCode = data.header.roleCode;
+        this.headerservice.txnDateTime = data.body.txnDateTime;
         this.aoIdentityService.loginId = data.body.loginId;
         this.aoIdentityService.employeeName = data.body.employeeName;
         this.trustKeyService.Trustkey = data.body.trustKey;
