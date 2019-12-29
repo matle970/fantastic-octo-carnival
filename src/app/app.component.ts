@@ -7,6 +7,7 @@ import { AppService } from './services/common-services/app.service';
 import { TrustkeyServeice } from './services/common-services/trustkey.service';
 import { TimeoutService } from './services/common-services/timeout.service';
 import { DummyDataService } from './services/common-services/dummydata.service';
+import { HeadServeice } from './services/common-services/head.service';
 
 @Component({
     selector: 'app-root',
@@ -29,9 +30,10 @@ export class AppComponent implements OnInit {
     constructor(
         private router: Router,
         private dialog: MatDialog,
+        private headservice: HeadServeice,
         private aoidentityservice: AoIdentityService,
-        private tokenservice: TokenService,
         private trustkeyservice: TrustkeyServeice,
+        private tokenservice: TokenService,
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
         private appService: AppService,
@@ -43,9 +45,10 @@ export class AppComponent implements OnInit {
 
         this.timeoutservice.isTimeout = false;
         setTimeout(() => {
+            this.headservice.clear;
             this.aoidentityservice.clear;
-            this.tokenservice.clear;
             this.trustkeyservice.clear;
+            this.tokenservice.clear;
             this.timeoutservice.isTimeout = true;
             this.dialog.closeAll();
             this.router.navigate(['timeout']);

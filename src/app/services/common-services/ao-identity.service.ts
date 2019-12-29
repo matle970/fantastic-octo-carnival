@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
 
+/*******************
+ * 設定loginId & employeeName的Service
+ **********************/
 @Injectable()
 export class AoIdentityService {
 

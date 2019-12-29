@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerIdService } from '../services/common-services/customerid.service';
-import { DateUtilService } from '../services/date-util.service';
+import { DateUtilService } from '../services/common-services/date-util.service';
 
 @Component({
     selector: 'app-customer',
@@ -13,7 +13,9 @@ export class CustomerComponent implements OnInit {
     yesterdayDate: string;
     @ViewChild('searchIdBind') searchData: any;
 
-    constructor(private customerInfo: CustomerIdService, private dateUtilService: DateUtilService) {
+    constructor(
+        private customerInfo: CustomerIdService, 
+        private dateUtilService: DateUtilService) {
         customerInfo.print(); //get customer id from share data 
     }
 

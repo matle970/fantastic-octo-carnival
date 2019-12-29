@@ -6,7 +6,7 @@ import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
 import { filter } from 'rxjs/operators';
-import { DateUtilService } from '../services/date-util.service';
+import { DateUtilService } from '../services/common-services/date-util.service';
 
 @Component({
     selector: 'app-dashboard',
