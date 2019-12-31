@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+// import { ROUTES } from '../sidebar/sidebar.component';
+import { ROUTES } from '../../../../assets/export/siderbar';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { onSideNavChange, animateText } from '../animations/animations';

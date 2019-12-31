@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { onSideNavChange, animateText } from '../animations/animations';
 import { SidebarService } from 'src/app/services/common-services/sidebar.service';
-
+import { ROUTES } from '../../../../assets/export/siderbar';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -11,11 +11,12 @@ declare interface RouteInfo {
     class: string;
 }
 
+
 // sidebar nav item - demosite
-export const ROUTES: RouteInfo[] = [
-    { path: './dashboard', title: '首頁總覽',  icon: 'home', class: '' },
-    { path: './customer', title: '客戶視圖',  icon:'view_quilt', class: '' },
-];
+// export const ROUTES: RouteInfo[] = [
+//     { path: './dashboard', title: '首頁總覽',  icon: 'home', class: '' },
+//     { path: './customer', title: '客戶視圖',  icon:'view_quilt', class: '' },
+// ];
 
 //localsite
 // export const ROUTES: RouteInfo[] = [
