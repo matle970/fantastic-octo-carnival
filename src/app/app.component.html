@@ -1,4 +1,5 @@
-<div *ngIf="returncode === '0000'; else loadingPage">
+
+<div *ngIf="returncode; else loadingPage">
     <router-outlet></router-outlet>
 </div>
 

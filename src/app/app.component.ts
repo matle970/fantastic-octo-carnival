@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         private tokenservice: TokenService,
         private timeoutservice: TimeoutService,
         private dummydataservice: DummyDataService,
-        private appService: AppService,
+        private appService: AppService
     ) { }
 
     async ngOnInit() {
@@ -62,5 +62,9 @@ export class AppComponent implements OnInit {
         // this.tokenservice.print();
         let data = await this.appService.sendRquest();
         this.returncode = data.header.returnCode;
+        if(this.returncode === '0000')
+            this.trustkeyservice.authStatus = true;
+        else
+            this.trustkeyservice.authStatus = false;
     }
 }

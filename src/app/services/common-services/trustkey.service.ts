@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class TrustkeyServeice {
 
+    private _authStatus: boolean;
     private _Trustkey: string;
 
     constructor() { }
@@ -22,7 +23,16 @@ export class TrustkeyServeice {
         return this._Trustkey;
     }
 
+    set authStatus(value: boolean) {
+        this._authStatus = value;
+    }
+
+    get authStatus() {
+        return this._authStatus;
+    }
+
     clear() {
         this._Trustkey = '';
+        this._authStatus = false;
     }
 }

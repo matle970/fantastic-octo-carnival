@@ -1,6 +1,4 @@
-$dashboard-bg: #FFF;
-
-
+$dashboard-bg: #fff;
 
 // number font type
 
@@ -8,15 +6,13 @@ $dashboard-bg: #FFF;
   font-family: $font-family-Number;
 }
 
-
 // chart box
 
 .all-charts-blcok {
   .apexcharts-canvas {
-    box-shadow: 0 5px 5px rgba(0,0,0, 0.085) !important;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.085) !important;
   }
 }
-
 
 //underline
 
@@ -25,27 +21,24 @@ $pretty-text-hover: #f49005;
 $pretty-text-selection: #fae8afd8;
 $underline-color: #fafaf6;
 
-
-
 a.underline {
   color: $brand-success !important;
   cursor: pointer;
   font-size: 1rem;
   @include pretty-text-underline-selection($pretty-text-selection);
-  @include pretty-text-underline($pretty-text-width,$underline-color,$pretty-text-hover)
-  &.news-title{   // for ie support
-    color:#009F41 !important;
-    @include pretty-text-underline-selection(#FFF);
-    @include pretty-text-underline($pretty-text-width,#FFF,#009F41);
-
+  @include pretty-text-underline($pretty-text-width, $underline-color, $pretty-text-hover) 
+  &.news-title {ht
+    // for ie support
+    color: #009f41 !important;
+    @include pretty-text-underline-selection(#fff);
+    @include pretty-text-underline($pretty-text-width, #fff, #009f41);
   }
-
 }
 
-.card, .table {
+.card,
+.table {
   @include pretty-text-underline-selection($pretty-text-selection);
 }
-
 
 // 授信
 $tag-green: #70ad47;
@@ -54,7 +47,7 @@ $tag-blue: #5b9bd5;
 $tag-orange: #ed7d31;
 $tag-red: #c00000;
 .tag {
-  background: #EEE;
+  background: #eee;
   border-radius: 50%;
   text-align: center;
   height: 26px;
@@ -62,58 +55,56 @@ $tag-red: #c00000;
   display: inline-block;
   line-height: 26px;
   font-size: 1rem;
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   margin-right: 2px;
   cursor: default;
   svg {
     max-height: 26px;
-    color:white;
+    color: white;
   }
 
-  &.tag-green{
+  &.tag-green {
     background-color: $tag-green;
   }
   &.tag-gold {
     background-color: $tag-gold;
   }
-  &.tag-blue{
+  &.tag-blue {
     background-color: $tag-blue;
   }
-  &.tag-orange{
+  &.tag-orange {
     background-color: $tag-orange;
   }
-  &.tag-red{
+  &.tag-red {
     background-color: $tag-red;
   }
 }
 
-
 // background style
-.dashboard-main-content{
-  background: $dashboard-bg  !important;
+.dashboard-main-content {
+  background: $dashboard-bg !important;
 }
-
 
 //date info
 
-.date-block{
+.date-block {
   text-align: right;
   font-size: 0.8rem;
-  color:#6c757d;
-  margin-top:8px;
+  color: #6c757d;
+  margin-top: 8px;
 }
 
 .card {
   .card-header {
     font-weight: 700;
-    color:#000;
+    color: #000;
   }
   .card-title {
     vertical-align: middle;
     &::before {
-      content:'';
-      width:1px;
+      content: "";
+      width: 1px;
       height: 100%;
       display: inline-block;
       vertical-align: middle;
@@ -122,15 +113,13 @@ $tag-red: #c00000;
       display: inline-block;
       vertical-align: middle;
     }
-
   }
 }
-
 
 // notifications
 .has-notification-icon {
   position: relative;
-  height: 42px;;
+  height: 42px;
   .notifications {
     top: -5px;
     position: relative;
@@ -140,24 +129,22 @@ $tag-red: #c00000;
       font-size: 2.2rem;
       position: relative;
       &.has-msg {
-        color: #ff5858 ;
-        background: -webkit-linear-gradient(-60deg, #ff5858  0%,  #f09819 100%);
+        color: #ff5858;
+        background: -webkit-linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       &.no-msg {
         color: #dbdbdb;
       }
-
-
     }
     .notice {
       position: absolute;
       margin-top: 5px;
       margin-left: -13px;
-      box-shadow: 0px 2px 1px #FFF;
+      box-shadow: 0px 2px 1px #fff;
       border-radius: 50%;
-      color: #FFF;
+      color: #fff;
       width: 18px;
       height: 18px;
       line-height: 18px;
@@ -166,22 +153,19 @@ $tag-red: #c00000;
       padding: 0;
       font-size: 0.8rem;
     }
-
   }
-
 }
-
 
 // identity tag
 
 // identity style tag
 $identityTagBg: #f44336;
 $identityTagBorder: #f44336;
-$identityTagColor: #FFF;
+$identityTagColor: #fff;
 
 .identity-tag {
   font-size: 12px;
-  min-width:52px;
+  min-width: 52px;
   text-align: center !important;
   position: relative;
   display: inline-block;
@@ -193,7 +177,8 @@ $identityTagColor: #FFF;
   border-color: $identityTagBorder;
   color: $identityTagColor;
 
-  &::after, &::before {
+  &::after,
+  &::before {
     content: "";
     position: absolute;
   }
@@ -205,7 +190,7 @@ $identityTagColor: #FFF;
     margin-top: -2px;
     border-radius: 100%;
     background-color: currentColor;
-    color: #FFF;
+    color: #fff;
   }
   &::before {
     border: 8px solid transparent;
@@ -216,6 +201,22 @@ $identityTagColor: #FFF;
   }
 }
 
+// account
+.account-info {
+  .subtitle {
+    font-size: 0.8rem;
+    min-width: 80px;
+    max-height: 20px;
+    .no-data-block {
+      min-height: 20px;
+      max-height: 20px;
+      .word {
+        font-size: 0.6rem !important;
+        margin: 0 !important;
+      }
+    }
+  }
+}
 
 // scroll bar in card
 
@@ -226,30 +227,21 @@ $identityTagColor: #FFF;
 $box-thumb: rgb(224, 238, 215);
 $box-shadow: #c5c3c3;
 
-
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px #ddd;
   border-radius: 5px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   border-radius: 5px;
   -webkit-box-shadow: inset 0 0 6px #097747d0;
   // background-color: $box-thumb;
   background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
-
-
-
-
-

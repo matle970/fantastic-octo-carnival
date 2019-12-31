@@ -8,6 +8,7 @@ import { TokenService } from './token.service';
 import { AoIdentityService } from './ao-identity.service';
 import { TrustkeyServeice } from './trustkey.service';
 import { HeaderServeice } from './header.service';
+import { DateUtilService } from './date-util.service';
 
 /*******************
  * 發送Http的Service
@@ -24,6 +25,7 @@ export class HttpService {
         private headerservice: HeaderServeice,
         private aoIdentityService: AoIdentityService,
         private trustKeyService: TrustkeyServeice,
+        private dateUtilService: DateUtilService
     ) { }
 
     /**
@@ -69,7 +71,7 @@ export class HttpService {
         param.header.clientIp = this.headerservice.clientIp;
         param.header.role = this.headerservice.role;
         param.header.roleCode = this.headerservice.roleCode;
-        param.header.txnDateTime = this.headerservice.txnDateTime;
+        param.header.txnDateTime = this.dateUtilService.txnDate;
         param.body.bossId = this.aoIdentityService.loginId;
         param.body.trustKey = this.trustKeyService.Trustkey;
     }

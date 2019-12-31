@@ -9,10 +9,12 @@ export class DateUtilService {
 	static YESTERDAY_DATE = 'yyyy/MM/dd';
 	static LAST_MONTH = 'yyyy/MM';
 	static LAST_DECEMBER = 'yyyy/MM';
+	static TXN_DATE = 'yyyyMMddHHmmss';
 	_currentDate;
 	_yesterdayDate;
 	_lastMonth;
 	_lastDecember;
+	_txnDate;
 
 	constructor(private datePipe: DatePipe) { }
 
@@ -41,4 +43,9 @@ export class DateUtilService {
 		return this._lastDecember;
 	}
 
+	get txnDate() {
+		this._txnDate = this.datePipe.transform(new Date(), DateUtilService.TXN_DATE);
+		
+		return this._txnDate;
+	}
 }
