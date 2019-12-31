@@ -27,7 +27,7 @@ a.underline {
   font-size: 1rem;
   @include pretty-text-underline-selection($pretty-text-selection);
   @include pretty-text-underline($pretty-text-width, $underline-color, $pretty-text-hover) 
-  &.news-title {ht
+  &.news-title {
     // for ie support
     color: #009f41 !important;
     @include pretty-text-underline-selection(#fff);
