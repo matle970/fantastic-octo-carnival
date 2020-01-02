@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CompanyResponse } from 'src/app/objects/dto/custinfo/custinfo-company-response';
-import { CompanyDetail } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
+import { CompanyDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
 import { CompanyAssociate } from 'src/app/objects/dto/custinfo/custinfo-companyAssociate-response';
 import { CompanyAssociateAssets } from 'src/app/objects/dto/custinfo/custinfo-companyAssociateAssets-response';
-import { Group } from 'src/app/objects/dto/custinfo/custinfo-group-response';
-import { GroupDetail } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
+import { GroupResponse } from 'src/app/objects/dto/custinfo/custinfo-group-response';
+import { GroupDetailRequest } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-request';
+import { GroupDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
 import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
 import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
 import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
 import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+
 
 @Injectable({
     providedIn: 'root'
@@ -35,26 +37,26 @@ export class CustBaseinfoService {
             'dtoRequset': CommonRequest,
             'dtoResponse': CompanyResponse
         },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': CompanyDetail
-        // },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': CompanyDetailResponse
+        },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
         //     'dtoRequset': CommonRequest,
         //     'dtoResponse': CompanyAssociate
         // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': Group
-        // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': GroupDetail
-        // },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': GroupResponse
+        },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
+            'dtoRequset': GroupDetailRequest,
+            'dtoResponse': GroupDetailResponse
+        },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
         //     'dtoRequset': CommonRequest,
@@ -157,6 +159,7 @@ export class CustBaseinfoService {
                 this.Group = {
                     data: data.body
                 };
+                this.baseservice.customerIdservice.parentcustomerId = data.body.parentcustomerId;
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:
@@ -208,8 +211,8 @@ export class CustBaseinfoService {
 
     setGroupDetail(groupdetail) {
         for (let i = 0; i < groupdetail.data.groupMemberLoanInfo.length; i++) {
-            this.sumLbFxCurrentBal = this.sumLbFxCurrentBal + Number(groupdetail.data.groupMemberLoanInfo[i].sumLbFxCurrentBal);
-            this.sumfacdFxLimitAmt = this.sumfacdFxLimitAmt + Number(groupdetail.data.groupMemberLoanInfo[i].sumfacdFxLimitAmt);
+            this.sumLbFxCurrentBal = this.sumLbFxCurrentBal + groupdetail.data.groupMemberLoanInfo[i].sumLbFxCurrentBal;
+            this.sumfacdFxLimitAmt = this.sumfacdFxLimitAmt + groupdetail.data.groupMemberLoanInfo[i].sumfacdFxLimitAmt;
         }
     }
 

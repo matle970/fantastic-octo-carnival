@@ -9,6 +9,7 @@ import { AoIdentityService } from './ao-identity.service';
 import { TrustkeyServeice } from './trustkey.service';
 import { HeaderServeice } from './header.service';
 import { DateUtilService } from './date-util.service';
+import { CustomerIdService } from './customerid.service';
 
 /*******************
  * 發送Http的Service
@@ -25,6 +26,7 @@ export class HttpService {
         private headerservice: HeaderServeice,
         private aoIdentityService: AoIdentityService,
         private trustKeyService: TrustkeyServeice,
+        private customerIdservice: CustomerIdService,
         private dateUtilService: DateUtilService
     ) { }
 
@@ -45,20 +47,45 @@ export class HttpService {
             let param = new dtoRequest;
 
             switch (url) {
+                // CB001
                 case this.geturlservice.URL.FIRSTPAGE_AO_PROFILE:
                     param.body.customerId = this.tokenservice.UserID;
                     param.body.token = this.tokenservice.Token;
                     break;
 
+                // CB005
                 case this.geturlservice.URL.FIRSTPAGE_COMPANY_LIST:
-                    this.setparam(param);
+                    param.header.apId = this.headerservice.apId;
+                    param.header.branchId = this.headerservice.branchId;
+                    param.header.employeeId = this.headerservice.employeeId;
+                    param.header.clientIp = this.headerservice.clientIp;
+                    param.header.role = this.headerservice.role;
+                    param.header.roleCode = this.headerservice.roleCode;
+                    param.header.txnDateTime = this.dateUtilService.txnDate;
+                    param.body.bossId = this.aoIdentityService.loginId;
+                    param.body.trustKey = this.trustKeyService.Trustkey;
                     break;
 
-                case this.geturlservice.URL.CUSTPROFILE_COMPANY:
-                    this.setparam(param);
+                // CB006
+                case this.geturlservice.URL.FIRSTPAGE_ALL_NOTIFICATION:
                     break;
 
+                // CB016
+                case this.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:
+                    param.header.apId = this.headerservice.apId;
+                    param.header.branchId = this.headerservice.branchId;
+                    param.header.employeeId = this.headerservice.employeeId;
+                    param.header.clientIp = this.headerservice.clientIp;
+                    param.header.role = this.headerservice.role;
+                    param.header.roleCode = this.headerservice.roleCode;
+                    param.header.txnDateTime = this.dateUtilService.txnDate;
+                    param.body.parentCompanyId = this.customerIdservice.parentcustomerId;
+                    param.body.trustKey = this.trustKeyService.Trustkey;
+                    break;
+
+                // CB001 CB005 CB006 CB016 以外都是default
                 default:
+                    this.setparam(param);
                     break;
             }
             data = await this.httpClient.post(this.envservice.apiUrl + url, param).toPromise();
@@ -76,7 +103,7 @@ export class HttpService {
         param.header.role = this.headerservice.role;
         param.header.roleCode = this.headerservice.roleCode;
         param.header.txnDateTime = this.dateUtilService.txnDate;
-        param.body.bossId = this.aoIdentityService.loginId;
+        param.body.customerId = this.customerIdservice.customerId;
         param.body.trustKey = this.trustKeyService.Trustkey;
     }
 }

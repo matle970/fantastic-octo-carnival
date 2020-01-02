@@ -1,6 +1,12 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class CompanyDetail {
+/************************************************
+ * CB013的 Response Object
+ **************************************************/
+export class CompanyDetailResponse {
+    constructor(init?: Partial<CompanyDetailResponse>) {
+        Object.assign(this, init);
+    }
     header: CommonHeaderResponse;
     body: Body;
 }
@@ -8,8 +14,8 @@ class Body {
     customerId: string;
     customerName: string;
     stockCode: string;
-    capitalAmt: string;
-    realCapitalAmt: string;
+    capitalAmt: number;
+    realCapitalAmt: number;
     establishmentDate: string;
     chiefName: string;
     registerAddress: string;

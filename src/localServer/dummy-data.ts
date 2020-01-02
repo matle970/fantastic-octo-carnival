@@ -812,8 +812,8 @@ export class DummyData {
             "customerId": "87878787",
             "customerName": "草尼馬股份有限公司",
             "stockCode": "0730",
-            "capitalAmt": "180,000,000",
-            "realCapitalAmt": "138,629,906",
+            "capitalAmt": 180000000,
+            "realCapitalAmt": 138629906,
             "establishmentDate": "19740202",
             "chiefName": "李宛靜",
             "registerAddress": "台北市信義區松仁路9號",
@@ -989,8 +989,8 @@ export class DummyData {
         "body": {
             "parentCompanyId": "GP000013",
             "parentCustomerName": "增你強集團",
-            "rorwa": "0",
-            "raroc": "0"
+            "rorwa": 123.456,
+            "raroc": 654.321
         }
     }
 
@@ -1011,26 +1011,26 @@ export class DummyData {
             "parentCompanyId": "GP000013",
             "parentCustomerName": "增你強集團",
             "groupInfo": {
-                "sumLastYearAccumContri": "10000000",
-                "sumThisYearAccumContri": "12000000",
-                "sumTotalDepositBal": "5000000",
-                "sumTotalLoanBal": "0",
-                "sumTotalTradeFinanceBal": "2500000"
+                "sumLastYearAccumContri": 10000000,
+                "sumThisYearAccumContri": 12000000,
+                "sumTotalDepositBal": 5000000,
+                "sumTotalLoanBal": 0,
+                "sumTotalTradeFinanceBal": 2500000
             },
             "groupMemberLoanInfo": [
                 {
                     "customerId": "12401698",
                     "customerName": "增你強股份有限公司",
                     "breakdownCodeDesc": "週轉金(信用)",
-                    "sumfacdFxLimitAmt": "1000000",
-                    "sumLbFxCurrentBal": "500000"
+                    "sumfacdFxLimitAmt": 1000000,
+                    "sumLbFxCurrentBal": 500000
                 },
                 {
                     "customerId": "80156546",
                     "customerName": "建洋實業股份有限公司",
                     "breakdownCodeDesc": "進口遠期信用狀 ",
-                    "sumfacdFxLimitAmt": "2000000",
-                    "sumLbFxCurrentBal": "500000"
+                    "sumfacdFxLimitAmt": 2000000,
+                    "sumLbFxCurrentBal": 500000
                 }
             ]
         }

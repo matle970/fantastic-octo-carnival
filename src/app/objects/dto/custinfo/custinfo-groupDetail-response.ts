@@ -1,6 +1,12 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class GroupDetail {
+/************************************************
+ * CB017的 Response Object
+ **************************************************/
+export class GroupDetailResponse {
+    constructor(init?: Partial<GroupDetailResponse>) {
+        Object.assign(this, init);
+    }
     header: CommonHeaderResponse;
     body: Body;
 }
@@ -8,19 +14,19 @@ class Body {
     parentCompanyId: string;
     parentCustomerName: string;
     groupInfo: {
-      sumLastYearAccumContri: string;
-      sumThisYearAccumContri: string;
-      sumTotalDepositBal: string;
-      sumTotalLoanBal: string;
-      sumTotalTradeFinanceBal: string;
+        sumLastYearAccumContri: number;
+        sumThisYearAccumContri: number;
+        sumTotalDepositBal: number;
+        sumTotalLoanBal: number;
+        sumTotalTradeFinanceBal: number;
     }
     groupMemberLoanInfo: [
-      {
-        customerId: string;
-        customerName: string;
-        breakdownCodeDesc: string;
-        sumfacdFxLimitAmt: string;
-        sumLbFxCurrentBal: string;
-      }
+        {
+            customerId: string;
+            customerName: string;
+            breakdownCodeDesc: string;
+            sumfacdFxLimitAmt: number;
+            sumLbFxCurrentBal: number;
+        }
     ]
 }

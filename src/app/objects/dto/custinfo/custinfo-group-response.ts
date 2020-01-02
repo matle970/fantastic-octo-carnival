@@ -1,12 +1,18 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class Group {
+/************************************************
+ * CB016的 Response Object
+ **************************************************/
+export class GroupResponse {
+    constructor(init?: Partial<GroupResponse>) {
+        Object.assign(this, init);
+    }
     header: CommonHeaderResponse;
     body: Body;
 }
 class Body {
     parentCompanyId: string;
     parentCustomerName: string;
-    rorwa: string;
-    raroc: string;
+    rorwa: number;
+    raroc: number;
 }

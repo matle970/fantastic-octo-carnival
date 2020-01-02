@@ -1,5 +1,8 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
+/************************************************
+ * CB012的 Response Object
+ **************************************************/
 export class CompanyResponse {
     constructor(init?: Partial<CompanyResponse>) {
         Object.assign(this, init);

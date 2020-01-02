@@ -20,7 +20,7 @@ export class DashboardService {
     _dataList;
     urlList = [{
         'url': this.baseService.geturlservice.URL.FIRSTPAGE_COMPANY_LIST,
-        'dtoRequset': CommonRequest,
+        'dtoRequset': CompanyListRequest,
         'dtoResponse': CompanyListResponse
     }];
     constructor(private baseService: BaseService,

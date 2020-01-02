@@ -16,7 +16,7 @@ export class CustomerComponent implements OnInit {
     constructor(
         private customerInfo: CustomerIdService, 
         private dateUtilService: DateUtilService) {
-        customerInfo.print(); //get customer id from share data 
+        customerInfo.printcustId(); //get customer id from share data 
     }
 
     ngOnInit() {
