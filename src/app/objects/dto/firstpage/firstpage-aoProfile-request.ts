@@ -1,7 +1,7 @@
 import { CommonHeaderRequest } from "../common/common-header-request";
 
 /************************************************
- * 共通的 Request Object
+ * CB001的 Request Object
  **************************************************/
 export class AoProfileRequest {
     header: CommonHeaderRequest = new CommonHeaderRequest;

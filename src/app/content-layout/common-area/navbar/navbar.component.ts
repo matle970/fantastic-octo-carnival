@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
+// import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { onSideNavChange, animateText } from '../animations/animations';
@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    navTitle = 'Dashboard';
+    navTitle = '首頁總覽';
 
     constructor(location: Location,
         private element: ElementRef, private router: Router,
@@ -30,12 +30,8 @@ export class NavbarComponent implements OnInit {
         this.location = location;
         this.sidebarVisible = false;
 
-        this.listTitles = ROUTES.filter(listTitle => listTitle);
-        router.events.subscribe((val) => {
-            // see also
-            // console.log(val);
-            this.getTitle();
-        });
+        this.listTitles = this._sidebarService.ROUTES.filter(listTitle => listTitle);
+        router.events.subscribe((val) => { this.getTitle(); });
 
     }
 
@@ -69,38 +65,22 @@ export class NavbarComponent implements OnInit {
 
     getTitle() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        // console.log('first titlee',titlee);
         var titleeArray = titlee.split('/');
         titlee = titleeArray[titleeArray.length - 1];
 
         if (titlee.charAt(0) === '/') {
             titlee = titlee.slice(1);
         }
-        // console.log(titlee);
-        // console.log('listTitles: ' , this.listTitles);
-        for (var item = 0; item < this.listTitles.length; item++) {
-            // console.log(this.listTitles[item].path);
-            // tslint:disable-next-line: prefer-const
 
+        for (var item = 0; item < this.listTitles.length; item++) {
             var thisPath = this.listTitles[item].path;
             thisPath = thisPath.split('/')[1];
 
-            if (thisPath.charAt(0) === '/') {
+            if (thisPath.charAt(0) === '/') 
                 thisPath = thisPath.slice(1);
-            }
-            // console.log(thisPath,'thispath')
-            // console.log(titlee,'titlee')
 
-            // console.log('是否等於',thisPath === titlee);
-            if (thisPath === titlee) {
-                // return this.listTitles[item].title;
+            if (thisPath === titlee) 
                 this.navTitle = this.listTitles[item].title;
-            }
-
-            // if(titlee.includes(thisPath)) {
-            //   // console.log('if match',thisPath)
-            //   return  this.listTitles[item].title;
-            // }
         }
         return 'Dashboard';
     }

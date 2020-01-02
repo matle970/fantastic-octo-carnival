@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Company } from 'src/app/objects/dto/custinfo/custinfo-company-response';
-import { CompanyDetail } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
+import { CompanyResponse } from 'src/app/objects/dto/custinfo/custinfo-company-response';
+import { CompanyDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
 import { CompanyAssociate } from 'src/app/objects/dto/custinfo/custinfo-companyAssociate-response';
 import { CompanyAssociateAssets } from 'src/app/objects/dto/custinfo/custinfo-companyAssociateAssets-response';
-import { Group } from 'src/app/objects/dto/custinfo/custinfo-group-response';
-import { GroupDetail } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
+import { GroupResponse } from 'src/app/objects/dto/custinfo/custinfo-group-response';
+import { GroupDetailRequest } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-request';
+import { GroupDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
 import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
 import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
 import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
 import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
+
 
 @Injectable({
     providedIn: 'root'
@@ -33,43 +35,43 @@ export class CustBaseinfoService {
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY,
             'dtoRequset': CommonRequest,
-            'dtoResponse': Company
+            'dtoResponse': CompanyResponse
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
             'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyDetail
+            'dtoResponse': CompanyDetailResponse
         },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyAssociate
-        },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': CompanyAssociate
+        // },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
             'dtoRequset': CommonRequest,
-            'dtoResponse': Group
+            'dtoResponse': GroupResponse
         },
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': GroupDetail
+            'dtoRequset': GroupDetailRequest,
+            'dtoResponse': GroupDetailResponse
         },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': Manage
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': ManageDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': Contribution
-        },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': Manage
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': ManageDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': Contribution
+        // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
         //     'dtoRequset': CommonRequest,
@@ -120,18 +122,15 @@ export class CustBaseinfoService {
     ChartDatacategories: Array<any> = [];
 
 
-    sendRquest() {
+    async sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            this.baseservice.httpservice.sendRequestAsync(
+            let data = await this.baseservice.httpservice.sendRequestAsync(
                 this.urlList[i].url,
                 this.urlList[i].dtoRequset,
-                this.urlList[i].dtoResponse).then(data => {
-                    if (data.header.returnCode === '0000') {
-                        this.dataProcess(data, this.urlList[i].url);
-                    }
-                }, err => {
-                    console.log('Error: ', err);
-                });
+                this.urlList[i].dtoResponse);
+            if (data.header.returnCode === '0000') {
+                this.dataProcess(data, this.urlList[i].url);
+            }
         }
     }
 
@@ -160,6 +159,7 @@ export class CustBaseinfoService {
                 this.Group = {
                     data: data.body
                 };
+                this.baseservice.customerIdservice.parentCompanyId = data.body.parentCompanyId;
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:
@@ -211,8 +211,8 @@ export class CustBaseinfoService {
 
     setGroupDetail(groupdetail) {
         for (let i = 0; i < groupdetail.data.groupMemberLoanInfo.length; i++) {
-            this.sumLbFxCurrentBal = this.sumLbFxCurrentBal + Number(groupdetail.data.groupMemberLoanInfo[i].sumLbFxCurrentBal);
-            this.sumfacdFxLimitAmt = this.sumfacdFxLimitAmt + Number(groupdetail.data.groupMemberLoanInfo[i].sumfacdFxLimitAmt);
+            this.sumLbFxCurrentBal = this.sumLbFxCurrentBal + groupdetail.data.groupMemberLoanInfo[i].sumLbFxCurrentBal;
+            this.sumfacdFxLimitAmt = this.sumfacdFxLimitAmt + groupdetail.data.groupMemberLoanInfo[i].sumfacdFxLimitAmt;
         }
     }
 
@@ -229,13 +229,13 @@ export class CustBaseinfoService {
         let sysdate = new Date();
         this.ChartDataseries = [
             {
-                name: 
+                name:
                     String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +
                     String(sysdate.getFullYear() - 1) + '/' + '11',
                 data: contribution.data.lastcontri.contribution
             },
             {
-                name: 
+                name:
                     String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
                     String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1),
                 data: contribution.data.thiscontri.contribution

@@ -1,13 +1,13 @@
-import { CommonHeaderRequest } from "./common-header-request";
+import { CommonHeaderRequest } from "../common/common-header-request";
 
 /************************************************
- * 共通的 Request Object
+ * CB005 Request Object
  **************************************************/
-export class CommonRequest {
+export class CompanyListRequest {
     header: CommonHeaderRequest = new CommonHeaderRequest;
     body: Body = new Body;
 }
 class Body {
-    customerId: string;
+    bossId: string;
     trustKey: string;
 }

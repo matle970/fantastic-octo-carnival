@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { onSideNavChange, animateText } from '../animations/animations';
 import { SidebarService } from 'src/app/services/common-services/sidebar.service';
 
-
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -11,11 +10,12 @@ declare interface RouteInfo {
     class: string;
 }
 
+
 // sidebar nav item - demosite
-export const ROUTES: RouteInfo[] = [
-    { path: './dashboard', title: '首頁總覽',  icon: 'home', class: '' },
-    { path: './customer', title: '客戶視圖',  icon:'view_quilt', class: '' },
-];
+// export const ROUTES: RouteInfo[] = [
+//     { path: './dashboard', title: '首頁總覽',  icon: 'home', class: '' },
+//     { path: './customer', title: '客戶視圖',  icon:'view_quilt', class: '' },
+// ];
 
 //localsite
 // export const ROUTES: RouteInfo[] = [
@@ -49,7 +49,7 @@ export class SidebarComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = this._sidebarService.ROUTES.filter(menuItem => menuItem);
     this._sidebarService.sideNavState$.next(false);
   }
   toggleSideWith() {

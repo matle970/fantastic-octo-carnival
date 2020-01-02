@@ -1,13 +1,29 @@
-<div class="account-info mr-2" >
-  <span class="float-left text-right icon">
-    <i class="material-icons">person</i>
-  </span>
-  <span class="float-right word text-center">
-      <span class="d-inline-block w-100 mb-1 font-weight-bolder">
-          {{ aoId + ' ' + accountName }}
-      </span>
-      <span class="d-inline-block">
-        企經  主管
-      </span>
-  </span>
+<div class="account-info mr-2" *ngIf="authStatus; else unauthorized">
+    <span class="float-left text-right icon">
+        <i class="material-icons">person</i>
+    </span>
+    <span class="float-right word text-center">
+        <span class="d-inline-block w-100 mb-1 font-weight-bolder">
+            {{loginId}} {{employeeName}}
+        </span>
+        <span class="d-inline-block">
+            企經 主管
+        </span>
+    </span>
 </div>
+<ng-template #unauthorized>
+
+    <div class="account-info mr-2">
+        <span class="float-left text-right icon">
+            <i class="material-icons">person</i>
+        </span>
+        <span class="float-right word text-center">
+            <span class="d-inline-block w-100 mb-0 font-weight-bolder">
+                {{ loginId }}
+            </span>
+            <span class="d-inline-block subtitle">
+                <app-no-data [message]="'無授權'"></app-no-data>
+            </span>
+        </span>
+    </div>
+</ng-template>

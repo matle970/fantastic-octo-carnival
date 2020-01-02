@@ -2,12 +2,6 @@
     "//_CB001-Composite API": "首頁總覽-登入人員資訊",
     "FIRSTPAGE_AO_PROFILE": "/firstpage/getCBAoProfile",
 
-    "//_CB002-Composite API": "首頁總覽-(搜尋)經營行-下拉選單)",
-    "FIRSTPAGE_WM_BRANCH_LSIT": "/firstpage/getCBWMBranchList",
-    
-    "//_CB003-Composite API": "首頁總覽-(搜尋)轉介行-下拉選單",
-    "FIRSTPAGE_REFER_BRANCH_LIST": "/firstpage/getCBReferBranchList",
-
     "//_CB005-Composite API": "首頁總覽-經管名單列表",
     "FIRSTPAGE_COMPANY_LIST": "/firstpage/getCBCompanyList",
 

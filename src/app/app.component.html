@@ -1,7 +1,10 @@
-<!--
-<router-outlet></router-outlet>
--->
 
-<div *ngIf="getAo===true">
+<div *ngIf="returncode; else loadingPage">
     <router-outlet></router-outlet>
 </div>
+
+<ng-template #loadingPage>
+    <div class="loading">
+        <app-loading></app-loading>
+    </div>
+</ng-template>

@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
 
+/*******************
+ * 設定loginId & employeeName的Service
+ **********************/
 @Injectable()
 export class AoIdentityService {
 
@@ -10,7 +13,7 @@ export class AoIdentityService {
     
     //get variable example
     print() {
-        console.log('aoId: ' + this._loginId);
+        console.log('loginId: ' + this._loginId + ' employeeName: ' + this._employeeName);
     }
 
     get loginId() {
@@ -28,6 +31,7 @@ export class AoIdentityService {
     }
     
     clear() {
+        this._loginId = '';
         this._employeeName = '';
     }
 }

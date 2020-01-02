@@ -11,84 +11,18 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
         },
         "body": {
-            "aoId": "jeweltest01",
+            "loginId": "jeweltest01",
             "employeeName": "jeweltestEmployeeName",
-            "token": "jeweltestToken001"
+            "trustKey": "jeweltestToken001"
         }
     };
-
-    //CB002
-    wmBranchList = {
-        "header": {
-            "apId": "CRMLXCRM01",
-            "branchId": "00081",
-            "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
-            "txnDateTime": "20190801140647462",
-            "returnCode": "0000",
-            "returnDesc": "交易成功"
-        },
-        "body": {
-            "branch": [{
-                "branchId": "jewelWMId001",
-                "branchName": "jewelWMName001"
-            }, {
-
-                "branchId": "jewelWMId002",
-                "branchName": "jewelWMName002"
-            }, {
-
-                "branchId": "jewelWMId003",
-                "branchName": "jewelWMName003"
-            }, {
-
-                "branchId": "jewelWMId004",
-                "branchName": "jewelWMName004"
-            }, {
-
-                "branchId": "jewelWMId005",
-                "branchName": "jewelWMName005"
-            }
-            ]
-        }
-    }
-
-    //CB003
-    referBranchList = {
-        "header": {
-            "apId": "CRMLXCRM01",
-            "branchId": "00081",
-            "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
-            "txnDateTime": "20190801140647462",
-            "returnCode": "0000",
-            "returnDesc": "交易成功"
-        },
-        "body": {
-            "branch": [{
-                "branchId": "jewelReferId001",
-                "branchName": "jewelReferName001"
-            }, {
-                "branchId": "jewelReferId002",
-                "branchName": "jewelReferName002"
-            }, {
-                "branchId": "jewelReferId003",
-                "branchName": "jewelReferName003"
-            }, {
-                "branchId": "jewelReferId004",
-                "branchName": "jewelReferName004"
-            }, {
-                "branchId": "jewelReferId005",
-                "branchName": "jewelReferName005"
-            }
-            ]
-        }
-    }
 
     //CB-005-Composite API
     companyList = {
@@ -97,6 +31,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": "225.225.225.225",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -127,7 +63,7 @@ export class DummyData {
                 "payrollComInd": "N",
                 "geblnd": "N",
                 "blackListInd": "N"
-            },{
+            }, {
                 "customerId": "03546619",
                 "customerName": "Custo Aa",
                 "parentCompanyId": "GP12345",
@@ -163,6 +99,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -177,6 +115,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -223,6 +163,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -338,6 +280,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -636,6 +580,7 @@ export class DummyData {
             ]
         }
     }
+
     // CB010-Composite API-營運量-進出口實績第二層
     importExportDetail = {
         "header": {
@@ -643,6 +588,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -704,6 +651,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -762,52 +711,52 @@ export class DummyData {
                     "invesTypeCode": "基金",
                     "productDesc": "國外-安聯(盧森堡)亞洲靈活債劵基金AM-美元-穩定配權",
                     "prodCurrencyDesc": "美元",
-                    "referenceNetvalue": 2000,       
+                    "referenceNetvalue": 2000,
                     "fxCurrentValue": 3000,
-                    "startDate": "20191212",  
-                    "endDate": "20201212"     
+                    "startDate": "20191212",
+                    "endDate": "20201212"
                 },
                 {
                     "invesTypeCode": "國外有價證券",
                     "productDesc": "國內-全聯(熱狗堡)亞洲靈活債劵基金AM-新台幣-穩定配息",
                     "prodCurrencyDesc": "新台幣",
-                    "referenceNetvalue": 7777,      
+                    "referenceNetvalue": 7777,
                     "fxCurrentValue": 8888,
-                    "startDate": "20190405",  
-                    "endDate": "20191213"     
+                    "startDate": "20190405",
+                    "endDate": "20191213"
                 },
                 {
                     "invesTypeCode": "組合式商品(DCI/PPCD/SI)",
                     "productDesc": "國內-美聯社(潛艇堡)亞洲靈活債劵基金AM-日幣-穩定配息",
                     "prodCurrencyDesc": "日幣",
-                    "referenceNetvalue": 8888,     
+                    "referenceNetvalue": 8888,
                     "fxCurrentValue": 6666,
-                    "startDate": "20180819",  
-                    "endDate": "20200707"     
+                    "startDate": "20180819",
+                    "endDate": "20200707"
                 },
                 {
                     "invesTypeCode": "保險",
                     "productDesc": "國外-屈臣氏(牛肉堡)亞洲靈活債劵基金AM-人民幣-穩定配權",
                     "prodCurrencyDesc": "人民幣",
-                    "referenceNetvalue": 4321,       
+                    "referenceNetvalue": 4321,
                     "fxCurrentValue": 8765,
-                    "startDate": "20170910",  
-                    "endDate": "20210203"     
+                    "startDate": "20170910",
+                    "endDate": "20210203"
                 },
                 {
                     "invesTypeCode": "自營債券",
                     "productDesc": "國內-麥當勞(豬肉堡)亞洲靈活債劵基金AM-韓元-穩定配息",
                     "prodCurrencyDesc": "韓元",
-                    "referenceNetvalue": 6876,       
+                    "referenceNetvalue": 6876,
                     "fxCurrentValue": 2131,
-                    "startDate": "20191130",  
-                    "endDate": "20201225"     
+                    "startDate": "20191130",
+                    "endDate": "20201225"
                 }
             ],
             tmuContribution: {
-                "derivative": 777777,  
-                "wms": 200077,   
-                "fxSport": 500077 
+                "derivative": 777777,
+                "wms": 200077,
+                "fxSport": 500077
             }
         }
     }
@@ -819,6 +768,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -826,11 +777,11 @@ export class DummyData {
         "body": {
             "customerId": "87878787",
             "approvalGrade": "5+",
-            "rorwa": "1.34",
-            "raroc": "1.58",
-            "totalRelAssetBal": "222.33",
-            "totalRelCreditLimit": "151542",
-            "totalRelLiabilitiesBal": "8978789.88",
+            "rorwa": 1.34,
+            "raroc": 1.58,
+            "totalRelAssetBal": 222.33,
+            "totalRelCreditLimit": 151542,
+            "totalRelLiabilitiesBal": 8978789.88,
             "tcriLevel": "5",
             "customerName": "草尼馬股份有限公司",
             "industryCode": "娛樂業",
@@ -851,6 +802,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -859,8 +812,8 @@ export class DummyData {
             "customerId": "87878787",
             "customerName": "草尼馬股份有限公司",
             "stockCode": "0730",
-            "capitalAmt": "180,000,000",
-            "realCapitalAmt": "138,629,906",
+            "capitalAmt": 180000000,
+            "realCapitalAmt": 138629906,
             "establishmentDate": "19740202",
             "chiefName": "李宛靜",
             "registerAddress": "台北市信義區松仁路9號",
@@ -904,6 +857,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -951,6 +906,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1023,6 +980,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1030,8 +989,8 @@ export class DummyData {
         "body": {
             "parentCompanyId": "GP000013",
             "parentCustomerName": "增你強集團",
-            "rorwa": "0",
-            "raroc": "0"
+            "rorwa": 123.456,
+            "raroc": 654.321
         }
     }
 
@@ -1042,6 +1001,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1050,26 +1011,26 @@ export class DummyData {
             "parentCompanyId": "GP000013",
             "parentCustomerName": "增你強集團",
             "groupInfo": {
-                "sumLastYearAccumContri": "10000000",
-                "sumThisYearAccumContri": "12000000",
-                "sumTotalDepositBal": "5000000",
-                "sumTotalLoanBal": "0",
-                "sumTotalTradeFinanceBal": "2500000"
+                "sumLastYearAccumContri": 10000000,
+                "sumThisYearAccumContri": 12000000,
+                "sumTotalDepositBal": 5000000,
+                "sumTotalLoanBal": 0,
+                "sumTotalTradeFinanceBal": 2500000
             },
             "groupMemberLoanInfo": [
                 {
                     "customerId": "12401698",
                     "customerName": "增你強股份有限公司",
                     "breakdownCodeDesc": "週轉金(信用)",
-                    "sumfacdFxLimitAmt": "1000000",
-                    "sumLbFxCurrentBal": "500000"
+                    "sumfacdFxLimitAmt": 1000000,
+                    "sumLbFxCurrentBal": 500000
                 },
                 {
                     "customerId": "80156546",
                     "customerName": "建洋實業股份有限公司",
                     "breakdownCodeDesc": "進口遠期信用狀 ",
-                    "sumfacdFxLimitAmt": "2000000",
-                    "sumLbFxCurrentBal": "500000"
+                    "sumfacdFxLimitAmt": 2000000,
+                    "sumLbFxCurrentBal": 500000
                 }
             ]
         }
@@ -1082,6 +1043,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1113,6 +1076,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1147,6 +1112,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1175,6 +1142,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1185,7 +1154,7 @@ export class DummyData {
                 {
                     "id": "n001",
                     "paper": "中時電子報",
-                    "date": "2019-11-02",
+                    "date": "2019-11-03",
                     "title": "經營之神看走眼？他爆王永慶曾評台積電這3字",
                     "tag": "+",
                     "content": "<p>台積電（2330）股價衝衝衝，昨天（19日）收在315元，再創歷史新高，惟今天股價稍做休息，收在313.5元。台積電晶圓代工先進製程領先全球，投資人都看好搶進，不過，「經營之神」台塑集團創辦人王永慶長子王文洋爆料，對電子產業不熟悉王永慶曾跟他說「台積電沒前途」，台塑集團還賣掉全部台積電持股。</p><p>鏡週刊報導，王文洋透露，早期台塑曾投資台積電，他還當過第一屆董事，「是我們聘請張忠謀當董事長的」，但他說「我爸爸他們覺得這種公司沒前途，說我不懂」，並將台積電持股全賣掉，他覺得相當惋惜。</p><p>台塑集團創辦人王永慶於2008年過世，時任台積電董事長的張忠謀曾感嘆王永慶是「時代巨人」，強調台積電成立之初，王永慶是很重要的投資人，沒有王永慶就沒有現在的台積電，並表示與他有多次會面，很佩服和敬仰他。</p>"
@@ -1193,7 +1162,7 @@ export class DummyData {
                 {
                     "id": "n002",
                     "paper": "非凡商業周刊",
-                    "date": "2019-11-03",
+                    "date": "2019-11-02",
                     "title": "富爸爸帶小金雞搶市 台積電集團強棒輩出",
                     "tag": "+",
                     "content": "<p>台積電（2330）股價近期來到300元，市值突破8兆元新台幣，擠入全球前20大市值企業，超越半導體巨擘英特爾，成為全球半導體指標企業，也帶動台股加權指數改寫29年半新高。</p><p>5G商機7奈米訂單滿載</p><p>台積電2018年以261種製程技術，為481家客戶生產1.4萬多種產品，可見台積電對我們日常生活的影響力無所不在，中美貿易戰開打1年多，台積電獲利不受影響，股價頻創新高，就是靠著不斷演進的製程奠定領先地位，全球5G（第5代行動通訊）的商轉，更讓台積電7奈米製程訂單滿載。</p><p>觀察台積電今年前3季財報表現，營收年增1.5%，毛利率44.3%，營益率33%，稅後每股純益8.84元，預估明年現金股息至少10元以上，採每季配息更是受到外資歡迎，法說會預估第4季營收達102億美元～103億美元，季增約8.5%～9.6%，中位數為9%，毛利率估48%～50%，營益率37%～39%，雙率均較第3季成長，受惠7奈米製程順利推進，第4季目標是：毛利率50%、營益率39%。第4季業績表現更好，讓外資紛紛提高台積電目標價，目前外資圈給台積電最高目標價，仍是花旗的364元，其次為高盛的355元，摩根大通、麥格理和美銀皆給與350元，各家外資目標價可參考表2。</p><p>台積電上調5G智慧型手機的滲透率展望，由個位數成長上修到15%左右，宣布全年資本支出由原先的100億美元～110億美元，大舉調高至140億美元～150億美元，將繼續保持晶圓製程領先地位。</p><p>台積不怕禁令外資喊進</p><p>在中美貿易戰中，當川普在5月16日宣布華為禁售令，台積電5月17日立即宣布將繼續出貨華為，理由是：「內部做過評估，國外的法律事務所也幫我們看過，結論是我們沒有超過25%。」台積電發言體系解釋，歸功於內部發展超過10年的出口管控系統，這套系統由當時任職台積電法務長的美籍律師建立，成立層級極高的出口管制委員會，由法務、晶圓廠營運、研發、行銷與業務、採購、人資等6大部門最高主管參與。</p>"
@@ -1205,39 +1174,7 @@ export class DummyData {
                     "title": "台積電Q3每股配息2.5元 明年3/19除息",
                     "tag": "+",
                     "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
-                },
-                {
-                    "id": "n004",
-                    "paper": "鉅亨網",
-                    "date": "2019-11-01",
-                    "title": "台積電Q3每股配息2.5元 明年3/19除息",
-                    "tag": "+",
-                    "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
-                },
-                {
-                    "id": "n005",
-                    "paper": "鉅亨網",
-                    "date": "2019-11-01",
-                    "title": "台積電Q3每股配息2.5元 明年3/19除息",
-                    "tag": "+",
-                    "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
-                },
-                {
-                    "id": "n006",
-                    "paper": "鉅亨網",
-                    "date": "2019-11-01",
-                    "title": "台積電Q3每股配息2.5元 明年3/19除息",
-                    "tag": "+",
-                    "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
-                },
-                {
-                    "id": "n007",
-                    "paper": "鉅亨網",
-                    "date": "2019-11-01",
-                    "title": "台積電Q3每股配息2.5元 明年3/19除息",
-                    "tag": "+",
-                    "content": "<p>晶圓代工龍頭台積電 (2330-TW) 今 (12) 日召開董事會，通過多項議案，核准今年第 3 季每股配 2.5 元現金股利，預計明年 3 月 19 日除息；並通過將在日本設立 100% 持股子公司，擴充設計服務中心，為客戶提供工程支援服務。</p><p>台積電今年股東會通過，每季董事會將核准通過分季分配現金股利，今年第 1 季每股已配息 2 元，第 2 季配息 2.5 元，將於 12 月 19 日除息，董事會今日通過，第 3 季每股將配息 2.5 元，維持上季配息水準。台積電先前也多次強調，明年起每年現金股利，將在 10 元以上。</p><p>台積電表示，第 3 季配息基準日為明年 3 月 25 日，將於 3 月 19 日除息，依公司法規定，在公司決定分派股息之基準日前 5 日內，即明年 3 月 21 日至 3 月 25 日止，停止普通股股票過戶，並在 2020 年 4 月 16 日發放股利，美國紐約證券交易所上市的美國存託憑證，除息交易日也為 3 月 19 日， 與普通股一致。</p><p>台積電也核准資本預算案新台幣 1998.745 億元，其中包括興建廠房及廠務設施工程，建置與升級先進製程產能，建置特殊製程產能，及明年第 1 季研發資本預算與經常性資本預算。台積電並核准資本預算新台幣 32.47 億元，用於支應明年上半年資本化租賃資產。</p><p>除配息與資本預算案外，台積電董事會也通過，核准於日本投資設立 100% 持股子公司，以擴充設計服務中心，為客戶提供工程支援服務，目前台積電僅在台灣、美國與中國設有設計服務中心，未來日本子公司將成為台積電在全球第 4 個設計服務中心。</p><p>台積電董事會也通過，核准任命翁銘莉女士擔任會計主管，自今年 11 月 13 日起生效。</p>"
-                },
+                }
             ]
         }
     }
@@ -1249,6 +1186,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1289,6 +1228,8 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
@@ -1359,13 +1300,15 @@ export class DummyData {
             "branchId": "00081",
             "employeeId": "13063",
             "clientIp": " 255.255.255.255",
+            "role": "經辦",
+            "roleCode": "01",
             "txnDateTime": "20190801140647462",
             "returnCode": "0000",
             "returnDesc": "交易成功"
         },
         "body": {
-            "customerId":"mongodb_id",
-            "updateDate":"2019/12/25",
+            "customerId": "mongodb_id",
+            "updateDate": "2019/12/25",
             "journey": [
                 {
                     "category": "放款",
@@ -1420,14 +1363,6 @@ export class DummyData {
             // 首頁總覽-經管名單列表 <<假的>>
             case this.URL.FIRSTPAGE_AO_PROFILE:
                 returnData = this.getCBAoProfile;
-                break;
-
-            case this.URL.FIRSTPAGE_WM_BRANCH_LSIT:
-                returnData = this.wmBranchList;
-                break;
-
-            case this.URL.FIRSTPAGE_REFER_BRANCH_LIST:
-                returnData = this.referBranchList;
                 break;
 
             // 首頁總覽-經管名單列表 <<假的>>

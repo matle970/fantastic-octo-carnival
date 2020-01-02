@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PageEvent, MatTableDataSource, MatSort, MatSortable, Sort } from '@angular/material';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
-import { IndexTableElement } from './service/dashboard-data.service';
+import { IndexTableElement } from './model/dashboardModel';
 import { DashboardService } from '../services/dashboard/dashboard.service';
 import { AoIdentityService } from '../services/common-services/ao-identity.service';
 import { StateGroup } from '../content-layout/common-area/auto-search/auto-search.component';
 import { filter } from 'rxjs/operators';
-import { DateUtilService } from '../services/date-util.service';
+import { DateUtilService } from '../services/common-services/date-util.service';
+import { TrustkeyServeice } from '../services/common-services/trustkey.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -16,6 +17,7 @@ import { DateUtilService } from '../services/date-util.service';
 
 export class DashboardComponent implements OnInit, OnChanges {
     [x: string]: any;
+    authSataus: boolean;
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('sortTable') sortTable: MatSort;
     @Input() getKeyword: any;
@@ -58,9 +60,10 @@ export class DashboardComponent implements OnInit, OnChanges {
 
     public loadingStatus: boolean = true;
     public statusCode: boolean;
-    public hideBlock: boolean;
+    public hideBlock: boolean = true;
     public hasResult: boolean;
     public nodata: string;
+    companyListReturnCode;
 
     yesterdayDate: string;
     lastDecember: string;
@@ -70,53 +73,61 @@ export class DashboardComponent implements OnInit, OnChanges {
         private dashboardService: DashboardService,
         private matPaginatorIntl: MatPaginatorIntl,
         aoIdentity: AoIdentityService,
-        private dateUtilService : DateUtilService ) {
+        private dateUtilService: DateUtilService,
+        private trustKeyService: TrustkeyServeice) {
         this.supervisor = true;
-        aoIdentity.print();
+        // aoIdentity.print();
     }
 
     async ngOnChanges(changes: SimpleChanges) { }
 
     async ngOnInit() {
+        this.authSataus = this.trustKeyService.authStatus;
+
         this.yesterdayDate = this.dateUtilService.yesterdayDate;
         this.lastDecember = this.dateUtilService.lastDecember;
         this.lastMonth = this.dateUtilService.lastMonth;
-        
-        let result = await this.dashboardService.sendRquest();
-        this.dataList = result.body.records;
-        this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
-        this.totalDataCount = this.dataList.length;
-        this.keywordList = this.dataList;
-        this.getSortData();
-        this.getIssues();
-        this.checkResult(); //TODO check return code
-
-        // 分頁切換時，重新取得資料
-        this.paginator.page.subscribe((page: PageEvent) => {
+        if (this.authSataus) {
+            let result = await this.dashboardService.sendRquest();
+            this.companyListReturnCode = result.header.returnCode;
+            // console.log('returnCode', this.companyListReturnCode);
+            this.dataList = result.body.records;
+            this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
+            this.totalDataCount = this.dataList.length;
+            this.keywordList = this.dataList;
+            this.getSortData();
             this.getIssues();
-        });
 
-        // 設定顯示筆數資訊文字
-        this.matPaginatorIntl.getRangeLabel = (page: number, pageSize: number, length: number): string => {
-            if (length === 0 || pageSize === 0) {
-                return `第 0 筆、共 ${length} 筆`;
-            }
+            if (result.header.returnCode === '0000')
+                this.checkResult(); //TODO check return code
 
-            length = Math.max(length, 0);
-            const startIndex = page * pageSize;
-            const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
+            // 分頁切換時，重新取得資料
+            this.paginator.page.subscribe((page: PageEvent) => {
+                this.getIssues();
+            });
 
-            return `第 ${startIndex + 1} - ${endIndex} 筆、共 ${length} 筆`;
-        };
+            // 設定顯示筆數資訊文字
+            this.matPaginatorIntl.getRangeLabel = (page: number, pageSize: number, length: number): string => {
+                if (length === 0 || pageSize === 0) {
+                    return `第 0 筆、共 ${length} 筆`;
+                }
 
-        // 設定其他顯示資訊文字
-        this.matPaginatorIntl.itemsPerPageLabel = '每頁筆數：';
-        this.matPaginatorIntl.nextPageLabel = '下一頁';
-        this.matPaginatorIntl.previousPageLabel = '上一頁';
-        this.matPaginatorIntl.firstPageLabel = '首頁';
-        this.matPaginatorIntl.lastPageLabel = '末頁';
+                length = Math.max(length, 0);
+                const startIndex = page * pageSize;
+                const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
 
-        this.dataSource.paginator = this.paginator;
+                return `第 ${startIndex + 1} - ${endIndex} 筆、共 ${length} 筆`;
+            };
+
+            // 設定其他顯示資訊文字
+            this.matPaginatorIntl.itemsPerPageLabel = '每頁筆數：';
+            this.matPaginatorIntl.nextPageLabel = '下一頁';
+            this.matPaginatorIntl.previousPageLabel = '上一頁';
+            this.matPaginatorIntl.firstPageLabel = '首頁';
+            this.matPaginatorIntl.lastPageLabel = '末頁';
+
+            this.dataSource.paginator = this.paginator;
+        }
     }
     ngAfterViewInit() {
         if (this.dataSource)
@@ -151,7 +162,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         const filters = filterValue.trim().toLowerCase();
         this.filterJson.referBranch = filters;
         this.customFilterPredicate();
-        
+
         this.dataSource.filter = JSON.stringify(this.filterJson);
         this.checkResult();
     }
@@ -159,7 +170,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         const filters = filterValue.trim().toLowerCase();
         this.filterJson.wmBranch = filters;
         this.customFilterPredicate();
-        
+
         this.dataSource.filter = JSON.stringify(this.filterJson);
         this.checkResult();
     }
@@ -177,7 +188,7 @@ export class DashboardComponent implements OnInit, OnChanges {
             this.filterJson.inputFilter.inputValue = filterValue.trim();
         }
         this.customFilterPredicate();
-        
+
         this.dataSource.filter = JSON.stringify(this.filterJson);
         this.checkResult();
     }
@@ -191,7 +202,7 @@ export class DashboardComponent implements OnInit, OnChanges {
                 const filterArray = temp.split('+');
                 const columns = (<any>Object).values([data.parentCompanyName, data.customerId, data.customerName, data.manageBranchName, data.loanTransferBranchName]);
                 // OR be more specific [data.name, data.race, data.color];
-        
+
                 filterArray.forEach(filter => {
                     const customFilter = [];
                     columns.forEach(column => customFilter.push(column.toLowerCase().includes(filter)));
@@ -206,7 +217,7 @@ export class DashboardComponent implements OnInit, OnChanges {
     public calculateTotal(key) {
         //let filterType;
         let sum: number = 0;
-        if(this.dataSource) {
+        if (this.dataSource) {
             return this.dataSource.filteredData.slice().reduce((accum, curr) => (Number(accum) || 0) + (Number(curr[key]) || 0), 0);
         }
         return sum;
@@ -217,7 +228,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         }
     }
     checkResult() {
-        if(this.dataSource.filteredData.length === 0) {
+        if (this.dataSource.filteredData.length === 0) {
             this.nodata = '無符合條件之客戶';
             this.hideBlock = true;
             this.hasResult = false;

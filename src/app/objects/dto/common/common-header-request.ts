@@ -5,6 +5,7 @@ export class CommonHeaderRequest {
     constructor(init?: Partial<CommonHeaderRequest>) { 
         Object.assign(this, init);
     }
+    
     apId: string;
 
     branchId: string;
@@ -14,6 +15,8 @@ export class CommonHeaderRequest {
     clientIp: string;
 
     role: string;
+
+    roleCode: string;
 
     txnDateTime: string;
 }

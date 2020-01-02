@@ -3,7 +3,7 @@ import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { FilterService } from 'src/app/services/common-area/filter.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { IndexTableElement } from 'src/app/dashboard/service/dashboard-data.service';
+import { IndexTableElement } from 'src/app/dashboard/model/dashboardModel';
 import { StateGroup } from '../auto-search/auto-search.component';
 
 export interface DataList {
