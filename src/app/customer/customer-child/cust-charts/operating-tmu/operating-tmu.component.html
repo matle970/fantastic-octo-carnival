@@ -7,8 +7,8 @@
         <!--TMU chart -->
         <div class="card card-table card-chart-table w-100">
             <div class="card-header">
-                <h5 class="card-title ">
-                  <div class="row">
+                <h5 class="card-title">
+                  <div class="row no-gutters mx-0 p-0">
                     <span class="col-6 text-left">
                         {{tmuContribution_text}}
                     </span>
@@ -58,7 +58,7 @@
   </div>
 
 
- <!-- table -->
+  <!-- table -->
   <div class="col-12 col-lg-7 col-md-6 col-xs-12 ">
     <div class="tmu-border-block">
         <!-- 金融交易額度-->
@@ -82,6 +82,7 @@
                 <table class="table m-0 p-0 table-hover table-sticky table-bordered">
                   <thead>
                     <tr>
+                      <!-- 20191225 拿掉此欄 -->
                       <!-- <th>額度/帳號ID</th> -->
                       <th class="th-width">{{amountType_text}}</th>
                       <th>{{amountExpDate_text}}</th>
@@ -91,30 +92,31 @@
                       <th class="">{{amountUseRate_text}}</th>
                     </tr>
                   </thead>
-          <tbody *ngFor="let item of tmuTransAmt">
-            <tr>
-              <!-- <td rowspan="5">{{item.customerId}}</td> -->
-              <td>{{item.amountType}}</td>
-              <td>{{item.amountExpDate }}</td>
-              <td class="text-right">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
-              <td class="text-right">{{ item.amountUseRate | percent:'1.0-3'}} </td>
-            </tr>
+                  <tbody *ngFor="let item of tmuTransAmt">
+                    <tr>
+                        <!-- 20191225 拿掉此欄 -->
+                        <!-- <td rowspan="5">1000000002</td> -->
+                        <td>{{item.amountType}}</td>
+                        <td>{{item.amountExpDate }}</td>
+                        <td class="">{{ item.amountAmt | currency:'':'':'1.0-0' }}</td>
+                        <td class="">{{ item.usageAmt | currency:'':'':'1.0-0' }}</td>
+                        <td class="">{{ item.lastAvailAmt | currency:'':'':'1.0-0' }}</td>
+                        <td class="">{{ item.amountUseRate | percent:'1.0-3'}}</td>
+                    </tr>
+                    
+                  </tbody>
 
-          </tbody>
+                </table>
 
-        </table>
+              </div>
 
-      </div>
-
-    </div>
-
-
-  </div>
+            </div>
 
 
-  <!-- 投資型商品-->
+        </div>
+
+
+        <!-- 投資型商品-->
         <div class="card card-table ins-table">
             <div class="card-header">
                 <h5 class="card-title clearfix">
@@ -133,36 +135,36 @@
               <div class="table-mat-list  down-table">
                 <table class="table m-0 p-0 table-hover table-sticky person-table table-bordered">
                   <thead>
-            <tr>
-              <th>{{invesTypeCode_text}}</th>
-              <th class="">{{productDesc_text}}</th>
-              <th class="">{{prodCurrencyDesc_text}}</th>
-              <th class="">{{referenceNetvalue_text}}</th>
-              <th class="">{{fxCurrentValue_text}}</th>
-              <th class="">{{startDate_text}}</th>
-              <th class="">{{endDate_text}}</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let item of tmuInvesment">
-            <tr>
-              <td>{{ item.invesTypeCode }}</td>
-              <td class="">{{ item.productDesc }}</td>
-              <td class="">{{ item.prodCurrencyDesc }}</td>
-              <td class="">{{ item.referenceNetvalue | currency:'':'':'1.0-0' }}</td>
-              <td class="">{{ item.fxCurrentValue | currency:'':'':'1.0-0' }}</td>
-              <td class="">{{ item.startDate }}</td>
-              <td class="">{{ item.endDate }}</td>
-            </tr>
-          </tbody>
+                    <tr>
+                      <th>{{invesTypeCode_text}}</th>
+                      <th class="">{{productDesc_text}}</th>
+                      <th class="">{{prodCurrencyDesc_text}}</th>
+                      <th class="">{{referenceNetvalue_text}}</th>
+                      <th class="">{{fxCurrentValue_text}}</th>
+                      <th class="">{{startDate_text}}</th>
+                      <th class="">{{endDate_text}}</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let item of tmuInvesment">
+                    <tr>
+                        <td>{{item.invesTypeCode}}</td>
+                        <td class="">{{item.productDesc}}</td>
+                        <td class="">{{item.prodCurrencyDesc}}</td>
+                        <td class="">{{item.referenceNetvalue | currency:'':'':'1.0-0'}}</td>
+                        <td class="">{{item.fxCurrentValue | currency:'':'':'1.0-0'}}</td>
+                        <td class="">{{item.startDate}}</td>
+                        <td class="">{{item.endDate}}</td>
+                    </tr>                                                                           
+                  </tbody>
 
-        </table>
+                </table>
 
-      </div>
+              </div>
 
+            </div>
+
+
+        </div>
     </div>
-
-
   </div>
-
-</div>
 </div>

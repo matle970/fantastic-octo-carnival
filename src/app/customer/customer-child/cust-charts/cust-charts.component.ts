@@ -34,7 +34,7 @@ export class CustChartsComponent implements OnInit {
     export_text: string = this.text.export_text;
     tmu_text: string = this.text.tmu_text;
     mtm_text: string = this.text.mtm_text;
-    
+
 
     // show status
     public hideBlock: boolean;
@@ -56,6 +56,26 @@ export class CustChartsComponent implements OnInit {
     // 營運量-TMU額度第二層
     TMUDetail: any = {};
 
+    //TMU Y軸
+    theYaxisTmu = {
+        show: true,
+        labels: {
+            // opposite: true,
+            // tickAmount: 1,
+            // steps: [1,2,3,4,5,6,7,8,9,10],
+            
+            show: true,
+            minWidth: 36,
+            maxWidth: 36,
+            // tickAmount: ,
+            style: {
+                fontSize: '0.8rem',
+            },
+            formatter: function (val) {
+                return val ? val.toFixed(1) * 100 + '%' : '';
+            }
+        }
+    }
     //圖表資訊 - 存款
     DepositData = {
         chart: {
@@ -346,6 +366,8 @@ export class CustChartsComponent implements OnInit {
             size: 6
         },
         xaxis: {
+            min: undefined,
+            max: undefined,
             categories:
                 []
             ,
@@ -353,13 +375,8 @@ export class CustChartsComponent implements OnInit {
 
             }
         },
-        yaxis: {
-            labels: {
-                style: {
-                    fontSize: '0.8rem',
-                }
-            }
-        },
+        yaxis: this.theYaxisTmu,
+              
         legend: {
             position: 'top',
             horizontalAlign: 'center',
@@ -376,11 +393,7 @@ export class CustChartsComponent implements OnInit {
                 },
             }
         }
-
-
     };
-    
-
 
     constructor(
         private custchartsService: CustChartsService,

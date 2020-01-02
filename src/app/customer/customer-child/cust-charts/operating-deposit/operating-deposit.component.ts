@@ -12,6 +12,27 @@ import { UtilsService } from 'src/app/services/common-services/utils.service';
 export class OperatingDepositComponent implements OnInit {
     @Input() content: any;
 
+    /////////////
+    // declare //
+    /////////////
+
+    // //存款第二層-活存明細-備註-薪轉帳戶(Y(是)、N(否))
+    // payrollCodeDtl: string;
+    // payrollCodeDtlClass: string;
+
+    // //存款第二層-活存明細-備註-信託帳戶(Y(是)、N(否))
+    // isTrust: string;
+    // isTrustClass: string;
+
+    // //存款第二層-活存明細-備註-證卷帳戶(Y(是)、N(否))
+    // isSecurities: string;
+    // isSecuritiesClass: string;
+
+    // //存款第二層-活存明細-備註-證卷帳戶(Y(是)、N(否))
+    // isReverse: string;
+    // isReverseClass: string;
+
+
     //營運量第二層-存款 html text
     text = this.custchartsService.baseservice.gettextservice.custchartstext;
     deposit_text: string = this.text.deposit_text;
@@ -43,10 +64,16 @@ export class OperatingDepositComponent implements OnInit {
     async ngOnInit() {
         await this.custchartsService.sendRequest();
         this.setData();
+    //     if (data.header.returnCode === '0000'){
+    //     this.dataProcess(data);
+    // } else {
+
+    // }
     }
 
     setData() {
         this.setDepositDetailData();
+        // this.dataProcess(data);
     }
 
 
@@ -85,5 +112,51 @@ export class OperatingDepositComponent implements OnInit {
         return sum;
     }
     apiUrls: string[] = []; // 此componment需要發送的API urls
+
+
+
+
+
+    //////////////
+    // function //
+    /////////////
+
+    // dataProcess(data: any) {
+    //     this.setpayrollCodeDtl(data);
+      
+    // }
+
+    // setpayrollCodeDtl(data: any) {
+    //     if (data.body.payrollCodeDtl === 'Y') {
+    //         this.payrollCodeDtl = '薪轉行';
+    //         this.payrollCodeDtlClass = 'text-black';
+            
+    //         console.log('33',this.payrollCodeDtl)
+    //     } else if (data.body.payrollCodeDtl === 'N') {
+    //         this.payrollCodeDtl = '';
+    //         this.payrollCodeDtlClass = 'text-danger';
+
+    //     }
+    // }
+
+    // dataProcess(data: any) {
+    //     for (let i = 0; i<data.body.SdDetail.length; i++) {
+    //         this.sdDetail[i] = this.setSdDetail(data.body.sdDetail[i]);
+    //     }
+    // }
+
+    // setSdDetail(data: any) {
+    //     return {
+    //         ...data,
+    //         payrollCodeDtlMsg: data.sdRemark.payrollCodeDtl === 'Y' ? '薪轉行' : '',
+    //         payrollCodeDtlClass: data.sdRemark.payrollCodeDtl === 'Y' ? 'text-black' : 'text-danger',
+    //         isTrustMsg: data.sdRemark.isTrust === 'Y' ? '信託帳戶' : '',
+    //         isTrustClass: data.sdRemark.isTrust === 'Y' ? 'text-black' : 'text-danger',
+    //         isSecuritiesMsg: data.sdRemark.isSecurities=== 'Y' ? '證卷帳戶' : '',
+    //         isSecuritiesClass: data.sdRemark.isSecurities === 'Y' ? 'text-black' : 'text-danger',
+    //         isReverseMsg: data.sdRemark.isReverse === 'Y' ? '備償帳戶' : '',
+    //         isReverseClass: data.sdRemark.isReverse === 'y' ? 'text-black' : 'text=danger'
+    //     }
+    // }
 
 }

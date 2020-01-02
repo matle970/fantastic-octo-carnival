@@ -186,6 +186,14 @@ export class CustChartsService {
         this.TmuDataseries = tmuData.data.tmuUsage;
         this.MtmDataseries = tmuData.data.mtmUsage;
         this.MtmDatacategories = this.getDataMonth(tmuData.data.mtmMon);
+        
+        // let jj = [];
+        // jj = tmuData.data.mtmMon;
+        // jj.pop();
+        // jj.push('today');
+        // // this.getDataMonth
+        // this.MtmDatacategories = jj;
+        // console.log('xx',jj);
     }
 
     setDepositDetailData(depositDetailData) {

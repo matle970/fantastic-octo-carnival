@@ -97,7 +97,11 @@
               <!-- <td class="text-center">2019/04/01</td>
                      <td class="text-center">2019/06/30</td>
                      <td class="text-center">xxx</td> -->
-              <td class="text-center">{{item.sdRemark.accBranchCode}} | {{item.sdRemark.payrollCodeDtl}} | {{item.sdRemark.isReverse}}</td>
+              <td class="text-center">{{item.sdRemark.accBranchCode}} | 
+                <span class = "{{payrollCodeDtlClass}}">
+                {{item.sdRemark.payrollCodeDtl}} | 
+              </span>
+                {{item.sdRemark.isReverse}}</td>
             </tr>
 
             <!-- <tr>
