@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         private dateUtilService: DateUtilService,
         private trustKeyService: TrustkeyServeice) {
         this.supervisor = true;
-        aoIdentity.print();
+        // aoIdentity.print();
     }
 
     async ngOnChanges(changes: SimpleChanges) { }
@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit, OnChanges {
         if (this.authSataus) {
             let result = await this.dashboardService.sendRquest();
             this.companyListReturnCode = result.header.returnCode;
-            console.log('returnCode', this.companyListReturnCode);
+            // console.log('returnCode', this.companyListReturnCode);
             this.dataList = result.body.records;
             this.dataSource = new MatTableDataSource<IndexTableElement>(this.dataList)
             this.totalDataCount = this.dataList.length;
