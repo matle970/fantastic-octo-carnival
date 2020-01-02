@@ -54,6 +54,10 @@ export class HttpService {
                     this.setparam(param);
                     break;
 
+                case this.geturlservice.URL.CUSTPROFILE_COMPANY:
+                    this.setparam(param);
+                    break;
+
                 default:
                     break;
             }

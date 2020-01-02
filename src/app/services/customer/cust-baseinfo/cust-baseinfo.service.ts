@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Company } from 'src/app/objects/dto/custinfo/custinfo-company-response';
+import { CompanyResponse } from 'src/app/objects/dto/custinfo/custinfo-company-response';
 import { CompanyDetail } from 'src/app/objects/dto/custinfo/custinfo-companyDetail-response';
 import { CompanyAssociate } from 'src/app/objects/dto/custinfo/custinfo-companyAssociate-response';
 import { CompanyAssociateAssets } from 'src/app/objects/dto/custinfo/custinfo-companyAssociateAssets-response';
@@ -33,43 +33,43 @@ export class CustBaseinfoService {
         {
             'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY,
             'dtoRequset': CommonRequest,
-            'dtoResponse': Company
+            'dtoResponse': CompanyResponse
         },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': CompanyAssociate
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': Group
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': GroupDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': Manage
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': ManageDetail
-        },
-        {
-            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
-            'dtoRequset': CommonRequest,
-            'dtoResponse': Contribution
-        },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_DETAIL,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': CompanyDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_ASSOCIATE,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': CompanyAssociate
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': Group
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': GroupDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': Manage
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': ManageDetail
+        // },
+        // {
+        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
+        //     'dtoRequset': CommonRequest,
+        //     'dtoResponse': Contribution
+        // },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
         //     'dtoRequset': CommonRequest,
@@ -120,18 +120,15 @@ export class CustBaseinfoService {
     ChartDatacategories: Array<any> = [];
 
 
-    sendRquest() {
+    async sendRquest() {
         for (let i = 0; i < this.urlList.length; i++) {
-            this.baseservice.httpservice.sendRequestAsync(
+            let data = await this.baseservice.httpservice.sendRequestAsync(
                 this.urlList[i].url,
                 this.urlList[i].dtoRequset,
-                this.urlList[i].dtoResponse).then(data => {
-                    if (data.header.returnCode === '0000') {
-                        this.dataProcess(data, this.urlList[i].url);
-                    }
-                }, err => {
-                    console.log('Error: ', err);
-                });
+                this.urlList[i].dtoResponse);
+            if (data.header.returnCode === '0000') {
+                this.dataProcess(data, this.urlList[i].url);
+            }
         }
     }
 
@@ -229,13 +226,13 @@ export class CustBaseinfoService {
         let sysdate = new Date();
         this.ChartDataseries = [
             {
-                name: 
+                name:
                     String(sysdate.getFullYear() - 2) + '/' + '12' + '~' +
                     String(sysdate.getFullYear() - 1) + '/' + '11',
                 data: contribution.data.lastcontri.contribution
             },
             {
-                name: 
+                name:
                     String(sysdate.getFullYear() - 1) + '/' + '12' + '~' +
                     String(sysdate.getFullYear()) + '/' + String(sysdate.getMonth() + 1 - 1),
                 data: contribution.data.thiscontri.contribution
