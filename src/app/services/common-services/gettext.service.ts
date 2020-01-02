@@ -22,6 +22,9 @@ export class GettextService {
     // custnews_text
     private _custhistorytext: any = require('src/app/objects/text/cust-history-text.json');
 
+    //sidebar_config
+    private _sidebarconfig: any = require('../../../assets/config/sidebarConfig.json')
+
     get text() {
         return this._text;
     }
@@ -40,5 +43,9 @@ export class GettextService {
 
     get custhistorytext() {
         return this._custhistorytext;
+    }
+
+    get sidebarconfig(){
+        return this._sidebarconfig;
     }
 }

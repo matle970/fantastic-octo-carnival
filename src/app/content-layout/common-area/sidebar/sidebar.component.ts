@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { onSideNavChange, animateText } from '../animations/animations';
 import { SidebarService } from 'src/app/services/common-services/sidebar.service';
-import { ROUTES } from '../../../../assets/export/siderbar';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -50,7 +49,7 @@ export class SidebarComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = this._sidebarService.ROUTES.filter(menuItem => menuItem);
     this._sidebarService.sideNavState$.next(false);
   }
   toggleSideWith() {

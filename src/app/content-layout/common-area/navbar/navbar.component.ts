@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 // import { ROUTES } from '../sidebar/sidebar.component';
-import { ROUTES } from '../../../../assets/export/siderbar';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { onSideNavChange, animateText } from '../animations/animations';
@@ -31,7 +30,7 @@ export class NavbarComponent implements OnInit {
         this.location = location;
         this.sidebarVisible = false;
 
-        this.listTitles = ROUTES.filter(listTitle => listTitle);
+        this.listTitles = this._sidebarService.ROUTES.filter(listTitle => listTitle);
         router.events.subscribe((val) => { this.getTitle(); });
 
     }
