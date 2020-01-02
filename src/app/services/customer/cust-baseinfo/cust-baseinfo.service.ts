@@ -159,7 +159,7 @@ export class CustBaseinfoService {
                 this.Group = {
                     data: data.body
                 };
-                this.baseservice.customerIdservice.parentcustomerId = data.body.parentcustomerId;
+                this.baseservice.customerIdservice.parentCompanyId = data.body.parentCompanyId;
                 break;
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:

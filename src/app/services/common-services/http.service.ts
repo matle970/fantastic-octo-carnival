@@ -79,7 +79,7 @@ export class HttpService {
                     param.header.role = this.headerservice.role;
                     param.header.roleCode = this.headerservice.roleCode;
                     param.header.txnDateTime = this.dateUtilService.txnDate;
-                    param.body.parentCompanyId = this.customerIdservice.parentcustomerId;
+                    param.body.parentCompanyId = this.customerIdservice.parentCompanyId;
                     param.body.trustKey = this.trustKeyService.Trustkey;
                     break;
 

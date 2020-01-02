@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class CustomerIdService {
     private _customerId: string;
-    private _parentcustomerId: string;
+    private _parentCompanyId: string;
     constructor() { }
 
     //get variable example
@@ -12,7 +12,7 @@ export class CustomerIdService {
     }
 
     printparentcustId() {
-        console.log('parentcustomerId: ' + this._parentcustomerId);
+        console.log('parentCompanyId: ' + this._parentCompanyId);
     }
 
     get customerId() {
@@ -22,10 +22,10 @@ export class CustomerIdService {
         this._customerId = value;
     }
 
-    get parentcustomerId() {
-        return this._parentcustomerId;
+    get parentCompanyId() {
+        return this._parentCompanyId;
     }
-    set parentcustomerId(value) {
-        this._parentcustomerId = value;
+    set parentCompanyId(value) {
+        this._parentCompanyId = value;
     }
 }
