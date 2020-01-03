@@ -1030,39 +1030,6 @@ groupDetail = {
     }
 }
 
-// CB018-Composite API-基本資訊-經管資訊第一層
-manage = {
-    "header": {
-        "apId": "CRMLXCRM01",
-        "branchId": "00081",
-        "employeeId": "13063",
-        "clientIp": " 255.255.255.255",
-        "role": "經辦",
-        "roleCode": "01",
-        "txnDateTime": "20190801140647462",
-        "returnCode": "0000",
-        "returnDesc": "交易成功"
-    },
-    "body": {
-        "psId": "NT48691",
-        "psName": "劉子齊",
-        "psBranchCode": null,
-        "psBranchDesc": "環服部",
-        "tmoId": "NT83333",
-        "tmoName": "毛芝瑩",
-        "tmoBranchCode": null,
-        "tmoBranchDesc": "金行部",
-        "wmAoId": "NT81757",
-        "wmAoName": "林祐辰",
-        "wmAoBranchCode": null,
-        "wmAoBranchDesc": "信義分行",
-        "principalWmAoId": "NT81757",
-        "principalWmAoName": "林祐辰",
-        "principalWmAoBranchCode": null,
-        "principalWmAoBranchDesc": "信義分行"
-    }
-}
-
 // CB019-Composite API-基本資訊-經管資訊第二層
 manageDetail = {
     "header": {
@@ -1096,10 +1063,7 @@ manageDetail = {
     }
 }
 
-/*
 // CB020-Composite API-基本資訊-貢獻度第一層
-// CB021-Composite API-基本資訊-貢獻度第二層
-*/
 contribution = {
     "header": {
         "apId": "CRMLXCRM01",
@@ -1442,20 +1406,13 @@ app.post('/custprofile/getCBGroupDetail', function (req, res, next) {
     res.json(groupDetail);
 });
 
-// CB018-Composite API-基本資訊-經管資訊第一層
-app.post('/custprofile/getCBManage', function (req, res, next) {
-    console.log('POST ' + apiDomain + '/custprofile/getCBManage');
-    res.json(manage);
-});
-
 // CB019-Composite API-基本資訊-經管資訊第二層
-app.post('/custprofile/getCBManage', function (req, res, next) {
+app.post('/custprofile/getCBManageDetail', function (req, res, next) {
     console.log('POST ' + apiDomain + '/custprofile/getCBManageDetail');
     res.json(manageDetail);
 });
 
 // CB020-Composite API-基本資訊-貢獻度第一層
-// CB021-Composite API-基本資訊-貢獻度第二層
 app.post('/custprofile/getCBContribution', function (req, res, next) {
     console.log('POST ' + apiDomain + '/custprofile/getCBContribution');
     res.json(contribution);

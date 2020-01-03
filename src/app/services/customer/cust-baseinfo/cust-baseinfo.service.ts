@@ -6,9 +6,8 @@ import { CompanyAssociateAssets } from 'src/app/objects/dto/custinfo/custinfo-co
 import { GroupResponse } from 'src/app/objects/dto/custinfo/custinfo-group-response';
 import { GroupDetailRequest } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-request';
 import { GroupDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-groupDetail-response';
-import { Manage } from 'src/app/objects/dto/custinfo/custinfo-manage-response';
-import { ManageDetail } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
-import { Contribution } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
+import { ManageDetailResponse } from 'src/app/objects/dto/custinfo/custinfo-manageDetail-response';
+import { ContributionResponse } from 'src/app/objects/dto/custinfo/custinfo-contribution-response';
 import { CompanyNotification } from 'src/app/objects/dto/custinfo/custinfo-companyNotification-response';
 import { BaseService } from 'src/app/services/common-services/base/base.service';
 import { CommonRequest } from 'src/app/objects/dto/common/common-request';
@@ -57,21 +56,16 @@ export class CustBaseinfoService {
             'dtoRequset': GroupDetailRequest,
             'dtoResponse': GroupDetailResponse
         },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': Manage
-        // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': ManageDetail
-        // },
-        // {
-        //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
-        //     'dtoRequset': CommonRequest,
-        //     'dtoResponse': Contribution
-        // },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': ManageDetailResponse
+        },
+        {
+            'url': this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION,
+            'dtoRequset': CommonRequest,
+            'dtoResponse': ContributionResponse
+        },
         // {
         //     'url': this.baseservice.geturlservice.URL.CUSTPROFILE_COMPANY_NOTIFICATION,
         //     'dtoRequset': CommonRequest,
@@ -89,14 +83,10 @@ export class CustBaseinfoService {
     Group: any = {};
     // 基本資訊-集團資訊第二層
     GroupDetail: any = {};
-    // 基本資訊-經管資訊第一層
-    Manage: any = {};
     // 基本資訊-經管資訊第二層
     ManageDetail: any = {};
     // 基本資訊-貢獻度第一層
     Contribution: any = {};
-    // 基本資訊-貢獻度第二層
-    ContributionDetail: any = {};
     // 基本資訊-訊息通知
     CompanyNotification: any = {};
 
@@ -169,12 +159,6 @@ export class CustBaseinfoService {
                 this.setGroupDetail(this.GroupDetail);
                 break;
 
-            case this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE:
-                this.Manage = {
-                    data: data.body
-                };
-                break;
-
             case this.baseservice.geturlservice.URL.CUSTPROFILE_MANAGE_DETAIL:
                 this.ManageDetail = {
                     data: data.body
@@ -183,9 +167,6 @@ export class CustBaseinfoService {
 
             case this.baseservice.geturlservice.URL.CUSTPROFILE_CONTRIBUTION:
                 this.Contribution = {
-                    data: data.body
-                };
-                this.ContributionDetail = {
                     data: data.body
                 };
                 this.setContribution(this.Contribution);
@@ -265,7 +246,7 @@ export class CustBaseinfoService {
                 break;
             case 7:
                 title = this.contribution_text;
-                data = this.ContributionDetail.data;
+                data = this.Contribution.data;
                 break;
         }
 

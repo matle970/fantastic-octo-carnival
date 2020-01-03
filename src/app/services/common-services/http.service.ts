@@ -49,43 +49,27 @@ export class HttpService {
             switch (url) {
                 // CB001
                 case this.geturlservice.URL.FIRSTPAGE_AO_PROFILE:
-                    param.body.customerId = this.tokenservice.UserID;
-                    param.body.token = this.tokenservice.Token;
+                    this.setparamCB001(param);
                     break;
 
                 // CB005
                 case this.geturlservice.URL.FIRSTPAGE_COMPANY_LIST:
-                    param.header.apId = this.headerservice.apId;
-                    param.header.branchId = this.headerservice.branchId;
-                    param.header.employeeId = this.headerservice.employeeId;
-                    param.header.clientIp = this.headerservice.clientIp;
-                    param.header.role = this.headerservice.role;
-                    param.header.roleCode = this.headerservice.roleCode;
-                    param.header.txnDateTime = this.dateUtilService.txnDate;
-                    param.body.bossId = this.aoIdentityService.loginId;
-                    param.body.trustKey = this.trustKeyService.Trustkey;
+                    this.setparamCB005(param);
                     break;
 
                 // CB006
                 case this.geturlservice.URL.FIRSTPAGE_ALL_NOTIFICATION:
+                    this.setparamCB006(param);
                     break;
 
                 // CB016
                 case this.geturlservice.URL.CUSTPROFILE_GROUP_DETAIL:
-                    param.header.apId = this.headerservice.apId;
-                    param.header.branchId = this.headerservice.branchId;
-                    param.header.employeeId = this.headerservice.employeeId;
-                    param.header.clientIp = this.headerservice.clientIp;
-                    param.header.role = this.headerservice.role;
-                    param.header.roleCode = this.headerservice.roleCode;
-                    param.header.txnDateTime = this.dateUtilService.txnDate;
-                    param.body.parentCompanyId = this.customerIdservice.parentCompanyId;
-                    param.body.trustKey = this.trustKeyService.Trustkey;
+                    this.setparamCB016(param);
                     break;
 
                 // CB001 CB005 CB006 CB016 以外都是default
                 default:
-                    this.setparam(param);
+                    this.setparamdefault(param);
                     break;
             }
             data = await this.httpClient.post(this.envservice.apiUrl + url, param).toPromise();
@@ -95,7 +79,7 @@ export class HttpService {
         }
     }
 
-    setparam(param) {
+    setparamdefault(param) {
         param.header.apId = this.headerservice.apId;
         param.header.branchId = this.headerservice.branchId;
         param.header.employeeId = this.headerservice.employeeId;
@@ -104,6 +88,38 @@ export class HttpService {
         param.header.roleCode = this.headerservice.roleCode;
         param.header.txnDateTime = this.dateUtilService.txnDate;
         param.body.customerId = this.customerIdservice.customerId;
+        param.body.trustKey = this.trustKeyService.Trustkey;
+    }
+
+    setparamCB001(param) {
+        param.body.customerId = this.tokenservice.UserID;
+        param.body.token = this.tokenservice.Token;
+    }
+
+    setparamCB005(param) {
+        param.header.apId = this.headerservice.apId;
+        param.header.branchId = this.headerservice.branchId;
+        param.header.employeeId = this.headerservice.employeeId;
+        param.header.clientIp = this.headerservice.clientIp;
+        param.header.role = this.headerservice.role;
+        param.header.roleCode = this.headerservice.roleCode;
+        param.header.txnDateTime = this.dateUtilService.txnDate;
+        param.body.bossId = this.aoIdentityService.loginId;
+        param.body.trustKey = this.trustKeyService.Trustkey;
+    }
+
+    setparamCB006(param) {
+    }
+
+    setparamCB016(param) {
+        param.header.apId = this.headerservice.apId;
+        param.header.branchId = this.headerservice.branchId;
+        param.header.employeeId = this.headerservice.employeeId;
+        param.header.clientIp = this.headerservice.clientIp;
+        param.header.role = this.headerservice.role;
+        param.header.roleCode = this.headerservice.roleCode;
+        param.header.txnDateTime = this.dateUtilService.txnDate;
+        param.body.parentCompanyId = this.customerIdservice.parentCompanyId;
         param.body.trustKey = this.trustKeyService.Trustkey;
     }
 }

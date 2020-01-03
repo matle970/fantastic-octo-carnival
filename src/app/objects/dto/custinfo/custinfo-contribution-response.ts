@@ -1,6 +1,12 @@
 import { CommonHeaderRequest } from "../common/common-header-request";
 
-export class Contribution {
+/************************************************
+ * CB020的 Response Object
+ **************************************************/
+export class ContributionResponse {
+    constructor(init?: Partial<ContributionResponse>) {
+        Object.assign(this, init);
+    }
     header: CommonHeaderRequest;
     body: Body;
 }
