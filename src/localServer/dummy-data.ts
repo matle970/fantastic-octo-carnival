@@ -1036,39 +1036,6 @@ export class DummyData {
         }
     }
 
-    // CB018-Composite API-基本資訊-經管資訊第一層
-    manage = {
-        "header": {
-            "apId": "CRMLXCRM01",
-            "branchId": "00081",
-            "employeeId": "13063",
-            "clientIp": " 255.255.255.255",
-            "role": "經辦",
-            "roleCode": "01",
-            "txnDateTime": "20190801140647462",
-            "returnCode": "0000",
-            "returnDesc": "交易成功"
-        },
-        "body": {
-            "psId": "NT48691",
-            "psName": "劉子齊",
-            "psBranchCode": null,
-            "psBranchDesc": "環服部",
-            "tmoId": "NT83333",
-            "tmoName": "毛芝瑩",
-            "tmoBranchCode": null,
-            "tmoBranchDesc": "金行部",
-            "wmAoId": "NT81757",
-            "wmAoName": "林祐辰",
-            "wmAoBranchCode": null,
-            "wmAoBranchDesc": "信義分行",
-            "principalWmAoId": "NT81757",
-            "principalWmAoName": "林祐辰",
-            "principalWmAoBranchCode": null,
-            "principalWmAoBranchDesc": "信義分行"
-        }
-    }
-
     // CB019-Composite API-基本資訊-經管資訊第二層
     manageDetail = {
         "header": {
@@ -1102,10 +1069,7 @@ export class DummyData {
         }
     }
 
-    /*
     // CB020-Composite API-基本資訊-貢獻度第一層
-    // CB021-Composite API-基本資訊-貢獻度第二層
-    */
     contribution = {
         "header": {
             "apId": "CRMLXCRM01",
@@ -1421,18 +1385,12 @@ export class DummyData {
                 returnData = this.groupDetail;
                 break;
 
-            // CB018-Composite API-基本資訊-經管資訊第一層
-            case this.URL.CUSTPROFILE_MANAGE:
-                returnData = this.manage;
-                break;
-
             // CB019-Composite API-基本資訊-經管資訊第二層
             case this.URL.CUSTPROFILE_MANAGE_DETAIL:
                 returnData = this.manageDetail;
                 break;
 
             // CB020-Composite API-基本資訊-貢獻度第一層
-            // CB021-Composite API-基本資訊-貢獻度第二層
             case this.URL.CUSTPROFILE_CONTRIBUTION:
                 returnData = this.contribution;
                 break;

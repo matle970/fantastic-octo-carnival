@@ -1,6 +1,12 @@
 import { CommonHeaderResponse } from '../common/common-header-response';
 
-export class ManageDetail {
+/************************************************
+ * CB019的 Response Object
+ **************************************************/
+export class ManageDetailResponse {
+    constructor(init?: Partial<ManageDetailResponse>) {
+        Object.assign(this, init);
+    }
     header: CommonHeaderResponse;
     body: Body;
 }
