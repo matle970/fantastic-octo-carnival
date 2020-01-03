@@ -9,25 +9,25 @@ export class AssetsLibilities {
 class Body {
     customerid: string;
     deposit: string
-    depositMon: Array<number>
+    depositMon: Array<string>
     depositBal: Array<number>
     loan: string
-    loanMon: Array<number>
+    loanMon: Array<string>
     loanBal: Array<number>
     tradeFinance: string
-    tradeFinanceMon: Array<number>
+    tradeFinanceMon: Array<string>
     tradeFinanceBal: Array<number>
     import: string
-    importMon: Array<number>
+    importMon: Array<string>
     importAmt: Array<number>
     export: string
-    exportMon: Array<number>
+    exportMon: Array<string>
     exportAmt: Array<number>
     tmu: string
-    tmuMon: Array<number>
+    tmuMon: Array<string>
     tmuUsage: Array<number>
     mtm: string
-    mtmMon: Array<number>
+    mtmMon: Array<string>
     mtmUsage: Array<number>
     currentValue: {
         currentDeposit: number,

@@ -369,7 +369,7 @@ export class CustChartsComponent implements OnInit {
             min: undefined,
             max: undefined,
             categories:
-                []
+            []
             ,
             labels: {
 

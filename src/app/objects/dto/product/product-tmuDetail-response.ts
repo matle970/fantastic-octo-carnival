@@ -25,7 +25,7 @@ class Body {
             prodCurrencyDesc: string,
             referenceNetvalue: number,  
             fxCurrentValue: number,
-            startDate: number,   
+            startDate: string,   
             endDate: string      
         }
     ]

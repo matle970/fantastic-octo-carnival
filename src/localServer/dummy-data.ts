@@ -175,12 +175,12 @@ export class DummyData {
                 "ntdAssets": {
                     "sd": 4444,
                     "td": 6666,
-                    "cd": 7777
+                    "cd": 8888
                 },
                 "fxAssets": {
                     "sd": 7777,
                     "td": 8888,
-                    "cd": 1111
+                    "cd": 2222
                 },
                 "sumAssets": {
                     "sd": 6666,
@@ -201,11 +201,11 @@ export class DummyData {
                 "currentIntRate": 0.00,
                 "ftpRate": 0.021,
                 "sdRemark": {
-                    "accBranchCode": "信義分行",
-                    "payrollCodeDtl": "N",
-                    "isTrust": "信託帳戶",
-                    "isSecurities": "證卷帳戶",
-                    "isReverse": "備償帳戶"
+                    "accBranchCode": "00018",
+                    "payrollCodeDtl": "Y",
+                    "isTrust": "Y",
+                    "isSecurities": "Y",
+                    "isReverse": "Y"
                 }
             }, {
                 "acctNbr": "1234-441-654321",
@@ -215,11 +215,11 @@ export class DummyData {
                 "currentIntRate": 0.02,
                 "ftpRate": 0.01,
                 "sdRemark": {
-                    "accBranchCode": "台北分行",
-                    "payrollCodeDtl": "薪轉行",
-                    "isTrust": "信託帳戶",
-                    "isSecurities": "證卷帳戶",
-                    "isReverse": "備償戶"
+                    "accBranchCode": "00019",
+                    "payrollCodeDtl": "N",
+                    "isTrust": "N",
+                    "isSecurities": "N",
+                    "isReverse": "N"
                 }
             }],
             "tdDetail": [{
@@ -249,7 +249,7 @@ export class DummyData {
                     "dishY3ChkCnt": "5",
                     "dishCancelY3ChkCnt": "2",
                     "rejectedStatusInd": "",
-                    "isReverse": "備償戶"
+                    "isReverse": "Y"
                 }
             }, {
                 "acctNbr": "2222-333-567890",
@@ -258,7 +258,7 @@ export class DummyData {
                     "dishY3ChkCnt": "2",
                     "dishCancelY3ChkCnt": "5",
                     "rejectedStatusInd": "",
-                    "isReverse": "備償戶"
+                    "isReverse": "N"
                 }
             }, {
                 "acctNbr": "1111-555-987654",
@@ -267,7 +267,7 @@ export class DummyData {
                     "dishY3ChkCnt": "6",
                     "dishCancelY3ChkCnt": "3",
                     "rejectedStatusInd": "",
-                    "isReverse": "備償戶"
+                    "isReverse": "Y"
                 }
             }]
         }

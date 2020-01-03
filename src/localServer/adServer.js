@@ -119,7 +119,7 @@ assetsLibilites = {
         "customerId": "A111111112",
         "deposit": "存款餘額",
         "depositMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-        "depositBal": [1111, 2222, 3333, 4444, 5555, 4444, 3333, 2222, 1111, 7777, 8888, 9999, 6666],
+        "depositBal": [7777, 2222, 3333, 4444, 5555, 4444, 3333, 2222, 1111, 7777, 8888, 9999, 6666],
         "loan": "放款餘額",
         "loanMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
         "loanBal": [5555, 4444, 3333, 2222, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999],
@@ -134,10 +134,10 @@ assetsLibilites = {
         "exportAmt": ["1111", "2222", "3333", "4444", "5555", "4444", "3333", "2222", "1111", "7777", "8888", "9999", "6666"],
         "tmu": "TMU額度使用率",
         "tmuMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-        "tmuUsage": [0.0887, 0.0887, 0.0777, 0.0557, 0.0447, 0.0337, 0.0227, 0.0317, 0.0997, 0.0887, 0.0227, 0.0337, 0.0447],
+        "tmuUsage": [0.1887, 0.2887, 0.5777, 0.1557, 0.3447, 0.4337, 0.1227, 0.6317, 0.1997, 0.2887, 0.7227, 0.3337, 0.8447],
         "mtm": "MTM額度使用率",
         "mtmMon": ["201809", "201810", "201811", "201812", "201901", "201902", "201903", "201904", "201905", "201906", "201907", "201908", "201909"],
-        "mtmUsage": [0.03038, 0.01155, 0.01317, 0.02594, 0.03519, 0.00898, 0.05915, 0.03118, 0.03718, 0.01916, 0.07808, 0.00321, 0.02288],
+        "mtmUsage": [0.2338, 0.5155, 0.3117, 0.5259, 0.7359, 0.3898, 0.2515, 0.1318, 0.1371, 0.3916, 0.5708, 0.4321, 0.22288],
         "currentValue": {
             "currentDeposit": 12345,
             "currentLoan": 34567,
@@ -169,12 +169,12 @@ depositDetail = {
             "ntdAssets": {
                 "sd": 4444,
                 "td": 6666,
-                "cd": 7777
+                "cd": 8888
             },
             "fxAssets": {
                 "sd": 7777,
                 "td": 8888,
-                "cd": 1111
+                "cd": 2222
             },
             "sumAssets": {
                 "sd": 6666,
@@ -195,11 +195,11 @@ depositDetail = {
             "currentIntRate": 0.00,
             "ftpRate": 0.021,
             "sdRemark": {
-                "accBranchCode": "信義分行",
-                "payrollCodeDtl": "薪轉行",
-                "isTrust": "信託帳戶",
-                "isSecurities": "證卷帳戶",
-                "isReverse": "備償帳戶"
+                "accBranchCode": "00018",
+                "payrollCodeDtl": "Y",
+                "isTrust": "Y",
+                "isSecurities": "Y",
+                "isReverse": "Y"
             }
         }, {
             "acctNbr": "1234-441-654321",
@@ -209,11 +209,11 @@ depositDetail = {
             "currentIntRate": 0.02,
             "ftpRate": 0.01,
             "sdRemark": {
-                "accBranchCode": "台北分行",
-                "payrollCodeDtl": "薪轉行",
-                "isTrust": "信託帳戶",
-                "isSecurities": "證卷帳戶",
-                "isReverse": "備償戶"
+                "accBranchCode": "00019",
+                "payrollCodeDtl": "N",
+                "isTrust": "N",
+                "isSecurities": "N",
+                "isReverse": "N"
             }
         }],
         "tdDetail": [{
@@ -243,7 +243,7 @@ depositDetail = {
                 "dishY3ChkCnt": "5",
                 "dishCancelY3ChkCnt": "2",
                 "rejectedStatusInd": "",
-                "isReverse": "備償戶"
+                "isReverse": "Y"
             }
         }, {
             "acctNbr": "2222-333-567890",
@@ -252,7 +252,7 @@ depositDetail = {
                 "dishY3ChkCnt": "2",
                 "dishCancelY3ChkCnt": "5",
                 "rejectedStatusInd": "",
-                "isReverse": "備償戶"
+                "isReverse": "N"
             }
         }, {
             "acctNbr": "1111-555-987654",
@@ -261,7 +261,7 @@ depositDetail = {
                 "dishY3ChkCnt": "6",
                 "dishCancelY3ChkCnt": "3",
                 "rejectedStatusInd": "",
-                "isReverse": "備償戶"
+                "isReverse": "Y"
             }
         }]
     }
@@ -337,7 +337,7 @@ loanDetail = {
                     ,
                     {
                         "breakdownCodeDesc": "進口遠期信用狀",
-                        "facdCurrencyCode": "澳門元",
+                        "facdCurrencyCode": "澳門幣",
                         "facdFxLimitAmt": 77777,
                         "sumLbFxCurrentBal": 44444,
                         "sumLbNtdCurrentBal": 44444,
